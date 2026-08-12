@@ -1,0 +1,489 @@
+{
+  "nango": {
+    "getConnection": {},
+    "batchSave": {
+      "ManualJournal": [
+        {
+          "id": "7c02947d-d248-4875-a6a3-64ad98f98f16",
+          "manualJournalId": "7c02947d-d248-4875-a6a3-64ad98f98f16",
+          "date": "/Date(1784937600000+0000)/",
+          "status": "POSTED",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1317938435147+0000)/",
+          "narration": "Coded incorrectly Office Equipment should be Computer Equipment",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "afe53f21-1221-451c-a8c4-08457e129d84",
+              "accountCode": "160",
+              "description": "Coded incorrectly Office Equipment should be Computer Equipment",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+              "accountCode": "150",
+              "description": "Coded incorrectly Computer Equipment should be Office Equipment",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        },
+        {
+          "id": "41f0151c-0a3d-4cb7-bc80-fd7d40e0110c",
+          "manualJournalId": "41f0151c-0a3d-4cb7-bc80-fd7d40e0110c",
+          "date": "/Date(1786233600000+0000)/",
+          "status": "DRAFT",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1317939037617+0000)/",
+          "narration": "Accrued liabilities for current month",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "760e5d35-37e1-4bb8-b293-8bfa2cd5085f",
+              "accountCode": "656",
+              "description": "Office stationery purchased from Office Supplies",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "afe53f21-1221-451c-a8c4-08457e129d84",
+              "accountCode": "160",
+              "description": "Laptop purchased from High Street Computing",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "423febf5-5e50-4d7e-9f27-1d6be3fa2912",
+              "accountCode": "205",
+              "description": "Accrued expenses",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        },
+        {
+          "id": "a6552e54-0f63-463d-b303-158bf0d990db",
+          "manualJournalId": "a6552e54-0f63-463d-b303-158bf0d990db",
+          "date": "/Date(1785542400000+0000)/",
+          "status": "POSTED",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1786487489380+0000)/",
+          "narration": "Nango registry test manual journal 2",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
+              "accountCode": "400",
+              "description": "debit",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+              "accountCode": "600",
+              "description": "credit",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        },
+        {
+          "id": "1c9f430c-ebc3-4ce5-a6a1-847eaf7440f9",
+          "manualJournalId": "1c9f430c-ebc3-4ce5-a6a1-847eaf7440f9",
+          "date": "/Date(1705276800000+0000)/",
+          "status": "POSTED",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1786490567983+0000)/",
+          "narration": "Nango Registry Test Journal",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+              "accountCode": "600",
+              "description": "Test debit",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
+              "accountCode": "400",
+              "description": "Test credit",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        },
+        {
+          "id": "e9f30811-5032-4e66-bbd8-47f44f65bfd5",
+          "manualJournalId": "e9f30811-5032-4e66-bbd8-47f44f65bfd5",
+          "date": "/Date(1705276800000+0000)/",
+          "status": "POSTED",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1786490627667+0000)/",
+          "narration": "Nango Registry Test Journal",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+              "accountCode": "600",
+              "description": "Test debit",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
+              "accountCode": "400",
+              "description": "Test credit",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        },
+        {
+          "id": "4226970f-be79-478c-855d-35011950e2db",
+          "manualJournalId": "4226970f-be79-478c-855d-35011950e2db",
+          "date": "/Date(1785542400000+0000)/",
+          "status": "POSTED",
+          "lineAmountTypes": "NoTax",
+          "updatedDateUtc": "/Date(1786490628317+0000)/",
+          "narration": "Updated via Nango test",
+          "hasAttachments": false,
+          "showOnCashBasisReports": true,
+          "journalLines": [
+            {
+              "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
+              "accountCode": "400",
+              "description": "debit",
+              "taxType": "NONE",
+              "tracking": []
+            },
+            {
+              "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+              "accountCode": "600",
+              "description": "credit",
+              "taxType": "NONE",
+              "tracking": []
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "ManualJournal": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/ManualJournals": {
+        "response": {
+          "Id": "c935c18c-67a3-44c9-8bc2-ce80ececadc1",
+          "Status": "OK",
+          "ProviderName": "Nango",
+          "DateTimeUTC": "/Date(1786490779874)/",
+          "pagination": {
+            "page": 1,
+            "pageSize": 100,
+            "pageCount": 1,
+            "itemCount": 7
+          },
+          "ManualJournals": [
+            {
+              "Date": "/Date(1784937600000+0000)/",
+              "Status": "POSTED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1317938435147+0000)/",
+              "ManualJournalID": "7c02947d-d248-4875-a6a3-64ad98f98f16",
+              "Narration": "Coded incorrectly Office Equipment should be Computer Equipment",
+              "JournalLines": [
+                {
+                  "Description": "Coded incorrectly Office Equipment should be Computer Equipment",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -2569,
+                  "AccountCode": "160",
+                  "Tracking": [],
+                  "AccountID": "afe53f21-1221-451c-a8c4-08457e129d84",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "Coded incorrectly Computer Equipment should be Office Equipment",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 2569,
+                  "AccountCode": "150",
+                  "Tracking": [],
+                  "AccountID": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 2569,
+              "CreditTotal": -2569,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1786233600000+0000)/",
+              "Status": "DRAFT",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1317939037617+0000)/",
+              "ManualJournalID": "41f0151c-0a3d-4cb7-bc80-fd7d40e0110c",
+              "Narration": "Accrued liabilities for current month",
+              "JournalLines": [
+                {
+                  "Description": "Office stationery purchased from Office Supplies",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 325.9,
+                  "AccountCode": "656",
+                  "Tracking": [],
+                  "AccountID": "760e5d35-37e1-4bb8-b293-8bfa2cd5085f",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "Laptop purchased from High Street Computing",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 2999.95,
+                  "AccountCode": "160",
+                  "Tracking": [],
+                  "AccountID": "afe53f21-1221-451c-a8c4-08457e129d84",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "Accrued expenses",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -3325.85,
+                  "AccountCode": "205",
+                  "Tracking": [],
+                  "AccountID": "423febf5-5e50-4d7e-9f27-1d6be3fa2912",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 3325.85,
+              "CreditTotal": -3325.85,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1785542400000+0000)/",
+              "Status": "POSTED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1786487489380+0000)/",
+              "ManualJournalID": "a6552e54-0f63-463d-b303-158bf0d990db",
+              "Narration": "Nango registry test manual journal 2",
+              "JournalLines": [
+                {
+                  "Description": "debit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 200,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "credit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -200,
+                  "AccountCode": "600",
+                  "Tracking": [],
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 200,
+              "CreditTotal": -200,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1785542400000+0000)/",
+              "Status": "DELETED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1786487505070+0000)/",
+              "ManualJournalID": "87c49650-8eab-4c97-accc-9da8372e123f",
+              "Narration": "Nango registry test disposable manual journal",
+              "JournalLines": [
+                {
+                  "Description": "debit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 50,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "credit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -50,
+                  "AccountCode": "600",
+                  "Tracking": [],
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 50,
+              "CreditTotal": -50,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1705276800000+0000)/",
+              "Status": "POSTED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1786490567983+0000)/",
+              "ManualJournalID": "1c9f430c-ebc3-4ce5-a6a1-847eaf7440f9",
+              "Narration": "Nango Registry Test Journal",
+              "JournalLines": [
+                {
+                  "Description": "Test debit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 100,
+                  "AccountCode": "600",
+                  "Tracking": [],
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "Test credit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 100,
+              "CreditTotal": -100,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1705276800000+0000)/",
+              "Status": "POSTED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1786490627667+0000)/",
+              "ManualJournalID": "e9f30811-5032-4e66-bbd8-47f44f65bfd5",
+              "Narration": "Nango Registry Test Journal",
+              "JournalLines": [
+                {
+                  "Description": "Test debit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 100,
+                  "AccountCode": "600",
+                  "Tracking": [],
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "Test credit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 100,
+              "CreditTotal": -100,
+              "HasAttachments": false
+            },
+            {
+              "Date": "/Date(1785542400000+0000)/",
+              "Status": "POSTED",
+              "LineAmountTypes": "NoTax",
+              "UpdatedDateUTC": "/Date(1786490628317+0000)/",
+              "ManualJournalID": "4226970f-be79-478c-855d-35011950e2db",
+              "Narration": "Updated via Nango test",
+              "JournalLines": [
+                {
+                  "Description": "debit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": 100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def",
+                  "IsBlank": false
+                },
+                {
+                  "Description": "credit",
+                  "TaxType": "NONE",
+                  "TaxAmount": 0,
+                  "LineAmount": -100,
+                  "AccountCode": "600",
+                  "Tracking": [],
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
+                  "IsBlank": false
+                }
+              ],
+              "ShowOnCashBasisReports": true,
+              "DebitTotal": 100,
+              "CreditTotal": -100,
+              "HasAttachments": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:26:19 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "8395",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1786490838",
+          "xero-correlation-id": "c935c18c-67a3-44c9-8bc2-ce80ececadc1",
+          "x-appminlimit-remaining": "9994",
+          "x-minlimit-remaining": "21",
+          "x-daylimit-remaining": "4498",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:26:19 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"20cb-oc9qd7eHSvXdBo8lA0yg0JIA/Yg\""
+        },
+        "hash": "8b2d43a8c3c65d65a303a29b7e08be71091a07d8",
+        "request": {
+          "params": {
+            "page": "1",
+            "pageSize": "100"
+          },
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          }
+        }
+      }
+    }
+  }
+}

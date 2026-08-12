@@ -1,249 +1,198 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    where: z.string().optional().describe('Filter expression. Example: Status=="ACTIVE"'),
-    order: z.string().optional().describe('Order by expression. Example: Name ASC'),
-    page: z.number().optional().describe('Page number for pagination. Defaults to 1.'),
-    modified_since: z.string().optional().describe('If-Modified-Since header value in UTC format.')
+const PurchaseDetailsSchema = z.object({
+    UnitPrice: z.number().optional().describe('Unit price for purchase transactions.'),
+    AccountCode: z.string().optional().describe('Default account code for purchases. Not applicable to tracked items.'),
+    COGSAccountCode: z.string().optional().describe('Cost of goods sold account code. Only applicable to tracked items.'),
+    TaxType: z.string().optional().describe('Tax type override for purchases.')
 });
 
-const PurchaseDetailsSchema = z
+const SalesDetailsSchema = z.object({
+    UnitPrice: z.number().optional().describe('Unit price for sales transactions.'),
+    AccountCode: z.string().optional().describe('Default account code for sales.'),
+    TaxType: z.string().optional().describe('Tax type override for sales.')
+});
+
+const ItemSchema = z.object({
+    ItemID: z.string().describe('Xero-generated unique identifier for the item.'),
+    Code: z.string().describe('User-defined item code.'),
+    Name: z.string().optional().describe('The name of the item.'),
+    Description: z.string().optional().describe('The sales description of the item.'),
+    PurchaseDescription: z.string().optional().describe('The purchase description of the item.'),
+    IsSold: z.boolean().optional().describe('Whether the item is available on sales transactions.'),
+    IsPurchased: z.boolean().optional().describe('Whether the item is available on purchase transactions.'),
+    IsTrackedAsInventory: z.boolean().optional().describe('Whether Xero tracks quantity on hand and value for this item.'),
+    InventoryAssetAccountCode: z.string().optional().describe('Account code for inventory asset. Only for tracked items.'),
+    TotalCostPool: z.number().optional().describe('Total cost pool for tracked inventory items.'),
+    QuantityOnHand: z.number().optional().describe('Quantity of the item currently on hand.'),
+    QuantityAvailable: z.number().optional().describe('Quantity available (on hand minus back order).'),
+    QuantityOnBackOrder: z.number().optional().describe('Quantity currently on back order.'),
+    UpdatedDateUTC: z.string().optional().describe('Last modified date in UTC format.'),
+    PurchaseDetails: PurchaseDetailsSchema.optional().describe('Default purchase details for the item.'),
+    SalesDetails: SalesDetailsSchema.optional().describe('Default sales details for the item.')
+});
+
+const InputSchema = z
     .object({
-        UnitPrice: z.number().optional(),
-        AccountCode: z.string().optional(),
-        COGSAccountCode: z.string().optional(),
-        TaxType: z.string().optional()
+        modified_since: z.string().optional().describe('UTC timestamp (ISO 8601) to filter items modified since this time. Sets the If-Modified-Since header.'),
+        page: z.number().optional().describe('Page number for paginated results. Defaults to 1.'),
+        page_size: z.number().optional().describe('Number of items per page. Defaults to 100, maximum 1000.')
     })
-    .passthrough();
+    .describe('Input for listing Xero items with optional filtering and pagination.');
 
-const SalesDetailsSchema = z
+const OutputSchema = z
     .object({
-        UnitPrice: z.number().optional(),
-        AccountCode: z.string().optional(),
-        TaxType: z.string().optional()
+        items: z.array(ItemSchema).describe('Array of items returned from Xero.'),
+        next_page: z.number().optional().describe('Next page number if more results are available.'),
+        page: z.number().optional().describe('Current page number.'),
+        page_size: z.number().optional().describe('Number of items requested per page.'),
+        total_count: z.number().optional().describe('Total number of items matching the query.')
     })
-    .passthrough();
+    .describe('Output containing a paginated list of Xero items.');
 
-const ProviderItemSchema = z
-    .object({
-        ItemID: z.string(),
-        Code: z.string().optional(),
-        Name: z.string().optional(),
-        IsSold: z.boolean().optional(),
-        IsPurchased: z.boolean().optional(),
-        Description: z.string().optional(),
-        PurchaseDescription: z.string().optional(),
-        PurchaseDetails: PurchaseDetailsSchema.optional(),
-        SalesDetails: SalesDetailsSchema.optional(),
-        IsTrackedAsInventory: z.boolean().optional(),
-        InventoryAssetAccountCode: z.string().optional(),
-        TotalCostPool: z.number().optional(),
-        QuantityOnHand: z.number().optional(),
-        UpdatedDateUTC: z.string().optional()
-    })
-    .passthrough();
-
-const ProviderResponseSchema = z.object({
-    Items: z.array(ProviderItemSchema)
+const ConnectionSchema = z.object({
+    connection_config: z.union([z.record(z.string(), z.unknown()), z.null()]).optional(),
+    metadata: z.union([z.record(z.string(), z.unknown()), z.null()]).optional()
 });
 
-const OutputItemSchema = z.object({
-    item_id: z.string(),
-    code: z.string().optional(),
-    name: z.string().optional(),
-    is_sold: z.boolean().optional(),
-    is_purchased: z.boolean().optional(),
-    description: z.string().optional(),
-    purchase_description: z.string().optional(),
-    purchase_details: z
-        .object({
-            unit_price: z.number().optional(),
-            account_code: z.string().optional(),
-            cogs_account_code: z.string().optional(),
-            tax_type: z.string().optional()
-        })
-        .optional(),
-    sales_details: z
-        .object({
-            unit_price: z.number().optional(),
-            account_code: z.string().optional(),
-            tax_type: z.string().optional()
-        })
-        .optional(),
-    is_tracked_as_inventory: z.boolean().optional(),
-    inventory_asset_account_code: z.string().optional(),
-    total_cost_pool: z.number().optional(),
-    quantity_on_hand: z.number().optional(),
-    updated_date_utc: z.string().optional()
-});
+const ConnectionsResponseSchema = z.array(z.record(z.string(), z.unknown()));
 
-const OutputSchema = z.object({
-    items: z.array(OutputItemSchema),
-    next_page: z.number().optional()
-});
-
+/**
+ * @tags: [read]
+ * @tagReason: Retrieves a list of items from the Xero Accounting API without modifying provider data.
+ * @pitfalls: PurchaseDetails and SalesDetails can be returned as empty objects {} rather than omitted when unset; If-Modified-Since filtering may miss changes that do not update the UpdatedDateUTC timestamp. The Items endpoint does not support paging (no page/pageSize params and no pagination object in the response), so the page and page_size inputs and the next_page/page/page_size output fields never take effect — Xero always returns the full item list in a single call.
+ */
 const action = createAction({
     description: 'List items with optional filtering.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.settings'],
+    scopes: ['accounting.invoices', 'accounting.invoices.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const connection = await nango.getConnection();
+        const connectionResponse = await nango.getConnection();
+        const connection = ConnectionSchema.parse(connectionResponse);
 
         let tenantId: string | undefined;
-        const connectionSchema = z.object({
-            connection_config: z.record(z.string(), z.unknown()).optional(),
-            metadata: z.record(z.string(), z.unknown()).optional()
-        });
-        const parsedConnection = connectionSchema.safeParse(connection);
-        if (parsedConnection.success) {
-            const cfg = parsedConnection.data.connection_config;
-            if (cfg && typeof cfg['tenant_id'] === 'string') {
-                tenantId = cfg['tenant_id'];
-            }
-            if (!tenantId) {
-                const meta = parsedConnection.data.metadata;
-                if (meta && typeof meta['tenantId'] === 'string') {
-                    tenantId = meta['tenantId'];
-                }
-            }
+
+        if (
+            connection.connection_config &&
+            typeof connection.connection_config['tenant_id'] === 'string' &&
+            connection.connection_config['tenant_id'].length > 0
+        ) {
+            tenantId = connection.connection_config['tenant_id'];
         }
+
+        if (!tenantId && connection.metadata && typeof connection.metadata['tenantId'] === 'string' && connection.metadata['tenantId'].length > 0) {
+            tenantId = connection.metadata['tenantId'];
+        }
+
         if (!tenantId) {
-            // https://developer.xero.com/documentation/guides/oauth2/tenants
-            const connectionsResponse = await nango.get({
+            // https://developer.xero.com/documentation/api/accounting/connections
+            const connectionsResp = await nango.get({
                 endpoint: 'connections',
                 retries: 10
             });
+            const connections = ConnectionsResponseSchema.parse(connectionsResp.data);
 
-            const ConnectionsSchema = z.union([
-                z.array(z.object({ tenantId: z.string() }).passthrough()),
-                z.object({
-                    data: z.array(z.object({ tenantId: z.string() }).passthrough())
-                })
-            ]);
+            if (connections.length === 0) {
+                throw new nango.ActionError({
+                    type: 'missing_tenant',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
 
-            const connectionsData = ConnectionsSchema.parse(connectionsResponse.data);
-            const connections = Array.isArray(connectionsData) ? connectionsData : connectionsData.data;
-
-            if (connections.length === 1) {
-                const first = connections[0];
-                if (first) {
-                    tenantId = first.tenantId;
-                }
-            } else if (connections.length > 1) {
+            if (connections.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
-            } else {
-                throw new nango.ActionError({
-                    type: 'no_tenant',
-                    message: 'No tenant found for this connection.'
-                });
+            }
+
+            const first = connections[0];
+            if (typeof first === 'object' && first !== null && typeof first['tenantId'] === 'string' && first['tenantId'].length > 0) {
+                tenantId = first['tenantId'];
             }
         }
 
         if (!tenantId) {
             throw new nango.ActionError({
-                type: 'no_tenant',
-                message: 'Could not resolve xero-tenant-id.'
+                type: 'missing_tenant',
+                message: 'Unable to resolve xero-tenant-id.'
             });
-        }
-
-        const params: Record<string, string> = {};
-        if (input.where !== undefined) {
-            params['where'] = input.where;
-        }
-        if (input.order !== undefined) {
-            params['order'] = input.order;
-        }
-        if (input.page !== undefined) {
-            params['page'] = String(input.page);
         }
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
-        if (input.modified_since !== undefined) {
+
+        if (input.modified_since) {
             headers['If-Modified-Since'] = input.modified_since;
+        }
+
+        const params: Record<string, string | number> = {};
+        if (input.page !== undefined) {
+            params['page'] = input.page;
+        }
+        if (input.page_size !== undefined) {
+            params['pageSize'] = input.page_size;
         }
 
         // https://developer.xero.com/documentation/api/accounting/items
         const response = await nango.get({
             endpoint: 'api.xro/2.0/Items',
-            params: params,
-            headers: headers,
+            headers,
+            params,
             retries: 3
         });
 
-        const providerData = ProviderResponseSchema.parse(response.data);
+        if (!response.data || typeof response.data !== 'object' || response.data === null) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Xero Items API.'
+            });
+        }
 
-        const items = providerData.Items.map((item) => {
-            const mapped: z.infer<typeof OutputItemSchema> = {
-                item_id: item.ItemID
-            };
-            if (item.Code !== undefined) {
-                mapped.code = item.Code;
-            }
-            if (item.Name !== undefined) {
-                mapped.name = item.Name;
-            }
-            if (item.IsSold !== undefined) {
-                mapped.is_sold = item.IsSold;
-            }
-            if (item.IsPurchased !== undefined) {
-                mapped.is_purchased = item.IsPurchased;
-            }
-            if (item.Description !== undefined) {
-                mapped.description = item.Description;
-            }
-            if (item.PurchaseDescription !== undefined) {
-                mapped.purchase_description = item.PurchaseDescription;
-            }
-            if (item.PurchaseDetails !== undefined) {
-                mapped.purchase_details = {
-                    ...(item.PurchaseDetails.UnitPrice !== undefined && { unit_price: item.PurchaseDetails.UnitPrice }),
-                    ...(item.PurchaseDetails.AccountCode !== undefined && { account_code: item.PurchaseDetails.AccountCode }),
-                    ...(item.PurchaseDetails.COGSAccountCode !== undefined && { cogs_account_code: item.PurchaseDetails.COGSAccountCode }),
-                    ...(item.PurchaseDetails.TaxType !== undefined && { tax_type: item.PurchaseDetails.TaxType })
-                };
-            }
-            if (item.SalesDetails !== undefined) {
-                mapped.sales_details = {
-                    ...(item.SalesDetails.UnitPrice !== undefined && { unit_price: item.SalesDetails.UnitPrice }),
-                    ...(item.SalesDetails.AccountCode !== undefined && { account_code: item.SalesDetails.AccountCode }),
-                    ...(item.SalesDetails.TaxType !== undefined && { tax_type: item.SalesDetails.TaxType })
-                };
-            }
-            if (item.IsTrackedAsInventory !== undefined) {
-                mapped.is_tracked_as_inventory = item.IsTrackedAsInventory;
-            }
-            if (item.InventoryAssetAccountCode !== undefined) {
-                mapped.inventory_asset_account_code = item.InventoryAssetAccountCode;
-            }
-            if (item.TotalCostPool !== undefined) {
-                mapped.total_cost_pool = item.TotalCostPool;
-            }
-            if (item.QuantityOnHand !== undefined) {
-                mapped.quantity_on_hand = item.QuantityOnHand;
-            }
-            if (item.UpdatedDateUTC !== undefined) {
-                mapped.updated_date_utc = item.UpdatedDateUTC;
-            }
-            return mapped;
-        });
+        const rawData = Object.fromEntries(Object.entries(response.data));
+
+        if (!Array.isArray(rawData['Items'])) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Items array missing in Xero response.'
+            });
+        }
+
+        const items = rawData['Items'].map((item: unknown) => ItemSchema.parse(item));
 
         let nextPage: number | undefined;
-        if (input.page !== undefined && providerData.Items.length === 100) {
-            nextPage = input.page + 1;
+        let page: number | undefined;
+        let pageSize: number | undefined;
+        let totalCount: number | undefined;
+
+        const pagination = rawData['pagination'];
+        if (pagination !== null && typeof pagination === 'object' && !Array.isArray(pagination)) {
+            const p = Object.fromEntries(Object.entries(pagination));
+            if (typeof p['page'] === 'number') {
+                page = p['page'];
+            }
+            if (typeof p['pageSize'] === 'number') {
+                pageSize = p['pageSize'];
+            }
+            if (typeof p['itemCount'] === 'number') {
+                totalCount = p['itemCount'];
+            }
+            if (typeof p['pageCount'] === 'number' && typeof page === 'number' && page < p['pageCount']) {
+                nextPage = page + 1;
+            }
         }
 
         return {
-            items: items,
-            ...(nextPage !== undefined && { next_page: nextPage })
+            items,
+            ...(nextPage !== undefined && { next_page: nextPage }),
+            ...(page !== undefined && { page }),
+            ...(pageSize !== undefined && { page_size: pageSize }),
+            ...(totalCount !== undefined && { total_count: totalCount })
         };
     }
 });

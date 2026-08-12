@@ -1,27 +1,97 @@
 {
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
-    },
     "batchSave": {
       "Organisation": [
         {
-          "id": "59712f8f-45a3-4d45-a705-5d0c9748317e",
-          "Name": "Demo Company (Global)",
-          "LegalName": "Demo Company (Global)",
-          "ShortCode": "!3T6Q-",
+          "id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "Name": "Demo Company (US)",
+          "TenantId": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "LegalName": "Demo Company (US)",
+          "PaysTax": true,
+          "Version": "US",
+          "OrganisationType": "COMPANY",
           "BaseCurrency": "USD",
-          "CountryCode": "CA",
+          "CountryCode": "US",
           "IsDemoCompany": true,
           "OrganisationStatus": "ACTIVE",
-          "TaxNumber": "101-2-303",
           "FinancialYearEndDay": 31,
           "FinancialYearEndMonth": 12,
-          "DefaultSalesTax": "Remember previous",
-          "DefaultPurchasesTax": "Remember previous",
-          "PeriodLockDate": "/Date(1222732800000+0000)/",
-          "CreatedDateUTC": "/Date(1776682520583)/"
+          "SalesTaxBasis": "ACCRUALS",
+          "SalesTaxPeriod": "1MONTHLY",
+          "DefaultSalesTax": "Tax Exclusive",
+          "DefaultPurchasesTax": "No Tax",
+          "CreatedDateUTC": "/Date(1786483020587)/",
+          "OrganisationEntityType": "COMPANY",
+          "Timezone": "PACIFICSTANDARDTIME",
+          "ShortCode": "!91C56",
+          "Edition": "BUSINESS",
+          "Class": "DEMO",
+          "Addresses": [
+            {
+              "AddressType": "POBOX",
+              "AddressLine1": "23 Main Street",
+              "AddressLine2": "Central City",
+              "City": "Oaktown",
+              "Region": "NY",
+              "PostalCode": "12123",
+              "Country": "United States",
+              "AttentionTo": ""
+            },
+            {
+              "AddressType": "STREET",
+              "AddressLine1": "79 Madison Ave, Fl 2",
+              "City": "New York",
+              "Region": "NY",
+              "PostalCode": "10016",
+              "Country": "United States",
+              "AttentionTo": ""
+            }
+          ],
+          "Phones": [
+            {
+              "PhoneType": "OFFICE",
+              "PhoneNumber": "800 1234 5678",
+              "PhoneCountryCode": "1"
+            }
+          ],
+          "ExternalLinks": [],
+          "PaymentTerms": {
+            "Bills": {
+              "Day": 14,
+              "Type": "DAYSAFTERBILLDATE"
+            },
+            "Sales": {
+              "Day": 14,
+              "Type": "DAYSAFTERBILLDATE"
+            }
+          }
+        },
+        {
+          "id": "2cbe87b2-155d-4199-a480-90a50dc4db7e",
+          "Name": "NangoTest",
+          "TenantId": "2cbe87b2-155d-4199-a480-90a50dc4db7e",
+          "LegalName": "NangoTest",
+          "PaysTax": true,
+          "Version": "US",
+          "OrganisationType": "NOT_FOR_PROFIT",
+          "BaseCurrency": "USD",
+          "CountryCode": "US",
+          "IsDemoCompany": false,
+          "OrganisationStatus": "ACTIVE",
+          "FinancialYearEndDay": 31,
+          "FinancialYearEndMonth": 12,
+          "DefaultSalesTax": "Tax Exclusive",
+          "DefaultPurchasesTax": "No Tax",
+          "CreatedDateUTC": "/Date(1786482957000)/",
+          "OrganisationEntityType": "NOT_FOR_PROFIT",
+          "Timezone": "EASTERNSTANDARDTIME",
+          "ShortCode": "!178vF",
+          "Edition": "BUSINESS",
+          "Class": "TRIAL",
+          "Addresses": [],
+          "Phones": [],
+          "ExternalLinks": [],
+          "PaymentTerms": {}
         }
       ]
     },
@@ -31,68 +101,32 @@
   },
   "api": {
     "get": {
-      "/api.xro/2.0/Organisation": {
-        "response": {
-          "Id": "af358f6b-6c2b-4711-a8d9-ddaa7087a2eb",
-          "Status": "OK",
-          "ProviderName": "NangoAPI",
-          "DateTimeUTC": "/Date(1777034752527)/",
-          "Organisations": [
-            {
-              "Name": "Demo Company (Global)",
-              "LegalName": "Demo Company (Global)",
-              "PaysTax": true,
-              "Version": "GLOBAL",
-              "OrganisationType": "COMPANY",
-              "BaseCurrency": "USD",
-              "CountryCode": "CA",
-              "IsDemoCompany": true,
-              "OrganisationStatus": "ACTIVE",
-              "TaxNumber": "101-2-303",
-              "FinancialYearEndDay": 31,
-              "FinancialYearEndMonth": 12,
-              "SalesTaxBasis": "ACCRUALS",
-              "SalesTaxPeriod": "3MONTHLY",
-              "DefaultSalesTax": "Remember previous",
-              "DefaultPurchasesTax": "Remember previous",
-              "PeriodLockDate": "/Date(1222732800000+0000)/",
-              "CreatedDateUTC": "/Date(1776682520583)/",
-              "OrganisationEntityType": "COMPANY",
-              "Timezone": "EASTERNSTANDARDTIME",
-              "ShortCode": "!3T6Q-",
-              "OrganisationID": "59712f8f-45a3-4d45-a705-5d0c9748317e",
-              "Edition": "BUSINESS",
-              "Class": "DEMO",
-              "Addresses": [
-                {
-                  "AddressType": "POBOX",
-                  "AddressLine1": "23 Main Street",
-                  "AddressLine2": "Central City",
-                  "City": "Marineville",
-                  "Region": "",
-                  "PostalCode": "12345",
-                  "Country": "",
-                  "AttentionTo": ""
-                }
-              ],
-              "Phones": [
-                {
-                  "PhoneType": "OFFICE",
-                  "PhoneNumber": "1234 5678",
-                  "PhoneAreaCode": "800"
-                }
-              ],
-              "ExternalLinks": [],
-              "PaymentTerms": {},
-              "TaxNumberName": "Tax reg"
-            }
-          ]
-        },
+      "/connections": {
+        "response": [
+          {
+            "id": "cb19b66d-c3ea-4c36-854d-50e965c28046",
+            "authEventId": "2a0e955b-3e62-4dc4-a23e-e35adfc7d5b6",
+            "tenantId": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+            "tenantType": "ORGANISATION",
+            "tenantName": "Demo Company (US)",
+            "createdDateUtc": "2026-08-11T21:17:31.9745140",
+            "updatedDateUtc": "2026-08-11T21:17:31.9761610"
+          },
+          {
+            "id": "d83ea748-6f5d-462d-abf1-9530119803c0",
+            "authEventId": "55a65109-2861-4eff-a0b5-4bca683548ff",
+            "tenantId": "2cbe87b2-155d-4199-a480-90a50dc4db7e",
+            "tenantType": "ORGANISATION",
+            "tenantName": "NangoTest",
+            "createdDateUtc": "2026-08-11T22:02:10.3566520",
+            "updatedDateUtc": "2026-08-11T22:02:10.3587720"
+          }
+        ],
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 12:45:52 GMT",
-          "content-type": "application/json; charset=utf-8",
-          "content-length": "1681",
+          "date": "Tue, 11 Aug 2026 23:16:57 GMT",
+          "content-type": "application/json",
+          "content-length": "601",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -100,21 +134,212 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4969",
-          "x-ratelimit-reset": "1777034807",
-          "etag": "W/\"691-hGHt2qvGTVWcSZof3JCxFbL+f/4\""
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1925",
+          "x-ratelimit-reset": "1786490233",
+          "xero-correlation-id": "9251ce69-477a-419d-a150-58a1e18a298d",
+          "x-appminlimit-remaining": "9986",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:16:57 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"259-mQ2z+YLMRs5YtIJAa5SwwY/qiRA\""
         },
-        "hash": "f986f445b1f97af5678cc15ab3eeb097ead8b115",
-        "request": {
+        "hash": "884ad8a5c0c12496782c3aaf905c06e9be491e4d",
+        "request": {}
+      },
+      "/api.xro/2.0/Organisation": [
+        {
+          "response": {
+            "Id": "238b589c-8e45-4418-bc9b-f1bac2d46ce7",
+            "Status": "OK",
+            "ProviderName": "Nango",
+            "DateTimeUTC": "/Date(1786490217773)/",
+            "Organisations": [
+              {
+                "Name": "Demo Company (US)",
+                "LegalName": "Demo Company (US)",
+                "PaysTax": true,
+                "Version": "US",
+                "OrganisationType": "COMPANY",
+                "BaseCurrency": "USD",
+                "CountryCode": "US",
+                "IsDemoCompany": true,
+                "OrganisationStatus": "ACTIVE",
+                "TaxNumber": "123456789",
+                "FinancialYearEndDay": 31,
+                "FinancialYearEndMonth": 12,
+                "SalesTaxBasis": "ACCRUALS",
+                "SalesTaxPeriod": "1MONTHLY",
+                "DefaultSalesTax": "Tax Exclusive",
+                "DefaultPurchasesTax": "No Tax",
+                "PeriodLockDate": "/Date(1280534400000+0000)/",
+                "CreatedDateUTC": "/Date(1786483020587)/",
+                "OrganisationEntityType": "COMPANY",
+                "Timezone": "PACIFICSTANDARDTIME",
+                "ShortCode": "!91C56",
+                "OrganisationID": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+                "Edition": "BUSINESS",
+                "Class": "DEMO",
+                "Addresses": [
+                  {
+                    "AddressType": "POBOX",
+                    "AddressLine1": "23 Main Street",
+                    "AddressLine2": "Central City",
+                    "City": "Oaktown",
+                    "Region": "NY",
+                    "PostalCode": "12123",
+                    "Country": "United States",
+                    "AttentionTo": ""
+                  },
+                  {
+                    "AddressType": "STREET",
+                    "AddressLine1": "79 Madison Ave, Fl 2",
+                    "City": "New York",
+                    "Region": "NY",
+                    "PostalCode": "10016",
+                    "Country": "United States",
+                    "AttentionTo": ""
+                  }
+                ],
+                "Phones": [
+                  {
+                    "PhoneType": "OFFICE",
+                    "PhoneNumber": "800 1234 5678",
+                    "PhoneCountryCode": "1"
+                  }
+                ],
+                "ExternalLinks": [],
+                "PaymentTerms": {
+                  "Bills": {
+                    "Day": 14,
+                    "Type": "DAYSAFTERBILLDATE"
+                  },
+                  "Sales": {
+                    "Day": 14,
+                    "Type": "DAYSAFTERBILLDATE"
+                  }
+                },
+                "TaxNumberName": "e.g. State Tax ID"
+              }
+            ]
+          },
+          "status": 200,
           "headers": {
-            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            "date": "Tue, 11 Aug 2026 23:16:57 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "2140",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1924",
+            "x-ratelimit-reset": "1786490233",
+            "xero-correlation-id": "238b589c-8e45-4418-bc9b-f1bac2d46ce7",
+            "x-appminlimit-remaining": "9985",
+            "x-minlimit-remaining": "53",
+            "x-daylimit-remaining": "4886",
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+            "server": "tpzgw-c",
+            "expires": "Tue, 11 Aug 2026 23:16:57 GMT",
+            "cache-control": "max-age=0, no-cache, no-store",
+            "pragma": "no-cache",
+            "x-client-tls-ver": "tls1.3",
+            "etag": "W/\"85c-N57QaK7IrrLtJzEb9uYuN24gc4w\""
+          },
+          "hash": "56edc8e78e0d1bf03853c7c81d1e5221eca81d89",
+          "request": {
+            "headers": {
+              "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+            }
+          }
+        },
+        {
+          "response": {
+            "Id": "da510aaf-917f-44a9-b834-8180818ac559",
+            "Status": "OK",
+            "ProviderName": "Nango",
+            "DateTimeUTC": "/Date(1786490218035)/",
+            "Organisations": [
+              {
+                "APIKey": "WJQQPVXF7OVXJGNPA0VRN4VEIHJSGE",
+                "Name": "NangoTest",
+                "LegalName": "NangoTest",
+                "PaysTax": true,
+                "Version": "US",
+                "OrganisationType": "NOT_FOR_PROFIT",
+                "BaseCurrency": "USD",
+                "CountryCode": "US",
+                "IsDemoCompany": false,
+                "OrganisationStatus": "ACTIVE",
+                "FinancialYearEndDay": 31,
+                "FinancialYearEndMonth": 12,
+                "DefaultSalesTax": "Tax Exclusive",
+                "DefaultPurchasesTax": "No Tax",
+                "CreatedDateUTC": "/Date(1786482957000)/",
+                "OrganisationEntityType": "NOT_FOR_PROFIT",
+                "Timezone": "EASTERNSTANDARDTIME",
+                "ShortCode": "!178vF",
+                "OrganisationID": "2cbe87b2-155d-4199-a480-90a50dc4db7e",
+                "Edition": "BUSINESS",
+                "Class": "TRIAL",
+                "LineOfBusiness": "Retail",
+                "Addresses": [],
+                "Phones": [],
+                "ExternalLinks": [],
+                "PaymentTerms": {}
+              }
+            ]
+          },
+          "status": 200,
+          "headers": {
+            "date": "Tue, 11 Aug 2026 23:16:58 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "1101",
+            "connection": "keep-alive",
+            "x-xss-protection": "0",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "strict-transport-security": "max-age=5184000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1922",
+            "x-ratelimit-reset": "1786490233",
+            "xero-correlation-id": "da510aaf-917f-44a9-b834-8180818ac559",
+            "x-appminlimit-remaining": "9984",
+            "x-minlimit-remaining": "58",
+            "x-daylimit-remaining": "4947",
+            "xero-tenant-id": "2cbe87b2-155d-4199-a480-90a50dc4db7e",
+            "server": "tpzgw-c",
+            "expires": "Tue, 11 Aug 2026 23:16:58 GMT",
+            "cache-control": "max-age=0, no-cache, no-store",
+            "pragma": "no-cache",
+            "x-client-tls-ver": "tls1.3",
+            "etag": "W/\"44d-SxAGvSg84AnYVUZQURVciIqVlxw\""
+          },
+          "hash": "d889e81edf2e4ac24e8a95c91109c650b2fe643b",
+          "request": {
+            "headers": {
+              "xero-tenant-id": "2cbe87b2-155d-4199-a480-90a50dc4db7e"
+            }
           }
         }
-      }
+      ]
     }
   }
 }

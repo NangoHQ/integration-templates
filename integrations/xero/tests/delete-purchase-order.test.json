@@ -1,0 +1,130 @@
+{
+  "input": {
+    "purchase_order_id": "4601d87e-adf3-4944-bdf3-e677afe92dad"
+  },
+  "output": {
+    "purchase_order_id": "4601d87e-adf3-4944-bdf3-e677afe92dad",
+    "status": "DELETED"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/api.xro/2.0/PurchaseOrders/4601d87e-adf3-4944-bdf3-e677afe92dad": {
+        "response": {
+          "Id": "148fd487-5d1b-46c9-b242-3132c4b09fb9",
+          "Status": "OK",
+          "ProviderName": "Nango",
+          "DateTimeUTC": "/Date(1786490687706)/",
+          "PurchaseOrders": [
+            {
+              "PurchaseOrderID": "4601d87e-adf3-4944-bdf3-e677afe92dad",
+              "PurchaseOrderNumber": "PO-0012",
+              "DateString": "2026-08-11T00:00:00",
+              "Date": "/Date(1786406400000+0000)/",
+              "HasErrors": false,
+              "IsDiscounted": false,
+              "TotalDiscount": 0,
+              "SentToContact": false,
+              "Type": "PURCHASEORDER",
+              "CurrencyRate": 1,
+              "CurrencyCode": "USD",
+              "Contact": {
+                "ContactID": "c313aeb9-6fd1-4ead-9e0a-4b7e8bff0d1a",
+                "ContactStatus": "ACTIVE",
+                "Name": "Office Supplies Company",
+                "FirstName": "",
+                "LastName": "",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
+                "Addresses": [
+                  {
+                    "AddressType": "STREET",
+                    "AddressLine1": "2020 S Robertson Blvd",
+                    "AddressLine2": "",
+                    "AddressLine3": "",
+                    "AddressLine4": "",
+                    "City": "Los Angeles",
+                    "Region": "CA",
+                    "PostalCode": "90034",
+                    "Country": "USA",
+                    "AttentionTo": ""
+                  }
+                ],
+                "Phones": [],
+                "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+                "ContactGroups": [],
+                "IsSupplier": false,
+                "IsCustomer": true,
+                "SalesTrackingCategories": [],
+                "PurchasesTrackingCategories": [],
+                "ContactPersons": [],
+                "HasValidationErrors": false
+              },
+              "Status": "DELETED",
+              "LineAmountTypes": "Exclusive",
+              "LineItems": [
+                {
+                  "Description": "Nango Registry Test PO Item",
+                  "UnitAmount": 100,
+                  "TaxType": "OUTPUT",
+                  "TaxAmount": 9.25,
+                  "LineAmount": 100,
+                  "AccountCode": "400",
+                  "Tracking": [],
+                  "Quantity": 1,
+                  "LineItemID": "aa49cd59-6416-4350-ba06-4aac73b06e27",
+                  "AccountID": "e21ef153-577e-4132-94b0-3d0108d97def"
+                }
+              ],
+              "SubTotal": 100,
+              "TotalTax": 9.25,
+              "Total": 109.25,
+              "UpdatedDateUTC": "/Date(1786490687690+0000)/"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:24:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2288",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1891",
+          "x-ratelimit-reset": "1786490657",
+          "xero-correlation-id": "148fd487-5d1b-46c9-b242-3132c4b09fb9",
+          "x-appminlimit-remaining": "9988",
+          "x-minlimit-remaining": "56",
+          "x-daylimit-remaining": "4593",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:24:47 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"8f0-EmD5hBOxlLcUVAp10C5Kt9+Uz5A\""
+        },
+        "hash": "c372cc62b6b51ebb5958b9cd304560ea326739e2",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          },
+          "data": {
+            "Status": "DELETED"
+          }
+        }
+      }
+    }
+  }
+}

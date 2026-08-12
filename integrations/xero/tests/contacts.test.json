@@ -1,321 +1,507 @@
 {
   "nango": {
     "getConnection": {},
-    "getMetadata": {
-      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
-    },
     "batchSave": {
       "Contact": [
         {
-          "id": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
-          "name": "RITE Agency"
+          "id": "c313aeb9-6fd1-4ead-9e0a-4b7e8bff0d1a",
+          "contact_status": "ACTIVE",
+          "name": "Office Supplies Company",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "a50f6bf4-0b71-409a-aee9-e4bc7a635765",
-          "name": "Eastside Club"
+          "id": "f817d079-80ba-4a4f-8b57-6171c0cdd14c",
+          "contact_status": "ACTIVE",
+          "name": "Epicenter Cafe",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "eae2e2e8-d34f-4906-80fc-d4f24d9f4f80",
-          "name": "Luna Cafe"
+          "id": "54999de9-4690-4195-99bc-646970b23fb1",
+          "contact_status": "ACTIVE",
+          "name": "Brunswick Petals",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "1e519400-5654-4c85-a264-516255a9c1a8",
-          "name": "Abby & Wells"
+          "id": "4e3ae48f-b6fb-4097-aa3b-6bdc6ad9de5a",
+          "contact_status": "ACTIVE",
+          "name": "7-Eleven",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
-          "name": "nango test",
-          "external_id": "211f9ce8bbedd85eab2bec2c0c3326c1c1c4fa739531b55d1d",
-          "email": "api@nango.dev"
+          "id": "b47b7750-4d86-447b-92ad-6fbefcf888b6",
+          "contact_status": "ACTIVE",
+          "name": "Ridgeway Bank",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
-          "name": "Test Contact from Nango"
+          "id": "ce108527-e45b-4f3c-b92d-7006397206d6",
+          "contact_status": "ACTIVE",
+          "name": "Melrose Parking",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "e0b62e9c-2e79-49eb-b04b-3be00e0034ff",
-          "name": "Test Contact 2026-04-20"
+          "id": "b89da77c-1a13-4893-8d65-71cd38fc623a",
+          "contact_status": "ACTIVE",
+          "name": "Fulton Airport Parking",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "5ae50ac7-e7cc-456c-bf05-66dc47ad0ff1",
-          "name": "Test Contact from Nango 2026-04-20"
+          "id": "827deebb-d4dd-4b52-933f-851631ab93c4",
+          "contact_status": "ACTIVE",
+          "name": "Coco Cafe",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "af6fde8e-1595-43c9-9393-d6d046ddf376",
-          "name": "Test Customer"
+          "id": "c7127731-d324-4e26-a03e-854ce9a3a269",
+          "contact_status": "ACTIVE",
+          "name": "Berry Brew",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "23c3e629-c6a5-48ab-ab73-a339d0025c8f",
-          "name": "Test Contact Mock Recording"
-        },
-        {
-          "id": "65d4104d-e2ec-4971-8504-ebf8f3fb6740",
-          "name": "Test Validation Contact"
-        },
-        {
-          "id": "9a777d01-2bfb-4623-807d-129d3f077e21",
-          "name": "Coco Cafe"
-        },
-        {
-          "id": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
-          "name": "Ridgeway Bank"
-        },
-        {
-          "id": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
-          "name": "Office Supplies Company"
-        },
-        {
-          "id": "f41cbe7c-de57-4927-b8a0-49fb0151be77",
-          "name": "7-Eleven"
-        },
-        {
-          "id": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
-          "name": "Woolworths Market"
-        },
-        {
-          "id": "406e9eba-9939-48de-a300-57853bb1a6a4",
-          "name": "Gable Print"
-        },
-        {
-          "id": "940f1da6-6d14-46e5-a692-77de93732f96",
-          "name": "Orlena Greenville"
-        },
-        {
-          "id": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
-          "name": "Dimples Warehouse"
-        },
-        {
-          "id": "d8ce2ea5-d312-4c34-9656-8554b8071a81",
-          "name": "Fulton Airport Parking"
-        },
-        {
-          "id": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
+          "id": "8203e078-7385-4858-b2c8-8aaf49945ea9",
+          "contact_status": "ACTIVE",
           "name": "Espresso 31",
-          "phone": "++64423241290"
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "2e68080d-b3bd-4051-b33c-9f031550b958",
-          "name": "24 Locks"
+          "id": "87c5c6ba-efb6-4b72-b21f-ad0cb459d08e",
+          "contact_status": "ACTIVE",
+          "name": "Gable Print",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "f6ecf9a4-ee5a-4e9c-b52b-bec4737e8623",
-          "name": "Epicenter Cafe"
+          "id": "b107cfac-8b40-464a-bf04-aff916368353",
+          "contact_status": "ACTIVE",
+          "name": "Dimples Warehouse",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
-          "name": "Melrose Parking"
+          "id": "41d5f1eb-a007-4ef8-b68a-b6856ab1791e",
+          "contact_status": "ACTIVE",
+          "name": "Wilson Periodicals",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
-          "name": "Berry Brew"
+          "id": "6a31faab-588e-46a1-be9a-bd6d1dd468df",
+          "contact_status": "ACTIVE",
+          "name": "Woolworths Market",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "162c177a-3391-4742-890f-f3ebfe0df1f3",
-          "name": "Brunswick Petals"
+          "id": "083b669b-283b-44ac-ab0a-c208b6857520",
+          "contact_status": "ACTIVE",
+          "name": "Jakaranda Maple Systems",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "aacecb74-ef1e-44e0-ba52-0bc521639697",
-          "name": "PC Complete"
+          "id": "4f8dbc9b-889f-44d7-b263-d99f14ccf6f7",
+          "contact_status": "ACTIVE",
+          "name": "24 Locks",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "c01292e3-1a1a-4a70-b120-1218f8f71096",
-          "name": "Bayside Wholesale"
+          "id": "ef704256-b000-4f82-95d8-ff8bf642675d",
+          "contact_status": "ACTIVE",
+          "name": "Willow Properties",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422347+0000)/"
         },
         {
-          "id": "3f58af86-b4d9-4ac9-950c-2e4cdd94d5be",
-          "name": "SMART Agency"
+          "id": "ac565f9c-9829-4f51-8a5b-0400de972b3c",
+          "contact_status": "ACTIVE",
+          "name": "PowerDirect",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "cade9142-f5fe-4970-b39e-2f388b8740c0",
-          "name": "Central Copiers"
+          "id": "4ce9a08f-d89e-419d-ac8a-246f1eebfcbf",
+          "contact_status": "ACTIVE",
+          "name": "MCO Cleaning Services",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
-          "name": "Xero"
-        },
-        {
-          "id": "f4af0a9b-e710-4611-8618-4360944ce1f3",
-          "name": "Truxton Property Management"
-        },
-        {
-          "id": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
-          "name": "Swanston Security"
-        },
-        {
-          "id": "537d4d64-2fc1-4521-89c3-489d20fae20d",
-          "name": "MCO Cleaning Services"
-        },
-        {
-          "id": "4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40",
-          "name": "Carlton Functions"
-        },
-        {
-          "id": "b553bc60-5fb9-4d5e-b604-71aaf657cd3d",
-          "name": "Net Connect"
-        },
-        {
-          "id": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
+          "id": "c94a5733-bef8-432f-999d-372f94d10570",
+          "contact_status": "ACTIVE",
           "name": "ABC Furniture",
-          "email": "info@abfl.com",
-          "phone": "+1800124578"
+          "first_name": "Trish",
+          "last_name": "Rawlings",
+          "email_address": "info@abfl.com",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "f93cd75c-9412-4a8c-91a3-b41fe751aa01",
+          "id": "fd828588-f334-415e-b219-3e19f0bd074e",
+          "contact_status": "ACTIVE",
+          "name": "SMART Agency",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "19732b6a-9a5c-4651-b33c-3f8f682e2a2b",
+          "contact_status": "ACTIVE",
+          "name": "Hoyt Productions",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "accounts@hoytmadeupdemo.com",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "4711f569-42bf-416a-9e22-452588101e41",
+          "contact_status": "ACTIVE",
+          "name": "PC Complete",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "8155d614-a477-4811-bc54-454cac9820a4",
+          "contact_status": "ACTIVE",
+          "name": "Swanston Security",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "3267b96c-d285-4daa-9c52-59e7033d9bc7",
+          "contact_status": "ACTIVE",
+          "name": "Central Copiers",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "58cec998-02d2-4062-9703-68825a6da97d",
+          "contact_status": "ACTIVE",
+          "name": "Gateway Motors",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
+        },
+        {
+          "id": "d2c4fb21-9e30-44de-bd7d-7200afa1412c",
+          "contact_status": "ACTIVE",
           "name": "Capital Cab Co",
-          "phone": "+1800235689"
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "1d80716b-427e-4cad-80c6-c4b3a18eb23d",
-          "name": "Hoyt Productions"
+          "id": "6aca7bad-c92b-4d33-8a1e-acb225dd4d5e",
+          "contact_status": "ACTIVE",
+          "name": "Bayside Wholesale",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "8f48b066-e047-459d-80dd-d495b36608d0",
-          "name": "PowerDirect"
+          "id": "34625f09-014d-4042-a260-b06ef6bc6260",
+          "contact_status": "ACTIVE",
+          "name": "Xero",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "ddd4ba65-9b7e-4adf-be7a-e91efbb6c082",
-          "name": "Gateway Motors"
+          "id": "b59b90a0-e0e8-49d5-bd14-bfe437be0200",
+          "contact_status": "ACTIVE",
+          "name": "Net Connect",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "fd89489e-699c-4d77-a881-10c127bfbeb3",
-          "name": "Hamilton Smith Ltd",
-          "email": "info@hsg.co",
-          "address_line_1": "3 Park Street Industrial Village\n",
-          "city": "Oaktown",
-          "zip": "1234",
-          "phone": "012345678"
+          "id": "8f9f0c88-4926-4f9d-9a75-c56264fdd82f",
+          "contact_status": "ACTIVE",
+          "name": "State Taxing Authority",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "65a44264-dea0-481a-b49d-18a334a72334",
-          "name": "Ridgeway University",
-          "phone": "018005001"
+          "id": "07437e1e-6ce0-4aa8-97e3-d49988e9ef34",
+          "contact_status": "ACTIVE",
+          "name": "US Treasury",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
-          "name": "Boom FM"
+          "id": "018355fc-c67e-4352-b443-ef3873031983",
+          "contact_status": "ACTIVE",
+          "name": "Truxton Property Management",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "accounts@truxtonmadeupdemo.com",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "b68deed5-49c8-416a-9f35-2ab14bb1fb6b",
-          "name": "Bayside Club",
-          "tax_number": "90 9877899",
-          "email": "secretarybob@bsclub.co",
-          "address_line_1": "P O Box 3354",
-          "address_line_2": "South Mailing Centre",
-          "city": "Ridge Heights",
-          "zip": "MA 60010",
-          "country": "USA",
-          "state": "Madeupville",
-          "phone": "2022024455"
+          "id": "33b9a451-6c4c-4925-b70b-f89af47c332e",
+          "contact_status": "ACTIVE",
+          "name": "Carlton Functions",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422363+0000)/"
         },
         {
-          "id": "5b96e86b-418e-48e8-8949-308c14aec278",
-          "name": "Marine Systems"
+          "id": "f477ad8d-44f2-4bb7-a99b-04f28681e849",
+          "contact_status": "ACTIVE",
+          "name": "Petrie McLoud Watson & Associates",
+          "first_name": "Morris",
+          "last_name": "McKenzie",
+          "email_address": "mm@pmwla.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "fa52f698-1244-47cd-8fb9-5f32b6490a55",
-          "name": "City Agency",
-          "address_line_1": "P O Box 4321",
-          "address_line_2": "Central Mailing Centre",
-          "city": "Oaktown",
-          "zip": "1237"
-        },
-        {
-          "id": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
-          "name": "DIISR - Small Business Services",
-          "phone": "018009001"
-        },
-        {
-          "id": "021b18f8-b62f-4d8a-889e-71fd5427892a",
-          "name": "Young Bros Transport",
-          "email": "rog@ybt.co",
-          "address_line_1": "P O Box 5678\n",
-          "address_line_2": "Central Mailing Centre\n",
-          "city": "Oaktown",
-          "zip": "1235",
-          "phone": "013435678"
-        },
-        {
-          "id": "378f211a-64c2-4327-bab3-9b057f4f51d9",
-          "name": "Port & Philip Freight",
-          "phone": "012323434"
-        },
-        {
-          "id": "47f61ab1-5245-40a2-a3a5-bc224c850c8d",
-          "name": "Bank West",
-          "address_line_1": "Procurement Services\n",
-          "address_line_2": "GPO 1234",
-          "city": "Pinehaven",
-          "zip": "9876",
-          "phone": "022023456"
-        },
-        {
-          "id": "3cbd5263-0965-4c4e-932c-bf50e3297610",
+          "id": "375ac066-85a0-4044-a8be-3159856d5c85",
+          "contact_status": "ACTIVE",
           "name": "Rex Media Group",
-          "email": "info@rexmedia.co",
-          "address_line_1": "L9, Nairn Towers\n",
-          "address_line_2": "120-130 Flinders Street",
-          "city": "Oaktown",
-          "zip": "1236",
-          "phone": "014546789"
+          "first_name": "",
+          "last_name": "",
+          "email_address": "info@rexmedia.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "85d15bf3-207f-4278-8449-e12dade98c66",
+          "id": "a6e00e18-ade7-4fbf-8b4f-3a5c2c983bbb",
+          "contact_status": "ACTIVE",
           "name": "Basket Case",
-          "address_line_1": "Shop 14 Ridgeway Mall",
-          "address_line_2": "500 River Road",
-          "city": "Pinehaven",
-          "zip": "2345"
+          "first_name": "Mary",
+          "last_name": "Munn",
+          "email_address": "shop@basketcase.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "2aaaeb6b-b519-4698-9b0a-f74ba1d39be6",
-          "name": "Petrie McLoud Watson & Associates"
+          "id": "ee60f2b0-6a94-4f5d-92aa-58ac78d3a272",
+          "contact_status": "ACTIVE",
+          "name": "Hamilton Smith Ltd",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "info@hsg.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
+          "id": "7f6b4b35-455f-4e3e-8632-6005973ee1b9",
+          "contact_status": "ACTIVE",
+          "name": "Marine Systems",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "ec65f1ee-6aa5-4898-bdb5-67df3e9ee9ba",
+          "contact_status": "ACTIVE",
+          "name": "Boom FM",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "81d5706a-8057-4338-8511-747cd85f4c68",
+          "contact_status": "ACTIVE",
+          "name": "Bank West",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "cbd07c33-2c68-422b-bd15-9820d5117204",
+          "contact_status": "ACTIVE",
+          "name": "DIISR - Small Business Services",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "cad@diisr.govt",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "5ff5e0b3-42ea-4630-a005-9c6dc50ccb29",
+          "contact_status": "ACTIVE",
+          "name": "City Agency",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "9baaed90-5feb-422d-a9a5-b4c0afa500ae",
+          "contact_status": "ACTIVE",
+          "name": "Young Bros Transport",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "rog@ybt.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
+        },
+        {
+          "id": "99007ae2-bbf5-4287-8728-c353f9aa19c3",
+          "contact_status": "ACTIVE",
           "name": "City Limousines",
-          "address_line_1": "1206 Harbour Tower\n",
-          "address_line_2": "59-65 South Street",
-          "city": "Coppertown",
-          "phone": "018004001"
+          "first_name": "Martin",
+          "last_name": "Dale",
+          "email_address": "martyd@citylim.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "ed178511-a781-44fc-aa98-d2f0ad750a95",
-          "name": "Test Contact"
+          "id": "1ba3a4e6-9873-4387-aeac-c4553038fb68",
+          "contact_status": "ACTIVE",
+          "name": "Port & Philip Freight",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "96c78111-ef15-4a04-acf8-f9c367649e11",
-          "name": "Test Contact 1776869086",
-          "email": "test1776869086@example.com"
+          "id": "181edd84-d098-4468-95cd-e3ac74bc22c5",
+          "contact_status": "ACTIVE",
+          "name": "Ridgeway University",
+          "first_name": "",
+          "last_name": "",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "908cc2f9-a5eb-4414-a375-cc6d66f3672d",
-          "name": "Test Contact 1776869155",
-          "email": "test1776869155@example.com"
+          "id": "82d67717-1d2e-4f44-be65-f73a68df8a9f",
+          "contact_status": "ACTIVE",
+          "name": "Bayside Club",
+          "first_name": "Bob",
+          "last_name": "Partridge",
+          "email_address": "bob.partridge@bayclub.co",
+          "updated_date_utc": "/Date(1786471422390+0000)/"
         },
         {
-          "id": "5fe67a74-e028-46ac-9115-36465e09971f",
-          "name": "Test Contact Updated",
-          "email": "test@example.com",
-          "city": "San Francisco",
-          "country": "USA",
-          "state": "CA",
-          "phone": "555-1234"
+          "id": "3784392f-1806-46be-bd6c-0ba1b006f5a3",
+          "contact_status": "ACTIVE",
+          "name": "Abby & Wells",
+          "updated_date_utc": "/Date(1786483021550+0000)/"
         },
         {
-          "id": "99ab9271-7569-495b-b4a0-aeb20f34ad86",
-          "name": "Test Contact 1776870625"
+          "id": "abe2ec0b-2e9c-43dd-88fe-19f62a4aa914",
+          "contact_status": "ACTIVE",
+          "name": "RITE Agency",
+          "updated_date_utc": "/Date(1786483021557+0000)/"
         },
         {
-          "id": "57a8730f-c972-43b3-a339-9750b62f74c5",
-          "name": "Test Contact for Mocks"
+          "id": "9afe194a-e392-4c98-8a8b-605d9f845512",
+          "contact_status": "ACTIVE",
+          "name": "Eastside Club",
+          "updated_date_utc": "/Date(1786483021557+0000)/"
         },
         {
-          "id": "2954ee79-d71b-4878-8a6c-e73e23799364",
-          "name": "Test Contact ABC123"
+          "id": "3c59357f-97a2-4638-be3f-db943b91552d",
+          "contact_status": "ACTIVE",
+          "name": "Luna Cafe",
+          "updated_date_utc": "/Date(1786483021557+0000)/"
         },
         {
-          "id": "64ae88f6-d5ca-43e3-a7e2-f9a8ca006c3d",
-          "name": "Test Contact Save 2026-04-24"
+          "id": "852c066a-e239-4102-8fd5-3e06854fde49",
+          "contact_status": "ACTIVE",
+          "name": "Nango API",
+          "first_name": "Nango",
+          "last_name": "API",
+          "email_address": "api+xero1@nango.dev",
+          "updated_date_utc": "/Date(1786483021720+0000)/"
+        },
+        {
+          "id": "61634a4b-8b70-41ae-89c3-2020b376a5fa",
+          "contact_status": "ACTIVE",
+          "name": "Passing Places Parking",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786487136707+0000)/"
+        },
+        {
+          "id": "15aca295-abf8-4464-a0a4-0182a74d5281",
+          "contact_status": "ACTIVE",
+          "name": "AT&T",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786487393153+0000)/"
+        },
+        {
+          "id": "9495ae21-ec99-4bfe-a6c0-6d43156f3374",
+          "contact_status": "ACTIVE",
+          "name": "Nango Registry Test Contact Dryrun",
+          "email_address": "dryrun@example.com",
+          "updated_date_utc": "/Date(1786490238047+0000)/"
+        },
+        {
+          "id": "ea7900fe-bbbd-437b-a2ec-511c33717a97",
+          "contact_status": "ACTIVE",
+          "name": "Nango Registry Test Contact Save 1786490339",
+          "email_address": "save@example.com",
+          "updated_date_utc": "/Date(1786490343663+0000)/"
+        },
+        {
+          "id": "cdc5d3e5-27d2-4b15-85db-30666ff733df",
+          "contact_status": "ACTIVE",
+          "name": "Nango Registry Test Contact 3",
+          "email_address": "",
+          "updated_date_utc": "/Date(1786490530867+0000)/"
         }
       ]
     },
@@ -325,3386 +511,836 @@
   },
   "api": {
     "get": {
-      "/api.xro/2.0/Contacts": [
-        {
-          "response": {
-            "Id": "dd4febf1-b13b-43ac-8ee0-7386e5dcf04d",
-            "Status": "OK",
-            "ProviderName": "NangoAPI",
-            "DateTimeUTC": "/Date(1777032291887)/",
-            "pagination": {
-              "page": 1,
-              "pageSize": 100,
-              "pageCount": 1,
-              "itemCount": 63
-            },
-            "Contacts": [
-              {
-                "ContactID": "c67e563c-17ee-40dd-ad95-4f8c143bf740",
-                "ContactStatus": "ACTIVE",
-                "Name": "RITE Agency",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776682521490+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": true,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 216.5,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "a50f6bf4-0b71-409a-aee9-e4bc7a635765",
-                "ContactStatus": "ACTIVE",
-                "Name": "Eastside Club",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776682522100+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "eae2e2e8-d34f-4906-80fc-d4f24d9f4f80",
-                "ContactStatus": "ACTIVE",
-                "Name": "Luna Cafe",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776682522327+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "1e519400-5654-4c85-a264-516255a9c1a8",
-                "ContactStatus": "ACTIVE",
-                "Name": "Abby & Wells",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776682522827+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
-                "ContactNumber": "211f9ce8bbedd85eab2bec2c0c3326c1c1c4fa739531b55d1d",
-                "ContactStatus": "ACTIVE",
-                "Name": "nango test",
-                "FirstName": "nango",
-                "LastName": "test",
-                "EmailAddress": "api@nango.dev",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776686923210+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "4870d835-ccf8-4175-8cfb-fc5899b52cff",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact from Nango",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776703842417+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "e0b62e9c-2e79-49eb-b04b-3be00e0034ff",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact 2026-04-20",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776703915337+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "5ae50ac7-e7cc-456c-bf05-66dc47ad0ff1",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact from Nango 2026-04-20",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776703919053+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "af6fde8e-1595-43c9-9393-d6d046ddf376",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Customer",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776703999580+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "23c3e629-c6a5-48ab-ab73-a339d0025c8f",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact Mock Recording",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776704137840+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "65d4104d-e2ec-4971-8504-ebf8f3fb6740",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Validation Contact",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776704233800+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "9a777d01-2bfb-4623-807d-129d3f077e21",
-                "ContactStatus": "ACTIVE",
-                "Name": "Coco Cafe",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "43d1337e-4360-4589-9a76-1d0538c4ce6f",
-                "ContactStatus": "ACTIVE",
-                "Name": "Ridgeway Bank",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "cb906ad4-b1d7-44bf-b25a-4862c7059a43",
-                "ContactStatus": "ACTIVE",
-                "Name": "Office Supplies Company",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "f41cbe7c-de57-4927-b8a0-49fb0151be77",
-                "ContactStatus": "ACTIVE",
-                "Name": "7-Eleven",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "be4cfc19-c55a-4f19-817b-4eee4ccf2c01",
-                "ContactStatus": "ACTIVE",
-                "Name": "Woolworths Market",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "406e9eba-9939-48de-a300-57853bb1a6a4",
-                "ContactStatus": "ACTIVE",
-                "Name": "Gable Print",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "940f1da6-6d14-46e5-a692-77de93732f96",
-                "ContactStatus": "ACTIVE",
-                "Name": "Orlena Greenville",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "733b5108-96cb-4d43-bc5b-7f37a2f77c26",
-                "ContactStatus": "ACTIVE",
-                "Name": "Dimples Warehouse",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "d8ce2ea5-d312-4c34-9656-8554b8071a81",
-                "ContactStatus": "ACTIVE",
-                "Name": "Fulton Airport Parking",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "f5cb9bf0-7aa2-473e-8115-87863dee95f3",
-                "ContactStatus": "ACTIVE",
-                "Name": "Espresso 31",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "23241290",
-                    "PhoneAreaCode": "4",
-                    "PhoneCountryCode": "+64"
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "2e68080d-b3bd-4051-b33c-9f031550b958",
-                "ContactStatus": "ACTIVE",
-                "Name": "24 Locks",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "f6ecf9a4-ee5a-4e9c-b52b-bec4737e8623",
-                "ContactStatus": "ACTIVE",
-                "Name": "Epicenter Cafe",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "b6c2d5e5-94f2-4df5-a7c2-f1de0bff034f",
-                "ContactStatus": "ACTIVE",
-                "Name": "Melrose Parking",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "16cf5671-54a8-4d4e-9a55-f2be8ec3dcf4",
-                "ContactStatus": "ACTIVE",
-                "Name": "Berry Brew",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "162c177a-3391-4742-890f-f3ebfe0df1f3",
-                "ContactStatus": "ACTIVE",
-                "Name": "Brunswick Petals",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221873+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "aacecb74-ef1e-44e0-ba52-0bc521639697",
-                "ContactStatus": "ACTIVE",
-                "Name": "PC Complete",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 2132.51,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "c01292e3-1a1a-4a70-b120-1218f8f71096",
-                "ContactStatus": "ACTIVE",
-                "Name": "Bayside Wholesale",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 840,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "3f58af86-b4d9-4ac9-950c-2e4cdd94d5be",
-                "ContactStatus": "ACTIVE",
-                "Name": "SMART Agency",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 4500,
-                    "Overdue": 4500
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "cade9142-f5fe-4970-b39e-2f388b8740c0",
-                "ContactStatus": "ACTIVE",
-                "Name": "Central Copiers",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 163.56,
-                    "Overdue": 163.56
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "3b30a108-9156-4a42-a893-3bbbe7af1ef8",
-                "ContactStatus": "ACTIVE",
-                "Name": "Xero",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 31.39,
-                    "Overdue": 31.39
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "f4af0a9b-e710-4611-8618-4360944ce1f3",
-                "ContactStatus": "ACTIVE",
-                "Name": "Truxton Property Management",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "78b7299c-4f1f-46d2-acc3-44a46bd361b1",
-                "ContactStatus": "ACTIVE",
-                "Name": "Swanston Security",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0.54,
-                    "Overdue": 0.54
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "537d4d64-2fc1-4521-89c3-489d20fae20d",
-                "ContactStatus": "ACTIVE",
-                "Name": "MCO Cleaning Services",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "4ad99fdf-a0cc-4aaa-a1a6-6a1549b9df40",
-                "ContactStatus": "ACTIVE",
-                "Name": "Carlton Functions",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "b553bc60-5fb9-4d5e-b604-71aaf657cd3d",
-                "ContactStatus": "ACTIVE",
-                "Name": "Net Connect",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "234567890123",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "BatchPayments": {
-                  "BankAccountNumber": "234567890123",
-                  "BankAccountName": "Net Connect Holdings",
-                  "Details": "DEMO-GL",
-                  "Code": "",
-                  "Reference": ""
-                },
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 54.13,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "39efa556-8dda-4c81-83d3-a631e59eb6d3",
-                "ContactStatus": "ACTIVE",
-                "Name": "ABC Furniture",
-                "FirstName": "Trish",
-                "LastName": "Rawlings",
-                "EmailAddress": "info@abfl.com",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "124578",
-                    "PhoneAreaCode": "800",
-                    "PhoneCountryCode": "1"
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "f93cd75c-9412-4a8c-91a3-b41fe751aa01",
-                "ContactStatus": "ACTIVE",
-                "Name": "Capital Cab Co",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "123456789012",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "235689",
-                    "PhoneAreaCode": "800",
-                    "PhoneCountryCode": "1"
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "DefaultCurrency": "USD",
-                "BatchPayments": {
-                  "BankAccountNumber": "123456789012",
-                  "BankAccountName": "Capital Cab Holdings",
-                  "Details": "DEMO-GL",
-                  "Code": "",
-                  "Reference": ""
-                },
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 242,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "1d80716b-427e-4cad-80c6-c4b3a18eb23d",
-                "ContactStatus": "ACTIVE",
-                "Name": "Hoyt Productions",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET"
-                  },
-                  {
-                    "AddressType": "POBOX"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "8f48b066-e047-459d-80dd-d495b36608d0",
-                "ContactStatus": "ACTIVE",
-                "Name": "PowerDirect",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "345678901234",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "BatchPayments": {
-                  "BankAccountNumber": "345678901234",
-                  "BankAccountName": "PowerDirect Holdings",
-                  "Details": "DEMO-GL",
-                  "Code": "",
-                  "Reference": ""
-                },
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 108.6,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "ddd4ba65-9b7e-4adf-be7a-e91efbb6c082",
-                "ContactStatus": "ACTIVE",
-                "Name": "Gateway Motors",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221900+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "fd89489e-699c-4d77-a881-10c127bfbeb3",
-                "ContactStatus": "ACTIVE",
-                "Name": "Hamilton Smith Ltd",
-                "EmailAddress": "info@hsg.co",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "3 Park Street Industrial Village\n",
-                    "AddressLine2": "",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Oaktown",
-                    "Region": "",
-                    "PostalCode": "1234",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "2345678",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "65a44264-dea0-481a-b49d-18a334a72334",
-                "ContactStatus": "ACTIVE",
-                "Name": "Ridgeway University",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "8005001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "7775001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "DefaultCurrency": "USD",
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 6187.5,
-                    "Overdue": 6187.5
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "37918a06-92f6-4edb-bfe0-1fc041c90f8b",
-                "ContactStatus": "ACTIVE",
-                "Name": "Boom FM",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "b68deed5-49c8-416a-9f35-2ab14bb1fb6b",
-                "ContactStatus": "ACTIVE",
-                "Name": "Bayside Club",
-                "FirstName": "Bob",
-                "LastName": "Partridge",
-                "EmailAddress": "secretarybob@bsclub.co",
-                "BankAccountDetails": "98091-80345",
-                "TaxNumber": "90 9877899",
-                "AccountsReceivableTaxType": "OUTPUT",
-                "AccountsPayableTaxType": "INPUT",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "P O Box 3354",
-                    "AddressLine2": "South Mailing Centre",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Ridge Heights",
-                    "Region": "Madeupville",
-                    "PostalCode": "MA 60010",
-                    "Country": "USA",
-                    "AttentionTo": "Club Secretary"
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "AddressLine1": "148 Bay Harbour Road",
-                    "AddressLine2": "",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Ridge Heights",
-                    "Region": "Madeupville",
-                    "PostalCode": "MA 60010",
-                    "Country": "USA",
-                    "AttentionTo": "Club Secretary"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "2024418",
-                    "PhoneAreaCode": "202",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "2024455",
-                    "PhoneAreaCode": "202",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "2025566",
-                    "PhoneAreaCode": "202",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "7774455",
-                    "PhoneAreaCode": "202",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": true,
-                "IsCustomer": true,
-                "DefaultCurrency": "USD",
-                "BrandingTheme": {
-                  "BrandingThemeID": "d613f7f9-8fcb-477f-97f0-31eb85b7e5cf",
-                  "Name": "Standard"
-                },
-                "BatchPayments": {
-                  "BankAccountNumber": "98091-80345",
-                  "BankAccountName": "RBC",
-                  "Details": "OCI",
-                  "Code": "",
-                  "Reference": ""
-                },
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 234,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 130,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "5b96e86b-418e-48e8-8949-308c14aec278",
-                "ContactStatus": "ACTIVE",
-                "Name": "Marine Systems",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "DefaultCurrency": "USD",
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 396,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "fa52f698-1244-47cd-8fb9-5f32b6490a55",
-                "ContactStatus": "ACTIVE",
-                "Name": "City Agency",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "P O Box 4321",
-                    "AddressLine2": "Central Mailing Centre",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Oaktown",
-                    "Region": "",
-                    "PostalCode": "1237",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "a3cf95c5-9d26-42e1-80c0-69e5f24886d3",
-                "ContactStatus": "ACTIVE",
-                "Name": "DIISR - Small Business Services",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "8009001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "8009002",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 270.63,
-                    "Overdue": 270.63
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "021b18f8-b62f-4d8a-889e-71fd5427892a",
-                "ContactStatus": "ACTIVE",
-                "Name": "Young Bros Transport",
-                "EmailAddress": "rog@ybt.co",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "P O Box 5678\n",
-                    "AddressLine2": "Central Mailing Centre\n",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Oaktown",
-                    "Region": "",
-                    "PostalCode": "1235",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "3435678",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": true,
-                "IsCustomer": true,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 125.03,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "378f211a-64c2-4327-bab3-9b057f4f51d9",
-                "ContactStatus": "ACTIVE",
-                "Name": "Port & Philip Freight",
-                "EmailAddress": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "2323434",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "47f61ab1-5245-40a2-a3a5-bc224c850c8d",
-                "ContactStatus": "ACTIVE",
-                "Name": "Bank West",
-                "EmailAddress": "",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "Procurement Services\n",
-                    "AddressLine2": "GPO 1234",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Pinehaven",
-                    "Region": "",
-                    "PostalCode": "9876",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "2023456",
-                    "PhoneAreaCode": "02",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "3cbd5263-0965-4c4e-932c-bf50e3297610",
-                "ContactStatus": "ACTIVE",
-                "Name": "Rex Media Group",
-                "EmailAddress": "info@rexmedia.co",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "L9, Nairn Towers\n",
-                    "AddressLine2": "120-130 Flinders Street",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Oaktown",
-                    "Region": "",
-                    "PostalCode": "1236",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "4546789",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "85d15bf3-207f-4278-8449-e12dade98c66",
-                "ContactStatus": "ACTIVE",
-                "Name": "Basket Case",
-                "FirstName": "",
-                "LastName": "",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "Shop 14 Ridgeway Mall",
-                    "AddressLine2": "500 River Road",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Pinehaven",
-                    "Region": "",
-                    "PostalCode": "2345",
-                    "Country": "",
-                    "AttentionTo": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "7773001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "BrandingTheme": {
-                  "BrandingThemeID": "92f08561-bd65-469b-93fb-65dd1552c678",
-                  "Name": "Very orange invoice!"
-                },
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 914.55,
-                    "Overdue": 0
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "2aaaeb6b-b519-4698-9b0a-f74ba1d39be6",
-                "ContactStatus": "ACTIVE",
-                "Name": "Petrie McLoud Watson & Associates",
-                "Addresses": [
-                  {
-                    "AddressType": "POBOX"
-                  },
-                  {
-                    "AddressType": "STREET"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI"
-                  },
-                  {
-                    "PhoneType": "DEFAULT"
-                  },
-                  {
-                    "PhoneType": "FAX"
-                  },
-                  {
-                    "PhoneType": "MOBILE"
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776708221917+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "7c913d33-39d5-4a1c-b8b1-e23f5fc999e0",
-                "ContactStatus": "ACTIVE",
-                "Name": "City Limousines",
-                "FirstName": "Martin",
-                "LastName": "Dale",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "AddressLine1": "1206 Harbour Tower\n",
-                    "AddressLine2": "59-65 South Street",
-                    "AddressLine3": "",
-                    "AddressLine4": "",
-                    "City": "Coppertown",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": "",
-                    "AttentionTo": "Accounts Dept"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "8004001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "7774001",
-                    "PhoneAreaCode": "01",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776722395877+0000)/",
-                "ContactGroups": [
-                  {
-                    "ContactGroupID": "50e845c3-464e-4a6d-8951-8794317c7893",
-                    "Name": "Training customers",
-                    "Status": "ACTIVE",
-                    "Contacts": [],
-                    "HasValidationErrors": false
-                  }
-                ],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "Balances": {
-                  "AccountsReceivable": {
-                    "Outstanding": 1189.83,
-                    "Overdue": 486.2
-                  },
-                  "AccountsPayable": {
-                    "Outstanding": 0,
-                    "Overdue": 0
-                  }
-                },
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "ed178511-a781-44fc-aa98-d2f0ad750a95",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776748024770+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": true,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "96c78111-ef15-4a04-acf8-f9c367649e11",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact 1776869086",
-                "FirstName": "Test",
-                "LastName": "Contact",
-                "EmailAddress": "test1776869086@example.com",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776869092383+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "908cc2f9-a5eb-4414-a375-cc6d66f3672d",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact 1776869155",
-                "FirstName": "Test",
-                "LastName": "Contact",
-                "EmailAddress": "test1776869155@example.com",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776869160453+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "5fe67a74-e028-46ac-9115-36465e09971f",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact Updated",
-                "FirstName": "Test",
-                "LastName": "User",
-                "EmailAddress": "test@example.com",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "San Francisco",
-                    "Region": "CA",
-                    "PostalCode": "",
-                    "Country": "USA"
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "555-1234",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776869863153+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "99ab9271-7569-495b-b4a0-aeb20f34ad86",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact 1776870625",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776870631400+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "57a8730f-c972-43b3-a339-9750b62f74c5",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact for Mocks",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1776870639023+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "2954ee79-d71b-4878-8a6c-e73e23799364",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact ABC123",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1777031734893+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              },
-              {
-                "ContactID": "64ae88f6-d5ca-43e3-a7e2-f9a8ca006c3d",
-                "ContactStatus": "ACTIVE",
-                "Name": "Test Contact Save 2026-04-24",
-                "EmailAddress": "",
-                "BankAccountDetails": "",
-                "Addresses": [
-                  {
-                    "AddressType": "STREET",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  },
-                  {
-                    "AddressType": "POBOX",
-                    "City": "",
-                    "Region": "",
-                    "PostalCode": "",
-                    "Country": ""
-                  }
-                ],
-                "Phones": [
-                  {
-                    "PhoneType": "DDI",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "DEFAULT",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "FAX",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  },
-                  {
-                    "PhoneType": "MOBILE",
-                    "PhoneNumber": "",
-                    "PhoneAreaCode": "",
-                    "PhoneCountryCode": ""
-                  }
-                ],
-                "UpdatedDateUTC": "/Date(1777031765773+0000)/",
-                "ContactGroups": [],
-                "IsSupplier": false,
-                "IsCustomer": false,
-                "ContactPersons": [],
-                "HasAttachments": false,
-                "HasValidationErrors": false
-              }
-            ]
+      "/api.xro/2.0/Contacts": {
+        "response": {
+          "Id": "c1e53f25-bfec-4430-928a-95937ee0c6d1",
+          "Status": "OK",
+          "ProviderName": "Nango",
+          "DateTimeUTC": "/Date(1786494146395)/",
+          "pagination": {
+            "page": 1,
+            "pageSize": 100,
+            "pageCount": 1,
+            "itemCount": 58
           },
-          "status": 200,
-          "headers": {
-            "date": "Fri, 24 Apr 2026 12:04:51 GMT",
-            "content-type": "application/json; charset=utf-8",
-            "content-length": "83014",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "SAMEORIGIN",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=5184000; includeSubDomains",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4981",
-            "x-ratelimit-reset": "1777032336",
-            "etag": "W/\"14446-Csl0l9a4b59Z/6oWQnW3QXP8LpU\""
-          },
-          "hash": "3f1b459475172a8902ae362f963d4232d9bbdd1d",
-          "request": {
-            "params": {
-              "includeArchived": "false",
-              "order": "UpdatedDateUTC ASC",
-              "page": "1"
+          "Contacts": [
+            {
+              "ContactID": "c313aeb9-6fd1-4ead-9e0a-4b7e8bff0d1a",
+              "ContactStatus": "ACTIVE",
+              "Name": "Office Supplies Company",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
             },
-            "headers": {
-              "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            {
+              "ContactID": "f817d079-80ba-4a4f-8b57-6171c0cdd14c",
+              "ContactStatus": "ACTIVE",
+              "Name": "Epicenter Cafe",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "DefaultCurrency": "USD",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "54999de9-4690-4195-99bc-646970b23fb1",
+              "ContactStatus": "ACTIVE",
+              "Name": "Brunswick Petals",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "4e3ae48f-b6fb-4097-aa3b-6bdc6ad9de5a",
+              "ContactStatus": "ACTIVE",
+              "Name": "7-Eleven",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "b47b7750-4d86-447b-92ad-6fbefcf888b6",
+              "ContactStatus": "ACTIVE",
+              "Name": "Ridgeway Bank",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ce108527-e45b-4f3c-b92d-7006397206d6",
+              "ContactStatus": "ACTIVE",
+              "Name": "Melrose Parking",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "b89da77c-1a13-4893-8d65-71cd38fc623a",
+              "ContactStatus": "ACTIVE",
+              "Name": "Fulton Airport Parking",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "827deebb-d4dd-4b52-933f-851631ab93c4",
+              "ContactStatus": "ACTIVE",
+              "Name": "Coco Cafe",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "c7127731-d324-4e26-a03e-854ce9a3a269",
+              "ContactStatus": "ACTIVE",
+              "Name": "Berry Brew",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "8203e078-7385-4858-b2c8-8aaf49945ea9",
+              "ContactStatus": "ACTIVE",
+              "Name": "Espresso 31",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "87c5c6ba-efb6-4b72-b21f-ad0cb459d08e",
+              "ContactStatus": "ACTIVE",
+              "Name": "Gable Print",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "b107cfac-8b40-464a-bf04-aff916368353",
+              "ContactStatus": "ACTIVE",
+              "Name": "Dimples Warehouse",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "DefaultCurrency": "USD",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "41d5f1eb-a007-4ef8-b68a-b6856ab1791e",
+              "ContactStatus": "ACTIVE",
+              "Name": "Wilson Periodicals",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "6a31faab-588e-46a1-be9a-bd6d1dd468df",
+              "ContactStatus": "ACTIVE",
+              "Name": "Woolworths Market",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "083b669b-283b-44ac-ab0a-c208b6857520",
+              "ContactStatus": "ACTIVE",
+              "Name": "Jakaranda Maple Systems",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "BrandingTheme": {
+                "BrandingThemeID": "d1693b77-bb15-4d6b-b655-450567c79e6b"
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "4f8dbc9b-889f-44d7-b263-d99f14ccf6f7",
+              "ContactStatus": "ACTIVE",
+              "Name": "24 Locks",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ef704256-b000-4f82-95d8-ff8bf642675d",
+              "ContactStatus": "ACTIVE",
+              "Name": "Willow Properties",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422347+0000)/",
+              "DefaultCurrency": "USD",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ac565f9c-9829-4f51-8a5b-0400de972b3c",
+              "ContactStatus": "ACTIVE",
+              "Name": "PowerDirect",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "345678901234",
+              "AccountsPayableTaxType": "INPUT",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "BatchPayments": {
+                "BankAccountNumber": "345678901234",
+                "BankAccountName": "PowerDirect Holdings",
+                "Details": "DEMO-US",
+                "Code": "",
+                "Reference": ""
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "4ce9a08f-d89e-419d-ac8a-246f1eebfcbf",
+              "ContactStatus": "ACTIVE",
+              "Name": "MCO Cleaning Services",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "c94a5733-bef8-432f-999d-372f94d10570",
+              "ContactStatus": "ACTIVE",
+              "Name": "ABC Furniture",
+              "FirstName": "Trish",
+              "LastName": "Rawlings",
+              "EmailAddress": "info@abfl.com",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "DefaultCurrency": "USD",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "fd828588-f334-415e-b219-3e19f0bd074e",
+              "ContactStatus": "ACTIVE",
+              "Name": "SMART Agency",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "19732b6a-9a5c-4651-b33c-3f8f682e2a2b",
+              "ContactStatus": "ACTIVE",
+              "Name": "Hoyt Productions",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "accounts@hoytmadeupdemo.com",
+              "BankAccountDetails": "",
+              "TaxNumber": "123-45-6780",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "TaxNumberType": "SSN",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "4711f569-42bf-416a-9e22-452588101e41",
+              "ContactStatus": "ACTIVE",
+              "Name": "PC Complete",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "8155d614-a477-4811-bc54-454cac9820a4",
+              "ContactStatus": "ACTIVE",
+              "Name": "Swanston Security",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "3267b96c-d285-4daa-9c52-59e7033d9bc7",
+              "ContactStatus": "ACTIVE",
+              "Name": "Central Copiers",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "58cec998-02d2-4062-9703-68825a6da97d",
+              "ContactStatus": "ACTIVE",
+              "Name": "Gateway Motors",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "d2c4fb21-9e30-44de-bd7d-7200afa1412c",
+              "ContactStatus": "ACTIVE",
+              "Name": "Capital Cab Co",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "123456789012",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "BatchPayments": {
+                "BankAccountNumber": "123456789012",
+                "BankAccountName": "Capital Cab Holdings",
+                "Details": "DEMO-US",
+                "Code": "",
+                "Reference": ""
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "6aca7bad-c92b-4d33-8a1e-acb225dd4d5e",
+              "ContactStatus": "ACTIVE",
+              "Name": "Bayside Wholesale",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "34625f09-014d-4042-a260-b06ef6bc6260",
+              "ContactStatus": "ACTIVE",
+              "Name": "Xero",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "b59b90a0-e0e8-49d5-bd14-bfe437be0200",
+              "ContactStatus": "ACTIVE",
+              "Name": "Net Connect",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "234567890123",
+              "AccountsPayableTaxType": "INPUT",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "BatchPayments": {
+                "BankAccountNumber": "234567890123",
+                "BankAccountName": "Net Connect Holdings",
+                "Details": "DEMO-US",
+                "Code": "",
+                "Reference": ""
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "8f9f0c88-4926-4f9d-9a75-c56264fdd82f",
+              "ContactStatus": "ACTIVE",
+              "Name": "State Taxing Authority",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "07437e1e-6ce0-4aa8-97e3-d49988e9ef34",
+              "ContactStatus": "ACTIVE",
+              "Name": "US Treasury",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "018355fc-c67e-4352-b443-ef3873031983",
+              "ContactStatus": "ACTIVE",
+              "Name": "Truxton Property Management",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "accounts@truxtonmadeupdemo.com",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "33b9a451-6c4c-4925-b70b-f89af47c332e",
+              "ContactStatus": "ACTIVE",
+              "Name": "Carlton Functions",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422363+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "f477ad8d-44f2-4bb7-a99b-04f28681e849",
+              "ContactStatus": "ACTIVE",
+              "Name": "Petrie McLoud Watson & Associates",
+              "FirstName": "Morris",
+              "LastName": "McKenzie",
+              "EmailAddress": "mm@pmwla.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "375ac066-85a0-4044-a8be-3159856d5c85",
+              "ContactStatus": "ACTIVE",
+              "Name": "Rex Media Group",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "info@rexmedia.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "a6e00e18-ade7-4fbf-8b4f-3a5c2c983bbb",
+              "ContactStatus": "ACTIVE",
+              "Name": "Basket Case",
+              "FirstName": "Mary",
+              "LastName": "Munn",
+              "EmailAddress": "shop@basketcase.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "BrandingTheme": {
+                "BrandingThemeID": "1e24fc36-04c9-4e94-b684-c4d2b89a09db"
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ee60f2b0-6a94-4f5d-92aa-58ac78d3a272",
+              "ContactStatus": "ACTIVE",
+              "Name": "Hamilton Smith Ltd",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "info@hsg.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "7f6b4b35-455f-4e3e-8632-6005973ee1b9",
+              "ContactStatus": "ACTIVE",
+              "Name": "Marine Systems",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ec65f1ee-6aa5-4898-bdb5-67df3e9ee9ba",
+              "ContactStatus": "ACTIVE",
+              "Name": "Boom FM",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "81d5706a-8057-4338-8511-747cd85f4c68",
+              "ContactStatus": "ACTIVE",
+              "Name": "Bank West",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "cbd07c33-2c68-422b-bd15-9820d5117204",
+              "ContactStatus": "ACTIVE",
+              "Name": "DIISR - Small Business Services",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "cad@diisr.govt",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "5ff5e0b3-42ea-4630-a005-9c6dc50ccb29",
+              "ContactStatus": "ACTIVE",
+              "Name": "City Agency",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "9baaed90-5feb-422d-a9a5-b4c0afa500ae",
+              "ContactStatus": "ACTIVE",
+              "Name": "Young Bros Transport",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "rog@ybt.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "99007ae2-bbf5-4287-8728-c353f9aa19c3",
+              "ContactStatus": "ACTIVE",
+              "Name": "City Limousines",
+              "FirstName": "Martin",
+              "LastName": "Dale",
+              "EmailAddress": "martyd@citylim.co",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "1ba3a4e6-9873-4387-aeac-c4553038fb68",
+              "ContactStatus": "ACTIVE",
+              "Name": "Port & Philip Freight",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "181edd84-d098-4468-95cd-e3ac74bc22c5",
+              "ContactStatus": "ACTIVE",
+              "Name": "Ridgeway University",
+              "FirstName": "",
+              "LastName": "",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "82d67717-1d2e-4f44-be65-f73a68df8a9f",
+              "ContactStatus": "ACTIVE",
+              "Name": "Bayside Club",
+              "FirstName": "Bob",
+              "LastName": "Partridge",
+              "EmailAddress": "bob.partridge@bayclub.co",
+              "BankAccountDetails": "101-555-101 00123-12345",
+              "TaxNumber": "EIN 55-123456",
+              "AccountsReceivableTaxType": "INPUT",
+              "AccountsPayableTaxType": "OUTPUT",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786471422390+0000)/",
+              "BatchPayments": {
+                "BankAccountNumber": "101-555-101 00123-12345",
+                "BankAccountName": "Madeup Town Bank",
+                "Details": "OIT-US",
+                "Code": "",
+                "Reference": ""
+              },
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "3784392f-1806-46be-bd6c-0ba1b006f5a3",
+              "ContactStatus": "ACTIVE",
+              "Name": "Abby & Wells",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786483021550+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "abe2ec0b-2e9c-43dd-88fe-19f62a4aa914",
+              "ContactStatus": "ACTIVE",
+              "Name": "RITE Agency",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786483021557+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "9afe194a-e392-4c98-8a8b-605d9f845512",
+              "ContactStatus": "ACTIVE",
+              "Name": "Eastside Club",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786483021557+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "3c59357f-97a2-4638-be3f-db943b91552d",
+              "ContactStatus": "ACTIVE",
+              "Name": "Luna Cafe",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786483021557+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "852c066a-e239-4102-8fd5-3e06854fde49",
+              "ContactNumber": "38e71e4718f86ea88247268fa44868bd95d6cf966cc5fc434e",
+              "ContactStatus": "ACTIVE",
+              "Name": "Nango API",
+              "FirstName": "Nango",
+              "LastName": "API",
+              "EmailAddress": "api+xero1@nango.dev",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786483021720+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "61634a4b-8b70-41ae-89c3-2020b376a5fa",
+              "ContactStatus": "ACTIVE",
+              "Name": "Passing Places Parking",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786487136707+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "15aca295-abf8-4464-a0a4-0182a74d5281",
+              "ContactStatus": "ACTIVE",
+              "Name": "AT&T",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786487393153+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "9495ae21-ec99-4bfe-a6c0-6d43156f3374",
+              "ContactStatus": "ACTIVE",
+              "Name": "Nango Registry Test Contact Dryrun",
+              "EmailAddress": "dryrun@example.com",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786490238047+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "ea7900fe-bbbd-437b-a2ec-511c33717a97",
+              "ContactStatus": "ACTIVE",
+              "Name": "Nango Registry Test Contact Save 1786490339",
+              "EmailAddress": "save@example.com",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786490343663+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
+            },
+            {
+              "ContactID": "cdc5d3e5-27d2-4b15-85db-30666ff733df",
+              "ContactStatus": "ACTIVE",
+              "Name": "Nango Registry Test Contact 3",
+              "EmailAddress": "",
+              "BankAccountDetails": "",
+              "Phones": [],
+              "UpdatedDateUTC": "/Date(1786490530867+0000)/",
+              "ContactPersons": [],
+              "HasValidationErrors": false
             }
-          }
+          ]
         },
-        {
-          "response": {
-            "Id": "5ed1c3bc-8496-41db-b37d-da4468a2ca7b",
-            "Status": "OK",
-            "ProviderName": "NangoAPI",
-            "DateTimeUTC": "/Date(1777032292485)/",
-            "pagination": {
-              "page": 2,
-              "pageSize": 100,
-              "pageCount": 1,
-              "itemCount": 63
-            },
-            "Contacts": []
+        "status": 200,
+        "headers": {
+          "date": "Wed, 12 Aug 2026 00:22:26 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "24335",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1786494188",
+          "xero-correlation-id": "c1e53f25-bfec-4430-928a-95937ee0c6d1",
+          "x-appminlimit-remaining": "9991",
+          "x-minlimit-remaining": "51",
+          "x-daylimit-remaining": "4198",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Wed, 12 Aug 2026 00:22:26 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"5f0f-bPtAta3mtgvQGDjmLIaS7RbNRjg\""
+        },
+        "hash": "b8ea99e56471b24d7ebaf6c7bec888522fbcb8c8",
+        "request": {
+          "params": {
+            "pageSize": "100",
+            "page": "1",
+            "summaryOnly": "true"
           },
-          "status": 200,
           "headers": {
-            "date": "Fri, 24 Apr 2026 12:04:52 GMT",
-            "content-type": "application/json; charset=utf-8",
-            "content-length": "271",
-            "connection": "keep-alive",
-            "x-xss-protection": "0",
-            "x-content-type-options": "nosniff",
-            "x-download-options": "noopen",
-            "x-frame-options": "SAMEORIGIN",
-            "x-dns-prefetch-control": "off",
-            "strict-transport-security": "max-age=5184000; includeSubDomains",
-            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-            "access-control-allow-origin": "*",
-            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-            "x-ratelimit-limit": "5000",
-            "x-ratelimit-remaining": "4980",
-            "x-ratelimit-reset": "1777032336",
-            "etag": "W/\"10f-z3dvf9QEhV+H3T8Vbk3dWtjWi7o\""
-          },
-          "hash": "025f51771f959d4dfcaf2583b982b017ec720f51",
-          "request": {
-            "params": {
-              "includeArchived": "false",
-              "order": "UpdatedDateUTC ASC",
-              "page": "2"
-            },
-            "headers": {
-              "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
-            }
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
           }
         }
-      ]
+      }
     }
   }
 }

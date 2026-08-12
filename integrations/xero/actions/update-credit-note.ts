@@ -1,55 +1,78 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    CreditNoteID: z.string().describe('Credit Note ID. Example: "249f15fa-f2a7-4acc-8769-0984103f2225"'),
-    Status: z.string().optional().describe('Status. Example: "AUTHORISED"'),
-    Reference: z.string().optional().describe('Reference. Example: "Updated Reference"'),
-    Date: z.string().optional().describe('Date in YYYY-MM-DD format'),
-    ContactID: z.string().optional().describe('Contact ID. Example: "430fa14a-f945-44d3-9f97-5df5e28441b8"'),
-    LineAmountTypes: z.string().optional().describe('Line amount types. Example: "Exclusive"'),
-    Type: z.string().optional().describe('Credit note type. Example: "ACCPAYCREDIT"')
+const InputSchema = z
+    .object({
+        creditNoteId: z.string().describe('The Xero CreditNoteID of the credit note to update. Example: "02cce9fe-e160-4fba-af84-8cc618a89ebe"'),
+        status: z.string().optional().describe('New status for the credit note. Valid values: DRAFT, SUBMITTED, AUTHORISED, VOIDED, DELETED.'),
+        reference: z.string().nullable().optional().describe('New reference text. Pass null to clear the existing reference.'),
+        sentToContact: z.boolean().optional().describe('Whether the credit note has been sent to the contact.')
+    })
+    .describe('Input fields for updating an existing Xero credit note.');
+
+const ProviderContactSchema = z.object({
+    ContactID: z.string(),
+    Name: z.string().optional()
 });
 
-const CreditNoteSchema = z.object({
-    CreditNoteID: z.string().optional(),
-    CreditNoteNumber: z.string().optional(),
-    Status: z.string().optional(),
-    Reference: z.string().optional(),
-    Type: z.string().optional(),
-    Total: z.number().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    Date: z.string().optional(),
-    DueDate: z.string().optional(),
-    SubTotal: z.number().optional(),
-    TotalTax: z.number().optional(),
-    CurrencyCode: z.string().optional(),
-    LineAmountTypes: z.string().optional()
+const ProviderLineItemSchema = z.object({
+    Description: z.string().optional(),
+    Quantity: z.number().optional(),
+    UnitAmount: z.number().optional(),
+    AccountCode: z.string().optional(),
+    TaxType: z.string().optional()
 });
 
-const OutputSchema = z.object({
+const ProviderCreditNoteSchema = z.object({
     CreditNoteID: z.string(),
     CreditNoteNumber: z.string().optional(),
     Status: z.string().optional(),
     Reference: z.string().optional(),
     Type: z.string().optional(),
-    Total: z.number().optional(),
-    UpdatedDateUTC: z.string().optional(),
+    Contact: ProviderContactSchema.optional(),
     Date: z.string().optional(),
-    DueDate: z.string().optional(),
     SubTotal: z.number().optional(),
     TotalTax: z.number().optional(),
-    CurrencyCode: z.string().optional(),
-    LineAmountTypes: z.string().optional()
+    Total: z.number().optional(),
+    UpdatedDateUTC: z.string().optional(),
+    LineItems: z.array(ProviderLineItemSchema).optional()
 });
 
-const XeroResponseSchema = z.object({
-    CreditNotes: z.array(z.unknown()).optional()
+const ProviderResponseSchema = z.object({
+    CreditNotes: z.array(ProviderCreditNoteSchema).optional(),
+    Status: z.string().optional()
 });
 
+const OutputSchema = z
+    .object({
+        creditNoteId: z.string().describe('The Xero CreditNoteID of the updated credit note.'),
+        creditNoteNumber: z.string().optional().describe('The human-readable credit note number assigned by Xero.'),
+        status: z.string().optional().describe('Current status of the credit note, e.g. AUTHORISED, VOIDED, DELETED.'),
+        reference: z.string().optional().describe('Reference text associated with the credit note.'),
+        type: z.string().optional().describe('Credit note type, e.g. ACCPAYCREDIT or ACCRECCREDIT.'),
+        contact: z
+            .object({
+                contactId: z.string().describe('Xero ContactID of the associated contact.'),
+                name: z.string().optional().describe('Display name of the associated contact.')
+            })
+            .optional()
+            .describe('Contact associated with the credit note.'),
+        date: z.string().optional().describe('Issue date of the credit note in YYYY-MM-DD format.'),
+        subTotal: z.number().optional().describe('Subtotal amount excluding tax.'),
+        totalTax: z.number().optional().describe('Total tax amount.'),
+        total: z.number().optional().describe('Total amount including tax.'),
+        updatedDateUtc: z.string().optional().describe('UTC timestamp of the last update in ISO 8601 format.')
+    })
+    .describe('The updated Xero credit note returned after a successful update.');
+
+/**
+ * @tags: [write]
+ * @tagReason: Sends a POST mutation to update an existing credit note on the provider.
+ * @pitfalls: Updates fail if the credit note's contact is archived, even for non-contact changes. An AUTHORISED credit note must be VOIDED before it can be DELETED; DELETED only works directly from DRAFT or SUBMITTED.
+ */
 const action = createAction({
     description: 'Update an existing credit note.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices'],
@@ -57,95 +80,62 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
 
-        let tenantId: string | undefined;
+        const ConnectionConfigSchema = z.object({
+            tenant_id: z.string().optional()
+        });
+        const connectionConfig = ConnectionConfigSchema.parse(connection.connection_config || {});
 
-        const configTenantId = connection.connection_config['tenant_id'];
-        if (typeof configTenantId === 'string') {
-            tenantId = configTenantId;
-        }
+        const MetadataSchema = z.object({
+            tenantId: z.string().optional()
+        });
+        const metadata = MetadataSchema.parse(connection.metadata || {});
 
-        if (!tenantId && connection.metadata !== null) {
-            const metaTenantId = connection.metadata['tenantId'];
-            if (typeof metaTenantId === 'string') {
-                tenantId = metaTenantId;
-            }
-        }
+        let tenantId = connectionConfig.tenant_id || metadata.tenantId || '';
 
         if (!tenantId) {
+            // https://developer.xero.com/documentation/guides/oauth2/auth-flow/#connections
             const connectionsResponse = await nango.get({
-                // https://developer.xero.com/documentation/api/accounting/connections
                 endpoint: 'connections',
                 retries: 10
             });
 
-            const data: unknown = connectionsResponse.data;
-            if (!Array.isArray(data)) {
+            const rawConnections = connectionsResponse.data;
+            if (!Array.isArray(rawConnections) || rawConnections.length === 0) {
                 throw new nango.ActionError({
                     type: 'missing_tenant',
-                    message: 'No tenant data found in connections response.'
+                    message: 'No Xero tenants found for this connection.'
                 });
             }
 
-            if (data.length === 0) {
-                throw new nango.ActionError({
-                    type: 'missing_tenant',
-                    message: 'No tenants found for this connection.'
-                });
-            }
-
-            if (data.length > 1) {
+            if (rawConnections.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
 
-            const firstConnection = data[0];
-            if (firstConnection === undefined || typeof firstConnection !== 'object' || firstConnection === null) {
-                throw new nango.ActionError({
-                    type: 'missing_tenant',
-                    message: 'Invalid tenant data in connections response.'
-                });
-            }
-
-            const resolvedTenantId = 'tenantId' in firstConnection ? firstConnection['tenantId'] : undefined;
-            if (typeof resolvedTenantId === 'string') {
-                tenantId = resolvedTenantId;
+            const firstConnection = z.object({ tenantId: z.string() }).safeParse(rawConnections[0]);
+            if (firstConnection.success && firstConnection.data.tenantId.length > 0) {
+                tenantId = firstConnection.data.tenantId;
             }
         }
 
         if (!tenantId) {
             throw new nango.ActionError({
                 type: 'missing_tenant',
-                message: 'Could not resolve Xero tenant ID.'
+                message: 'Unable to resolve xero-tenant-id.'
             });
         }
 
         const creditNotePayload: Record<string, unknown> = {
-            CreditNoteID: input.CreditNoteID
+            CreditNoteID: input.creditNoteId,
+            ...(input.status !== undefined && { Status: input.status }),
+            ...(input.reference !== undefined && { Reference: input.reference }),
+            ...(input.sentToContact !== undefined && { SentToContact: input.sentToContact })
         };
 
-        if (input.Status !== undefined) {
-            creditNotePayload['Status'] = input.Status;
-        }
-        if (input.Reference !== undefined) {
-            creditNotePayload['Reference'] = input.Reference;
-        }
-        if (input.Date !== undefined) {
-            creditNotePayload['Date'] = input.Date;
-        }
-        if (input.ContactID !== undefined) {
-            creditNotePayload['Contact'] = { ContactID: input.ContactID };
-        }
-        if (input.LineAmountTypes !== undefined) {
-            creditNotePayload['LineAmountTypes'] = input.LineAmountTypes;
-        }
-        if (input.Type !== undefined) {
-            creditNotePayload['Type'] = input.Type;
-        }
-
+        // https://developer.xero.com/documentation/api/accounting/creditnotes
         const response = await nango.post({
-            // https://developer.xero.com/documentation/api/accounting/creditnotes
             endpoint: 'api.xro/2.0/CreditNotes',
             headers: {
                 'xero-tenant-id': tenantId
@@ -156,61 +146,42 @@ const action = createAction({
             retries: 3
         });
 
-        const responseData: unknown = response.data;
-        if (responseData === null || typeof responseData !== 'object') {
+        const parsed = ProviderResponseSchema.parse(response.data || {});
+
+        if (parsed.Status && parsed.Status !== 'OK') {
             throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Invalid response from Xero API.'
+                type: 'provider_error',
+                message: `Xero returned status: ${parsed.Status}`
             });
         }
 
-        const parsedResponse = XeroResponseSchema.safeParse(responseData);
-        if (!parsedResponse.success) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Could not parse Xero API response.'
-            });
-        }
+        const creditNotes = parsed.CreditNotes || [];
+        const firstNote = creditNotes[0];
 
-        const creditNotes = parsedResponse.data.CreditNotes;
-        if (!creditNotes || creditNotes.length === 0) {
+        if (!firstNote) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: 'Credit note was not returned in the response.'
-            });
-        }
-
-        const firstCreditNote = creditNotes[0];
-        if (firstCreditNote === undefined || typeof firstCreditNote !== 'object' || firstCreditNote === null) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Invalid credit note data in response.'
-            });
-        }
-
-        const parsedCreditNote = CreditNoteSchema.parse(firstCreditNote);
-
-        if (!parsedCreditNote.CreditNoteID) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Credit Note ID is missing from the response.'
+                message: 'No credit note returned in the provider response.'
             });
         }
 
         return {
-            CreditNoteID: parsedCreditNote.CreditNoteID,
-            ...(parsedCreditNote.CreditNoteNumber !== undefined && { CreditNoteNumber: parsedCreditNote.CreditNoteNumber }),
-            ...(parsedCreditNote.Status !== undefined && { Status: parsedCreditNote.Status }),
-            ...(parsedCreditNote.Reference !== undefined && { Reference: parsedCreditNote.Reference }),
-            ...(parsedCreditNote.Type !== undefined && { Type: parsedCreditNote.Type }),
-            ...(parsedCreditNote.Total !== undefined && { Total: parsedCreditNote.Total }),
-            ...(parsedCreditNote.UpdatedDateUTC !== undefined && { UpdatedDateUTC: parsedCreditNote.UpdatedDateUTC }),
-            ...(parsedCreditNote.Date !== undefined && { Date: parsedCreditNote.Date }),
-            ...(parsedCreditNote.DueDate !== undefined && { DueDate: parsedCreditNote.DueDate }),
-            ...(parsedCreditNote.SubTotal !== undefined && { SubTotal: parsedCreditNote.SubTotal }),
-            ...(parsedCreditNote.TotalTax !== undefined && { TotalTax: parsedCreditNote.TotalTax }),
-            ...(parsedCreditNote.CurrencyCode !== undefined && { CurrencyCode: parsedCreditNote.CurrencyCode }),
-            ...(parsedCreditNote.LineAmountTypes !== undefined && { LineAmountTypes: parsedCreditNote.LineAmountTypes })
+            creditNoteId: firstNote.CreditNoteID,
+            ...(firstNote.CreditNoteNumber !== undefined && { creditNoteNumber: firstNote.CreditNoteNumber }),
+            ...(firstNote.Status !== undefined && { status: firstNote.Status }),
+            ...(firstNote.Reference !== undefined && { reference: firstNote.Reference }),
+            ...(firstNote.Type !== undefined && { type: firstNote.Type }),
+            ...(firstNote.Contact !== undefined && {
+                contact: {
+                    contactId: firstNote.Contact.ContactID,
+                    ...(firstNote.Contact.Name !== undefined && { name: firstNote.Contact.Name })
+                }
+            }),
+            ...(firstNote.Date !== undefined && { date: firstNote.Date }),
+            ...(firstNote.SubTotal !== undefined && { subTotal: firstNote.SubTotal }),
+            ...(firstNote.TotalTax !== undefined && { totalTax: firstNote.TotalTax }),
+            ...(firstNote.Total !== undefined && { total: firstNote.Total }),
+            ...(firstNote.UpdatedDateUTC !== undefined && { updatedDateUtc: firstNote.UpdatedDateUTC })
         };
     }
 });

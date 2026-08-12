@@ -1,0 +1,118 @@
+{
+  "input": {
+    "contactId": "de917205-1599-4dd4-b319-4adf72eadfe3",
+    "name": "Nango Registry Test Project 3"
+  },
+  "output": {
+    "projectId": "524da328-ecfe-431f-b7a7-f142de146865",
+    "name": "Nango Registry Test Project 3",
+    "contactId": "de917205-1599-4dd4-b319-4adf72eadfe3",
+    "status": "INPROGRESS"
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "post": {
+      "/projects.xro/2.0/Projects": {
+        "response": {
+          "projectId": "524da328-ecfe-431f-b7a7-f142de146865",
+          "contactId": "de917205-1599-4dd4-b319-4adf72eadfe3",
+          "name": "Nango Registry Test Project 3",
+          "currencyCode": "USD",
+          "minutesLogged": 0,
+          "totalTaskAmount": {
+            "currency": "USD",
+            "value": 0
+          },
+          "totalExpenseAmount": {
+            "currency": "USD",
+            "value": 0
+          },
+          "minutesToBeInvoiced": 0,
+          "taskAmountToBeInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "taskAmountInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "expenseAmountToBeInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "expenseAmountInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "projectAmountInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "deposit": {
+            "currency": "USD",
+            "value": 0
+          },
+          "depositApplied": {
+            "currency": "USD",
+            "value": 0
+          },
+          "creditNoteAmount": {
+            "currency": "USD",
+            "value": 0
+          },
+          "totalInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "totalToBeInvoiced": {
+            "currency": "USD",
+            "value": 0
+          },
+          "status": "INPROGRESS"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:16:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1155",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1954",
+          "x-ratelimit-reset": "1786490233",
+          "xero-correlation-id": "4414aa12-5501-4a6c-8792-38dc0dc34fb2",
+          "x-appminlimit-remaining": "9994",
+          "x-minlimit-remaining": "58",
+          "x-daylimit-remaining": "4891",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:16:49 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"483-V1gn11ouWhGBphuy1hrkVe3HleQ\""
+        },
+        "hash": "982802c46a212099046c73e373b9983753e67d87",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          },
+          "data": {
+            "contactId": "de917205-1599-4dd4-b319-4adf72eadfe3",
+            "name": "Nango Registry Test Project 3"
+          }
+        }
+      }
+    }
+  }
+}

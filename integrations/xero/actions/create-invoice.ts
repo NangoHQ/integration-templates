@@ -2,137 +2,147 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const LineItemInputSchema = z.object({
-    description: z.string(),
-    quantity: z.number(),
-    unit_amount: z.number(),
-    account_code: z.string(),
-    item_code: z.string().optional(),
-    tax_type: z.string().optional()
+    description: z.string().describe('Description of the line item. Example: "Consulting services"'),
+    quantity: z.number().describe('Quantity of the line item. Example: 2'),
+    unit_amount: z.number().describe('Unit price of the line item. Example: 100.00'),
+    account_code: z.string().describe('Account code for the line item. Example: "400"')
 });
 
-const InputSchema = z.object({
-    type: z.enum(['ACCREC', 'ACCPAY']),
-    contact_id: z.string(),
-    date: z.string(),
-    due_date: z.string().optional(),
-    status: z.enum(['DRAFT', 'SUBMITTED', 'AUTHORISED']).optional(),
-    reference: z.string().optional(),
-    line_items: z.array(LineItemInputSchema)
+const ContactInputSchema = z.object({
+    contact_id: z.string().describe('Xero Contact ID to associate with the invoice. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"')
 });
 
-const XeroContactSchema = z.object({
-    ContactID: z.string()
+const InputSchema = z
+    .object({
+        type: z.enum(['ACCREC', 'ACCPAY']).describe('Invoice type. ACCREC = sales invoice, ACCPAY = purchase invoice.'),
+        contact: ContactInputSchema.describe('Contact to associate with the invoice.'),
+        date: z.string().describe('Invoice date in YYYY-MM-DD format. Example: "2026-08-11"'),
+        due_date: z.string().optional().describe('Due date in YYYY-MM-DD format. Omit to use the contact payment terms.'),
+        line_items: z.array(LineItemInputSchema).describe('Line items for the invoice.'),
+        status: z
+            .enum(['DRAFT', 'SUBMITTED', 'AUTHORISED'])
+            .optional()
+            .describe('Invoice status. AUTHORISED posts immediately; DRAFT leaves it editable. Defaults to DRAFT if omitted.')
+    })
+    .describe('Input for creating a Xero invoice.');
+
+const ProviderContactSchema = z.object({
+    ContactID: z.string().optional(),
+    Name: z.string().optional()
 });
 
-const XeroLineItemSchema = z.object({
-    Description: z.string(),
-    Quantity: z.number(),
-    UnitAmount: z.number(),
-    AccountCode: z.string(),
-    ItemCode: z.string().optional(),
-    TaxType: z.string().optional()
+const ProviderLineItemSchema = z.object({
+    Description: z.string().optional(),
+    Quantity: z.number().optional(),
+    UnitAmount: z.number().optional(),
+    AccountCode: z.string().optional(),
+    LineItemID: z.string().optional()
 });
 
-const XeroInvoiceSchema = z.object({
-    InvoiceID: z.string(),
+const ProviderInvoiceSchema = z.object({
+    InvoiceID: z.string().optional(),
     InvoiceNumber: z.string().optional(),
-    Type: z.string(),
-    Status: z.string(),
+    Type: z.string().optional(),
+    Status: z.string().optional(),
+    Contact: ProviderContactSchema.optional(),
     Date: z.string().optional(),
     DueDate: z.string().optional(),
-    Reference: z.string().optional(),
-    Contact: XeroContactSchema,
-    LineItems: z.array(XeroLineItemSchema).optional(),
-    Total: z.number().optional(),
+    LineItems: z.array(ProviderLineItemSchema).optional(),
     SubTotal: z.number().optional(),
-    TotalTax: z.number().optional()
+    TotalTax: z.number().optional(),
+    Total: z.number().optional(),
+    UpdatedDateUTC: z.string().optional()
 });
 
-const XeroInvoicesResponseSchema = z.object({
-    Id: z.string(),
-    Status: z.string(),
-    Invoices: z.array(XeroInvoiceSchema)
+const ProviderResponseSchema = z.object({
+    Id: z.string().optional(),
+    Status: z.string().optional(),
+    ProviderName: z.string().optional(),
+    DateTimeUTC: z.string().optional(),
+    Invoices: z.array(ProviderInvoiceSchema).optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    invoice_number: z.string().optional(),
-    type: z.string(),
-    status: z.string(),
-    date: z.string().optional(),
-    due_date: z.string().optional(),
-    reference: z.string().optional(),
-    contact_id: z.string(),
-    line_items: z
-        .array(
-            z.object({
-                description: z.string(),
-                quantity: z.number(),
-                unit_amount: z.number(),
-                account_code: z.string(),
-                item_code: z.string().optional(),
-                tax_type: z.string().optional()
-            })
-        )
-        .optional(),
-    total: z.number().optional(),
-    sub_total: z.number().optional(),
-    total_tax: z.number().optional()
+const LineItemOutputSchema = z.object({
+    line_item_id: z.string().optional().describe('Xero Line Item ID.'),
+    description: z.string().optional().describe('Description of the line item.'),
+    quantity: z.number().optional().describe('Quantity of the line item.'),
+    unit_amount: z.number().optional().describe('Unit price of the line item.'),
+    account_code: z.string().optional().describe('Account code for the line item.')
 });
 
+const ContactOutputSchema = z.object({
+    contact_id: z.string().optional().describe('Xero Contact ID.'),
+    name: z.string().optional().describe('Name of the contact.')
+});
+
+const OutputSchema = z
+    .object({
+        invoice_id: z.string().optional().describe('Xero Invoice ID.'),
+        invoice_number: z.string().optional().describe('Invoice number assigned by Xero.'),
+        type: z.string().optional().describe('Invoice type (ACCREC or ACCPAY).'),
+        status: z.string().optional().describe('Invoice status.'),
+        contact: ContactOutputSchema.optional().describe('Contact associated with the invoice.'),
+        date: z.string().optional().describe('Invoice date.'),
+        due_date: z.string().optional().describe('Invoice due date.'),
+        line_items: z.array(LineItemOutputSchema).optional().describe('Line items on the invoice.'),
+        sub_total: z.number().optional().describe('Subtotal before tax.'),
+        total_tax: z.number().optional().describe('Total tax amount.'),
+        total: z.number().optional().describe('Total amount including tax.')
+    })
+    .describe('Created Xero invoice.');
+
+/**
+ * @tags: [write]
+ * @tagReason: Creates a new invoice in the Xero organization.
+ * @pitfalls: Archived contacts remain gettable by ID but will cause a validation error when used for a new invoice. An AUTHORISED invoice posts immediately and must be voided before it can be deleted.
+ */
 const action = createAction({
     description: 'Create a sales or purchase invoice.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.invoices'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const connectionConfig = z.record(z.string(), z.unknown()).parse(connection.connection_config || {});
-        let tenantId: string | undefined = undefined;
+        const connectionData = z
+            .object({
+                connection_config: z.object({ tenant_id: z.string().optional() }).nullish(),
+                metadata: z.union([z.object({}).passthrough(), z.null()]).optional()
+            })
+            .parse(connection);
 
-        if (typeof connectionConfig === 'object' && connectionConfig !== null && 'tenant_id' in connectionConfig) {
-            const maybe = connectionConfig['tenant_id'];
-            if (typeof maybe === 'string') {
-                tenantId = maybe;
+        let tenantId: string | undefined = connectionData.connection_config?.tenant_id;
+        if (!tenantId && connectionData.metadata && typeof connectionData.metadata === 'object' && 'tenantId' in connectionData.metadata) {
+            const metaTenantId = connectionData.metadata['tenantId'];
+            if (typeof metaTenantId === 'string') {
+                tenantId = metaTenantId;
             }
         }
 
         if (!tenantId) {
-            const metadata = await nango.getMetadata();
-            const metadataRecord = z.record(z.string(), z.unknown()).parse(metadata || {});
-            if (typeof metadataRecord === 'object' && metadataRecord !== null && 'tenantId' in metadataRecord) {
-                const maybe = metadataRecord['tenantId'];
-                if (typeof maybe === 'string') {
-                    tenantId = maybe;
-                }
-            }
-        }
-
-        if (!tenantId) {
-            // https://developer.xero.com/documentation/api/accounting/connections
+            // https://developer.xero.com/documentation/api/accounting/overview
             const connectionsResponse = await nango.get({
                 endpoint: 'connections',
                 retries: 10
             });
-            const connectionsData = z.array(z.record(z.string(), z.unknown())).parse(connectionsResponse.data);
-            const connections = connectionsData.filter((c) => typeof c === 'object' && c !== null && 'tenantId' in c && typeof c['tenantId'] === 'string');
-            if (connections.length === 0) {
+
+            const connectionsData = z.array(z.object({}).passthrough()).parse(connectionsResponse.data);
+            if (connectionsData.length === 0) {
                 throw new nango.ActionError({
-                    type: 'no_tenant',
-                    message: 'No Xero tenant found on this connection.'
+                    type: 'missing_tenant',
+                    message: 'No Xero tenants found for this connection.'
                 });
             }
-            if (connections.length > 1) {
+            if (connectionsData.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
-            const first = connections[0];
-            if (first && typeof first['tenantId'] === 'string') {
-                tenantId = first['tenantId'];
+            const firstConnection = connectionsData[0];
+            if (firstConnection && typeof firstConnection === 'object' && 'tenantId' in firstConnection && typeof firstConnection['tenantId'] === 'string') {
+                tenantId = firstConnection['tenantId'];
             }
         }
 
@@ -143,28 +153,27 @@ const action = createAction({
             });
         }
 
-        const payload = {
-            Invoices: [
-                {
-                    Type: input.type,
-                    Contact: {
-                        ContactID: input.contact_id
-                    },
-                    Date: input.date,
-                    ...(input.due_date !== undefined && { DueDate: input.due_date }),
-                    ...(input.status !== undefined && { Status: input.status }),
-                    ...(input.reference !== undefined && { Reference: input.reference }),
-                    LineItems: input.line_items.map((item) => ({
-                        Description: item.description,
-                        Quantity: item.quantity,
-                        UnitAmount: item.unit_amount,
-                        AccountCode: item.account_code,
-                        ...(item.item_code !== undefined && { ItemCode: item.item_code }),
-                        ...(item.tax_type !== undefined && { TaxType: item.tax_type })
-                    }))
-                }
-            ]
+        const invoicePayload: Record<string, unknown> = {
+            Type: input.type,
+            Contact: {
+                ContactID: input.contact.contact_id
+            },
+            Date: input.date,
+            LineItems: input.line_items.map((item) => ({
+                Description: item.description,
+                Quantity: item.quantity,
+                UnitAmount: item.unit_amount,
+                AccountCode: item.account_code
+            }))
         };
+
+        if (input.due_date !== undefined) {
+            invoicePayload['DueDate'] = input.due_date;
+        }
+
+        if (input.status !== undefined) {
+            invoicePayload['Status'] = input.status;
+        }
 
         // https://developer.xero.com/documentation/api/accounting/invoices
         const response = await nango.put({
@@ -172,42 +181,55 @@ const action = createAction({
             headers: {
                 'xero-tenant-id': tenantId
             },
-            data: payload,
+            data: {
+                Invoices: [invoicePayload]
+            },
             retries: 3
         });
 
-        const parsed = XeroInvoicesResponseSchema.parse(response.data);
-        const invoice = parsed.Invoices[0];
+        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const invoices = providerResponse.Invoices;
 
-        if (!invoice) {
+        if (!invoices || invoices.length === 0) {
             throw new nango.ActionError({
-                type: 'create_failed',
-                message: 'Invoice creation failed: no invoice returned.'
+                type: 'no_invoice_returned',
+                message: 'Xero did not return an invoice in the response.'
+            });
+        }
+
+        const created = invoices[0];
+        if (!created) {
+            throw new nango.ActionError({
+                type: 'no_invoice_returned',
+                message: 'Xero did not return an invoice in the response.'
             });
         }
 
         return {
-            id: invoice.InvoiceID,
-            ...(invoice.InvoiceNumber !== undefined && { invoice_number: invoice.InvoiceNumber }),
-            type: invoice.Type,
-            status: invoice.Status,
-            ...(invoice.Date !== undefined && { date: invoice.Date }),
-            ...(invoice.DueDate !== undefined && { due_date: invoice.DueDate }),
-            ...(invoice.Reference !== undefined && { reference: invoice.Reference }),
-            contact_id: invoice.Contact.ContactID,
-            ...(invoice.LineItems !== undefined && {
-                line_items: invoice.LineItems.map((item) => ({
-                    description: item.Description,
-                    quantity: item.Quantity,
-                    unit_amount: item.UnitAmount,
-                    account_code: item.AccountCode,
-                    ...(item.ItemCode !== undefined && { item_code: item.ItemCode }),
-                    ...(item.TaxType !== undefined && { tax_type: item.TaxType })
+            ...(created.InvoiceID !== undefined && { invoice_id: created.InvoiceID }),
+            ...(created.InvoiceNumber !== undefined && { invoice_number: created.InvoiceNumber }),
+            ...(created.Type !== undefined && { type: created.Type }),
+            ...(created.Status !== undefined && { status: created.Status }),
+            ...(created.Contact !== undefined && {
+                contact: {
+                    ...(created.Contact.ContactID !== undefined && { contact_id: created.Contact.ContactID }),
+                    ...(created.Contact.Name !== undefined && { name: created.Contact.Name })
+                }
+            }),
+            ...(created.Date !== undefined && { date: created.Date }),
+            ...(created.DueDate !== undefined && { due_date: created.DueDate }),
+            ...(created.LineItems !== undefined && {
+                line_items: created.LineItems.map((item) => ({
+                    ...(item.LineItemID !== undefined && { line_item_id: item.LineItemID }),
+                    ...(item.Description !== undefined && { description: item.Description }),
+                    ...(item.Quantity !== undefined && { quantity: item.Quantity }),
+                    ...(item.UnitAmount !== undefined && { unit_amount: item.UnitAmount }),
+                    ...(item.AccountCode !== undefined && { account_code: item.AccountCode })
                 }))
             }),
-            ...(invoice.Total !== undefined && { total: invoice.Total }),
-            ...(invoice.SubTotal !== undefined && { sub_total: invoice.SubTotal }),
-            ...(invoice.TotalTax !== undefined && { total_tax: invoice.TotalTax })
+            ...(created.SubTotal !== undefined && { sub_total: created.SubTotal }),
+            ...(created.TotalTax !== undefined && { total_tax: created.TotalTax }),
+            ...(created.Total !== undefined && { total: created.Total })
         };
     }
 });

@@ -12,13 +12,6 @@ describe('xero invoices tests', () => {
             Model: 'Invoice'
         });
 
-        nangoMock.getConnection = vi.fn().mockResolvedValue({
-            connection_config: {
-                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
-            },
-            metadata: {}
-        });
-
         return {
             nangoMock,
             batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')
@@ -32,6 +25,13 @@ describe('xero invoices tests', () => {
 
     it('should get, map correctly the data and batchSave the result', async () => {
         const { nangoMock, batchSaveSpy } = createTestContext();
+
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '27e853de-cfdc-4bf3-85e9-3979ee2bcaba'
+            },
+            metadata: {}
+        });
 
         await createSync.exec(nangoMock);
 
@@ -58,6 +58,13 @@ describe('xero invoices tests', () => {
     it('should get, map correctly the data and batchDelete the result', async () => {
         const { nangoMock } = createTestContext();
         const batchDeleteSpy = vi.spyOn(nangoMock, 'batchDelete');
+
+        nangoMock.getConnection = vi.fn().mockResolvedValue({
+            connection_config: {
+                tenant_id: '27e853de-cfdc-4bf3-85e9-3979ee2bcaba'
+            },
+            metadata: {}
+        });
 
         await createSync.exec(nangoMock);
 
