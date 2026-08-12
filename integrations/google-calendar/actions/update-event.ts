@@ -11,8 +11,8 @@ const AttendeeInputSchema = z.object({
     id: z.string().optional().describe('The attendee profile ID, if known.'),
     email: z.string().optional().describe("The attendee's email address."),
     displayName: z.string().optional().describe("The attendee's display name, if available."),
-    organizer: z.boolean().optional().describe('Whether the attendee is the organizer of the event.'),
-    self: z.boolean().optional().describe('Whether this entry represents the calendar on which this copy of the event appears.'),
+    // organizer and self are provider-managed and not settable by the caller; they are
+    // exposed on the output/attendee-echo but intentionally omitted here.
     resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
     optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
     responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe("The attendee's response status."),
@@ -37,13 +37,14 @@ const InputSchema = z
         summary: z.string().nullable().optional().describe('Title of the event. Set to null to clear.'),
         description: z.string().nullable().optional().describe('Description of the event. Can contain HTML. Set to null to clear.'),
         location: z.string().nullable().optional().describe('Geographic location of the event as free-form text. Set to null to clear.'),
-        start: EventTimeInputSchema.nullable().optional().describe('The inclusive start time of the event. Set to null to clear.'),
-        end: EventTimeInputSchema.nullable().optional().describe('The exclusive end time of the event. Set to null to clear.'),
+        // Not nullable: Google Calendar events always require a start and end time, so
+        // clearing them via null is not a supported operation.
+        start: EventTimeInputSchema.optional().describe('The inclusive start time of the event.'),
+        end: EventTimeInputSchema.optional().describe('The exclusive end time of the event.'),
         attendees: z
             .array(AttendeeInputSchema)
-            .nullable()
             .optional()
-            .describe('The attendees of the event. Specifying this overwrites the existing attendee list. Set to null to clear.'),
+            .describe('The attendees of the event. Specifying this overwrites the existing attendee list. Pass an empty array to clear all attendees.'),
         reminders: RemindersInputSchema.optional().describe('Reminders for the authenticated user for this event.'),
         status: z.string().optional().describe('Status of the event: confirmed, tentative, or cancelled.'),
         visibility: z.string().nullable().optional().describe('Visibility of the event: default, public, private, or confidential. Set to null to clear.'),

@@ -7,8 +7,20 @@ const EventDateTimeSchema = z.object({
     timeZone: z.string().optional().describe('The time zone, e.g. Europe/Zurich.')
 });
 
-const AttendeeSchema = z.object({
+const AttendeeInputSchema = z.object({
     email: z.string().email().describe('The attendee email address.'),
+    displayName: z.string().optional().describe('The attendee display name.'),
+    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe('The attendee response status.'),
+    optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
+    resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
+    comment: z.string().optional().describe("The attendee's response comment."),
+    additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
+});
+
+const AttendeeOutputSchema = z.object({
+    // Google can omit email for some attendees (e.g. resources without one on file),
+    // so this must stay optional even though it's required to add an attendee via input.
+    email: z.string().optional().describe('The attendee email address.'),
     displayName: z.string().optional().describe('The attendee display name.'),
     responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe('The attendee response status.'),
     optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
@@ -31,9 +43,9 @@ const InputSchema = z
         summary: z.string().optional().describe('Title of the event.'),
         description: z.string().optional().describe('Description of the event.'),
         location: z.string().optional().describe('Geographic location of the event.'),
-        attendees: z.array(AttendeeSchema).optional().describe('Attendees of the event.'),
+        attendees: z.array(AttendeeInputSchema).optional().describe('Attendees of the event.'),
         organizer: OrganizerInputSchema.optional().describe('The organizer of the event.'),
-        conferenceDataVersion: z.number().min(0).max(1).optional().describe('Version number of conference data supported by the API client.'),
+        conferenceDataVersion: z.number().int().min(0).max(1).optional().describe('Version number of conference data supported by the API client.'),
         supportsAttachments: z.boolean().optional().describe('Whether API client performing operation supports event attachments.')
     })
     .describe('Input for importing an event into a Google Calendar.');
@@ -49,13 +61,13 @@ const OutputSchema = z
         location: z.string().optional().describe('Geographic location of the event.'),
         status: z.string().optional().describe('Status of the event.'),
         htmlLink: z.string().optional().describe('Link to the event in Google Calendar.'),
-        attendees: z.array(AttendeeSchema).optional().describe('Attendees of the event.'),
+        attendees: z.array(AttendeeOutputSchema).optional().describe('Attendees of the event.'),
         organizer: OrganizerInputSchema.optional().describe('The organizer of the event.')
     })
     .describe('Output of the imported Google Calendar event.');
 
 const ProviderAttendeeSchema = z.object({
-    email: z.string(),
+    email: z.string().optional(),
     displayName: z.string().optional(),
     responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional(),
     optional: z.boolean().optional(),

@@ -15,42 +15,42 @@ const InputSchema = z
 
 const ProviderEventSchema = z.object({
     id: z.string(),
-    summary: z.string().optional(),
-    description: z.string().optional(),
-    location: z.string().optional(),
-    status: z.string().optional(),
-    htmlLink: z.string().optional(),
-    created: z.string().optional(),
-    updated: z.string().optional(),
+    summary: z.string().nullish(),
+    description: z.string().nullish(),
+    location: z.string().nullish(),
+    status: z.string().nullish(),
+    htmlLink: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
     start: z
         .object({
-            dateTime: z.string().optional(),
-            date: z.string().optional(),
-            timeZone: z.string().optional()
+            dateTime: z.string().nullish(),
+            date: z.string().nullish(),
+            timeZone: z.string().nullish()
         })
-        .optional(),
+        .nullish(),
     end: z
         .object({
-            dateTime: z.string().optional(),
-            date: z.string().optional(),
-            timeZone: z.string().optional()
+            dateTime: z.string().nullish(),
+            date: z.string().nullish(),
+            timeZone: z.string().nullish()
         })
-        .optional(),
+        .nullish(),
     organizer: z
         .object({
-            email: z.string().optional(),
-            displayName: z.string().optional(),
-            self: z.boolean().optional()
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
         })
-        .optional(),
+        .nullish(),
     creator: z
         .object({
-            email: z.string().optional(),
-            displayName: z.string().optional(),
-            self: z.boolean().optional()
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
         })
-        .optional(),
-    iCalUID: z.string().optional()
+        .nullish(),
+    iCalUID: z.string().nullish()
 });
 
 const OutputSchema = z
@@ -123,7 +123,7 @@ const action = createAction({
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}/move`,
             params: {
                 destination: input.destinationCalendarId,
-                ...(input.sendUpdates !== undefined && { sendUpdates: input.sendUpdates })
+                ...(input.sendUpdates != null && { sendUpdates: input.sendUpdates })
             },
             retries: 3
         });
@@ -138,42 +138,42 @@ const action = createAction({
 
         return {
             id: providerEvent.id,
-            ...(providerEvent.summary !== undefined && { summary: providerEvent.summary }),
-            ...(providerEvent.description !== undefined && { description: providerEvent.description }),
-            ...(providerEvent.location !== undefined && { location: providerEvent.location }),
-            ...(providerEvent.status !== undefined && { status: providerEvent.status }),
-            ...(providerEvent.htmlLink !== undefined && { htmlLink: providerEvent.htmlLink }),
-            ...(providerEvent.created !== undefined && { created: providerEvent.created }),
-            ...(providerEvent.updated !== undefined && { updated: providerEvent.updated }),
-            ...(providerEvent.start !== undefined && {
+            ...(providerEvent.summary != null && { summary: providerEvent.summary }),
+            ...(providerEvent.description != null && { description: providerEvent.description }),
+            ...(providerEvent.location != null && { location: providerEvent.location }),
+            ...(providerEvent.status != null && { status: providerEvent.status }),
+            ...(providerEvent.htmlLink != null && { htmlLink: providerEvent.htmlLink }),
+            ...(providerEvent.created != null && { created: providerEvent.created }),
+            ...(providerEvent.updated != null && { updated: providerEvent.updated }),
+            ...(providerEvent.start != null && {
                 start: {
-                    ...(providerEvent.start.dateTime !== undefined && { dateTime: providerEvent.start.dateTime }),
-                    ...(providerEvent.start.date !== undefined && { date: providerEvent.start.date }),
-                    ...(providerEvent.start.timeZone !== undefined && { timeZone: providerEvent.start.timeZone })
+                    ...(providerEvent.start.dateTime != null && { dateTime: providerEvent.start.dateTime }),
+                    ...(providerEvent.start.date != null && { date: providerEvent.start.date }),
+                    ...(providerEvent.start.timeZone != null && { timeZone: providerEvent.start.timeZone })
                 }
             }),
-            ...(providerEvent.end !== undefined && {
+            ...(providerEvent.end != null && {
                 end: {
-                    ...(providerEvent.end.dateTime !== undefined && { dateTime: providerEvent.end.dateTime }),
-                    ...(providerEvent.end.date !== undefined && { date: providerEvent.end.date }),
-                    ...(providerEvent.end.timeZone !== undefined && { timeZone: providerEvent.end.timeZone })
+                    ...(providerEvent.end.dateTime != null && { dateTime: providerEvent.end.dateTime }),
+                    ...(providerEvent.end.date != null && { date: providerEvent.end.date }),
+                    ...(providerEvent.end.timeZone != null && { timeZone: providerEvent.end.timeZone })
                 }
             }),
-            ...(providerEvent.organizer !== undefined && {
+            ...(providerEvent.organizer != null && {
                 organizer: {
-                    ...(providerEvent.organizer.email !== undefined && { email: providerEvent.organizer.email }),
-                    ...(providerEvent.organizer.displayName !== undefined && { displayName: providerEvent.organizer.displayName }),
-                    ...(providerEvent.organizer.self !== undefined && { self: providerEvent.organizer.self })
+                    ...(providerEvent.organizer.email != null && { email: providerEvent.organizer.email }),
+                    ...(providerEvent.organizer.displayName != null && { displayName: providerEvent.organizer.displayName }),
+                    ...(providerEvent.organizer.self != null && { self: providerEvent.organizer.self })
                 }
             }),
-            ...(providerEvent.creator !== undefined && {
+            ...(providerEvent.creator != null && {
                 creator: {
-                    ...(providerEvent.creator.email !== undefined && { email: providerEvent.creator.email }),
-                    ...(providerEvent.creator.displayName !== undefined && { displayName: providerEvent.creator.displayName }),
-                    ...(providerEvent.creator.self !== undefined && { self: providerEvent.creator.self })
+                    ...(providerEvent.creator.email != null && { email: providerEvent.creator.email }),
+                    ...(providerEvent.creator.displayName != null && { displayName: providerEvent.creator.displayName }),
+                    ...(providerEvent.creator.self != null && { self: providerEvent.creator.self })
                 }
             }),
-            ...(providerEvent.iCalUID !== undefined && { iCalUID: providerEvent.iCalUID })
+            ...(providerEvent.iCalUID != null && { iCalUID: providerEvent.iCalUID })
         };
     }
 });

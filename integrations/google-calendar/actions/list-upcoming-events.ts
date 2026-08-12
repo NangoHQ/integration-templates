@@ -8,6 +8,13 @@ const InputSchema = z
             .optional()
             .describe('Calendar identifier. Use "primary" for the primary calendar or a specific calendar ID. Defaults to "primary" when omitted.'),
         limit: z.number().int().min(1).max(2500).optional().describe('Maximum number of events to return per page (1-2500). Default: 250'),
+        maxResults: z
+            .number()
+            .int()
+            .min(1)
+            .max(2500)
+            .optional()
+            .describe('Alias for `limit`, kept consistent with the other list actions in this integration. Takes precedence over `limit` if both are set.'),
         cursor: z.string().optional().describe('Pagination cursor (pageToken) from the previous response. Omit for the first page.'),
         timeMin: z.string().optional().describe('Lower bound for event end time as an RFC3339 timestamp. Defaults to the current time when omitted.')
     })
@@ -126,7 +133,7 @@ const action = createAction({
                 timeMin: timeMin,
                 orderBy: 'startTime',
                 singleEvents: 'true',
-                ...(input.limit !== undefined && { maxResults: String(input.limit) }),
+                ...((input.maxResults ?? input.limit) !== undefined && { maxResults: String(input.maxResults ?? input.limit) }),
                 ...(input.cursor && { pageToken: input.cursor })
             },
             retries: 3

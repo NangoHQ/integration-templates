@@ -6,7 +6,7 @@ const TimeMaxSchema = z.string().describe('End of the time range in RFC3339 form
 
 const InputSchema = z
     .object({
-        calendarIds: z.array(z.string()).describe('List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]'),
+        calendarIds: z.array(z.string()).min(1).describe('List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]'),
         timeMin: TimeMinSchema,
         timeMax: TimeMaxSchema,
         timeZone: z.string().optional().describe('Time zone used in the response. Defaults to UTC if omitted. Example: "America/New_York"'),

@@ -41,14 +41,18 @@ const BusyPeriodSchema = z
 const CalendarFreeBusySchema = z
     .object({
         errors: z.array(ErrorSchema).optional().describe('Optional errors if computation for this calendar failed.'),
-        busy: z.array(BusyPeriodSchema).describe('List of busy time ranges for this calendar.')
+        // Google omits `busy` entirely when a calendar-level error occurs; default to [] so
+        // that case parses instead of throwing and the caller still sees the error.
+        busy: z.array(BusyPeriodSchema).default([]).describe('List of busy time ranges for this calendar.')
     })
     .describe('Free/busy information for a single calendar.');
 
 const GroupSchema = z
     .object({
         errors: z.array(ErrorSchema).optional().describe('Optional errors if the group could not be expanded.'),
-        calendars: z.array(z.string()).describe('List of calendar identifiers that this group was expanded to.')
+        // Google omits `calendars` entirely when a group fails to expand; default to [] so
+        // that case parses instead of throwing and the caller still sees the error.
+        calendars: z.array(z.string()).default([]).describe('List of calendar identifiers that this group was expanded to.')
     })
     .describe('Free/busy information for a single group of calendars.');
 

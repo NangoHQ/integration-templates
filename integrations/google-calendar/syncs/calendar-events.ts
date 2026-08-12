@@ -159,17 +159,19 @@ const sync = createSync({
 
             const isIncremental = checkpoint !== null && checkpoint !== undefined && checkpoint['updated_after'] !== '';
 
+            const defaultTimeMin = new Date();
+            defaultTimeMin.setUTCDate(defaultTimeMin.getUTCDate() - 30);
+            defaultTimeMin.setUTCHours(0, 0, 0, 0);
+            const effectiveTimeMin = metadata?.timeMin ?? defaultTimeMin.toISOString();
+
             if (isIncremental) {
                 params['updatedMin'] = String(checkpoint['updated_after']);
-                // timeMax is intentionally NOT applied here: Google filters events.list by
+                // timeMin/timeMax are intentionally NOT applied here: Google filters events.list by
                 // start time, so an event that moves outside the configured window would
                 // otherwise vanish from incremental results without ever being reported as
-                // deleted. Reconciliation against metadata.timeMax happens below instead.
+                // deleted. Reconciliation against the same window happens below instead.
             } else {
-                const defaultTimeMin = new Date();
-                defaultTimeMin.setUTCDate(defaultTimeMin.getUTCDate() - 30);
-                defaultTimeMin.setUTCHours(0, 0, 0, 0);
-                params['timeMin'] = metadata?.timeMin ?? defaultTimeMin.toISOString();
+                params['timeMin'] = effectiveTimeMin;
 
                 if (metadata?.timeMax) {
                     params['timeMax'] = metadata.timeMax;
@@ -195,6 +197,7 @@ const sync = createSync({
                 retries: 3
             };
 
+            const timeMinMs = new Date(effectiveTimeMin).getTime();
             const timeMaxMs = metadata?.timeMax ? new Date(metadata.timeMax).getTime() : undefined;
 
             for await (const page of nango.paginate(proxyConfig)) {
@@ -210,12 +213,20 @@ const sync = createSync({
                     const { id: eventId, ...rest } = parsed.data;
                     const recordId = `${calendarId}:${eventId}`;
 
-                    const startMs = parsed.data.start?.dateTime
-                        ? new Date(parsed.data.start.dateTime).getTime()
-                        : parsed.data.start?.date
-                          ? new Date(parsed.data.start.date).getTime()
-                          : undefined;
-                    const isOutOfConfiguredWindow = timeMaxMs !== undefined && startMs !== undefined && startMs >= timeMaxMs;
+                    // Only reconcile using dateTime (timed events). A date-only (all-day) start/end
+                    // has no time zone, and converting it to a UTC-midnight instant would not
+                    // reliably reflect the calendar-local day, risking incorrect deletions near
+                    // the window boundary — so all-day events are left to the next full sync.
+                    //
+                    // Mirror Google's own events.list semantics: timeMax excludes events whose
+                    // START is at/after timeMax; timeMin excludes events whose END is at/before
+                    // timeMin. Using the wrong edge (e.g. comparing start against timeMin) would
+                    // incorrectly reconcile events that legitimately span the window boundary.
+                    const startMs = parsed.data.start?.dateTime ? new Date(parsed.data.start.dateTime).getTime() : undefined;
+                    const endMs = parsed.data.end?.dateTime ? new Date(parsed.data.end.dateTime).getTime() : undefined;
+                    const isPastTimeMax = timeMaxMs !== undefined && startMs !== undefined && startMs >= timeMaxMs;
+                    const isBeforeTimeMin = endMs !== undefined && endMs <= timeMinMs;
+                    const isOutOfConfiguredWindow = isPastTimeMax || isBeforeTimeMin;
 
                     if (parsed.data.status === 'cancelled' || isOutOfConfiguredWindow) {
                         deletions.push({ id: recordId });

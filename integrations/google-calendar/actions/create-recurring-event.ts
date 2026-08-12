@@ -82,7 +82,10 @@ const action = createAction({
 
         const providerEvent = ProviderEventSchema.parse(response.data);
 
-        if (!providerEvent.id || !providerEvent.htmlLink || !providerEvent.summary || !providerEvent.status) {
+        const start = providerEvent.start?.dateTime || providerEvent.start?.date;
+        const end = providerEvent.end?.dateTime || providerEvent.end?.date;
+
+        if (!providerEvent.id || !providerEvent.htmlLink || !providerEvent.summary || !providerEvent.status || !start || !end) {
             throw new nango.ActionError({
                 type: 'missing_fields',
                 message: 'Created event response is missing required fields.'
@@ -93,8 +96,8 @@ const action = createAction({
             id: providerEvent.id,
             htmlLink: providerEvent.htmlLink,
             summary: providerEvent.summary,
-            start: providerEvent.start?.dateTime || providerEvent.start?.date || '',
-            end: providerEvent.end?.dateTime || providerEvent.end?.date || '',
+            start,
+            end,
             ...(providerEvent.recurrence != null && { recurrence: providerEvent.recurrence }),
             status: providerEvent.status
         };

@@ -40,7 +40,10 @@ const InputSchema = z
             .describe('Event reminders'),
         recurrence: z.array(z.string()).optional().describe('RRULE strings defining event recurrence. Example: ["RRULE:FREQ=DAILY;COUNT=2"]')
     })
-    .describe('Input for creating a Google Calendar event');
+    .describe('Input for creating a Google Calendar event')
+    .refine(({ start, end }) => (start.date !== undefined) === (end.date !== undefined), {
+        message: 'start and end must both use date (all-day) or both use dateTime — they cannot be mixed'
+    });
 
 const EventTimeOutputSchema = z.object({
     dateTime: z.string().optional().describe('Combined date and time value in RFC3339 format'),

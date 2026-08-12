@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar. Example: "primary"')
+        calendarId: z
+            .literal('primary')
+            .optional()
+            .describe('Calendar identifier. This operation is only supported for the primary calendar; the only valid value is "primary".')
     })
     .describe('Clears all events from the primary calendar.');
 
