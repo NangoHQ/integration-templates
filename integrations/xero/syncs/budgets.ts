@@ -18,7 +18,7 @@ const ProviderBudgetSchema = z.object({
 });
 
 const ProviderBudgetsResponseSchema = z.object({
-    Budgets: z.array(ProviderBudgetSchema).optional()
+    Budgets: z.array(ProviderBudgetSchema)
 });
 
 const BudgetTrackingSchema = z

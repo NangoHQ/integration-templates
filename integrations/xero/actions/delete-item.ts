@@ -18,7 +18,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty result indicating the item was deleted successfully.'),
-    scopes: ['accounting.invoices'],
+    scopes: ['accounting.settings'],
 
     exec: async (nango, input) => {
         const connection = await nango.getConnection();

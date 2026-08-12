@@ -16,7 +16,7 @@ const JournalLineSchema = z.object({
     TaxType: z.string().optional(),
     TaxName: z.string().optional(),
     Tracking: z.array(z.record(z.string(), z.unknown())).optional(),
-    Amount: z.number().optional(),
+    LineAmount: z.number().optional(),
     IsCredit: z.boolean().optional(),
     IsDebit: z.boolean().optional()
 });
@@ -191,7 +191,7 @@ const action = createAction({
                     ...(line.TaxType !== undefined && { taxType: line.TaxType }),
                     ...(line.TaxName !== undefined && { taxName: line.TaxName }),
                     ...(line.Tracking !== undefined && { tracking: line.Tracking }),
-                    ...(line.Amount !== undefined && { amount: line.Amount }),
+                    ...(line.LineAmount !== undefined && { amount: line.LineAmount }),
                     ...(line.IsCredit !== undefined && { isCredit: line.IsCredit }),
                     ...(line.IsDebit !== undefined && { isDebit: line.IsDebit })
                 }))

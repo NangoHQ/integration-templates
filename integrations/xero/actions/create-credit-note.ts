@@ -17,7 +17,7 @@ const InputSchema = z
             .describe('Type of credit note. ACCRECCREDIT for a sales credit note or ACCPAYCREDIT for a purchase credit note.'),
         contactId: z.string().describe('Xero Contact ID to associate with the credit note.'),
         date: z.string().describe('Date of the credit note in YYYY-MM-DD format.'),
-        status: z.enum(['AUTHORISED', 'DRAFT']).optional().describe('Status of the credit note. DRAFT does not post to the ledger; AUTHORISED does.'),
+        status: z.enum(['AUTHORISED', 'DRAFT', 'SUBMITTED']).optional().describe('Status of the credit note. DRAFT does not post to the ledger; SUBMITTED is pending approval; AUTHORISED does post.'),
         lineItems: z.array(LineItemInputSchema).describe('Line items for the credit note.')
     })
     .describe('Input for creating a Xero credit note.');
@@ -39,7 +39,7 @@ const ProviderLineItemSchema = z.object({
 });
 
 const ProviderCreditNoteSchema = z.object({
-    CreditNoteID: z.string(),
+    CreditNoteID: z.string().optional(),
     CreditNoteNumber: z.string().optional(),
     Type: z.string().optional(),
     Status: z.string().optional(),
@@ -49,7 +49,15 @@ const ProviderCreditNoteSchema = z.object({
     SubTotal: z.number().optional(),
     TotalTax: z.number().optional(),
     Total: z.number().optional(),
-    UpdatedDateUTC: z.string().optional()
+    UpdatedDateUTC: z.string().optional(),
+    HasErrors: z.boolean().optional(),
+    ValidationErrors: z
+        .array(
+            z.object({
+                Message: z.string().optional()
+            })
+        )
+        .optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -198,6 +206,24 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'empty_response',
                 message: 'Xero returned an empty CreditNotes array.'
+            });
+        }
+
+        if (note.HasErrors === true) {
+            const errors =
+                note.ValidationErrors?.map((e) => e.Message)
+                    .filter(Boolean)
+                    .join(', ') || 'Unknown validation error';
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: `Credit note creation failed: ${errors}`
+            });
+        }
+
+        if (!note.CreditNoteID) {
+            throw new nango.ActionError({
+                type: 'empty_response',
+                message: 'Xero did not return a CreditNoteID for the created credit note.'
             });
         }
 

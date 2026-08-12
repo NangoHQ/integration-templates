@@ -9,7 +9,7 @@ const TimeEntrySchema = z.object({
     dateUtc: z.string(),
     dateEnteredUtc: z.string(),
     duration: z.number(),
-    description: z.string().optional(),
+    description: z.string().nullish(),
     status: z.string()
 });
 
@@ -188,7 +188,7 @@ const action = createAction({
             dateUtc: item.dateUtc,
             dateEnteredUtc: item.dateEnteredUtc,
             duration: item.duration,
-            ...(item.description !== undefined && { description: item.description }),
+            ...(item.description != null && { description: item.description }),
             status: item.status
         }));
 

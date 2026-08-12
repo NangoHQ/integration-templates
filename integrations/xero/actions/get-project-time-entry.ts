@@ -16,7 +16,7 @@ const ProviderTimeEntrySchema = z.object({
     dateUtc: z.string(),
     dateEnteredUtc: z.string().optional(),
     duration: z.number(),
-    description: z.string().optional(),
+    description: z.string().nullish(),
     status: z.string().optional()
 });
 
@@ -118,7 +118,7 @@ const action = createAction({
             dateUtc: providerTimeEntry.dateUtc,
             ...(providerTimeEntry.dateEnteredUtc !== undefined && { dateEnteredUtc: providerTimeEntry.dateEnteredUtc }),
             duration: providerTimeEntry.duration,
-            ...(providerTimeEntry.description !== undefined && { description: providerTimeEntry.description }),
+            ...(providerTimeEntry.description != null && { description: providerTimeEntry.description }),
             ...(providerTimeEntry.status !== undefined && { status: providerTimeEntry.status })
         };
     }

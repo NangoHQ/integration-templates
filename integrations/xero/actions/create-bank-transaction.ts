@@ -15,12 +15,16 @@ const InputSchema = z
             .enum(['SPEND', 'RECEIVE', 'SPEND-OVERPAYMENT', 'RECEIVE-OVERPAYMENT', 'SPEND-PREPAYMENT', 'RECEIVE-PREPAYMENT'])
             .describe('Transaction type. Example: "SPEND"'),
         contact_id: z.string().describe('Xero Contact ID. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
-        bank_account_id: z.string().describe('Xero Bank Account ID (must be a Type=BANK account). Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'),
+        bank_account_id: z.string().optional().describe('Xero Bank Account ID (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'),
+        bank_account_code: z.string().optional().describe('Xero Bank Account code (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "088"'),
         date: z.string().describe('Transaction date in YYYY-MM-DD format. Example: "2024-01-15"'),
         reference: z.string().optional().describe('Optional reference text. Example: "REF-001"'),
         line_items: z.array(LineItemInputSchema).describe('Line items for the transaction')
     })
-    .describe('Input for creating a Xero bank transaction.');
+    .describe('Input for creating a Xero bank transaction.')
+    .refine((data) => Boolean(data.bank_account_id) !== Boolean(data.bank_account_code), {
+        message: 'Provide exactly one of bank_account_id or bank_account_code.'
+    });
 
 const ProviderContactSchema = z.object({
     ContactID: z.string().optional(),
@@ -78,6 +82,7 @@ const OutputSchema = z
         contact_id: z.string().optional().describe('Contact ID. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
         contact_name: z.string().optional().describe('Contact name. Example: "Nango Registry Test Contact 1"'),
         bank_account_id: z.string().optional().describe('Bank account ID. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'),
+        bank_account_code: z.string().optional().describe('Bank account code. Example: "088"'),
         bank_account_name: z.string().optional().describe('Bank account name. Example: "Checking Account"'),
         date: z.string().optional().describe('Transaction date. Example: "2024-01-15"'),
         reference: z.string().optional().describe('Reference text. Example: "REF-001"'),
@@ -174,6 +179,14 @@ const action = createAction({
             ...(item.tax_type !== undefined && { TaxType: item.tax_type })
         }));
 
+        const bankAccount: Record<string, string> = {};
+        if (input.bank_account_id !== undefined) {
+            bankAccount['AccountID'] = input.bank_account_id;
+        }
+        if (input.bank_account_code !== undefined) {
+            bankAccount['Code'] = input.bank_account_code;
+        }
+
         const payload = {
             BankTransactions: [
                 {
@@ -181,9 +194,7 @@ const action = createAction({
                     Contact: {
                         ContactID: input.contact_id
                     },
-                    BankAccount: {
-                        AccountID: input.bank_account_id
-                    },
+                    BankAccount: bankAccount,
                     Date: input.date,
                     LineItems: lineItems,
                     ...(input.reference !== undefined && { Reference: input.reference })
@@ -225,6 +236,13 @@ const action = createAction({
             });
         }
 
+        if (!tx.BankTransactionID) {
+            throw new nango.ActionError({
+                type: 'missing_transaction',
+                message: 'Created bank transaction is missing an ID.'
+            });
+        }
+
         return {
             bank_transaction_id: tx.BankTransactionID,
             ...(tx.Type !== undefined && { type: tx.Type }),
@@ -232,6 +250,7 @@ const action = createAction({
             ...(tx.Contact?.ContactID !== undefined && { contact_id: tx.Contact.ContactID }),
             ...(tx.Contact?.Name !== undefined && { contact_name: tx.Contact.Name }),
             ...(tx.BankAccount?.AccountID !== undefined && { bank_account_id: tx.BankAccount.AccountID }),
+            ...(tx.BankAccount?.Code !== undefined && { bank_account_code: tx.BankAccount.Code }),
             ...(tx.BankAccount?.Name !== undefined && { bank_account_name: tx.BankAccount.Name }),
             ...(tx.Date !== undefined && { date: tx.Date }),
             ...(tx.Reference !== undefined && { reference: tx.Reference }),

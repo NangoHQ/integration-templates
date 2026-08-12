@@ -36,6 +36,8 @@ const ItemSchema = z.object({
 const InputSchema = z
     .object({
         modified_since: z.string().optional().describe('UTC timestamp (ISO 8601) to filter items modified since this time. Sets the If-Modified-Since header.'),
+        where: z.string().optional().describe('Xero where clause to filter items. Example: \'IsSold==true\''),
+        order: z.string().optional().describe("Order by clause. Example: 'Code ASC'"),
         page: z.number().optional().describe('Page number for paginated results. Defaults to 1.'),
         page_size: z.number().optional().describe('Number of items per page. Defaults to 100, maximum 1000.')
     })
@@ -68,7 +70,7 @@ const action = createAction({
     version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.invoices', 'accounting.invoices.read'],
+    scopes: ['accounting.settings', 'accounting.settings.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connectionResponse = await nango.getConnection();
@@ -132,6 +134,12 @@ const action = createAction({
         }
 
         const params: Record<string, string | number> = {};
+        if (input.where !== undefined) {
+            params['where'] = input.where;
+        }
+        if (input.order !== undefined) {
+            params['order'] = input.order;
+        }
         if (input.page !== undefined) {
             params['page'] = input.page;
         }

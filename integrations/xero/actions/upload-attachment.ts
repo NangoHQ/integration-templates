@@ -9,7 +9,11 @@ const InputSchema = z
         resourceId: z.string().describe('The ID of the Xero resource. Example: "06c18279-c848-4b69-b434-6b9fecc75a47"'),
         fileName: z.string().describe('The name of the file including extension. Example: "nango-test.txt"'),
         contentType: z.string().describe('The MIME type of the file. Example: "text/plain"'),
-        content: z.string().describe('The raw file content encoded as a base64 string.')
+        content: z
+            .string()
+            .min(1, 'content must not be empty.')
+            .regex(/^[A-Za-z0-9+/]+={0,2}$/, 'content must be a valid non-empty base64-encoded string.')
+            .describe('The raw file content encoded as a base64 string.')
     })
     .describe('Input for uploading a file attachment to a Xero resource.');
 

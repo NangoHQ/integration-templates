@@ -72,24 +72,27 @@ const sync = createSync({
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
+        const params: Record<string, string> = {};
 
         if (checkpoint && checkpoint.updated_after.length > 0) {
             headers['If-Modified-Since'] = xeroDateToHttpDate(checkpoint.updated_after);
+            params['includeArchived'] = 'true';
         }
 
         // https://developer.xero.com/documentation/api/accounting/accounts
         const response = await nango.get({
             endpoint: 'api.xro/2.0/Accounts',
             headers,
+            params,
             retries: 3
         });
 
-        const parsedPage = z.object({ Accounts: z.array(AccountProviderSchema).optional() }).safeParse(response.data);
+        const parsedPage = z.object({ Accounts: z.array(AccountProviderSchema) }).safeParse(response.data);
         if (!parsedPage.success) {
             throw new Error(`Failed to parse accounts response: ${parsedPage.error.message}`);
         }
 
-        const accounts = parsedPage.data.Accounts ?? [];
+        const accounts = parsedPage.data.Accounts;
 
         if (accounts.length > 0) {
             const mappedAccounts = accounts.map((account) => ({
@@ -113,7 +116,17 @@ const sync = createSync({
                 ...(account.UpdatedDateUTC != null && { updatedDateUTC: account.UpdatedDateUTC })
             }));
 
-            await nango.batchSave(mappedAccounts, 'Account');
+            const activeAccounts = mappedAccounts.filter((account) => account.status !== 'ARCHIVED');
+            if (activeAccounts.length > 0) {
+                await nango.batchSave(activeAccounts, 'Account');
+            }
+
+            if (checkpoint) {
+                const archivedAccounts = mappedAccounts.filter((account) => account.status === 'ARCHIVED');
+                if (archivedAccounts.length > 0) {
+                    await nango.batchDelete(archivedAccounts, 'Account');
+                }
+            }
 
             let latestUpdatedDate: Date | null = null;
             let latestUpdatedDateUTC = '';

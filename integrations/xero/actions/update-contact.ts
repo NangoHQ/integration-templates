@@ -1,18 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        contactId: z.string().describe('The Xero ContactID of the contact to update. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
-        name: z.string().optional().describe('The full display name of the contact.'),
-        firstName: z.string().optional().describe('The first name of the contact (for person contacts).'),
-        lastName: z.string().optional().describe('The last name of the contact (for person contacts).'),
-        emailAddress: z.string().optional().describe('The primary email address of the contact.'),
-        accountNumber: z.string().optional().describe('The account number assigned to the contact.'),
-        contactStatus: z.string().optional().describe('The status of the contact. Valid values: "ACTIVE", "ARCHIVED".')
-    })
-    .describe('Input fields for updating an existing Xero contact.');
-
 const PhoneSchema = z.object({
     PhoneType: z.string().describe('The type of phone number. Example: "DEFAULT", "DDI", "MOBILE", "FAX"'),
     PhoneNumber: z.string().optional().describe('The phone number.'),
@@ -31,6 +19,24 @@ const AddressSchema = z.object({
     PostalCode: z.string().optional().describe('The postal or ZIP code of the address.'),
     Country: z.string().optional().describe('The country of the address.')
 });
+
+const InputSchema = z
+    .object({
+        contactId: z.string().describe('The Xero ContactID of the contact to update. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
+        name: z.string().optional().describe('The full display name of the contact.'),
+        firstName: z.string().optional().describe('The first name of the contact (for person contacts).'),
+        lastName: z.string().optional().describe('The last name of the contact (for person contacts).'),
+        emailAddress: z.string().optional().describe('The primary email address of the contact.'),
+        accountNumber: z.string().optional().describe('The account number assigned to the contact.'),
+        contactNumber: z.string().optional().describe('The external system identifier for the contact.'),
+        contactStatus: z.string().optional().describe('The status of the contact. Valid values: "ACTIVE", "ARCHIVED".'),
+        bankAccountDetails: z.string().optional().describe('The bank account details for the contact.'),
+        taxNumber: z.string().optional().describe('The tax number for the contact.'),
+        defaultCurrency: z.string().optional().describe('The default currency for the contact. Example: "USD"'),
+        addresses: z.array(AddressSchema).optional().describe('The addresses to set for the contact.'),
+        phones: z.array(PhoneSchema).optional().describe('The phone numbers to set for the contact.')
+    })
+    .describe('Input fields for updating an existing Xero contact.');
 
 const OutputSchema = z
     .object({
@@ -142,7 +148,13 @@ const action = createAction({
                     ...(input.lastName !== undefined && { LastName: input.lastName }),
                     ...(input.emailAddress !== undefined && { EmailAddress: input.emailAddress }),
                     ...(input.accountNumber !== undefined && { AccountNumber: input.accountNumber }),
-                    ...(input.contactStatus !== undefined && { ContactStatus: input.contactStatus })
+                    ...(input.contactNumber !== undefined && { ContactNumber: input.contactNumber }),
+                    ...(input.contactStatus !== undefined && { ContactStatus: input.contactStatus }),
+                    ...(input.bankAccountDetails !== undefined && { BankAccountDetails: input.bankAccountDetails }),
+                    ...(input.taxNumber !== undefined && { TaxNumber: input.taxNumber }),
+                    ...(input.defaultCurrency !== undefined && { DefaultCurrency: input.defaultCurrency }),
+                    ...(input.addresses !== undefined && { Addresses: input.addresses }),
+                    ...(input.phones !== undefined && { Phones: input.phones })
                 }
             ]
         };

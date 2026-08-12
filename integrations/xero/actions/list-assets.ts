@@ -3,7 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        status: z.enum(['DRAFT', 'REGISTERED', 'DISPOSED']).describe('Asset status filter. Must be DRAFT, REGISTERED, or DISPOSED.')
+        status: z.enum(['DRAFT', 'REGISTERED', 'DISPOSED']).describe('Asset status filter. Must be DRAFT, REGISTERED, or DISPOSED.'),
+        page: z.number().optional().describe('Page number to retrieve. Defaults to 1.'),
+        pageSize: z.number().optional().describe('Number of records to return per page. Defaults to 10.')
     })
     .describe('Input for listing Xero fixed assets.');
 
@@ -150,7 +152,9 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `assets.xro/1.0/Assets`,
             params: {
-                status: input.status
+                status: input.status,
+                ...(input.page !== undefined && { page: input.page }),
+                ...(input.pageSize !== undefined && { pageSize: input.pageSize })
             },
             headers: {
                 'xero-tenant-id': tenantId

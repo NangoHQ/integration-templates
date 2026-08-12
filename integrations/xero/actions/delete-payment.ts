@@ -18,8 +18,8 @@ const ProviderAccountSchema = z.object({
 const ProviderPaymentSchema = z.object({
     PaymentID: z.string(),
     Status: z.string(),
-    Invoice: ProviderInvoiceSchema.optional(),
-    Account: ProviderAccountSchema.optional(),
+    Invoice: ProviderInvoiceSchema.nullish(),
+    Account: ProviderAccountSchema.nullish(),
     Amount: z.number().optional()
 });
 
@@ -38,7 +38,7 @@ const OutputSchema = z
     .describe('Output from deleting a Xero payment.');
 
 const ConnectionSchema = z.object({
-    connection_config: z.record(z.string(), z.unknown()).optional(),
+    connection_config: z.record(z.string(), z.unknown()).optional().nullable(),
     metadata: z.record(z.string(), z.unknown()).optional().nullable()
 });
 
@@ -135,8 +135,8 @@ const action = createAction({
         return {
             paymentId: payment.PaymentID,
             status: payment.Status,
-            ...(payment.Invoice !== undefined && { invoiceId: payment.Invoice.InvoiceID }),
-            ...(payment.Account !== undefined && { accountId: payment.Account.AccountID }),
+            ...(payment.Invoice != null && { invoiceId: payment.Invoice.InvoiceID }),
+            ...(payment.Account != null && { accountId: payment.Account.AccountID }),
             ...(payment.Amount !== undefined && { amount: payment.Amount })
         };
     }

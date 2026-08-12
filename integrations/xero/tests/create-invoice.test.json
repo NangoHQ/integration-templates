@@ -27,13 +27,15 @@
     },
     "date": "/Date(1786406400000+0000)/",
     "due_date": "/Date(1787616000000+0000)/",
+    "reference": "",
     "line_items": [
       {
         "line_item_id": "a35a615a-0e27-4165-a2a2-60e4f324eb71",
         "description": "Test item",
         "quantity": 1,
         "unit_amount": 100,
-        "account_code": "400"
+        "account_code": "400",
+        "tax_type": "OUTPUT"
       }
     ],
     "sub_total": 100,

@@ -57,27 +57,27 @@ const OutputSchema = z
     .describe('Output fields for a returned Xero manual journal after an update.');
 
 const ProviderJournalLineSchema = z.object({
-    JournalLineID: z.string().optional(),
-    AccountID: z.string().optional(),
-    AccountCode: z.string().optional(),
-    AccountName: z.string().optional(),
-    Description: z.string().optional(),
+    JournalLineID: z.string().nullish(),
+    AccountID: z.string().nullish(),
+    AccountCode: z.string().nullish(),
+    AccountName: z.string().nullish(),
+    Description: z.string().nullish(),
     LineAmount: z.number(),
-    TaxType: z.string().optional(),
-    TaxName: z.string().optional()
+    TaxType: z.string().nullish(),
+    TaxName: z.string().nullish()
 });
 
 const ProviderManualJournalSchema = z.object({
     ManualJournalID: z.string(),
     Status: z.enum(['DRAFT', 'POSTED', 'VOIDED', 'DELETED']),
-    Narration: z.string().optional(),
-    Date: z.string().optional(),
-    Url: z.string().optional(),
-    ShowOnCashBasisReports: z.boolean().optional(),
-    LineAmountTypes: z.enum(['Inclusive', 'Exclusive', 'NoTax']).optional(),
-    JournalLines: z.array(ProviderJournalLineSchema).optional(),
-    UpdatedDateUTC: z.string().optional(),
-    HasAttachments: z.boolean().optional()
+    Narration: z.string().nullish(),
+    Date: z.string().nullish(),
+    Url: z.string().nullish(),
+    ShowOnCashBasisReports: z.boolean().nullish(),
+    LineAmountTypes: z.enum(['Inclusive', 'Exclusive', 'NoTax']).nullish(),
+    JournalLines: z.array(ProviderJournalLineSchema).nullish(),
+    UpdatedDateUTC: z.string().nullish(),
+    HasAttachments: z.boolean().nullish()
 });
 
 const ProviderResponseSchema = z.object({
@@ -211,25 +211,25 @@ const action = createAction({
         return {
             manualJournalId: journal.ManualJournalID,
             status: journal.Status,
-            ...(journal.Narration !== undefined && { narration: journal.Narration }),
-            ...(journal.Date !== undefined && { date: journal.Date }),
-            ...(journal.Url !== undefined && { url: journal.Url }),
-            ...(journal.ShowOnCashBasisReports !== undefined && { showOnCashBasisReports: journal.ShowOnCashBasisReports }),
-            ...(journal.LineAmountTypes !== undefined && { lineAmountTypes: journal.LineAmountTypes }),
-            ...(journal.JournalLines !== undefined && {
+            ...(journal.Narration != null && { narration: journal.Narration }),
+            ...(journal.Date != null && { date: journal.Date }),
+            ...(journal.Url != null && { url: journal.Url }),
+            ...(journal.ShowOnCashBasisReports != null && { showOnCashBasisReports: journal.ShowOnCashBasisReports }),
+            ...(journal.LineAmountTypes != null && { lineAmountTypes: journal.LineAmountTypes }),
+            ...(journal.JournalLines != null && {
                 journalLines: journal.JournalLines.map((line) => ({
-                    ...(line.JournalLineID !== undefined && { journalLineId: line.JournalLineID }),
-                    ...(line.AccountID !== undefined && { accountId: line.AccountID }),
-                    ...(line.AccountCode !== undefined && { accountCode: line.AccountCode }),
-                    ...(line.AccountName !== undefined && { accountName: line.AccountName }),
-                    ...(line.Description !== undefined && { description: line.Description }),
+                    ...(line.JournalLineID != null && { journalLineId: line.JournalLineID }),
+                    ...(line.AccountID != null && { accountId: line.AccountID }),
+                    ...(line.AccountCode != null && { accountCode: line.AccountCode }),
+                    ...(line.AccountName != null && { accountName: line.AccountName }),
+                    ...(line.Description != null && { description: line.Description }),
                     lineAmount: line.LineAmount,
-                    ...(line.TaxType !== undefined && { taxType: line.TaxType }),
-                    ...(line.TaxName !== undefined && { taxName: line.TaxName })
+                    ...(line.TaxType != null && { taxType: line.TaxType }),
+                    ...(line.TaxName != null && { taxName: line.TaxName })
                 }))
             }),
-            ...(journal.UpdatedDateUTC !== undefined && { updatedDateUTC: journal.UpdatedDateUTC }),
-            ...(journal.HasAttachments !== undefined && { hasAttachments: journal.HasAttachments })
+            ...(journal.UpdatedDateUTC != null && { updatedDateUTC: journal.UpdatedDateUTC }),
+            ...(journal.HasAttachments != null && { hasAttachments: journal.HasAttachments })
         };
     }
 });

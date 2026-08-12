@@ -5,7 +5,9 @@ const LineItemInputSchema = z.object({
     description: z.string().describe('Description of the line item. Example: "Consulting services"'),
     quantity: z.number().describe('Quantity of the line item. Example: 2'),
     unit_amount: z.number().describe('Unit price of the line item. Example: 100.00'),
-    account_code: z.string().describe('Account code for the line item. Example: "400"')
+    account_code: z.string().describe('Account code for the line item. Example: "400"'),
+    item_code: z.string().optional().describe('Xero inventory item code for the line item. Example: "ITEM-001"'),
+    tax_type: z.string().optional().describe('Tax type for the line item. Example: "OUTPUT2"')
 });
 
 const ContactInputSchema = z.object({
@@ -18,6 +20,7 @@ const InputSchema = z
         contact: ContactInputSchema.describe('Contact to associate with the invoice.'),
         date: z.string().describe('Invoice date in YYYY-MM-DD format. Example: "2026-08-11"'),
         due_date: z.string().optional().describe('Due date in YYYY-MM-DD format. Omit to use the contact payment terms.'),
+        reference: z.string().optional().describe('Reference text for the invoice. Example: "PO-1234"'),
         line_items: z.array(LineItemInputSchema).describe('Line items for the invoice.'),
         status: z
             .enum(['DRAFT', 'SUBMITTED', 'AUTHORISED'])
@@ -36,7 +39,9 @@ const ProviderLineItemSchema = z.object({
     Quantity: z.number().optional(),
     UnitAmount: z.number().optional(),
     AccountCode: z.string().optional(),
-    LineItemID: z.string().optional()
+    LineItemID: z.string().optional(),
+    ItemCode: z.string().optional(),
+    TaxType: z.string().optional()
 });
 
 const ProviderInvoiceSchema = z.object({
@@ -47,6 +52,7 @@ const ProviderInvoiceSchema = z.object({
     Contact: ProviderContactSchema.optional(),
     Date: z.string().optional(),
     DueDate: z.string().optional(),
+    Reference: z.string().optional(),
     LineItems: z.array(ProviderLineItemSchema).optional(),
     SubTotal: z.number().optional(),
     TotalTax: z.number().optional(),
@@ -67,7 +73,9 @@ const LineItemOutputSchema = z.object({
     description: z.string().optional().describe('Description of the line item.'),
     quantity: z.number().optional().describe('Quantity of the line item.'),
     unit_amount: z.number().optional().describe('Unit price of the line item.'),
-    account_code: z.string().optional().describe('Account code for the line item.')
+    account_code: z.string().optional().describe('Account code for the line item.'),
+    item_code: z.string().optional().describe('Xero inventory item code for the line item.'),
+    tax_type: z.string().optional().describe('Tax type for the line item.')
 });
 
 const ContactOutputSchema = z.object({
@@ -84,6 +92,7 @@ const OutputSchema = z
         contact: ContactOutputSchema.optional().describe('Contact associated with the invoice.'),
         date: z.string().optional().describe('Invoice date.'),
         due_date: z.string().optional().describe('Invoice due date.'),
+        reference: z.string().optional().describe('Reference text for the invoice.'),
         line_items: z.array(LineItemOutputSchema).optional().describe('Line items on the invoice.'),
         sub_total: z.number().optional().describe('Subtotal before tax.'),
         total_tax: z.number().optional().describe('Total tax amount.'),
@@ -163,12 +172,18 @@ const action = createAction({
                 Description: item.description,
                 Quantity: item.quantity,
                 UnitAmount: item.unit_amount,
-                AccountCode: item.account_code
+                AccountCode: item.account_code,
+                ...(item.item_code !== undefined && { ItemCode: item.item_code }),
+                ...(item.tax_type !== undefined && { TaxType: item.tax_type })
             }))
         };
 
         if (input.due_date !== undefined) {
             invoicePayload['DueDate'] = input.due_date;
+        }
+
+        if (input.reference !== undefined) {
+            invoicePayload['Reference'] = input.reference;
         }
 
         if (input.status !== undefined) {
@@ -218,13 +233,16 @@ const action = createAction({
             }),
             ...(created.Date !== undefined && { date: created.Date }),
             ...(created.DueDate !== undefined && { due_date: created.DueDate }),
+            ...(created.Reference !== undefined && { reference: created.Reference }),
             ...(created.LineItems !== undefined && {
                 line_items: created.LineItems.map((item) => ({
                     ...(item.LineItemID !== undefined && { line_item_id: item.LineItemID }),
                     ...(item.Description !== undefined && { description: item.Description }),
                     ...(item.Quantity !== undefined && { quantity: item.Quantity }),
                     ...(item.UnitAmount !== undefined && { unit_amount: item.UnitAmount }),
-                    ...(item.AccountCode !== undefined && { account_code: item.AccountCode })
+                    ...(item.AccountCode !== undefined && { account_code: item.AccountCode }),
+                    ...(item.ItemCode !== undefined && { item_code: item.ItemCode }),
+                    ...(item.TaxType !== undefined && { tax_type: item.TaxType })
                 }))
             }),
             ...(created.SubTotal !== undefined && { sub_total: created.SubTotal }),

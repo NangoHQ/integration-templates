@@ -115,6 +115,14 @@ const ProviderInvoiceSchema = z.object({
     AmountPaid: z.number().optional().nullable(),
     UpdatedDateUTC: z.string().optional().nullable(),
     HasErrors: z.boolean().optional().nullable(),
+    ValidationErrors: z
+        .array(
+            z.object({
+                Message: z.string().optional()
+            })
+        )
+        .optional()
+        .nullable(),
     LineItems: z.array(z.record(z.string(), z.unknown())).optional().nullable()
 });
 
@@ -286,6 +294,17 @@ const action = createAction({
 
         const invoice = responseData.Invoices[0];
         const parsedInvoice = ProviderInvoiceSchema.parse(invoice);
+
+        if (parsedInvoice.HasErrors) {
+            const errors =
+                parsedInvoice.ValidationErrors?.map((e) => e.Message)
+                    .filter(Boolean)
+                    .join(', ') || 'Unknown validation error';
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: `Invoice update failed: ${errors}`
+            });
+        }
 
         const mappedLineItems = Array.isArray(parsedInvoice.LineItems)
             ? parsedInvoice.LineItems.map((item) => {

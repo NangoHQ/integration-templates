@@ -158,8 +158,8 @@ const action = createAction({
             if (pagination.page < pagination.pageCount) {
                 nextPage = pagination.page + 1;
             }
-        } else if (contacts.length === 100 && input.pageSize === undefined) {
-            // Fallback when pagination object is missing and default page size was used
+        } else if (contacts.length === (input.pageSize ?? 100)) {
+            // Fallback when pagination object is missing from the response: a full page means more may follow.
             nextPage = (input.cursor ?? 1) + 1;
         }
 

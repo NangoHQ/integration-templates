@@ -19,13 +19,13 @@ const bankAccountSchema = z.object({
 });
 
 const lineItemSchema = z.object({
-    Description: z.string().describe('The description of the line item'),
-    Quantity: z.number().describe('The quantity of the line item'),
-    UnitAmount: z.number().describe('The unit amount of the line item'),
-    AccountCode: z.string().describe('The account code for the line item'),
+    Description: z.string().nullable().optional().describe('The description of the line item'),
+    Quantity: z.number().nullable().optional().describe('The quantity of the line item'),
+    UnitAmount: z.number().nullable().optional().describe('The unit amount of the line item'),
+    AccountCode: z.string().nullable().optional().describe('The account code for the line item'),
     ItemCode: z.string().nullable().optional().describe('The item code of the line item'),
     TaxType: z.string().nullable().optional().describe('The tax type for the line item'),
-    LineAmount: z.number().describe('The total amount for the line item'),
+    LineAmount: z.number().nullable().optional().describe('The total amount for the line item'),
     Tracking: z.array(z.unknown()).optional().describe('Tracking categories for the line item')
 });
 

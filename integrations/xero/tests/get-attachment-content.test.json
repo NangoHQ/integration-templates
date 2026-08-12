@@ -4,7 +4,9 @@
     "resourceId": "06c18279-c848-4b69-b434-6b9fecc75a47",
     "fileName": "nango-test.txt"
   },
-  "output": "Nango registry test attachment content",
+  "output": {
+    "content": "TmFuZ28gcmVnaXN0cnkgdGVzdCBhdHRhY2htZW50IGNvbnRlbnQ="
+  },
   "nango": {
     "getConnection": {}
   },

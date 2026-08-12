@@ -9,7 +9,11 @@ const InputSchema = z
     })
     .describe('Input parameters for downloading an attachment by filename.');
 
-const OutputSchema = z.string().describe('The raw file content of the attachment.');
+const OutputSchema = z
+    .object({
+        content: z.string().describe('The raw file content of the attachment, base64-encoded.')
+    })
+    .describe('The content of the attachment, losslessly base64-encoded.');
 
 const ConnectionsResponseSchema = z.array(
     z
@@ -24,7 +28,7 @@ const ConnectionsResponseSchema = z.array(
 /**
  * @tags: [read]
  * @tagReason: Downloads the raw content of an existing attachment without modifying provider data.
- * @pitfalls: Binary attachment content may be corrupted because the response is decoded as a text string.
+ * @pitfalls: Content is returned base64-encoded rather than as a raw string, since the underlying attachment may be binary (PDF, image, etc.); decode it before use.
  */
 const action = createAction({
     description: 'Download the raw content of an attachment by filename.',
@@ -42,18 +46,43 @@ const action = createAction({
             headers: {
                 'xero-tenant-id': tenantId
             },
-            responseType: 'text',
+            responseType: 'arraybuffer',
             retries: 3
         });
 
-        if (typeof response.data !== 'string') {
+        if (!response.data) {
             throw new nango.ActionError({
                 type: 'unexpected_response',
-                message: 'Attachment content was not returned as text.'
+                message: 'Attachment content was empty.'
             });
         }
 
-        return response.data;
+        let buffer: Buffer;
+        if (response.data instanceof ArrayBuffer) {
+            buffer = Buffer.from(response.data);
+        } else if (Buffer.isBuffer(response.data)) {
+            buffer = response.data;
+        } else if (typeof response.data === 'string') {
+            buffer = Buffer.from(response.data, 'utf-8');
+        } else if (
+            response.data !== null &&
+            typeof response.data === 'object' &&
+            'type' in response.data &&
+            response.data.type === 'Buffer' &&
+            'data' in response.data &&
+            Array.isArray(response.data.data)
+        ) {
+            buffer = Buffer.from(response.data.data);
+        } else {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Attachment content was not returned as binary data.'
+            });
+        }
+
+        return {
+            content: buffer.toString('base64')
+        };
     }
 });
 

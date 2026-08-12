@@ -22,6 +22,10 @@ const OutputSchema = z
         IsCustomer: z.boolean().optional().describe('Whether the contact is flagged as a customer.'),
         BankAccountDetails: z.string().optional().describe('Bank account number associated with the contact.'),
         TaxNumber: z.string().optional().describe('Tax number associated with the contact.'),
+        SkypeUserName: z.string().optional().describe('Skype username for the contact.'),
+        AccountsReceivableTaxType: z.string().optional().describe('Default sales tax type for this contact.'),
+        AccountsPayableTaxType: z.string().optional().describe('Default purchases tax type for this contact.'),
+        DefaultCurrency: z.string().optional().describe('Default currency for this contact.'),
         Addresses: z.array(z.object({}).passthrough()).optional().describe('List of physical addresses for the contact.'),
         Phones: z.array(z.object({}).passthrough()).optional().describe('List of phone numbers for the contact.')
     })

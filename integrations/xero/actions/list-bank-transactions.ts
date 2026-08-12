@@ -27,12 +27,12 @@ const BankAccountSchema = z
 
 const LineItemSchema = z
     .object({
-        Description: z.string().optional().describe('Description of the line item.'),
-        Quantity: z.number().optional().describe('Quantity of the line item.'),
-        UnitAmount: z.number().optional().describe('Unit price of the line item.'),
-        AccountCode: z.string().optional().describe('Account code for the line item.'),
-        TaxType: z.string().optional().describe('Tax type applied to the line item.'),
-        LineAmount: z.number().optional().describe('Total amount for the line item.')
+        Description: z.string().nullish().describe('Description of the line item.'),
+        Quantity: z.number().nullish().describe('Quantity of the line item.'),
+        UnitAmount: z.number().nullish().describe('Unit price of the line item.'),
+        AccountCode: z.string().nullish().describe('Account code for the line item.'),
+        TaxType: z.string().nullish().describe('Tax type applied to the line item.'),
+        LineAmount: z.number().nullish().describe('Total amount for the line item.')
     })
     .passthrough();
 
@@ -49,7 +49,7 @@ const BankTransactionSchema = z
         UpdatedDateUTC: z.string().optional().describe('Last modified timestamp in UTC.'),
         CurrencyCode: z.string().optional().describe('Currency code, e.g. USD.'),
         Type: z.string().optional().describe('Transaction type, e.g. SPEND, RECEIVE, RECEIVE-PREPAYMENT, RECEIVE-OVERPAYMENT, TRANSFER.'),
-        Reference: z.string().optional().describe('Reference text for the transaction.'),
+        Reference: z.string().nullish().describe('Reference text for the transaction.'),
         IsReconciled: z.boolean().optional().describe('Whether the transaction is reconciled.'),
         BankAccount: BankAccountSchema.optional().describe('Bank account associated with the transaction.'),
         LineItems: z.array(LineItemSchema).optional().describe('Line items for the transaction.')
@@ -81,7 +81,7 @@ const action = createAction({
         const ConnectionConfigSchema = z.object({
             tenant_id: z.string().optional()
         });
-        const connectionConfig = ConnectionConfigSchema.parse(connection.connection_config);
+        const connectionConfig = ConnectionConfigSchema.parse(connection.connection_config || {});
         let tenantId = connectionConfig.tenant_id && connectionConfig.tenant_id.length > 0 ? connectionConfig.tenant_id : undefined;
 
         if (!tenantId) {

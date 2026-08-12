@@ -29,14 +29,14 @@ const ConnectionSchema = z.object({
 const XeroContactSchema = z.object({
     ContactID: z.string(),
     ContactStatus: z.string(),
-    Name: z.string().optional(),
-    FirstName: z.string().optional(),
-    LastName: z.string().optional(),
-    EmailAddress: z.string().optional(),
+    Name: z.string().nullish(),
+    FirstName: z.string().nullish(),
+    LastName: z.string().nullish(),
+    EmailAddress: z.string().nullish(),
     UpdatedDateUTC: z.string(),
-    IsSupplier: z.boolean().optional(),
-    IsCustomer: z.boolean().optional(),
-    HasAttachments: z.boolean().optional()
+    IsSupplier: z.boolean().nullish(),
+    IsCustomer: z.boolean().nullish(),
+    HasAttachments: z.boolean().nullish()
 });
 
 function parseXeroDate(value: string): Date | null {
@@ -53,6 +53,10 @@ function parseXeroDate(value: string): Date | null {
     return parsed;
 }
 
+function formatIfModifiedSince(date: Date): string {
+    return date.toISOString().replace(/\.\d{3}Z$/, '');
+}
+
 function mapContact(raw: unknown) {
     const parsed = XeroContactSchema.safeParse(raw);
     if (!parsed.success) {
@@ -62,14 +66,14 @@ function mapContact(raw: unknown) {
     return {
         id: c.ContactID,
         contact_status: c.ContactStatus,
-        ...(c.Name !== undefined && { name: c.Name }),
-        ...(c.FirstName !== undefined && { first_name: c.FirstName }),
-        ...(c.LastName !== undefined && { last_name: c.LastName }),
-        ...(c.EmailAddress !== undefined && { email_address: c.EmailAddress }),
+        ...(c.Name != null && { name: c.Name }),
+        ...(c.FirstName != null && { first_name: c.FirstName }),
+        ...(c.LastName != null && { last_name: c.LastName }),
+        ...(c.EmailAddress != null && { email_address: c.EmailAddress }),
         updated_date_utc: c.UpdatedDateUTC,
-        ...(c.IsSupplier !== undefined && { is_supplier: c.IsSupplier }),
-        ...(c.IsCustomer !== undefined && { is_customer: c.IsCustomer }),
-        ...(c.HasAttachments !== undefined && { has_attachments: c.HasAttachments })
+        ...(c.IsSupplier != null && { is_supplier: c.IsSupplier }),
+        ...(c.IsCustomer != null && { is_customer: c.IsCustomer }),
+        ...(c.HasAttachments != null && { has_attachments: c.HasAttachments })
     };
 }
 
@@ -140,7 +144,8 @@ const sync = createSync({
         };
 
         const params: Record<string, string> = {
-            summaryOnly: 'true'
+            summaryOnly: 'true',
+            order: 'UpdatedDateUTC ASC'
         };
 
         if (checkpoint && checkpoint.updated_after.length > 0) {
@@ -211,7 +216,6 @@ const sync = createSync({
                 await nango.batchDelete(archivedContacts, 'Contact');
             }
 
-            let latestUpdated = '';
             let latestUpdatedDate: Date | null = null;
 
             for (const raw of contacts) {
@@ -227,12 +231,11 @@ const sync = createSync({
 
                 if (!latestUpdatedDate || parsedDate > latestUpdatedDate) {
                     latestUpdatedDate = parsedDate;
-                    latestUpdated = parsed.data.UpdatedDateUTC;
                 }
             }
 
-            if (latestUpdated.length > 0) {
-                await nango.saveCheckpoint({ updated_after: latestUpdated });
+            if (latestUpdatedDate) {
+                await nango.saveCheckpoint({ updated_after: formatIfModifiedSince(latestUpdatedDate) });
             }
         }
     }

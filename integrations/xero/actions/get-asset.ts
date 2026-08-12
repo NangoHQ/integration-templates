@@ -47,6 +47,7 @@ const BookDepreciationDetailSchema = z
 const ProviderAssetSchema = z.object({
     assetId: z.string(),
     assetName: z.string(),
+    assetTypeId: z.string().optional(),
     assetNumber: z.string().optional(),
     purchaseDate: z.string().optional(),
     purchasePrice: z.number().optional(),
@@ -61,7 +62,8 @@ const ProviderAssetSchema = z.object({
             effectiveLifeUnits: z.number().optional(),
             depreciableObjectId: z.string().optional(),
             depreciableObjectType: z.string().optional(),
-            bookEffectiveDateOfChangeId: z.union([z.string(), z.number()]).optional()
+            bookEffectiveDateOfChangeId: z.union([z.string(), z.number()]).optional(),
+            depreciationCalculationMethod: z.string().optional()
         })
         .optional(),
     bookDepreciationDetail: BookDepreciationDetailSchema,
@@ -74,6 +76,7 @@ const OutputSchema = z
     .object({
         assetId: z.string().describe('The unique identifier of the fixed asset.'),
         assetName: z.string().describe('The display name of the fixed asset.'),
+        assetTypeId: z.string().optional().describe('The unique identifier of the asset type assigned to this asset.'),
         assetNumber: z.string().optional().describe('The asset number assigned to the fixed asset.'),
         purchaseDate: z.string().optional().describe('The date the asset was purchased, in ISO 8601 format.'),
         purchasePrice: z.number().optional().describe('The original purchase price of the asset.'),
@@ -91,7 +94,8 @@ const OutputSchema = z
                 bookEffectiveDateOfChangeId: z
                     .union([z.string(), z.number()])
                     .optional()
-                    .describe('The identifier for the effective date of a depreciation setting change.')
+                    .describe('The identifier for the effective date of a depreciation setting change.'),
+                depreciationCalculationMethod: z.string().optional().describe('Whether depreciation is calculated by Rate or Life.')
             })
             .optional()
             .describe('Depreciation configuration for the asset.'),
@@ -241,6 +245,7 @@ const action = createAction({
         return {
             assetId: providerAsset.assetId,
             assetName: providerAsset.assetName,
+            ...(providerAsset.assetTypeId !== undefined && { assetTypeId: providerAsset.assetTypeId }),
             ...(providerAsset.assetNumber !== undefined && { assetNumber: providerAsset.assetNumber }),
             ...(providerAsset.purchaseDate !== undefined && { purchaseDate: providerAsset.purchaseDate }),
             ...(providerAsset.purchasePrice !== undefined && { purchasePrice: providerAsset.purchasePrice }),
@@ -268,6 +273,9 @@ const action = createAction({
                     }),
                     ...(providerAsset.bookDepreciationSetting.depreciableObjectType !== undefined && {
                         depreciableObjectType: providerAsset.bookDepreciationSetting.depreciableObjectType
+                    }),
+                    ...(providerAsset.bookDepreciationSetting.depreciationCalculationMethod !== undefined && {
+                        depreciationCalculationMethod: providerAsset.bookDepreciationSetting.depreciationCalculationMethod
                     }),
                     ...(providerAsset.bookDepreciationSetting.bookEffectiveDateOfChangeId !== undefined && {
                         bookEffectiveDateOfChangeId: providerAsset.bookDepreciationSetting.bookEffectiveDateOfChangeId

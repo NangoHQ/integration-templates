@@ -23,10 +23,18 @@ const InputSchema = z
     );
 
 const ProviderPaymentSchema = z.object({
-    PaymentID: z.string(),
+    PaymentID: z.string().optional(),
     Date: z.string().optional(),
     Amount: z.number().optional(),
     Reference: z.string().optional(),
+    HasValidationErrors: z.boolean().optional(),
+    ValidationErrors: z
+        .array(
+            z.object({
+                Message: z.string().optional()
+            })
+        )
+        .optional(),
     Invoice: z
         .object({
             InvoiceID: z.string(),
@@ -182,6 +190,24 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'empty_response',
                 message: 'Xero returned an empty Payments array.'
+            });
+        }
+
+        if (payment.HasValidationErrors) {
+            const errors =
+                payment.ValidationErrors?.map((e) => e.Message)
+                    .filter(Boolean)
+                    .join(', ') || 'Unknown validation error';
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: `Payment creation failed: ${errors}`
+            });
+        }
+
+        if (!payment.PaymentID) {
+            throw new nango.ActionError({
+                type: 'empty_response',
+                message: 'Xero did not return a PaymentID for the created payment.'
             });
         }
 

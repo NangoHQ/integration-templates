@@ -32,7 +32,7 @@ const XeroJournalLineSchema = z.object({
     TaxType: z.string().optional().nullable(),
     TaxName: z.string().optional().nullable(),
     Tracking: z.array(XeroTrackingCategorySchema).optional().nullable(),
-    Amount: z.number().optional().nullable(),
+    LineAmount: z.number().optional().nullable(),
     IsCredit: z.boolean().optional().nullable(),
     IsActive: z.boolean().optional().nullable()
 });
@@ -249,7 +249,7 @@ const sync = createSync({
                                             ...(t.Option != null && { option: t.Option })
                                         }))
                                       : [],
-                                  ...(line.Amount != null && { amount: line.Amount }),
+                                  ...(line.LineAmount != null && { amount: line.LineAmount }),
                                   ...(line.IsCredit != null && { isCredit: line.IsCredit }),
                                   ...(line.IsActive != null && { isActive: line.IsActive })
                               };

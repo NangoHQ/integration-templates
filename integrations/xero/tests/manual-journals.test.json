@@ -19,14 +19,16 @@
               "accountCode": "160",
               "description": "Coded incorrectly Office Equipment should be Computer Equipment",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -2569
             },
             {
               "accountId": "270f7d77-ec0c-43d3-802f-be84f687c36e",
               "accountCode": "150",
               "description": "Coded incorrectly Computer Equipment should be Office Equipment",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 2569
             }
           ]
         },
@@ -46,21 +48,24 @@
               "accountCode": "656",
               "description": "Office stationery purchased from Office Supplies",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 325.9
             },
             {
               "accountId": "afe53f21-1221-451c-a8c4-08457e129d84",
               "accountCode": "160",
               "description": "Laptop purchased from High Street Computing",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 2999.95
             },
             {
               "accountId": "423febf5-5e50-4d7e-9f27-1d6be3fa2912",
               "accountCode": "205",
               "description": "Accrued expenses",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -3325.85
             }
           ]
         },
@@ -80,14 +85,16 @@
               "accountCode": "400",
               "description": "debit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 200
             },
             {
               "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
               "accountCode": "600",
               "description": "credit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -200
             }
           ]
         },
@@ -107,14 +114,16 @@
               "accountCode": "600",
               "description": "Test debit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 100
             },
             {
               "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
               "accountCode": "400",
               "description": "Test credit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -100
             }
           ]
         },
@@ -134,14 +143,16 @@
               "accountCode": "600",
               "description": "Test debit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 100
             },
             {
               "accountId": "e21ef153-577e-4132-94b0-3d0108d97def",
               "accountCode": "400",
               "description": "Test credit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -100
             }
           ]
         },
@@ -161,14 +172,16 @@
               "accountCode": "400",
               "description": "debit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": 100
             },
             {
               "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
               "accountCode": "600",
               "description": "credit",
               "taxType": "NONE",
-              "tracking": []
+              "tracking": [],
+              "amount": -100
             }
           ]
         }

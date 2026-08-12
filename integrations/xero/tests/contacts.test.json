@@ -1329,12 +1329,13 @@
           "x-client-tls-ver": "tls1.3",
           "etag": "W/\"5f0f-bPtAta3mtgvQGDjmLIaS7RbNRjg\""
         },
-        "hash": "b8ea99e56471b24d7ebaf6c7bec888522fbcb8c8",
+        "hash": "eafb3b2e3c7d8d40acd7c55e0918be3e0223e081",
         "request": {
           "params": {
             "pageSize": "100",
             "page": "1",
-            "summaryOnly": "true"
+            "summaryOnly": "true",
+            "order": "UpdatedDateUTC ASC"
           },
           "headers": {
             "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"

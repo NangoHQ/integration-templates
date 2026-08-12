@@ -35,36 +35,36 @@ const InputSchema = z
     .describe('Input for creating a Xero item.');
 
 const ProviderSalesDetailsSchema = z.object({
-    UnitPrice: z.number().optional().describe('Unit price for sales transactions.'),
-    AccountCode: z.string().optional().describe('Account code for sales transactions.'),
-    TaxType: z.string().optional().describe('Tax type for sales transactions.'),
-    COGSAccountCode: z.string().optional().describe('COGS account code for tracked inventory items.')
+    UnitPrice: z.number().nullish().describe('Unit price for sales transactions.'),
+    AccountCode: z.string().nullish().describe('Account code for sales transactions.'),
+    TaxType: z.string().nullish().describe('Tax type for sales transactions.'),
+    COGSAccountCode: z.string().nullish().describe('COGS account code for tracked inventory items.')
 });
 
 const ProviderPurchaseDetailsSchema = z.object({
-    UnitPrice: z.number().optional().describe('Unit price for purchase transactions.'),
-    AccountCode: z.string().optional().describe('Account code for purchase transactions.'),
-    TaxType: z.string().optional().describe('Tax type for purchase transactions.'),
-    COGSAccountCode: z.string().optional().describe('COGS account code for tracked inventory items.')
+    UnitPrice: z.number().nullish().describe('Unit price for purchase transactions.'),
+    AccountCode: z.string().nullish().describe('Account code for purchase transactions.'),
+    TaxType: z.string().nullish().describe('Tax type for purchase transactions.'),
+    COGSAccountCode: z.string().nullish().describe('COGS account code for tracked inventory items.')
 });
 
 const ProviderItemSchema = z.object({
     ItemID: z.string().describe('Unique identifier for the item.'),
     Code: z.string().describe('User-defined item code.'),
-    Name: z.string().optional().describe('Name of the item.'),
-    Description: z.string().optional().describe('Sales description of the item.'),
-    PurchaseDescription: z.string().optional().describe('Purchase description of the item.'),
-    IsSold: z.boolean().optional().describe('Whether the item is available for sales transactions.'),
-    IsPurchased: z.boolean().optional().describe('Whether the item is available for purchase transactions.'),
-    IsTrackedAsInventory: z.boolean().optional().describe('Whether the item is tracked as inventory.'),
-    InventoryAssetAccountCode: z.string().optional().describe('Inventory asset account code.'),
-    TotalCostPool: z.number().optional().describe('Total value of the item on hand using average cost accounting.'),
-    QuantityOnHand: z.number().optional().describe('Quantity of the item on hand.'),
-    QuantityOnBackOrder: z.number().optional().describe('Quantity of the item on backorder.'),
-    QuantityAvailable: z.number().optional().describe('Quantity of the item available.'),
-    UpdatedDateUTC: z.string().optional().describe('Timestamp when the item was last updated.'),
-    PurchaseDetails: ProviderPurchaseDetailsSchema.optional().describe('Purchase details for the item.'),
-    SalesDetails: ProviderSalesDetailsSchema.optional().describe('Sales details for the item.')
+    Name: z.string().nullish().describe('Name of the item.'),
+    Description: z.string().nullish().describe('Sales description of the item.'),
+    PurchaseDescription: z.string().nullish().describe('Purchase description of the item.'),
+    IsSold: z.boolean().nullish().describe('Whether the item is available for sales transactions.'),
+    IsPurchased: z.boolean().nullish().describe('Whether the item is available for purchase transactions.'),
+    IsTrackedAsInventory: z.boolean().nullish().describe('Whether the item is tracked as inventory.'),
+    InventoryAssetAccountCode: z.string().nullish().describe('Inventory asset account code.'),
+    TotalCostPool: z.number().nullish().describe('Total value of the item on hand using average cost accounting.'),
+    QuantityOnHand: z.number().nullish().describe('Quantity of the item on hand.'),
+    QuantityOnBackOrder: z.number().nullish().describe('Quantity of the item on backorder.'),
+    QuantityAvailable: z.number().nullish().describe('Quantity of the item available.'),
+    UpdatedDateUTC: z.string().nullish().describe('Timestamp when the item was last updated.'),
+    PurchaseDetails: ProviderPurchaseDetailsSchema.nullish().describe('Purchase details for the item.'),
+    SalesDetails: ProviderSalesDetailsSchema.nullish().describe('Sales details for the item.')
 });
 
 const OutputSchema = ProviderItemSchema.describe('The created Xero item.');

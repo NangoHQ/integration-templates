@@ -15,14 +15,16 @@
         "accountCode": "400",
         "description": "debit",
         "taxType": "NONE",
-        "tracking": []
+        "tracking": [],
+        "amount": 100
       },
       {
         "accountId": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
         "accountCode": "600",
         "description": "credit",
         "taxType": "NONE",
-        "tracking": []
+        "tracking": [],
+        "amount": -100
       }
     ],
     "hasAttachments": false,

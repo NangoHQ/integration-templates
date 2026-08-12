@@ -219,7 +219,7 @@ const action = createAction({
             purchaseOrderPayload['ExpectedArrivalDate'] = input.expectedArrivalDate;
         }
         if (input.address !== undefined) {
-            purchaseOrderPayload['Address'] = input.address;
+            purchaseOrderPayload['DeliveryAddress'] = input.address;
         }
 
         // https://developer.xero.com/documentation/api/accounting/overview

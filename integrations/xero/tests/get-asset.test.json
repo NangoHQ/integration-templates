@@ -5,6 +5,7 @@
   "output": {
     "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
     "assetName": "Nango Registry Test Asset 1",
+    "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
     "assetNumber": "FA-NANGO-1",
     "purchaseDate": "2026-08-01T00:00:00",
     "purchasePrice": 500,
@@ -13,7 +14,8 @@
     "bookDepreciationSetting": {
       "depreciableObjectId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
       "depreciableObjectType": "Asset",
-      "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a"
+      "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a",
+      "depreciationCalculationMethod": "None"
     },
     "bookDepreciationDetail": {
       "currentCapitalGain": 0,

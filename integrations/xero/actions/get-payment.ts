@@ -171,23 +171,23 @@ const action = createAction({
                 : undefined;
 
         return {
-            paymentId: rawPayment.PaymentID !== undefined ? String(rawPayment.PaymentID) : input.paymentId,
-            ...(rawPayment.Date !== undefined && { date: String(rawPayment.Date) }),
-            ...(rawPayment.Amount !== undefined && { amount: Number(rawPayment.Amount) }),
-            ...(rawPayment.Status !== undefined && { status: String(rawPayment.Status) }),
-            ...(rawPayment.PaymentType !== undefined && { paymentType: String(rawPayment.PaymentType) }),
-            ...(rawPayment.UpdatedDateUTC !== undefined && { updatedDateUtc: String(rawPayment.UpdatedDateUTC) }),
+            paymentId: rawPayment.PaymentID != null ? String(rawPayment.PaymentID) : input.paymentId,
+            ...(rawPayment.Date != null && { date: String(rawPayment.Date) }),
+            ...(rawPayment.Amount != null && { amount: Number(rawPayment.Amount) }),
+            ...(rawPayment.Status != null && { status: String(rawPayment.Status) }),
+            ...(rawPayment.PaymentType != null && { paymentType: String(rawPayment.PaymentType) }),
+            ...(rawPayment.UpdatedDateUTC != null && { updatedDateUtc: String(rawPayment.UpdatedDateUTC) }),
             ...(invoiceRaw !== undefined && {
                 invoice: {
-                    ...(invoiceRaw.InvoiceID !== undefined && { invoiceId: String(invoiceRaw.InvoiceID) }),
-                    ...(invoiceRaw.InvoiceNumber !== undefined && { invoiceNumber: String(invoiceRaw.InvoiceNumber) })
+                    ...(invoiceRaw.InvoiceID != null && { invoiceId: String(invoiceRaw.InvoiceID) }),
+                    ...(invoiceRaw.InvoiceNumber != null && { invoiceNumber: String(invoiceRaw.InvoiceNumber) })
                 }
             }),
             ...(accountRaw !== undefined && {
                 account: {
-                    ...(accountRaw.AccountID !== undefined && { accountId: String(accountRaw.AccountID) }),
-                    ...(accountRaw.Code !== undefined && { code: String(accountRaw.Code) }),
-                    ...(accountRaw.Name !== undefined && { name: String(accountRaw.Name) })
+                    ...(accountRaw.AccountID != null && { accountId: String(accountRaw.AccountID) }),
+                    ...(accountRaw.Code != null && { code: String(accountRaw.Code) }),
+                    ...(accountRaw.Name != null && { name: String(accountRaw.Name) })
                 }
             })
         };

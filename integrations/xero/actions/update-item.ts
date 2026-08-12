@@ -40,9 +40,14 @@ const ProviderPurchaseDetailsSchema = z.object({
     TaxType: z.string().optional()
 });
 
+const ProviderValidationErrorSchema = z.object({
+    Message: z.string().optional(),
+    Description: z.string().optional()
+});
+
 const ProviderItemSchema = z.object({
-    ItemID: z.string(),
-    Code: z.string(),
+    ItemID: z.string().optional(),
+    Code: z.string().optional(),
     Name: z.string().optional(),
     Description: z.string().nullable().optional(),
     IsTrackedAsInventory: z.boolean().optional(),
@@ -50,12 +55,8 @@ const ProviderItemSchema = z.object({
     IsPurchased: z.boolean().optional(),
     InventoryAssetAccountCode: z.string().nullable().optional(),
     SalesDetails: ProviderSalesDetailsSchema.nullable().optional(),
-    PurchaseDetails: ProviderPurchaseDetailsSchema.nullable().optional()
-});
-
-const ProviderValidationErrorSchema = z.object({
-    Message: z.string().optional(),
-    Description: z.string().optional()
+    PurchaseDetails: ProviderPurchaseDetailsSchema.nullable().optional(),
+    ValidationErrors: z.array(ProviderValidationErrorSchema).optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -102,7 +103,7 @@ const action = createAction({
     version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.invoices'],
+    scopes: ['accounting.settings'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.item_id && !input.code) {
@@ -115,9 +116,11 @@ const action = createAction({
         const connection = await nango.getConnection();
         let tenantId: string | undefined;
 
-        const configTenantId = connection.connection_config['tenant_id'];
-        if (typeof configTenantId === 'string' && configTenantId.length > 0) {
-            tenantId = configTenantId;
+        if (connection.connection_config !== null) {
+            const configTenantId = connection.connection_config['tenant_id'];
+            if (typeof configTenantId === 'string' && configTenantId.length > 0) {
+                tenantId = configTenantId;
+            }
         }
 
         if (!tenantId && connection.metadata !== null) {
@@ -229,6 +232,20 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'no_items',
                 message: 'Xero returned no items in the response.'
+            });
+        }
+
+        if (updated.ValidationErrors && updated.ValidationErrors.length > 0) {
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: updated.ValidationErrors.map((e) => e.Message || e.Description || 'Unknown validation error').join(', ')
+            });
+        }
+
+        if (!updated.ItemID || !updated.Code) {
+            throw new nango.ActionError({
+                type: 'no_items',
+                message: 'Xero did not return an updated item with an ItemID and Code.'
             });
         }
 

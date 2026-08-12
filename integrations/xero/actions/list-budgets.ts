@@ -43,7 +43,7 @@ const TenantSchema = z.object({
 });
 
 const ConnectionSchema = z.object({
-    connection_config: z.record(z.string(), z.unknown()).optional(),
+    connection_config: z.record(z.string(), z.unknown()).nullable().optional(),
     metadata: z.record(z.string(), z.unknown()).nullable().optional()
 });
 

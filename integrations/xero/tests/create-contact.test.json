@@ -10,7 +10,50 @@
     "emailAddress": "save@example.com",
     "bankAccountDetails": "",
     "isCustomer": false,
-    "isSupplier": false
+    "isSupplier": false,
+    "addresses": [
+      {
+        "AddressType": "STREET",
+        "City": "",
+        "Region": "",
+        "PostalCode": "",
+        "Country": ""
+      },
+      {
+        "AddressType": "POBOX",
+        "City": "",
+        "Region": "",
+        "PostalCode": "",
+        "Country": ""
+      }
+    ],
+    "phones": [
+      {
+        "PhoneType": "DEFAULT",
+        "PhoneNumber": "",
+        "PhoneAreaCode": "",
+        "PhoneCountryCode": ""
+      },
+      {
+        "PhoneType": "DDI",
+        "PhoneNumber": "",
+        "PhoneAreaCode": "",
+        "PhoneCountryCode": ""
+      },
+      {
+        "PhoneType": "FAX",
+        "PhoneNumber": "",
+        "PhoneAreaCode": "",
+        "PhoneCountryCode": ""
+      },
+      {
+        "PhoneType": "MOBILE",
+        "PhoneNumber": "",
+        "PhoneAreaCode": "",
+        "PhoneCountryCode": ""
+      }
+    ],
+    "contactPersons": []
   },
   "nango": {
     "getConnection": {}

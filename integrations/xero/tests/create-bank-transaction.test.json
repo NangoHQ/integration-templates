@@ -20,6 +20,7 @@
     "contact_id": "9495ae21-ec99-4bfe-a6c0-6d43156f3374",
     "contact_name": "Nango Registry Test Contact Dryrun",
     "bank_account_id": "ceef66a5-a545-413b-9312-78a53caadbc4",
+    "bank_account_code": "090",
     "bank_account_name": "Checking Account",
     "date": "/Date(1705276800000+0000)/",
     "line_items": [

@@ -28,7 +28,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "c330ad9b-d288-472f-9a3e-36a399e4770c",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "c330ad9b-d288-472f-9a3e-36a399e4770c",
+          "DateString": "2025-07-25T00:00:00",
+          "Date": "/Date(1753401600000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 90,
+          "UpdatedDateUTC": "/Date(1316548408630+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T19:53:28Z"
       },
       {
         "PaymentID": "5945d408-4f5c-433c-a506-57f753a3b2d1",
@@ -56,7 +71,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "413b6734-ab24-4f55-87c5-444726076384",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "413b6734-ab24-4f55-87c5-444726076384",
+          "DateString": "2025-07-25T00:00:00",
+          "Date": "/Date(1753401600000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316548411763+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T19:53:31Z"
       },
       {
         "PaymentID": "acafd8ce-4fa6-466a-951b-725737a93b83",
@@ -84,7 +114,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "79f60299-7138-4d67-ae3c-50f1d4231dde",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "79f60299-7138-4d67-ae3c-50f1d4231dde",
+          "DateString": "2025-08-24T00:00:00",
+          "Date": "/Date(1755993600000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 95.5,
+          "UpdatedDateUTC": "/Date(1316548413980+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T19:53:33Z"
       },
       {
         "PaymentID": "19979c8d-b674-4784-a5ed-595a1c5356d4",
@@ -112,7 +157,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "7cf186a2-36c2-4e03-bf59-05dd62dc3b47",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "7cf186a2-36c2-4e03-bf59-05dd62dc3b47",
+          "DateString": "2025-08-24T00:00:00",
+          "Date": "/Date(1755993600000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316548416007+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T19:53:36Z"
       },
       {
         "PaymentID": "84efe334-5ed8-4e16-91d6-09e86f4852d0",
@@ -140,7 +200,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "fe856151-a2a3-4a33-899b-c054cd40443b",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "fe856151-a2a3-4a33-899b-c054cd40443b",
+          "DateString": "2025-09-24T00:00:00",
+          "Date": "/Date(1758672000000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 97,
+          "UpdatedDateUTC": "/Date(1316549446353+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:10:46Z"
       },
       {
         "PaymentID": "baf389e0-5ae3-4676-bdd6-54eb320d611b",
@@ -168,7 +243,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "b8e5d803-17cc-4238-ad6b-2e7a03164ebb",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "b8e5d803-17cc-4238-ad6b-2e7a03164ebb",
+          "DateString": "2025-09-24T00:00:00",
+          "Date": "/Date(1758672000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316549448040+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:10:48Z"
       },
       {
         "PaymentID": "248c3387-475b-4858-85ac-a6429bc91e02",
@@ -196,7 +286,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "9fd82f16-265f-4d66-8a0c-45e611c8ee4c",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "9fd82f16-265f-4d66-8a0c-45e611c8ee4c",
+          "DateString": "2025-10-24T00:00:00",
+          "Date": "/Date(1761264000000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 92,
+          "UpdatedDateUTC": "/Date(1316549449663+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:10:49Z"
       },
       {
         "PaymentID": "8a7fa5f7-3e4a-42d8-948f-7bfdbe3cee94",
@@ -224,7 +329,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "140a2fe5-100d-484f-a2d8-dc7ccf43656c",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "140a2fe5-100d-484f-a2d8-dc7ccf43656c",
+          "DateString": "2025-10-24T00:00:00",
+          "Date": "/Date(1761264000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 1000,
+          "UpdatedDateUTC": "/Date(1316549451363+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:10:51Z"
       },
       {
         "PaymentID": "e811d896-9010-4860-8ba9-e5e566c1b293",
@@ -252,7 +372,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "70d4d85a-1945-4c54-a9f9-68904e023f5a",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "70d4d85a-1945-4c54-a9f9-68904e023f5a",
+          "DateString": "2025-11-24T00:00:00",
+          "Date": "/Date(1763942400000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 89,
+          "UpdatedDateUTC": "/Date(1316551761487+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:49:21Z"
       },
       {
         "PaymentID": "bdf7b195-6acc-459c-a9fc-a562561a076a",
@@ -280,7 +415,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "c74304df-5080-40d4-9516-765606dd0c0b",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "c74304df-5080-40d4-9516-765606dd0c0b",
+          "DateString": "2025-11-24T00:00:00",
+          "Date": "/Date(1763942400000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316551763983+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:49:23Z"
       },
       {
         "PaymentID": "9d03c79c-322d-4947-a1d5-93dcba3a412b",
@@ -308,7 +458,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "5cc5c9b8-5bfb-4df0-b6ad-72b42b6c81b0",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "5cc5c9b8-5bfb-4df0-b6ad-72b42b6c81b0",
+          "DateString": "2025-12-25T00:00:00",
+          "Date": "/Date(1766620800000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 91,
+          "UpdatedDateUTC": "/Date(1316551771907+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:49:31Z"
       },
       {
         "PaymentID": "f5d36ea0-42f2-4cf8-ae2b-502e7c182206",
@@ -336,7 +501,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "79313e05-031b-4414-b58f-229c8c662ae7",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "79313e05-031b-4414-b58f-229c8c662ae7",
+          "DateString": "2025-12-25T00:00:00",
+          "Date": "/Date(1766620800000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316551774060+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T20:49:34Z"
       },
       {
         "PaymentID": "7e1fedf4-8c5e-496a-b24c-b4d01c638779",
@@ -364,7 +544,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "d3f3e691-44a4-4034-b071-2203d1fbd208",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "d3f3e691-44a4-4034-b071-2203d1fbd208",
+          "DateString": "2026-01-22T00:00:00",
+          "Date": "/Date(1769040000000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 96.25,
+          "UpdatedDateUTC": "/Date(1316556591320+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T22:09:51Z"
       },
       {
         "PaymentID": "37f922f0-879b-4f11-9cf2-480fbd8122a3",
@@ -392,7 +587,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "68fc97ab-f1f9-415c-aa7e-6651f7f76f67",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "68fc97ab-f1f9-415c-aa7e-6651f7f76f67",
+          "DateString": "2026-01-22T00:00:00",
+          "Date": "/Date(1769040000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 1500,
+          "UpdatedDateUTC": "/Date(1316556593270+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T22:09:53Z"
       },
       {
         "PaymentID": "ef64cbbd-98fd-4a79-a19a-0d354fd1c70b",
@@ -420,7 +630,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "090e553b-2233-4188-bb36-f6cc9e01c8a7",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "090e553b-2233-4188-bb36-f6cc9e01c8a7",
+          "DateString": "2026-02-22T00:00:00",
+          "Date": "/Date(1771718400000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 100.6,
+          "UpdatedDateUTC": "/Date(1316556595017+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T22:09:55Z"
       },
       {
         "PaymentID": "5d09f062-7fd0-432f-939e-5c40dd0902a5",
@@ -448,7 +673,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "2210b872-762f-484c-9fa0-3ed9a84c36e5",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "2210b872-762f-484c-9fa0-3ed9a84c36e5",
+          "DateString": "2026-02-22T00:00:00",
+          "Date": "/Date(1771718400000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316556597060+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T22:09:57Z"
       },
       {
         "PaymentID": "d3916b50-b9d8-4420-b23a-e102d0e65649",
@@ -476,7 +716,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "59ba0663-38e6-4d09-919a-01d707aaaf06",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "59ba0663-38e6-4d09-919a-01d707aaaf06",
+          "DateString": "2026-03-24T00:00:00",
+          "Date": "/Date(1774310400000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 105.75,
+          "UpdatedDateUTC": "/Date(1316561818897+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T23:36:58Z"
       },
       {
         "PaymentID": "97159717-506f-4d82-8d68-b1376f62948b",
@@ -504,7 +759,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "0ef7bb07-1351-4a1c-b1cd-16095b6223dc",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "0ef7bb07-1351-4a1c-b1cd-16095b6223dc",
+          "DateString": "2026-03-24T00:00:00",
+          "Date": "/Date(1774310400000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 1200,
+          "UpdatedDateUTC": "/Date(1316561823983+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T23:37:03Z"
       },
       {
         "PaymentID": "bebeaf1c-5cff-49be-a743-d8e733e383fa",
@@ -532,7 +802,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "0b4df48a-9980-40b2-9394-1db9cd9910c2",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "0b4df48a-9980-40b2-9394-1db9cd9910c2",
+          "DateString": "2026-04-24T00:00:00",
+          "Date": "/Date(1776988800000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 106.5,
+          "UpdatedDateUTC": "/Date(1316561825823+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T23:37:05Z"
       },
       {
         "PaymentID": "8480cee6-4875-4640-b559-f420a0768df4",
@@ -560,7 +845,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "8a541b64-d0c2-48aa-8d51-e563c943c11c",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "8a541b64-d0c2-48aa-8d51-e563c943c11c",
+          "DateString": "2026-04-24T00:00:00",
+          "Date": "/Date(1776988800000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 500,
+          "UpdatedDateUTC": "/Date(1316561830380+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-09-20T23:37:10Z"
       },
       {
         "PaymentID": "5ab46f54-896a-49ae-8177-463891c167b7",
@@ -588,7 +888,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:39:03Z"
       },
       {
         "PaymentID": "ea67797c-7e1b-426f-a5d8-ff05ac586365",
@@ -616,7 +917,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "0e6fcff2-29ca-473f-a664-169d2683b658",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "0e6fcff2-29ca-473f-a664-169d2683b658",
+          "DateString": "2026-05-27T00:00:00",
+          "Date": "/Date(1779840000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 1500,
+          "UpdatedDateUTC": "/Date(1317858908937+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-05T23:55:08Z"
       },
       {
         "PaymentID": "718e8149-fec5-4423-a435-2c0c6675f920",
@@ -644,7 +960,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:55:13Z"
       },
       {
         "PaymentID": "78f1dc21-a05b-4621-8a21-632fdc985530",
@@ -672,7 +989,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "dfe4746e-9ad5-4d1b-b223-a4dcf71f8502",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "dfe4746e-9ad5-4d1b-b223-a4dcf71f8502",
+          "DateString": "2026-05-22T00:00:00",
+          "Date": "/Date(1779408000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 541.25,
+          "UpdatedDateUTC": "/Date(1317858939687+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-05T23:55:39Z"
       },
       {
         "PaymentID": "bcd15387-f5f5-4a22-927b-870e8080742b",
@@ -700,7 +1032,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "54eee901-cd5e-413a-8982-f72266143242",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "54eee901-cd5e-413a-8982-f72266143242",
+          "DateString": "2026-05-22T00:00:00",
+          "Date": "/Date(1779408000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 541.25,
+          "UpdatedDateUTC": "/Date(1317858948220+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-05T23:55:48Z"
       },
       {
         "PaymentID": "a894081b-f4c2-4292-abff-9f470460328f",
@@ -728,7 +1075,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "cf226fcf-eda0-4c5a-9f16-1519933a2fa8",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "cf226fcf-eda0-4c5a-9f16-1519933a2fa8",
+          "DateString": "2026-05-22T00:00:00",
+          "Date": "/Date(1779408000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 541.25,
+          "UpdatedDateUTC": "/Date(1317858951590+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-05T23:55:51Z"
       },
       {
         "PaymentID": "71f5b3fc-fd4a-4589-8920-9ff0e7fc8fe6",
@@ -756,7 +1118,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "f2b8ac07-c8ce-4912-8468-e0c7d9ac890a",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "f2b8ac07-c8ce-4912-8468-e0c7d9ac890a",
+          "DateString": "2026-05-22T00:00:00",
+          "Date": "/Date(1779408000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 541.25,
+          "UpdatedDateUTC": "/Date(1317858966287+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-05T23:56:06Z"
       },
       {
         "PaymentID": "70bd5721-10ee-4a9c-9838-87ae5a4aed5d",
@@ -784,7 +1161,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:56:41Z"
       },
       {
         "PaymentID": "925284fb-fb1d-4977-8415-a90d261ff7fe",
@@ -812,7 +1190,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:56:41Z"
       },
       {
         "PaymentID": "3b3830f0-5c7e-427e-8332-ef42a5ac2d47",
@@ -840,7 +1219,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:56:41Z"
       },
       {
         "PaymentID": "76e1befb-625e-4258-9b73-f8356ae1e9c5",
@@ -868,7 +1248,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-05T23:56:41Z"
       },
       {
         "PaymentID": "9dcbaeeb-a1ae-4f6d-b11d-dd533c2c0856",
@@ -896,7 +1277,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T00:24:24Z"
       },
       {
         "PaymentID": "4ab37ff9-064c-497d-851e-aed10374df8f",
@@ -924,7 +1306,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T00:26:11Z"
       },
       {
         "PaymentID": "99d4850f-6ef3-46da-9e8c-0bfc4ed92739",
@@ -952,7 +1335,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "0a8ea9dd-3fc3-424d-9c7f-d9365eeb1a86",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "0a8ea9dd-3fc3-424d-9c7f-d9365eeb1a86",
+          "DateString": "2026-06-05T00:00:00",
+          "Date": "/Date(1780617600000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 2500,
+          "UpdatedDateUTC": "/Date(1317861745950+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-06T00:42:25Z"
       },
       {
         "PaymentID": "4b1a8609-90c5-41e2-aa16-732dc6ac8fed",
@@ -979,7 +1377,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T00:42:27Z"
       },
       {
         "PaymentID": "ce0358f7-91fe-4daa-bdaf-dc52e838e6f9",
@@ -1007,7 +1406,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T00:43:01Z"
       },
       {
         "PaymentID": "04d507d0-ab4b-48eb-923c-28bb5daf5069",
@@ -1035,7 +1435,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "187c5c92-76c0-44d7-b376-7ce038656d07",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "187c5c92-76c0-44d7-b376-7ce038656d07",
+          "DateString": "2026-06-16T00:00:00",
+          "Date": "/Date(1781568000000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 329.8,
+          "UpdatedDateUTC": "/Date(1317861783843+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-06T00:43:03Z"
       },
       {
         "PaymentID": "d9ceaafd-63ee-4726-87a4-cf70e63c69f0",
@@ -1062,7 +1477,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T00:43:10Z"
       },
       {
         "PaymentID": "76a33604-4826-4715-be5a-513f73827ff2",
@@ -1090,7 +1506,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "aa36ff21-14d7-4f4f-aa7d-a92e65447acf",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "aa36ff21-14d7-4f4f-aa7d-a92e65447acf",
+          "DateString": "2026-06-27T00:00:00",
+          "Date": "/Date(1782518400000+0000)/",
+          "Type": "PAYBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 135.85,
+          "UpdatedDateUTC": "/Date(1317861802063+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-06T00:43:22Z"
       },
       {
         "PaymentID": "85d906f0-ad70-4cd9-afc2-73acd194125b",
@@ -1118,7 +1549,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T18:23:37Z"
       },
       {
         "PaymentID": "5a822795-b9ce-42ba-804c-97459b7630e1",
@@ -1146,7 +1578,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T18:23:37Z"
       },
       {
         "PaymentID": "31b5e4f1-2d36-4d53-8a3f-79f8bb7c5f40",
@@ -1174,7 +1607,22 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "BatchPaymentID": "0cf2f7e3-9025-4f08-89bb-ff7d19da2e96",
+        "BatchPayment": {
+          "Account": {
+            "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4"
+          },
+          "BatchPaymentID": "0cf2f7e3-9025-4f08-89bb-ff7d19da2e96",
+          "DateString": "2026-07-14T00:00:00",
+          "Date": "/Date(1783987200000+0000)/",
+          "Type": "RECBATCH",
+          "Status": "AUTHORISED",
+          "TotalAmount": 579.37,
+          "UpdatedDateUTC": "/Date(1337386571710+0000)/",
+          "IsReconciled": true
+        },
+        "UpdatedDateUTCString": "2011-10-06T19:52:18Z"
       },
       {
         "PaymentID": "002d18a5-2915-4255-b464-e975e959440b",
@@ -1202,7 +1650,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T22:11:51Z"
       },
       {
         "PaymentID": "db9160fc-0ec5-4691-b37c-8770477fe284",
@@ -1230,7 +1679,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T22:29:19Z"
       },
       {
         "PaymentID": "3df3c2eb-e453-49f5-b200-697cc12ae57e",
@@ -1258,7 +1708,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2011-10-06T22:30:43Z"
       },
       {
         "PaymentID": "a436498c-48d8-4ba5-b4ff-33836734b01f",
@@ -1286,7 +1737,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2012-05-19T00:02:29Z"
       },
       {
         "PaymentID": "46548cdf-0a7d-428d-9be9-05d4a73053ec",
@@ -1313,7 +1765,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2012-05-19T00:29:58Z"
       },
       {
         "PaymentID": "8f9aa345-c2b0-4dc5-b868-0402c86ced79",
@@ -1340,7 +1793,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2012-05-19T00:30:56Z"
       },
       {
         "PaymentID": "9b3d332b-4333-4ffc-b709-e8539297c105",
@@ -1368,7 +1822,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:28Z"
       },
       {
         "PaymentID": "c7d75d9a-a9dc-426a-b4ad-e8bade95a7aa",
@@ -1396,7 +1851,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:28Z"
       },
       {
         "PaymentID": "f221361f-03cc-41e7-a942-905cfe843633",
@@ -1424,7 +1880,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:29Z"
       },
       {
         "PaymentID": "05adbb13-f82f-4922-af38-587a35a9bec8",
@@ -1452,7 +1909,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:43Z"
       },
       {
         "PaymentID": "7e5646cb-ed9a-43e8-8ecb-634267743e3b",
@@ -1480,7 +1938,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:49Z"
       },
       {
         "PaymentID": "0a5c700c-ef18-4841-8167-93517e8ec872",
@@ -1508,7 +1967,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:24:52Z"
       },
       {
         "PaymentID": "8272aa50-6bb5-4667-a496-44e8a115b93e",
@@ -1535,7 +1995,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:53Z"
       },
       {
         "PaymentID": "7565e2e3-4be1-42c3-a9f6-ae4d5a416830",
@@ -1563,7 +2024,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:53Z"
       },
       {
         "PaymentID": "189f805a-4d39-44d6-b1bd-522a0315da7f",
@@ -1591,7 +2053,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:54Z"
       },
       {
         "PaymentID": "cde86605-b264-4511-aea1-24856072da77",
@@ -1619,7 +2082,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:54Z"
       },
       {
         "PaymentID": "3c5de1b8-c18f-4900-b9a0-784c0181cac2",
@@ -1647,7 +2111,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:54Z"
       },
       {
         "PaymentID": "85cd42d8-5e8f-43b0-af44-3f05466a8526",
@@ -1675,7 +2140,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:54Z"
       },
       {
         "PaymentID": "1f968d6c-a0a5-4759-bdb4-29465679f0c2",
@@ -1703,7 +2169,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:55Z"
       },
       {
         "PaymentID": "2df2f0d8-8917-4f31-8595-80d1376b948e",
@@ -1731,7 +2198,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:28:55Z"
       },
       {
         "PaymentID": "8741e95d-1efa-4bd1-bd31-d6483584519b",
@@ -1759,7 +2227,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:04Z"
       },
       {
         "PaymentID": "c9a4754a-14a3-4722-acb7-241236871837",
@@ -1787,7 +2256,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:05Z"
       },
       {
         "PaymentID": "1b74dae3-6936-4ca2-9f9f-198fb5340d25",
@@ -1815,7 +2285,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:06Z"
       },
       {
         "PaymentID": "82361ac9-f6df-4494-a517-e6a49a9ee6c2",
@@ -1843,7 +2314,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:07Z"
       },
       {
         "PaymentID": "d845f84a-4a44-4c51-b9a2-0a85df910638",
@@ -1871,7 +2343,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:09Z"
       },
       {
         "PaymentID": "e65e4043-e597-415b-8207-a1b9dc292bf9",
@@ -1899,7 +2372,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:10Z"
       },
       {
         "PaymentID": "076ae28a-10ef-4390-8959-3a99d9799c11",
@@ -1927,7 +2401,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:11Z"
       },
       {
         "PaymentID": "5ba4e6dd-15ee-4463-bc58-6594589ba871",
@@ -1955,7 +2430,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:29:19Z"
       },
       {
         "PaymentID": "197f3cfd-7709-4a73-8cfe-2615266e1c5c",
@@ -1983,7 +2459,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:35:27Z"
       },
       {
         "PaymentID": "8ae3f1b1-dc68-4873-b98e-2358401542ba",
@@ -2011,7 +2488,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:35:27Z"
       },
       {
         "PaymentID": "635b6106-66de-4746-a9da-28cd2fdcf9e3",
@@ -2039,7 +2517,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:35:52Z"
       },
       {
         "PaymentID": "b9e9512a-3fe0-42f0-874d-bfce5205b18a",
@@ -2067,7 +2546,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2024-08-06T22:35:53Z"
       },
       {
         "PaymentID": "6c3698f8-7fde-4fa8-ab9d-82917c7e751f",
@@ -2095,7 +2575,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:49Z"
       },
       {
         "PaymentID": "5d24579c-a4be-4912-a66e-823709ad2e34",
@@ -2123,7 +2604,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:49Z"
       },
       {
         "PaymentID": "27f9811e-5470-4caf-ab78-a74860099beb",
@@ -2151,7 +2633,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:50Z"
       },
       {
         "PaymentID": "dacccfc6-82f5-4c22-832f-374b44f949c4",
@@ -2179,7 +2662,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:51Z"
       },
       {
         "PaymentID": "8322593f-135c-4a49-b5eb-46432e7cee7b",
@@ -2207,7 +2691,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:51Z"
       },
       {
         "PaymentID": "8852e760-6a93-482c-b3c9-639a0462734f",
@@ -2235,7 +2720,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:52Z"
       },
       {
         "PaymentID": "2c49e1c1-bcef-4015-b6f7-082551f91588",
@@ -2263,7 +2749,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:52Z"
       },
       {
         "PaymentID": "bd75c22b-9840-44b8-8fb9-ae5e68d63840",
@@ -2291,7 +2778,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:52Z"
       },
       {
         "PaymentID": "4305de71-b1c4-4ff7-901a-bb8d87db2b0d",
@@ -2319,7 +2807,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:52Z"
       },
       {
         "PaymentID": "a3c91a25-db5f-43f1-b526-85ddc6df15e2",
@@ -2347,7 +2836,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-09T22:29:53Z"
       },
       {
         "PaymentID": "0cf20e96-a489-4a87-bd47-2456f04ac828",
@@ -2374,7 +2864,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T22:32:06Z"
       },
       {
         "PaymentID": "c7a0f66d-4232-45d6-b1aa-e6f51d35e71d",
@@ -2401,7 +2892,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T22:32:25Z"
       },
       {
         "PaymentID": "51194409-9530-4ff9-aa72-7c415273c723",
@@ -2428,7 +2920,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T23:27:34Z"
       },
       {
         "PaymentID": "07073e02-ce23-4f06-abff-2b0b4b35de85",
@@ -2456,7 +2949,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T23:27:34Z"
       },
       {
         "PaymentID": "76c3095a-3843-49fb-a073-51734e49e8c0",
@@ -2484,7 +2978,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T23:27:34Z"
       },
       {
         "PaymentID": "83c60bf9-95dc-46ac-bc14-039448b943cb",
@@ -2511,7 +3006,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T23:29:36Z"
       },
       {
         "PaymentID": "6ed3aa5e-a4ad-40c9-ba77-4e771e905fe6",
@@ -2538,7 +3034,8 @@
           },
           "CurrencyCode": "USD"
         },
-        "HasValidationErrors": false
+        "HasValidationErrors": false,
+        "UpdatedDateUTCString": "2026-08-11T23:30:09Z"
       }
     ]
   },

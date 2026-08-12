@@ -1,6 +1,30 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const AddressInputSchema = z.object({
+    AddressType: z.string().describe('Type of address. Example: "STREET" or "POBOX".'),
+    AddressLine1: z.string().optional(),
+    AddressLine2: z.string().optional(),
+    City: z.string().optional(),
+    Region: z.string().optional(),
+    PostalCode: z.string().optional(),
+    Country: z.string().optional()
+});
+
+const PhoneInputSchema = z.object({
+    PhoneType: z.string().describe('Type of phone number. Example: "DEFAULT", "MOBILE", "FAX", "DDI".'),
+    PhoneNumber: z.string().optional(),
+    PhoneAreaCode: z.string().optional(),
+    PhoneCountryCode: z.string().optional()
+});
+
+const ContactPersonInputSchema = z.object({
+    FirstName: z.string().optional(),
+    LastName: z.string().optional(),
+    EmailAddress: z.string().optional(),
+    IncludeInEmails: z.boolean().optional()
+});
+
 const InputSchema = z
     .object({
         Name: z.string().describe('Full name of the contact. Required. Example: "ABC Customer"'),
@@ -11,8 +35,13 @@ const InputSchema = z
         AccountNumber: z.string().optional().describe('Account number for the contact. Example: "ACC-001"'),
         TaxNumber: z.string().optional().describe('Tax number for the contact. Example: "12-3456789"'),
         BankAccountDetails: z.string().optional().describe('Bank account number for the contact. Example: "123-456-789"'),
+        Website: z.string().optional().describe('Website address for the contact. Example: "https://www.example.com"'),
+        DefaultCurrency: z.string().optional().describe('Default currency for the contact. Example: "USD"'),
         IsCustomer: z.boolean().optional().describe('Whether the contact is a customer. Defaults to false if omitted.'),
-        IsSupplier: z.boolean().optional().describe('Whether the contact is a supplier. Defaults to false if omitted.')
+        IsSupplier: z.boolean().optional().describe('Whether the contact is a supplier. Defaults to false if omitted.'),
+        Addresses: z.array(AddressInputSchema).optional().describe('Physical addresses for the contact.'),
+        Phones: z.array(PhoneInputSchema).optional().describe('Phone numbers for the contact.'),
+        ContactPersons: z.array(ContactPersonInputSchema).optional().describe('Contact persons associated with the contact.')
     })
     .describe('Input for creating a Xero contact.');
 
@@ -27,8 +56,13 @@ const ProviderContactSchema = z.object({
     EmailAddress: z.string().nullish(),
     TaxNumber: z.string().nullish(),
     BankAccountDetails: z.string().nullish(),
+    Website: z.string().nullish(),
+    DefaultCurrency: z.string().nullish(),
     IsCustomer: z.boolean().nullish(),
-    IsSupplier: z.boolean().nullish()
+    IsSupplier: z.boolean().nullish(),
+    Addresses: z.array(z.object({}).passthrough()).nullish(),
+    Phones: z.array(z.object({}).passthrough()).nullish(),
+    ContactPersons: z.array(z.object({}).passthrough()).nullish()
 });
 
 const ProviderResponseSchema = z.object({
@@ -47,8 +81,13 @@ const OutputSchema = z
         emailAddress: z.string().optional().describe('Email address of the contact. Example: "john.smith@example.com"'),
         taxNumber: z.string().optional().describe('Tax number for the contact. Example: "12-3456789"'),
         bankAccountDetails: z.string().optional().describe('Bank account number for the contact. Example: "123-456-789"'),
+        website: z.string().optional().describe('Website address for the contact.'),
+        defaultCurrency: z.string().optional().describe('Default currency for the contact.'),
         isCustomer: z.boolean().optional().describe('Whether the contact is a customer.'),
-        isSupplier: z.boolean().optional().describe('Whether the contact is a supplier.')
+        isSupplier: z.boolean().optional().describe('Whether the contact is a supplier.'),
+        addresses: z.array(z.object({}).passthrough()).optional().describe('Physical addresses for the contact.'),
+        phones: z.array(z.object({}).passthrough()).optional().describe('Phone numbers for the contact.'),
+        contactPersons: z.array(z.object({}).passthrough()).optional().describe('Contact persons associated with the contact.')
     })
     .describe('Output representing a created Xero contact.');
 
@@ -102,8 +141,13 @@ const action = createAction({
             ...(contact.EmailAddress != null && { emailAddress: contact.EmailAddress }),
             ...(contact.TaxNumber != null && { taxNumber: contact.TaxNumber }),
             ...(contact.BankAccountDetails != null && { bankAccountDetails: contact.BankAccountDetails }),
+            ...(contact.Website != null && { website: contact.Website }),
+            ...(contact.DefaultCurrency != null && { defaultCurrency: contact.DefaultCurrency }),
             ...(contact.IsCustomer != null && { isCustomer: contact.IsCustomer }),
-            ...(contact.IsSupplier != null && { isSupplier: contact.IsSupplier })
+            ...(contact.IsSupplier != null && { isSupplier: contact.IsSupplier }),
+            ...(contact.Addresses != null && { addresses: contact.Addresses }),
+            ...(contact.Phones != null && { phones: contact.Phones }),
+            ...(contact.ContactPersons != null && { contactPersons: contact.ContactPersons })
         };
     }
 });

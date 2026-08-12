@@ -49,7 +49,7 @@ const action = createAction({
     version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.invoices'],
+    scopes: ['accounting.settings', 'accounting.settings.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = z

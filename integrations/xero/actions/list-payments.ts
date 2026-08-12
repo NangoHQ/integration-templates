@@ -31,22 +31,29 @@ const InvoiceSchema = z.object({
     CurrencyCode: z.string().optional().describe('Currency code of the invoice.')
 });
 
-const PaymentSchema = z.object({
-    PaymentID: z.string().describe('Unique identifier of the payment.'),
-    Date: z.string().optional().describe('Date the payment was made (Xero date format).'),
-    BankAmount: z.number().optional().describe('Amount of the payment in the bank account currency.'),
-    Amount: z.number().optional().describe('Amount of the payment in the invoice currency.'),
-    Reference: z.string().optional().describe('Reference text for the payment.'),
-    CurrencyRate: z.number().optional().describe('Exchange rate used for the payment.'),
-    PaymentType: z.string().optional().describe('Type of payment (e.g., ACCRECPAYMENT, ACCPAYPAYMENT).'),
-    Status: z.string().optional().describe('Status of the payment (e.g., AUTHORISED, DELETED).'),
-    UpdatedDateUTC: z.string().optional().describe('Timestamp when the payment was last updated.'),
-    HasAccount: z.boolean().optional().describe('Whether an account is associated with the payment.'),
-    IsReconciled: z.boolean().optional().describe('Whether the payment has been reconciled.'),
-    Account: AccountSchema.optional().describe('Account used to post the payment.'),
-    Invoice: InvoiceSchema.optional().describe('Invoice or credit note associated with the payment.'),
-    HasValidationErrors: z.boolean().optional().describe('Whether the payment has validation errors.')
-});
+const PaymentSchema = z
+    .object({
+        PaymentID: z.string().describe('Unique identifier of the payment.'),
+        Date: z.string().optional().describe('Date the payment was made (Xero date format).'),
+        BankAmount: z.number().optional().describe('Amount of the payment in the bank account currency.'),
+        Amount: z.number().optional().describe('Amount of the payment in the invoice currency.'),
+        Reference: z.string().optional().describe('Reference text for the payment.'),
+        CurrencyRate: z.number().optional().describe('Exchange rate used for the payment.'),
+        PaymentType: z.string().optional().describe('Type of payment (e.g., ACCRECPAYMENT, ACCPAYPAYMENT).'),
+        Status: z.string().optional().describe('Status of the payment (e.g., AUTHORISED, DELETED).'),
+        UpdatedDateUTC: z.string().optional().describe('Timestamp when the payment was last updated.'),
+        HasAccount: z.boolean().optional().describe('Whether an account is associated with the payment.'),
+        IsReconciled: z.boolean().optional().describe('Whether the payment has been reconciled.'),
+        Account: AccountSchema.optional().describe('Account used to post the payment.'),
+        Invoice: InvoiceSchema.optional().describe('Invoice or credit note associated with the payment.'),
+        CreditNote: z.object({}).passthrough().optional().describe('Credit note associated with the payment, if any.'),
+        Prepayment: z.object({}).passthrough().optional().describe('Prepayment associated with the payment, if any.'),
+        Overpayment: z.object({}).passthrough().optional().describe('Overpayment associated with the payment, if any.'),
+        BatchPayment: z.object({}).passthrough().optional().describe('Batch payment this payment belongs to, if any.'),
+        BatchPaymentID: z.string().optional().describe('Identifier of the batch payment this payment belongs to, if any.'),
+        HasValidationErrors: z.boolean().optional().describe('Whether the payment has validation errors.')
+    })
+    .passthrough();
 
 const PaginationSchema = z.object({
     page: z.number(),
