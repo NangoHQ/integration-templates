@@ -17,7 +17,10 @@ const InputSchema = z
             .describe('Type of credit note. ACCRECCREDIT for a sales credit note or ACCPAYCREDIT for a purchase credit note.'),
         contactId: z.string().describe('Xero Contact ID to associate with the credit note.'),
         date: z.string().describe('Date of the credit note in YYYY-MM-DD format.'),
-        status: z.enum(['AUTHORISED', 'DRAFT', 'SUBMITTED']).optional().describe('Status of the credit note. DRAFT does not post to the ledger; SUBMITTED is pending approval; AUTHORISED does post.'),
+        status: z
+            .enum(['AUTHORISED', 'DRAFT', 'SUBMITTED'])
+            .optional()
+            .describe('Status of the credit note. DRAFT does not post to the ledger; SUBMITTED is pending approval; AUTHORISED does post.'),
         lineItems: z.array(LineItemInputSchema).describe('Line items for the credit note.')
     })
     .describe('Input for creating a Xero credit note.');

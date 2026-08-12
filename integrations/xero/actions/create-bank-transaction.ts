@@ -15,8 +15,16 @@ const InputSchema = z
             .enum(['SPEND', 'RECEIVE', 'SPEND-OVERPAYMENT', 'RECEIVE-OVERPAYMENT', 'SPEND-PREPAYMENT', 'RECEIVE-PREPAYMENT'])
             .describe('Transaction type. Example: "SPEND"'),
         contact_id: z.string().describe('Xero Contact ID. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
-        bank_account_id: z.string().optional().describe('Xero Bank Account ID (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'),
-        bank_account_code: z.string().optional().describe('Xero Bank Account code (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "088"'),
+        bank_account_id: z
+            .string()
+            .optional()
+            .describe(
+                'Xero Bank Account ID (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'
+            ),
+        bank_account_code: z
+            .string()
+            .optional()
+            .describe('Xero Bank Account code (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "088"'),
         date: z.string().describe('Transaction date in YYYY-MM-DD format. Example: "2024-01-15"'),
         reference: z.string().optional().describe('Optional reference text. Example: "REF-001"'),
         line_items: z.array(LineItemInputSchema).describe('Line items for the transaction')
