@@ -51,6 +51,13 @@ const action = createAction({
     scopes: ['deployments:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string representing a page number'
+            });
+        }
+
         const page = input.cursor ? Number(input.cursor) : 1;
         if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({

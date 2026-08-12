@@ -59,9 +59,11 @@ const action = createAction({
                 state: input.state,
                 ...(input.description !== undefined && { description: input.description })
             },
-            // Kept low: creating a deployment status is not idempotent, so retrying a request whose
-            // response was lost (while GitHub still accepted it) would create duplicate statuses.
-            retries: 1
+            // Zero: creating a deployment status is not idempotent and there's no idempotency key,
+            // so retrying a request whose response was lost (while GitHub still accepted it) would
+            // create a duplicate status.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const providerStatus = OutputSchema.parse(response.data);

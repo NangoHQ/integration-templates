@@ -246,6 +246,32 @@ const sync = createSync({
             const previousRepos = checkpoint?.repos || undefined;
             const repoCheckpoints: Record<string, string> = previousRepos ? z.record(z.string(), z.string()).parse(JSON.parse(previousRepos)) : {};
 
+            // Repositories that were synced before but are no longer accessible to the installation
+            // (e.g. the app was uninstalled from them) need their previously synced commits removed.
+            const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
+            const removedRepoNames = Object.keys(repoCheckpoints).filter((fullName) => !currentRepoNames.has(fullName));
+
+            if (removedRepoNames.length > 0) {
+                const removedRepoNameSet = new Set(removedRepoNames);
+                const toDelete: Array<{ id: string }> = [];
+
+                for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('Commit')) {
+                    if (removedRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
+                        toDelete.push({ id: String(record['id']) });
+                    }
+                }
+
+                if (toDelete.length > 0) {
+                    await nango.batchDelete(toDelete, 'Commit');
+                }
+
+                for (const fullName of removedRepoNames) {
+                    delete repoCheckpoints[fullName];
+                }
+
+                await nango.saveCheckpoint({ since: '', repos: JSON.stringify(repoCheckpoints) });
+            }
+
             for (const repo of repos) {
                 const sinceParam = repoCheckpoints[repo.fullName];
                 const maxSince = await syncRepoCommits(repo.owner, repo.name, sinceParam);
@@ -253,9 +279,12 @@ const sync = createSync({
                 if (maxSince) {
                     repoCheckpoints[repo.fullName] = toOverlappingCheckpoint(maxSince);
                 }
-            }
 
-            await nango.saveCheckpoint({ since: '', repos: JSON.stringify(repoCheckpoints) });
+                // Persisted after each repository so a run that fails partway through doesn't lose
+                // progress already made, and so the next run's cleanup scan above has an
+                // up-to-date repository inventory to compare against.
+                await nango.saveCheckpoint({ since: '', repos: JSON.stringify(repoCheckpoints) });
+            }
         }
 
         if (isFirstRun) {

@@ -36,9 +36,11 @@ const action = createAction({
                 ref: input.ref,
                 ...(input.inputs !== undefined && { inputs: input.inputs })
             },
-            // Kept low: this POST is not idempotent, so retrying a request whose response was lost
-            // (while GitHub still accepted the dispatch) would trigger duplicate workflow runs.
-            retries: 1
+            // Zero: this POST is not idempotent and there's no idempotency key, so retrying a
+            // request whose response was lost (while GitHub still accepted the dispatch) would
+            // trigger a duplicate workflow run.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return null;

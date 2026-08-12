@@ -61,17 +61,63 @@ const WorkflowRunSchema = z
     })
     .describe('A GitHub Actions workflow run for a repository.');
 
+// Per-repository sync state. `pendingRunIds` holds runs that were not yet `completed` the last
+// time they were observed; they're individually re-checked every run (regardless of how long ago
+// they were created) until GitHub reports a terminal status, so a long-lived queued/in_progress
+// run can't fall out of the sync window and stop being refreshed.
+const RepoStateSchema = z.object({
+    createdAfter: z.string().optional(),
+    pendingRunIds: z.array(z.number())
+});
+type RepoState = z.infer<typeof RepoStateSchema>;
+
 const CheckpointSchema = z.object({
-    // JSON-encoded Record<string, string> mapping "owner/repo" to the ISO 8601 creation-time
-    // high-water mark synced for that repository. Nested objects aren't supported in checkpoints,
-    // so the per-repository map is serialized into this single string field.
+    // JSON-encoded Record<string, RepoState> keyed by "owner/repo". Nested objects aren't
+    // supported in checkpoints, so the per-repository state is serialized into this string field.
     repos: z.string()
 });
 
-// Runs are re-fetched starting this far before each repository's high-water mark so that runs which
-// were still queued/in_progress when created (and therefore have a stale status/conclusion) get
-// re-observed and upserted once they complete, without re-fetching a repository's entire history.
-const STATUS_REFRESH_OVERLAP_MS = 24 * 60 * 60 * 1000;
+// GitHub's `created` filter lower bound is exclusive, so a small overlap is subtracted before
+// using a repository's high-water mark as the next run's lower bound.
+const toOverlappingCheckpoint = (timestamp: string): string => {
+    return new Date(new Date(timestamp).getTime() - 1000).toISOString();
+};
+
+const mapWorkflowRun = (run: unknown, owner: string, name: string): z.infer<typeof WorkflowRunSchema> => {
+    const parsedRun = GitHubWorkflowRunSchema.safeParse(run);
+    if (!parsedRun.success) {
+        throw new Error(`Failed to parse workflow run: ${parsedRun.error.message}`);
+    }
+
+    const data = parsedRun.data;
+    return {
+        id: String(data.id),
+        repository_owner: owner,
+        repository_name: name,
+        ...(data.name != null && { name: data.name }),
+        ...(data.head_branch != null && { head_branch: data.head_branch }),
+        ...(data.head_sha != null && { head_sha: data.head_sha }),
+        ...(data.path != null && { path: data.path }),
+        ...(data.run_number !== undefined && { run_number: data.run_number }),
+        ...(data.event != null && { event: data.event }),
+        ...(data.status != null && { status: data.status }),
+        ...(data.conclusion != null && { conclusion: data.conclusion }),
+        ...(data.workflow_id !== undefined && { workflow_id: data.workflow_id }),
+        ...(data.url != null && { url: data.url }),
+        ...(data.html_url != null && { html_url: data.html_url }),
+        ...(data.logs_url != null && { logs_url: data.logs_url }),
+        ...(data.check_suite_url != null && { check_suite_url: data.check_suite_url }),
+        ...(data.artifacts_url != null && { artifacts_url: data.artifacts_url }),
+        ...(data.cancel_url != null && { cancel_url: data.cancel_url }),
+        ...(data.rerun_url != null && { rerun_url: data.rerun_url }),
+        ...(data.workflow_url != null && { workflow_url: data.workflow_url }),
+        created_at: data.created_at,
+        ...(data.updated_at != null && { updated_at: data.updated_at }),
+        ...(data.run_started_at != null && { run_started_at: data.run_started_at }),
+        ...(data.jobs_url != null && { jobs_url: data.jobs_url }),
+        ...(data.display_title != null && { display_title: data.display_title })
+    };
+};
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for a repository.',
@@ -87,7 +133,13 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const isFirstRun = rawCheckpoint == null;
         const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        const repoCheckpoints: Record<string, string> = checkpoint?.repos ? z.record(z.string(), z.string()).parse(JSON.parse(checkpoint.repos)) : {};
+        const repoStates: Record<string, RepoState> = checkpoint?.repos ? z.record(z.string(), RepoStateSchema).parse(JSON.parse(checkpoint.repos)) : {};
+
+        // trackDeletesStart/End must appear before/after every batchSave/batchDelete call in this
+        // file (by source position, not just at runtime).
+        if (isFirstRun) {
+            await nango.trackDeletesStart('WorkflowRun');
+        }
 
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
         const repos: Array<{ owner: string; name: string; fullName: string }> = [];
@@ -116,14 +168,62 @@ const sync = createSync({
             throw new Error('No repositories accessible to this installation.');
         }
 
-        if (isFirstRun) {
-            await nango.trackDeletesStart('WorkflowRun');
+        // Repositories that were synced before but are no longer accessible to the installation
+        // (e.g. the app was uninstalled from them) need their previously synced runs removed.
+        const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
+        const removedRepoNames = Object.keys(repoStates).filter((fullName) => !currentRepoNames.has(fullName));
+
+        if (removedRepoNames.length > 0) {
+            const removedRepoNameSet = new Set(removedRepoNames);
+            const toDelete: Array<{ id: string }> = [];
+
+            for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('WorkflowRun')) {
+                if (removedRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
+                    toDelete.push({ id: String(record['id']) });
+                }
+            }
+
+            if (toDelete.length > 0) {
+                await nango.batchDelete(toDelete, 'WorkflowRun');
+            }
+
+            for (const fullName of removedRepoNames) {
+                delete repoStates[fullName];
+            }
+
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates) });
         }
 
         for (const repo of repos) {
-            const createdAfter = repoCheckpoints[repo.fullName];
-            const createdAfterWithOverlap = createdAfter ? new Date(new Date(createdAfter).getTime() - STATUS_REFRESH_OVERLAP_MS).toISOString() : undefined;
-            let maxCreatedAt = createdAfter;
+            const previousState = repoStates[repo.fullName];
+            let maxCreatedAt = previousState?.createdAfter;
+            const pendingRunIds = new Set(previousState?.pendingRunIds ?? []);
+
+            // Re-check every run that wasn't `completed` the last time it was observed, regardless
+            // of how far outside the creation-time window it now falls, so long-lived runs still
+            // get their terminal status recorded.
+            for (const runId of pendingRunIds) {
+                const response = await nango.get({
+                    // https://docs.github.com/rest/actions/workflow-runs#get-a-workflow-run
+                    endpoint: `repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.name)}/actions/runs/${runId}`,
+                    retries: 3
+                });
+
+                if (response.status === 404) {
+                    await nango.batchDelete([{ id: String(runId) }], 'WorkflowRun');
+                    pendingRunIds.delete(runId);
+                    continue;
+                }
+
+                const run = mapWorkflowRun(response.data, repo.owner, repo.name);
+                await nango.batchSave([run], 'WorkflowRun');
+
+                if (run.status === 'completed') {
+                    pendingRunIds.delete(runId);
+                }
+            }
+
+            const createdAfterWithOverlap = previousState?.createdAfter ? toOverlappingCheckpoint(previousState.createdAfter) : undefined;
 
             const proxyConfig: ProxyConfiguration = {
                 // https://docs.github.com/rest/actions/workflow-runs#list-workflow-runs-for-a-repository
@@ -147,41 +247,7 @@ const sync = createSync({
                     throw new Error('Paginated page is not an array.');
                 }
 
-                const mappedRuns = page.map((run: unknown) => {
-                    const parsedRun = GitHubWorkflowRunSchema.safeParse(run);
-                    if (!parsedRun.success) {
-                        throw new Error(`Failed to parse workflow run: ${parsedRun.error.message}`);
-                    }
-
-                    const data = parsedRun.data;
-                    return {
-                        id: String(data.id),
-                        repository_owner: repo.owner,
-                        repository_name: repo.name,
-                        ...(data.name != null && { name: data.name }),
-                        ...(data.head_branch != null && { head_branch: data.head_branch }),
-                        ...(data.head_sha != null && { head_sha: data.head_sha }),
-                        ...(data.path != null && { path: data.path }),
-                        ...(data.run_number !== undefined && { run_number: data.run_number }),
-                        ...(data.event != null && { event: data.event }),
-                        ...(data.status != null && { status: data.status }),
-                        ...(data.conclusion != null && { conclusion: data.conclusion }),
-                        ...(data.workflow_id !== undefined && { workflow_id: data.workflow_id }),
-                        ...(data.url != null && { url: data.url }),
-                        ...(data.html_url != null && { html_url: data.html_url }),
-                        ...(data.logs_url != null && { logs_url: data.logs_url }),
-                        ...(data.check_suite_url != null && { check_suite_url: data.check_suite_url }),
-                        ...(data.artifacts_url != null && { artifacts_url: data.artifacts_url }),
-                        ...(data.cancel_url != null && { cancel_url: data.cancel_url }),
-                        ...(data.rerun_url != null && { rerun_url: data.rerun_url }),
-                        ...(data.workflow_url != null && { workflow_url: data.workflow_url }),
-                        created_at: data.created_at,
-                        ...(data.updated_at != null && { updated_at: data.updated_at }),
-                        ...(data.run_started_at != null && { run_started_at: data.run_started_at }),
-                        ...(data.jobs_url != null && { jobs_url: data.jobs_url }),
-                        ...(data.display_title != null && { display_title: data.display_title })
-                    };
-                });
+                const mappedRuns = page.map((run: unknown) => mapWorkflowRun(run, repo.owner, repo.name));
 
                 if (mappedRuns.length > 0) {
                     await nango.batchSave(mappedRuns, 'WorkflowRun');
@@ -190,20 +256,27 @@ const sync = createSync({
                         if (maxCreatedAt === undefined || run.created_at > maxCreatedAt) {
                             maxCreatedAt = run.created_at;
                         }
+                        if (run.status !== 'completed') {
+                            pendingRunIds.add(Number(run.id));
+                        }
                     }
                 }
             }
 
-            if (maxCreatedAt !== undefined) {
-                repoCheckpoints[repo.fullName] = maxCreatedAt;
-            }
+            repoStates[repo.fullName] = {
+                ...(maxCreatedAt !== undefined && { createdAfter: maxCreatedAt }),
+                pendingRunIds: [...pendingRunIds]
+            };
+
+            // Persisted after each repository so a run that fails partway through doesn't lose
+            // progress already made, and so the removed-repository cleanup above always has an
+            // up-to-date repository inventory to compare against on the next run.
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates) });
         }
 
         if (isFirstRun) {
             await nango.trackDeletesEnd('WorkflowRun');
         }
-
-        await nango.saveCheckpoint({ repos: JSON.stringify(repoCheckpoints) });
     }
 });
 

@@ -60,6 +60,13 @@ const action = createAction({
     scopes: ['issues:read', 'pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
+
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (isNaN(page) || page < 1) {
             throw new nango.ActionError({

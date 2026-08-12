@@ -6,7 +6,7 @@ const InputSchema = z
         owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
         cursor: z.string().optional().describe('Page number for pagination. Omit for the first page. Example: "2"'),
-        per_page: z.number().min(1).max(100).optional().describe('Number of results per page (max 100). Defaults to 30.')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Defaults to 30.')
     })
     .describe('Input for listing branches in a repository.');
 
@@ -42,6 +42,13 @@ const action = createAction({
     scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a positive integer string representing a page number.'
+            });
+        }
+
         const perPage = input.per_page ?? 30;
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 

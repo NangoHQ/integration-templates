@@ -212,11 +212,15 @@ const sync = createSync({
             if (maxUpdatedAt !== undefined) {
                 repoCheckpoints[repo.fullName] = maxUpdatedAt;
             }
-        }
 
-        await nango.saveCheckpoint({
-            repos: JSON.stringify(repoCheckpoints)
-        });
+            // Persisted after each repository (rather than once at the end) so a run that fails
+            // partway through doesn't lose progress already made on earlier repositories, and so
+            // the removed-repository cleanup above always has an up-to-date repository inventory
+            // to compare against on the next run.
+            await nango.saveCheckpoint({
+                repos: JSON.stringify(repoCheckpoints)
+            });
+        }
     }
 });
 

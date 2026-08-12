@@ -15,8 +15,10 @@ const InputSchema = z
 // output size limit; GitHub itself omits `patch` once a single file's diff is too large.
 const MAX_PATCH_LENGTH = 10_000;
 
+const TRUNCATION_SUFFIX = '\n... (patch truncated)';
+
 const truncatePatch = (patch: string): string => {
-    return patch.length > MAX_PATCH_LENGTH ? `${patch.slice(0, MAX_PATCH_LENGTH)}\n... (patch truncated)` : patch;
+    return patch.length > MAX_PATCH_LENGTH ? `${patch.slice(0, MAX_PATCH_LENGTH - TRUNCATION_SUFFIX.length)}${TRUNCATION_SUFFIX}` : patch;
 };
 
 const ProviderFileSchema = z.object({
@@ -69,6 +71,13 @@ const action = createAction({
     scopes: ['pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'Cursor must be a positive integer representing a page number.'
+            });
+        }
+
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (isNaN(page) || page < 1) {
             throw new nango.ActionError({
