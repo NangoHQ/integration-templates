@@ -91,9 +91,9 @@ const action = createAction({
 
         let next_cursor: string | undefined;
         if (providerResponse.next) {
-            const offset = new URL(providerResponse.next).searchParams.get('offset');
-            if (offset) {
-                next_cursor = offset;
+            const match = providerResponse.next.match(/[?&]offset=([^&]+)/);
+            if (match && match[1]) {
+                next_cursor = decodeURIComponent(match[1]);
             }
         }
 

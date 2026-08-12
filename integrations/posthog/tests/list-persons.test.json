@@ -202,7 +202,7 @@
               "value_at_data_point": null
             }
           ],
-          "next": "https://us.posthog.com/api/projects/309484/persons/?limit=2&offset=4",
+          "next": "/api/projects/309484/persons/?limit=2&offset=4",
           "previous": null
         },
         "status": 200,
