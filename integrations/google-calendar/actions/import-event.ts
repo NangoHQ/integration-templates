@@ -17,16 +17,10 @@ const AttendeeInputSchema = z.object({
     additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
 });
 
-const AttendeeOutputSchema = z.object({
-    // Google can omit email for some attendees (e.g. resources without one on file),
-    // so this must stay optional even though it's required to add an attendee via input.
-    email: z.string().optional().describe('The attendee email address.'),
-    displayName: z.string().optional().describe('The attendee display name.'),
-    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe('The attendee response status.'),
-    optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
-    resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
-    comment: z.string().optional().describe("The attendee's response comment."),
-    additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
+// Google can omit email for some attendees (e.g. resources without one on file), so it must
+// stay optional here even though it's required to add an attendee via AttendeeInputSchema.
+const AttendeeOutputSchema = AttendeeInputSchema.extend({
+    email: z.string().optional().describe('The attendee email address.')
 });
 
 const OrganizerInputSchema = z.object({

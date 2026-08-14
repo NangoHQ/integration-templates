@@ -1834,7 +1834,7 @@ import './figma/actions/delete-comment-reaction.js';
 import './figma/actions/delete-comment.js';
 import './figma/actions/delete-dev-resource.js';
 import './figma/actions/delete-webhook.js';
-import './figma/actions/file-nodes.js';
+// import './figma/actions/file-nodes.js';
 import './figma/actions/get-comment.js';
 import './figma/actions/get-component.js';
 import './figma/actions/get-component-set.js';

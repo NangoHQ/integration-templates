@@ -197,7 +197,12 @@ const sync = createSync({
                 retries: 3
             };
 
-            const timeMinMs = new Date(effectiveTimeMin).getTime();
+            // Only reconcile against timeMin when the caller explicitly configured it. The
+            // default 30-day backfill depth bounds how much history the initial sync fetches —
+            // it is not an ongoing retention policy, and using it here would cause old events
+            // to be deleted from the model the moment they're touched, as "30 days ago" keeps
+            // rolling forward on every run.
+            const timeMinMs = metadata?.timeMin ? new Date(metadata.timeMin).getTime() : undefined;
             const timeMaxMs = metadata?.timeMax ? new Date(metadata.timeMax).getTime() : undefined;
 
             for await (const page of nango.paginate(proxyConfig)) {
@@ -225,7 +230,7 @@ const sync = createSync({
                     const startMs = parsed.data.start?.dateTime ? new Date(parsed.data.start.dateTime).getTime() : undefined;
                     const endMs = parsed.data.end?.dateTime ? new Date(parsed.data.end.dateTime).getTime() : undefined;
                     const isPastTimeMax = timeMaxMs !== undefined && startMs !== undefined && startMs >= timeMaxMs;
-                    const isBeforeTimeMin = endMs !== undefined && endMs <= timeMinMs;
+                    const isBeforeTimeMin = timeMinMs !== undefined && endMs !== undefined && endMs <= timeMinMs;
                     const isOutOfConfiguredWindow = isPastTimeMax || isBeforeTimeMin;
 
                     if (parsed.data.status === 'cancelled' || isOutOfConfiguredWindow) {
