@@ -67,6 +67,42 @@ const ProviderResponseSchema = z.object({
     CreditNotes: z.array(ProviderCreditNoteSchema).optional()
 });
 
+const XeroValidationErrorResponseSchema = z.object({
+    Elements: z.array(
+        z.object({
+            ValidationErrors: z
+                .array(
+                    z.object({
+                        Message: z.string().optional()
+                    })
+                )
+                .optional()
+        })
+    )
+});
+
+const ErrorWithResponseDataSchema = z.object({
+    response: z.object({
+        data: z.unknown()
+    })
+});
+
+function extractXeroValidationError(err: unknown): string | undefined {
+    const parsedError = ErrorWithResponseDataSchema.safeParse(err);
+    if (!parsedError.success) {
+        return undefined;
+    }
+
+    const parsed = XeroValidationErrorResponseSchema.safeParse(parsedError.data.response.data);
+    if (!parsed.success) {
+        return undefined;
+    }
+
+    const messages = parsed.data.Elements.flatMap((element) => element.ValidationErrors?.map((e) => e.Message).filter(Boolean) ?? []);
+
+    return messages.length > 0 ? messages.join(', ') : undefined;
+}
+
 const OutputSchema = z
     .object({
         creditNoteId: z.string().describe('Unique identifier of the created credit note.'),
@@ -184,16 +220,31 @@ const action = createAction({
         }
 
         // https://developer.xero.com/documentation/api/accounting/overview
-        const response = await nango.put({
-            endpoint: 'api.xro/2.0/CreditNotes',
-            headers: {
-                'xero-tenant-id': tenantId
-            },
-            data: {
-                CreditNotes: [body]
-            },
-            retries: 3
-        });
+        // Xero returns HTTP 400 (not 200 with HasErrors) when the single submitted CreditNote fails validation,
+        // so the validation message must be read off the thrown error's response body.
+        let response;
+        // @allowTryCatch
+        try {
+            response = await nango.put({
+                endpoint: 'api.xro/2.0/CreditNotes',
+                headers: {
+                    'xero-tenant-id': tenantId
+                },
+                data: {
+                    CreditNotes: [body]
+                },
+                retries: 3
+            });
+        } catch (err) {
+            const validationMessage = extractXeroValidationError(err);
+            if (validationMessage) {
+                throw new nango.ActionError({
+                    type: 'validation_error',
+                    message: `Credit note creation failed: ${validationMessage}`
+                });
+            }
+            throw err;
+        }
 
         const parsed = ProviderResponseSchema.parse(response.data);
         const creditNotes = parsed.CreditNotes;
