@@ -1,0 +1,1107 @@
+{
+  "input": {},
+  "output": {
+    "Reports": [
+      {
+        "ReportID": "BalanceSheet",
+        "ReportName": "Balance Sheet",
+        "ReportType": "BalanceSheet",
+        "ReportTitles": [
+          "Balance Sheet",
+          "Demo Company (US)",
+          "As at 31 August 2026"
+        ],
+        "ReportDate": "11 August 2026",
+        "UpdatedDateUTC": "/Date(1786491197669)/",
+        "Rows": [
+          {
+            "RowType": "Header",
+            "Cells": [
+              {
+                "Value": ""
+              },
+              {
+                "Value": "31 Aug 2026"
+              },
+              {
+                "Value": "31 Aug 2025"
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "Assets",
+            "Rows": []
+          },
+          {
+            "RowType": "Section",
+            "Title": "Cash and Cash Equivalents",
+            "Rows": [
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Checking Account",
+                    "Attributes": [
+                      {
+                        "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "-173.08",
+                    "Attributes": [
+                      {
+                        "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "4745.48",
+                    "Attributes": [
+                      {
+                        "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Cash and Cash Equivalents"
+                  },
+                  {
+                    "Value": "-173.08"
+                  },
+                  {
+                    "Value": "4745.48"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "Current Assets",
+            "Rows": [
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Accounts Receivable",
+                    "Attributes": [
+                      {
+                        "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "9512.25",
+                    "Attributes": [
+                      {
+                        "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Current Assets"
+                  },
+                  {
+                    "Value": "9512.25"
+                  },
+                  {
+                    "Value": "0.00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "Property, Plant and Equipment",
+            "Rows": [
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Computer Equipment",
+                    "Attributes": [
+                      {
+                        "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "-829.87",
+                    "Attributes": [
+                      {
+                        "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Office Equipment",
+                    "Attributes": [
+                      {
+                        "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "3628.91",
+                    "Attributes": [
+                      {
+                        "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Property, Plant and Equipment"
+                  },
+                  {
+                    "Value": "2799.04"
+                  },
+                  {
+                    "Value": "0.00"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "",
+            "Rows": [
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Assets"
+                  },
+                  {
+                    "Value": "12138.21"
+                  },
+                  {
+                    "Value": "4745.48"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "Liabilities and Equity",
+            "Rows": []
+          },
+          {
+            "RowType": "Section",
+            "Title": "Liabilities",
+            "Rows": []
+          },
+          {
+            "RowType": "Section",
+            "Title": "Current Liabilities",
+            "Rows": [
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Accounts Payable",
+                    "Attributes": [
+                      {
+                        "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "10291.84",
+                    "Attributes": [
+                      {
+                        "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "0.00",
+                    "Attributes": [
+                      {
+                        "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Historical Adjustment",
+                    "Attributes": [
+                      {
+                        "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "4130.98",
+                    "Attributes": [
+                      {
+                        "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "4130.98",
+                    "Attributes": [
+                      {
+                        "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Sales Tax",
+                    "Attributes": [
+                      {
+                        "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "2680.06",
+                    "Attributes": [
+                      {
+                        "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "67.72",
+                    "Attributes": [
+                      {
+                        "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                        "Id": "account"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Current Liabilities"
+                  },
+                  {
+                    "Value": "17102.88"
+                  },
+                  {
+                    "Value": "4198.70"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "",
+            "Rows": [
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Liabilities"
+                  },
+                  {
+                    "Value": "17102.88"
+                  },
+                  {
+                    "Value": "4198.70"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "Equity",
+            "Rows": [
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Current Year Earnings",
+                    "Attributes": [
+                      {
+                        "Value": "abababab-abab-abab-abab-abababababab",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "-7430.80",
+                    "Attributes": [
+                      {
+                        "Value": "abababab-abab-abab-abab-abababababab",
+                        "Id": "account"
+                      },
+                      {
+                        "Value": "1/1/2026",
+                        "Id": "fromDate"
+                      },
+                      {
+                        "Value": "8/31/2026",
+                        "Id": "toDate"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "729.84",
+                    "Attributes": [
+                      {
+                        "Value": "abababab-abab-abab-abab-abababababab",
+                        "Id": "account"
+                      },
+                      {
+                        "Value": "1/1/2025",
+                        "Id": "fromDate"
+                      },
+                      {
+                        "Value": "8/31/2025",
+                        "Id": "toDate"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "Row",
+                "Cells": [
+                  {
+                    "Value": "Retained Earnings",
+                    "Attributes": [
+                      {
+                        "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                        "Id": "account"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "2466.13",
+                    "Attributes": [
+                      {
+                        "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                        "Id": "account"
+                      },
+                      {
+                        "Value": "",
+                        "Id": "fromDate"
+                      },
+                      {
+                        "Value": "8/31/2026",
+                        "Id": "toDate"
+                      }
+                    ]
+                  },
+                  {
+                    "Value": "-183.06",
+                    "Attributes": [
+                      {
+                        "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                        "Id": "account"
+                      },
+                      {
+                        "Value": "",
+                        "Id": "fromDate"
+                      },
+                      {
+                        "Value": "8/31/2025",
+                        "Id": "toDate"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Equity"
+                  },
+                  {
+                    "Value": "-4964.67"
+                  },
+                  {
+                    "Value": "546.78"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "RowType": "Section",
+            "Title": "",
+            "Rows": [
+              {
+                "RowType": "SummaryRow",
+                "Cells": [
+                  {
+                    "Value": "Total Liabilities and Equity"
+                  },
+                  {
+                    "Value": "12138.21"
+                  },
+                  {
+                    "Value": "4745.48"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/api.xro/2.0/Reports/BalanceSheet": {
+        "response": {
+          "Id": "948e41f6-b8a5-4b80-8abb-2df4f22421bf",
+          "Status": "OK",
+          "ProviderName": "Nango",
+          "DateTimeUTC": "/Date(1786491197669)/",
+          "Reports": [
+            {
+              "ReportID": "BalanceSheet",
+              "ReportName": "Balance Sheet",
+              "ReportType": "BalanceSheet",
+              "ReportTitles": [
+                "Balance Sheet",
+                "Demo Company (US)",
+                "As at 31 August 2026"
+              ],
+              "ReportDate": "11 August 2026",
+              "UpdatedDateUTC": "/Date(1786491197669)/",
+              "Fields": [],
+              "Rows": [
+                {
+                  "RowType": "Header",
+                  "Cells": [
+                    {
+                      "Value": ""
+                    },
+                    {
+                      "Value": "31 Aug 2026"
+                    },
+                    {
+                      "Value": "31 Aug 2025"
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Assets",
+                  "Rows": []
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Cash and Cash Equivalents",
+                  "Rows": [
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Checking Account",
+                          "Attributes": [
+                            {
+                              "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "-173.08",
+                          "Attributes": [
+                            {
+                              "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "4745.48",
+                          "Attributes": [
+                            {
+                              "Value": "ceef66a5-a545-413b-9312-78a53caadbc4",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Cash and Cash Equivalents"
+                        },
+                        {
+                          "Value": "-173.08"
+                        },
+                        {
+                          "Value": "4745.48"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Current Assets",
+                  "Rows": [
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Accounts Receivable",
+                          "Attributes": [
+                            {
+                              "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "9512.25",
+                          "Attributes": [
+                            {
+                              "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "0.00",
+                          "Attributes": [
+                            {
+                              "Value": "5f5e1b00-5331-4ee5-bc84-39dbd9a27db3",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Current Assets"
+                        },
+                        {
+                          "Value": "9512.25"
+                        },
+                        {
+                          "Value": "0.00"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Property, Plant and Equipment",
+                  "Rows": [
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Computer Equipment",
+                          "Attributes": [
+                            {
+                              "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "-829.87",
+                          "Attributes": [
+                            {
+                              "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "0.00",
+                          "Attributes": [
+                            {
+                              "Value": "afe53f21-1221-451c-a8c4-08457e129d84",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Office Equipment",
+                          "Attributes": [
+                            {
+                              "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "3628.91",
+                          "Attributes": [
+                            {
+                              "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "0.00",
+                          "Attributes": [
+                            {
+                              "Value": "270f7d77-ec0c-43d3-802f-be84f687c36e",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Property, Plant and Equipment"
+                        },
+                        {
+                          "Value": "2799.04"
+                        },
+                        {
+                          "Value": "0.00"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "",
+                  "Rows": [
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Assets"
+                        },
+                        {
+                          "Value": "12138.21"
+                        },
+                        {
+                          "Value": "4745.48"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Liabilities and Equity",
+                  "Rows": []
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Liabilities",
+                  "Rows": []
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Current Liabilities",
+                  "Rows": [
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Accounts Payable",
+                          "Attributes": [
+                            {
+                              "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "10291.84",
+                          "Attributes": [
+                            {
+                              "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "0.00",
+                          "Attributes": [
+                            {
+                              "Value": "6a334513-3d82-40e2-9463-3fcb022a02a1",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Historical Adjustment",
+                          "Attributes": [
+                            {
+                              "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "4130.98",
+                          "Attributes": [
+                            {
+                              "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "4130.98",
+                          "Attributes": [
+                            {
+                              "Value": "dd517756-1b24-4db3-8aee-51d331039012",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Sales Tax",
+                          "Attributes": [
+                            {
+                              "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "2680.06",
+                          "Attributes": [
+                            {
+                              "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "67.72",
+                          "Attributes": [
+                            {
+                              "Value": "10a2c6aa-5487-499b-9199-39c4366a1060",
+                              "Id": "account"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Current Liabilities"
+                        },
+                        {
+                          "Value": "17102.88"
+                        },
+                        {
+                          "Value": "4198.70"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "",
+                  "Rows": [
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Liabilities"
+                        },
+                        {
+                          "Value": "17102.88"
+                        },
+                        {
+                          "Value": "4198.70"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "Equity",
+                  "Rows": [
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Current Year Earnings",
+                          "Attributes": [
+                            {
+                              "Value": "abababab-abab-abab-abab-abababababab",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "-7430.80",
+                          "Attributes": [
+                            {
+                              "Value": "abababab-abab-abab-abab-abababababab",
+                              "Id": "account"
+                            },
+                            {
+                              "Value": "1/1/2026",
+                              "Id": "fromDate"
+                            },
+                            {
+                              "Value": "8/31/2026",
+                              "Id": "toDate"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "729.84",
+                          "Attributes": [
+                            {
+                              "Value": "abababab-abab-abab-abab-abababababab",
+                              "Id": "account"
+                            },
+                            {
+                              "Value": "1/1/2025",
+                              "Id": "fromDate"
+                            },
+                            {
+                              "Value": "8/31/2025",
+                              "Id": "toDate"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "Row",
+                      "Cells": [
+                        {
+                          "Value": "Retained Earnings",
+                          "Attributes": [
+                            {
+                              "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                              "Id": "account"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "2466.13",
+                          "Attributes": [
+                            {
+                              "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                              "Id": "account"
+                            },
+                            {
+                              "Value": "",
+                              "Id": "fromDate"
+                            },
+                            {
+                              "Value": "8/31/2026",
+                              "Id": "toDate"
+                            }
+                          ]
+                        },
+                        {
+                          "Value": "-183.06",
+                          "Attributes": [
+                            {
+                              "Value": "c4753a8e-47ee-4adb-86ad-e2713d5ae461",
+                              "Id": "account"
+                            },
+                            {
+                              "Value": "",
+                              "Id": "fromDate"
+                            },
+                            {
+                              "Value": "8/31/2025",
+                              "Id": "toDate"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Equity"
+                        },
+                        {
+                          "Value": "-4964.67"
+                        },
+                        {
+                          "Value": "546.78"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "RowType": "Section",
+                  "Title": "",
+                  "Rows": [
+                    {
+                      "RowType": "SummaryRow",
+                      "Cells": [
+                        {
+                          "Value": "Total Liabilities and Equity"
+                        },
+                        {
+                          "Value": "12138.21"
+                        },
+                        {
+                          "Value": "4745.48"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:33:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "14967",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1786491227",
+          "xero-correlation-id": "948e41f6-b8a5-4b80-8abb-2df4f22421bf",
+          "x-appminlimit-remaining": "9999",
+          "x-minlimit-remaining": "54",
+          "x-daylimit-remaining": "4239",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:33:17 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"3a77-fM44rC7QPjB7h7NGv5DHXwhZkqQ\""
+        },
+        "hash": "fb9e571d43852fc3c93f6afcb8e7f3267ac2d9e5",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,13 +12,6 @@ describe('xero organisations tests', () => {
             Model: 'Organisation'
         });
 
-        nangoMock.getConnection = vi.fn().mockResolvedValue({
-            connection_config: {
-                tenant_id: '59712f8f-45a3-4d45-a705-5d0c9748317e'
-            },
-            metadata: {}
-        });
-
         return {
             nangoMock,
             batchSaveSpy: vi.spyOn(nangoMock, 'batchSave')

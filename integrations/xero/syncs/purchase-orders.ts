@@ -1,77 +1,197 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z
+        .string()
+        .describe('Timestamp for the If-Modified-Since header to fetch only records changed since the last sync (empty string means no prior checkpoint)')
 });
 
-const PurchaseOrderSchema = z.object({
-    id: z.string(),
-    purchase_order_number: z.string().optional(),
-    date: z.string().optional(),
-    delivery_date: z.string().optional(),
-    expected_arrival_date: z.string().optional(),
-    status: z.string(),
-    reference: z.string().optional(),
-    sub_total: z.number().optional(),
-    total_tax: z.number().optional(),
-    total: z.number().optional(),
-    updated_date_utc: z.string(),
-    currency_code: z.string().optional(),
-    contact_id: z.string().optional(),
-    contact_name: z.string().optional()
+const LineItemSchema = z.object({
+    LineItemID: z.string().optional().describe('Unique identifier for the line item in Xero'),
+    Description: z.string().optional().describe('Description of the line item'),
+    Quantity: z.number().optional().describe('Quantity of the line item'),
+    UnitAmount: z.number().optional().describe('Unit price of the line item'),
+    ItemCode: z.string().optional().describe('Item code for the line item'),
+    AccountCode: z.string().optional().describe('Account code for the line item'),
+    TaxType: z.string().optional().describe('Tax type for the line item'),
+    LineAmount: z.number().optional().describe('Total line amount')
 });
 
-const ConnectionResponseSchema = z.object({
-    connection_config: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.unknown()).optional().nullable()
+const ContactSchema = z.object({
+    ContactID: z.string().describe('Unique identifier for the contact in Xero'),
+    Name: z.string().optional().describe('Name of the contact')
 });
 
-const TenantSchema = z.object({
-    tenantId: z.string()
+const PurchaseOrderSchema = z
+    .object({
+        id: z.string().describe('Unique identifier for the purchase order'),
+        PurchaseOrderID: z.string().describe('Unique identifier for the purchase order in Xero'),
+        PurchaseOrderNumber: z.string().optional().describe('Purchase order number'),
+        Date: z.string().optional().describe('Date the purchase order was issued'),
+        DeliveryDate: z.string().optional().describe('Date the goods are expected to be delivered'),
+        ExpectedArrivalDate: z.string().optional().describe('Expected arrival date of the goods'),
+        Status: z.string().describe('Status of the purchase order'),
+        LineAmountTypes: z.string().optional().describe('Line amount types'),
+        SubTotal: z.number().optional().describe('Subtotal of the purchase order'),
+        TotalTax: z.number().optional().describe('Total tax on the purchase order'),
+        Total: z.number().optional().describe('Total amount of the purchase order'),
+        UpdatedDateUTC: z.string().optional().describe('Last modified date in UTC'),
+        CurrencyCode: z.string().optional().describe('Currency code'),
+        CurrencyRate: z.number().optional().describe('Currency rate'),
+        PurchaseOrderReference: z.string().optional().describe('Reference for the purchase order'),
+        AttentionTo: z.string().optional().describe('Person attention should be directed to'),
+        Telephone: z.string().optional().describe('Telephone number for contact'),
+        DeliveryInstructions: z.string().optional().describe('Delivery instructions'),
+        HasAttachments: z.boolean().optional().describe('Whether the purchase order has attachments'),
+        Contact: ContactSchema.optional().describe('Contact associated with the purchase order'),
+        LineItems: z.array(LineItemSchema).optional().describe('Line items on the purchase order')
+    })
+    .describe('Purchase order from Xero');
+
+const XeroPurchaseOrderSchema = z.object({
+    PurchaseOrderID: z.string(),
+    PurchaseOrderNumber: z.string().optional(),
+    Date: z.string().optional(),
+    DeliveryDate: z.string().optional(),
+    ExpectedArrivalDate: z.string().optional(),
+    Status: z.string(),
+    LineAmountTypes: z.string().optional(),
+    SubTotal: z.number().optional(),
+    TotalTax: z.number().optional(),
+    Total: z.number().optional(),
+    UpdatedDateUTC: z.string().optional(),
+    CurrencyCode: z.string().optional(),
+    CurrencyRate: z.number().optional(),
+    PurchaseOrderReference: z.string().optional(),
+    AttentionTo: z.string().optional(),
+    Telephone: z.string().optional(),
+    DeliveryInstructions: z.string().optional(),
+    HasAttachments: z.boolean().optional(),
+    Contact: z
+        .object({
+            ContactID: z.string(),
+            Name: z.string().optional()
+        })
+        .optional(),
+    LineItems: z
+        .array(
+            z.object({
+                LineItemID: z.string().optional(),
+                Description: z.string().optional(),
+                Quantity: z.number().optional(),
+                UnitAmount: z.number().optional(),
+                ItemCode: z.string().optional(),
+                AccountCode: z.string().optional(),
+                TaxType: z.string().optional(),
+                LineAmount: z.number().optional()
+            })
+        )
+        .optional()
 });
 
-const PurchaseOrdersResponseSchema = z.object({
-    PurchaseOrders: z.array(z.record(z.string(), z.unknown())).optional()
-});
-
-function parseXeroDate(value: unknown): string {
-    if (typeof value !== 'string' || value.length === 0) {
-        return '';
-    }
+function parseXeroDate(value: string): Date | null {
     // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
-    const msMatch = value.match(/^\/Date\((-?\d+)([+-]\d{4})\)\/$/);
-    if (msMatch && msMatch[1] !== undefined) {
-        const timestamp = parseInt(msMatch[1], 10);
-        return new Date(timestamp).toISOString();
+    const match = value.match(/^\/Date\((-?\d+)(?:[+-]\d{4})?\)\/$/);
+    if (match && match[1]) {
+        return new Date(parseInt(match[1], 10));
     }
-    if (!Number.isNaN(Date.parse(value))) {
-        return value;
+
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) {
+        return null;
     }
-    return '';
+
+    return parsed;
+}
+
+function formatIfModifiedSince(date: Date): string {
+    return date.toISOString().replace(/\.\d{3}Z$/, '');
 }
 
 const sync = createSync({
-    description: 'Sync purchase orders from Xero.',
-    version: '3.1.0',
-    endpoints: [{ method: 'GET', path: '/syncs/purchase-orders' }],
+    description: 'Sync purchase orders from Xero',
+    version: '3.1.1',
     frequency: 'every hour',
     autoStart: true,
-    scopes: ['accounting.invoices.read'],
     checkpoint: CheckpointSchema,
     models: {
         PurchaseOrder: PurchaseOrderSchema
     },
 
     exec: async (nango) => {
-        const tenantId = await resolveTenantId(nango);
-        const checkpoint = await nango.getCheckpoint();
-        const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
-        const updatedAfter = validatedCheckpoint.success ? validatedCheckpoint.data.updated_after : '';
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint == null ? null : CheckpointSchema.parse(rawCheckpoint);
+        const updatedAfter = checkpoint?.updated_after ?? '';
+
+        const connection = await nango.getConnection();
+
+        if (typeof connection !== 'object' || connection === null) {
+            throw new Error('Invalid connection data');
+        }
+
+        const connection_config = 'connection_config' in connection ? connection['connection_config'] : undefined;
+        const metadata = 'metadata' in connection ? connection['metadata'] : undefined;
+        let tenantId: string | undefined;
+
+        if (
+            connection_config !== null &&
+            connection_config !== undefined &&
+            typeof connection_config === 'object' &&
+            'tenant_id' in connection_config &&
+            typeof connection_config['tenant_id'] === 'string' &&
+            connection_config['tenant_id'].length > 0
+        ) {
+            tenantId = connection_config['tenant_id'];
+        } else if (
+            metadata !== null &&
+            metadata !== undefined &&
+            typeof metadata === 'object' &&
+            'tenantId' in metadata &&
+            typeof metadata['tenantId'] === 'string' &&
+            metadata['tenantId'].length > 0
+        ) {
+            tenantId = metadata['tenantId'];
+        } else {
+            // https://developer.xero.com/documentation/api/accounting/overview
+            const connectionsResponse = await nango.get({
+                endpoint: 'connections',
+                retries: 10
+            });
+
+            if (!Array.isArray(connectionsResponse.data) || connectionsResponse.data.length === 0) {
+                throw new Error('No Xero tenants found for this connection.');
+            }
+
+            if (connectionsResponse.data.length > 1) {
+                throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
+            }
+
+            const connectionsArraySchema = z.array(z.record(z.string(), z.unknown()));
+            const connections = connectionsArraySchema.safeParse(connectionsResponse.data);
+
+            if (connections.success) {
+                const firstConnection = connections.data[0];
+
+                if (
+                    firstConnection &&
+                    'tenantId' in firstConnection &&
+                    typeof firstConnection['tenantId'] === 'string' &&
+                    firstConnection['tenantId'].length > 0
+                ) {
+                    tenantId = firstConnection['tenantId'];
+                }
+            }
+        }
+
+        if (!tenantId) {
+            throw new Error('Unable to resolve xero-tenant-id.');
+        }
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
+
         const params: Record<string, string> = {};
 
         if (updatedAfter.length > 0) {
@@ -79,143 +199,93 @@ const sync = createSync({
             params['includeArchived'] = 'true';
         }
 
-        let page = 1;
-        let hasMorePages = true;
-        let latestUpdatedDate = updatedAfter;
+        let latestUpdatedDate: Date | null = updatedAfter.length > 0 ? parseXeroDate(updatedAfter) : null;
+        let latestUpdatedAfter = updatedAfter;
 
-        while (hasMorePages) {
-            // https://developer.xero.com/documentation/api/accounting/purchaseorders
-            const response = await nango.get({
-                endpoint: 'api.xro/2.0/PurchaseOrders',
-                headers,
-                params: {
-                    ...params,
-                    page: String(page)
-                },
-                retries: 3
-            });
+        const proxyConfig: ProxyConfiguration = {
+            // https://developer.xero.com/documentation/api/accounting/overview
+            endpoint: 'api.xro/2.0/PurchaseOrders',
+            headers,
+            params,
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: 1,
+                offset_calculation_method: 'per-page',
+                response_path: 'PurchaseOrders',
+                limit: 100,
+                limit_name_in_request: 'pageSize'
+            },
+            retries: 3
+        };
 
-            const parsed = PurchaseOrdersResponseSchema.safeParse(response.data);
-            const purchaseOrders = parsed.success ? (parsed.data.PurchaseOrders ?? []) : [];
-            if (purchaseOrders.length === 0) {
-                hasMorePages = false;
-                break;
+        for await (const records of nango.paginate(proxyConfig)) {
+            const parsedRecords = z.array(XeroPurchaseOrderSchema).safeParse(records);
+
+            if (!parsedRecords.success) {
+                throw new Error('Failed to parse purchase order records');
             }
 
-            const activeOrders: Array<z.infer<typeof PurchaseOrderSchema>> = [];
-            const deletedOrders: Array<{ id: string }> = [];
+            const typedRecords = parsedRecords.data;
 
-            for (const raw of purchaseOrders) {
-                const orderParsed = z
-                    .object({
-                        PurchaseOrderID: z.string(),
-                        PurchaseOrderNumber: z.string().optional(),
-                        Date: z.string().optional(),
-                        DeliveryDate: z.string().optional(),
-                        ExpectedArrivalDate: z.string().optional(),
-                        Status: z.string(),
-                        Reference: z.string().optional(),
-                        SubTotal: z.number().optional(),
-                        TotalTax: z.number().optional(),
-                        Total: z.number().optional(),
-                        UpdatedDateUTC: z.string(),
-                        CurrencyCode: z.string().optional(),
-                        Contact: z
-                            .object({
-                                ContactID: z.string().optional(),
-                                Name: z.string().optional()
-                            })
-                            .optional()
-                    })
-                    .safeParse(raw);
+            if (typedRecords.length === 0) {
+                continue;
+            }
 
-                if (!orderParsed.success) {
+            const mapped = typedRecords.map((record) => ({
+                id: record.PurchaseOrderID,
+                PurchaseOrderID: record.PurchaseOrderID,
+                ...(record.PurchaseOrderNumber !== undefined && { PurchaseOrderNumber: record.PurchaseOrderNumber }),
+                ...(record.Date !== undefined && { Date: record.Date }),
+                ...(record.DeliveryDate !== undefined && { DeliveryDate: record.DeliveryDate }),
+                ...(record.ExpectedArrivalDate !== undefined && { ExpectedArrivalDate: record.ExpectedArrivalDate }),
+                Status: record.Status,
+                ...(record.LineAmountTypes !== undefined && { LineAmountTypes: record.LineAmountTypes }),
+                ...(record.SubTotal !== undefined && { SubTotal: record.SubTotal }),
+                ...(record.TotalTax !== undefined && { TotalTax: record.TotalTax }),
+                ...(record.Total !== undefined && { Total: record.Total }),
+                ...(record.UpdatedDateUTC !== undefined && { UpdatedDateUTC: record.UpdatedDateUTC }),
+                ...(record.CurrencyCode !== undefined && { CurrencyCode: record.CurrencyCode }),
+                ...(record.CurrencyRate !== undefined && { CurrencyRate: record.CurrencyRate }),
+                ...(record.PurchaseOrderReference !== undefined && { PurchaseOrderReference: record.PurchaseOrderReference }),
+                ...(record.AttentionTo !== undefined && { AttentionTo: record.AttentionTo }),
+                ...(record.Telephone !== undefined && { Telephone: record.Telephone }),
+                ...(record.DeliveryInstructions !== undefined && { DeliveryInstructions: record.DeliveryInstructions }),
+                ...(record.HasAttachments !== undefined && { HasAttachments: record.HasAttachments }),
+                ...(record.Contact !== undefined && { Contact: record.Contact }),
+                ...(record.LineItems !== undefined && { LineItems: record.LineItems })
+            }));
+
+            const activeRecords = mapped.filter((r) => r.Status !== 'DELETED' && r.Status !== 'VOIDED');
+            const deletedRecords = mapped.filter((r) => r.Status === 'DELETED' || r.Status === 'VOIDED');
+
+            if (activeRecords.length > 0) {
+                await nango.batchSave(activeRecords, 'PurchaseOrder');
+            }
+
+            if (updatedAfter.length > 0 && deletedRecords.length > 0) {
+                await nango.batchDelete(deletedRecords, 'PurchaseOrder');
+            }
+
+            for (const record of mapped) {
+                if (!record.UpdatedDateUTC) {
                     continue;
                 }
-
-                const order = orderParsed.data;
-                const mapped: z.infer<typeof PurchaseOrderSchema> = {
-                    id: order.PurchaseOrderID,
-                    ...(order.PurchaseOrderNumber !== undefined && { purchase_order_number: order.PurchaseOrderNumber }),
-                    ...(order.Date !== undefined && { date: parseXeroDate(order.Date) }),
-                    ...(order.DeliveryDate !== undefined && { delivery_date: parseXeroDate(order.DeliveryDate) }),
-                    ...(order.ExpectedArrivalDate !== undefined && { expected_arrival_date: parseXeroDate(order.ExpectedArrivalDate) }),
-                    status: order.Status,
-                    ...(order.Reference !== undefined && { reference: order.Reference }),
-                    ...(order.SubTotal !== undefined && { sub_total: order.SubTotal }),
-                    ...(order.TotalTax !== undefined && { total_tax: order.TotalTax }),
-                    ...(order.Total !== undefined && { total: order.Total }),
-                    updated_date_utc: parseXeroDate(order.UpdatedDateUTC),
-                    ...(order.CurrencyCode !== undefined && { currency_code: order.CurrencyCode }),
-                    ...(order.Contact?.ContactID !== undefined && { contact_id: order.Contact.ContactID }),
-                    ...(order.Contact?.Name !== undefined && { contact_name: order.Contact.Name })
-                };
-
-                if (order.Status === 'DELETED') {
-                    deletedOrders.push({ id: mapped.id });
-                } else {
-                    activeOrders.push(mapped);
-                }
-
-                const updatedDateIso = parseXeroDate(order.UpdatedDateUTC);
-                if (updatedDateIso.length > 0 && updatedDateIso > latestUpdatedDate) {
-                    latestUpdatedDate = updatedDateIso;
+                const parsedDate = parseXeroDate(record.UpdatedDateUTC);
+                if (parsedDate && (!latestUpdatedDate || parsedDate > latestUpdatedDate)) {
+                    latestUpdatedDate = parsedDate;
+                    latestUpdatedAfter = formatIfModifiedSince(parsedDate);
                 }
             }
 
-            if (activeOrders.length > 0) {
-                await nango.batchSave(activeOrders, 'PurchaseOrder');
+            if (latestUpdatedAfter.length > 0) {
+                await nango.saveCheckpoint({
+                    updated_after: latestUpdatedAfter
+                });
             }
-
-            if (deletedOrders.length > 0 && checkpoint !== null) {
-                await nango.batchDelete(deletedOrders, 'PurchaseOrder');
-            }
-
-            page = page + 1;
-        }
-
-        if (latestUpdatedDate.length > 0) {
-            await nango.saveCheckpoint({ updated_after: latestUpdatedDate });
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function resolveTenantId(nango: NangoSyncLocal): Promise<string> {
-    const connectionResponse = await nango.getConnection();
-    const connectionParsed = ConnectionResponseSchema.safeParse(connectionResponse);
-    if (connectionParsed.success) {
-        const configTenantId = connectionParsed.data.connection_config?.['tenant_id'];
-        if (typeof configTenantId === 'string') {
-            return configTenantId;
-        }
-        const metadataTenantId = connectionParsed.data.metadata?.['tenantId'];
-        if (typeof metadataTenantId === 'string') {
-            return metadataTenantId;
-        }
-    }
-
-    // https://developer.xero.com/documentation/guides/oauth2/tenants
-    const connectionsResponse = await nango.get({
-        endpoint: 'connections',
-        baseUrlOverride: 'https://api.xero.com',
-        retries: 10
-    });
-
-    const tenantsParsed = z.array(TenantSchema).safeParse(connectionsResponse.data);
-    if (!tenantsParsed.success || tenantsParsed.data.length === 0) {
-        throw new Error('No Xero tenants found for this connection.');
-    }
-    if (tenantsParsed.data.length > 1) {
-        throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-    }
-
-    const firstTenant = tenantsParsed.data[0];
-    if (!firstTenant) {
-        throw new Error('No Xero tenants found for this connection.');
-    }
-
-    return firstTenant.tenantId;
-}

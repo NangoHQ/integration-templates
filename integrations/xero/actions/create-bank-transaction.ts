@@ -3,265 +3,278 @@ import { createAction } from 'nango';
 
 const LineItemInputSchema = z.object({
     description: z.string().describe('Line item description. Example: "Office supplies"'),
-    quantity: z.number().optional().describe('Quantity. Example: 1'),
-    unit_amount: z.number().optional().describe('Unit amount. Example: 20.0'),
-    account_code: z.string().describe('Account code. Example: "000"'),
+    quantity: z.number().describe('Quantity. Example: 1'),
+    unit_amount: z.number().describe('Unit price. Example: 50.00'),
+    account_code: z.string().describe('Chart of accounts code. Example: "400"'),
     tax_type: z.string().optional().describe('Tax type. Example: "NONE"')
 });
 
-const InputSchema = z.object({
-    type: z.enum(['SPEND', 'RECEIVE']).describe('Type of bank transaction. Example: "SPEND"'),
-    contact_id: z.string().describe('Contact ID. Example: "00000000-0000-0000-0000-000000000000"'),
-    bank_account_code: z.string().optional().describe('Bank account code. Example: "088"'),
-    bank_account_id: z.string().optional().describe('Bank account ID. Example: "00000000-0000-0000-0000-000000000000"'),
-    date: z.string().describe('Transaction date in YYYY-MM-DD format. Example: "2024-01-15"'),
-    reference: z.string().optional().describe('Reference for the transaction. Example: "Invoice 123"'),
-    line_items: z.array(LineItemInputSchema).min(1).describe('Line items for the transaction')
+const InputSchema = z
+    .object({
+        type: z
+            .enum(['SPEND', 'RECEIVE', 'SPEND-OVERPAYMENT', 'RECEIVE-OVERPAYMENT', 'SPEND-PREPAYMENT', 'RECEIVE-PREPAYMENT'])
+            .describe('Transaction type. Example: "SPEND"'),
+        contact_id: z.string().describe('Xero Contact ID. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
+        bank_account_id: z
+            .string()
+            .optional()
+            .describe(
+                'Xero Bank Account ID (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'
+            ),
+        bank_account_code: z
+            .string()
+            .optional()
+            .describe('Xero Bank Account code (must be a Type=BANK account). Provide either bank_account_id or bank_account_code. Example: "088"'),
+        date: z.string().describe('Transaction date in YYYY-MM-DD format. Example: "2024-01-15"'),
+        reference: z.string().optional().describe('Optional reference text. Example: "REF-001"'),
+        line_items: z.array(LineItemInputSchema).describe('Line items for the transaction')
+    })
+    .describe('Input for creating a Xero bank transaction.')
+    .refine((data) => Boolean(data.bank_account_id) !== Boolean(data.bank_account_code), {
+        message: 'Provide exactly one of bank_account_id or bank_account_code.'
+    });
+
+const ProviderContactSchema = z.object({
+    ContactID: z.string().optional(),
+    Name: z.string().optional()
 });
 
-const LineItemSchema = z.object({
+const ProviderBankAccountSchema = z.object({
+    AccountID: z.string().optional(),
+    Name: z.string().optional(),
+    Code: z.string().optional()
+});
+
+const ProviderLineItemSchema = z.object({
     Description: z.string().optional(),
     Quantity: z.number().optional(),
     UnitAmount: z.number().optional(),
     AccountCode: z.string().optional(),
     TaxType: z.string().optional(),
-    TaxAmount: z.number().optional(),
-    LineAmount: z.number().optional(),
-    LineItemID: z.string().optional()
+    LineAmount: z.number().optional()
 });
 
-const BankAccountSchema = z.object({
-    AccountID: z.string().optional(),
-    Code: z.string().optional(),
-    Name: z.string().optional()
-});
-
-const ContactSchema = z.object({
-    ContactID: z.string().optional(),
-    Name: z.string().optional()
-});
-
-const BankTransactionSchema = z.object({
-    BankTransactionID: z.string().optional(),
+const ProviderBankTransactionSchema = z.object({
+    BankTransactionID: z.string(),
     Type: z.string().optional(),
     Status: z.string().optional(),
-    Contact: ContactSchema.optional(),
-    BankAccount: BankAccountSchema.optional(),
+    Contact: ProviderContactSchema.optional(),
+    BankAccount: ProviderBankAccountSchema.optional(),
     Date: z.string().optional(),
     Reference: z.string().optional(),
-    LineItems: z.array(LineItemSchema).optional(),
+    LineItems: z.array(ProviderLineItemSchema).optional(),
     SubTotal: z.number().optional(),
     TotalTax: z.number().optional(),
-    Total: z.number().optional(),
-    CurrencyCode: z.string().optional(),
-    ValidationErrors: z.array(z.object({ Message: z.string() })).optional()
+    Total: z.number().optional()
 });
 
-const BankTransactionsResponseSchema = z.object({
-    BankTransactions: z.array(BankTransactionSchema)
+const ProviderResponseSchema = z.object({
+    BankTransactions: z.array(ProviderBankTransactionSchema).optional(),
+    Status: z.string().optional()
 });
 
-const OutputSchema = z.object({
-    bank_transaction_id: z.string(),
-    type: z.string(),
-    status: z.string(),
-    contact_id: z.string().optional(),
-    contact_name: z.string().optional(),
-    bank_account_id: z.string().optional(),
-    bank_account_code: z.string().optional(),
-    bank_account_name: z.string().optional(),
-    date: z.string().optional(),
-    reference: z.string().optional(),
-    sub_total: z.number().optional(),
-    total_tax: z.number().optional(),
-    total: z.number().optional(),
-    currency_code: z.string().optional(),
-    line_items: z
-        .array(
-            z.object({
-                line_item_id: z.string().optional(),
-                description: z.string().optional(),
-                quantity: z.number().optional(),
-                unit_amount: z.number().optional(),
-                account_code: z.string().optional(),
-                tax_type: z.string().optional(),
-                tax_amount: z.number().optional(),
-                line_amount: z.number().optional()
-            })
-        )
-        .optional(),
-    validation_errors: z.array(z.string()).optional()
+const LineItemOutputSchema = z.object({
+    description: z.string().optional().describe('Line item description. Example: "Office supplies"'),
+    quantity: z.number().optional().describe('Quantity. Example: 1'),
+    unit_amount: z.number().optional().describe('Unit price. Example: 50.00'),
+    account_code: z.string().optional().describe('Chart of accounts code. Example: "400"'),
+    tax_type: z.string().optional().describe('Tax type. Example: "NONE"'),
+    line_amount: z.number().optional().describe('Calculated line amount. Example: 50.00')
 });
 
+const OutputSchema = z
+    .object({
+        bank_transaction_id: z.string().describe('Unique Xero identifier for the bank transaction. Example: "294437d0-0d9e-4d77-b1e3-873b715cdf69"'),
+        type: z.string().optional().describe('Transaction type. Example: "SPEND"'),
+        status: z.string().optional().describe('Transaction status. Defaults to AUTHORISED. Example: "AUTHORISED"'),
+        contact_id: z.string().optional().describe('Contact ID. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
+        contact_name: z.string().optional().describe('Contact name. Example: "Nango Registry Test Contact 1"'),
+        bank_account_id: z.string().optional().describe('Bank account ID. Example: "ceef66a5-a545-413b-9312-78a53caadbc4"'),
+        bank_account_code: z.string().optional().describe('Bank account code. Example: "088"'),
+        bank_account_name: z.string().optional().describe('Bank account name. Example: "Checking Account"'),
+        date: z.string().optional().describe('Transaction date. Example: "2024-01-15"'),
+        reference: z.string().optional().describe('Reference text. Example: "REF-001"'),
+        line_items: z.array(LineItemOutputSchema).optional().describe('Line items for the transaction'),
+        sub_total: z.number().optional().describe('Subtotal before tax. Example: 50.00'),
+        total_tax: z.number().optional().describe('Total tax amount. Example: 0.00'),
+        total: z.number().optional().describe('Total amount including tax. Example: 50.00')
+    })
+    .describe('Output of a created Xero bank transaction.');
+
+/**
+ * @tags: [write]
+ * @tagReason: Creates a new bank transaction in Xero.
+ * @pitfalls: Bank account must have Type=BANK or the call fails; omitting tax_type applies a system default tax and treats unit_amount as tax-inclusive, lowering the subtotal below what was supplied; archived contacts are rejected.
+ */
 const action = createAction({
-    description: 'Create a spend or receive money bank transaction',
-    version: '1.0.1',
+    description: 'Create a spend or receive money bank transaction.',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.banktransactions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const connection = await nango.getConnection();
+        async function resolveTenantId(): Promise<string> {
+            const connection = await nango.getConnection();
 
-        let tenantId: string | undefined;
-
-        if (typeof connection.connection_config === 'object' && connection.connection_config !== null && 'tenant_id' in connection.connection_config) {
-            const val = connection.connection_config['tenant_id'];
-            if (typeof val === 'string' && val.length > 0) {
-                tenantId = val;
+            const connectionConfigSchema = z.object({
+                tenant_id: z.string().optional()
+            });
+            const connectionConfigResult = connectionConfigSchema.safeParse(connection.connection_config);
+            if (connectionConfigResult.success && connectionConfigResult.data.tenant_id) {
+                return connectionConfigResult.data.tenant_id;
             }
-        }
 
-        if (!tenantId && typeof connection.metadata === 'object' && connection.metadata !== null && 'tenantId' in connection.metadata) {
-            const val = connection.metadata['tenantId'];
-            if (typeof val === 'string' && val.length > 0) {
-                tenantId = val;
+            const metadataSchema = z.object({
+                tenantId: z.string().optional()
+            });
+            const metadataResult = metadataSchema.safeParse(connection.metadata);
+            if (metadataResult.success && metadataResult.data.tenantId) {
+                return metadataResult.data.tenantId;
             }
-        }
 
-        if (!tenantId) {
-            // https://developer.xero.com/documentation/api/accounting/overview
             const connectionsResponse = await nango.get({
-                endpoint: '/connections',
+                // https://developer.xero.com/documentation/api/accounting/overview
+                endpoint: 'connections',
                 retries: 10
             });
 
-            const connectionsData = z.array(z.object({ tenantId: z.string() })).parse(connectionsResponse.data);
-
-            if (connectionsData.length === 0) {
+            const connectionsArraySchema = z.array(z.unknown());
+            const connectionsResult = connectionsArraySchema.safeParse(connectionsResponse.data);
+            if (!connectionsResult.success) {
                 throw new nango.ActionError({
                     type: 'missing_tenant',
-                    message: 'No Xero tenants found.'
+                    message: 'No Xero tenants found for this connection.'
                 });
             }
 
-            if (connectionsData.length > 1) {
+            const connections = connectionsResult.data;
+            if (connections.length === 0) {
+                throw new nango.ActionError({
+                    type: 'missing_tenant',
+                    message: 'No Xero tenants found for this connection.'
+                });
+            }
+
+            if (connections.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
 
-            const firstConnection = connectionsData[0];
-            if (!firstConnection) {
+            const firstConnectionSchema = z.object({
+                tenantId: z.string()
+            });
+            const firstConnectionResult = firstConnectionSchema.safeParse(connections[0]);
+            if (!firstConnectionResult.success || firstConnectionResult.data.tenantId.length === 0) {
                 throw new nango.ActionError({
                     type: 'missing_tenant',
-                    message: 'No Xero tenants found.'
+                    message: 'Unable to resolve xero-tenant-id.'
                 });
             }
 
-            tenantId = firstConnection.tenantId;
+            return firstConnectionResult.data.tenantId;
         }
 
-        if (!tenantId) {
-            throw new nango.ActionError({
-                type: 'missing_tenant',
-                message: 'Could not resolve Xero tenant ID.'
-            });
-        }
-
-        if (!input.bank_account_code && !input.bank_account_id) {
-            throw new nango.ActionError({
-                type: 'missing_bank_account',
-                message: 'Either bank_account_code or bank_account_id is required.'
-            });
-        }
-
-        const bankAccount: Record<string, string> = {};
-        if (input.bank_account_code !== undefined) {
-            bankAccount['Code'] = input.bank_account_code;
-        }
-        if (input.bank_account_id !== undefined) {
-            bankAccount['AccountID'] = input.bank_account_id;
-        }
+        const tenantId = await resolveTenantId();
 
         const lineItems = input.line_items.map((item) => ({
             Description: item.description,
-            ...(item.quantity !== undefined && { Quantity: item.quantity }),
-            ...(item.unit_amount !== undefined && { UnitAmount: item.unit_amount }),
+            Quantity: item.quantity,
+            UnitAmount: item.unit_amount,
             AccountCode: item.account_code,
             ...(item.tax_type !== undefined && { TaxType: item.tax_type })
         }));
 
-        const requestBody = {
+        const bankAccount: Record<string, string> = {};
+        if (input.bank_account_id !== undefined) {
+            bankAccount['AccountID'] = input.bank_account_id;
+        }
+        if (input.bank_account_code !== undefined) {
+            bankAccount['Code'] = input.bank_account_code;
+        }
+
+        const payload = {
             BankTransactions: [
                 {
                     Type: input.type,
                     Contact: {
                         ContactID: input.contact_id
                     },
-                    LineItems: lineItems,
                     BankAccount: bankAccount,
                     Date: input.date,
+                    LineItems: lineItems,
                     ...(input.reference !== undefined && { Reference: input.reference })
                 }
             ]
         };
 
-        // https://developer.xero.com/documentation/api/accounting/banktransactions
         const response = await nango.put({
+            // https://developer.xero.com/documentation/api/accounting/overview
             endpoint: 'api.xro/2.0/BankTransactions',
             headers: {
                 'xero-tenant-id': tenantId
             },
-            data: requestBody,
-            retries: 10
+            data: payload,
+            retries: 3
         });
 
-        const parsed = BankTransactionsResponseSchema.parse(response.data);
-
-        if (!parsed.BankTransactions || parsed.BankTransactions.length === 0) {
+        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
             throw new nango.ActionError({
-                type: 'empty_response',
-                message: 'No bank transaction was returned from Xero.'
+                type: 'invalid_response',
+                message: 'Unexpected response from Xero BankTransactions endpoint.'
             });
         }
 
-        const bt = parsed.BankTransactions[0];
-
-        if (!bt) {
+        const bankTransactions = parsedResponse.data.BankTransactions;
+        if (!bankTransactions || bankTransactions.length === 0) {
             throw new nango.ActionError({
-                type: 'empty_response',
-                message: 'No bank transaction was returned from Xero.'
+                type: 'missing_transaction',
+                message: 'No bank transaction returned in the response.'
             });
         }
 
-        if (!bt.BankTransactionID) {
+        const tx = bankTransactions[0];
+        if (!tx) {
             throw new nango.ActionError({
-                type: 'missing_id',
+                type: 'missing_transaction',
+                message: 'No bank transaction returned in the response.'
+            });
+        }
+
+        if (!tx.BankTransactionID) {
+            throw new nango.ActionError({
+                type: 'missing_transaction',
                 message: 'Created bank transaction is missing an ID.'
             });
         }
 
-        const validationErrors = bt.ValidationErrors ? bt.ValidationErrors.map((e) => e.Message) : [];
-
         return {
-            bank_transaction_id: bt.BankTransactionID,
-            type: bt.Type || input.type,
-            status: bt.Status || 'AUTHORISED',
-            ...(bt.Contact?.ContactID !== undefined && { contact_id: bt.Contact.ContactID }),
-            ...(bt.Contact?.Name !== undefined && { contact_name: bt.Contact.Name }),
-            ...(bt.BankAccount?.AccountID !== undefined && { bank_account_id: bt.BankAccount.AccountID }),
-            ...(bt.BankAccount?.Code !== undefined && { bank_account_code: bt.BankAccount.Code }),
-            ...(bt.BankAccount?.Name !== undefined && { bank_account_name: bt.BankAccount.Name }),
-            ...(bt.Date !== undefined && { date: bt.Date }),
-            ...(bt.Reference !== undefined && { reference: bt.Reference }),
-            ...(bt.SubTotal !== undefined && { sub_total: bt.SubTotal }),
-            ...(bt.TotalTax !== undefined && { total_tax: bt.TotalTax }),
-            ...(bt.Total !== undefined && { total: bt.Total }),
-            ...(bt.CurrencyCode !== undefined && { currency_code: bt.CurrencyCode }),
-            line_items:
-                bt.LineItems?.map((item) => ({
-                    ...(item.LineItemID !== undefined && { line_item_id: item.LineItemID }),
+            bank_transaction_id: tx.BankTransactionID,
+            ...(tx.Type !== undefined && { type: tx.Type }),
+            ...(tx.Status !== undefined && { status: tx.Status }),
+            ...(tx.Contact?.ContactID !== undefined && { contact_id: tx.Contact.ContactID }),
+            ...(tx.Contact?.Name !== undefined && { contact_name: tx.Contact.Name }),
+            ...(tx.BankAccount?.AccountID !== undefined && { bank_account_id: tx.BankAccount.AccountID }),
+            ...(tx.BankAccount?.Code !== undefined && { bank_account_code: tx.BankAccount.Code }),
+            ...(tx.BankAccount?.Name !== undefined && { bank_account_name: tx.BankAccount.Name }),
+            ...(tx.Date !== undefined && { date: tx.Date }),
+            ...(tx.Reference !== undefined && { reference: tx.Reference }),
+            ...(tx.LineItems !== undefined && {
+                line_items: tx.LineItems.map((item) => ({
                     ...(item.Description !== undefined && { description: item.Description }),
                     ...(item.Quantity !== undefined && { quantity: item.Quantity }),
                     ...(item.UnitAmount !== undefined && { unit_amount: item.UnitAmount }),
                     ...(item.AccountCode !== undefined && { account_code: item.AccountCode }),
                     ...(item.TaxType !== undefined && { tax_type: item.TaxType }),
-                    ...(item.TaxAmount !== undefined && { tax_amount: item.TaxAmount }),
                     ...(item.LineAmount !== undefined && { line_amount: item.LineAmount })
-                })) || [],
-            ...(validationErrors.length > 0 && { validation_errors: validationErrors })
+                }))
+            }),
+            ...(tx.SubTotal !== undefined && { sub_total: tx.SubTotal }),
+            ...(tx.TotalTax !== undefined && { total_tax: tx.TotalTax }),
+            ...(tx.Total !== undefined && { total: tx.Total })
         };
     }
 });

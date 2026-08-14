@@ -1,52 +1,67 @@
-import { createSync } from 'nango';
-import type { ProxyConfiguration } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
+
+const ProviderContactSchema = z.object({
+    ContactID: z.string().optional(),
+    Name: z.string().optional()
+});
+
+const ProviderInvoiceSchema = z.object({
+    InvoiceID: z.string(),
+    InvoiceNumber: z.string().optional(),
+    Type: z.string().optional(),
+    Status: z.string().optional(),
+    Contact: ProviderContactSchema.optional(),
+    Date: z.string().optional(),
+    DueDate: z.string().optional(),
+    UpdatedDateUTC: z.string(),
+    Total: z.number().optional(),
+    TotalTax: z.number().optional(),
+    AmountDue: z.number().optional(),
+    AmountPaid: z.number().optional(),
+    AmountCredited: z.number().optional(),
+    CurrencyCode: z.string().optional(),
+    Reference: z.string().optional(),
+    SentToContact: z.boolean().optional(),
+    HasAttachments: z.boolean().optional(),
+    Url: z.string().optional()
+});
 
 const CheckpointSchema = z.object({
     updated_after: z.string()
 });
 
-const RawInvoiceSchema = z.object({
-    InvoiceID: z.string(),
-    InvoiceNumber: z.string().optional(),
-    Status: z.string().optional(),
-    Type: z.string().optional(),
-    Contact: z
-        .object({
-            ContactID: z.string().optional(),
-            Name: z.string().optional()
-        })
-        .optional(),
-    Date: z.string().optional(),
-    DueDate: z.string().optional(),
-    Total: z.number().optional(),
-    SubTotal: z.number().optional(),
-    TotalTax: z.number().optional(),
-    AmountDue: z.number().optional(),
-    AmountPaid: z.number().optional(),
-    AmountCredited: z.number().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    CurrencyCode: z.string().optional()
-});
+const InvoiceSchema = z
+    .object({
+        id: z.string().describe('Unique Xero identifier for the invoice.'),
+        invoiceNumber: z.string().optional().describe('Customer-facing invoice number.'),
+        type: z.string().optional().describe('Invoice type, e.g. ACCREC or ACCPAY.'),
+        status: z.string().optional().describe('Current status, e.g. AUTHORISED, DRAFT, DELETED, VOIDED.'),
+        contactId: z.string().optional().describe('Identifier of the associated contact.'),
+        contactName: z.string().optional().describe('Name of the associated contact.'),
+        date: z.string().optional().describe('Invoice date in ISO 8601 format.'),
+        dueDate: z.string().optional().describe('Due date in ISO 8601 format.'),
+        updatedDateUtc: z.string().describe('Last modification timestamp in UTC.'),
+        total: z.number().optional().describe('Total invoice amount including tax.'),
+        totalTax: z.number().optional().describe('Total tax amount.'),
+        amountDue: z.number().optional().describe('Outstanding amount due.'),
+        amountPaid: z.number().optional().describe('Amount already paid.'),
+        amountCredited: z.number().optional().describe('Total credit note amount applied.'),
+        currencyCode: z.string().optional().describe('Currency code, e.g. USD.'),
+        reference: z.string().optional().describe('User-defined reference text.'),
+        sentToContact: z.boolean().optional().describe('Whether the invoice has been emailed to the contact.'),
+        hasAttachments: z.boolean().optional().describe('Whether the invoice has file attachments.'),
+        url: z.string().optional().describe('Online invoice URL if enabled.')
+    })
+    .describe('A Xero invoice record.');
 
-const InvoiceSchema = z.object({
-    id: z.string(),
-    InvoiceNumber: z.string().optional(),
-    Status: z.string().optional(),
-    Type: z.string().optional(),
-    ContactID: z.string().optional(),
-    ContactName: z.string().optional(),
-    Date: z.string().optional(),
-    DueDate: z.string().optional(),
-    Total: z.number().optional(),
-    SubTotal: z.number().optional(),
-    TotalTax: z.number().optional(),
-    AmountDue: z.number().optional(),
-    AmountPaid: z.number().optional(),
-    AmountCredited: z.number().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    CurrencyCode: z.string().optional()
-});
+function isRecord(value: unknown): value is Record<string, unknown> {
+    return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function isArray(value: unknown): value is unknown[] {
+    return Array.isArray(value);
+}
 
 function parseXeroDate(value: string): Date | null {
     // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
@@ -67,156 +82,187 @@ function formatIfModifiedSince(date: Date): string {
     return date.toISOString().replace(/\.\d{3}Z$/, '');
 }
 
-function mapInvoice(raw: unknown): z.infer<typeof InvoiceSchema> | null {
-    const parsed = RawInvoiceSchema.safeParse(raw);
-    if (!parsed.success) {
-        return null;
+async function resolveTenantId(nango: NangoSyncLocal): Promise<string> {
+    const rawConnection = await nango.getConnection();
+    if (isRecord(rawConnection)) {
+        const connectionConfig = rawConnection['connection_config'];
+        if (isRecord(connectionConfig)) {
+            const tenantId = connectionConfig['tenant_id'];
+            if (typeof tenantId === 'string' && tenantId.length > 0) {
+                return tenantId;
+            }
+        }
+        const metadata = rawConnection['metadata'];
+        if (isRecord(metadata)) {
+            const tenantId = metadata['tenantId'];
+            if (typeof tenantId === 'string' && tenantId.length > 0) {
+                return tenantId;
+            }
+        }
     }
 
-    const r = parsed.data;
-    return {
-        id: r.InvoiceID,
-        InvoiceNumber: r.InvoiceNumber,
-        Status: r.Status,
-        Type: r.Type,
-        ContactID: r.Contact?.ContactID,
-        ContactName: r.Contact?.Name,
-        Date: r.Date,
-        DueDate: r.DueDate,
-        Total: r.Total,
-        SubTotal: r.SubTotal,
-        TotalTax: r.TotalTax,
-        AmountDue: r.AmountDue,
-        AmountPaid: r.AmountPaid,
-        AmountCredited: r.AmountCredited,
-        UpdatedDateUTC: r.UpdatedDateUTC,
-        CurrencyCode: r.CurrencyCode
+    const response = await nango.get({
+        // https://developer.xero.com/documentation/api/accounting/overview
+        endpoint: 'connections',
+        retries: 10
+    });
+    if (!isRecord(response) || !isArray(response.data) || response.data.length === 0) {
+        throw new Error('No Xero tenants found for this connection.');
+    }
+    if (response.data.length > 1) {
+        throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
+    }
+    const first = response.data[0];
+    if (!isRecord(first)) {
+        throw new Error('Unable to resolve xero-tenant-id.');
+    }
+    const tenantId = first['tenantId'];
+    if (typeof tenantId !== 'string' || tenantId.length === 0) {
+        throw new Error('Unable to resolve xero-tenant-id.');
+    }
+    return tenantId;
+}
+
+function mapInvoice(raw: unknown): z.infer<typeof InvoiceSchema> {
+    const parsed = ProviderInvoiceSchema.parse(raw);
+    const contactId = parsed.Contact?.ContactID;
+    const contactName = parsed.Contact?.Name;
+    const result: z.infer<typeof InvoiceSchema> = {
+        id: parsed.InvoiceID,
+        updatedDateUtc: parsed.UpdatedDateUTC
     };
+    if (parsed.InvoiceNumber !== undefined) {
+        result.invoiceNumber = parsed.InvoiceNumber;
+    }
+    if (parsed.Type !== undefined) {
+        result.type = parsed.Type;
+    }
+    if (parsed.Status !== undefined) {
+        result.status = parsed.Status;
+    }
+    if (contactId !== undefined) {
+        result.contactId = contactId;
+    }
+    if (contactName !== undefined) {
+        result.contactName = contactName;
+    }
+    if (parsed.Date !== undefined) {
+        result.date = parsed.Date;
+    }
+    if (parsed.DueDate !== undefined) {
+        result.dueDate = parsed.DueDate;
+    }
+    if (parsed.Total !== undefined) {
+        result.total = parsed.Total;
+    }
+    if (parsed.TotalTax !== undefined) {
+        result.totalTax = parsed.TotalTax;
+    }
+    if (parsed.AmountDue !== undefined) {
+        result.amountDue = parsed.AmountDue;
+    }
+    if (parsed.AmountPaid !== undefined) {
+        result.amountPaid = parsed.AmountPaid;
+    }
+    if (parsed.AmountCredited !== undefined) {
+        result.amountCredited = parsed.AmountCredited;
+    }
+    if (parsed.CurrencyCode !== undefined) {
+        result.currencyCode = parsed.CurrencyCode;
+    }
+    if (parsed.Reference !== undefined) {
+        result.reference = parsed.Reference;
+    }
+    if (parsed.SentToContact !== undefined) {
+        result.sentToContact = parsed.SentToContact;
+    }
+    if (parsed.HasAttachments !== undefined) {
+        result.hasAttachments = parsed.HasAttachments;
+    }
+    if (parsed.Url !== undefined) {
+        result.url = parsed.Url;
+    }
+    return result;
 }
 
 const sync = createSync({
     description: 'Sync invoices from Xero.',
-    version: '3.1.0',
-    endpoints: [{ method: 'GET', path: '/syncs/invoices' }],
+    version: '3.1.1',
     frequency: 'every hour',
+    autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Invoice: InvoiceSchema
     },
-    checkpoint: CheckpointSchema,
 
     exec: async (nango) => {
-        async function resolveTenantId(n: typeof nango): Promise<string> {
-            const connection = await n.getConnection();
-
-            if (connection.connection_config !== null && connection.connection_config !== undefined) {
-                const val = connection.connection_config['tenant_id'];
-                if (typeof val === 'string') {
-                    return val;
-                }
-            }
-
-            if (connection.metadata !== null && connection.metadata !== undefined) {
-                const val = connection.metadata['tenantId'];
-                if (typeof val === 'string') {
-                    return val;
-                }
-            }
-
-            const connectionsConfig: ProxyConfiguration = {
-                // https://developer.xero.com/documentation/api/accounting/connections
-                endpoint: 'connections',
-                retries: 10
-            };
-            const connectionsResponse = await n.get<unknown[]>(connectionsConfig);
-
-            const connectionsSchema = z.array(
-                z.object({
-                    tenantId: z.string()
-                })
-            );
-            const connectionsResult = connectionsSchema.safeParse(connectionsResponse.data);
-            if (!connectionsResult.success || connectionsResult.data.length !== 1) {
-                throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
-
-            const firstConnection = connectionsResult.data[0];
-            if (firstConnection === undefined) {
-                throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
-
-            return firstConnection.tenantId;
-        }
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : null;
+        const updatedAfter = checkpoint?.updated_after ?? '';
+        const isIncremental = updatedAfter.length > 0;
 
         const tenantId = await resolveTenantId(nango);
-        const checkpoint = await nango.getCheckpoint();
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
-        const params: Record<string, string | number> = {};
+        const params: Record<string, string> = {
+            summaryOnly: 'true'
+        };
 
-        if (checkpoint !== null && checkpoint !== undefined && checkpoint.updated_after.length > 0) {
-            headers['If-Modified-Since'] = checkpoint.updated_after;
+        if (isIncremental) {
+            headers['If-Modified-Since'] = updatedAfter;
             params['includeArchived'] = 'true';
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developer.xero.com/documentation/api/accounting/invoices
+            // https://developer.xero.com/documentation/api/accounting/overview
             endpoint: 'api.xro/2.0/Invoices',
             headers,
             params,
-            retries: 10,
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
+                offset_start_value: 1,
+                offset_calculation_method: 'per-page',
                 limit_name_in_request: 'pageSize',
                 limit: 100,
-                response_path: 'Invoices',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page'
-            }
+                response_path: 'Invoices'
+            },
+            retries: 3
         };
 
-        for await (const batch of nango.paginate<unknown>(proxyConfig)) {
-            const mapped = batch.map(mapInvoice).filter((item): item is z.infer<typeof InvoiceSchema> => item !== null);
+        let latestUpdatedDate: Date | null = isIncremental ? parseXeroDate(updatedAfter) : null;
+        let latestUpdatedDateUtc = updatedAfter;
 
-            if (mapped.length === 0) {
-                continue;
+        for await (const page of nango.paginate(proxyConfig)) {
+            const active: z.infer<typeof InvoiceSchema>[] = [];
+            const stale: z.infer<typeof InvoiceSchema>[] = [];
+            for (const raw of page) {
+                const mapped = mapInvoice(raw);
+                if (mapped.status === 'DELETED' || mapped.status === 'VOIDED') {
+                    stale.push(mapped);
+                } else {
+                    active.push(mapped);
+                }
+                const parsedDate = parseXeroDate(mapped.updatedDateUtc);
+                if (parsedDate && (!latestUpdatedDate || parsedDate > latestUpdatedDate)) {
+                    latestUpdatedDate = parsedDate;
+                    latestUpdatedDateUtc = formatIfModifiedSince(parsedDate);
+                }
             }
-
-            const active = mapped.filter((item) => item.Status !== 'DELETED' && item.Status !== 'VOIDED');
-            const stale = mapped.filter((item) => item.Status === 'DELETED' || item.Status === 'VOIDED');
-
             if (active.length > 0) {
                 await nango.batchSave(active, 'Invoice');
             }
-
-            if (stale.length > 0) {
-                await nango.batchDelete(
-                    stale.map((item) => ({ id: item.id })),
-                    'Invoice'
-                );
+            if (isIncremental && stale.length > 0) {
+                await nango.batchDelete(stale, 'Invoice');
             }
-
-            let latestUpdatedDate: Date | null = null;
-            for (const item of mapped) {
-                if (typeof item.UpdatedDateUTC !== 'string') {
-                    continue;
-                }
-
-                const parsedUpdatedDate = parseXeroDate(item.UpdatedDateUTC);
-                if (parsedUpdatedDate && (!latestUpdatedDate || parsedUpdatedDate > latestUpdatedDate)) {
-                    latestUpdatedDate = parsedUpdatedDate;
-                }
-            }
-
-            if (latestUpdatedDate) {
-                await nango.saveCheckpoint({
-                    updated_after: formatIfModifiedSince(latestUpdatedDate)
-                });
+            if (latestUpdatedDateUtc.length > 0) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedDateUtc });
             }
         }
     }
 });
 
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

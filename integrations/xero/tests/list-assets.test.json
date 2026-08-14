@@ -1,0 +1,275 @@
+{
+  "input": {
+    "status": "DRAFT"
+  },
+  "output": {
+    "items": [
+      {
+        "assetId": "61610736-12b7-4795-a13e-14faabd275e2",
+        "assetName": "Desks, chairs, reception furniture for office",
+        "assetNumber": "FA-0004",
+        "purchaseDate": "2026-08-11T00:00:00",
+        "purchasePrice": 6300,
+        "disposalPrice": 0,
+        "assetStatus": "Draft",
+        "bookDepreciationSetting": {
+          "depreciationRate": 40,
+          "depreciationMethod": "DiminishingValue100",
+          "averagingMethod": "ActualDays",
+          "depreciationCalculationMethod": "None",
+          "bookEffectiveDateOfChangeId": "2f1b471f-6d06-49d0-9eaa-2be947e6153d"
+        },
+        "bookDepreciationDetail": {
+          "currentCapitalGain": 0,
+          "currentGainLoss": 0,
+          "depreciationStartDate": "2026-08-11T00:00:00",
+          "priorAccumDepreciationAmount": 0,
+          "currentAccumDepreciationAmount": 0
+        },
+        "canRollback": true,
+        "accountingBookValue": 6300,
+        "isDeleteEnabledForDate": false
+      },
+      {
+        "assetId": "c7dc349d-f3e5-4ce3-a1c1-650c7996ae01",
+        "assetName": "Laptop (Tracy)",
+        "assetNumber": "FA-0001",
+        "purchaseDate": "2026-08-11T00:00:00",
+        "purchasePrice": 1969.99,
+        "disposalPrice": 0,
+        "assetStatus": "Draft",
+        "bookDepreciationSetting": {
+          "depreciationRate": 40,
+          "depreciationMethod": "DiminishingValue100",
+          "averagingMethod": "ActualDays",
+          "depreciationCalculationMethod": "None",
+          "bookEffectiveDateOfChangeId": "228e44dd-c1c6-43f2-9f3e-28baa1b0eff5"
+        },
+        "bookDepreciationDetail": {
+          "currentCapitalGain": 0,
+          "currentGainLoss": 0,
+          "depreciationStartDate": "2026-08-11T00:00:00",
+          "priorAccumDepreciationAmount": 0,
+          "currentAccumDepreciationAmount": 0
+        },
+        "canRollback": true,
+        "accountingBookValue": 1969.99,
+        "isDeleteEnabledForDate": false
+      },
+      {
+        "assetId": "add04b24-82c7-4152-9238-af9fac6972ee",
+        "assetName": "Nango Registry Test Asset 2",
+        "assetNumber": "FA-NANGO-2",
+        "purchaseDate": "2026-08-01T00:00:00",
+        "purchasePrice": 800,
+        "disposalPrice": 0,
+        "assetStatus": "Draft",
+        "bookDepreciationSetting": {
+          "depreciationCalculationMethod": "None",
+          "bookEffectiveDateOfChangeId": "347b3355-0f67-4d23-8815-571893cf3541"
+        },
+        "canRollback": true,
+        "accountingBookValue": 0,
+        "isDeleteEnabledForDate": false
+      },
+      {
+        "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+        "assetName": "Nango Registry Test Asset 1",
+        "assetNumber": "FA-NANGO-1",
+        "purchaseDate": "2026-08-01T00:00:00",
+        "purchasePrice": 500,
+        "disposalPrice": 0,
+        "assetStatus": "Draft",
+        "bookDepreciationSetting": {
+          "depreciationCalculationMethod": "None",
+          "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a"
+        },
+        "canRollback": true,
+        "accountingBookValue": 0,
+        "isDeleteEnabledForDate": false
+      }
+    ],
+    "page": 1,
+    "pageSize": 10,
+    "pageCount": 1,
+    "itemCount": 4
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/assets.xro/1.0/Assets": {
+        "response": {
+          "pagination": {
+            "page": 1,
+            "pageSize": 10,
+            "pageCount": 1,
+            "itemCount": 4,
+            "links": {
+              "first": {
+                "href": "http://asset.ekorre.xero.com/v1/assets?status=DRAFT&page=1"
+              },
+              "last": {
+                "href": "http://asset.ekorre.xero.com/v1/assets?status=DRAFT&page=1"
+              }
+            }
+          },
+          "items": [
+            {
+              "assetId": "61610736-12b7-4795-a13e-14faabd275e2",
+              "assetName": "Desks, chairs, reception furniture for office",
+              "assetNumber": "FA-0004",
+              "purchaseDate": "2026-08-11T00:00:00",
+              "purchasePrice": 6300,
+              "assetTypeId": "f8d43548-25b0-4cc3-8f59-d97106974fe8",
+              "disposalPrice": 0,
+              "assetStatus": "Draft",
+              "trackingItems": [],
+              "bookDepreciationSetting": {
+                "depreciableObjectId": "61610736-12b7-4795-a13e-14faabd275e2",
+                "depreciableObjectType": "Asset",
+                "bookEffectiveDateOfChangeId": "2f1b471f-6d06-49d0-9eaa-2be947e6153d",
+                "depreciationMethod": "DiminishingValue100",
+                "averagingMethod": "ActualDays",
+                "depreciationRate": 40,
+                "depreciationCalculationMethod": "None"
+              },
+              "bookDepreciationDetail": {
+                "depreciationStartDate": "2026-08-11T00:00:00",
+                "priorAccumDepreciationAmount": 0,
+                "currentAccumDepreciationAmount": 0,
+                "currentCapitalGain": 0,
+                "currentGainLoss": 0
+              },
+              "taxDepreciationSettings": [],
+              "taxDepreciationDetails": [],
+              "canRollback": true,
+              "accountingBookValue": 6300,
+              "taxValues": [],
+              "isDeleteEnabledForDate": false
+            },
+            {
+              "assetId": "c7dc349d-f3e5-4ce3-a1c1-650c7996ae01",
+              "assetName": "Laptop (Tracy)",
+              "assetNumber": "FA-0001",
+              "purchaseDate": "2026-08-11T00:00:00",
+              "purchasePrice": 1969.99,
+              "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
+              "disposalPrice": 0,
+              "assetStatus": "Draft",
+              "trackingItems": [],
+              "bookDepreciationSetting": {
+                "depreciableObjectId": "c7dc349d-f3e5-4ce3-a1c1-650c7996ae01",
+                "depreciableObjectType": "Asset",
+                "bookEffectiveDateOfChangeId": "228e44dd-c1c6-43f2-9f3e-28baa1b0eff5",
+                "depreciationMethod": "DiminishingValue100",
+                "averagingMethod": "ActualDays",
+                "depreciationRate": 40,
+                "depreciationCalculationMethod": "None"
+              },
+              "bookDepreciationDetail": {
+                "depreciationStartDate": "2026-08-11T00:00:00",
+                "priorAccumDepreciationAmount": 0,
+                "currentAccumDepreciationAmount": 0,
+                "currentCapitalGain": 0,
+                "currentGainLoss": 0
+              },
+              "taxDepreciationSettings": [],
+              "taxDepreciationDetails": [],
+              "canRollback": true,
+              "accountingBookValue": 1969.99,
+              "taxValues": [],
+              "isDeleteEnabledForDate": false
+            },
+            {
+              "assetId": "add04b24-82c7-4152-9238-af9fac6972ee",
+              "assetName": "Nango Registry Test Asset 2",
+              "assetNumber": "FA-NANGO-2",
+              "purchaseDate": "2026-08-01T00:00:00",
+              "purchasePrice": 800,
+              "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
+              "disposalPrice": 0,
+              "assetStatus": "Draft",
+              "trackingItems": [],
+              "bookDepreciationSetting": {
+                "depreciableObjectId": "add04b24-82c7-4152-9238-af9fac6972ee",
+                "depreciableObjectType": "Asset",
+                "bookEffectiveDateOfChangeId": "347b3355-0f67-4d23-8815-571893cf3541",
+                "depreciationCalculationMethod": "None"
+              },
+              "taxDepreciationSettings": [],
+              "taxDepreciationDetails": [],
+              "canRollback": true,
+              "accountingBookValue": 0,
+              "taxValues": [],
+              "isDeleteEnabledForDate": false
+            },
+            {
+              "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+              "assetName": "Nango Registry Test Asset 1",
+              "assetNumber": "FA-NANGO-1",
+              "purchaseDate": "2026-08-01T00:00:00",
+              "purchasePrice": 500,
+              "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
+              "disposalPrice": 0,
+              "assetStatus": "Draft",
+              "trackingItems": [],
+              "bookDepreciationSetting": {
+                "depreciableObjectId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+                "depreciableObjectType": "Asset",
+                "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a",
+                "depreciationCalculationMethod": "None"
+              },
+              "taxDepreciationSettings": [],
+              "taxDepreciationDetails": [],
+              "canRollback": true,
+              "accountingBookValue": 0,
+              "taxValues": [],
+              "isDeleteEnabledForDate": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:17:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3573",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1910",
+          "x-ratelimit-reset": "1786490233",
+          "xero-correlation-id": "f14851d7-2119-4cc3-b0e5-d279812b8a9e",
+          "x-appminlimit-remaining": "9982",
+          "x-minlimit-remaining": "51",
+          "x-daylimit-remaining": "4884",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:17:02 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"df5-4eEtwFthifqZds62Jiwnbfnpmr8\""
+        },
+        "hash": "f5ebfb485f8955dd4f1e82a86d8c0651481d575d",
+        "request": {
+          "params": {
+            "status": "DRAFT"
+          },
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          }
+        }
+      }
+    }
+  }
+}

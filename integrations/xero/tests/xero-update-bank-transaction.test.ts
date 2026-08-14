@@ -11,9 +11,10 @@ describe('xero update-bank-transaction tests', () => {
 
     it('should output the action output that is expected', async () => {
         nangoMock.getConnection = vi.fn().mockResolvedValue({
-            metadata: {
-                tenantId: '59712f8f-45a3-4d45-a705-5d0c9748317e'
-            }
+            connection_config: {
+                tenant_id: '27e853de-cfdc-4bf3-85e9-3979ee2bcaba'
+            },
+            metadata: {}
         });
 
         const input = await nangoMock.getInput();

@@ -1,0 +1,77 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "userId": "aaff934e-1eea-4d1b-b1a4-5d0792c4276c",
+        "name": "Nango API",
+        "email": "api+xero1@nango.dev"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/projects.xro/2.0/ProjectsUsers": {
+        "response": {
+          "pagination": {
+            "page": 1,
+            "pageSize": 2,
+            "pageCount": 1,
+            "itemCount": 2
+          },
+          "items": [
+            {
+              "userId": "aaff934e-1eea-4d1b-b1a4-5d0792c4276c",
+              "name": "Nango API",
+              "email": "api+xero1@nango.dev"
+            },
+            {
+              "userId": "aaff934e-1eea-4d1b-b1a4-5d0792c4276c",
+              "name": "Nango API",
+              "email": "api+xero1@nango.dev"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:15:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "400",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1959",
+          "x-ratelimit-reset": "1786490172",
+          "xero-correlation-id": "aba356f2-ff16-46a5-b078-8cb90fd1b32b",
+          "x-appminlimit-remaining": "9986",
+          "x-minlimit-remaining": "59",
+          "x-daylimit-remaining": "4901",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:15:52 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"190-k4OjUifC4kYVyvtp+YbWQuNCpFo\""
+        },
+        "hash": "7c576b316f55cd7cb81385c2a6be0363c6852cab",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          }
+        }
+      }
+    }
+  }
+}

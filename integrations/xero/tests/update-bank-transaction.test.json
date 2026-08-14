@@ -1,116 +1,152 @@
 {
   "input": {
-    "bank_transaction_id": "f921ad84-8418-49d3-9366-ef0b1e371303",
-    "reference": "Updated again via Nango"
+    "BankTransactionID": "294437d0-0d9e-4d77-b1e3-873b715cdf69",
+    "Reference": "Updated via Nango Test",
+    "Contact": {
+      "ContactID": "cdc5d3e5-27d2-4b15-85db-30666ff733df"
+    }
   },
   "output": {
-    "bank_transaction_id": "f921ad84-8418-49d3-9366-ef0b1e371303",
-    "type": "SPEND",
-    "status": "AUTHORISED",
-    "date": "/Date(1776643200000+0000)/",
-    "reference": "Updated again via Nango",
-    "contact_id": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
-    "bank_account_id": "562555f2-8cde-4ce9-8203-0363922537a4",
-    "updated_date_utc": "/Date(1777032840107+0000)/",
-    "sub_total": 46.19,
-    "total_tax": 3.81,
-    "total": 50
+    "BankTransactionID": "294437d0-0d9e-4d77-b1e3-873b715cdf69",
+    "Type": "SPEND",
+    "Contact": {
+      "ContactID": "cdc5d3e5-27d2-4b15-85db-30666ff733df",
+      "Name": "Nango Registry Test Contact 3"
+    },
+    "LineItems": [
+      {
+        "Description": "Nango registry test bank txn 1",
+        "Quantity": 1,
+        "UnitAmount": 25,
+        "AccountCode": "600",
+        "TaxType": "TAX002",
+        "LineAmount": 25
+      }
+    ],
+    "BankAccount": {
+      "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4",
+      "Code": "090",
+      "Name": "Checking Account"
+    },
+    "Date": "/Date(1785542400000+0000)/",
+    "Reference": "Updated via Nango Test",
+    "Status": "AUTHORISED",
+    "CurrencyCode": "USD",
+    "SubTotal": 25,
+    "TotalTax": 0,
+    "Total": 25,
+    "UpdatedDateUTC": "/Date(1786490962727+0000)/"
   },
   "nango": {
-    "getConnection": {},
-    "getMetadata": {
-      "tenantId": "59712f8f-45a3-4d45-a705-5d0c9748317e"
-    }
+    "getConnection": {}
   },
   "api": {
     "post": {
       "/api.xro/2.0/BankTransactions": {
         "response": {
-          "Id": "1ef6dc0b-e3da-4658-a4ea-f46c23f4079b",
+          "Id": "da72cf5f-593f-4f7f-8521-be4ea2e4fab2",
           "Status": "OK",
-          "ProviderName": "NangoAPI",
-          "DateTimeUTC": "/Date(1777032840177)/",
+          "ProviderName": "Nango",
+          "DateTimeUTC": "/Date(1786490962777)/",
           "BankTransactions": [
             {
-              "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
+              "BankTransactionID": "294437d0-0d9e-4d77-b1e3-873b715cdf69",
               "BankAccount": {
-                "AccountID": "562555f2-8cde-4ce9-8203-0363922537a4",
+                "AccountID": "ceef66a5-a545-413b-9312-78a53caadbc4",
                 "Code": "090",
-                "Name": "Business Bank Account"
+                "Name": "Checking Account"
               },
               "Type": "SPEND",
-              "Reference": "Updated again via Nango",
+              "Reference": "Updated via Nango Test",
               "IsReconciled": false,
               "CurrencyRate": 1,
               "HasAttachments": false,
               "Attachments": [],
               "Contact": {
-                "ContactID": "58c9be7a-e12b-43b5-a574-af6ce4e2b75d",
-                "ContactNumber": "211f9ce8bbedd85eab2bec2c0c3326c1c1c4fa739531b55d1d",
+                "ContactID": "cdc5d3e5-27d2-4b15-85db-30666ff733df",
                 "ContactStatus": "ACTIVE",
-                "Name": "nango test",
-                "FirstName": "nango",
-                "LastName": "test",
-                "EmailAddress": "api@nango.dev",
+                "Name": "Nango Registry Test Contact 3",
+                "EmailAddress": "",
+                "BankAccountDetails": "",
                 "Addresses": [
                   {
-                    "AddressType": "POBOX"
+                    "AddressType": "STREET",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
                   },
                   {
-                    "AddressType": "STREET"
+                    "AddressType": "POBOX",
+                    "City": "",
+                    "Region": "",
+                    "PostalCode": "",
+                    "Country": ""
                   }
                 ],
                 "Phones": [
                   {
-                    "PhoneType": "DEFAULT"
+                    "PhoneType": "DEFAULT",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
                   },
                   {
-                    "PhoneType": "DDI"
+                    "PhoneType": "DDI",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
                   },
                   {
-                    "PhoneType": "FAX"
+                    "PhoneType": "FAX",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
                   },
                   {
-                    "PhoneType": "MOBILE"
+                    "PhoneType": "MOBILE",
+                    "PhoneNumber": "",
+                    "PhoneAreaCode": "",
+                    "PhoneCountryCode": ""
                   }
                 ],
-                "UpdatedDateUTC": "/Date(1776686923210+0000)/",
+                "UpdatedDateUTC": "/Date(1786490530867+0000)/",
                 "ContactGroups": [],
                 "ContactPersons": [],
                 "HasValidationErrors": false
               },
-              "DateString": "2026-04-20T00:00:00",
-              "Date": "/Date(1776643200000+0000)/",
+              "DateString": "2026-08-01T00:00:00",
+              "Date": "/Date(1785542400000+0000)/",
               "Status": "AUTHORISED",
               "LineAmountTypes": "Inclusive",
               "LineItems": [
                 {
-                  "Description": "Test transaction for update",
-                  "UnitAmount": 50,
-                  "TaxType": "OUTPUT",
-                  "TaxAmount": 3.81,
-                  "LineAmount": 50,
-                  "AccountCode": "200",
+                  "Description": "Nango registry test bank txn 1",
+                  "UnitAmount": 25,
+                  "TaxType": "TAX002",
+                  "TaxAmount": 0,
+                  "LineAmount": 25,
+                  "AccountCode": "600",
                   "Tracking": [],
                   "Quantity": 1,
-                  "LineItemID": "4daae2c7-9419-4260-91d8-bb2ef85ff158",
-                  "AccountID": "d1ebb97b-d207-4ccb-9ab6-8a466a8b4d39",
+                  "LineItemID": "3b289557-b89d-4cf0-b0a6-09bdc3686868",
+                  "AccountID": "2ec3335a-b20b-43b3-b6dc-40a5846936e2",
                   "ValidationErrors": []
                 }
               ],
-              "SubTotal": 46.19,
-              "TotalTax": 3.81,
-              "Total": 50,
-              "UpdatedDateUTC": "/Date(1777032840107+0000)/",
+              "SubTotal": 25,
+              "TotalTax": 0,
+              "Total": 25,
+              "UpdatedDateUTC": "/Date(1786490962727+0000)/",
               "CurrencyCode": "USD"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 12:14:00 GMT",
+          "date": "Tue, 11 Aug 2026 23:29:22 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "2365",
+          "content-length": "2894",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -118,24 +154,37 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4924",
-          "x-ratelimit-reset": "1777032812",
-          "etag": "W/\"93d-WSPbKl9KqABqH/d0TdbG71EC2gw\""
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1786491020",
+          "xero-correlation-id": "da72cf5f-593f-4f7f-8521-be4ea2e4fab2",
+          "x-appminlimit-remaining": "9994",
+          "x-minlimit-remaining": "48",
+          "x-daylimit-remaining": "4438",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:29:22 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"b4e-A2Y6xPW3zYP7fhGi0RfAQe6wp/w\""
         },
-        "hash": "ea80f3e84c61a1db0b9c2b2466096eed6146be80",
+        "hash": "46f5adb4c978fed6f8ca9e1ae7a6734b63ae9da9",
         "request": {
           "headers": {
-            "xero-tenant-id": "59712f8f-45a3-4d45-a705-5d0c9748317e"
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
           },
           "data": {
             "BankTransactions": [
               {
-                "BankTransactionID": "f921ad84-8418-49d3-9366-ef0b1e371303",
-                "Reference": "Updated again via Nango"
+                "BankTransactionID": "294437d0-0d9e-4d77-b1e3-873b715cdf69",
+                "Contact": {
+                  "ContactID": "cdc5d3e5-27d2-4b15-85db-30666ff733df"
+                },
+                "Reference": "Updated via Nango Test"
               }
             ]
           }
