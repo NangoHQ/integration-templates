@@ -85,12 +85,6 @@ const action = createAction({
         }
 
         const page = input.cursor ? Number(input.cursor) : 1;
-        if (Number.isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a positive integer page number'
-            });
-        }
 
         const perPage = input.per_page ?? 30;
 

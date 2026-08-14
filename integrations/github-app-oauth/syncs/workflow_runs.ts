@@ -64,18 +64,33 @@ const WorkflowRunSchema = z
 // Per-repository sync state. `pendingRunIds` holds runs that were not yet `completed` the last
 // time they were observed; they're individually re-checked every run (regardless of how long ago
 // they were created) until GitHub reports a terminal status, so a long-lived queued/in_progress
-// run can't fall out of the sync window and stop being refreshed.
+// run can't fall out of the sync window and stop being refreshed. `missingRuns` counts consecutive
+// runs where the repository was absent from `/installation/repositories`, used to distinguish a
+// genuine uninstall from a one-off enumeration miss (see MISSING_RUN_THRESHOLD below).
 const RepoStateSchema = z.object({
     createdAfter: z.string().optional(),
-    pendingRunIds: z.array(z.number())
+    pendingRunIds: z.array(z.number()),
+    missingRuns: z.number().int().min(0).optional()
 });
 type RepoState = z.infer<typeof RepoStateSchema>;
 
 const CheckpointSchema = z.object({
     // JSON-encoded Record<string, RepoState> keyed by "owner/repo". Nested objects aren't
     // supported in checkpoints, so the per-repository state is serialized into this string field.
-    repos: z.string()
+    repos: z.string(),
+    // 'true' once the first run has fully completed its trackDeletesStart/trackDeletesEnd
+    // lifecycle. Kept separate from `repos` (which is persisted incrementally, per repository,
+    // mid-run for resiliency) so a first run that fails partway through — after some progress was
+    // already checkpointed — is retried as a first run on the next execution, rather than looking
+    // "already synced" and silently skipping the trackDeletesStart/trackDeletesEnd lifecycle.
+    initialSyncComplete: z.string()
 });
+
+// A repository missing from a single enumeration of `/installation/repositories` could reflect a
+// transient/partial miss (network hiccup, provider-side eventual consistency) rather than a
+// genuine uninstall. It must be missing for this many consecutive runs before its workflow runs
+// are deleted, so a one-off miss can't cause irrecoverable data loss.
+const MISSING_RUN_THRESHOLD = 2;
 
 // GitHub's `created` filter lower bound is exclusive, so a small overlap is subtracted before
 // using a repository's high-water mark as the next run's lower bound.
@@ -131,15 +146,16 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const isFirstRun = rawCheckpoint == null;
         const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : undefined;
         const repoStates: Record<string, RepoState> = checkpoint?.repos ? z.record(z.string(), RepoStateSchema).parse(JSON.parse(checkpoint.repos)) : {};
 
-        // trackDeletesStart/End must appear before/after every batchSave/batchDelete call in this
-        // file (by source position, not just at runtime).
-        if (isFirstRun) {
-            await nango.trackDeletesStart('WorkflowRun');
-        }
+        // Kept separate from `repos` (which is persisted incrementally, per repository, mid-run
+        // for resiliency) so a first run that fails partway through — after some progress was
+        // already checkpointed — is retried as a first run on the next execution, rather than
+        // looking "already synced" and silently skipping the trackDeletesStart/trackDeletesEnd
+        // lifecycle.
+        const isFirstRun = checkpoint?.initialSyncComplete !== 'true';
+        const initialSyncCompleteValue = isFirstRun ? '' : 'true';
 
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
         const repos: Array<{ owner: string; name: string; fullName: string }> = [];
@@ -168,30 +184,53 @@ const sync = createSync({
             throw new Error('No repositories accessible to this installation.');
         }
 
+        // trackDeletesStart/End must appear before/after every batchSave/batchDelete call in this
+        // file (by source position, not just at runtime); placed after the empty-repositories
+        // check above so a run with no accessible repositories never opens delete tracking.
+        if (isFirstRun) {
+            await nango.trackDeletesStart('WorkflowRun');
+        }
+
         // Repositories that were synced before but are no longer accessible to the installation
-        // (e.g. the app was uninstalled from them) need their previously synced runs removed.
+        // (e.g. the app was uninstalled from them) need their previously synced runs removed, once
+        // they've been missing for MISSING_RUN_THRESHOLD consecutive runs (see
+        // MISSING_RUN_THRESHOLD above) — a repository missing from a single enumeration could
+        // reflect a transient/partial miss rather than a genuine uninstall.
         const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
         const removedRepoNames = Object.keys(repoStates).filter((fullName) => !currentRepoNames.has(fullName));
 
         if (removedRepoNames.length > 0) {
-            const removedRepoNameSet = new Set(removedRepoNames);
-            const toDelete: Array<{ id: string }> = [];
+            const toDeleteRepoNames: string[] = [];
 
-            for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('WorkflowRun')) {
-                if (removedRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
-                    toDelete.push({ id: String(record['id']) });
+            for (const fullName of removedRepoNames) {
+                const missingRuns = (repoStates[fullName]?.missingRuns ?? 0) + 1;
+                if (missingRuns >= MISSING_RUN_THRESHOLD) {
+                    toDeleteRepoNames.push(fullName);
+                } else {
+                    repoStates[fullName] = { ...repoStates[fullName], pendingRunIds: repoStates[fullName]?.pendingRunIds ?? [], missingRuns };
                 }
             }
 
-            if (toDelete.length > 0) {
-                await nango.batchDelete(toDelete, 'WorkflowRun');
+            if (toDeleteRepoNames.length > 0) {
+                const toDeleteRepoNameSet = new Set(toDeleteRepoNames);
+                const toDelete: Array<{ id: string }> = [];
+
+                for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('WorkflowRun')) {
+                    if (toDeleteRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
+                        toDelete.push({ id: String(record['id']) });
+                    }
+                }
+
+                if (toDelete.length > 0) {
+                    await nango.batchDelete(toDelete, 'WorkflowRun');
+                }
+
+                for (const fullName of toDeleteRepoNames) {
+                    delete repoStates[fullName];
+                }
             }
 
-            for (const fullName of removedRepoNames) {
-                delete repoStates[fullName];
-            }
-
-            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates) });
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates), initialSyncComplete: initialSyncCompleteValue });
         }
 
         for (const repo of repos) {
@@ -271,11 +310,17 @@ const sync = createSync({
             // Persisted after each repository so a run that fails partway through doesn't lose
             // progress already made, and so the removed-repository cleanup above always has an
             // up-to-date repository inventory to compare against on the next run.
-            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates) });
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates), initialSyncComplete: initialSyncCompleteValue });
         }
 
         if (isFirstRun) {
             await nango.trackDeletesEnd('WorkflowRun');
+
+            // Only now that the entire first run (repository discovery, all per-repository
+            // syncing, and trackDeletesEnd) has completed successfully is the run marked complete,
+            // so that a failure at any earlier point causes the next execution to retry as a first
+            // run instead of skipping the trackDeletesStart/trackDeletesEnd lifecycle.
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates), initialSyncComplete: 'true' });
         }
     }
 });

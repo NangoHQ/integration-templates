@@ -59,12 +59,6 @@ const action = createAction({
         }
 
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_input',
-                message: 'cursor must be a positive integer string.'
-            });
-        }
 
         const response = await nango.get({
             // https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference

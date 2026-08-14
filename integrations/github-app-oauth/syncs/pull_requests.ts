@@ -26,11 +26,23 @@ const PullRequestSchema = z
     .describe('A GitHub pull request in a repository');
 
 const CheckpointSchema = z.object({
-    // JSON-encoded Record<string, string> mapping "owner/repo" to the ISO 8601 updated_at
-    // high-water mark synced for that repository. Nested objects aren't supported in checkpoints,
-    // so the per-repository map is serialized into this single string field.
+    // JSON-encoded Record<string, RepoState> mapping "owner/repo" to its sync state. Nested
+    // objects aren't supported in checkpoints, so the per-repository map is serialized into this
+    // single string field.
     repos: z.string()
 });
+
+// A repository missing from a single enumeration of `/installation/repositories` could reflect a
+// transient/partial miss (network hiccup, provider-side eventual consistency) rather than a
+// genuine uninstall. It must be missing for this many consecutive runs before its pull requests
+// are deleted, so a one-off miss can't cause irrecoverable data loss.
+const MISSING_RUN_THRESHOLD = 2;
+
+const RepoStateSchema = z.object({
+    updatedAfter: z.string().optional(),
+    missingRuns: z.number().int().min(0).optional()
+});
+type RepoState = z.infer<typeof RepoStateSchema>;
 
 const GitHubUserSchema = z.object({
     login: z.string(),
@@ -83,7 +95,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
-        const repoCheckpoints: Record<string, string> = checkpoint?.repos ? z.record(z.string(), z.string()).parse(JSON.parse(checkpoint.repos)) : {};
+        const repoStates: Record<string, RepoState> = checkpoint?.repos ? z.record(z.string(), RepoStateSchema).parse(JSON.parse(checkpoint.repos)) : {};
 
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
         const repos: Array<{ owner: string; name: string; fullName: string }> = [];
@@ -117,31 +129,54 @@ const sync = createSync({
         }
 
         // Repositories that were synced before but are no longer accessible to the installation
-        // (e.g. the app was uninstalled from them) need their previously synced pull requests removed.
+        // (e.g. the app was uninstalled from them) need their previously synced pull requests
+        // removed, once they've been missing for MISSING_RUN_THRESHOLD consecutive runs (see
+        // MISSING_RUN_THRESHOLD above) — a repository missing from a single enumeration could
+        // reflect a transient/partial miss rather than a genuine uninstall.
         const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
-        const removedRepoNames = Object.keys(repoCheckpoints).filter((fullName) => !currentRepoNames.has(fullName));
+        const removedRepoNames = Object.keys(repoStates).filter((fullName) => !currentRepoNames.has(fullName));
 
         if (removedRepoNames.length > 0) {
-            const removedRepoNameSet = new Set(removedRepoNames);
-            const toDelete: Array<{ id: string }> = [];
+            const toDeleteRepoNames: string[] = [];
 
-            for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('PullRequest')) {
-                if (removedRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
-                    toDelete.push({ id: String(record['id']) });
+            for (const fullName of removedRepoNames) {
+                const missingRuns = (repoStates[fullName]?.missingRuns ?? 0) + 1;
+                if (missingRuns >= MISSING_RUN_THRESHOLD) {
+                    toDeleteRepoNames.push(fullName);
+                } else {
+                    repoStates[fullName] = { ...repoStates[fullName], missingRuns };
                 }
             }
 
-            if (toDelete.length > 0) {
-                await nango.batchDelete(toDelete, 'PullRequest');
+            if (toDeleteRepoNames.length > 0) {
+                const toDeleteRepoNameSet = new Set(toDeleteRepoNames);
+                const toDelete: Array<{ id: string }> = [];
+
+                for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('PullRequest')) {
+                    if (toDeleteRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
+                        toDelete.push({ id: String(record['id']) });
+                    }
+                }
+
+                if (toDelete.length > 0) {
+                    await nango.batchDelete(toDelete, 'PullRequest');
+                }
+
+                for (const fullName of toDeleteRepoNames) {
+                    delete repoStates[fullName];
+                }
             }
 
-            for (const fullName of removedRepoNames) {
-                delete repoCheckpoints[fullName];
-            }
+            // Persisted immediately (rather than waiting for the first remaining repository to be
+            // processed below) so a failure partway through the loop that follows doesn't leave a
+            // removed repository's stale watermark in the checkpoint — which would otherwise cause
+            // older pull requests to be skipped permanently if that repository is later re-added.
+            await nango.saveCheckpoint({ repos: JSON.stringify(repoStates) });
         }
 
         for (const repo of repos) {
-            const updatedAfter = repoCheckpoints[repo.fullName];
+            // A repository present this run has its miss streak (if any) cleared below.
+            const updatedAfter = repoStates[repo.fullName]?.updatedAfter;
             let maxUpdatedAt = updatedAfter;
 
             // https://docs.github.com/rest/pulls/pulls#list-pull-requests
@@ -209,16 +244,14 @@ const sync = createSync({
                 }
             }
 
-            if (maxUpdatedAt !== undefined) {
-                repoCheckpoints[repo.fullName] = maxUpdatedAt;
-            }
+            repoStates[repo.fullName] = maxUpdatedAt !== undefined ? { updatedAfter: maxUpdatedAt } : {};
 
             // Persisted after each repository (rather than once at the end) so a run that fails
             // partway through doesn't lose progress already made on earlier repositories, and so
             // the removed-repository cleanup above always has an up-to-date repository inventory
             // to compare against on the next run.
             await nango.saveCheckpoint({
-                repos: JSON.stringify(repoCheckpoints)
+                repos: JSON.stringify(repoStates)
             });
         }
     }

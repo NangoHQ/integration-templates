@@ -13,7 +13,6 @@ integrations/linkedin/proxy/video-upload.ts
 integrations/*-sandbox
 integrations/*-pat
 integrations/*-preview
-integrations/github-app-oauth
 integrations/gong-oauth
 integrations/gorgias-basic
 integrations/*-demo

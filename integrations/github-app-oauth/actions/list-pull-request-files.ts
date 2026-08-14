@@ -79,12 +79,6 @@ const action = createAction({
         }
 
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Cursor must be a positive integer representing a page number.'
-            });
-        }
 
         const perPage = input.per_page ?? 30;
 

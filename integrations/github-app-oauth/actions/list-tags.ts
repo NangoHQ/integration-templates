@@ -53,13 +53,6 @@ const action = createAction({
 
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 
-        if (Number.isNaN(page) || page < 1) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'cursor must be a positive integer string representing a page number.'
-            });
-        }
-
         const response = await nango.get({
             // https://docs.github.com/en/rest/repos/repos#list-repository-tags
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/tags`,
