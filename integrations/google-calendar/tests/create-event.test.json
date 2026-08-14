@@ -1,67 +1,65 @@
 {
   "input": {
-    "calendarId": "c_8822c9c8b632657f55fb278896cd7959f3e09307b024fd596ce207eb5cd6d170@group.calendar.google.com",
-    "summary": "Test Meeting",
+    "calendarId": "c_f125858faae8de7d21abff0ed340d22cfe3603b2059eb883440ab685d97bf622@group.calendar.google.com",
+    "summary": "Nango Test Event",
     "start": {
-      "dateTime": "2024-12-25T10:00:00-08:00",
-      "timeZone": "America/Los_Angeles"
+      "dateTime": "2026-08-12T14:00:00Z"
     },
     "end": {
-      "dateTime": "2024-12-25T11:00:00-08:00",
-      "timeZone": "America/Los_Angeles"
-    },
-    "description": "A test meeting created by Nango",
-    "location": "Conference Room A"
+      "dateTime": "2026-08-12T15:00:00Z"
+    }
   },
   "output": {
-    "id": "jmklr1fs5tuk2nlmc88lh1g324",
-    "htmlLink": "https://www.google.com/calendar/event?eid=am1rbHIxZnM1dHVrMm5sbWM4OGxoMWczMjQgY184ODIyYzljOGI2MzI2NTdmNTVmYjI3ODg5NmNkNzk1OWYzZTA5MzA3YjAyNGZkNTk2Y2UyMDdlYjVjZDZkMTcwQGc",
-    "summary": "Test Meeting",
-    "description": "A test meeting created by Nango",
-    "location": "Conference Room A",
+    "id": "n0tdbgkpg55qdbqq49b6euvck0",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=bjB0ZGJna3BnNTVxZGJxcTQ5YjZldXZjazAgY19mMTI1ODU4ZmFhZThkZTdkMjFhYmZmMGVkMzQwZDIyY2ZlMzYwM2IyMDU5ZWI4ODM0NDBhYjY4NWQ5N2JmNjIyQGc",
+    "created": "2026-08-11T21:40:41.000Z",
+    "updated": "2026-08-11T21:40:41.482Z",
+    "iCalUID": "n0tdbgkpg55qdbqq49b6euvck0@google.com",
+    "summary": "Nango Test Event",
     "start": {
-      "dateTime": "2024-12-25T18:00:00Z",
-      "timeZone": "America/Los_Angeles"
+      "dateTime": "2026-08-12T14:00:00Z",
+      "timeZone": "America/Sao_Paulo"
     },
     "end": {
-      "dateTime": "2024-12-25T19:00:00Z",
-      "timeZone": "America/Los_Angeles"
+      "dateTime": "2026-08-12T15:00:00Z",
+      "timeZone": "America/Sao_Paulo"
     },
-    "created": "2026-03-12T07:27:13.000Z",
-    "updated": "2026-03-12T07:27:14.082Z"
+    "organizer": {
+      "email": "c_f125858faae8de7d21abff0ed340d22cfe3603b2059eb883440ab685d97bf622@group.calendar.google.com",
+      "displayName": "Test Calendar for Nango Action"
+    }
   },
   "nango": {},
   "api": {
     "post": {
-      "/calendar/v3/calendars/c_8822c9c8b632657f55fb278896cd7959f3e09307b024fd596ce207eb5cd6d170%40group.calendar.google.com/events": {
+      "/calendar/v3/calendars/c_f125858faae8de7d21abff0ed340d22cfe3603b2059eb883440ab685d97bf622%40group.calendar.google.com/events": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546600868165854\"",
-          "id": "jmklr1fs5tuk2nlmc88lh1g324",
+          "etag": "\"3572968882964926\"",
+          "id": "n0tdbgkpg55qdbqq49b6euvck0",
           "status": "confirmed",
-          "htmlLink": "https://www.google.com/calendar/event?eid=am1rbHIxZnM1dHVrMm5sbWM4OGxoMWczMjQgY184ODIyYzljOGI2MzI2NTdmNTVmYjI3ODg5NmNkNzk1OWYzZTA5MzA3YjAyNGZkNTk2Y2UyMDdlYjVjZDZkMTcwQGc",
-          "created": "2026-03-12T07:27:13.000Z",
-          "updated": "2026-03-12T07:27:14.082Z",
-          "summary": "Test Meeting",
-          "description": "A test meeting created by Nango",
-          "location": "Conference Room A",
+          "htmlLink": "https://www.google.com/calendar/event?eid=bjB0ZGJna3BnNTVxZGJxcTQ5YjZldXZjazAgY19mMTI1ODU4ZmFhZThkZTdkMjFhYmZmMGVkMzQwZDIyY2ZlMzYwM2IyMDU5ZWI4ODM0NDBhYjY4NWQ5N2JmNjIyQGc",
+          "created": "2026-08-11T21:40:41.000Z",
+          "updated": "2026-08-11T21:40:41.482Z",
+          "summary": "Nango Test Event",
           "creator": {
             "email": "api@nango.dev"
           },
           "organizer": {
-            "email": "c_8822c9c8b632657f55fb278896cd7959f3e09307b024fd596ce207eb5cd6d170@group.calendar.google.com",
-            "displayName": "Nango Test Calendar for Create Event Action",
+            "email": "c_f125858faae8de7d21abff0ed340d22cfe3603b2059eb883440ab685d97bf622@group.calendar.google.com",
+            "displayName": "Test Calendar for Nango Action",
             "self": true
           },
           "start": {
-            "dateTime": "2024-12-25T18:00:00Z",
-            "timeZone": "America/Los_Angeles"
+            "dateTime": "2026-08-12T14:00:00Z",
+            "timeZone": "America/Sao_Paulo"
           },
           "end": {
-            "dateTime": "2024-12-25T19:00:00Z",
-            "timeZone": "America/Los_Angeles"
+            "dateTime": "2026-08-12T15:00:00Z",
+            "timeZone": "America/Sao_Paulo"
           },
-          "iCalUID": "jmklr1fs5tuk2nlmc88lh1g324@google.com",
+          "iCalUID": "n0tdbgkpg55qdbqq49b6euvck0@google.com",
           "sequence": 0,
           "reminders": {
             "useDefault": true
@@ -70,7 +68,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:27:14 GMT",
+          "date": "Tue, 11 Aug 2026 21:40:41 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -80,35 +78,31 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4874",
-          "x-ratelimit-reset": "1773300465",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1999",
+          "x-ratelimit-reset": "1786484500",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
           "pragma": "no-cache",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
-          "etag": "\"3546600868165854\"",
+          "etag": "\"3572968882964926\"",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "b79d74c46c5201d0de3de31c71ed8eefdd7dac4f",
+        "hash": "c8161265bab7d22917b40842489d2b33ba67c9b0",
         "request": {
           "data": {
-            "summary": "Test Meeting",
-            "description": "A test meeting created by Nango",
-            "location": "Conference Room A",
             "start": {
-              "dateTime": "2024-12-25T10:00:00-08:00",
-              "timeZone": "America/Los_Angeles"
+              "dateTime": "2026-08-12T14:00:00Z"
             },
             "end": {
-              "dateTime": "2024-12-25T11:00:00-08:00",
-              "timeZone": "America/Los_Angeles"
-            }
+              "dateTime": "2026-08-12T15:00:00Z"
+            },
+            "summary": "Nango Test Event"
           }
         }
       }

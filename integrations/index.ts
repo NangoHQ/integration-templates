@@ -2286,8 +2286,8 @@ import './google-analytics/actions/update-data-stream.js';
 import './google-analytics/actions/update-property.js';
 
 // -- Integration: google-calendar
-import './google-calendar/syncs/events.js';
-import './google-calendar/syncs/calendars.js';
+import './google-calendar/syncs/calendar-events.js';
+import './google-calendar/syncs/calendar-list.js';
 import './google-calendar/syncs/settings.js';
 import './google-calendar/actions/add-attendee.js';
 import './google-calendar/actions/clear-calendar.js';
@@ -2309,8 +2309,8 @@ import './google-calendar/actions/get-setting.js';
 import './google-calendar/actions/import-event.js';
 import './google-calendar/actions/insert-calendar-to-list.js';
 import './google-calendar/actions/list-acl-rules.js';
-import './google-calendar/actions/list-calendars.js';
-import './google-calendar/actions/get-event-instances.js';
+import './google-calendar/actions/list-calendar-list.js';
+import './google-calendar/actions/list-event-instances.js';
 import './google-calendar/actions/list-events.js';
 import './google-calendar/actions/list-settings.js';
 import './google-calendar/actions/list-upcoming-events.js';
