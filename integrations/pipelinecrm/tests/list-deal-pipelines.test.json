@@ -1,0 +1,106 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": 339554,
+        "name": "Sales Pipeline",
+        "pipeline_type": "new_revenue",
+        "lost_stage": {
+          "id": 2599195,
+          "name": "Lost",
+          "percent": 0,
+          "deal_pipeline_id": 339554
+        },
+        "won_stage": {
+          "id": 2599200,
+          "name": "Won",
+          "percent": 100,
+          "deal_pipeline_id": 339554
+        },
+        "has_deals": true,
+        "count_deals": 13
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v3/admin/deal_pipelines": {
+        "response": {
+          "entries": [
+            {
+              "id": 339554,
+              "name": "Sales Pipeline",
+              "default": true,
+              "pipeline_type": "new_revenue",
+              "description": null,
+              "updated_at": "2026/08/05 08:45:03 -0400",
+              "created_at": "2026/08/05 08:45:03 -0400",
+              "has_deals": true,
+              "count_deals": 13,
+              "lost_stage": {
+                "id": 2599195,
+                "percent": 0,
+                "name": "Lost",
+                "account_id": 482622,
+                "created_at": "2026/08/05 08:45:03 -0400",
+                "updated_at": "2026/08/05 08:45:03 -0400",
+                "deal_pipeline_id": 339554
+              },
+              "won_stage": {
+                "id": 2599200,
+                "percent": 100,
+                "name": "Won",
+                "account_id": 482622,
+                "created_at": "2026/08/05 08:45:03 -0400",
+                "updated_at": "2026/08/05 08:45:03 -0400",
+                "deal_pipeline_id": 339554
+              }
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "page_var": "page",
+            "per_page": 200,
+            "pages": 1,
+            "total": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 05 Aug 2026 13:47:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "10",
+          "x-ratelimit-remaining": "10",
+          "x-ratelimit-reset": "1785937665",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding, Origin",
+          "cache-control": "no-store",
+          "etag": "W/\"0ef0eea48ba9646c6183e9c597677f3c\"",
+          "x-request-id": "e7ff3051-9649-4a14-9d5b-2af4347c6251",
+          "x-runtime": "0.056212",
+          "x-permitted-cross-domain-policies": "none",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a2664160dbf7fff0-PDX"
+        },
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

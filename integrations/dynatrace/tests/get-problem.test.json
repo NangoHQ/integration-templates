@@ -1,72 +1,154 @@
 {
   "input": {
-    "problemId": "7107113792931331638_1785774900000V2"
+    "problemId": "6853744532401203457_1785946260000V2"
   },
   "output": {
-    "problemId": "7107113792931331638_1785774900000V2",
-    "displayId": "P-2608312",
-    "title": "Postgres Availability",
-    "impactLevel": "ENVIRONMENT",
-    "severityLevel": "AVAILABILITY",
+    "problemId": "6853744532401203457_1785946260000V2",
+    "displayId": "P-2608522",
+    "title": "Long garbage-collection time",
+    "impactLevel": "INFRASTRUCTURE",
+    "severityLevel": "RESOURCE_CONTENTION",
     "status": "OPEN",
     "affectedEntities": [
       {
         "entityId": {
-          "id": "ENVIRONMENT-0000000000000001",
-          "type": "ENVIRONMENT"
+          "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+          "type": "PROCESS_GROUP_INSTANCE"
         },
-        "name": "Dynatrace Playground"
+        "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
       }
     ],
     "impactedEntities": [
       {
         "entityId": {
-          "id": "ENVIRONMENT-0000000000000001",
-          "type": "ENVIRONMENT"
+          "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+          "type": "PROCESS_GROUP_INSTANCE"
         },
-        "name": "Dynatrace Playground"
+        "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
       }
     ],
-    "rootCauseEntity": null,
+    "rootCauseEntity": {
+      "entityId": {
+        "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+        "type": "PROCESS_GROUP"
+      },
+      "name": "server.js (frontend) frontend-*"
+    },
     "managementZones": [],
-    "startTime": 1785775080000,
-    "endTime": -1,
-    "entityTags": [],
-    "problemFilters": [
+    "entityTags": [
       {
-        "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
-        "name": "Default"
+        "context": "KUBERNETES",
+        "key": "app.kubernetes.io/name",
+        "value": "frontend",
+        "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+      },
+      {
+        "context": "KUBERNETES",
+        "key": "stage",
+        "value": "prod",
+        "stringRepresentation": "[Kubernetes]stage:prod"
+      },
+      {
+        "context": "KUBERNETES",
+        "key": "opentelemetry.io/name",
+        "value": "frontend",
+        "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+      },
+      {
+        "context": "ENVIRONMENT",
+        "key": "DT_RELEASE_PRODUCT",
+        "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+      },
+      {
+        "context": "KUBERNETES",
+        "key": "astroshop.org/owner",
+        "value": "Team-UI",
+        "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+      },
+      {
+        "context": "KUBERNETES",
+        "key": "namespace",
+        "value": "astroshop",
+        "stringRepresentation": "[Kubernetes]namespace:astroshop"
+      },
+      {
+        "context": "ENVIRONMENT",
+        "key": "DT_RELEASE_VERSION",
+        "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+      },
+      {
+        "context": "KUBERNETES",
+        "key": "app.kubernetes.io/component",
+        "value": "frontend",
+        "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
       }
     ],
+    "problemFilters": [],
+    "startTime": 1785946560000,
+    "endTime": -1,
     "evidenceDetails": {
-      "totalCount": 1,
+      "totalCount": 2,
       "details": [
         {
-          "evidenceType": "EVENT",
-          "displayName": "Postgres Availability",
+          "evidenceType": "METRIC",
+          "displayName": "Garbage collection suspension time",
           "entity": {
             "entityId": {
-              "id": "ENVIRONMENT-0000000000000001",
-              "type": "ENVIRONMENT"
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
             },
-            "name": "Dynatrace Playground"
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
           },
-          "groupingEntity": null,
-          "rootCauseRelevant": false,
-          "eventId": "7107113792931331638_1785774900000",
-          "eventType": "AVAILABILITY_EVENT",
+          "groupingEntity": {
+            "entityId": {
+              "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+              "type": "PROCESS_GROUP"
+            },
+            "name": "server.js (frontend) frontend-*"
+          },
+          "rootCauseRelevant": true,
+          "metricId": "builtin:tech.jvm.memory.gc.suspensionTime:avg:filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24)):filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24))",
+          "unit": "Percent",
+          "aggregationType": null,
+          "valueBeforeChangePoint": 35.714504,
+          "valueAfterChangePoint": 39.741684,
+          "startTime": 1785945360000,
+          "endTime": 1785946680000
+        },
+        {
+          "evidenceType": "EVENT",
+          "displayName": "Long garbage-collection time",
+          "entity": {
+            "entityId": {
+              "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+              "type": "PROCESS_GROUP_INSTANCE"
+            },
+            "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+          },
+          "groupingEntity": {
+            "entityId": {
+              "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+              "type": "PROCESS_GROUP"
+            },
+            "name": "server.js (frontend) frontend-*"
+          },
+          "rootCauseRelevant": true,
+          "startTime": 1785946260000,
+          "endTime": -1,
+          "eventId": "6853744532401203457_1785946260000",
+          "eventType": "PROCESS_HIGH_GC_ACTIVITY",
           "data": {
-            "eventId": "7107113792931331638_1785774900000",
-            "startTime": 1785774900000,
+            "eventId": "6853744532401203457_1785946260000",
+            "startTime": 1785946260000,
             "endTime": -1,
-            "eventType": "AVAILABILITY_EVENT",
-            "title": "Postgres Availability",
+            "eventType": "PROCESS_HIGH_GC_ACTIVITY",
+            "title": "Long garbage-collection time",
             "entityId": {
               "entityId": {
-                "id": "ENVIRONMENT-0000000000000001",
-                "type": "ENVIRONMENT"
+                "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                "type": "PROCESS_GROUP_INSTANCE"
               },
-              "name": "Dynatrace Playground"
+              "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
             },
             "properties": [
               {
@@ -74,91 +156,133 @@
                 "value": "true"
               },
               {
-                "key": "dt.event.allow_frequent_issue_detection",
-                "value": "false"
-              },
-              {
                 "key": "dt.event.description",
-                "value": "**Alert description:** An anomaly was detected with the status of pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432, involving unexpected negative or null values."
-              },
-              {
-                "key": "dt.event.dql_query",
-                "value": "timeseries uptime = max(postgres.uptime), by:{`dt.smartscape.db_instance_postgres`}, shift: -2m, interval: 60000ms\n   | lookup [smartscapeNodes \"DB_INSTANCE_POSTGRES\" | fields id, name], sourceField: `dt.smartscape.db_instance_postgres`, lookupField: id, fields: {name}\n   | fieldsAdd entity.name = name | filter (`dt.smartscape.db_instance_postgres` == toSmartscapeId(\"\"\"DB_INSTANCE_POSTGRES-E33B84E017FC2925\"\"\") AND `entity.name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\" AND `name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\")"
+                "value": "Garbage collection is suspending process server.js (frontend) frontend-* (frontend-959449d4d-4ggvv) on host aks-default-18490522-vmss000000.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net"
               },
               {
                 "key": "dt.event.group_label",
-                "value": "Availability"
+                "value": "Long garbage-collection time"
               },
               {
                 "key": "dt.event.impact_level",
-                "value": "Environment"
+                "value": "Infrastructure"
               },
               {
                 "key": "dt.event.is_rootcause_relevant",
                 "value": "true"
               },
               {
+                "key": "dt.event.metric_selector",
+                "value": "(builtin:tech.jvm.memory.gc.collectionTime:value):filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24))"
+              },
+              {
                 "key": "dt.event.metric_threshold",
-                "value": "0.0"
+                "value": "24000.0"
+              },
+              {
+                "key": "dt.event.release_version",
+                "value": ""
               },
               {
                 "key": "dt.event.timeout",
                 "value": "15"
-              },
-              {
-                "key": "dt.event.title",
-                "value": "Postgres Availability"
-              },
-              {
-                "key": "dt.settings.object_id",
-                "value": "vu9U3hXa3q0AAAABAB9idWlsdGluOmRhdmlzLmFub21hbHktZGV0ZWN0b3JzAAZ0ZW5hbnQABnRlbmFudAAkOWQzNjNlNmYtMmZmMS0zNTM0LWIyNGQtZmM0MDE2MTAxZmVivu9U3hXa3q0"
-              },
-              {
-                "key": "entity.name",
-                "value": "pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432"
-              },
-              {
-                "key": "event.db_ready_made_alert_type",
-                "value": "DB_AVAILABILITY_EVENT"
               }
             ],
             "status": "OPEN",
-            "correlationId": "92cba4614a1cc3a2",
-            "entityTags": [],
+            "correlationId": "cfc05415fe1c5bb3",
+            "entityTags": [
+              {
+                "context": "KUBERNETES",
+                "key": "app.kubernetes.io/name",
+                "value": "frontend",
+                "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+              },
+              {
+                "context": "KUBERNETES",
+                "key": "stage",
+                "value": "prod",
+                "stringRepresentation": "[Kubernetes]stage:prod"
+              },
+              {
+                "context": "KUBERNETES",
+                "key": "opentelemetry.io/name",
+                "value": "frontend",
+                "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+              },
+              {
+                "context": "CONTEXTLESS",
+                "key": "[Kubernetes]namespace",
+                "value": "astroshop",
+                "stringRepresentation": "[Kubernetes]namespace:astroshop"
+              },
+              {
+                "context": "ENVIRONMENT",
+                "key": "DT_RELEASE_PRODUCT",
+                "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+              },
+              {
+                "context": "KUBERNETES",
+                "key": "astroshop.org/owner",
+                "value": "Team-UI",
+                "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+              },
+              {
+                "context": "ENVIRONMENT",
+                "key": "DT_RELEASE_VERSION",
+                "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+              },
+              {
+                "context": "KUBERNETES",
+                "key": "app.kubernetes.io/component",
+                "value": "frontend",
+                "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+              }
+            ],
             "managementZones": [],
             "underMaintenance": false,
             "suppressAlert": false,
             "suppressProblem": false,
             "frequentEvent": false
-          },
-          "startTime": 1785774900000,
-          "endTime": -1
+          }
         }
       ]
     },
     "recentComments": {
-      "totalCount": 3,
+      "totalCount": 5,
       "comments": [
         {
-          "id": "8675602222913308574_1785774900000",
-          "createdAtTimestamp": 1785775542590,
-          "content": "Updated test comment for validation",
+          "id": "2103913807776993466_1785946260000",
+          "createdAtTimestamp": 1785946951349,
+          "content": "Nango dryrun validation comment",
           "authorName": "api@nango.dev",
-          "context": "CUSTOM"
+          "context": "nango-test"
         },
         {
-          "id": "-1027260892921923058_1785774900000",
-          "createdAtTimestamp": 1785775542163,
-          "content": "Test comment for dryrun validation",
+          "id": "-534010142936216870_1785946260000",
+          "createdAtTimestamp": 1785946896051,
+          "content": "Nango dryrun validation comment",
           "authorName": "api@nango.dev",
-          "context": "Test"
+          "context": "nango-test"
         },
         {
-          "id": "-5261245238672308080_1785774900000",
-          "createdAtTimestamp": 1785775540338,
-          "content": "Test comment for update action",
+          "id": "8257806961457627416_1785946260000",
+          "createdAtTimestamp": 1785946884839,
+          "content": "Updated comment via Nango dryrun validation",
           "authorName": "api@nango.dev",
-          "context": "CUSTOM"
+          "context": "nango-test"
+        },
+        {
+          "id": "5224381453063112182_1785946260000",
+          "createdAtTimestamp": 1785946858715,
+          "content": "Nango dryrun validation comment",
+          "authorName": "api@nango.dev",
+          "context": "nango-test"
+        },
+        {
+          "id": "489352738828520925_1785946260000",
+          "createdAtTimestamp": 1785946854698,
+          "content": "Temporary test comment for delete action",
+          "authorName": "api@nango.dev"
         }
       ]
     },
@@ -169,72 +293,152 @@
   "nango": {},
   "api": {
     "get": {
-      "/api/v2/problems/7107113792931331638_1785774900000V2": {
+      "/api/v2/problems/6853744532401203457_1785946260000V2": {
         "response": {
-          "problemId": "7107113792931331638_1785774900000V2",
-          "displayId": "P-2608312",
-          "title": "Postgres Availability",
-          "impactLevel": "ENVIRONMENT",
-          "severityLevel": "AVAILABILITY",
+          "problemId": "6853744532401203457_1785946260000V2",
+          "displayId": "P-2608522",
+          "title": "Long garbage-collection time",
+          "impactLevel": "INFRASTRUCTURE",
+          "severityLevel": "RESOURCE_CONTENTION",
           "status": "OPEN",
           "affectedEntities": [
             {
               "entityId": {
-                "id": "ENVIRONMENT-0000000000000001",
-                "type": "ENVIRONMENT"
+                "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                "type": "PROCESS_GROUP_INSTANCE"
               },
-              "name": "Dynatrace Playground"
+              "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
             }
           ],
           "impactedEntities": [
             {
               "entityId": {
-                "id": "ENVIRONMENT-0000000000000001",
-                "type": "ENVIRONMENT"
+                "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                "type": "PROCESS_GROUP_INSTANCE"
               },
-              "name": "Dynatrace Playground"
+              "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
             }
           ],
-          "rootCauseEntity": null,
+          "rootCauseEntity": {
+            "entityId": {
+              "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+              "type": "PROCESS_GROUP"
+            },
+            "name": "server.js (frontend) frontend-*"
+          },
           "managementZones": [],
-          "entityTags": [],
-          "problemFilters": [
+          "entityTags": [
             {
-              "id": "c21f969b-5f03-333d-83e0-4f8f136e7682",
-              "name": "Default"
+              "context": "KUBERNETES",
+              "key": "app.kubernetes.io/name",
+              "value": "frontend",
+              "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+            },
+            {
+              "context": "KUBERNETES",
+              "key": "stage",
+              "value": "prod",
+              "stringRepresentation": "[Kubernetes]stage:prod"
+            },
+            {
+              "context": "KUBERNETES",
+              "key": "opentelemetry.io/name",
+              "value": "frontend",
+              "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+            },
+            {
+              "context": "ENVIRONMENT",
+              "key": "DT_RELEASE_PRODUCT",
+              "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+            },
+            {
+              "context": "KUBERNETES",
+              "key": "astroshop.org/owner",
+              "value": "Team-UI",
+              "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+            },
+            {
+              "context": "KUBERNETES",
+              "key": "namespace",
+              "value": "astroshop",
+              "stringRepresentation": "[Kubernetes]namespace:astroshop"
+            },
+            {
+              "context": "ENVIRONMENT",
+              "key": "DT_RELEASE_VERSION",
+              "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+            },
+            {
+              "context": "KUBERNETES",
+              "key": "app.kubernetes.io/component",
+              "value": "frontend",
+              "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
             }
           ],
-          "startTime": 1785775080000,
+          "problemFilters": [],
+          "startTime": 1785946560000,
           "endTime": -1,
           "evidenceDetails": {
-            "totalCount": 1,
+            "totalCount": 2,
             "details": [
               {
-                "evidenceType": "EVENT",
-                "displayName": "Postgres Availability",
+                "evidenceType": "METRIC",
+                "displayName": "Garbage collection suspension time",
                 "entity": {
                   "entityId": {
-                    "id": "ENVIRONMENT-0000000000000001",
-                    "type": "ENVIRONMENT"
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
                   },
-                  "name": "Dynatrace Playground"
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
                 },
-                "groupingEntity": null,
-                "rootCauseRelevant": false,
-                "eventId": "7107113792931331638_1785774900000",
-                "eventType": "AVAILABILITY_EVENT",
+                "groupingEntity": {
+                  "entityId": {
+                    "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+                    "type": "PROCESS_GROUP"
+                  },
+                  "name": "server.js (frontend) frontend-*"
+                },
+                "rootCauseRelevant": true,
+                "metricId": "builtin:tech.jvm.memory.gc.suspensionTime:avg:filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24)):filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24))",
+                "unit": "Percent",
+                "aggregationType": null,
+                "valueBeforeChangePoint": 35.714504,
+                "valueAfterChangePoint": 39.741684,
+                "startTime": 1785945360000,
+                "endTime": 1785946680000
+              },
+              {
+                "evidenceType": "EVENT",
+                "displayName": "Long garbage-collection time",
+                "entity": {
+                  "entityId": {
+                    "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                    "type": "PROCESS_GROUP_INSTANCE"
+                  },
+                  "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
+                },
+                "groupingEntity": {
+                  "entityId": {
+                    "id": "PROCESS_GROUP-82114F36DB4F4CEF",
+                    "type": "PROCESS_GROUP"
+                  },
+                  "name": "server.js (frontend) frontend-*"
+                },
+                "rootCauseRelevant": true,
+                "eventId": "6853744532401203457_1785946260000",
+                "eventType": "PROCESS_HIGH_GC_ACTIVITY",
                 "data": {
-                  "eventId": "7107113792931331638_1785774900000",
-                  "startTime": 1785774900000,
+                  "eventId": "6853744532401203457_1785946260000",
+                  "startTime": 1785946260000,
                   "endTime": -1,
-                  "eventType": "AVAILABILITY_EVENT",
-                  "title": "Postgres Availability",
+                  "eventType": "PROCESS_HIGH_GC_ACTIVITY",
+                  "title": "Long garbage-collection time",
                   "entityId": {
                     "entityId": {
-                      "id": "ENVIRONMENT-0000000000000001",
-                      "type": "ENVIRONMENT"
+                      "id": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
+                      "type": "PROCESS_GROUP_INSTANCE"
                     },
-                    "name": "Dynatrace Playground"
+                    "name": "server.js (frontend) frontend-* (frontend-959449d4d-4ggvv)"
                   },
                   "properties": [
                     {
@@ -242,91 +446,135 @@
                       "value": "true"
                     },
                     {
-                      "key": "dt.event.allow_frequent_issue_detection",
-                      "value": "false"
-                    },
-                    {
                       "key": "dt.event.description",
-                      "value": "**Alert description:** An anomaly was detected with the status of pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432, involving unexpected negative or null values."
-                    },
-                    {
-                      "key": "dt.event.dql_query",
-                      "value": "timeseries uptime = max(postgres.uptime), by:{`dt.smartscape.db_instance_postgres`}, shift: -2m, interval: 60000ms\n   | lookup [smartscapeNodes \"DB_INSTANCE_POSTGRES\" | fields id, name], sourceField: `dt.smartscape.db_instance_postgres`, lookupField: id, fields: {name}\n   | fieldsAdd entity.name = name | filter (`dt.smartscape.db_instance_postgres` == toSmartscapeId(\"\"\"DB_INSTANCE_POSTGRES-E33B84E017FC2925\"\"\") AND `entity.name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\" AND `name` == \"\"\"pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432\"\"\")"
+                      "value": "Garbage collection is suspending process server.js (frontend) frontend-* (frontend-959449d4d-4ggvv) on host aks-default-18490522-vmss000000.x1fxmamr1tou3djw0rchix4hre.bx.internal.cloudapp.net"
                     },
                     {
                       "key": "dt.event.group_label",
-                      "value": "Availability"
+                      "value": "Long garbage-collection time"
                     },
                     {
                       "key": "dt.event.impact_level",
-                      "value": "Environment"
+                      "value": "Infrastructure"
                     },
                     {
                       "key": "dt.event.is_rootcause_relevant",
                       "value": "true"
                     },
                     {
+                      "key": "dt.event.metric_selector",
+                      "value": "(builtin:tech.jvm.memory.gc.collectionTime:value):filter(eq(\"dt.entity.process_group_instance\",PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24))"
+                    },
+                    {
                       "key": "dt.event.metric_threshold",
-                      "value": "0.0"
+                      "value": "24000.0"
+                    },
+                    {
+                      "key": "dt.event.release_version",
+                      "value": ""
                     },
                     {
                       "key": "dt.event.timeout",
                       "value": "15"
-                    },
-                    {
-                      "key": "dt.event.title",
-                      "value": "Postgres Availability"
-                    },
-                    {
-                      "key": "dt.settings.object_id",
-                      "value": "vu9U3hXa3q0AAAABAB9idWlsdGluOmRhdmlzLmFub21hbHktZGV0ZWN0b3JzAAZ0ZW5hbnQABnRlbmFudAAkOWQzNjNlNmYtMmZmMS0zNTM0LWIyNGQtZmM0MDE2MTAxZmVivu9U3hXa3q0"
-                    },
-                    {
-                      "key": "entity.name",
-                      "value": "pg-16-dynatrace-demo.ckhuiwsqmnv8.us-east-1.rds.amazonaws.com:5432"
-                    },
-                    {
-                      "key": "event.db_ready_made_alert_type",
-                      "value": "DB_AVAILABILITY_EVENT"
                     }
                   ],
                   "status": "OPEN",
-                  "correlationId": "92cba4614a1cc3a2",
-                  "entityTags": [],
+                  "correlationId": "cfc05415fe1c5bb3",
+                  "entityTags": [
+                    {
+                      "context": "KUBERNETES",
+                      "key": "app.kubernetes.io/name",
+                      "value": "frontend",
+                      "stringRepresentation": "[Kubernetes]app.kubernetes.io/name:frontend"
+                    },
+                    {
+                      "context": "KUBERNETES",
+                      "key": "stage",
+                      "value": "prod",
+                      "stringRepresentation": "[Kubernetes]stage:prod"
+                    },
+                    {
+                      "context": "KUBERNETES",
+                      "key": "opentelemetry.io/name",
+                      "value": "frontend",
+                      "stringRepresentation": "[Kubernetes]opentelemetry.io/name:frontend"
+                    },
+                    {
+                      "context": "CONTEXTLESS",
+                      "key": "[Kubernetes]namespace",
+                      "value": "astroshop",
+                      "stringRepresentation": "[Kubernetes]namespace:astroshop"
+                    },
+                    {
+                      "context": "ENVIRONMENT",
+                      "key": "DT_RELEASE_PRODUCT",
+                      "stringRepresentation": "[Environment]DT_RELEASE_PRODUCT"
+                    },
+                    {
+                      "context": "KUBERNETES",
+                      "key": "astroshop.org/owner",
+                      "value": "Team-UI",
+                      "stringRepresentation": "[Kubernetes]astroshop.org/owner:Team-UI"
+                    },
+                    {
+                      "context": "ENVIRONMENT",
+                      "key": "DT_RELEASE_VERSION",
+                      "stringRepresentation": "[Environment]DT_RELEASE_VERSION"
+                    },
+                    {
+                      "context": "KUBERNETES",
+                      "key": "app.kubernetes.io/component",
+                      "value": "frontend",
+                      "stringRepresentation": "[Kubernetes]app.kubernetes.io/component:frontend"
+                    }
+                  ],
                   "managementZones": [],
                   "underMaintenance": false,
                   "suppressAlert": false,
                   "suppressProblem": false,
                   "frequentEvent": false
                 },
-                "startTime": 1785774900000,
+                "startTime": 1785946260000,
                 "endTime": -1
               }
             ]
           },
           "recentComments": {
-            "totalCount": 3,
+            "totalCount": 5,
             "comments": [
               {
-                "id": "8675602222913308574_1785774900000",
-                "createdAtTimestamp": 1785775542590,
-                "content": "Updated test comment for validation",
+                "id": "2103913807776993466_1785946260000",
+                "createdAtTimestamp": 1785946951349,
+                "content": "Nango dryrun validation comment",
                 "authorName": "api@nango.dev",
-                "context": "CUSTOM"
+                "context": "nango-test"
               },
               {
-                "id": "-1027260892921923058_1785774900000",
-                "createdAtTimestamp": 1785775542163,
-                "content": "Test comment for dryrun validation",
+                "id": "-534010142936216870_1785946260000",
+                "createdAtTimestamp": 1785946896051,
+                "content": "Nango dryrun validation comment",
                 "authorName": "api@nango.dev",
-                "context": "Test"
+                "context": "nango-test"
               },
               {
-                "id": "-5261245238672308080_1785774900000",
-                "createdAtTimestamp": 1785775540338,
-                "content": "Test comment for update action",
+                "id": "8257806961457627416_1785946260000",
+                "createdAtTimestamp": 1785946884839,
+                "content": "Updated comment via Nango dryrun validation",
                 "authorName": "api@nango.dev",
-                "context": "CUSTOM"
+                "context": "nango-test"
+              },
+              {
+                "id": "5224381453063112182_1785946260000",
+                "createdAtTimestamp": 1785946858715,
+                "content": "Nango dryrun validation comment",
+                "authorName": "api@nango.dev",
+                "context": "nango-test"
+              },
+              {
+                "id": "489352738828520925_1785946260000",
+                "createdAtTimestamp": 1785946854698,
+                "content": "Temporary test comment for delete action",
+                "authorName": "api@nango.dev"
               }
             ]
           },
@@ -336,25 +584,36 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:46:41 GMT",
+          "date": "Wed, 05 Aug 2026 16:22:44 GMT",
           "content-type": "application/json;charset=utf-8",
-          "content-length": "3724",
+          "content-length": "6496",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1919",
-          "x-ratelimit-reset": "1785775631",
-          "etag": "W/\"e8c-HKPX7Ds6FQfOEj6z/lb+RWO5qJk\""
+          "x-ratelimit-remaining": "1964",
+          "x-ratelimit-reset": "1785947008",
+          "vary": "Accept-Encoding",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_31_sn_EF3B621A85D3C6F12E1B6EC37DA08C77_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a73635300000000328da409c1b6d861\", dtSInfo;desc=\"0\", dtRpid;desc=\"100526943\"",
+          "traceresponse": "00-6a73635300000000328da409c1b6d861-1bd717f61dbb76f8-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "x-robots-tag": "noindex",
+          "dynatrace-response-source": "Cluster",
+          "server": "ruxit server",
+          "etag": "W/\"1960-SkBgSjWns50dg2o3Vid62WpPPxo\""
         },
-        "hash": "fe9d0d758db15ba89a07a919ec8338f1096c0197",
+        "hash": "413ed52192b93a8fcff11e6590e8ce4173259f9a",
         "request": {}
       }
     }

@@ -1,0 +1,341 @@
+{
+  "input": {},
+  "output": {
+    "pageSize": 1000,
+    "pageNumber": 1,
+    "total": 5,
+    "results": [
+      {
+        "tokenId": "dt0s16.GGJPXTAL",
+        "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "name": "quickstart (api+dev@nango.dev)",
+        "scope": [
+          "api-tokens:tokens:read",
+          "api-tokens:tokens:write",
+          "data-acquisition:events:ingest",
+          "data-acquisition:logs:ingest",
+          "data-acquisition:metrics:ingest",
+          "extensions:configurations:read",
+          "extensions:configurations:write",
+          "extensions:definitions:read",
+          "extensions:definitions:write",
+          "fleet-management:activegate.connection-info:read",
+          "fleet-management:activegate.tokens:create",
+          "fleet-management:activegates:download",
+          "fleet-management:activegates:read",
+          "fleet-management:activegates:write",
+          "fleet-management:cluster-id:read",
+          "fleet-management:container-images:read",
+          "fleet-management:oneagent.connection-info:read",
+          "fleet-management:oneagent.tokens:read",
+          "fleet-management:oneagents:download",
+          "openpipeline:bizevents:ingest",
+          "openpipeline:events:ingest",
+          "openpipeline:events.custom:ingest",
+          "openpipeline:events.davis:ingest",
+          "openpipeline:events.sdlc:ingest",
+          "openpipeline:events.sdlc.custom:ingest",
+          "openpipeline:events.smartscape:ingest",
+          "openpipeline:logs:ingest",
+          "openpipeline:metrics:ingest",
+          "openpipeline:security.events:ingest",
+          "openpipeline:security.events.custom:ingest",
+          "openpipeline:traces:ingest",
+          "settings:objects:read",
+          "settings:objects:write",
+          "storage:buckets:read",
+          "storage:entities:read",
+          "storage:events:read",
+          "storage:events:write",
+          "storage:files:write",
+          "storage:logs:read",
+          "storage:logs:write",
+          "storage:metrics:read",
+          "storage:metrics:write",
+          "storage:smartscape:read",
+          "storage:spans:read",
+          "storage:system:read"
+        ],
+        "resource": [
+          "urn:dtenvironment:nsf52867"
+        ],
+        "status": "ACTIVE",
+        "createdAt": "2026-08-05T15:17:16Z",
+        "updatedAt": "2026-08-05T15:17:16Z",
+        "createdBy": "api+dev@nango.dev",
+        "owner": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+        "metadata": {}
+      },
+      {
+        "tokenId": "dt0s16.2ZNXNVFQ",
+        "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "name": "Nango Registry Test Token 1",
+        "scope": [
+          "storage:logs:read"
+        ],
+        "resource": [
+          "urn:dtenvironment:nsf52867"
+        ],
+        "status": "ACTIVE",
+        "createdAt": "2026-08-05T15:48:22Z",
+        "updatedAt": "2026-08-06T10:58:12Z",
+        "createdBy": "api+dev@nango.dev",
+        "owner": "api+dev@nango.dev",
+        "metadata": {}
+      },
+      {
+        "tokenId": "dt0s16.JJEM45HZ",
+        "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "name": "Nango Registry Test Token 2",
+        "scope": [
+          "storage:metrics:read"
+        ],
+        "resource": [
+          "urn:dtenvironment:nsf52867"
+        ],
+        "expirationDate": "2027-01-01T00:00:00Z",
+        "status": "ACTIVE",
+        "createdAt": "2026-08-05T15:48:24Z",
+        "updatedAt": "2026-08-05T15:49:12Z",
+        "createdBy": "api+dev@nango.dev",
+        "owner": "api+dev@nango.dev",
+        "metadata": {}
+      },
+      {
+        "tokenId": "dt0s16.NK6MTGYP",
+        "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "name": "Nango Registry Test Token Disposable",
+        "scope": [
+          "storage:logs:read"
+        ],
+        "resource": [
+          "urn:dtenvironment:nsf52867"
+        ],
+        "status": "ACTIVE",
+        "createdAt": "2026-08-06T10:56:35Z",
+        "updatedAt": "2026-08-06T10:56:35Z",
+        "createdBy": "api+dev@nango.dev",
+        "owner": "api+dev@nango.dev",
+        "metadata": {}
+      },
+      {
+        "tokenId": "dt0s16.MXVZZXFZ",
+        "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+        "name": "Nango Registry Test Token Disposable",
+        "scope": [
+          "storage:logs:read"
+        ],
+        "resource": [
+          "urn:dtenvironment:nsf52867"
+        ],
+        "status": "ACTIVE",
+        "createdAt": "2026-08-06T10:57:16Z",
+        "updatedAt": "2026-08-06T10:57:16Z",
+        "createdBy": "api+dev@nango.dev",
+        "owner": "api+dev@nango.dev",
+        "metadata": {}
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+    }
+  },
+  "api": {
+    "get": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/platform-tokens": {
+        "response": {
+          "pageSize": 1000,
+          "pageNumber": 1,
+          "total": 5,
+          "results": [
+            {
+              "tokenId": "dt0s16.GGJPXTAL",
+              "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "name": "quickstart (api+dev@nango.dev)",
+              "scope": [
+                "api-tokens:tokens:read",
+                "api-tokens:tokens:write",
+                "data-acquisition:events:ingest",
+                "data-acquisition:logs:ingest",
+                "data-acquisition:metrics:ingest",
+                "extensions:configurations:read",
+                "extensions:configurations:write",
+                "extensions:definitions:read",
+                "extensions:definitions:write",
+                "fleet-management:activegate.connection-info:read",
+                "fleet-management:activegate.tokens:create",
+                "fleet-management:activegates:download",
+                "fleet-management:activegates:read",
+                "fleet-management:activegates:write",
+                "fleet-management:cluster-id:read",
+                "fleet-management:container-images:read",
+                "fleet-management:oneagent.connection-info:read",
+                "fleet-management:oneagent.tokens:read",
+                "fleet-management:oneagents:download",
+                "openpipeline:bizevents:ingest",
+                "openpipeline:events:ingest",
+                "openpipeline:events.custom:ingest",
+                "openpipeline:events.davis:ingest",
+                "openpipeline:events.sdlc:ingest",
+                "openpipeline:events.sdlc.custom:ingest",
+                "openpipeline:events.smartscape:ingest",
+                "openpipeline:logs:ingest",
+                "openpipeline:metrics:ingest",
+                "openpipeline:security.events:ingest",
+                "openpipeline:security.events.custom:ingest",
+                "openpipeline:traces:ingest",
+                "settings:objects:read",
+                "settings:objects:write",
+                "storage:buckets:read",
+                "storage:entities:read",
+                "storage:events:read",
+                "storage:events:write",
+                "storage:files:write",
+                "storage:logs:read",
+                "storage:logs:write",
+                "storage:metrics:read",
+                "storage:metrics:write",
+                "storage:smartscape:read",
+                "storage:spans:read",
+                "storage:system:read"
+              ],
+              "resource": [
+                "urn:dtenvironment:nsf52867"
+              ],
+              "status": "ACTIVE",
+              "expirationDate": null,
+              "createdAt": "2026-08-05T15:17:16Z",
+              "updatedAt": "2026-08-05T15:17:16Z",
+              "createdBy": "api+dev@nango.dev",
+              "owner": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+              "metadata": {
+                "lastUsedAt": null,
+                "lastClientIp": null
+              }
+            },
+            {
+              "tokenId": "dt0s16.2ZNXNVFQ",
+              "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "name": "Nango Registry Test Token 1",
+              "scope": [
+                "storage:logs:read"
+              ],
+              "resource": [
+                "urn:dtenvironment:nsf52867"
+              ],
+              "status": "ACTIVE",
+              "expirationDate": null,
+              "createdAt": "2026-08-05T15:48:22Z",
+              "updatedAt": "2026-08-06T10:58:12Z",
+              "createdBy": "api+dev@nango.dev",
+              "owner": "api+dev@nango.dev",
+              "metadata": {
+                "lastUsedAt": null,
+                "lastClientIp": null
+              }
+            },
+            {
+              "tokenId": "dt0s16.JJEM45HZ",
+              "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "name": "Nango Registry Test Token 2",
+              "scope": [
+                "storage:metrics:read"
+              ],
+              "resource": [
+                "urn:dtenvironment:nsf52867"
+              ],
+              "status": "ACTIVE",
+              "expirationDate": "2027-01-01T00:00:00Z",
+              "createdAt": "2026-08-05T15:48:24Z",
+              "updatedAt": "2026-08-05T15:49:12Z",
+              "createdBy": "api+dev@nango.dev",
+              "owner": "api+dev@nango.dev",
+              "metadata": {
+                "lastUsedAt": null,
+                "lastClientIp": null
+              }
+            },
+            {
+              "tokenId": "dt0s16.NK6MTGYP",
+              "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "name": "Nango Registry Test Token Disposable",
+              "scope": [
+                "storage:logs:read"
+              ],
+              "resource": [
+                "urn:dtenvironment:nsf52867"
+              ],
+              "status": "ACTIVE",
+              "expirationDate": null,
+              "createdAt": "2026-08-06T10:56:35Z",
+              "updatedAt": "2026-08-06T10:56:35Z",
+              "createdBy": "api+dev@nango.dev",
+              "owner": "api+dev@nango.dev",
+              "metadata": {
+                "lastUsedAt": null,
+                "lastClientIp": null
+              }
+            },
+            {
+              "tokenId": "dt0s16.MXVZZXFZ",
+              "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89",
+              "name": "Nango Registry Test Token Disposable",
+              "scope": [
+                "storage:logs:read"
+              ],
+              "resource": [
+                "urn:dtenvironment:nsf52867"
+              ],
+              "status": "ACTIVE",
+              "expirationDate": null,
+              "createdAt": "2026-08-06T10:57:16Z",
+              "updatedAt": "2026-08-06T10:57:16Z",
+              "createdBy": "api+dev@nango.dev",
+              "owner": "api+dev@nango.dev",
+              "metadata": {
+                "lastUsedAt": null,
+                "lastClientIp": null
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 11:00:00 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3610",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1926",
+          "x-ratelimit-reset": "1786014006",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"e1a-vzDs93l0srkXsnPa/kzcKzuYXek:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a74692f000000003798ba8c422baa16\", dtSInfo;desc=\"0\", dtRpid;desc=\"1214102951\"",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_31_sn_1DF526C6258A40A4F9A3BD2458AB16DF_perc_100000_ol_0_mul_1_app-3Aea7c4b59f27d43eb_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com",
+          "traceresponse": "00-6a74692f000000003798ba8c422baa16-46a165870ea93c67-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "5b0509dbd76292b13464912c83b1dae457f466ce",
+        "request": {}
+      }
+    }
+  }
+}

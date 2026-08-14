@@ -1,0 +1,165 @@
+{
+  "input": {
+    "accountUuid": "9610a717-798c-423b-a80f-97cfebe72f89"
+  },
+  "output": {
+    "results": [
+      {
+        "uid": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277",
+        "type": "SERVICE_EXTERNAL",
+        "login": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+        "email": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+        "name": "quickstart-service-user (api+dev@nango.dev)",
+        "surname": "Service User",
+        "userStatus": "ACTIVE",
+        "description": "Dedicated service user for Dynatrace QuickStart app",
+        "createdAt": "2026-08-05T15:17:15Z"
+      },
+      {
+        "uid": "4cd1f263-743b-449c-9465-784bf1156c02",
+        "type": "SERVICE_EXTERNAL",
+        "login": "4cd1f263-743b-449c-9465-784bf1156c02@service.sso.dynatrace.com",
+        "email": "4cd1f263-743b-449c-9465-784bf1156c02@service.sso.dynatrace.com",
+        "name": "Nango Registry Test SU 1 (updated via action)",
+        "surname": "SERVICE_IDENTITY",
+        "userStatus": "ACTIVE",
+        "description": "Updated by update-service-user action",
+        "createdAt": "2026-08-05T15:46:46Z"
+      },
+      {
+        "uid": "bbbe1c81-b960-4965-9d17-37df465fc605",
+        "type": "SERVICE_EXTERNAL",
+        "login": "bbbe1c81-b960-4965-9d17-37df465fc605@service.sso.dynatrace.com",
+        "email": "bbbe1c81-b960-4965-9d17-37df465fc605@service.sso.dynatrace.com",
+        "name": "Nango Registry Test SU 2",
+        "surname": "SERVICE_IDENTITY",
+        "userStatus": "ACTIVE",
+        "description": "test service user 2",
+        "createdAt": "2026-08-05T15:47:00Z"
+      },
+      {
+        "uid": "40209d03-3397-43ed-a946-28925f5783b4",
+        "type": "SERVICE_EXTERNAL",
+        "login": "40209d03-3397-43ed-a946-28925f5783b4@service.sso.dynatrace.com",
+        "email": "40209d03-3397-43ed-a946-28925f5783b4@service.sso.dynatrace.com",
+        "name": "Nango Registry Test SU Disposable",
+        "surname": "SERVICE_IDENTITY",
+        "userStatus": "ACTIVE",
+        "description": "Test service user for Nango registry validation",
+        "createdAt": "2026-08-06T10:57:37Z"
+      },
+      {
+        "uid": "5da71c4a-55bf-4d77-8b4c-a80833deb807",
+        "type": "SERVICE_EXTERNAL",
+        "login": "5da71c4a-55bf-4d77-8b4c-a80833deb807@service.sso.dynatrace.com",
+        "email": "5da71c4a-55bf-4d77-8b4c-a80833deb807@service.sso.dynatrace.com",
+        "name": "Nango Registry Test SU Disposable",
+        "surname": "SERVICE_IDENTITY",
+        "userStatus": "ACTIVE",
+        "description": "Test service user for Nango registry validation",
+        "createdAt": "2026-08-06T10:57:44Z"
+      }
+    ],
+    "totalCount": 5
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/iam/v1/accounts/9610a717-798c-423b-a80f-97cfebe72f89/service-users": {
+        "response": {
+          "results": [
+            {
+              "uid": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277",
+              "login": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+              "email": "f35ae38e-3f66-47b8-8ea6-7c4329ac9277@service.sso.dynatrace.com",
+              "name": "quickstart-service-user (api+dev@nango.dev)",
+              "surname": "Service User",
+              "type": "SERVICE_EXTERNAL",
+              "userStatus": "ACTIVE",
+              "description": "Dedicated service user for Dynatrace QuickStart app",
+              "createdAt": "2026-08-05T15:17:15Z"
+            },
+            {
+              "uid": "4cd1f263-743b-449c-9465-784bf1156c02",
+              "login": "4cd1f263-743b-449c-9465-784bf1156c02@service.sso.dynatrace.com",
+              "email": "4cd1f263-743b-449c-9465-784bf1156c02@service.sso.dynatrace.com",
+              "name": "Nango Registry Test SU 1 (updated via action)",
+              "surname": "SERVICE_IDENTITY",
+              "type": "SERVICE_EXTERNAL",
+              "userStatus": "ACTIVE",
+              "description": "Updated by update-service-user action",
+              "createdAt": "2026-08-05T15:46:46Z"
+            },
+            {
+              "uid": "bbbe1c81-b960-4965-9d17-37df465fc605",
+              "login": "bbbe1c81-b960-4965-9d17-37df465fc605@service.sso.dynatrace.com",
+              "email": "bbbe1c81-b960-4965-9d17-37df465fc605@service.sso.dynatrace.com",
+              "name": "Nango Registry Test SU 2",
+              "surname": "SERVICE_IDENTITY",
+              "type": "SERVICE_EXTERNAL",
+              "userStatus": "ACTIVE",
+              "description": "test service user 2",
+              "createdAt": "2026-08-05T15:47:00Z"
+            },
+            {
+              "uid": "40209d03-3397-43ed-a946-28925f5783b4",
+              "login": "40209d03-3397-43ed-a946-28925f5783b4@service.sso.dynatrace.com",
+              "email": "40209d03-3397-43ed-a946-28925f5783b4@service.sso.dynatrace.com",
+              "name": "Nango Registry Test SU Disposable",
+              "surname": "SERVICE_IDENTITY",
+              "type": "SERVICE_EXTERNAL",
+              "userStatus": "ACTIVE",
+              "description": "Test service user for Nango registry validation",
+              "createdAt": "2026-08-06T10:57:37Z"
+            },
+            {
+              "uid": "5da71c4a-55bf-4d77-8b4c-a80833deb807",
+              "login": "5da71c4a-55bf-4d77-8b4c-a80833deb807@service.sso.dynatrace.com",
+              "email": "5da71c4a-55bf-4d77-8b4c-a80833deb807@service.sso.dynatrace.com",
+              "name": "Nango Registry Test SU Disposable",
+              "surname": "SERVICE_IDENTITY",
+              "type": "SERVICE_EXTERNAL",
+              "userStatus": "ACTIVE",
+              "description": "Test service user for Nango registry validation",
+              "createdAt": "2026-08-06T10:57:44Z"
+            }
+          ],
+          "totalCount": 5
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 06 Aug 2026 11:01:35 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2063",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1969",
+          "x-ratelimit-reset": "1786014130",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "referrer-policy": "no-referrer",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Origin",
+          "etag": "W/\"80f-lGUNUK+OuR4bj2OHIVrJAOMCsjY:dtagent10343260715123811rAi8\"",
+          "server-timing": "dtTrId;desc=\"6a74698e000000001e1733ce64841916\", dtSInfo;desc=\"0\", dtRpid;desc=\"-239134817\"",
+          "set-cookie": "<redacted>",
+          "traceresponse": "00-6a74698e000000001e1733ce64841916-1a50517260e7175a-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt"
+        },
+        "hash": "d2e06b42ba678990d01de6a81d8aaaf2f8d609d1",
+        "request": {}
+      }
+    }
+  }
+}

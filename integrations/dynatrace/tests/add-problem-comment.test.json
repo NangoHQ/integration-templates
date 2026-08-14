@@ -1,23 +1,22 @@
 {
   "input": {
-    "problemId": "7107113792931331638_1785774900000V2",
-    "message": "Dryrun validation comment",
-    "context": "USER_COMMENT"
+    "problemId": "6853744532401203457_1785946260000V2",
+    "message": "Nango dryrun validation comment",
+    "context": "nango-test"
   },
   "output": {
-    "success": true,
-    "problemId": "7107113792931331638_1785774900000V2",
-    "message": "Dryrun validation comment",
-    "context": "USER_COMMENT"
+    "problemId": "6853744532401203457_1785946260000V2",
+    "message": "Nango dryrun validation comment",
+    "context": "nango-test"
   },
   "nango": {},
   "api": {
     "post": {
-      "/api/v2/problems/7107113792931331638_1785774900000V2/comments": {
+      "/api/v2/problems/6853744532401203457_1785946260000V2/comments": {
         "response": "",
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 17:01:38 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:36 GMT",
           "content-type": "application/octet-stream",
           "content-length": "0",
           "connection": "keep-alive",
@@ -26,20 +25,31 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1980",
-          "x-ratelimit-reset": "1785776534",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1785946947",
+          "vary": "Origin",
+          "set-cookie": "dtCookiekle28kkx=v_4_srv_20_sn_A40C9620CA8FEC638E248F2BE9D53502_perc_100000_ol_0_mul_1_app-3Ad2f4a377001040b0_1_rcs-3Acss_0; Path=/; Domain=.dynatrace.com; secure",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a736310000000001eda1460e8baa66f\", dtSInfo;desc=\"0\", dtRpid;desc=\"-1841786865\"",
+          "traceresponse": "00-6a736310000000001eda1460e8baa66f-e9738c75f8d77acc-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "x-robots-tag": "noindex",
+          "dynatrace-response-source": "Cluster",
+          "server": "ruxit server",
           "etag": "W/\"0-2jmj7l5rSw0yVb/vlWAYkK/YBwk\""
         },
-        "hash": "1fd476ce41176d0a378f3fa587ddddfc95d9a760",
+        "hash": "95a392e24b792bfdf8f157cb19f58622a314269f",
         "request": {
           "data": {
-            "message": "Dryrun validation comment",
-            "context": "USER_COMMENT"
+            "message": "Nango dryrun validation comment",
+            "context": "nango-test"
           }
         }
       }

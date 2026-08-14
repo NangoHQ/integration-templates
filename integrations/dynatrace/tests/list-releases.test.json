@@ -1,7 +1,7 @@
 {
   "input": {},
   "output": {
-    "releases": [
+    "items": [
       {
         "affectedByProblems": false,
         "affectedBySecurityVulnerabilities": false,
@@ -21,9 +21,9 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "25.0.3"
           }
         ],
@@ -50,9 +50,9 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "25.0.4"
           }
         ],
@@ -74,57 +74,31 @@
         "problemCount": 0,
         "product": "",
         "releaseEntityId": "PROCESS_GROUP-39745FA6FD7D0965",
-        "running": false,
+        "running": true,
         "securityVulnerabilitiesCount": 0,
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": ".NET",
             "technology": "DOTNET",
             "verbatimType": "Dotnet",
-            "version": "8.0.27.0"
+            "edition": ".NET Core"
           },
           {
-            "edition": "System.Data.Common",
-            "technology": "ADO_NET",
-            "verbatimType": "ADO_NET",
-            "version": "8.0.2726.22922"
-          },
-          {
-            "edition": "CLR",
             "technology": "CLR",
             "verbatimType": "CLR",
-            "version": "8.0.27.0"
-          },
-          {
-            "technology": "CONFLUENT_KAFKA_CLIENT",
-            "verbatimType": "CONFLUENT_KAFKA_CLIENT",
-            "version": "2.11.0.0"
+            "edition": "CoreCLR"
           },
           {
             "technology": "CONTAINERD",
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "glibc",
-            "technology": "LIBC",
-            "verbatimType": "LIBC",
-            "version": "2.36"
-          },
-          {
-            "edition": ".NET",
-            "technology": "OPENTELEMETRY",
-            "verbatimType": "OPENTELEMETRY",
-            "version": "1.15.3.2017"
-          },
-          {
-            "technology": "POSTGRE_DOTNET_DATA_PROVIDER",
-            "verbatimType": "postgre .NET Data Provider",
-            "version": "9.0.3.0"
+            "technology": "DOTNET",
+            "verbatimType": "Dotnet"
           }
         ],
         "stage": "astroshop",
-        "throughput": 5519936.909090909,
+        "throughput": 5283480.996407047,
         "version": ""
       },
       {
@@ -157,9 +131,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
@@ -189,9 +163,9 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.8"
           },
           {
@@ -199,9 +173,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -210,7 +184,7 @@
           }
         ],
         "stage": "production",
-        "throughput": 38009351.37339246,
+        "throughput": 36720546.33023975,
         "version": "1.5.4"
       },
       {
@@ -218,41 +192,41 @@
         "affectedBySecurityVulnerabilities": true,
         "instances": [
           {
-            "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+            "entityId": "PROCESS_GROUP_INSTANCE-358B92B699A46459",
             "problems": [],
             "securityVulnerabilities": [
               "3502265907281635187",
               "17298541638040527581",
-              "2699341067565434634",
               "3813336248191979827",
-              "14175369845229507829",
+              "2699341067565434634",
+              "4652962478791170050",
               "8828912542794219634",
               "2697270167606488394",
-              "4652962478791170050",
               "15910524575781210918",
+              "14175369845229507829",
               "2827891730495457470",
               "14711075732932702961",
               "10763632372033119112",
               "3400679170517685671",
               "14628176234880500077",
-              "7421814806019427871",
-              "13500140233283119540",
-              "5090405471596487530",
+              "1228907736015312478",
               "301544466617453837",
               "12174526754697326161",
-              "1228907736015312478",
+              "5090405471596487530",
+              "13500140233283119540",
+              "7421814806019427871",
               "7162224511840275487",
-              "16314727483330447586",
-              "3760401106105876897",
               "9868706762787196772",
               "3774976675874560818",
+              "16314727483330447586",
               "11948815636156664487",
-              "10538538159161676721",
+              "3760401106105876897",
               "8057580925661966446",
               "6839854332912691056",
+              "10007256948109561913",
               "17007786251727413852",
-              "14278766004398585278",
-              "10007256948109561913"
+              "10538538159161676721",
+              "14278766004398585278"
             ]
           }
         ],
@@ -265,15 +239,15 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": ".NET",
             "technology": "DOTNET",
             "verbatimType": "Dotnet",
+            "edition": ".NET",
             "version": "8.0.18.0"
           },
           {
-            "edition": "System.Data.Common",
             "technology": "ADO_NET",
             "verbatimType": "ADO_NET",
+            "edition": "System.Data.Common",
             "version": "8.0.1825.31117"
           },
           {
@@ -282,9 +256,9 @@
             "version": "8.0.1825.31706"
           },
           {
-            "edition": "CLR",
             "technology": "CLR",
             "verbatimType": "CLR",
+            "edition": "CLR",
             "version": "8.0.18.0"
           },
           {
@@ -292,9 +266,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -304,7 +278,7 @@
           }
         ],
         "stage": "production",
-        "throughput": 7480663.111111111,
+        "throughput": -1,
         "version": "1.5.4"
       },
       {
@@ -312,128 +286,128 @@
         "affectedBySecurityVulnerabilities": false,
         "instances": [
           {
-            "buildVersion": "1.1.1.20260730-042524",
             "entityId": "PROCESS_GROUP_INSTANCE-A33D7273EF4D340D",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260723-042526",
-            "entityId": "PROCESS_GROUP_INSTANCE-14CEFCAA85D5F08E",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260728-042525",
-            "entityId": "PROCESS_GROUP_INSTANCE-C05B08C0C72CC140",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260731-040023",
-            "entityId": "PROCESS_GROUP_INSTANCE-1BEACD0993B99FE9",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260801-042529",
-            "entityId": "PROCESS_GROUP_INSTANCE-67A065DEE0C1CFAC",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260723-040025",
-            "entityId": "PROCESS_GROUP_INSTANCE-37B018058A4357F7",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260803-042517",
-            "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260729-042517",
-            "entityId": "PROCESS_GROUP_INSTANCE-3B6AB6EE4255745F",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260801-040029",
-            "entityId": "PROCESS_GROUP_INSTANCE-7A44459FFAE4D455",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260803-042517",
-            "entityId": "PROCESS_GROUP_INSTANCE-6ECD9AF3649DA48C",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260724-040017",
-            "entityId": "PROCESS_GROUP_INSTANCE-9312E4A095521254",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260722-040025",
-            "entityId": "PROCESS_GROUP_INSTANCE-EEC2972AD80377DE",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260731-042517",
-            "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260728-202516",
-            "entityId": "PROCESS_GROUP_INSTANCE-811EAA6A6D5C4469",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260727-040047",
-            "entityId": "PROCESS_GROUP_INSTANCE-2C542EEF095A5BAD",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260730-040032",
-            "entityId": "PROCESS_GROUP_INSTANCE-201D580D017D6E3E",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
             "buildVersion": "1.1.1.20260730-042524",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-C05B08C0C72CC140",
+            "buildVersion": "1.1.1.20260728-042525",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-1BEACD0993B99FE9",
+            "buildVersion": "1.1.1.20260731-040023",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-67A065DEE0C1CFAC",
+            "buildVersion": "1.1.1.20260801-042529",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
+            "buildVersion": "1.1.1.20260804-040045",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-3DA12F06F5239A27",
+            "buildVersion": "1.1.1.20260805-042526",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-3B6AB6EE4255745F",
+            "buildVersion": "1.1.1.20260729-042517",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-7A44459FFAE4D455",
+            "buildVersion": "1.1.1.20260801-040029",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-6ECD9AF3649DA48C",
+            "buildVersion": "1.1.1.20260804-040045",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-9312E4A095521254",
+            "buildVersion": "1.1.1.20260724-040017",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
+            "buildVersion": "1.1.1.20260731-042517",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-77A887FAFC1A5AE8",
+            "buildVersion": "1.1.1.20260805-042526",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-811EAA6A6D5C4469",
+            "buildVersion": "1.1.1.20260728-202516",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-2C542EEF095A5BAD",
+            "buildVersion": "1.1.1.20260727-040047",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-201D580D017D6E3E",
+            "buildVersion": "1.1.1.20260730-040032",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
             "entityId": "PROCESS_GROUP_INSTANCE-2C77A42819755F7D",
+            "buildVersion": "1.1.1.20260730-042524",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260801-202516",
             "entityId": "PROCESS_GROUP_INSTANCE-4063892D2280DFE7",
+            "buildVersion": "1.1.1.20260801-202516",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260724-042522",
             "entityId": "PROCESS_GROUP_INSTANCE-52659D2B7EA4AE06",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260728-040017",
-            "entityId": "PROCESS_GROUP_INSTANCE-ACE4341251C464C2",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
             "buildVersion": "1.1.1.20260724-042522",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-ACE4341251C464C2",
+            "buildVersion": "1.1.1.20260728-040017",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
             "entityId": "PROCESS_GROUP_INSTANCE-96C13B71E8730294",
+            "buildVersion": "1.1.1.20260724-042522",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
+            "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+            "buildVersion": "1.1.1.20260805-040038",
             "problems": [],
             "securityVulnerabilities": []
           }
@@ -447,15 +421,15 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": ".NET",
             "technology": "DOTNET",
             "verbatimType": "Dotnet",
+            "edition": ".NET",
             "version": "8.0.18.0"
           },
           {
-            "edition": "System.Data.Common",
             "technology": "ADO_NET",
             "verbatimType": "ADO_NET",
+            "edition": "System.Data.Common",
             "version": "8.0.1825.31117"
           },
           {
@@ -464,9 +438,9 @@
             "version": "8.0.1825.31706"
           },
           {
-            "edition": "CLR",
             "technology": "CLR",
             "verbatimType": "CLR",
+            "edition": "CLR",
             "version": "8.0.18.0"
           },
           {
@@ -474,14 +448,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": ".NET Core",
-            "technology": "DOTNET",
-            "verbatimType": "Dotnet"
-          },
-          {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -490,14 +459,14 @@
             "version": "5.16.24240.5"
           },
           {
-            "edition": ".NET",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": ".NET",
             "version": "1.15.3.2017"
           }
         ],
         "stage": "production",
-        "throughput": 274393655.3615476,
+        "throughput": 295407822.37043184,
         "version": "1.1.1"
       },
       {
@@ -541,14 +510,14 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "glibc",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "glibc",
             "version": "2.41"
           }
         ],
         "stage": "production",
-        "throughput": 15863478.577994123,
+        "throughput": 15700430.70956882,
         "version": "1.5.4"
       },
       {
@@ -560,41 +529,41 @@
             "problems": [],
             "securityVulnerabilities": [
               "13795413615019733338",
-              "10376738703241735743",
               "1081418630014295188",
+              "10376738703241735743",
               "7443305259587503371",
-              "15699452788619887668",
-              "2567207456321956862",
               "4374629275630079178",
-              "4365486619696795125",
               "12221378306324797476",
-              "11602685212763134275",
-              "11207221942644150303",
-              "3310020299446976751",
+              "4365486619696795125",
+              "2567207456321956862",
+              "15699452788619887668",
               "16189503906157347220",
+              "3310020299446976751",
+              "11207221942644150303",
+              "11602685212763134275",
               "11480914223611631405",
-              "9184174751313618919",
+              "18044996708830996545",
               "8590695806631773531",
-              "10997722573754600964",
-              "12095892675663657152",
+              "31927140726656475",
               "7712027161588397174",
               "11678709523234527065",
               "6107173229056910058",
-              "18044996708830996545",
-              "31927140726656475",
-              "12624992972495918990",
+              "9184174751313618919",
+              "12095892675663657152",
+              "10997722573754600964",
               "15182832947436065142",
+              "12624992972495918990",
               "8433340233447809524",
               "6501777276080538835",
               "8036739847770072663",
-              "16179523304113195509",
+              "1300697805316325487",
               "2214742517782493160",
               "12824456585881960390",
-              "1300697805316325487",
+              "16179523304113195509",
               "6145894411474681128",
               "2825608353509361685",
-              "13963943407045027807",
-              "2417071847731309386"
+              "2417071847731309386",
+              "13963943407045027807"
             ]
           }
         ],
@@ -626,9 +595,9 @@
             "version": "1.75.1"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -638,7 +607,7 @@
           }
         ],
         "stage": "astroshop",
-        "throughput": 3068.6533203125,
+        "throughput": 962238.1717601103,
         "version": ""
       },
       {
@@ -668,9 +637,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "glibc",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "glibc",
             "version": "2.39"
           }
         ],
@@ -683,62 +652,62 @@
         "affectedBySecurityVulnerabilities": false,
         "instances": [
           {
-            "buildVersion": "1.1.1.20260724-202522",
             "entityId": "PROCESS_GROUP_INSTANCE-2042796471CF5FFD",
+            "buildVersion": "1.1.1.20260724-202522",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260803-040052",
             "entityId": "PROCESS_GROUP_INSTANCE-E8B039407BE20924",
+            "buildVersion": "1.1.1.20260803-040052",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260725-202527",
             "entityId": "PROCESS_GROUP_INSTANCE-C5C246EAD8BCFF8E",
+            "buildVersion": "1.1.1.20260725-202527",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260727-042516",
             "entityId": "PROCESS_GROUP_INSTANCE-00225E50AA6E3C27",
+            "buildVersion": "1.1.1.20260727-042516",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260729-202516",
             "entityId": "PROCESS_GROUP_INSTANCE-7CA461B7FE5EFBEF",
+            "buildVersion": "1.1.1.20260729-202516",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260722-042523",
-            "entityId": "PROCESS_GROUP_INSTANCE-B5FA1DEA84EFCE0F",
-            "problems": [],
-            "securityVulnerabilities": []
-          },
-          {
-            "buildVersion": "1.1.1.20260725-042521",
             "entityId": "PROCESS_GROUP_INSTANCE-A34FC0ED2A34DAAF",
+            "buildVersion": "1.1.1.20260725-042521",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260802-042517",
             "entityId": "PROCESS_GROUP_INSTANCE-774585046253294B",
+            "buildVersion": "1.1.1.20260802-042517",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260803-042517",
             "entityId": "PROCESS_GROUP_INSTANCE-97F1A8D209857542",
+            "buildVersion": "1.1.1.20260803-042517",
             "problems": [],
             "securityVulnerabilities": []
           },
           {
-            "buildVersion": "1.1.1.20260726-042516",
+            "entityId": "PROCESS_GROUP_INSTANCE-598FEA934D651739",
+            "buildVersion": "1.1.1.20260805-042526",
+            "problems": [],
+            "securityVulnerabilities": []
+          },
+          {
             "entityId": "PROCESS_GROUP_INSTANCE-1B6D86B4A02AF6FE",
+            "buildVersion": "1.1.1.20260726-042516",
             "problems": [],
             "securityVulnerabilities": []
           }
@@ -752,7 +721,7 @@
         "securityVulnerabilitiesEnabled": false,
         "softwareTechs": [],
         "stage": "production",
-        "throughput": 125845580.9725798,
+        "throughput": 124978141.77337298,
         "version": "1.1.1"
       },
       {
@@ -765,36 +734,36 @@
             "securityVulnerabilities": [
               "3502265907281635187",
               "17298541638040527581",
-              "2699341067565434634",
               "3813336248191979827",
-              "14175369845229507829",
+              "2699341067565434634",
+              "4652962478791170050",
               "8828912542794219634",
               "2697270167606488394",
-              "4652962478791170050",
               "15910524575781210918",
+              "14175369845229507829",
               "2827891730495457470",
               "14711075732932702961",
               "10763632372033119112",
               "3400679170517685671",
               "14628176234880500077",
-              "7421814806019427871",
-              "13500140233283119540",
-              "5090405471596487530",
+              "1228907736015312478",
               "301544466617453837",
               "12174526754697326161",
-              "1228907736015312478",
+              "5090405471596487530",
+              "13500140233283119540",
+              "7421814806019427871",
               "7162224511840275487",
-              "16314727483330447586",
-              "3760401106105876897",
               "9868706762787196772",
               "3774976675874560818",
+              "16314727483330447586",
               "11948815636156664487",
-              "10538538159161676721",
+              "3760401106105876897",
               "8057580925661966446",
               "6839854332912691056",
+              "10007256948109561913",
               "17007786251727413852",
-              "14278766004398585278",
-              "10007256948109561913"
+              "10538538159161676721",
+              "14278766004398585278"
             ]
           },
           {
@@ -812,15 +781,15 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": ".NET",
             "technology": "DOTNET",
             "verbatimType": "Dotnet",
+            "edition": ".NET",
             "version": "8.0.18.0"
           },
           {
-            "edition": "System.Data.Common",
             "technology": "ADO_NET",
             "verbatimType": "ADO_NET",
+            "edition": "System.Data.Common",
             "version": "8.0.1825.31117"
           },
           {
@@ -829,9 +798,9 @@
             "version": "8.0.1825.31706"
           },
           {
-            "edition": "CLR",
             "technology": "CLR",
             "verbatimType": "CLR",
+            "edition": "CLR",
             "version": "8.0.18.0"
           },
           {
@@ -839,9 +808,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -850,9 +819,9 @@
             "version": "5.16.24240.5"
           },
           {
-            "edition": ".NET",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": ".NET",
             "version": "1.15.3.2017"
           }
         ],
@@ -870,36 +839,36 @@
             "securityVulnerabilities": [
               "3502265907281635187",
               "17298541638040527581",
-              "2699341067565434634",
               "3813336248191979827",
-              "14175369845229507829",
+              "2699341067565434634",
+              "4652962478791170050",
               "8828912542794219634",
               "2697270167606488394",
-              "4652962478791170050",
               "15910524575781210918",
+              "14175369845229507829",
               "2827891730495457470",
               "14711075732932702961",
               "10763632372033119112",
               "3400679170517685671",
               "14628176234880500077",
-              "7421814806019427871",
-              "13500140233283119540",
-              "5090405471596487530",
+              "1228907736015312478",
               "301544466617453837",
               "12174526754697326161",
-              "1228907736015312478",
+              "5090405471596487530",
+              "13500140233283119540",
+              "7421814806019427871",
               "7162224511840275487",
-              "16314727483330447586",
-              "3760401106105876897",
               "9868706762787196772",
               "3774976675874560818",
+              "16314727483330447586",
               "11948815636156664487",
-              "10538538159161676721",
+              "3760401106105876897",
               "8057580925661966446",
               "6839854332912691056",
+              "10007256948109561913",
               "17007786251727413852",
-              "14278766004398585278",
-              "10007256948109561913"
+              "10538538159161676721",
+              "14278766004398585278"
             ]
           }
         ],
@@ -912,15 +881,15 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": ".NET",
             "technology": "DOTNET",
             "verbatimType": "Dotnet",
+            "edition": ".NET",
             "version": "8.0.18.0"
           },
           {
-            "edition": "System.Data.Common",
             "technology": "ADO_NET",
             "verbatimType": "ADO_NET",
+            "edition": "System.Data.Common",
             "version": "8.0.1825.31117"
           },
           {
@@ -929,9 +898,9 @@
             "version": "8.0.1825.31706"
           },
           {
-            "edition": "CLR",
             "technology": "CLR",
             "verbatimType": "CLR",
+            "edition": "CLR",
             "version": "8.0.18.0"
           },
           {
@@ -939,9 +908,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -950,14 +919,14 @@
             "version": "5.16.24240.5"
           },
           {
-            "edition": ".NET",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": ".NET",
             "version": "1.15.3.2017"
           }
         ],
         "stage": "production",
-        "throughput": 425454229.4991319,
+        "throughput": 414126572.1342905,
         "version": "1.5.4"
       },
       {
@@ -968,26 +937,26 @@
             "entityId": "PROCESS_GROUP_INSTANCE-7D108707D3FE564C",
             "problems": [],
             "securityVulnerabilities": [
-              "697394227850026450",
               "12298512334971036351",
-              "2960224221477854522",
-              "4990974433164743668",
+              "697394227850026450",
               "3580107191860539676",
+              "4990974433164743668",
+              "2960224221477854522",
               "17476754595071526637",
-              "7963618415673091048",
               "12695136343552235532",
+              "7963618415673091048",
               "7645686165172801256",
               "14282142580345404459",
               "142773141113245304",
+              "12358490766188712428",
               "14532318584052300041",
               "4311153053714515842",
               "15845210183519456453",
-              "12358490766188712428",
               "3879987550510608055",
-              "9710005106947642195",
               "15030122387929828621",
-              "13082145647960346774",
+              "9710005106947642195",
               "241316474438642389",
+              "13082145647960346774",
               "15709844373426946223",
               "14279045059044908376",
               "17854304046701386593",
@@ -995,12 +964,13 @@
               "17993154721776293038",
               "506897419680391918",
               "12538232785798622780",
-              "16935829543653549774",
-              "14887568902668671917",
               "1278941457832141585",
+              "14887568902668671917",
+              "16935829543653549774",
               "11515068045354941919",
               "9826447127402189355",
-              "16441999453541971519"
+              "16441999453541971519",
+              "17439713217382884657"
             ]
           }
         ],
@@ -1009,7 +979,7 @@
         "product": "",
         "releaseEntityId": "PROCESS_GROUP-A8F3F28ACD791524",
         "running": true,
-        "securityVulnerabilitiesCount": 33,
+        "securityVulnerabilitiesCount": 34,
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
@@ -1022,26 +992,26 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Node.js",
             "technology": "GRPC",
             "verbatimType": "GRPC",
+            "edition": "Node.js",
             "version": "@grpc/grpc-js"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
-            "edition": "Node.js",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Node.js",
             "version": "@opentelemetry/api"
           }
         ],
         "stage": "astroshop",
-        "throughput": 5409189.979694813,
+        "throughput": 5690293.664220518,
         "version": ""
       },
       {
@@ -1059,8 +1029,8 @@
               "2625726785177267157",
               "15554607231409642486",
               "3837460658370191281",
-              "10330957823829282400",
-              "10801845231543165274"
+              "10801845231543165274",
+              "10330957823829282400"
             ]
           }
         ],
@@ -1081,15 +1051,15 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.7"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1099,7 +1069,7 @@
           }
         ],
         "stage": "astroshop",
-        "throughput": 5675459.8083354505,
+        "throughput": 5662326.185031727,
         "version": ""
       },
       {
@@ -1130,14 +1100,14 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
         "stage": "astroshop-cloud-backend",
-        "throughput": 440717.4090863047,
+        "throughput": 447830.88312663307,
         "version": ""
       },
       {
@@ -1168,9 +1138,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
@@ -1206,14 +1176,14 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
         "stage": "production",
-        "throughput": 20439674.833333332,
+        "throughput": 19888984.041353382,
         "version": "1.5.4"
       },
       {
@@ -1244,14 +1214,14 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
         "stage": "smartfreight",
-        "throughput": 3929241.951219512,
+        "throughput": 3151855.6129032257,
         "version": ""
       },
       {
@@ -1282,14 +1252,14 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           }
         ],
         "stage": "ingress-nginx",
-        "throughput": 11678748.710280374,
+        "throughput": 13811968.375,
         "version": "1.14.1"
       },
       {
@@ -1337,8 +1307,8 @@
               "14447386328188115301",
               "3400444221308432221",
               "1457626808473465638",
-              "10330957823829282400",
               "10801845231543165274",
+              "10330957823829282400",
               "1627671190432745117",
               "16081076390296942267",
               "14506297890939938163"
@@ -1354,9 +1324,9 @@
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.11"
           },
           {
@@ -1374,20 +1344,20 @@
             "version": "1.75.0"
           },
           {
-            "edition": "glibc",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "glibc",
             "version": "2.43"
           },
           {
-            "edition": "Java",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Java",
             "version": "1.54.1"
           }
         ],
         "stage": "astroshop",
-        "throughput": 5288176.309945372,
+        "throughput": 5220293.478790079,
         "version": ""
       },
       {
@@ -1398,8 +1368,8 @@
             "entityId": "PROCESS_GROUP_INSTANCE-8308859B925403A3",
             "problems": [],
             "securityVulnerabilities": [
-              "12624992972495918990",
-              "15182832947436065142"
+              "15182832947436065142",
+              "12624992972495918990"
             ]
           }
         ],
@@ -1421,9 +1391,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.6"
           }
         ],
@@ -1442,41 +1412,41 @@
               "13795413615019733338",
               "13464357819717500010",
               "4300018779392022109",
-              "10376738703241735743",
               "1081418630014295188",
+              "10376738703241735743",
               "7443305259587503371",
-              "15699452788619887668",
-              "2567207456321956862",
               "4374629275630079178",
-              "4365486619696795125",
               "12221378306324797476",
-              "11602685212763134275",
-              "11207221942644150303",
-              "3310020299446976751",
+              "4365486619696795125",
+              "2567207456321956862",
+              "15699452788619887668",
               "16189503906157347220",
+              "3310020299446976751",
+              "11207221942644150303",
+              "11602685212763134275",
               "11480914223611631405",
-              "9184174751313618919",
+              "18044996708830996545",
               "8590695806631773531",
-              "10997722573754600964",
-              "12095892675663657152",
+              "31927140726656475",
               "7712027161588397174",
               "11678709523234527065",
               "6107173229056910058",
-              "18044996708830996545",
-              "31927140726656475",
-              "12624992972495918990",
+              "9184174751313618919",
+              "12095892675663657152",
+              "10997722573754600964",
               "15182832947436065142",
+              "12624992972495918990",
               "8433340233447809524",
               "6501777276080538835",
               "8036739847770072663",
               "10434082864303772668",
-              "16179523304113195509",
+              "1300697805316325487",
               "2214742517782493160",
               "12824456585881960390",
-              "1300697805316325487",
+              "16179523304113195509",
               "6145894411474681128",
-              "13963943407045027807",
-              "2417071847731309386"
+              "2417071847731309386",
+              "13963943407045027807"
             ]
           }
         ],
@@ -1503,9 +1473,9 @@
             "version": "1.75.1"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1515,7 +1485,7 @@
           }
         ],
         "stage": "astroshop",
-        "throughput": 11235512,
+        "throughput": 11235511.578947369,
         "version": ""
       },
       {
@@ -1525,61 +1495,62 @@
           {
             "entityId": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
             "problems": [
-              "P-2608308"
+              "P-2608522",
+              "P-2608515"
             ],
             "securityVulnerabilities": [
               "3837750066390789659",
               "653754270037246832",
               "8261404982676157771",
-              "2960224221477854522",
-              "4990974433164743668",
-              "3580107191860539676",
               "4092682927678165288",
+              "3580107191860539676",
               "1091144306223037689",
+              "4990974433164743668",
+              "2960224221477854522",
               "5119892264085789455",
-              "17731817109691430108",
+              "4786853704663420351",
               "3598686708317561767",
               "16142555706146400017",
-              "4786853704663420351",
+              "17731817109691430108",
               "17044792044333232291",
               "142773141113245304",
               "6438203665982683447",
-              "14532318584052300041",
               "7487796835650188078",
-              "6927389360143928753",
-              "799072727568521510",
-              "7471032378171744127",
-              "4311153053714515842",
-              "3454081566035867600",
-              "15845210183519456453",
-              "13123932813009550928",
-              "12358490766188712428",
               "2723142078216999221",
+              "7471032378171744127",
+              "6927389360143928753",
+              "12358490766188712428",
+              "799072727568521510",
+              "3454081566035867600",
+              "14532318584052300041",
+              "4311153053714515842",
+              "15845210183519456453",
               "3879987550510608055",
-              "13082145647960346774",
+              "13123932813009550928",
               "241316474438642389",
+              "13082145647960346774",
               "10710617243145272624",
               "4679789903020529202",
               "16617560019467051797",
               "2556131525198936847",
-              "12538232785798622780",
-              "16420857620448901149",
               "2393078931706615815",
               "17351356947021709398",
-              "18338485650759113995",
               "1067911246264107983",
+              "18338485650759113995",
+              "12538232785798622780",
+              "16420857620448901149",
               "11515068045354941919",
               "9826447127402189355",
-              "16184669679373012643",
-              "14320509456022049363",
               "15534735979287486164",
-              "16441999453541971519",
-              "18058111551737381332"
+              "14320509456022049363",
+              "16184669679373012643",
+              "18058111551737381332",
+              "16441999453541971519"
             ]
           }
         ],
         "name": "server.js (frontend) frontend-*",
-        "problemCount": 1,
+        "problemCount": 2,
         "product": "",
         "releaseEntityId": "PROCESS_GROUP-82114F36DB4F4CEF",
         "running": true,
@@ -1596,26 +1567,26 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Node.js",
             "technology": "GRPC",
             "verbatimType": "GRPC",
+            "edition": "Node.js",
             "version": "@grpc/grpc-js"
           },
           {
-            "edition": "glibc",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "glibc",
             "version": "2.36"
           },
           {
-            "edition": "Node.js",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Node.js",
             "version": "@opentelemetry/api"
           }
         ],
         "stage": "astroshop",
-        "throughput": 5559823.053790047,
+        "throughput": 5628576.695585697,
         "version": ""
       },
       {
@@ -1626,8 +1597,8 @@
             "entityId": "PROCESS_GROUP_INSTANCE-AF1469377690A24A",
             "problems": [],
             "securityVulnerabilities": [
-              "14102357608356184718",
               "9558556182508818571",
+              "14102357608356184718",
               "7109577968916492366",
               "11749076692905322193",
               "15554607231409642486",
@@ -1653,9 +1624,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.8"
           },
           {
@@ -1668,9 +1639,9 @@
             "version": "2.2.21"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1679,9 +1650,9 @@
             "version": "5.3.2"
           },
           {
-            "edition": "Java Agent",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Java Agent",
             "version": "2.28.2-aws"
           },
           {
@@ -1690,14 +1661,14 @@
             "version": "1.5.34"
           },
           {
-            "edition": "Spring Boot",
             "technology": "SPRING",
             "verbatimType": "SPRING",
+            "edition": "Spring Boot",
             "version": "4.0.7"
           }
         ],
         "stage": "production",
-        "throughput": 1716584.0247440273,
+        "throughput": 1521619.4436141304,
         "version": "1.5.4"
       },
       {
@@ -1708,8 +1679,8 @@
             "entityId": "PROCESS_GROUP_INSTANCE-D2226D4E1DBC6DF9",
             "problems": [],
             "securityVulnerabilities": [
-              "14102357608356184718",
               "9558556182508818571",
+              "14102357608356184718",
               "7109577968916492366",
               "11749076692905322193",
               "15554607231409642486",
@@ -1735,9 +1706,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.8"
           },
           {
@@ -1750,9 +1721,9 @@
             "version": "2.2.21"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1761,9 +1732,9 @@
             "version": "5.3.2"
           },
           {
-            "edition": "Java Agent",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Java Agent",
             "version": "2.28.2-aws"
           },
           {
@@ -1772,14 +1743,14 @@
             "version": "1.5.34"
           },
           {
-            "edition": "Spring Boot",
             "technology": "SPRING",
             "verbatimType": "SPRING",
+            "edition": "Spring Boot",
             "version": "4.0.7"
           }
         ],
         "stage": "production",
-        "throughput": 6171820.258250452,
+        "throughput": 5552226.982772436,
         "version": "1.5.4"
       },
       {
@@ -1790,8 +1761,8 @@
             "entityId": "PROCESS_GROUP_INSTANCE-FFCB9602EF10C0BC",
             "problems": [],
             "securityVulnerabilities": [
-              "14102357608356184718",
               "9558556182508818571",
+              "14102357608356184718",
               "7109577968916492366",
               "11749076692905322193",
               "15554607231409642486",
@@ -1817,9 +1788,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.8"
           },
           {
@@ -1832,9 +1803,9 @@
             "version": "2.2.21"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1843,9 +1814,9 @@
             "version": "5.3.2"
           },
           {
-            "edition": "Java Agent",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Java Agent",
             "version": "2.28.2-aws"
           },
           {
@@ -1854,14 +1825,14 @@
             "version": "1.5.34"
           },
           {
-            "edition": "Spring Boot",
             "technology": "SPRING",
             "verbatimType": "SPRING",
+            "edition": "Spring Boot",
             "version": "4.0.7"
           }
         ],
         "stage": "production",
-        "throughput": 7170975.695997807,
+        "throughput": 6956513.988877119,
         "version": "1.5.4"
       },
       {
@@ -1872,8 +1843,8 @@
             "entityId": "PROCESS_GROUP_INSTANCE-AE5B887706D89FC3",
             "problems": [],
             "securityVulnerabilities": [
-              "14102357608356184718",
               "9558556182508818571",
+              "14102357608356184718",
               "7109577968916492366",
               "11749076692905322193",
               "15554607231409642486",
@@ -1899,9 +1870,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Adoptium",
             "version": "21.0.8"
           },
           {
@@ -1910,9 +1881,9 @@
             "version": "2.2.21"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
@@ -1921,9 +1892,9 @@
             "version": "5.3.2"
           },
           {
-            "edition": "Java Agent",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Java Agent",
             "version": "2.28.2-aws"
           },
           {
@@ -1932,14 +1903,14 @@
             "version": "1.5.34"
           },
           {
-            "edition": "Spring Boot",
             "technology": "SPRING",
             "verbatimType": "SPRING",
+            "edition": "Spring Boot",
             "version": "4.0.7"
           }
         ],
         "stage": "production",
-        "throughput": 36782949.58493262,
+        "throughput": 35380805.64510965,
         "version": "1.5.4"
       },
       {
@@ -1974,19 +1945,19 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "Eclipse Adoptium",
             "technology": "JAVA",
             "verbatimType": "Java",
+            "edition": "Eclipse Adoptium",
             "version": "21.0.8"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
-            "verbatimType": "LIBC"
+            "verbatimType": "LIBC",
+            "edition": "musl"
           }
         ],
         "stage": "production",
-        "throughput": 62919077.57906205,
+        "throughput": 52282377.5432485,
         "version": "1.5.4"
       },
       {
@@ -1994,8 +1965,8 @@
         "affectedBySecurityVulnerabilities": false,
         "instances": [
           {
-            "buildVersion": "1.1.1.20260723-222522",
             "entityId": "PROCESS_GROUP_INSTANCE-584F0B8BD7D5A554",
+            "buildVersion": "1.1.1.20260723-222522",
             "problems": [],
             "securityVulnerabilities": []
           }
@@ -2018,9 +1989,9 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
-            "verbatimType": "LIBC"
+            "verbatimType": "LIBC",
+            "edition": "musl"
           }
         ],
         "stage": "production",
@@ -2032,8 +2003,8 @@
         "affectedBySecurityVulnerabilities": true,
         "instances": [
           {
-            "buildVersion": "1.1.1.20260802-222527",
             "entityId": "PROCESS_GROUP_INSTANCE-532DA87375F67A77",
+            "buildVersion": "1.1.1.20260804-222515",
             "problems": [],
             "securityVulnerabilities": [
               "16976961604761907077",
@@ -2045,7 +2016,8 @@
               "522822180691020149",
               "5795707422234866321",
               "11841681742266334933",
-              "14320509456022049363"
+              "14320509456022049363",
+              "419872287433413031"
             ]
           }
         ],
@@ -2054,7 +2026,7 @@
         "product": "easytrade",
         "releaseEntityId": "PROCESS_GROUP-89F4E82A9105281A",
         "running": true,
-        "securityVulnerabilitiesCount": 10,
+        "securityVulnerabilitiesCount": 11,
         "securityVulnerabilitiesEnabled": true,
         "softwareTechs": [
           {
@@ -2067,20 +2039,20 @@
             "verbatimType": "CONTAINERD"
           },
           {
-            "edition": "musl",
             "technology": "LIBC",
             "verbatimType": "LIBC",
+            "edition": "musl",
             "version": "1.2.5"
           },
           {
-            "edition": "Node.js",
             "technology": "OPENTELEMETRY",
             "verbatimType": "OPENTELEMETRY",
+            "edition": "Node.js",
             "version": "@opentelemetry/api"
           }
         ],
         "stage": "production",
-        "throughput": 3923374.449074074,
+        "throughput": 3923374.4962962964,
         "version": "1.5.4"
       },
       {
@@ -2140,8 +2112,9 @@
         "version": "1.0.9"
       }
     ],
-    "totalCount": 33,
-    "releasesWithProblems": 1
+    "pageSize": 100,
+    "releasesWithProblems": 1,
+    "totalCount": 33
   },
   "nango": {},
   "api": {
@@ -2225,52 +2198,26 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 5519936.909090909,
-              "running": false,
+              "throughput": 5283480.996407047,
+              "running": true,
               "softwareTechs": [
                 {
                   "technology": "DOTNET",
                   "verbatimType": "Dotnet",
-                  "edition": ".NET",
-                  "version": "8.0.27.0"
-                },
-                {
-                  "technology": "ADO_NET",
-                  "verbatimType": "ADO_NET",
-                  "edition": "System.Data.Common",
-                  "version": "8.0.2726.22922"
+                  "edition": ".NET Core"
                 },
                 {
                   "technology": "CLR",
                   "verbatimType": "CLR",
-                  "edition": "CLR",
-                  "version": "8.0.27.0"
-                },
-                {
-                  "technology": "CONFLUENT_KAFKA_CLIENT",
-                  "verbatimType": "CONFLUENT_KAFKA_CLIENT",
-                  "version": "2.11.0.0"
+                  "edition": "CoreCLR"
                 },
                 {
                   "technology": "CONTAINERD",
                   "verbatimType": "CONTAINERD"
                 },
                 {
-                  "technology": "LIBC",
-                  "verbatimType": "LIBC",
-                  "edition": "glibc",
-                  "version": "2.36"
-                },
-                {
-                  "technology": "OPENTELEMETRY",
-                  "verbatimType": "OPENTELEMETRY",
-                  "edition": ".NET",
-                  "version": "1.15.3.2017"
-                },
-                {
-                  "technology": "POSTGRE_DOTNET_DATA_PROVIDER",
-                  "verbatimType": "postgre .NET Data Provider",
-                  "version": "9.0.3.0"
+                  "technology": "DOTNET",
+                  "verbatimType": "Dotnet"
                 }
               ],
               "affectedByProblems": false,
@@ -2335,7 +2282,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 2,
-              "throughput": 38009351.37339246,
+              "throughput": 36720546.33023975,
               "running": true,
               "softwareTechs": [
                 {
@@ -2370,48 +2317,48 @@
               "version": "1.5.4",
               "instances": [
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+                  "entityId": "PROCESS_GROUP_INSTANCE-358B92B699A46459",
                   "problems": [],
                   "securityVulnerabilities": [
                     "3502265907281635187",
                     "17298541638040527581",
-                    "2699341067565434634",
                     "3813336248191979827",
-                    "14175369845229507829",
+                    "2699341067565434634",
+                    "4652962478791170050",
                     "8828912542794219634",
                     "2697270167606488394",
-                    "4652962478791170050",
                     "15910524575781210918",
+                    "14175369845229507829",
                     "2827891730495457470",
                     "14711075732932702961",
                     "10763632372033119112",
                     "3400679170517685671",
                     "14628176234880500077",
-                    "7421814806019427871",
-                    "13500140233283119540",
-                    "5090405471596487530",
+                    "1228907736015312478",
                     "301544466617453837",
                     "12174526754697326161",
-                    "1228907736015312478",
+                    "5090405471596487530",
+                    "13500140233283119540",
+                    "7421814806019427871",
                     "7162224511840275487",
-                    "16314727483330447586",
-                    "3760401106105876897",
                     "9868706762787196772",
                     "3774976675874560818",
+                    "16314727483330447586",
                     "11948815636156664487",
-                    "10538538159161676721",
+                    "3760401106105876897",
                     "8057580925661966446",
                     "6839854332912691056",
+                    "10007256948109561913",
                     "17007786251727413852",
-                    "14278766004398585278",
-                    "10007256948109561913"
+                    "10538538159161676721",
+                    "14278766004398585278"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 32,
-              "throughput": 7480663.111111111,
+              "throughput": -1,
               "running": true,
               "softwareTechs": [
                 {
@@ -2470,12 +2417,6 @@
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-14CEFCAA85D5F08E",
-                  "buildVersion": "1.1.1.20260723-042526",
-                  "problems": [],
-                  "securityVulnerabilities": []
-                },
-                {
                   "entityId": "PROCESS_GROUP_INSTANCE-C05B08C0C72CC140",
                   "buildVersion": "1.1.1.20260728-042525",
                   "problems": [],
@@ -2494,14 +2435,14 @@
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-37B018058A4357F7",
-                  "buildVersion": "1.1.1.20260723-040025",
+                  "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
+                  "buildVersion": "1.1.1.20260804-040045",
                   "problems": [],
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-F11DAD43C696AA69",
-                  "buildVersion": "1.1.1.20260803-042517",
+                  "entityId": "PROCESS_GROUP_INSTANCE-3DA12F06F5239A27",
+                  "buildVersion": "1.1.1.20260805-042526",
                   "problems": [],
                   "securityVulnerabilities": []
                 },
@@ -2519,7 +2460,7 @@
                 },
                 {
                   "entityId": "PROCESS_GROUP_INSTANCE-6ECD9AF3649DA48C",
-                  "buildVersion": "1.1.1.20260803-042517",
+                  "buildVersion": "1.1.1.20260804-040045",
                   "problems": [],
                   "securityVulnerabilities": []
                 },
@@ -2530,14 +2471,14 @@
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-EEC2972AD80377DE",
-                  "buildVersion": "1.1.1.20260722-040025",
+                  "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
+                  "buildVersion": "1.1.1.20260731-042517",
                   "problems": [],
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-EF2A2FF19B624F81",
-                  "buildVersion": "1.1.1.20260731-042517",
+                  "entityId": "PROCESS_GROUP_INSTANCE-77A887FAFC1A5AE8",
+                  "buildVersion": "1.1.1.20260805-042526",
                   "problems": [],
                   "securityVulnerabilities": []
                 },
@@ -2588,12 +2529,18 @@
                   "buildVersion": "1.1.1.20260724-042522",
                   "problems": [],
                   "securityVulnerabilities": []
+                },
+                {
+                  "entityId": "PROCESS_GROUP_INSTANCE-8E2F56AF137CC91B",
+                  "buildVersion": "1.1.1.20260805-040038",
+                  "problems": [],
+                  "securityVulnerabilities": []
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 274393655.3615476,
+              "throughput": 295407822.37043184,
               "running": false,
               "softwareTechs": [
                 {
@@ -2622,11 +2569,6 @@
                 {
                   "technology": "CONTAINERD",
                   "verbatimType": "CONTAINERD"
-                },
-                {
-                  "technology": "DOTNET",
-                  "verbatimType": "Dotnet",
-                  "edition": ".NET Core"
                 },
                 {
                   "technology": "LIBC",
@@ -2678,7 +2620,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 7,
-              "throughput": 15863478.577994123,
+              "throughput": 15700430.70956882,
               "running": true,
               "softwareTechs": [
                 {
@@ -2712,48 +2654,48 @@
                   "problems": [],
                   "securityVulnerabilities": [
                     "13795413615019733338",
-                    "10376738703241735743",
                     "1081418630014295188",
+                    "10376738703241735743",
                     "7443305259587503371",
-                    "15699452788619887668",
-                    "2567207456321956862",
                     "4374629275630079178",
-                    "4365486619696795125",
                     "12221378306324797476",
-                    "11602685212763134275",
-                    "11207221942644150303",
-                    "3310020299446976751",
+                    "4365486619696795125",
+                    "2567207456321956862",
+                    "15699452788619887668",
                     "16189503906157347220",
+                    "3310020299446976751",
+                    "11207221942644150303",
+                    "11602685212763134275",
                     "11480914223611631405",
-                    "9184174751313618919",
+                    "18044996708830996545",
                     "8590695806631773531",
-                    "10997722573754600964",
-                    "12095892675663657152",
+                    "31927140726656475",
                     "7712027161588397174",
                     "11678709523234527065",
                     "6107173229056910058",
-                    "18044996708830996545",
-                    "31927140726656475",
-                    "12624992972495918990",
+                    "9184174751313618919",
+                    "12095892675663657152",
+                    "10997722573754600964",
                     "15182832947436065142",
+                    "12624992972495918990",
                     "8433340233447809524",
                     "6501777276080538835",
                     "8036739847770072663",
-                    "16179523304113195509",
+                    "1300697805316325487",
                     "2214742517782493160",
                     "12824456585881960390",
-                    "1300697805316325487",
+                    "16179523304113195509",
                     "6145894411474681128",
                     "2825608353509361685",
-                    "13963943407045027807",
-                    "2417071847731309386"
+                    "2417071847731309386",
+                    "13963943407045027807"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 36,
-              "throughput": 3068.6533203125,
+              "throughput": 962238.1717601103,
               "running": true,
               "softwareTechs": [
                 {
@@ -2865,12 +2807,6 @@
                   "securityVulnerabilities": []
                 },
                 {
-                  "entityId": "PROCESS_GROUP_INSTANCE-B5FA1DEA84EFCE0F",
-                  "buildVersion": "1.1.1.20260722-042523",
-                  "problems": [],
-                  "securityVulnerabilities": []
-                },
-                {
                   "entityId": "PROCESS_GROUP_INSTANCE-A34FC0ED2A34DAAF",
                   "buildVersion": "1.1.1.20260725-042521",
                   "problems": [],
@@ -2889,6 +2825,12 @@
                   "securityVulnerabilities": []
                 },
                 {
+                  "entityId": "PROCESS_GROUP_INSTANCE-598FEA934D651739",
+                  "buildVersion": "1.1.1.20260805-042526",
+                  "problems": [],
+                  "securityVulnerabilities": []
+                },
+                {
                   "entityId": "PROCESS_GROUP_INSTANCE-1B6D86B4A02AF6FE",
                   "buildVersion": "1.1.1.20260726-042516",
                   "problems": [],
@@ -2898,7 +2840,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": false,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 125845580.9725798,
+              "throughput": 124978141.77337298,
               "running": false,
               "softwareTechs": [],
               "affectedByProblems": false,
@@ -2917,36 +2859,36 @@
                   "securityVulnerabilities": [
                     "3502265907281635187",
                     "17298541638040527581",
-                    "2699341067565434634",
                     "3813336248191979827",
-                    "14175369845229507829",
+                    "2699341067565434634",
+                    "4652962478791170050",
                     "8828912542794219634",
                     "2697270167606488394",
-                    "4652962478791170050",
                     "15910524575781210918",
+                    "14175369845229507829",
                     "2827891730495457470",
                     "14711075732932702961",
                     "10763632372033119112",
                     "3400679170517685671",
                     "14628176234880500077",
-                    "7421814806019427871",
-                    "13500140233283119540",
-                    "5090405471596487530",
+                    "1228907736015312478",
                     "301544466617453837",
                     "12174526754697326161",
-                    "1228907736015312478",
+                    "5090405471596487530",
+                    "13500140233283119540",
+                    "7421814806019427871",
                     "7162224511840275487",
-                    "16314727483330447586",
-                    "3760401106105876897",
                     "9868706762787196772",
                     "3774976675874560818",
+                    "16314727483330447586",
                     "11948815636156664487",
-                    "10538538159161676721",
+                    "3760401106105876897",
                     "8057580925661966446",
                     "6839854332912691056",
+                    "10007256948109561913",
                     "17007786251727413852",
-                    "14278766004398585278",
-                    "10007256948109561913"
+                    "10538538159161676721",
+                    "14278766004398585278"
                   ]
                 },
                 {
@@ -3022,43 +2964,43 @@
                   "securityVulnerabilities": [
                     "3502265907281635187",
                     "17298541638040527581",
-                    "2699341067565434634",
                     "3813336248191979827",
-                    "14175369845229507829",
+                    "2699341067565434634",
+                    "4652962478791170050",
                     "8828912542794219634",
                     "2697270167606488394",
-                    "4652962478791170050",
                     "15910524575781210918",
+                    "14175369845229507829",
                     "2827891730495457470",
                     "14711075732932702961",
                     "10763632372033119112",
                     "3400679170517685671",
                     "14628176234880500077",
-                    "7421814806019427871",
-                    "13500140233283119540",
-                    "5090405471596487530",
+                    "1228907736015312478",
                     "301544466617453837",
                     "12174526754697326161",
-                    "1228907736015312478",
+                    "5090405471596487530",
+                    "13500140233283119540",
+                    "7421814806019427871",
                     "7162224511840275487",
-                    "16314727483330447586",
-                    "3760401106105876897",
                     "9868706762787196772",
                     "3774976675874560818",
+                    "16314727483330447586",
                     "11948815636156664487",
-                    "10538538159161676721",
+                    "3760401106105876897",
                     "8057580925661966446",
                     "6839854332912691056",
+                    "10007256948109561913",
                     "17007786251727413852",
-                    "14278766004398585278",
-                    "10007256948109561913"
+                    "10538538159161676721",
+                    "14278766004398585278"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 32,
-              "throughput": 425454229.4991319,
+              "throughput": 414126572.1342905,
               "running": true,
               "softwareTechs": [
                 {
@@ -3120,26 +3062,26 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-7D108707D3FE564C",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "697394227850026450",
                     "12298512334971036351",
-                    "2960224221477854522",
-                    "4990974433164743668",
+                    "697394227850026450",
                     "3580107191860539676",
+                    "4990974433164743668",
+                    "2960224221477854522",
                     "17476754595071526637",
-                    "7963618415673091048",
                     "12695136343552235532",
+                    "7963618415673091048",
                     "7645686165172801256",
                     "14282142580345404459",
                     "142773141113245304",
+                    "12358490766188712428",
                     "14532318584052300041",
                     "4311153053714515842",
                     "15845210183519456453",
-                    "12358490766188712428",
                     "3879987550510608055",
-                    "9710005106947642195",
                     "15030122387929828621",
-                    "13082145647960346774",
+                    "9710005106947642195",
                     "241316474438642389",
+                    "13082145647960346774",
                     "15709844373426946223",
                     "14279045059044908376",
                     "17854304046701386593",
@@ -3147,19 +3089,20 @@
                     "17993154721776293038",
                     "506897419680391918",
                     "12538232785798622780",
-                    "16935829543653549774",
-                    "14887568902668671917",
                     "1278941457832141585",
+                    "14887568902668671917",
+                    "16935829543653549774",
                     "11515068045354941919",
                     "9826447127402189355",
-                    "16441999453541971519"
+                    "16441999453541971519",
+                    "17439713217382884657"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
-              "securityVulnerabilitiesCount": 33,
-              "throughput": 5409189.979694813,
+              "securityVulnerabilitiesCount": 34,
+              "throughput": 5690293.664220518,
               "running": true,
               "softwareTechs": [
                 {
@@ -3211,15 +3154,15 @@
                     "2625726785177267157",
                     "15554607231409642486",
                     "3837460658370191281",
-                    "10330957823829282400",
-                    "10801845231543165274"
+                    "10801845231543165274",
+                    "10330957823829282400"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 9,
-              "throughput": 5675459.8083354505,
+              "throughput": 5662326.185031727,
               "running": true,
               "softwareTechs": [
                 {
@@ -3267,7 +3210,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 440717.4090863047,
+              "throughput": 447830.88312663307,
               "running": true,
               "softwareTechs": [
                 {
@@ -3343,7 +3286,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 20439674.833333332,
+              "throughput": 19888984.041353382,
               "running": true,
               "softwareTechs": [
                 {
@@ -3381,7 +3324,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 3929241.951219512,
+              "throughput": 3151855.6129032257,
               "running": true,
               "softwareTechs": [
                 {
@@ -3419,7 +3362,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 11678748.710280374,
+              "throughput": 13811968.375,
               "running": true,
               "softwareTechs": [
                 {
@@ -3489,8 +3432,8 @@
                     "14447386328188115301",
                     "3400444221308432221",
                     "1457626808473465638",
-                    "10330957823829282400",
                     "10801845231543165274",
+                    "10330957823829282400",
                     "1627671190432745117",
                     "16081076390296942267",
                     "14506297890939938163"
@@ -3500,7 +3443,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 42,
-              "throughput": 5288176.309945372,
+              "throughput": 5220293.478790079,
               "running": true,
               "softwareTechs": [
                 {
@@ -3550,8 +3493,8 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-8308859B925403A3",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "12624992972495918990",
-                    "15182832947436065142"
+                    "15182832947436065142",
+                    "12624992972495918990"
                   ]
                 }
               ],
@@ -3594,48 +3537,48 @@
                     "13795413615019733338",
                     "13464357819717500010",
                     "4300018779392022109",
-                    "10376738703241735743",
                     "1081418630014295188",
+                    "10376738703241735743",
                     "7443305259587503371",
-                    "15699452788619887668",
-                    "2567207456321956862",
                     "4374629275630079178",
-                    "4365486619696795125",
                     "12221378306324797476",
-                    "11602685212763134275",
-                    "11207221942644150303",
-                    "3310020299446976751",
+                    "4365486619696795125",
+                    "2567207456321956862",
+                    "15699452788619887668",
                     "16189503906157347220",
+                    "3310020299446976751",
+                    "11207221942644150303",
+                    "11602685212763134275",
                     "11480914223611631405",
-                    "9184174751313618919",
+                    "18044996708830996545",
                     "8590695806631773531",
-                    "10997722573754600964",
-                    "12095892675663657152",
+                    "31927140726656475",
                     "7712027161588397174",
                     "11678709523234527065",
                     "6107173229056910058",
-                    "18044996708830996545",
-                    "31927140726656475",
-                    "12624992972495918990",
+                    "9184174751313618919",
+                    "12095892675663657152",
+                    "10997722573754600964",
                     "15182832947436065142",
+                    "12624992972495918990",
                     "8433340233447809524",
                     "6501777276080538835",
                     "8036739847770072663",
                     "10434082864303772668",
-                    "16179523304113195509",
+                    "1300697805316325487",
                     "2214742517782493160",
                     "12824456585881960390",
-                    "1300697805316325487",
+                    "16179523304113195509",
                     "6145894411474681128",
-                    "13963943407045027807",
-                    "2417071847731309386"
+                    "2417071847731309386",
+                    "13963943407045027807"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 38,
-              "throughput": 11235512,
+              "throughput": 11235511.578947369,
               "running": true,
               "softwareTechs": [
                 {
@@ -3677,63 +3620,64 @@
                 {
                   "entityId": "PROCESS_GROUP_INSTANCE-F8A40CDF81B78A24",
                   "problems": [
-                    "P-2608308"
+                    "P-2608522",
+                    "P-2608515"
                   ],
                   "securityVulnerabilities": [
                     "3837750066390789659",
                     "653754270037246832",
                     "8261404982676157771",
-                    "2960224221477854522",
-                    "4990974433164743668",
-                    "3580107191860539676",
                     "4092682927678165288",
+                    "3580107191860539676",
                     "1091144306223037689",
+                    "4990974433164743668",
+                    "2960224221477854522",
                     "5119892264085789455",
-                    "17731817109691430108",
+                    "4786853704663420351",
                     "3598686708317561767",
                     "16142555706146400017",
-                    "4786853704663420351",
+                    "17731817109691430108",
                     "17044792044333232291",
                     "142773141113245304",
                     "6438203665982683447",
-                    "14532318584052300041",
                     "7487796835650188078",
-                    "6927389360143928753",
-                    "799072727568521510",
-                    "7471032378171744127",
-                    "4311153053714515842",
-                    "3454081566035867600",
-                    "15845210183519456453",
-                    "13123932813009550928",
-                    "12358490766188712428",
                     "2723142078216999221",
+                    "7471032378171744127",
+                    "6927389360143928753",
+                    "12358490766188712428",
+                    "799072727568521510",
+                    "3454081566035867600",
+                    "14532318584052300041",
+                    "4311153053714515842",
+                    "15845210183519456453",
                     "3879987550510608055",
-                    "13082145647960346774",
+                    "13123932813009550928",
                     "241316474438642389",
+                    "13082145647960346774",
                     "10710617243145272624",
                     "4679789903020529202",
                     "16617560019467051797",
                     "2556131525198936847",
-                    "12538232785798622780",
-                    "16420857620448901149",
                     "2393078931706615815",
                     "17351356947021709398",
-                    "18338485650759113995",
                     "1067911246264107983",
+                    "18338485650759113995",
+                    "12538232785798622780",
+                    "16420857620448901149",
                     "11515068045354941919",
                     "9826447127402189355",
-                    "16184669679373012643",
-                    "14320509456022049363",
                     "15534735979287486164",
-                    "16441999453541971519",
-                    "18058111551737381332"
+                    "14320509456022049363",
+                    "16184669679373012643",
+                    "18058111551737381332",
+                    "16441999453541971519"
                   ]
                 }
               ],
-              "problemCount": 1,
+              "problemCount": 2,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 47,
-              "throughput": 5559823.053790047,
+              "throughput": 5628576.695585697,
               "running": true,
               "softwareTechs": [
                 {
@@ -3778,8 +3722,8 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-AF1469377690A24A",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "14102357608356184718",
                     "9558556182508818571",
+                    "14102357608356184718",
                     "7109577968916492366",
                     "11749076692905322193",
                     "15554607231409642486",
@@ -3790,7 +3734,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 6,
-              "throughput": 1716584.0247440273,
+              "throughput": 1521619.4436141304,
               "running": true,
               "softwareTechs": [
                 {
@@ -3860,8 +3804,8 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-D2226D4E1DBC6DF9",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "14102357608356184718",
                     "9558556182508818571",
+                    "14102357608356184718",
                     "7109577968916492366",
                     "11749076692905322193",
                     "15554607231409642486",
@@ -3872,7 +3816,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 6,
-              "throughput": 6171820.258250452,
+              "throughput": 5552226.982772436,
               "running": true,
               "softwareTechs": [
                 {
@@ -3942,8 +3886,8 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-FFCB9602EF10C0BC",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "14102357608356184718",
                     "9558556182508818571",
+                    "14102357608356184718",
                     "7109577968916492366",
                     "11749076692905322193",
                     "15554607231409642486",
@@ -3954,7 +3898,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 6,
-              "throughput": 7170975.695997807,
+              "throughput": 6956513.988877119,
               "running": true,
               "softwareTechs": [
                 {
@@ -4024,8 +3968,8 @@
                   "entityId": "PROCESS_GROUP_INSTANCE-AE5B887706D89FC3",
                   "problems": [],
                   "securityVulnerabilities": [
-                    "14102357608356184718",
                     "9558556182508818571",
+                    "14102357608356184718",
                     "7109577968916492366",
                     "11749076692905322193",
                     "15554607231409642486",
@@ -4036,7 +3980,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 6,
-              "throughput": 36782949.58493262,
+              "throughput": 35380805.64510965,
               "running": true,
               "softwareTechs": [
                 {
@@ -4112,7 +4056,7 @@
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
               "securityVulnerabilitiesCount": 0,
-              "throughput": 62919077.57906205,
+              "throughput": 52282377.5432485,
               "running": true,
               "softwareTechs": [
                 {
@@ -4185,7 +4129,7 @@
               "instances": [
                 {
                   "entityId": "PROCESS_GROUP_INSTANCE-532DA87375F67A77",
-                  "buildVersion": "1.1.1.20260802-222527",
+                  "buildVersion": "1.1.1.20260804-222515",
                   "problems": [],
                   "securityVulnerabilities": [
                     "16976961604761907077",
@@ -4197,14 +4141,15 @@
                     "522822180691020149",
                     "5795707422234866321",
                     "11841681742266334933",
-                    "14320509456022049363"
+                    "14320509456022049363",
+                    "419872287433413031"
                   ]
                 }
               ],
               "problemCount": 0,
               "securityVulnerabilitiesEnabled": true,
-              "securityVulnerabilitiesCount": 10,
-              "throughput": 3923374.449074074,
+              "securityVulnerabilitiesCount": 11,
+              "throughput": 3923374.4962962964,
               "running": true,
               "softwareTechs": [
                 {
@@ -4293,23 +4238,34 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 03 Aug 2026 16:49:42 GMT",
+          "date": "Wed, 05 Aug 2026 16:21:06 GMT",
           "content-type": "application/json;charset=utf-8",
-          "content-length": "40600",
+          "content-length": "40093",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "strict-transport-security": "max-age=31536000;includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1980",
-          "x-ratelimit-reset": "1785775817",
-          "etag": "W/\"9e98-M5MRqRBKZsMYU9AcX/8CpUJ33Vs\""
+          "x-ratelimit-remaining": "1887",
+          "x-ratelimit-reset": "1785946887",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-oneagent-js-injection": "true",
+          "server-timing": "dtTrId;desc=\"6a7362f2000000003e2a0bb171305baf\", dtSInfo;desc=\"0\", dtRpid;desc=\"1608807475\"",
+          "traceresponse": "00-6a7362f2000000003e2a0bb171305baf-1ccc39538f07a29f-01",
+          "x-dt-tracestate": "ec907795-f23c233@dt",
+          "cache-control": "no-store, no-cache",
+          "pragma": "no-cache",
+          "dynatrace-response-source": "Cluster",
+          "x-robots-tag": "noindex",
+          "server": "ruxit server",
+          "etag": "W/\"9c9d-EiKrrUUBUWhO6kfFQGtqtITlwX0\""
         },
         "hash": "19712d993d1f7a0cea415d70ba48f59f575a46e1",
         "request": {}
