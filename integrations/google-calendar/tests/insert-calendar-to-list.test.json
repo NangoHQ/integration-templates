@@ -1,18 +1,24 @@
 {
   "input": {
-    "calendarId": "en.usa#holiday@group.v.calendar.google.com",
-    "selected": true
+    "calendarId": "c_1c43767af24b5632888299c7968e40d7df32e421828bdfbfd6d3735ff7cc8743@group.calendar.google.com"
   },
   "output": {
-    "id": "en.usa#holiday@group.v.calendar.google.com",
-    "summary": "Holidays in United States",
-    "description": "Holidays and Observances in United States",
-    "timeZone": "America/Sao_Paulo",
-    "accessRole": "reader",
-    "backgroundColor": "#16a765",
+    "kind": "calendar#calendarListEntry",
+    "etag": "\"1786484545369487\"",
+    "id": "c_1c43767af24b5632888299c7968e40d7df32e421828bdfbfd6d3735ff7cc8743@group.calendar.google.com",
+    "summary": "Test Calendar for Insert List Action",
+    "timeZone": "UTC",
+    "colorId": "5",
+    "backgroundColor": "#ff7537",
     "foregroundColor": "#000000",
-    "colorId": "8",
-    "selected": true
+    "selected": true,
+    "accessRole": "owner",
+    "defaultReminders": [],
+    "conferenceProperties": {
+      "allowedConferenceSolutionTypes": [
+        "hangoutsMeet"
+      ]
+    }
   },
   "nango": {},
   "api": {
@@ -20,16 +26,16 @@
       "/calendar/v3/users/me/calendarList": {
         "response": {
           "kind": "calendar#calendarListEntry",
-          "etag": "\"1773300431513487\"",
-          "id": "en.usa#holiday@group.v.calendar.google.com",
-          "summary": "Holidays in United States",
-          "description": "Holidays and Observances in United States",
-          "timeZone": "America/Sao_Paulo",
-          "colorId": "8",
-          "backgroundColor": "#16a765",
+          "etag": "\"1786484545369487\"",
+          "id": "c_1c43767af24b5632888299c7968e40d7df32e421828bdfbfd6d3735ff7cc8743@group.calendar.google.com",
+          "summary": "Test Calendar for Insert List Action",
+          "timeZone": "UTC",
+          "dataOwner": "api@nango.dev",
+          "colorId": "5",
+          "backgroundColor": "#ff7537",
           "foregroundColor": "#000000",
           "selected": true,
-          "accessRole": "reader",
+          "accessRole": "owner",
           "defaultReminders": [],
           "conferenceProperties": {
             "allowedConferenceSolutionTypes": [
@@ -39,7 +45,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:27:11 GMT",
+          "date": "Tue, 11 Aug 2026 21:42:25 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -49,26 +55,25 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4887",
-          "x-ratelimit-reset": "1773300465",
-          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1786484571",
           "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "etag": "\"1786484545369487\"",
           "pragma": "no-cache",
-          "etag": "\"1773300431513487\"",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "671ac46e22d8180c303f7f9df491e8799b20c1ff",
+        "hash": "7fa119cbfb8b488d17e6982746aabd5e82be80eb",
         "request": {
           "data": {
-            "id": "en.usa#holiday@group.v.calendar.google.com",
-            "selected": true
+            "id": "c_1c43767af24b5632888299c7968e40d7df32e421828bdfbfd6d3735ff7cc8743@group.calendar.google.com"
           }
         }
       }

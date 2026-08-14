@@ -1,0 +1,72 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "workflow_id": "331870956"
+  },
+  "output": {
+    "id": 331870956,
+    "node_id": "W_kwDOT1NNv84Tx_Ls",
+    "name": "Nango Registry Test",
+    "path": ".github/workflows/nango-registry-test.yml",
+    "state": "active",
+    "created_at": "2026-08-11T12:09:26.000Z",
+    "updated_at": "2026-08-11T12:09:26.000Z",
+    "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870956",
+    "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/nango-registry-test.yml",
+    "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Nango%20Registry%20Test/badge.svg"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/nango-provisioned-apps/nango/actions/workflows/331870956": {
+        "response": {
+          "id": 331870956,
+          "node_id": "W_kwDOT1NNv84Tx_Ls",
+          "name": "Nango Registry Test",
+          "path": ".github/workflows/nango-registry-test.yml",
+          "state": "active",
+          "created_at": "2026-08-11T12:09:26.000Z",
+          "updated_at": "2026-08-11T12:09:26.000Z",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870956",
+          "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/nango-registry-test.yml",
+          "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Nango%20Registry%20Test/badge.svg"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 15:45:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1786466677",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"c06705e52258bf0d4d9a50035a6d845eb9fea5ff8ce7cb43f67496560c5bede8\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "actions=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "13",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "AEFB:1D4FF:26290:2EA0C:6A7B4383",
+          "x-github-edge-region": "westus2"
+        },
+        "hash": "f36b13b5ec608ad84d0a293ffae669ee3cf08bcf",
+        "request": {}
+      }
+    }
+  }
+}

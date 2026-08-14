@@ -1,19 +1,25 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar ID to delete. Example: "c_abc123@group.calendar.google.com"')
-});
+const InputSchema = z
+    .object({
+        calendarId: z.string().describe('The ID of the calendar to delete.')
+    })
+    .describe('Input for deleting a Google Calendar.');
 
 const OutputSchema = z.object({
     success: z.boolean(),
     calendarId: z.string()
 });
 
+/**
+ * @tags: [write, destructive]
+ * @tagReason: Permanently deletes a secondary calendar from Google Calendar.
+ * @pitfalls: This action only deletes secondary calendars.
+ */
 const action = createAction({
-    description: 'Delete a secondary calendar',
-    version: '2.0.1',
-
+    description: 'Delete a calendar',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],

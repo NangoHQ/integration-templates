@@ -1,0 +1,124 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "sha": "b0c04d98449d8091854fd4ed3ba20c78a1a89499",
+    "state": "success",
+    "target_url": "https://example.com",
+    "description": "Nango create-commit-status dryrun",
+    "context": "nango/registry-test-create-action"
+  },
+  "output": {
+    "id": 52035368836,
+    "node_id": "SC_kwDOT1NNv88AAAAMHYy3hA",
+    "state": "success",
+    "description": "Nango create-commit-status dryrun",
+    "target_url": "https://example.com",
+    "context": "nango/registry-test-create-action",
+    "created_at": "2026-08-11T15:47:27Z",
+    "updated_at": "2026-08-11T15:47:27Z",
+    "creator": {
+      "login": "testnangoapi[bot]",
+      "id": 280313874,
+      "node_id": "BOT_kgDOELVAEg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+      "html_url": "https://github.com/apps/testnangoapi",
+      "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+      "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+      "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+      "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+      "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+      "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+      "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+      "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+      "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+      "type": "Bot",
+      "user_view_type": "public",
+      "site_admin": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/nango-provisioned-apps/nango/statuses/b0c04d98449d8091854fd4ed3ba20c78a1a89499": {
+        "response": {
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/statuses/b0c04d98449d8091854fd4ed3ba20c78a1a89499",
+          "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+          "id": 52035368836,
+          "node_id": "SC_kwDOT1NNv88AAAAMHYy3hA",
+          "state": "success",
+          "description": "Nango create-commit-status dryrun",
+          "target_url": "https://example.com",
+          "context": "nango/registry-test-create-action",
+          "created_at": "2026-08-11T15:47:27Z",
+          "updated_at": "2026-08-11T15:47:27Z",
+          "creator": {
+            "login": "testnangoapi[bot]",
+            "id": 280313874,
+            "node_id": "BOT_kgDOELVAEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 15:47:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1549",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4964",
+          "x-ratelimit-reset": "1786466683",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "\"80b24788606e08e779d63e8aa215a2539ad3bb79a47336727efdd0de6c113c93\"",
+          "location": "https://api.github.com/repos/nango-provisioned-apps/nango/statuses/b0c04d98449d8091854fd4ed3ba20c78a1a89499",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "statuses=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "36",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "16A7:1B096E:1E3342:1EBE1C:6A7B440A",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "4e76bd893c6614037d85c8c04a8487d4ccfe34df",
+        "request": {
+          "data": {
+            "state": "success",
+            "target_url": "https://example.com",
+            "description": "Nango create-commit-status dryrun",
+            "context": "nango/registry-test-create-action"
+          }
+        }
+      }
+    }
+  }
+}

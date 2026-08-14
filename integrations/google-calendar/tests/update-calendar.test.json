@@ -1,48 +1,133 @@
 {
   "input": {
-    "calendarId": "c_687866a8b7a14d9dd3a9d5acc4b4a2fb51366153dc0cbb0b62b801a54f1ab734@group.calendar.google.com",
-    "summary": "Updated Test Calendar from Nango",
-    "description": "Updated via update-calendar action",
-    "location": "San Francisco",
-    "timeZone": "America/Los_Angeles"
+    "calendarId": "c_dc7f1ce1f01172c024f993b99fe679ff2d4aa158b3e09f797412d0794a6f2eb8@group.calendar.google.com",
+    "summary": "Updated Test Calendar"
   },
   "output": {
-    "id": "c_687866a8b7a14d9dd3a9d5acc4b4a2fb51366153dc0cbb0b62b801a54f1ab734@group.calendar.google.com",
-    "summary": "Updated Test Calendar from Nango",
-    "description": "Updated via update-calendar action",
-    "location": "San Francisco",
-    "timeZone": "America/Los_Angeles",
-    "kind": "calendar#calendar",
-    "etag": "\"BxayxEuwxrJrTWJUzYYFj6OR7jc\"",
-    "dataOwner": "api@nango.dev",
-    "conferenceProperties": {
-      "allowedConferenceSolutionTypes": [
-        "hangoutsMeet"
-      ]
-    }
+    "id": "c_dc7f1ce1f01172c024f993b99fe679ff2d4aa158b3e09f797412d0794a6f2eb8@group.calendar.google.com",
+    "summary": "Updated Test Calendar",
+    "timeZone": "UTC"
   },
   "nango": {},
   "api": {
-    "put": {
-      "/calendar/v3/calendars/c_687866a8b7a14d9dd3a9d5acc4b4a2fb51366153dc0cbb0b62b801a54f1ab734@group.calendar.google.com": {
+    "patch": {
+      "/calendar/v3/calendars/c_dc7f1ce1f01172c024f993b99fe679ff2d4aa158b3e09f797412d0794a6f2eb8%40group.calendar.google.com": {
         "response": {
           "kind": "calendar#calendar",
-          "etag": "\"BxayxEuwxrJrTWJUzYYFj6OR7jc\"",
-          "id": "c_687866a8b7a14d9dd3a9d5acc4b4a2fb51366153dc0cbb0b62b801a54f1ab734@group.calendar.google.com",
-          "summary": "Updated Test Calendar from Nango",
-          "description": "Updated via update-calendar action",
-          "location": "San Francisco",
-          "timeZone": "America/Los_Angeles",
+          "etag": "\"4M0kuYxeXKbXY22cEP2gbJXv_-o\"",
+          "id": "c_dc7f1ce1f01172c024f993b99fe679ff2d4aa158b3e09f797412d0794a6f2eb8@group.calendar.google.com",
+          "summary": "Updated Test Calendar",
+          "timeZone": "UTC",
           "dataOwner": "api@nango.dev",
           "conferenceProperties": {
             "allowedConferenceSolutionTypes": [
               "hangoutsMeet"
             ]
+          },
+          "labelProperties": {
+            "eventLabels": [
+              {
+                "id": "017bfdcc-e787-4188-9e74-d5058be663b2",
+                "backgroundColor": "#7cb342"
+              },
+              {
+                "id": "09fe6b81-5f3e-49f9-9558-283d0959c529",
+                "backgroundColor": "#e4c441"
+              },
+              {
+                "id": "0cdd4027-5896-4749-bc84-6da231f2281a",
+                "backgroundColor": "#616161"
+              },
+              {
+                "id": "102d135e-7cad-4661-bfe0-2c7fe99e8d21",
+                "backgroundColor": "#d81b60"
+              },
+              {
+                "id": "10e316ab-b824-4e24-8fc0-fb64aa129557",
+                "backgroundColor": "#0b8043"
+              },
+              {
+                "id": "2f952853-eda1-4abf-acba-7d84fef9f1a5",
+                "backgroundColor": "#d50000"
+              },
+              {
+                "id": "3b1a5ae5-fae3-42a7-9dd1-e44a1fda1eb5",
+                "backgroundColor": "#9e69af"
+              },
+              {
+                "id": "414197b8-7067-43aa-bcb9-67785d6b499d",
+                "backgroundColor": "#33b679"
+              },
+              {
+                "id": "4fc85d1c-2a5e-43de-9184-4b274b6c44b3",
+                "backgroundColor": "#b39ddb"
+              },
+              {
+                "id": "62264fda-8c4f-4383-bf11-617e257e9337",
+                "backgroundColor": "#e67c73"
+              },
+              {
+                "id": "74f256fd-7c0b-4d5d-bfff-9bb28cb13d6b",
+                "backgroundColor": "#ef6c00"
+              },
+              {
+                "id": "74f3870b-bd1d-4909-921e-75e9f417302b",
+                "backgroundColor": "#ad1457"
+              },
+              {
+                "id": "7848854d-5ae3-4c40-a01e-dea55437fe2f",
+                "backgroundColor": "#f6bf26"
+              },
+              {
+                "id": "7e7f285e-4662-4732-bd27-778738d91356",
+                "backgroundColor": "#f4511e"
+              },
+              {
+                "id": "9311fc0b-1a56-4ca8-bd43-cc08c5c6cbde",
+                "backgroundColor": "#a79b8e"
+              },
+              {
+                "id": "b05c2933-36f1-45d8-bb65-3812c5038c10",
+                "backgroundColor": "#009688"
+              },
+              {
+                "id": "b643a745-7aff-4d70-a0bd-9da960ac1af7",
+                "backgroundColor": "#7986cb"
+              },
+              {
+                "id": "bded0e24-3022-4ed9-90af-91cb06f9ed2b",
+                "backgroundColor": "#f09300"
+              },
+              {
+                "id": "c1860abf-706a-4fb6-97d5-0b4ffa0574bc",
+                "backgroundColor": "#795548"
+              },
+              {
+                "id": "c756c010-57ca-40f0-a98c-d9a041044727",
+                "backgroundColor": "#8e24aa"
+              },
+              {
+                "id": "c8ce66cf-ad7c-44cd-b3cf-1ae4e346283f",
+                "backgroundColor": "#3f51b5"
+              },
+              {
+                "id": "d34780a1-470b-42d0-8558-70b2f801c074",
+                "backgroundColor": "#4285f4"
+              },
+              {
+                "id": "e68fc5dc-59cd-4b03-a9e7-61e4972289de",
+                "backgroundColor": "#c0ca33"
+              },
+              {
+                "id": "f3473585-2555-4940-8b4f-0a21874053d3",
+                "backgroundColor": "#039be5"
+              }
+            ]
           }
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:27:30 GMT",
+          "date": "Tue, 11 Aug 2026 21:48:41 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -52,28 +137,25 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4816",
-          "x-ratelimit-reset": "1773300465",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1921",
+          "x-ratelimit-reset": "1786484925",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "pragma": "no-cache",
+          "vary": "Origin,X-Origin,Referer",
           "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
-          "etag": "\"BxayxEuwxrJrTWJUzYYFj6OR7jc\"",
-          "vary": "Origin, X-Origin, Referer",
+          "pragma": "no-cache",
+          "etag": "\"4M0kuYxeXKbXY22cEP2gbJXv_-o\"",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "8a168905132248a20837b60996a06d752d6f1bb6",
+        "hash": "162a13d73f7521daad310f10d492ac016e832b7d",
         "request": {
           "data": {
-            "summary": "Updated Test Calendar from Nango",
-            "description": "Updated via update-calendar action",
-            "location": "San Francisco",
-            "timeZone": "America/Los_Angeles"
+            "summary": "Updated Test Calendar"
           }
         }
       }

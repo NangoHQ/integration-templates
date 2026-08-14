@@ -1,0 +1,120 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "path": "NANGO_ACTION_DISPOSABLE_2.md",
+    "message": "Test create-or-update-file action save",
+    "content": "Hello from Nango action test save",
+    "branch": "master"
+  },
+  "output": {
+    "content_name": "NANGO_ACTION_DISPOSABLE_2.md",
+    "content_path": "NANGO_ACTION_DISPOSABLE_2.md",
+    "content_sha": "fa745f1d09ff2dac9981652cf024ba1b6d767afe",
+    "content_size": 33,
+    "content_html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/NANGO_ACTION_DISPOSABLE_2.md",
+    "content_download_url": "https://raw.githubusercontent.com/nango-provisioned-apps/nango/master/NANGO_ACTION_DISPOSABLE_2.md",
+    "commit_sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+    "commit_message": "Test create-or-update-file action save"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/repos/nango-provisioned-apps/nango/contents/NANGO_ACTION_DISPOSABLE_2.md": {
+        "response": {
+          "content": {
+            "name": "NANGO_ACTION_DISPOSABLE_2.md",
+            "path": "NANGO_ACTION_DISPOSABLE_2.md",
+            "sha": "fa745f1d09ff2dac9981652cf024ba1b6d767afe",
+            "size": 33,
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/contents/NANGO_ACTION_DISPOSABLE_2.md?ref=master",
+            "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/NANGO_ACTION_DISPOSABLE_2.md",
+            "git_url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/blobs/fa745f1d09ff2dac9981652cf024ba1b6d767afe",
+            "download_url": "https://raw.githubusercontent.com/nango-provisioned-apps/nango/master/NANGO_ACTION_DISPOSABLE_2.md",
+            "type": "file",
+            "_links": {
+              "self": "https://api.github.com/repos/nango-provisioned-apps/nango/contents/NANGO_ACTION_DISPOSABLE_2.md?ref=master",
+              "git": "https://api.github.com/repos/nango-provisioned-apps/nango/git/blobs/fa745f1d09ff2dac9981652cf024ba1b6d767afe",
+              "html": "https://github.com/nango-provisioned-apps/nango/blob/master/NANGO_ACTION_DISPOSABLE_2.md"
+            }
+          },
+          "commit": {
+            "sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+            "node_id": "C_kwDOT1NNv9oAKDRmMjliZDQyNTc4Y2I4YmQ5MjdhMjM3NDdkYjBmOWNkOWMxMDk4Y2M",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+            "html_url": "https://github.com/nango-provisioned-apps/nango/commit/4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+            "author": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-08-11T15:47:09Z"
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "date": "2026-08-11T15:47:09Z"
+            },
+            "tree": {
+              "sha": "93a1f417cb03f8d956fc255870198588d1d3d586",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/93a1f417cb03f8d956fc255870198588d1d3d586"
+            },
+            "message": "Test create-or-update-file action save",
+            "parents": [
+              {
+                "sha": "2575dc29b49dd343823481babd01595ad96bc926",
+                "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/2575dc29b49dd343823481babd01595ad96bc926",
+                "html_url": "https://github.com/nango-provisioned-apps/nango/commit/2575dc29b49dd343823481babd01595ad96bc926"
+              }
+            ],
+            "verification": {
+              "verified": true,
+              "reason": "valid",
+              "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqe0P+CRC1aQ7uu5UhlAAATdYQAGvw4Gj5BWskRKRWuTGyT4fg\n7H9vtlCdgCcu1Pu2GshVvdM34n+s+HGzrKpBdy50gnI+wDZ/fQyiSVjJJwJpZluQ\nqCaQC2Bk65cbCCUO3fcRFyA5d0emqP36+dvROnNqycelzoqPVGXQJwiU2PgA+Dyo\nh9uTiv5fjvepXaJVdJkHK/1oqlq4HoVocM8iEt35UB6FmM7JnrlZtOatStRo8NX8\ngFFxA1hAKAPqSQObYIHlZq7SiHVJeuaLMPb28U79B0VQM3Ou9MsnDvesKLnVOCix\nfGZZk9gmGF5AkE9u0KdrHTTCSsKAhVihwcT5efAoqFyLRw8LKQNlwJvKgU4MT/VM\n20g+O7Y8TMtVKbjFvFozYQeugNlfpLBqCCqob9TofHR7Or/GwbVYSvqbe/NF5mFQ\np3bh1yN42NACCV6qYtraW7NGtNzO8LpM/uPtblqOuQofIxFoR53npVDCE9h0mRQD\ndc6F9wgdBgfG2+BSnB5kyHViQT6PTNJs1UPCaVoDV7yuncFZOZajdsgIJvr956Mu\nBJ0lp7vmQov/Hf/LrX5H5pOScGDbPb0vXfqLIDeIqzJ3WAgJ402BSB0iRw0mr83K\nxQ6EFpOE5s4JgPr8y1ejBCCVKqBC8RJf6mRYVxAKLXDq9QQgUeLCErgXNM2coAE8\nnmlJ6cgv2+GYUVhb/Jjb\n=obEd\n-----END PGP SIGNATURE-----\n",
+              "payload": "tree 93a1f417cb03f8d956fc255870198588d1d3d586\nparent 2575dc29b49dd343823481babd01595ad96bc926\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786463229 +0000\ncommitter GitHub <noreply@github.com> 1786463229 +0000\n\nTest create-or-update-file action save",
+              "verified_at": "2026-08-11T15:47:10Z"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 15:47:10 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3287",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4949",
+          "x-ratelimit-reset": "1786466677",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "\"d6dfa52079fded1d00110fd6ada305ef87a91d8befcd85e09e8ae659a003b8d4\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=write; contents=write,workflows=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "51",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "16A7:1B096E:1DCFAB:1E58C1:6A7B43FB",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "b3a4e0ea69eaf205c1cbf27ddaaa15ebc1ed7451",
+        "request": {
+          "data": {
+            "message": "Test create-or-update-file action save",
+            "content": "SGVsbG8gZnJvbSBOYW5nbyBhY3Rpb24gdGVzdCBzYXZl",
+            "branch": "master"
+          }
+        }
+      }
+    }
+  }
+}

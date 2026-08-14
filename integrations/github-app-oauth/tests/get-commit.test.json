@@ -1,0 +1,224 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "ref": "master"
+  },
+  "output": {
+    "sha": "fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+    "node_id": "C_kwDOT1NNv9oAKGZhNjU5ZmRiMzA3NjI2ZGRmZmEzNWJkNTY4ODE5NWRkMGVmM2FjOTQ",
+    "html_url": "https://github.com/nango-provisioned-apps/nango/commit/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+    "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+    "commit": {
+      "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+      "author": {
+        "name": "testnangoapi[bot]",
+        "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+        "date": "2026-08-11T15:49:14Z"
+      },
+      "committer": {
+        "name": "GitHub",
+        "email": "noreply@github.com",
+        "date": "2026-08-11T15:49:14Z"
+      },
+      "message": "Create disposable file for delete-file test",
+      "comment_count": 0,
+      "tree": {
+        "sha": "85d54b3113564e9eeeaccd6580f55228fb8ea415",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/85d54b3113564e9eeeaccd6580f55228fb8ea415"
+      },
+      "verification": {
+        "verified": true,
+        "reason": "valid",
+        "payload": "tree 85d54b3113564e9eeeaccd6580f55228fb8ea415\nparent 4f29bd42578cb8bd927a23747db0f9cd9c1098cc\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786463354 +0000\ncommitter GitHub <noreply@github.com> 1786463354 +0000\n\nCreate disposable file for delete-file test",
+        "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqe0R6CRC1aQ7uu5UhlAAAYwIQAHFevahIeHt2m+NHaSHHYCoL\n+bVj5pn1bWnSUyuDjUpxgLQbbWfEbxwYcm3kK1If8RQL/fBmZi4MLuzRqCGkX1VZ\nFhGhvBLr54rBPxCYgVQij1h18B4+FXtIZUWJ7jnXZYAkbIyokmFnOrpzJAfNcysn\nnS/e+0fWvpHD3n2N24HcNSY2r+i0T/6RDPAu6ZMiPHAWHlGZgeaMynmkvgWkxHYa\nHVgpnKAQOXQBFOvJojmks97U/LICFUXD8HaDOMpN82w0O5kovtrcDRgWQXSgW39y\nSBfgLJBZ33PCB30bPaDK3aVxHO240dydF3wLzEIh5HYoxnuHrvsNSP+5uUx/XheX\n15L0uinFszppltuFIPF5JgYhM7CUVCE1IhlYRVZwa7Qe46JYsfT9zQyOnL0xcxD2\nd0Se7DEsw3wTxRmn4hYY59AyBm/30CDXkecda7VdTIvISlgzvmd86hszid4lbz3/\nkIbOzZtbYYQQ2R3M5KayqRbKA1rimwmASXUJTln5+Bzex3MMPj4Rmy9+b2gd+Hyi\nlD4IxojoJZdbPEUkeg9RWBTGblglaV95xivsRuK1vB/9ZeVbRUE9sTRutLTTYnEs\nwwdb5rLdALXcP52S5+a/WUSs29uKw88VHJI1lFDgd/0pARPfi1YF1ivJyx4UdBDQ\nrdZKQ9Vngs9awuNAB+9r\n=Wpe+\n-----END PGP SIGNATURE-----\n",
+        "verified_at": "2026-08-11T15:49:16Z"
+      }
+    },
+    "author": {
+      "login": "testnangoapi[bot]",
+      "id": 280313874,
+      "node_id": "BOT_kgDOELVAEg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+      "html_url": "https://github.com/apps/testnangoapi",
+      "type": "Bot"
+    },
+    "committer": {
+      "login": "web-flow",
+      "id": 19864447,
+      "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+      "html_url": "https://github.com/web-flow",
+      "type": "User"
+    },
+    "parents": [
+      {
+        "sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/commit/4f29bd42578cb8bd927a23747db0f9cd9c1098cc"
+      }
+    ],
+    "stats": {
+      "additions": 1,
+      "deletions": 0,
+      "total": 1
+    },
+    "files": [
+      {
+        "sha": "1bf447d6753a52f18b27c9ab9792a5fcf5a82bc1",
+        "filename": "NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+        "status": "added",
+        "additions": 1,
+        "deletions": 0,
+        "changes": 1,
+        "blob_url": "https://github.com/nango-provisioned-apps/nango/blob/fa659fdb307626ddffa35bd5688195dd0ef3ac94/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+        "raw_url": "https://github.com/nango-provisioned-apps/nango/raw/fa659fdb307626ddffa35bd5688195dd0ef3ac94/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+        "contents_url": "https://api.github.com/repos/nango-provisioned-apps/nango/contents/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md?ref=fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+        "patch": "@@ -0,0 +1 @@\n+# Disposable test file"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/nango-provisioned-apps/nango/commits/master": {
+        "response": {
+          "sha": "fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+          "node_id": "C_kwDOT1NNv9oAKGZhNjU5ZmRiMzA3NjI2ZGRmZmEzNWJkNTY4ODE5NWRkMGVmM2FjOTQ",
+          "commit": {
+            "author": {
+              "name": "testnangoapi[bot]",
+              "email": "280313874+testnangoapi[bot]@users.noreply.github.com",
+              "date": "2026-08-11T15:49:14Z"
+            },
+            "committer": {
+              "name": "GitHub",
+              "email": "noreply@github.com",
+              "date": "2026-08-11T15:49:14Z"
+            },
+            "message": "Create disposable file for delete-file test",
+            "tree": {
+              "sha": "85d54b3113564e9eeeaccd6580f55228fb8ea415",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/trees/85d54b3113564e9eeeaccd6580f55228fb8ea415"
+            },
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+            "comment_count": 0,
+            "verification": {
+              "verified": true,
+              "reason": "valid",
+              "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqe0R6CRC1aQ7uu5UhlAAAYwIQAHFevahIeHt2m+NHaSHHYCoL\n+bVj5pn1bWnSUyuDjUpxgLQbbWfEbxwYcm3kK1If8RQL/fBmZi4MLuzRqCGkX1VZ\nFhGhvBLr54rBPxCYgVQij1h18B4+FXtIZUWJ7jnXZYAkbIyokmFnOrpzJAfNcysn\nnS/e+0fWvpHD3n2N24HcNSY2r+i0T/6RDPAu6ZMiPHAWHlGZgeaMynmkvgWkxHYa\nHVgpnKAQOXQBFOvJojmks97U/LICFUXD8HaDOMpN82w0O5kovtrcDRgWQXSgW39y\nSBfgLJBZ33PCB30bPaDK3aVxHO240dydF3wLzEIh5HYoxnuHrvsNSP+5uUx/XheX\n15L0uinFszppltuFIPF5JgYhM7CUVCE1IhlYRVZwa7Qe46JYsfT9zQyOnL0xcxD2\nd0Se7DEsw3wTxRmn4hYY59AyBm/30CDXkecda7VdTIvISlgzvmd86hszid4lbz3/\nkIbOzZtbYYQQ2R3M5KayqRbKA1rimwmASXUJTln5+Bzex3MMPj4Rmy9+b2gd+Hyi\nlD4IxojoJZdbPEUkeg9RWBTGblglaV95xivsRuK1vB/9ZeVbRUE9sTRutLTTYnEs\nwwdb5rLdALXcP52S5+a/WUSs29uKw88VHJI1lFDgd/0pARPfi1YF1ivJyx4UdBDQ\nrdZKQ9Vngs9awuNAB+9r\n=Wpe+\n-----END PGP SIGNATURE-----\n",
+              "payload": "tree 85d54b3113564e9eeeaccd6580f55228fb8ea415\nparent 4f29bd42578cb8bd927a23747db0f9cd9c1098cc\nauthor testnangoapi[bot] <280313874+testnangoapi[bot]@users.noreply.github.com> 1786463354 +0000\ncommitter GitHub <noreply@github.com> 1786463354 +0000\n\nCreate disposable file for delete-file test",
+              "verified_at": "2026-08-11T15:49:16Z"
+            }
+          },
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+          "html_url": "https://github.com/nango-provisioned-apps/nango/commit/fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+          "comments_url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/fa659fdb307626ddffa35bd5688195dd0ef3ac94/comments",
+          "author": {
+            "login": "testnangoapi[bot]",
+            "id": 280313874,
+            "node_id": "BOT_kgDOELVAEg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
+            "html_url": "https://github.com/apps/testnangoapi",
+            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "committer": {
+            "login": "web-flow",
+            "id": 19864447,
+            "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+            "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/web-flow",
+            "html_url": "https://github.com/web-flow",
+            "followers_url": "https://api.github.com/users/web-flow/followers",
+            "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+            "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+            "organizations_url": "https://api.github.com/users/web-flow/orgs",
+            "repos_url": "https://api.github.com/users/web-flow/repos",
+            "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/web-flow/received_events",
+            "type": "User",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "parents": [
+            {
+              "sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/commit/4f29bd42578cb8bd927a23747db0f9cd9c1098cc"
+            }
+          ],
+          "stats": {
+            "total": 1,
+            "additions": 1,
+            "deletions": 0
+          },
+          "files": [
+            {
+              "sha": "1bf447d6753a52f18b27c9ab9792a5fcf5a82bc1",
+              "filename": "NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+              "status": "added",
+              "additions": 1,
+              "deletions": 0,
+              "changes": 1,
+              "blob_url": "https://github.com/nango-provisioned-apps/nango/blob/fa659fdb307626ddffa35bd5688195dd0ef3ac94/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+              "raw_url": "https://github.com/nango-provisioned-apps/nango/raw/fa659fdb307626ddffa35bd5688195dd0ef3ac94/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md",
+              "contents_url": "https://api.github.com/repos/nango-provisioned-apps/nango/contents/NANGO_REGISTRY_TEST_DISPOSABLE_V2.md?ref=fa659fdb307626ddffa35bd5688195dd0ef3ac94",
+              "patch": "@@ -0,0 +1 @@\n+# Disposable test file"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 15:49:52 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1786466683",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"e52d3ef6480da34e5a6ab5e45c99f5c4a6ee64a8f085df37a000446e5b99eddd\"",
+          "last-modified": "Tue, 11 Aug 2026 15:49:14 GMT",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "55",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "0E6D:2BA78C:2099E0:2134C2:6A7B4497",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "44ec3c121d79aea9c942d8a93e0501805b9a062b",
+        "request": {}
+      }
+    }
+  }
+}
