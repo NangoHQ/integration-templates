@@ -38,7 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List persons from PostHog.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['person:read'],
@@ -47,7 +47,7 @@ const action = createAction({
         const projectId = input.project_id;
 
         const params: Record<string, string | number> = {
-            ...(input.cursor !== undefined && { cursor: input.cursor }),
+            ...(input.cursor !== undefined && { offset: input.cursor }),
             ...(input.distinct_id !== undefined && { distinct_id: input.distinct_id }),
             ...(input.email !== undefined && { email: input.email }),
             ...(input.search !== undefined && { search: input.search }),
@@ -91,7 +91,7 @@ const action = createAction({
 
         let next_cursor: string | undefined;
         if (providerResponse.next) {
-            const match = providerResponse.next.match(/[?&]cursor=([^&]+)/);
+            const match = providerResponse.next.match(/[?&]offset=([^&]+)/);
             if (match && match[1]) {
                 next_cursor = decodeURIComponent(match[1]);
             }

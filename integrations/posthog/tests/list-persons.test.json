@@ -1,6 +1,8 @@
 {
   "input": {
-    "project_id": "309484"
+    "project_id": "309484",
+    "cursor": "2",
+    "limit": 2
   },
   "output": {
     "persons": [
@@ -92,7 +94,8 @@
         "uuid": "9d4f01dc-0c4c-557a-973d-abb4e84d77ef",
         "last_seen_at": "2026-06-03T10:00:00Z"
       }
-    ]
+    ],
+    "next_cursor": "4"
   },
   "nango": {
     "getConnection": {}
@@ -199,7 +202,7 @@
               "value_at_data_point": null
             }
           ],
-          "next": null,
+          "next": "/api/projects/309484/persons/?limit=2&offset=4",
           "previous": null
         },
         "status": 200,
@@ -223,7 +226,12 @@
           "etag": "W/\"bf3-1rU6+JAEzTEG0Vvww26BtUenSoc\""
         },
         "hash": "d2fb190132850bed64901f4fd4955ebfefa50f2b",
-        "request": {}
+        "request": {
+          "params": {
+            "offset": "2",
+            "limit": 2
+          }
+        }
       }
     }
   }
