@@ -1,80 +1,96 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar.'),
-    ruleId: z.string().describe('ACL rule identifier.'),
-    role: z.enum(['none', 'freeBusyReader', 'reader', 'writer', 'owner']).optional().describe('The role assigned to the scope.'),
-    scope: z
-        .object({
-            type: z.enum(['default', 'user', 'group', 'domain']).describe('The type of the scope.'),
-            value: z.string().optional().describe('The email address of a user or group, or the name of a domain.')
-        })
-        .optional()
-        .describe('The extent to which calendar access is granted.'),
-    sendNotifications: z.boolean().optional().describe('Whether to send notifications about the calendar sharing change.')
+const ScopeInputSchema = z.object({
+    type: z.string().describe('The type of the scope. Possible values are: "default", "user", "group", "domain".'),
+    value: z.string().optional().describe('The email address of a user or group, or the name of a domain. Omitted for type "default".')
 });
 
-const OutputSchema = z.object({
-    id: z.string(),
-    scope: z.object({
-        type: z.string(),
-        value: z.string().optional()
-    }),
-    role: z.string(),
-    etag: z.string().optional(),
-    kind: z.string().optional()
+const InputSchema = z
+    .object({
+        calendarId: z
+            .string()
+            .describe(
+                'Calendar identifier. To retrieve calendar IDs call the calendarList.list method. Use "primary" for the primary calendar of the logged-in user.'
+            ),
+        ruleId: z.string().describe('ACL rule identifier.'),
+        role: z
+            .string()
+            .optional()
+            .describe(
+                'The role assigned to the scope. Possible values are: "none", "freeBusyReader", "reader", "writerWithoutPrivateAccess", "writer", "owner".'
+            ),
+        scope: ScopeInputSchema.describe('The extent to which calendar access is granted by this ACL rule.'),
+        sendNotifications: z.boolean().optional().describe('Whether to send notifications about the calendar sharing change. Defaults to true.')
+    })
+    .describe('Input for updating an access control rule');
+
+const ScopeOutputSchema = z.object({
+    type: z.string().describe('The type of the scope.'),
+    value: z.string().optional().describe('The email address or domain name.')
 });
 
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Identifier of the ACL rule.'),
+        role: z.string().describe('The role assigned to the scope.'),
+        scope: ScopeOutputSchema.describe('The extent of calendar access granted by this ACL rule.'),
+        etag: z.string().optional().describe('ETag of the resource.'),
+        kind: z.string().optional().describe('Type of the resource. Always "calendar#aclRule".')
+    })
+    .describe('The updated access control rule');
+
+/**
+ * @tags: [write]
+ * @tagReason: Performs a PUT to modify an existing access control rule on the provider.
+ * @pitfalls: There are no notifications on access removal even when sendNotifications is true. The "owner" role does not transfer calendar data ownership; a calendar can have multiple users with owner role.
+ */
 const action = createAction({
     description: 'Update an access control rule',
-    version: '2.0.1',
-
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.acls'],
+    scopes: ['https://www.googleapis.com/auth/calendar'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // Build request body for ACL resource
-        const requestBody: {
-            role?: 'none' | 'freeBusyReader' | 'reader' | 'writer' | 'owner';
-            scope?: {
-                type: 'default' | 'user' | 'group' | 'domain';
-                value?: string;
-            };
-        } = {};
-
-        if (input.role !== undefined) {
-            requestBody['role'] = input.role;
-        }
-
-        if (input.scope !== undefined) {
-            requestBody['scope'] = {
-                type: input.scope.type,
-                ...(input.scope.value !== undefined && { value: input.scope.value })
-            };
-        }
-
-        // Build query params
-        const params: { sendNotifications?: string } = {};
-        if (input.sendNotifications !== undefined) {
-            params['sendNotifications'] = String(input.sendNotifications);
-        }
-
-        // https://developers.google.com/calendar/api/v3/reference/acl/update
         const response = await nango.put({
+            // https://developers.google.com/workspace/calendar/api/v3/reference/acl/update
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/acl/${encodeURIComponent(input.ruleId)}`,
-            data: requestBody,
-            ...(Object.keys(params).length > 0 && { params }),
+            params: {
+                ...(input.sendNotifications !== undefined && { sendNotifications: String(input.sendNotifications) })
+            },
+            data: {
+                ...(input.role !== undefined && { role: input.role }),
+                scope: {
+                    type: input.scope.type,
+                    ...(input.scope.value !== undefined && { value: input.scope.value })
+                }
+            },
             retries: 3
         });
 
+        const providerAcl = z
+            .object({
+                id: z.string(),
+                role: z.string(),
+                scope: z.object({
+                    type: z.string(),
+                    value: z.string().optional()
+                }),
+                etag: z.string().optional(),
+                kind: z.string().optional()
+            })
+            .parse(response.data);
+
         return {
-            id: response.data['id'],
-            scope: response.data['scope'],
-            role: response.data['role'],
-            etag: response.data['etag'],
-            kind: response.data['kind']
+            id: providerAcl.id,
+            role: providerAcl.role,
+            scope: {
+                type: providerAcl.scope.type,
+                ...(providerAcl.scope.value !== undefined && { value: providerAcl.scope.value })
+            },
+            ...(providerAcl.etag !== undefined && { etag: providerAcl.etag }),
+            ...(providerAcl.kind !== undefined && { kind: providerAcl.kind })
         };
     }
 });

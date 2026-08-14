@@ -1,34 +1,27 @@
 {
   "input": {
     "calendarId": "primary",
-    "iCalUID": "test-import-event-2026-03-12@example.com",
-    "summary": "Test Imported Event",
-    "description": "This is a test event imported via API",
-    "location": "Virtual Meeting Room",
+    "iCalUID": "nango-dryrun-0d1a4c28-6ec3-468d-bd40-26db4d391f69@example.com",
     "start": {
-      "dateTime": "2026-03-15T10:00:00Z"
+      "date": "2026-08-12"
     },
     "end": {
-      "dateTime": "2026-03-15T11:00:00Z"
+      "date": "2026-08-13"
     },
-    "conferenceDataVersion": 0
+    "summary": "Nango Dryrun Test Event"
   },
   "output": {
-    "id": "_ehin6t1dd5mn0rriegmmatj5dpq2qchg68r2qc1j5koj4g35f1gmqs3cckn66rrd",
-    "iCalUID": "test-import-event-2026-03-12@example.com",
-    "summary": "Test Imported Event",
-    "description": "This is a test event imported via API",
-    "location": "Virtual Meeting Room",
-    "status": "confirmed",
-    "htmlLink": "https://www.google.com/calendar/event?eid=X2VoaW42dDFkZDVtbjBycmllZ21tYXRqNWRwcTJxY2hnNjhyMnFjMWo1a29qNGczNWYxZ21xczNjY2tuNjZycmQgYXBpQG5hbmdvLmRldg",
+    "id": "_dpgmsprf5li74ubieln2qc3465gj8opi70mjcpb36cmj8dhocgmm4p1k60mj4dj4c8q68cpp65j3cea0cls62rbgdhiisorfdk",
+    "iCalUID": "nango-dryrun-0d1a4c28-6ec3-468d-bd40-26db4d391f69@example.com",
+    "summary": "Nango Dryrun Test Event",
     "start": {
-      "dateTime": "2026-03-15T07:00:00-03:00",
-      "timeZone": "America/Sao_Paulo"
+      "date": "2026-08-12"
     },
     "end": {
-      "dateTime": "2026-03-15T08:00:00-03:00",
-      "timeZone": "America/Sao_Paulo"
+      "date": "2026-08-13"
     },
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=X2RwZ21zcHJmNWxpNzR1YmllbG4ycWMzNDY1Z2o4b3BpNzBtamNwYjM2Y21qOGRob2NnbW00cDFrNjBtajRkajRjOHE2OGNwcDY1ajNjZWEwY2xzNjJyYmdkaGlpc29yZmRrIGFwaUBuYW5nby5kZXY",
     "organizer": {
       "email": "api@nango.dev"
     }
@@ -39,15 +32,13 @@
       "/calendar/v3/calendars/primary/events/import": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546601251020638\"",
-          "id": "_ehin6t1dd5mn0rriegmmatj5dpq2qchg68r2qc1j5koj4g35f1gmqs3cckn66rrd",
+          "etag": "\"3572968812179710\"",
+          "id": "_dpgmsprf5li74ubieln2qc3465gj8opi70mjcpb36cmj8dhocgmm4p1k60mj4dj4c8q68cpp65j3cea0cls62rbgdhiisorfdk",
           "status": "confirmed",
-          "htmlLink": "https://www.google.com/calendar/event?eid=X2VoaW42dDFkZDVtbjBycmllZ21tYXRqNWRwcTJxY2hnNjhyMnFjMWo1a29qNGczNWYxZ21xczNjY2tuNjZycmQgYXBpQG5hbmdvLmRldg",
-          "created": "2026-03-12T07:26:48.000Z",
-          "updated": "2026-03-12T07:30:25.510Z",
-          "summary": "Test Imported Event",
-          "description": "This is a test event imported via API",
-          "location": "Virtual Meeting Room",
+          "htmlLink": "https://www.google.com/calendar/event?eid=X2RwZ21zcHJmNWxpNzR1YmllbG4ycWMzNDY1Z2o4b3BpNzBtamNwYjM2Y21qOGRob2NnbW00cDFrNjBtajRkajRjOHE2OGNwcDY1ajNjZWEwY2xzNjJyYmdkaGlpc29yZmRrIGFwaUBuYW5nby5kZXY",
+          "created": "2026-08-11T21:39:58.000Z",
+          "updated": "2026-08-11T21:40:06.089Z",
+          "summary": "Nango Dryrun Test Event",
           "creator": {
             "email": "api@nango.dev",
             "self": true
@@ -57,23 +48,21 @@
             "self": true
           },
           "start": {
-            "dateTime": "2026-03-15T07:00:00-03:00",
-            "timeZone": "America/Sao_Paulo"
+            "date": "2026-08-12"
           },
           "end": {
-            "dateTime": "2026-03-15T08:00:00-03:00",
-            "timeZone": "America/Sao_Paulo"
+            "date": "2026-08-13"
           },
-          "iCalUID": "test-import-event-2026-03-12@example.com",
+          "iCalUID": "nango-dryrun-0d1a4c28-6ec3-468d-bd40-26db4d391f69@example.com",
           "sequence": 0,
           "reminders": {
-            "useDefault": true
+            "useDefault": false
           },
           "eventType": "default"
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:30:25 GMT",
+          "date": "Tue, 11 Aug 2026 21:40:06 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -83,37 +72,32 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4870",
-          "x-ratelimit-reset": "1773300647",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1971",
+          "x-ratelimit-reset": "1786484440",
           "pragma": "no-cache",
           "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
-          "etag": "\"3546601251020638\"",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "etag": "\"3572968812179710\"",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "6bf22a0da943bc3297a57f475e77c6a936efa061",
+        "hash": "f2a2e6ceca9b2cb1d77130a3b2f7368f96ddc170",
         "request": {
-          "params": {
-            "conferenceDataVersion": "0"
-          },
           "data": {
-            "iCalUID": "test-import-event-2026-03-12@example.com",
-            "summary": "Test Imported Event",
-            "description": "This is a test event imported via API",
-            "location": "Virtual Meeting Room",
+            "iCalUID": "nango-dryrun-0d1a4c28-6ec3-468d-bd40-26db4d391f69@example.com",
             "start": {
-              "dateTime": "2026-03-15T10:00:00Z"
+              "date": "2026-08-12"
             },
             "end": {
-              "dateTime": "2026-03-15T11:00:00Z"
-            }
+              "date": "2026-08-13"
+            },
+            "summary": "Nango Dryrun Test Event"
           }
         }
       }

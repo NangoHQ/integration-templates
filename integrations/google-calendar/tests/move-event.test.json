@@ -1,61 +1,65 @@
 {
   "input": {
-    "calendarId": "c_190b760daec5418fbb775a0f329513752dec787e0a7547334f5fe2f0e701cb5f@group.calendar.google.com",
-    "eventId": "o15hcffsik76itjotg33a85s1c",
-    "destinationCalendarId": "c_8376dbfcd33b366586ccc31000966204dc977be63c143e5750dfffac566d9157@group.calendar.google.com",
+    "calendarId": "primary",
+    "eventId": "8uf2vp4uuhs9q61619kvnvj23o",
+    "destinationCalendarId": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
     "sendUpdates": "none"
   },
   "output": {
-    "id": "o15hcffsik76itjotg33a85s1c",
-    "summary": "Test Event for Move Action 2",
-    "description": "This event will also be moved to another calendar",
+    "id": "8uf2vp4uuhs9q61619kvnvj23o",
+    "summary": "Move Event Test 3",
+    "status": "confirmed",
+    "htmlLink": "https://www.google.com/calendar/event?eid=OHVmMnZwNHV1aHM5cTYxNjE5a3ZudmoyM28gY180OThiZDk1Zjc1NjQ5YmE3OGU5YjhmNjAzOTNhYTQzOTU2NjI5NGVlN2NjNTZiMDNiZjEwZmE1Nzk5ZTIwZjU4QGc",
+    "created": "2026-08-11T21:45:40.000Z",
+    "updated": "2026-08-11T21:45:48.726Z",
     "start": {
-      "dateTime": "2026-03-16T10:00:00Z",
-      "timeZone": "UTC"
+      "dateTime": "2026-08-12T14:00:00Z",
+      "timeZone": "America/Sao_Paulo"
     },
     "end": {
-      "dateTime": "2026-03-16T11:00:00Z",
-      "timeZone": "UTC"
+      "dateTime": "2026-08-12T15:00:00Z",
+      "timeZone": "America/Sao_Paulo"
     },
     "organizer": {
-      "email": "c_8376dbfcd33b366586ccc31000966204dc977be63c143e5750dfffac566d9157@group.calendar.google.com",
-      "displayName": "Test Calendar Updated via Nango"
+      "email": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
+      "displayName": "Target Calendar For Move",
+      "self": true
     },
-    "htmlLink": "https://www.google.com/calendar/event?eid=bzE1aGNmZnNpazc2aXRqb3RnMzNhODVzMWMgY18xOTBiNzYwZGFlYzU0MThmYmI3NzVhMGYzMjk1MTM3NTJkZWM3ODdlMGE3NTQ3MzM0ZjVmZTJmMGU3MDFjYjVmQGc",
-    "created": "2026-03-12T07:27:41.000Z",
-    "updated": "2026-03-12T07:27:41.864Z",
-    "status": "cancelled"
+    "creator": {
+      "email": "api@nango.dev"
+    },
+    "iCalUID": "8uf2vp4uuhs9q61619kvnvj23o@google.com"
   },
   "nango": {},
   "api": {
     "post": {
-      "/calendar/v3/calendars/c_190b760daec5418fbb775a0f329513752dec787e0a7547334f5fe2f0e701cb5f@group.calendar.google.com/events/o15hcffsik76itjotg33a85s1c/move": {
+      "/calendar/v3/calendars/primary/events/8uf2vp4uuhs9q61619kvnvj23o/move": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546600923729310\"",
-          "id": "o15hcffsik76itjotg33a85s1c",
+          "etag": "\"3572969481221662\"",
+          "id": "8uf2vp4uuhs9q61619kvnvj23o",
           "status": "cancelled",
-          "htmlLink": "https://www.google.com/calendar/event?eid=bzE1aGNmZnNpazc2aXRqb3RnMzNhODVzMWMgY18xOTBiNzYwZGFlYzU0MThmYmI3NzVhMGYzMjk1MTM3NTJkZWM3ODdlMGE3NTQ3MzM0ZjVmZTJmMGU3MDFjYjVmQGc",
-          "created": "2026-03-12T07:27:41.000Z",
-          "updated": "2026-03-12T07:27:41.864Z",
-          "summary": "Test Event for Move Action 2",
-          "description": "This event will also be moved to another calendar",
+          "htmlLink": "https://www.google.com/calendar/event?eid=OHVmMnZwNHV1aHM5cTYxNjE5a3ZudmoyM28gYXBpQG5hbmdvLmRldg",
+          "created": "2026-08-11T21:45:40.000Z",
+          "updated": "2026-08-11T21:45:40.610Z",
+          "summary": "Move Event Test 3",
           "creator": {
-            "email": "api@nango.dev"
+            "email": "api@nango.dev",
+            "self": true
           },
           "organizer": {
-            "email": "c_8376dbfcd33b366586ccc31000966204dc977be63c143e5750dfffac566d9157@group.calendar.google.com",
-            "displayName": "Test Calendar Updated via Nango"
+            "email": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
+            "displayName": "Target Calendar For Move"
           },
           "start": {
-            "dateTime": "2026-03-16T10:00:00Z",
-            "timeZone": "UTC"
+            "dateTime": "2026-08-12T11:00:00-03:00",
+            "timeZone": "America/Sao_Paulo"
           },
           "end": {
-            "dateTime": "2026-03-16T11:00:00Z",
-            "timeZone": "UTC"
+            "dateTime": "2026-08-12T12:00:00-03:00",
+            "timeZone": "America/Sao_Paulo"
           },
-          "iCalUID": "o15hcffsik76itjotg33a85s1c@google.com",
+          "iCalUID": "8uf2vp4uuhs9q61619kvnvj23o@google.com",
           "sequence": 0,
           "reminders": {
             "useDefault": true
@@ -64,7 +68,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:28:02 GMT",
+          "date": "Tue, 11 Aug 2026 21:45:48 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -74,14 +78,14 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4940",
-          "x-ratelimit-reset": "1773300525",
-          "etag": "\"3546600923729310\"",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1786484786",
           "pragma": "no-cache",
+          "etag": "\"3572969481221662\"",
           "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "vary": "Origin, X-Origin, Referer",
@@ -89,13 +93,77 @@
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "b85bc65c0fe5b6113612e8a8ead07805e588e8d9",
+        "hash": "70d05e05a995f35888ac098917b660cd6dd454be",
         "request": {
           "params": {
-            "destination": "c_8376dbfcd33b366586ccc31000966204dc977be63c143e5750dfffac566d9157@group.calendar.google.com",
+            "destination": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
             "sendUpdates": "none"
           }
         }
+      }
+    },
+    "get": {
+      "/calendar/v3/calendars/c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58%40group.calendar.google.com/events/8uf2vp4uuhs9q61619kvnvj23o": {
+        "response": {
+          "kind": "calendar#event",
+          "etag": "\"3572969497453950\"",
+          "id": "8uf2vp4uuhs9q61619kvnvj23o",
+          "status": "confirmed",
+          "htmlLink": "https://www.google.com/calendar/event?eid=OHVmMnZwNHV1aHM5cTYxNjE5a3ZudmoyM28gY180OThiZDk1Zjc1NjQ5YmE3OGU5YjhmNjAzOTNhYTQzOTU2NjI5NGVlN2NjNTZiMDNiZjEwZmE1Nzk5ZTIwZjU4QGc",
+          "created": "2026-08-11T21:45:40.000Z",
+          "updated": "2026-08-11T21:45:48.726Z",
+          "summary": "Move Event Test 3",
+          "creator": {
+            "email": "api@nango.dev"
+          },
+          "organizer": {
+            "email": "c_498bd95f75649ba78e9b8f60393aa439566294ee7cc56b03bf10fa5799e20f58@group.calendar.google.com",
+            "displayName": "Target Calendar For Move",
+            "self": true
+          },
+          "start": {
+            "dateTime": "2026-08-12T14:00:00Z",
+            "timeZone": "America/Sao_Paulo"
+          },
+          "end": {
+            "dateTime": "2026-08-12T15:00:00Z",
+            "timeZone": "America/Sao_Paulo"
+          },
+          "iCalUID": "8uf2vp4uuhs9q61619kvnvj23o@google.com",
+          "sequence": 0,
+          "reminders": {
+            "useDefault": true
+          },
+          "eventType": "default"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 21:45:49 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1786484786",
+          "expires": "Tue, 11 Aug 2026 21:45:49 GMT",
+          "cache-control": "private, max-age=0, must-revalidate, no-transform",
+          "etag": "\"3572969497453950\"",
+          "vary": "Origin, X-Origin, Referer",
+          "server": "ESF",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "x-l2-request-path": "l2-managed-14"
+        },
+        "hash": "c47d9413513043dcc45da87bec25f6f82ebb0e00",
+        "request": {}
       }
     }
   }

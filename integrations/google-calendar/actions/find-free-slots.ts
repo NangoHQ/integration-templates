@@ -4,12 +4,15 @@ import { createAction } from 'nango';
 const TimeMinSchema = z.string().describe('Start of the time range in RFC3339 format. Example: "2024-03-15T09:00:00Z"');
 const TimeMaxSchema = z.string().describe('End of the time range in RFC3339 format. Example: "2024-03-15T17:00:00Z"');
 
-const InputSchema = z.object({
-    calendarIds: z.array(z.string()).describe('List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]'),
-    timeMin: TimeMinSchema,
-    timeMax: TimeMaxSchema,
-    durationMinutes: z.number().min(1).describe('Minimum duration in minutes for a free slot to be returned. Example: 30')
-});
+const InputSchema = z
+    .object({
+        calendarIds: z.array(z.string()).min(1).describe('List of calendar IDs to check for free/busy information. Example: ["primary", "work@example.com"]'),
+        timeMin: TimeMinSchema,
+        timeMax: TimeMaxSchema,
+        timeZone: z.string().optional().describe('Time zone used in the response. Defaults to UTC if omitted. Example: "America/New_York"'),
+        durationMinutes: z.number().min(1).describe('Minimum duration in minutes for a free slot to be returned. Example: 30')
+    })
+    .describe('Input for finding free time slots across calendars.');
 
 const FreeSlotSchema = z.object({
     start: z.string().describe('Start time of the free slot in RFC3339 format'),
@@ -22,55 +25,101 @@ const OutputSchema = z.object({
     calendarsChecked: z.number().describe('Number of calendars checked')
 });
 
-const action = createAction({
-    description: 'Query free/busy data and return gaps meeting a minimum duration',
-    version: '2.0.1',
+const BusyIntervalSchema = z.object({
+    start: z.string(),
+    end: z.string()
+});
 
+const CalendarErrorSchema = z.object({
+    domain: z.string(),
+    reason: z.string()
+});
+
+const CalendarFreeBusySchema = z.object({
+    busy: z.array(BusyIntervalSchema).default([]),
+    errors: z.array(CalendarErrorSchema).optional()
+});
+
+const GroupFreeBusySchema = z.object({
+    calendars: z.array(z.string()).optional(),
+    errors: z.array(CalendarErrorSchema).optional()
+});
+
+const FreeBusyResponseSchema = z.object({
+    timeMin: z.string(),
+    timeMax: z.string(),
+    calendars: z.record(z.string(), CalendarFreeBusySchema).optional(),
+    groups: z.record(z.string(), GroupFreeBusySchema).optional()
+});
+
+/**
+ * @tags: [read]
+ * @tagReason: Reads free/busy data from the provider without mutating calendars or events.
+ * @pitfalls: Provider limits requests to 50 expanded calendars; inaccessible calendars return errors that cause the action to throw instead of partial results.
+ */
+const action = createAction({
+    description: 'Query free/busy data and return gaps meeting a minimum duration.',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar.readonly', 'https://www.googleapis.com/auth/calendar.freebusy'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/calendar/api/v3/reference/freebusy/query
+        // https://developers.google.com/workspace/calendar/api/v3/reference/freebusy/query
         const response = await nango.post({
             endpoint: '/calendar/v3/freeBusy',
             data: {
                 timeMin: input.timeMin,
                 timeMax: input.timeMax,
                 items: input.calendarIds.map((id) => ({ id })),
-                timeZone: 'UTC'
+                ...(input.timeZone !== undefined && { timeZone: input.timeZone })
             },
             retries: 3
         });
 
-        if (!response.data || !response.data.calendars) {
-            throw new nango.ActionError({
-                type: 'api_error',
-                message: 'Failed to retrieve free/busy data from Google Calendar'
-            });
-        }
+        const freeBusy = FreeBusyResponseSchema.parse(response.data);
+        const calendars = freeBusy.calendars ?? {};
+        const groups = freeBusy.groups ?? {};
 
-        const calendars = response.data.calendars;
-        const calendarCount = Object.keys(calendars).length;
-
-        // Collect all busy periods from all calendars
-        const allBusyPeriods: Array<{ start: string; end: string }> = [];
-
-        for (const calendarId of input.calendarIds) {
-            const calendarData = calendars[calendarId];
-
-            if (!calendarData || calendarData.errors) {
-                continue;
-            }
-
-            const busyPeriods = calendarData.busy || [];
-            for (const period of busyPeriods) {
-                allBusyPeriods.push({
-                    start: period.start,
-                    end: period.end
+        // Propagate group-expansion errors instead of silently dropping them.
+        for (const [groupId, group] of Object.entries(groups)) {
+            if (group.errors && group.errors.length > 0) {
+                const reasons = group.errors.map((error) => error.reason);
+                throw new nango.ActionError({
+                    type: 'calendar_error',
+                    message: `Group "${groupId}" returned errors: ${reasons.join(', ')}`
                 });
             }
         }
+
+        // A requested calendar/group that is entirely absent from the response would
+        // otherwise be silently treated as fully free; fail instead of guessing.
+        for (const id of input.calendarIds) {
+            if (!(id in calendars) && !(id in groups)) {
+                throw new nango.ActionError({
+                    type: 'calendar_error',
+                    message: `No free/busy data returned for "${id}"`
+                });
+            }
+        }
+
+        const allBusyPeriods: Array<{ start: string; end: string }> = [];
+
+        for (const [calendarId, calendarData] of Object.entries(calendars)) {
+            if (calendarData.errors && calendarData.errors.length > 0) {
+                const reasons = calendarData.errors.map((error) => error.reason);
+                throw new nango.ActionError({
+                    type: 'calendar_error',
+                    message: `Calendar "${calendarId}" returned errors: ${reasons.join(', ')}`
+                });
+            }
+
+            for (const period of calendarData.busy) {
+                allBusyPeriods.push({ start: period.start, end: period.end });
+            }
+        }
+
+        const calendarCount = Object.keys(calendars).length;
 
         // Sort busy periods by start time
         allBusyPeriods.sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime());
@@ -180,7 +229,7 @@ const action = createAction({
         }
 
         return {
-            freeSlots: freeSlots,
+            freeSlots,
             calendarsChecked: calendarCount
         };
     }

@@ -1,141 +1,197 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    query: z
-        .string()
-        .describe('Free text search terms to find events. Searches in summary, description, location, attendee display names, and attendee emails.'),
-    calendarId: z
-        .string()
-        .optional()
-        .describe(
-            'Calendar identifier. Use "primary" for the primary calendar. To retrieve calendar IDs, use the calendarList.list method. Defaults to "primary".'
-        ),
-    timeMin: z
-        .string()
-        .optional()
-        .describe('Lower bound (inclusive) for an event\'s start time to filter by. RFC3339 timestamp format (e.g., "2024-01-01T00:00:00Z").'),
-    timeMax: z
-        .string()
-        .optional()
-        .describe('Upper bound (exclusive) for an event\'s end time to filter by. RFC3339 timestamp format (e.g., "2024-12-31T23:59:59Z").'),
-    maxResults: z
-        .number()
-        .int()
-        .min(1)
-        .max(2500)
-        .optional()
-        .describe('Maximum number of events to return per page. Acceptable values are 1 to 2500. Defaults to 250.'),
-    cursor: z.string().optional().describe('Pagination token from a previous response. Omit for the first page.')
+const InputSchema = z
+    .object({
+        calendarId: z.string().optional().describe('Calendar identifier. Use "primary" for the primary calendar.'),
+        query: z.string().optional().describe('Free text search terms to find events matching these terms.'),
+        timeMin: z.string().optional().describe("Lower bound (exclusive) for an event's end time. Must be an RFC3339 timestamp."),
+        timeMax: z.string().optional().describe("Upper bound (exclusive) for an event's start time. Must be an RFC3339 timestamp."),
+        maxResults: z.number().int().min(1).max(2500).optional().describe('Maximum number of events returned on one result page. Default is 250.'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    })
+    .describe('Input for searching calendar events.');
+
+const ProviderEventDateTimeSchema = z.object({
+    date: z.string().optional(),
+    dateTime: z.string().optional(),
+    timeZone: z.string().optional()
 });
 
-const AttendeeSchema = z.object({
-    id: z.string().optional(),
-    email: z.string().optional(),
-    displayName: z.string().optional(),
-    responseStatus: z.string().optional(),
-    optional: z.boolean().optional(),
-    organizer: z.boolean().optional()
+const ProviderPersonSchema = z.object({
+    email: z.string().nullish(),
+    displayName: z.string().nullish()
+});
+
+const ProviderAttendeeSchema = z.object({
+    email: z.string().nullish(),
+    displayName: z.string().nullish(),
+    responseStatus: z.string().nullish()
+});
+
+const ProviderEventSchema = z.object({
+    id: z.string(),
+    summary: z.string().nullish(),
+    description: z.string().nullish(),
+    location: z.string().nullish(),
+    start: ProviderEventDateTimeSchema.nullish(),
+    end: ProviderEventDateTimeSchema.nullish(),
+    status: z.string().nullish(),
+    htmlLink: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
+    organizer: ProviderPersonSchema.nullish(),
+    creator: ProviderPersonSchema.nullish(),
+    attendees: z.array(ProviderAttendeeSchema).nullish(),
+    recurrence: z.array(z.string()).nullish(),
+    recurringEventId: z.string().nullish(),
+    iCalUID: z.string().nullish(),
+    eventType: z.string().nullish()
+});
+
+const ProviderEventsResponseSchema = z.object({
+    items: z.array(ProviderEventSchema).optional(),
+    nextPageToken: z.string().optional()
+});
+
+const EventDateTimeSchema = z.object({
+    dateTime: z.string().optional().describe('Date/time in RFC3339 format.'),
+    date: z.string().optional().describe('Date in YYYY-MM-DD format for all-day events.'),
+    timeZone: z.string().optional().describe('Time zone of the date/time.')
 });
 
 const EventSchema = z.object({
-    id: z.string(),
-    summary: z.string().optional(),
-    description: z.string().optional(),
-    location: z.string().optional(),
-    htmlLink: z.string().optional(),
-    createdAt: z.string().optional(),
-    updatedAt: z.string().optional(),
-    startTime: z.string().optional(),
-    endTime: z.string().optional(),
-    status: z.string().optional(),
-    organizerEmail: z.string().optional(),
-    attendees: z.array(AttendeeSchema),
-    recurringEventId: z.string().optional(),
-    transparency: z.string().optional(),
-    visibility: z.string().optional()
+    id: z.string().describe('Event identifier.'),
+    summary: z.string().optional().describe('Title of the event.'),
+    description: z.string().optional().describe('Description of the event.'),
+    location: z.string().optional().describe('Geographic location of the event.'),
+    start: EventDateTimeSchema.optional().describe('Start time of the event.'),
+    end: EventDateTimeSchema.optional().describe('End time of the event.'),
+    status: z.string().optional().describe('Event status. Possible values: confirmed, tentative, cancelled.'),
+    htmlLink: z.string().optional().describe('Absolute link to the event in Google Calendar.'),
+    created: z.string().optional().describe('Creation time of the event in RFC3339 format.'),
+    updated: z.string().optional().describe('Last modification time of the event in RFC3339 format.'),
+    organizer: z
+        .object({
+            email: z.string().optional().describe('Organizer email address.'),
+            displayName: z.string().optional().describe('Organizer display name.')
+        })
+        .optional()
+        .describe('Organizer of the event.'),
+    creator: z
+        .object({
+            email: z.string().optional().describe('Creator email address.'),
+            displayName: z.string().optional().describe('Creator display name.')
+        })
+        .optional()
+        .describe('Creator of the event.'),
+    attendees: z
+        .array(
+            z.object({
+                email: z.string().optional().describe('Attendee email address.'),
+                displayName: z.string().optional().describe('Attendee display name.'),
+                responseStatus: z.string().optional().describe('Attendee response status.')
+            })
+        )
+        .optional()
+        .describe('Attendees of the event.'),
+    recurrence: z.array(z.string()).optional().describe('Recurrence rules for recurring events.'),
+    recurringEventId: z.string().optional().describe('Identifier of the recurring event for instances.'),
+    iCalUID: z.string().optional().describe('Event unique identifier in iCalendar format.'),
+    eventType: z
+        .string()
+        .optional()
+        .describe('Specific type of the event. Possible values: default, birthday, focusTime, fromGmail, outOfOffice, workingLocation.')
 });
 
-const OutputSchema = z.object({
-    events: z.array(EventSchema),
-    nextPageToken: z.string().optional().describe('Token for the next page of results. Omitted if no more pages.'),
-    totalItems: z.number().int().describe('Total number of events in this page.')
-});
+const OutputSchema = z
+    .object({
+        events: z.array(EventSchema).describe('List of matching events.'),
+        nextPageToken: z.string().optional().describe('Token for the next page of results. Omitted if there are no more results.')
+    })
+    .describe('Output of the search events action.');
 
+function mapDateTime(dt: z.infer<typeof ProviderEventDateTimeSchema> | null | undefined) {
+    if (!dt) {
+        return undefined;
+    }
+    return {
+        ...(dt.dateTime != null && { dateTime: dt.dateTime }),
+        ...(dt.date != null && { date: dt.date }),
+        ...(dt.timeZone != null && { timeZone: dt.timeZone })
+    };
+}
+
+function mapPerson(person: z.infer<typeof ProviderPersonSchema> | null | undefined) {
+    if (!person) {
+        return undefined;
+    }
+    return {
+        ...(person.email != null && { email: person.email }),
+        ...(person.displayName != null && { displayName: person.displayName })
+    };
+}
+
+function mapAttendee(attendee: z.infer<typeof ProviderAttendeeSchema>) {
+    return {
+        ...(attendee.email != null && { email: attendee.email }),
+        ...(attendee.displayName != null && { displayName: attendee.displayName }),
+        ...(attendee.responseStatus != null && { responseStatus: attendee.responseStatus })
+    };
+}
+
+/**
+ * @tags: [read]
+ * @tagReason: Reads events from the specified calendar using the Google Calendar events.list endpoint.
+ * @pitfalls: timeMin filters by an event's end time and timeMax by start time; recurring events are returned as a single master entry with recurrence rules rather than individual instances; cancelled events are excluded by default.
+ */
 const action = createAction({
     description: "Search a calendar's events by text query and optional time bounds",
-    version: '2.0.1',
-
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [
-        'https://www.googleapis.com/auth/calendar.events.readonly',
-        'https://www.googleapis.com/auth/calendar.readonly',
-        'https://www.googleapis.com/auth/calendar'
-    ],
-
+    scopes: ['https://www.googleapis.com/auth/calendar.events.readonly'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const calendarId = input.calendarId || 'primary';
-        const maxResults = input.maxResults || 250;
 
-        // https://developers.google.com/calendar/api/v3/reference/events/list
-        const config = {
+        const response = await nango.get({
+            // https://developers.google.com/workspace/calendar/api/v3/reference/events/list
             endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events`,
             params: {
-                q: input.query,
-                maxResults: maxResults.toString(),
-                ...(input.timeMin && { timeMin: input.timeMin }),
-                ...(input.timeMax && { timeMax: input.timeMax }),
-                ...(input.cursor && { pageToken: input.cursor }),
-                singleEvents: 'true',
-                orderBy: 'startTime'
+                ...(input.query !== undefined && { q: input.query }),
+                ...(input.timeMin !== undefined && { timeMin: input.timeMin }),
+                ...(input.timeMax !== undefined && { timeMax: input.timeMax }),
+                ...(input.maxResults !== undefined && { maxResults: String(input.maxResults) }),
+                ...(input.cursor !== undefined && { pageToken: input.cursor })
             },
             retries: 3
-        };
-
-        const response = await nango.get(config);
-
-        if (!response.data || !response.data.items) {
-            return {
-                events: [],
-                nextPageToken: undefined,
-                totalItems: 0
-            };
-        }
-
-        const events = response.data.items.map((item: any) => {
-            const attendees = item.attendees || [];
-
-            return {
-                id: item.id,
-                summary: item.summary ?? undefined,
-                description: item.description ?? undefined,
-                location: item.location ?? undefined,
-                htmlLink: item.htmlLink ?? undefined,
-                createdAt: item.created ?? undefined,
-                updatedAt: item.updated ?? undefined,
-                startTime: item.start?.dateTime || item.start?.date || undefined,
-                endTime: item.end?.dateTime || item.end?.date || undefined,
-                status: item.status ?? undefined,
-                organizerEmail: item.organizer?.email ?? undefined,
-                attendees: attendees.map((attendee: any) => ({
-                    id: attendee.id ?? undefined,
-                    email: attendee.email ?? undefined,
-                    displayName: attendee.displayName ?? undefined,
-                    responseStatus: attendee.responseStatus ?? undefined,
-                    optional: attendee.optional ?? false,
-                    organizer: attendee.organizer ?? false
-                })),
-                recurringEventId: item.recurringEventId ?? undefined,
-                transparency: item.transparency ?? undefined,
-                visibility: item.visibility ?? undefined
-            };
         });
+
+        const providerResponse = ProviderEventsResponseSchema.parse(response.data);
+
+        const events = (providerResponse.items || []).map((item) => ({
+            id: item.id,
+            ...(item.summary != null && { summary: item.summary }),
+            ...(item.description != null && { description: item.description }),
+            ...(item.location != null && { location: item.location }),
+            ...(item.start != null && { start: mapDateTime(item.start) }),
+            ...(item.end != null && { end: mapDateTime(item.end) }),
+            ...(item.status != null && { status: item.status }),
+            ...(item.htmlLink != null && { htmlLink: item.htmlLink }),
+            ...(item.created != null && { created: item.created }),
+            ...(item.updated != null && { updated: item.updated }),
+            ...(item.organizer != null && { organizer: mapPerson(item.organizer) }),
+            ...(item.creator != null && { creator: mapPerson(item.creator) }),
+            ...(item.attendees != null && { attendees: item.attendees.map(mapAttendee) }),
+            ...(item.recurrence != null && { recurrence: item.recurrence }),
+            ...(item.recurringEventId != null && { recurringEventId: item.recurringEventId }),
+            ...(item.iCalUID != null && { iCalUID: item.iCalUID }),
+            ...(item.eventType != null && { eventType: item.eventType })
+        }));
 
         return {
             events,
-            nextPageToken: response.data.nextPageToken || undefined,
-            totalItems: events.length
+            ...(providerResponse.nextPageToken != null && { nextPageToken: providerResponse.nextPageToken })
         };
     }
 });

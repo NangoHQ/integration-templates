@@ -1,54 +1,66 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    summary: z.string().describe('Title of the calendar. Example: "My Work Calendar"')
+const InputSchema = z
+    .object({
+        summary: z.string().describe('Title of the new calendar.'),
+        description: z.string().optional().describe('Description of the calendar.'),
+        location: z.string().optional().describe('Geographic location of the calendar as free-form text.'),
+        time_zone: z.string().optional().describe('Time zone for the calendar. Example: "America/Los_Angeles".')
+    })
+    .describe('Input parameters for creating a new Google Calendar.');
+
+const ProviderCalendarSchema = z.object({
+    id: z.string(),
+    summary: z.string(),
+    description: z.string().optional(),
+    location: z.string().optional(),
+    timeZone: z.string().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string().describe('Identifier of the calendar.'),
-    summary: z.string().describe('Title of the calendar.'),
-    description: z.string().optional().describe('Description of the calendar.'),
-    timeZone: z.string().optional().describe('The time zone of the calendar.'),
-    location: z.string().optional().describe('Geographic location of the calendar as free-form text.'),
-    etag: z.string().describe('ETag of the resource.'),
-    kind: z.string().describe('Type of the resource ("calendar#calendar").')
-});
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Identifier of the created calendar.'),
+        summary: z.string().describe('Title of the created calendar.'),
+        description: z.string().optional().describe('Description of the calendar.'),
+        location: z.string().optional().describe('Geographic location of the calendar.'),
+        time_zone: z.string().optional().describe('Time zone for the calendar.')
+    })
+    .describe('Output of the created Google Calendar.');
 
+/**
+ * @tags: [write]
+ * @tagReason: Creates a new secondary Google Calendar on the provider.
+ * @pitfalls: If time_zone is omitted, the provider defaults to UTC rather than the account time zone.
+ */
 const action = createAction({
     description: 'Create a new secondary Google Calendar with the specified title.',
-    version: '2.0.1',
-
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/insert
         const response = await nango.post({
+            // https://developers.google.com/workspace/calendar/api/v3/reference/calendars/insert
             endpoint: '/calendar/v3/calendars',
             data: {
-                summary: input.summary
+                summary: input.summary,
+                ...(input.description !== undefined && { description: input.description }),
+                ...(input.location !== undefined && { location: input.location }),
+                ...(input.time_zone !== undefined && { timeZone: input.time_zone })
             },
-            retries: 3
+            retries: 1
         });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'creation_failed',
-                message: 'Failed to create calendar',
-                summary: input.summary
-            });
-        }
+        const providerCalendar = ProviderCalendarSchema.parse(response.data);
 
         return {
-            id: response.data.id,
-            summary: response.data.summary,
-            description: response.data.description ?? undefined,
-            timeZone: response.data.timeZone ?? undefined,
-            location: response.data.location ?? undefined,
-            etag: response.data.etag,
-            kind: response.data.kind
+            id: providerCalendar.id,
+            summary: providerCalendar.summary,
+            ...(providerCalendar.description !== undefined && { description: providerCalendar.description }),
+            ...(providerCalendar.location !== undefined && { location: providerCalendar.location }),
+            ...(providerCalendar.timeZone !== undefined && { time_zone: providerCalendar.timeZone })
         };
     }
 });

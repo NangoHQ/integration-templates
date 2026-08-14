@@ -1,27 +1,29 @@
 {
   "input": {
-    "text": "Quick meeting test tomorrow at 3pm"
+    "text": "Quick test meeting tomorrow at 3pm"
   },
   "output": {
-    "id": "p7vgkpis7al4k98bnrqppil0ns",
-    "summary": "Quick meeting test",
+    "id": "gpokk0cllvta56eim26koav5m8",
+    "summary": "Quick test meeting",
+    "htmlLink": "https://www.google.com/calendar/event?eid=Z3Bva2swY2xsdnRhNTZlaW0yNmtvYXY1bTggYXBpQG5hbmdvLmRldg",
+    "status": "confirmed",
+    "created": "2026-08-11T21:36:21.000Z",
+    "updated": "2026-08-11T21:36:21.670Z",
     "start": {
-      "dateTime": "2026-03-13T15:00:00-03:00",
+      "dateTime": "2026-08-12T15:00:00-03:00",
       "timeZone": "America/Sao_Paulo"
     },
     "end": {
-      "dateTime": "2026-03-13T16:00:00-03:00",
+      "dateTime": "2026-08-12T16:00:00-03:00",
       "timeZone": "America/Sao_Paulo"
     },
-    "htmlLink": "https://www.google.com/calendar/event?eid=cDd2Z2twaXM3YWw0azk4Ym5ycXBwaWwwbnMgYXBpQG5hbmdvLmRldg",
-    "created": "2026-03-12T07:26:49.000Z",
-    "updated": "2026-03-12T07:26:50.005Z",
-    "status": "confirmed",
     "creator": {
-      "email": "api@nango.dev"
+      "email": "api@nango.dev",
+      "self": true
     },
     "organizer": {
-      "email": "api@nango.dev"
+      "email": "api@nango.dev",
+      "self": true
     }
   },
   "nango": {},
@@ -30,13 +32,13 @@
       "/calendar/v3/calendars/primary/events/quickAdd": {
         "response": {
           "kind": "calendar#event",
-          "etag": "\"3546600820011390\"",
-          "id": "p7vgkpis7al4k98bnrqppil0ns",
+          "etag": "\"3572968363340414\"",
+          "id": "gpokk0cllvta56eim26koav5m8",
           "status": "confirmed",
-          "htmlLink": "https://www.google.com/calendar/event?eid=cDd2Z2twaXM3YWw0azk4Ym5ycXBwaWwwbnMgYXBpQG5hbmdvLmRldg",
-          "created": "2026-03-12T07:26:49.000Z",
-          "updated": "2026-03-12T07:26:50.005Z",
-          "summary": "Quick meeting test",
+          "htmlLink": "https://www.google.com/calendar/event?eid=Z3Bva2swY2xsdnRhNTZlaW0yNmtvYXY1bTggYXBpQG5hbmdvLmRldg",
+          "created": "2026-08-11T21:36:21.000Z",
+          "updated": "2026-08-11T21:36:21.670Z",
+          "summary": "Quick test meeting",
           "creator": {
             "email": "api@nango.dev",
             "self": true
@@ -46,14 +48,14 @@
             "self": true
           },
           "start": {
-            "dateTime": "2026-03-13T15:00:00-03:00",
+            "dateTime": "2026-08-12T15:00:00-03:00",
             "timeZone": "America/Sao_Paulo"
           },
           "end": {
-            "dateTime": "2026-03-13T16:00:00-03:00",
+            "dateTime": "2026-08-12T16:00:00-03:00",
             "timeZone": "America/Sao_Paulo"
           },
-          "iCalUID": "p7vgkpis7al4k98bnrqppil0ns@google.com",
+          "iCalUID": "gpokk0cllvta56eim26koav5m8@google.com",
           "sequence": 0,
           "reminders": {
             "useDefault": true
@@ -62,7 +64,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 12 Mar 2026 07:26:50 GMT",
+          "date": "Tue, 11 Aug 2026 21:36:21 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -72,25 +74,25 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://api.apidownwatch.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://api.apidownwatch.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4976",
-          "x-ratelimit-reset": "1773300465",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1950",
+          "x-ratelimit-reset": "1786484186",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
+          "etag": "\"3572968363340414\"",
           "pragma": "no-cache",
-          "etag": "\"3546600820011390\"",
+          "expires": "Mon, 01 Jan 1990 00:00:00 GMT",
           "vary": "Origin, X-Origin, Referer",
           "server": "ESF",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
           "x-l2-request-path": "l2-managed-14"
         },
-        "hash": "cc50eef12355e005e14ff0b4e9f0a0644b65347f",
+        "hash": "477628516d9971b0e59e57e784a75c2815476825",
         "request": {
           "params": {
-            "text": "Quick meeting test tomorrow at 3pm"
+            "text": "Quick test meeting tomorrow at 3pm"
           }
         }
       }

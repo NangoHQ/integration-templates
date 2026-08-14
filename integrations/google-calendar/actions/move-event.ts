@@ -1,108 +1,179 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier of the source calendar where the event currently is. Example: "primary"'),
-    eventId: z.string().describe('Event identifier. Example: "abc123def456"'),
-    destinationCalendarId: z
-        .string()
-        .describe('Calendar identifier of the target calendar where the event is to be moved to. Example: "secondary-calendar-id"'),
-    sendUpdates: z
-        .enum(['all', 'externalOnly', 'none'])
-        .optional()
-        .describe(
-            'Guests who should receive notifications about the change of the event\'s organizer. Acceptable values: "all", "externalOnly", "none". Default: "none"'
-        )
-});
+const InputSchema = z
+    .object({
+        calendarId: z.string().describe('Calendar identifier of the source calendar where the event currently is. Example: "primary"'),
+        eventId: z.string().describe('Event identifier. Example: "abc123def456"'),
+        destinationCalendarId: z.string().describe('Calendar identifier of the target calendar where the event is to be moved to. Example: "primary"'),
+        sendUpdates: z
+            .enum(['all', 'externalOnly', 'none'])
+            .optional()
+            .describe("Guests who should receive notifications about the change of the event's organizer.")
+    })
+    .describe('Input parameters for moving a calendar event to another calendar.');
 
-const OutputSchema = z.object({
+const ProviderEventSchema = z.object({
     id: z.string(),
-    summary: z.string().optional(),
-    description: z.string().optional(),
-    location: z.string().optional(),
+    summary: z.string().nullish(),
+    description: z.string().nullish(),
+    location: z.string().nullish(),
+    status: z.string().nullish(),
+    htmlLink: z.string().nullish(),
+    created: z.string().nullish(),
+    updated: z.string().nullish(),
     start: z
         .object({
-            date: z.string().optional(),
-            dateTime: z.string().optional(),
-            timeZone: z.string().optional()
+            dateTime: z.string().nullish(),
+            date: z.string().nullish(),
+            timeZone: z.string().nullish()
         })
-        .passthrough(),
+        .nullish(),
     end: z
         .object({
-            date: z.string().optional(),
-            dateTime: z.string().optional(),
-            timeZone: z.string().optional()
+            dateTime: z.string().nullish(),
+            date: z.string().nullish(),
+            timeZone: z.string().nullish()
         })
-        .passthrough(),
+        .nullish(),
     organizer: z
         .object({
-            email: z.string().optional(),
-            displayName: z.string().optional()
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
         })
-        .passthrough()
-        .optional(),
-    htmlLink: z.string().optional(),
-    created: z.string().optional(),
-    updated: z.string().optional(),
-    status: z.string().optional()
+        .nullish(),
+    creator: z
+        .object({
+            email: z.string().nullish(),
+            displayName: z.string().nullish(),
+            self: z.boolean().nullish()
+        })
+        .nullish(),
+    iCalUID: z.string().nullish()
 });
 
-const action = createAction({
-    description: 'Move an event to another calendar, changing its organizer',
-    version: '2.0.1',
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Opaque identifier of the event.'),
+        summary: z.string().optional().describe('Title of the event.'),
+        description: z.string().optional().describe('Description of the event.'),
+        location: z.string().optional().describe('Geographic location of the event as free-form text.'),
+        status: z.string().optional().describe('Status of the event. Possible values are "confirmed", "tentative", or "cancelled".'),
+        htmlLink: z.string().optional().describe('An absolute link to this event in the Google Calendar Web UI.'),
+        created: z.string().optional().describe('Creation time of the event as an RFC3339 timestamp.'),
+        updated: z.string().optional().describe('Last modification time of the event as an RFC3339 timestamp.'),
+        start: z
+            .object({
+                dateTime: z.string().optional().describe('The start time as a combined date-time value (formatted according to RFC3339).'),
+                date: z.string().optional().describe('The date, in the format "yyyy-mm-dd", if this is an all-day event.'),
+                timeZone: z
+                    .string()
+                    .optional()
+                    .describe('The time zone in which the time is specified (formatted as an IANA Time Zone Database name, e.g. "Europe/Zurich").')
+            })
+            .optional()
+            .describe('The start time of the event.'),
+        end: z
+            .object({
+                dateTime: z.string().optional().describe('The end time as a combined date-time value (formatted according to RFC3339).'),
+                date: z.string().optional().describe('The date, in the format "yyyy-mm-dd", if this is an all-day event.'),
+                timeZone: z
+                    .string()
+                    .optional()
+                    .describe('The time zone in which the time is specified (formatted as an IANA Time Zone Database name, e.g. "Europe/Zurich").')
+            })
+            .optional()
+            .describe('The (exclusive) end time of the event.'),
+        organizer: z
+            .object({
+                email: z.string().optional().describe("The organizer's email address, if available."),
+                displayName: z.string().optional().describe("The organizer's name, if available."),
+                self: z.boolean().optional().describe('Whether the organizer corresponds to the calendar on which this copy of the event appears.')
+            })
+            .optional()
+            .describe('The organizer of the event.'),
+        creator: z
+            .object({
+                email: z.string().optional().describe("The creator's email address, if available."),
+                displayName: z.string().optional().describe("The creator's name, if available."),
+                self: z.boolean().optional().describe('Whether the creator corresponds to the calendar on which this copy of the event appears.')
+            })
+            .optional()
+            .describe('The creator of the event.'),
+        iCalUID: z.string().optional().describe('Event unique identifier as defined in RFC5545.')
+    })
+    .describe('The moved event as it appears on the destination calendar.');
 
+/**
+ * @tags: [read, write]
+ * @tagReason: Mutates the event by moving it to a different calendar and changing its organizer, then reads the event from the destination calendar to return the confirmed copy.
+ * @pitfalls: Only default events can be moved; birthday, focusTime, fromGmail, outOfOffice and workingLocation events cannot be moved. If the original organizer is not an attendee, a cancelled copy remains on the source calendar.
+ */
+const action = createAction({
+    description: 'Move an event to another calendar, changing its organizer.',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/calendar/api/v3/reference/events/move
-        const response = await nango.post({
-            endpoint: `/calendar/v3/calendars/${input.calendarId}/events/${input.eventId}/move`,
+        await nango.post({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.calendarId)}/events/${encodeURIComponent(input.eventId)}/move`,
             params: {
                 destination: input.destinationCalendarId,
-                ...(input.sendUpdates && { sendUpdates: input.sendUpdates })
+                ...(input.sendUpdates != null && { sendUpdates: input.sendUpdates })
             },
             retries: 3
         });
 
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'move_failed',
-                message: 'Failed to move event',
-                calendarId: input.calendarId,
-                eventId: input.eventId,
-                destinationCalendarId: input.destinationCalendarId
-            });
-        }
+        // https://developers.google.com/workspace/calendar/api/v3/reference/events/get
+        const getResponse = await nango.get({
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(input.destinationCalendarId)}/events/${encodeURIComponent(input.eventId)}`,
+            retries: 3
+        });
 
-        const event = response.data;
+        const providerEvent = ProviderEventSchema.parse(getResponse.data);
 
         return {
-            id: event.id,
-            summary: event.summary ?? undefined,
-            description: event.description ?? undefined,
-            location: event.location ?? undefined,
-            start: {
-                date: event.start?.date ?? undefined,
-                dateTime: event.start?.dateTime ?? undefined,
-                timeZone: event.start?.timeZone ?? undefined
-            },
-            end: {
-                date: event.end?.date ?? undefined,
-                dateTime: event.end?.dateTime ?? undefined,
-                timeZone: event.end?.timeZone ?? undefined
-            },
-            organizer: event.organizer
-                ? {
-                      email: event.organizer.email ?? undefined,
-                      displayName: event.organizer.displayName ?? undefined
-                  }
-                : undefined,
-            htmlLink: event.htmlLink ?? undefined,
-            created: event.created ?? undefined,
-            updated: event.updated ?? undefined,
-            status: event.status ?? undefined
+            id: providerEvent.id,
+            ...(providerEvent.summary != null && { summary: providerEvent.summary }),
+            ...(providerEvent.description != null && { description: providerEvent.description }),
+            ...(providerEvent.location != null && { location: providerEvent.location }),
+            ...(providerEvent.status != null && { status: providerEvent.status }),
+            ...(providerEvent.htmlLink != null && { htmlLink: providerEvent.htmlLink }),
+            ...(providerEvent.created != null && { created: providerEvent.created }),
+            ...(providerEvent.updated != null && { updated: providerEvent.updated }),
+            ...(providerEvent.start != null && {
+                start: {
+                    ...(providerEvent.start.dateTime != null && { dateTime: providerEvent.start.dateTime }),
+                    ...(providerEvent.start.date != null && { date: providerEvent.start.date }),
+                    ...(providerEvent.start.timeZone != null && { timeZone: providerEvent.start.timeZone })
+                }
+            }),
+            ...(providerEvent.end != null && {
+                end: {
+                    ...(providerEvent.end.dateTime != null && { dateTime: providerEvent.end.dateTime }),
+                    ...(providerEvent.end.date != null && { date: providerEvent.end.date }),
+                    ...(providerEvent.end.timeZone != null && { timeZone: providerEvent.end.timeZone })
+                }
+            }),
+            ...(providerEvent.organizer != null && {
+                organizer: {
+                    ...(providerEvent.organizer.email != null && { email: providerEvent.organizer.email }),
+                    ...(providerEvent.organizer.displayName != null && { displayName: providerEvent.organizer.displayName }),
+                    ...(providerEvent.organizer.self != null && { self: providerEvent.organizer.self })
+                }
+            }),
+            ...(providerEvent.creator != null && {
+                creator: {
+                    ...(providerEvent.creator.email != null && { email: providerEvent.creator.email }),
+                    ...(providerEvent.creator.displayName != null && { displayName: providerEvent.creator.displayName }),
+                    ...(providerEvent.creator.self != null && { self: providerEvent.creator.self })
+                }
+            }),
+            ...(providerEvent.iCalUID != null && { iCalUID: providerEvent.iCalUID })
         };
     }
 });

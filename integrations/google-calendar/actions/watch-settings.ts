@@ -1,74 +1,80 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    channelId: z.string().describe('A UUID or similar unique string that identifies this channel. Example: "01234567-89ab-cdef-0123-456789abcdef"'),
-    callbackUrl: z
-        .string()
-        .describe('The address where notifications are delivered for this channel. Must be a valid HTTPS URL that is reachable by Google servers.'),
-    channelType: z
-        .enum(['web_hook', 'webhook'])
-        .describe('The type of delivery mechanism used for this channel. Valid values are "web_hook" or "webhook". Both refer to HTTP request delivery.'),
-    channelToken: z
-        .string()
-        .optional()
-        .describe('An arbitrary string delivered to the target address with each notification. Optional but useful for verifying webhook authenticity.'),
-    ttl: z.string().optional().describe('The time-to-live in seconds for the notification channel. Default is 604800 seconds (7 days).')
+const InputSchema = z
+    .object({
+        id: z.string().describe('A UUID or similar unique string that identifies this channel.'),
+        token: z.string().optional().describe('An arbitrary string delivered to the target address with each notification.'),
+        type: z.string().describe('The delivery mechanism type. Valid values are "web_hook" or "webhook".'),
+        address: z.string().describe('The address where notifications are delivered for this channel.'),
+        params: z
+            .object({
+                ttl: z.string().optional().describe('The time-to-live in seconds for the notification channel. Default is 604800.')
+            })
+            .optional()
+            .describe('Additional parameters controlling delivery channel behavior.')
+    })
+    .describe('Input for subscribing to calendar settings changes.');
+
+const ProviderChannelSchema = z.object({
+    kind: z.string(),
+    id: z.string(),
+    resourceId: z.string(),
+    resourceUri: z.string(),
+    token: z.string().optional(),
+    expiration: z.union([z.number(), z.string()]).optional()
 });
 
-const OutputSchema = z.object({
-    kind: z.string().describe('Identifies this as a notification channel, value is "api#channel".'),
-    channelId: z.string().describe('The unique string that identifies this channel.'),
-    resourceId: z.string().describe('An opaque ID that identifies the resource being watched on this channel.'),
-    resourceUri: z.string().describe('A version-specific identifier for the watched resource.'),
-    channelToken: z.string().optional().describe('The arbitrary string delivered with each notification.'),
-    expiration: z
-        .union([z.string(), z.number(), z.null()])
-        .describe('Date and time of notification channel expiration, expressed as a Unix timestamp in milliseconds.')
-});
+const OutputSchema = z
+    .object({
+        kind: z.string().describe('Identifies this as a notification channel. Always "api#channel".'),
+        id: z.string().describe('The UUID or unique string that identifies this channel.'),
+        resourceId: z.string().describe('An opaque ID that identifies the watched resource.'),
+        resourceUri: z.string().describe('A version-specific identifier for the watched resource.'),
+        token: z.string().optional().describe('The arbitrary string delivered with each notification.'),
+        expiration: z.number().optional().describe('Date and time of channel expiration as a Unix timestamp in milliseconds.')
+    })
+    .describe('Output of a calendar settings watch channel subscription.');
 
+/**
+ * @tags: [write]
+ * @tagReason: Creates a new push notification channel on the provider to watch for calendar settings changes.
+ * @pitfalls: Reusing a channel id causes a provider error. Channels expire automatically after the TTL and must be recreated to continue receiving notifications.
+ */
 const action = createAction({
     description: 'Subscribe to changes in calendar settings',
-    version: '1.0.1',
-
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [
-        'https://www.googleapis.com/auth/calendar.settings.readonly',
-        'https://www.googleapis.com/auth/calendar.readonly',
-        'https://www.googleapis.com/auth/calendar'
-    ],
+    scopes: ['https://www.googleapis.com/auth/calendar.settings.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/workspace/calendar/api/v3/reference/settings/watch
-        const config = {
+        const response = await nango.post({
+            // https://developers.google.com/workspace/calendar/api/v3/reference/settings/watch
             endpoint: '/calendar/v3/users/me/settings/watch',
             data: {
-                id: input.channelId,
-                type: input.channelType,
-                address: input.callbackUrl,
-                ...(input.channelToken && { token: input.channelToken }),
-                ...(input.ttl && { params: { ttl: input.ttl } })
+                id: input.id,
+                ...(input.token !== undefined && { token: input.token }),
+                type: input.type,
+                address: input.address,
+                ...(input.params !== undefined && {
+                    params: {
+                        ...(input.params.ttl !== undefined && { ttl: input.params.ttl })
+                    }
+                })
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.post(config);
-
-        if (!response.data) {
-            throw new nango.ActionError({
-                type: 'subscription_failed',
-                message: 'Failed to create watch subscription for calendar settings'
-            });
-        }
+        const channel = ProviderChannelSchema.parse(response.data);
 
         return {
-            kind: response.data.kind,
-            channelId: response.data.id,
-            resourceId: response.data.resourceId,
-            resourceUri: response.data.resourceUri,
-            channelToken: response.data.token || undefined,
-            expiration: response.data.expiration || undefined
+            kind: channel.kind,
+            id: channel.id,
+            resourceId: channel.resourceId,
+            resourceUri: channel.resourceUri,
+            ...(channel.token !== undefined && { token: channel.token }),
+            ...(channel.expiration !== undefined && { expiration: Number(channel.expiration) })
         };
     }
 });

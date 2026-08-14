@@ -1,73 +1,86 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
-// https://developers.google.com/workspace/calendar/api/v3/reference/events/import
+const EventDateTimeSchema = z.object({
+    date: z.string().optional().describe('The date, in yyyy-mm-dd format, for all-day events.'),
+    dateTime: z.string().optional().describe('The time as an RFC3339 combined date-time value.'),
+    timeZone: z.string().optional().describe('The time zone, e.g. Europe/Zurich.')
+});
 
-// Input schemas with strict validation
-const InputAttendeeSchema = z.object({
-    additionalGuests: z.number().optional(),
-    comment: z.string().optional(),
+const AttendeeInputSchema = z.object({
+    email: z.string().email().describe('The attendee email address.'),
+    displayName: z.string().optional().describe('The attendee display name.'),
+    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional().describe('The attendee response status.'),
+    optional: z.boolean().optional().describe('Whether this is an optional attendee.'),
+    resource: z.boolean().optional().describe('Whether the attendee is a resource.'),
+    comment: z.string().optional().describe("The attendee's response comment."),
+    additionalGuests: z.number().optional().describe('Number of additional guests the attendee is bringing.')
+});
+
+// Google can omit email for some attendees (e.g. resources without one on file), so it must
+// stay optional here even though it's required to add an attendee via AttendeeInputSchema.
+const AttendeeOutputSchema = AttendeeInputSchema.extend({
+    email: z.string().optional().describe('The attendee email address.')
+});
+
+const OrganizerInputSchema = z.object({
+    displayName: z.string().optional().describe('The organizer display name.'),
+    email: z.string().email().optional().describe('The organizer email address.')
+});
+
+const InputSchema = z
+    .object({
+        calendarId: z.string().optional().describe('Calendar identifier. Defaults to "primary".'),
+        iCalUID: z.string().describe('iCalendar UID for the event.'),
+        start: EventDateTimeSchema.describe('Start time of the event.'),
+        end: EventDateTimeSchema.describe('End time of the event.'),
+        summary: z.string().optional().describe('Title of the event.'),
+        description: z.string().optional().describe('Description of the event.'),
+        location: z.string().optional().describe('Geographic location of the event.'),
+        attendees: z.array(AttendeeInputSchema).optional().describe('Attendees of the event.'),
+        organizer: OrganizerInputSchema.optional().describe('The organizer of the event.'),
+        conferenceDataVersion: z.number().int().min(0).max(1).optional().describe('Version number of conference data supported by the API client.'),
+        supportsAttachments: z.boolean().optional().describe('Whether API client performing operation supports event attachments.')
+    })
+    .describe('Input for importing an event into a Google Calendar.');
+
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Identifier of the imported event.'),
+        iCalUID: z.string().describe('iCalendar UID of the event.'),
+        summary: z.string().optional().describe('Title of the event.'),
+        start: EventDateTimeSchema.optional().describe('Start time of the event.'),
+        end: EventDateTimeSchema.optional().describe('End time of the event.'),
+        description: z.string().optional().describe('Description of the event.'),
+        location: z.string().optional().describe('Geographic location of the event.'),
+        status: z.string().optional().describe('Status of the event.'),
+        htmlLink: z.string().optional().describe('Link to the event in Google Calendar.'),
+        attendees: z.array(AttendeeOutputSchema).optional().describe('Attendees of the event.'),
+        organizer: OrganizerInputSchema.optional().describe('The organizer of the event.')
+    })
+    .describe('Output of the imported Google Calendar event.');
+
+const ProviderAttendeeSchema = z.object({
+    email: z.string().optional(),
     displayName: z.string().optional(),
-    email: z.string().email(),
+    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional(),
     optional: z.boolean().optional(),
     resource: z.boolean().optional(),
-    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional()
-});
-
-const InputEventTimeSchema = z.object({
-    date: z.string().optional().describe('The date, in the format "yyyy-mm-dd", if this is an all-day event.'),
-    dateTime: z.string().optional().describe('The time, as a combined date-time value (formatted according to RFC3339).'),
-    timeZone: z.string().optional().describe('The time zone in which the time is specified (IANA Time Zone Database name, e.g. "Europe/Zurich").')
-});
-
-const InputSchema = z.object({
-    calendarId: z.string().describe('Calendar identifier. Use "primary" for the primary calendar of the currently logged in user.'),
-    iCalUID: z.string().describe('Event unique identifier as defined in RFC5545. Used to uniquely identify events across calendaring systems.'),
-    summary: z.string().optional().describe('Title of the event.'),
-    description: z.string().optional().describe('Description of the event. Can contain HTML.'),
-    location: z.string().optional().describe('Geographic location of the event as free-form text.'),
-    start: InputEventTimeSchema.describe('The (inclusive) start time of the event.'),
-    end: InputEventTimeSchema.describe('The (exclusive) end time of the event.'),
-    attendees: z.array(InputAttendeeSchema).optional().describe('The attendees of the event.'),
-    organizer: z
-        .object({
-            displayName: z.string().optional(),
-            email: z.string().email().optional()
-        })
-        .optional()
-        .describe('The organizer of the event.'),
-    conferenceDataVersion: z.number().min(0).max(1).optional().describe('Version number of conference data supported by the API client.'),
-    supportsAttachments: z.boolean().optional().describe('Whether API client performing operation supports event attachments.')
-});
-
-// Output schemas - keep them strict to match API validation
-const OutputEventTimeSchema = z.object({
-    date: z.string().optional(),
-    dateTime: z.string().optional(),
-    timeZone: z.string().optional()
-});
-
-const OutputAttendeeSchema = z.object({
-    additionalGuests: z.number().optional(),
     comment: z.string().optional(),
-    displayName: z.string().optional(),
-    email: z.string(),
-    optional: z.boolean().optional(),
-    resource: z.boolean().optional(),
-    responseStatus: z.enum(['needsAction', 'declined', 'tentative', 'accepted']).optional()
+    additionalGuests: z.number().optional()
 });
 
-const OutputSchema = z.object({
-    id: z.string().describe('Identifier of the event.'),
-    iCalUID: z.string().describe('Event unique identifier as defined in RFC5545.'),
+const ProviderEventSchema = z.object({
+    id: z.string(),
+    iCalUID: z.string(),
     summary: z.string().optional(),
+    start: EventDateTimeSchema.optional(),
+    end: EventDateTimeSchema.optional(),
     description: z.string().optional(),
     location: z.string().optional(),
-    status: z.enum(['confirmed', 'tentative', 'cancelled']).optional(),
+    status: z.string().optional(),
     htmlLink: z.string().optional(),
-    start: OutputEventTimeSchema.optional(),
-    end: OutputEventTimeSchema.optional(),
-    attendees: z.array(OutputAttendeeSchema).optional(),
+    attendees: z.array(ProviderAttendeeSchema).optional(),
     organizer: z
         .object({
             displayName: z.string().optional(),
@@ -76,59 +89,64 @@ const OutputSchema = z.object({
         .optional()
 });
 
+/**
+ * @tags: [write]
+ * @tagReason: Imports a private copy of an event into the specified calendar.
+ * @pitfalls: Only default-type events may be imported; non-default events are silently converted to default and event-type-specific properties are dropped.
+ */
 const action = createAction({
-    description: 'Import an event as a private copy using an iCalendar UID',
-    version: '2.0.1',
-
+    description: 'Import an event as a private copy using an iCalendar UID.',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [
-        'https://www.googleapis.com/auth/calendar',
-        'https://www.googleapis.com/auth/calendar.events',
-        'https://www.googleapis.com/auth/calendar.app.created',
-        'https://www.googleapis.com/auth/calendar.events.owned'
-    ],
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.google.com/workspace/calendar/api/v3/reference/events/import
-        const response = await nango.post({
-            endpoint: `/calendar/v3/calendars/${input.calendarId}/events/import`,
+        const calendarId = input.calendarId ?? 'primary';
+
+        const body: Record<string, unknown> = {
+            iCalUID: input.iCalUID,
+            start: input.start,
+            end: input.end,
+            ...(input.summary !== undefined && { summary: input.summary }),
+            ...(input.description !== undefined && { description: input.description }),
+            ...(input.location !== undefined && { location: input.location }),
+            ...(input.attendees !== undefined && { attendees: input.attendees }),
+            ...(input.organizer !== undefined && { organizer: input.organizer })
+        };
+
+        const config: ProxyConfiguration = {
+            // https://developers.google.com/workspace/calendar/api/v3/reference/events/import
+            endpoint: `/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events/import`,
             params: {
                 ...(input.conferenceDataVersion !== undefined && { conferenceDataVersion: String(input.conferenceDataVersion) }),
                 ...(input.supportsAttachments !== undefined && { supportsAttachments: String(input.supportsAttachments) })
             },
-            data: {
-                iCalUID: input.iCalUID,
-                summary: input.summary,
-                description: input.description,
-                location: input.location,
-                start: input.start,
-                end: input.end,
-                attendees: input.attendees,
-                organizer: input.organizer
-            },
+            data: body,
             retries: 3
-        });
+        };
 
-        const event = response.data;
+        const response = await nango.post(config);
+
+        const event = ProviderEventSchema.parse(response.data);
 
         return {
             id: event.id,
             iCalUID: event.iCalUID,
-            summary: event.summary ?? undefined,
-            description: event.description ?? undefined,
-            location: event.location ?? undefined,
-            status: event.status,
-            htmlLink: event.htmlLink ?? undefined,
-            start: event.start,
-            end: event.end,
-            attendees: event.attendees,
-            organizer: event.organizer
-                ? {
-                      displayName: event.organizer.displayName ?? undefined,
-                      email: event.organizer.email ?? undefined
-                  }
-                : undefined
+            ...(event.summary !== undefined && { summary: event.summary }),
+            ...(event.start !== undefined && { start: event.start }),
+            ...(event.end !== undefined && { end: event.end }),
+            ...(event.description !== undefined && { description: event.description }),
+            ...(event.location !== undefined && { location: event.location }),
+            ...(event.status !== undefined && { status: event.status }),
+            ...(event.htmlLink !== undefined && { htmlLink: event.htmlLink }),
+            ...(event.attendees !== undefined && { attendees: event.attendees }),
+            ...(event.organizer !== undefined && {
+                organizer: {
+                    ...(event.organizer.displayName !== undefined && { displayName: event.organizer.displayName }),
+                    ...(event.organizer.email !== undefined && { email: event.organizer.email })
+                }
+            })
         };
     }
 });
