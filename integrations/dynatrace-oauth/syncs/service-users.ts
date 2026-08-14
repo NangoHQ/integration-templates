@@ -37,10 +37,9 @@ const ServiceUserSchema = z.object({
 
 const sync = createSync({
     description: 'Sync service (API-only) users in this account.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
-    trackDeletes: true,
     models: {
         ServiceUser: ServiceUserSchema
     },
