@@ -1,21 +1,31 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import * as z from 'zod';
 
 const InputSchema = z.object({
-    id: z.string().describe('The identifier of the label to update.'),
-    name: z.string().optional().describe('The name of the label.'),
-    color: z.string().optional().describe('The color of the label as a HEX string.'),
-    description: z.string().optional().describe('The description of the label.')
+    id: z.string().describe('The identifier of the issue label to update. Example: "b08dbaa2-5ecc-4770-acaf-23894ce84e64"'),
+    name: z.string().optional().describe('The new name of the issue label.'),
+    color: z.string().optional().describe('The new color of the issue label as a hex string. Example: "#ff0000"'),
+    description: z.string().nullable().optional().describe('The new description of the issue label. Pass null to clear.')
+});
+
+const ProviderIssueLabelSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    color: z.string().optional(),
+    description: z.string().nullable().optional(),
+    createdAt: z.string().optional(),
+    updatedAt: z.string().optional(),
+    archivedAt: z.string().nullable().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
     name: z.string(),
-    color: z.string().nullable().optional(),
-    description: z.string().nullable().optional(),
+    color: z.string().optional(),
+    description: z.string().optional(),
     createdAt: z.string().optional(),
     updatedAt: z.string().optional(),
-    archivedAt: z.string().nullable().optional()
+    archivedAt: z.string().optional()
 });
 
 const GraphQLErrorSchema = z.object({
@@ -25,32 +35,29 @@ const GraphQLErrorSchema = z.object({
 const IssueLabelUpdateResponseSchema = z.object({
     data: z
         .object({
-            issueLabelUpdate: z.object({
-                success: z.boolean(),
-                issueLabel: z.object({
-                    id: z.string(),
-                    name: z.string(),
-                    color: z.string().nullable().optional(),
-                    description: z.string().nullable().optional(),
-                    createdAt: z.string().optional(),
-                    updatedAt: z.string().optional(),
-                    archivedAt: z.string().nullable().optional()
+            issueLabelUpdate: z
+                .object({
+                    success: z.boolean(),
+                    issueLabel: ProviderIssueLabelSchema.nullable().optional()
                 })
-            })
+                .nullable()
+                .optional()
         })
+        .nullable()
         .optional(),
     errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const action = createAction({
-    description: 'Update an existing Linear issue label.',
+    description: 'Update an existing Linear issue label',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
-    version: '1.0.2',
     scopes: ['write'],
-    exec: async (nango, input) => {
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const mutation = `
-            mutation UpdateIssueLabel($id: String!, $input: IssueLabelUpdateInput!) {
+            mutation IssueLabelUpdate($id: String!, $input: IssueLabelUpdateInput!) {
                 issueLabelUpdate(id: $id, input: $input) {
                     success
                     issueLabel {
@@ -66,16 +73,27 @@ const action = createAction({
             }
         `;
 
-        const variables = {
-            id: input.id,
-            input: {
-                ...(input.name !== undefined && { name: input.name }),
-                ...(input.color !== undefined && { color: input.color }),
-                ...(input.description !== undefined && { description: input.description })
-            }
+        const variables: Record<string, unknown> = {
+            id: input.id
         };
 
-        // https://linear.app/developers/graphql
+        const updateInput: Record<string, unknown> = {};
+
+        if (input.name !== undefined) {
+            updateInput['name'] = input.name;
+        }
+
+        if (input.color !== undefined) {
+            updateInput['color'] = input.color;
+        }
+
+        if (input.description !== undefined) {
+            updateInput['description'] = input.description;
+        }
+
+        variables['input'] = updateInput;
+
+        // https://linear.app/developers
         const response = await nango.post({
             endpoint: '/graphql',
             data: {
@@ -85,28 +103,62 @@ const action = createAction({
             retries: 3
         });
 
-        const payload = IssueLabelUpdateResponseSchema.parse(response.data);
+        const parsed = IssueLabelUpdateResponseSchema.safeParse(response.data);
 
-        if (payload.errors && payload.errors.length > 0) {
-            const message = payload.errors.map((e) => e.message).join(', ');
-            throw new nango.ActionError({ message: `Linear issueLabelUpdate failed: ${message}` });
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Linear API'
+            });
         }
 
-        const label = payload.data?.issueLabelUpdate?.issueLabel;
-        if (!label) {
-            throw new nango.ActionError({ message: 'Linear issueLabelUpdate did not return a label.' });
+        const graphqlErrors = parsed.data.errors;
+        if (graphqlErrors && graphqlErrors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: graphqlErrors.map((error) => error.message).join(', '),
+                labelId: input.id
+            });
+        }
+
+        const updateResult = parsed.data.data?.issueLabelUpdate;
+
+        if (!updateResult) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API did not return an issueLabelUpdate payload'
+            });
+        }
+
+        if (updateResult.success === false) {
+            throw new nango.ActionError({
+                type: 'update_failed',
+                message: 'Linear reported the label update as unsuccessful',
+                labelId: input.id
+            });
+        }
+
+        const issueLabel = updateResult.issueLabel;
+
+        if (!issueLabel) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API did not return the updated issue label',
+                labelId: input.id
+            });
         }
 
         return {
-            id: label.id,
-            name: label.name,
-            color: label.color ?? undefined,
-            description: label.description ?? undefined,
-            createdAt: label.createdAt,
-            updatedAt: label.updatedAt,
-            archivedAt: label.archivedAt ?? undefined
+            id: issueLabel.id,
+            name: issueLabel.name,
+            ...(issueLabel.color !== undefined && { color: issueLabel.color }),
+            ...(issueLabel.description != null && { description: issueLabel.description }),
+            ...(issueLabel.createdAt !== undefined && { createdAt: issueLabel.createdAt }),
+            ...(issueLabel.updatedAt !== undefined && { updatedAt: issueLabel.updatedAt }),
+            ...(issueLabel.archivedAt != null && { archivedAt: issueLabel.archivedAt })
         };
     }
 });
 
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

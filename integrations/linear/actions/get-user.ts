@@ -2,46 +2,50 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    userId: z.string().describe('Linear user ID. Example: "usr_123abc"')
+    userId: z.string().describe('The ID of the Linear user to retrieve. Example: "user-id-123"')
 });
 
 const ProviderUserSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    email: z.string(),
-    displayName: z.string().optional(),
-    admin: z.boolean(),
-    active: z.boolean()
-});
-
-const LinearUserResponseSchema = z.object({
-    data: z.object({
-        user: ProviderUserSchema
-    })
+    name: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
+    displayName: z.string().nullable().optional(),
+    admin: z.boolean().optional(),
+    active: z.boolean().optional()
 });
 
 const OutputSchema = z.object({
     id: z.string(),
-    name: z.string(),
-    email: z.string(),
+    name: z.string().optional(),
+    email: z.string().optional(),
     displayName: z.string().optional(),
-    admin: z.boolean(),
-    active: z.boolean()
+    admin: z.boolean().optional(),
+    active: z.boolean().optional()
+});
+
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            user: ProviderUserSchema.nullable()
+        })
+        .nullable()
+        .optional(),
+    errors: z.array(z.unknown()).optional()
 });
 
 const action = createAction({
     description: 'Retrieve a Linear user by user ID.',
-    version: '1.0.2',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://linear.app/developers/graphql
         const response = await nango.post({
+            // https://linear.app/developers
             endpoint: '/graphql',
             data: {
-                query: 'query user($id: String!) { user(id: $id) { id name email displayName admin active } }',
+                query: 'query User($id: String!) { user(id: $id) { id name email displayName admin active } }',
                 variables: {
                     id: input.userId
                 }
@@ -52,28 +56,43 @@ const action = createAction({
         if (!response.data || typeof response.data !== 'object') {
             throw new nango.ActionError({
                 type: 'invalid_response',
-                message: 'Unexpected response from Linear API'
+                message: 'Invalid response from Linear API.'
             });
         }
 
-        const parsed = LinearUserResponseSchema.safeParse(response.data);
+        const parsed = GraphQLResponseSchema.safeParse(response.data);
         if (!parsed.success) {
             throw new nango.ActionError({
-                type: 'not_found',
-                message: 'User not found',
-                userId: input.userId
+                type: 'invalid_response',
+                message: 'Unexpected response shape from Linear API.'
             });
         }
 
-        const providerUser = parsed.data.data.user;
+        const body = parsed.data;
+
+        if (body.errors && body.errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: 'GraphQL query failed.',
+                errors: body.errors
+            });
+        }
+
+        const providerUser = body.data?.user;
+        if (!providerUser) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'User not found.'
+            });
+        }
 
         return {
             id: providerUser.id,
-            name: providerUser.name,
-            email: providerUser.email,
-            ...(providerUser.displayName !== undefined && { displayName: providerUser.displayName }),
-            admin: providerUser.admin,
-            active: providerUser.active
+            ...(providerUser.name != null && { name: providerUser.name }),
+            ...(providerUser.email != null && { email: providerUser.email }),
+            ...(providerUser.displayName != null && { displayName: providerUser.displayName }),
+            ...(providerUser.admin != null && { admin: providerUser.admin }),
+            ...(providerUser.active != null && { active: providerUser.active })
         };
     }
 });

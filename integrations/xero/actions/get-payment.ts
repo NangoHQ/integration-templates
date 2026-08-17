@@ -1,227 +1,195 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    paymentId: z.string().uuid().describe('The Xero PaymentID to retrieve. Example: "99ea7f6b-c513-4066-bc27-b7c65dcd76c2"')
+const InputSchema = z
+    .object({
+        paymentId: z.string().describe('The unique Xero Payment ID to retrieve. Example: "51194409-9530-4ff9-aa72-7c415273c723"')
+    })
+    .describe('Input for retrieving a Xero payment by ID.');
+
+const InvoiceRefSchema = z.object({
+    invoiceId: z.string().optional().describe('The Xero Invoice ID associated with this payment.'),
+    invoiceNumber: z.string().optional().describe('The invoice number.')
 });
 
-const AccountSchema = z.object({
-    AccountID: z.string().optional(),
-    Code: z.string().optional(),
-    Name: z.string().optional()
+const AccountRefSchema = z.object({
+    accountId: z.string().optional().describe('The Xero Account ID used for this payment.'),
+    code: z.string().optional().describe('The account code.'),
+    name: z.string().optional().describe('The account name.')
 });
 
-const ContactSchema = z.object({
-    ContactID: z.string().optional(),
-    Name: z.string().optional()
-});
+const OutputSchema = z
+    .object({
+        paymentId: z.string().describe('The unique Xero Payment ID.'),
+        date: z.string().optional().describe('The payment date in YYYY-MM-DD format.'),
+        amount: z.number().optional().describe('The payment amount.'),
+        status: z.string().optional().describe('The payment status. Example: AUTHORISED, DELETED.'),
+        paymentType: z.string().optional().describe('The payment type. Example: ACCRECPAYMENT, ACCPAYPAYMENT.'),
+        updatedDateUtc: z.string().optional().describe('The last modified timestamp in UTC.'),
+        invoice: InvoiceRefSchema.optional().describe('The invoice this payment is applied to.'),
+        account: AccountRefSchema.optional().describe('The bank account the payment was made from/to.')
+    })
+    .describe('A Xero Payment record.');
 
-const InvoiceSchema = z.object({
-    InvoiceID: z.string().optional(),
-    InvoiceNumber: z.string().optional(),
-    Type: z.string().optional(),
-    Status: z.string().optional(),
-    AmountDue: z.number().optional(),
-    AmountPaid: z.number().optional(),
-    Total: z.number().optional(),
-    CurrencyCode: z.string().optional(),
-    Contact: ContactSchema.optional()
-});
-
-const ValidationErrorSchema = z.object({
-    Message: z.string().optional()
-});
-
-const ProviderPaymentSchema = z.object({
-    PaymentID: z.string().optional(),
-    Date: z.string().optional(),
-    Amount: z.number().optional(),
-    BankAmount: z.number().optional(),
-    CurrencyRate: z.number().optional(),
-    Reference: z.string().optional(),
-    Status: z.string().optional(),
-    PaymentType: z.string().optional(),
-    IsReconciled: z.boolean().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    BatchPaymentID: z.string().optional(),
-    HasAccount: z.boolean().optional(),
-    HasValidationErrors: z.boolean().optional(),
-    StatusAttributeString: z.string().optional(),
-    BankAccountNumber: z.string().optional(),
-    Particulars: z.string().optional(),
-    Details: z.string().optional(),
-    Account: AccountSchema.optional(),
-    Invoice: InvoiceSchema.optional(),
-    ValidationErrors: z.array(ValidationErrorSchema).optional(),
-    Warnings: z.array(ValidationErrorSchema).optional()
-});
-
-const ProviderPaymentsResponseSchema = z.object({
-    Id: z.string().optional(),
-    Status: z.string().optional(),
-    ProviderName: z.string().optional(),
-    DateTimeUTC: z.string().optional(),
-    Payments: z.array(ProviderPaymentSchema).optional()
-});
-
-const OutputSchema = z.object({
-    PaymentID: z.string().optional(),
-    Date: z.string().optional(),
-    Amount: z.number().optional(),
-    BankAmount: z.number().optional(),
-    CurrencyRate: z.number().optional(),
-    Reference: z.string().optional(),
-    Status: z.string().optional(),
-    PaymentType: z.string().optional(),
-    IsReconciled: z.boolean().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    BatchPaymentID: z.string().optional(),
-    HasAccount: z.boolean().optional(),
-    HasValidationErrors: z.boolean().optional(),
-    StatusAttributeString: z.string().optional(),
-    BankAccountNumber: z.string().optional(),
-    Particulars: z.string().optional(),
-    Details: z.string().optional(),
-    Account: AccountSchema.optional(),
-    Invoice: InvoiceSchema.optional(),
-    ValidationErrors: z.array(ValidationErrorSchema).optional(),
-    Warnings: z.array(ValidationErrorSchema).optional()
-});
-
+/**
+ * @tags: [read]
+ * @tagReason: Retrieves an existing payment from the Xero Accounting API.
+ * @pitfalls: Deleted payments remain retrievable with status DELETED rather than returning a not-found error. Date and timestamp fields are returned in Xero's /Date(...)/ JSON format instead of ISO-8601 or YYYY-MM-DD.
+ */
 const action = createAction({
     description: 'Retrieve a payment by PaymentID.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.payments', 'accounting.payments.read'],
+    scopes: ['accounting.payments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        async function resolveTenantId(): Promise<string> {
-            const connection = await nango.getConnection();
+        const connection = await nango.getConnection();
+        let tenantId: string | undefined;
 
-            if (
-                connection &&
-                typeof connection === 'object' &&
-                'connection_config' in connection &&
-                connection.connection_config &&
-                typeof connection.connection_config === 'object' &&
-                'tenant_id' in connection.connection_config &&
-                typeof connection.connection_config['tenant_id'] === 'string' &&
-                connection.connection_config['tenant_id'].length > 0
-            ) {
-                return connection.connection_config['tenant_id'];
-            }
+        if (
+            typeof connection.connection_config === 'object' &&
+            connection.connection_config !== null &&
+            'tenant_id' in connection.connection_config &&
+            typeof connection.connection_config['tenant_id'] === 'string' &&
+            connection.connection_config['tenant_id'].length > 0
+        ) {
+            tenantId = connection.connection_config['tenant_id'];
+        }
 
-            if (
-                connection &&
-                typeof connection === 'object' &&
-                'metadata' in connection &&
-                connection.metadata &&
-                typeof connection.metadata === 'object' &&
-                'tenantId' in connection.metadata &&
-                typeof connection.metadata['tenantId'] === 'string' &&
-                connection.metadata['tenantId'].length > 0
-            ) {
-                return connection.metadata['tenantId'];
-            }
+        if (
+            !tenantId &&
+            typeof connection.metadata === 'object' &&
+            connection.metadata !== null &&
+            'tenantId' in connection.metadata &&
+            typeof connection.metadata['tenantId'] === 'string' &&
+            connection.metadata['tenantId'].length > 0
+        ) {
+            tenantId = connection.metadata['tenantId'];
+        }
 
-            // https://developer.xero.com/documentation/api/accounting/connections
+        if (!tenantId) {
+            // https://developer.xero.com/documentation/api/accounting/overview
             const connectionsResponse = await nango.get({
                 endpoint: 'connections',
                 retries: 10
             });
 
-            if (
-                !connectionsResponse ||
-                typeof connectionsResponse !== 'object' ||
-                !('data' in connectionsResponse) ||
-                !Array.isArray(connectionsResponse.data)
-            ) {
+            const ConnectionsSchema = z.object({
+                data: z.array(z.unknown())
+            });
+            const parsed = ConnectionsSchema.parse(connectionsResponse);
+
+            if (parsed.data.length === 0) {
                 throw new nango.ActionError({
-                    type: 'invalid_connections_response',
-                    message: 'Unexpected response from GET /Connections.'
+                    type: 'missing_tenant',
+                    message: 'No Xero tenants found for this connection.'
                 });
             }
 
-            const connections: unknown[] = connectionsResponse.data;
-
-            if (connections.length === 0) {
-                throw new nango.ActionError({
-                    type: 'no_tenant',
-                    message: 'No Xero tenant found for this connection.'
-                });
-            }
-
-            if (connections.length > 1) {
+            if (parsed.data.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
 
-            const firstConnection = connections[0];
-
-            if (
-                !firstConnection ||
-                typeof firstConnection !== 'object' ||
-                !('tenantId' in firstConnection) ||
-                typeof firstConnection['tenantId'] !== 'string' ||
-                firstConnection['tenantId'].length === 0
-            ) {
-                throw new nango.ActionError({
-                    type: 'invalid_tenant',
-                    message: 'Found a connection but it has no tenantId.'
-                });
+            const ConnectionItemSchema = z
+                .object({
+                    tenantId: z.unknown().optional()
+                })
+                .passthrough();
+            const first = ConnectionItemSchema.parse(parsed.data[0]);
+            if (typeof first.tenantId === 'string' && first.tenantId.length > 0) {
+                tenantId = first.tenantId;
             }
-
-            return firstConnection['tenantId'];
         }
 
-        const tenantId = await resolveTenantId();
+        if (!tenantId) {
+            throw new nango.ActionError({
+                type: 'missing_tenant',
+                message: 'Unable to resolve xero-tenant-id.'
+            });
+        }
 
-        // https://developer.xero.com/documentation/api/accounting/payments
+        // https://developer.xero.com/documentation/api/accounting/overview
         const response = await nango.get({
-            endpoint: `api.xro/2.0/Payments/${input.paymentId}`,
+            endpoint: `api.xro/2.0/Payments/${encodeURIComponent(input.paymentId)}`,
             headers: {
                 'xero-tenant-id': tenantId
             },
             retries: 3
         });
 
-        const parsed = ProviderPaymentsResponseSchema.parse(response.data);
+        const ProviderResponseSchema = z.object({
+            Payments: z.array(z.unknown()).optional()
+        });
+        const parsedResponse = ProviderResponseSchema.parse(response.data || {});
 
-        if (!parsed.Payments || parsed.Payments.length === 0) {
+        if (!parsedResponse.Payments || parsedResponse.Payments.length === 0) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Payment with ID ${input.paymentId} was not found.`,
-                paymentId: input.paymentId
+                message: `Payment with ID "${input.paymentId}" was not found.`
             });
         }
 
-        const payment = ProviderPaymentSchema.parse(parsed.Payments[0]);
+        const RawPaymentSchema = z
+            .object({
+                PaymentID: z.unknown().optional(),
+                Date: z.unknown().optional(),
+                Amount: z.unknown().optional(),
+                Status: z.unknown().optional(),
+                PaymentType: z.unknown().optional(),
+                UpdatedDateUTC: z.unknown().optional(),
+                Invoice: z.unknown().optional(),
+                Account: z.unknown().optional()
+            })
+            .passthrough();
+        const rawPayment = RawPaymentSchema.parse(parsedResponse.Payments[0]);
+
+        const invoiceRaw =
+            rawPayment.Invoice !== undefined && rawPayment.Invoice !== null && typeof rawPayment.Invoice === 'object'
+                ? z
+                      .object({
+                          InvoiceID: z.unknown().optional(),
+                          InvoiceNumber: z.unknown().optional()
+                      })
+                      .passthrough()
+                      .parse(rawPayment.Invoice)
+                : undefined;
+
+        const accountRaw =
+            rawPayment.Account !== undefined && rawPayment.Account !== null && typeof rawPayment.Account === 'object'
+                ? z
+                      .object({
+                          AccountID: z.unknown().optional(),
+                          Code: z.unknown().optional(),
+                          Name: z.unknown().optional()
+                      })
+                      .passthrough()
+                      .parse(rawPayment.Account)
+                : undefined;
 
         return {
-            PaymentID: payment.PaymentID,
-            Date: payment.Date,
-            Amount: payment.Amount,
-            BankAmount: payment.BankAmount,
-            CurrencyRate: payment.CurrencyRate,
-            Reference: payment.Reference,
-            Status: payment.Status,
-            PaymentType: payment.PaymentType,
-            IsReconciled: payment.IsReconciled,
-            UpdatedDateUTC: payment.UpdatedDateUTC,
-            BatchPaymentID: payment.BatchPaymentID,
-            HasAccount: payment.HasAccount,
-            HasValidationErrors: payment.HasValidationErrors,
-            StatusAttributeString: payment.StatusAttributeString,
-            BankAccountNumber: payment.BankAccountNumber,
-            Particulars: payment.Particulars,
-            Details: payment.Details,
-            Account: payment.Account,
-            Invoice: payment.Invoice,
-            ValidationErrors: payment.ValidationErrors,
-            Warnings: payment.Warnings
+            paymentId: rawPayment.PaymentID != null ? String(rawPayment.PaymentID) : input.paymentId,
+            ...(rawPayment.Date != null && { date: String(rawPayment.Date) }),
+            ...(rawPayment.Amount != null && { amount: Number(rawPayment.Amount) }),
+            ...(rawPayment.Status != null && { status: String(rawPayment.Status) }),
+            ...(rawPayment.PaymentType != null && { paymentType: String(rawPayment.PaymentType) }),
+            ...(rawPayment.UpdatedDateUTC != null && { updatedDateUtc: String(rawPayment.UpdatedDateUTC) }),
+            ...(invoiceRaw !== undefined && {
+                invoice: {
+                    ...(invoiceRaw.InvoiceID != null && { invoiceId: String(invoiceRaw.InvoiceID) }),
+                    ...(invoiceRaw.InvoiceNumber != null && { invoiceNumber: String(invoiceRaw.InvoiceNumber) })
+                }
+            }),
+            ...(accountRaw !== undefined && {
+                account: {
+                    ...(accountRaw.AccountID != null && { accountId: String(accountRaw.AccountID) }),
+                    ...(accountRaw.Code != null && { code: String(accountRaw.Code) }),
+                    ...(accountRaw.Name != null && { name: String(accountRaw.Name) })
+                }
+            })
         };
     }
 });

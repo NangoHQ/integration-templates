@@ -1,0 +1,107 @@
+{
+  "input": {
+    "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b"
+  },
+  "output": {
+    "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+    "assetName": "Nango Registry Test Asset 1",
+    "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
+    "assetNumber": "FA-NANGO-1",
+    "purchaseDate": "2026-08-01T00:00:00",
+    "purchasePrice": 500,
+    "disposalPrice": 0,
+    "assetStatus": "Draft",
+    "bookDepreciationSetting": {
+      "depreciableObjectId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+      "depreciableObjectType": "Asset",
+      "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a",
+      "depreciationCalculationMethod": "None"
+    },
+    "bookDepreciationDetail": {
+      "currentCapitalGain": 0,
+      "currentGainLoss": 0,
+      "priorAccumDepreciationAmount": 0,
+      "currentAccumDepreciationAmount": 0
+    },
+    "accountingBookValue": 500,
+    "isDeleteEnabledForDate": true
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/assets.xro/1.0/Assets/f9c66fb6-2d6a-478f-88bf-f0624797369b": {
+        "response": {
+          "assetId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+          "assetName": "Nango Registry Test Asset 1",
+          "assetNumber": "FA-NANGO-1",
+          "purchaseDate": "2026-08-01T00:00:00",
+          "purchasePrice": 500,
+          "assetTypeId": "83d8e70d-137c-4cba-9567-3c70064193a2",
+          "disposalPrice": 0,
+          "assetStatus": "Draft",
+          "trackingItems": [],
+          "bookDepreciationSetting": {
+            "depreciableObjectId": "f9c66fb6-2d6a-478f-88bf-f0624797369b",
+            "depreciableObjectType": "Asset",
+            "bookEffectiveDateOfChangeId": "45915ed2-c77a-4482-b5e6-b0dbe8a20b3a",
+            "depreciationCalculationMethod": "None"
+          },
+          "bookDepreciationDetail": {
+            "priorAccumDepreciationAmount": 0,
+            "currentAccumDepreciationAmount": 0,
+            "currentCapitalGain": 0,
+            "currentGainLoss": 0
+          },
+          "taxDepreciationSettings": [],
+          "taxDepreciationDetails": [],
+          "canRollback": true,
+          "metaData": {
+            "bookDepreciationDetailsCanChange": true,
+            "taxDepreciationDetailsCanChange": true
+          },
+          "accountingBookValue": 500,
+          "taxValues": [],
+          "isDeleteEnabledForDate": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 11 Aug 2026 23:20:23 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "917",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1979",
+          "x-ratelimit-reset": "1786490475",
+          "xero-correlation-id": "95f50af0-2359-494c-ae12-cda7d444c5ce",
+          "x-appminlimit-remaining": "9993",
+          "x-minlimit-remaining": "45",
+          "x-daylimit-remaining": "4801",
+          "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba",
+          "server": "tpzgw-c",
+          "expires": "Tue, 11 Aug 2026 23:20:23 GMT",
+          "cache-control": "max-age=0, no-cache, no-store",
+          "pragma": "no-cache",
+          "x-client-tls-ver": "tls1.3",
+          "etag": "W/\"395-e7o7vss1qCN7S8HGPhbsRed00Hg\""
+        },
+        "hash": "91437eb5bfe734a791b9590813209f5be2edcc9a",
+        "request": {
+          "headers": {
+            "xero-tenant-id": "27e853de-cfdc-4bf3-85e9-3979ee2bcaba"
+          }
+        }
+      }
+    }
+  }
+}

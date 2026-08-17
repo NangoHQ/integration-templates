@@ -1,12 +1,12 @@
 {
   "input": {
-    "id": "eb2f0250-c525-40d2-bda4-eaa2fe6a7d82"
+    "id": "6948bf28-149d-489b-8f0d-eebae9be8324"
   },
   "output": {
     "success": true,
-    "issueId": "eb2f0250-c525-40d2-bda4-eaa2fe6a7d82",
-    "identifier": "NAN-22",
-    "title": "Test issue for unarchive action",
+    "issueId": "6948bf28-149d-489b-8f0d-eebae9be8324",
+    "identifier": "NAN-9",
+    "title": "Nango Registry Test Issue",
     "archivedAt": null
   },
   "nango": {},
@@ -17,11 +17,10 @@
           "data": {
             "issueUnarchive": {
               "success": true,
-              "lastSyncId": 0,
               "entity": {
-                "id": "eb2f0250-c525-40d2-bda4-eaa2fe6a7d82",
-                "identifier": "NAN-22",
-                "title": "Test issue for unarchive action",
+                "id": "6948bf28-149d-489b-8f0d-eebae9be8324",
+                "identifier": "NAN-9",
+                "title": "Nango Registry Test Issue",
                 "archivedAt": null
               }
             }
@@ -29,9 +28,9 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 24 Apr 2026 10:27:36 GMT",
+          "date": "Tue, 04 Aug 2026 12:05:00 GMT",
           "content-type": "application/json; charset=utf-8",
-          "transfer-encoding": "chunked",
+          "content-length": "45",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -39,36 +38,21 @@
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4988",
-          "x-ratelimit-reset": "1777026495",
-          "cf-ray": "9f146a95dd6e8e62-PDX",
-          "cf-cache-status": "DYNAMIC",
-          "cache-control": "no-store",
-          "etag": "W/\"c5-EpF8sHsQXZiYrZYNNqZBcPYYizQ\"",
-          "set-cookie": "<redacted>",
-          "via": "1.1 google",
-          "alt-svc": "h3=\":443\"; ma=86400",
-          "x-complexity": "3",
-          "x-ratelimit-complexity-limit": "2000000",
-          "x-ratelimit-complexity-remaining": "1999997",
-          "x-ratelimit-complexity-reset": "1777030056868",
-          "x-ratelimit-requests-limit": "5000",
-          "x-ratelimit-requests-remaining": "4999",
-          "x-ratelimit-requests-reset": "1777030056868",
-          "x-request-id": "9f146a9604d28e62-PDX",
-          "vary": "Accept-Encoding",
-          "server": "cloudflare"
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1785845151",
+          "x-request-id": "a25d6d85bdbfff0a-PDX",
+          "etag": "W/\"2d-XU+wuaULylE0IpL7hRdCU2AFPY8\""
         },
-        "hash": "d3ed135ce20cb5731ce8325f65fc817c8dce2c57",
+        "hash": "50f3118a842fb34ca0806896cfdf38061ca2935c",
         "request": {
           "data": {
-            "query": "\n                    mutation IssueUnarchive($id: String!) {\n                        issueUnarchive(id: $id) {\n                            success\n                            lastSyncId\n                            entity {\n                                id\n                                identifier\n                                title\n                                archivedAt\n                            }\n                        }\n                    }\n                ",
+            "query": "\n                    mutation IssueUnarchive($id: String!) {\n                        issueUnarchive(id: $id) {\n                            success\n                            entity {\n                                id\n                                identifier\n                                title\n                                archivedAt\n                            }\n                        }\n                    }\n                ",
             "variables": {
-              "id": "eb2f0250-c525-40d2-bda4-eaa2fe6a7d82"
+              "id": "6948bf28-149d-489b-8f0d-eebae9be8324"
             }
           }
         }

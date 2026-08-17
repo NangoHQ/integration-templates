@@ -2,20 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    teamId: z.string().describe('The ID of the team this cycle belongs to. Example: "9cfb482a-81e3-4154-b5b9-2c805e70a02d"'),
-    name: z.string().describe('The name of the cycle. Example: "Sprint 23"'),
+    teamId: z.string().describe('Team ID. Example: "9ce955cd-b013-4e79-bd0a-41bec5a67dd1"'),
+    name: z.string().describe('Cycle name. Example: "Sprint 1"'),
     description: z.string().optional().describe('The description of the cycle.'),
-    startsAt: z.string().datetime().describe('The start date of the cycle in ISO 8601 format. Example: "2024-01-15T00:00:00Z"'),
-    endsAt: z.string().datetime().describe('The end date of the cycle in ISO 8601 format. Example: "2024-01-29T00:00:00Z"'),
+    startsAt: z.string().datetime().describe('ISO 8601 start datetime. Example: "2024-01-01T00:00:00Z"'),
+    endsAt: z.string().datetime().describe('ISO 8601 end datetime. Example: "2024-01-14T23:59:59Z"'),
     completedAt: z.string().datetime().optional().describe('The completion date of the cycle in ISO 8601 format.')
 });
 
-const TeamSchema = z.object({
-    id: z.string(),
-    name: z.string().optional()
-});
-
-const CycleSchema = z.object({
+const ProviderCycleSchema = z.object({
     id: z.string(),
     name: z.string(),
     number: z.number(),
@@ -27,16 +22,36 @@ const CycleSchema = z.object({
     isNext: z.boolean().optional(),
     isPrevious: z.boolean().optional(),
     progress: z.number().optional(),
-    team: TeamSchema.optional()
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string().optional()
+        })
+        .optional()
 });
 
-const ProviderResponseSchema = z.object({
-    data: z.object({
-        cycleCreate: z.object({
-            success: z.boolean(),
-            cycle: CycleSchema.nullable().optional()
+const GraphQLResponseSchema = z.object({
+    data: z
+        .object({
+            // Nullable/optional so a failed mutation (`errors` present alongside `cycleCreate: null`) still
+            // parses and the top-level `errors` check below can surface Linear's real error message.
+            cycleCreate: z
+                .object({
+                    success: z.boolean(),
+                    cycle: z.unknown().optional()
+                })
+                .nullable()
+                .optional()
         })
-    })
+        .nullable()
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string().optional()
+            })
+        )
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -51,29 +66,23 @@ const OutputSchema = z.object({
     isNext: z.boolean().optional(),
     isPrevious: z.boolean().optional(),
     progress: z.number().optional(),
-    team: TeamSchema.optional()
+    team: z
+        .object({
+            id: z.string(),
+            name: z.string().optional()
+        })
+        .optional()
 });
 
 const action = createAction({
     description: 'Create a cycle for a Linear team.',
-    version: '1.0.2',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const variables = {
-            input: {
-                teamId: input.teamId,
-                name: input.name,
-                startsAt: input.startsAt,
-                endsAt: input.endsAt,
-                ...(input.description !== undefined && { description: input.description }),
-                ...(input.completedAt !== undefined && { completedAt: input.completedAt })
-            }
-        };
-
-        const query = `
+        const mutation = `
             mutation CycleCreate($input: CycleCreateInput!) {
                 cycleCreate(input: $input) {
                     success
@@ -98,42 +107,73 @@ const action = createAction({
             }
         `;
 
-        // https://linear.app/developers/graphql
         const response = await nango.post({
+            // https://linear.app/developers/graphql
             endpoint: '/graphql',
             data: {
-                query,
-                variables
+                query: mutation,
+                variables: {
+                    input: {
+                        teamId: input.teamId,
+                        name: input.name,
+                        startsAt: input.startsAt,
+                        endsAt: input.endsAt,
+                        ...(input.description !== undefined && { description: input.description }),
+                        ...(input.completedAt !== undefined && { completedAt: input.completedAt })
+                    }
+                }
             },
             retries: 10
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-        const payload = parsed.data.cycleCreate;
+        const graphQLResponse = GraphQLResponseSchema.safeParse(response.data);
 
-        if (!payload.success || !payload.cycle) {
+        if (!graphQLResponse.success) {
             throw new nango.ActionError({
-                type: 'creation_failed',
-                message: 'Cycle creation failed or returned no cycle.',
-                success: payload.success
+                type: 'api_error',
+                message: 'Unexpected response shape from Linear API.'
             });
         }
 
-        const cycle = payload.cycle;
+        // Linear returns a top-level `errors` array on partial/full failures, sometimes alongside `data: null`.
+        const errors = graphQLResponse.data.errors;
+        if (errors && errors.length > 0) {
+            throw new nango.ActionError({
+                type: 'api_error',
+                message: errors[0]?.message ?? 'Linear API returned GraphQL errors.'
+            });
+        }
+
+        const payload = graphQLResponse.data.data?.cycleCreate;
+
+        if (!payload || !payload.success || !payload.cycle) {
+            throw new nango.ActionError({
+                type: 'creation_failed',
+                message: 'Cycle creation failed or returned no cycle.',
+                success: payload?.success ?? false
+            });
+        }
+
+        const providerCycle = ProviderCycleSchema.parse(payload.cycle);
 
         return {
-            id: cycle.id,
-            name: cycle.name,
-            number: cycle.number,
-            ...(cycle.description != null && { description: cycle.description }),
-            ...(cycle.startsAt !== undefined && { startsAt: cycle.startsAt }),
-            ...(cycle.endsAt !== undefined && { endsAt: cycle.endsAt }),
-            ...(cycle.completedAt != null && { completedAt: cycle.completedAt }),
-            ...(cycle.isActive !== undefined && { isActive: cycle.isActive }),
-            ...(cycle.isNext !== undefined && { isNext: cycle.isNext }),
-            ...(cycle.isPrevious !== undefined && { isPrevious: cycle.isPrevious }),
-            ...(cycle.progress !== undefined && { progress: cycle.progress }),
-            ...(cycle.team !== undefined && { team: cycle.team })
+            id: providerCycle.id,
+            name: providerCycle.name,
+            number: providerCycle.number,
+            ...(providerCycle.description != null && { description: providerCycle.description }),
+            ...(providerCycle.startsAt !== undefined && { startsAt: providerCycle.startsAt }),
+            ...(providerCycle.endsAt !== undefined && { endsAt: providerCycle.endsAt }),
+            ...(providerCycle.completedAt != null && { completedAt: providerCycle.completedAt }),
+            ...(providerCycle.isActive !== undefined && { isActive: providerCycle.isActive }),
+            ...(providerCycle.isNext !== undefined && { isNext: providerCycle.isNext }),
+            ...(providerCycle.isPrevious !== undefined && { isPrevious: providerCycle.isPrevious }),
+            ...(providerCycle.progress !== undefined && { progress: providerCycle.progress }),
+            ...(providerCycle.team !== undefined && {
+                team: {
+                    id: providerCycle.team.id,
+                    ...(providerCycle.team.name !== undefined && { name: providerCycle.team.name })
+                }
+            })
         };
     }
 });

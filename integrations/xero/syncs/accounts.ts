@@ -1,97 +1,59 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const AccountSchema = z.object({
-    id: z.string().describe('Xero AccountID'),
+const AccountProviderSchema = z.object({
+    AccountID: z.string(),
     Code: z.string().optional(),
     Name: z.string().optional(),
     Type: z.string().optional(),
+    BankAccountType: z.string().optional(),
     Status: z.string().optional(),
     Description: z.string().optional(),
     TaxType: z.string().optional(),
-    BankAccountNumber: z.string().optional(),
-    BankAccountType: z.string().optional(),
-    CurrencyCode: z.string().optional(),
     EnablePaymentsToAccount: z.boolean().optional(),
     ShowInExpenseClaims: z.boolean().optional(),
     Class: z.string().optional(),
     SystemAccount: z.string().optional(),
+    BankAccountNumber: z.string().optional(),
+    CurrencyCode: z.string().optional(),
     ReportingCode: z.string().optional(),
     ReportingCodeName: z.string().optional(),
     HasAttachments: z.boolean().optional(),
-    UpdatedDateUTC: z.string().optional(),
-    AddToWatchlist: z.boolean().optional()
+    UpdatedDateUTC: z.string().optional()
 });
+
+const AccountSchema = z
+    .object({
+        id: z.string().describe('Unique Xero identifier for the account'),
+        code: z.string().optional().describe('Customer-defined alphanumeric account code'),
+        name: z.string().optional().describe('Display name of the account'),
+        type: z.string().optional().describe('Account type, e.g. BANK, REVENUE, EXPENSE'),
+        bankAccountType: z.string().optional().describe('Bank account subtype when Type is BANK, e.g. CHECKING, SAVINGS'),
+        status: z.string().optional().describe('Account status: ACTIVE or ARCHIVED'),
+        description: z.string().optional().describe('Human-readable description of the account'),
+        taxType: z.string().optional().describe('Default tax type applied to this account'),
+        enablePaymentsToAccount: z.boolean().optional().describe('Whether payments can be recorded against this account'),
+        showInExpenseClaims: z.boolean().optional().describe('Whether the account appears in expense claim options'),
+        class: z.string().optional().describe('High-level classification, e.g. ASSET, LIABILITY, EQUITY'),
+        systemAccount: z.string().optional().describe('System-managed account indicator, e.g. DEBTORS, CREDITORS'),
+        bankAccountNumber: z.string().optional().describe('Bank account number when Type is BANK'),
+        currencyCode: z.string().optional().describe('Currency code for the account, e.g. USD, GBP'),
+        reportingCode: z.string().optional().describe('Reporting code used for grouping in reports'),
+        reportingCodeName: z.string().optional().describe('Human-readable name of the reporting code'),
+        hasAttachments: z.boolean().optional().describe('Whether the account has file attachments'),
+        updatedDateUTC: z.string().optional().describe('Last modification timestamp in UTC')
+    })
+    .describe('Xero chart of accounts entry');
 
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after: z.string().describe('ISO timestamp of the last synced UpdatedDateUTC; empty string means no prior checkpoint')
 });
-
-const XeroAccountSchema = z.object({
-    AccountID: z.string(),
-    Code: z.string().optional().nullable(),
-    Name: z.string().optional().nullable(),
-    Type: z.string().optional().nullable(),
-    Status: z.string().optional().nullable(),
-    Description: z.string().optional().nullable(),
-    TaxType: z.string().optional().nullable(),
-    BankAccountNumber: z.string().optional().nullable(),
-    BankAccountType: z.string().optional().nullable(),
-    CurrencyCode: z.string().optional().nullable(),
-    EnablePaymentsToAccount: z.boolean().optional().nullable(),
-    ShowInExpenseClaims: z.boolean().optional().nullable(),
-    Class: z.string().optional().nullable(),
-    SystemAccount: z.string().optional().nullable(),
-    ReportingCode: z.string().optional().nullable(),
-    ReportingCodeName: z.string().optional().nullable(),
-    HasAttachments: z.boolean().optional().nullable(),
-    UpdatedDateUTC: z.string().optional().nullable(),
-    AddToWatchlist: z.boolean().optional().nullable()
-});
-
-function parseMsJsonDate(dateString: string): Date | null {
-    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
-    const match = dateString.match(/\/Date\((-?\d+)([+-]\d{4})\)\//);
-    if (!match) {
-        return null;
-    }
-    const timestamp = match[1];
-    if (!timestamp) {
-        return null;
-    }
-    return new Date(parseInt(timestamp, 10));
-}
-
-function mapAccount(record: z.infer<typeof XeroAccountSchema>): z.infer<typeof AccountSchema> {
-    return {
-        id: record.AccountID,
-        ...(record.Code != null && { Code: record.Code }),
-        ...(record.Name != null && { Name: record.Name }),
-        ...(record.Type != null && { Type: record.Type }),
-        ...(record.Status != null && { Status: record.Status }),
-        ...(record.Description != null && { Description: record.Description }),
-        ...(record.TaxType != null && { TaxType: record.TaxType }),
-        ...(record.BankAccountNumber != null && { BankAccountNumber: record.BankAccountNumber }),
-        ...(record.BankAccountType != null && { BankAccountType: record.BankAccountType }),
-        ...(record.CurrencyCode != null && { CurrencyCode: record.CurrencyCode }),
-        ...(record.EnablePaymentsToAccount != null && { EnablePaymentsToAccount: record.EnablePaymentsToAccount }),
-        ...(record.ShowInExpenseClaims != null && { ShowInExpenseClaims: record.ShowInExpenseClaims }),
-        ...(record.Class != null && { Class: record.Class }),
-        ...(record.SystemAccount != null && { SystemAccount: record.SystemAccount }),
-        ...(record.ReportingCode != null && { ReportingCode: record.ReportingCode }),
-        ...(record.ReportingCodeName != null && { ReportingCodeName: record.ReportingCodeName }),
-        ...(record.HasAttachments != null && { HasAttachments: record.HasAttachments }),
-        ...(record.UpdatedDateUTC != null && { UpdatedDateUTC: record.UpdatedDateUTC }),
-        ...(record.AddToWatchlist != null && { AddToWatchlist: record.AddToWatchlist })
-    };
-}
 
 const sync = createSync({
-    description: 'Sync accounts from the Xero chart of accounts.',
-    version: '3.1.0',
+    description: 'Sync accounts from the Xero chart of accounts',
+    version: '3.1.1',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [{ method: 'GET', path: '/syncs/accounts' }],
     checkpoint: CheckpointSchema,
     models: {
         Account: AccountSchema
@@ -99,76 +61,21 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
+        const tenantId = await resolveTenantId(nango);
 
-        const connection = await nango.getConnection();
+        const isFullRefresh = !checkpoint || checkpoint.updated_after.length === 0;
 
-        let tenantId: string | undefined;
-
-        const connectionConfig = connection.connection_config;
-        if (connectionConfig && typeof connectionConfig === 'object' && 'tenant_id' in connectionConfig) {
-            const value = connectionConfig['tenant_id'];
-            if (typeof value === 'string') {
-                tenantId = value;
-            }
-        }
-
-        if (!tenantId) {
-            const metadata = connection.metadata;
-            if (metadata && typeof metadata === 'object' && 'tenantId' in metadata) {
-                const value = metadata['tenantId'];
-                if (typeof value === 'string') {
-                    tenantId = value;
-                }
-            }
-        }
-
-        if (!tenantId) {
-            // https://developer.xero.com/documentation/api/accounting/overview
-            const connectionsResponse = await nango.get({
-                endpoint: 'connections',
-                retries: 10
-            });
-
-            const connectionsData = z
-                .array(
-                    z.object({
-                        tenantId: z.string()
-                    })
-                )
-                .safeParse(connectionsResponse.data);
-
-            if (!connectionsData.success) {
-                throw new Error('Invalid connections response');
-            }
-
-            if (connectionsData.data.length === 0) {
-                throw new Error('No tenants found');
-            }
-
-            if (connectionsData.data.length > 1) {
-                throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
-            }
-
-            const firstConnection = connectionsData.data[0];
-            if (!firstConnection) {
-                throw new Error('Invalid connections response');
-            }
-
-            tenantId = firstConnection.tenantId;
-        }
-
-        if (!tenantId) {
-            throw new Error('Could not resolve xero-tenant-id');
+        if (isFullRefresh) {
+            await nango.trackDeletesStart('Account');
         }
 
         const headers: Record<string, string> = {
             'xero-tenant-id': tenantId
         };
-
         const params: Record<string, string> = {};
 
         if (checkpoint && checkpoint.updated_after.length > 0) {
-            headers['If-Modified-Since'] = checkpoint.updated_after;
+            headers['If-Modified-Since'] = xeroDateToHttpDate(checkpoint.updated_after);
             params['includeArchived'] = 'true';
         }
 
@@ -180,39 +87,137 @@ const sync = createSync({
             retries: 3
         });
 
-        const accountsRaw = z.object({ Accounts: z.array(XeroAccountSchema).optional() }).safeParse(response.data).data?.Accounts ?? [];
-
-        const mapped = accountsRaw.map(mapAccount);
-
-        const active = mapped.filter((a) => a.Status === 'ACTIVE');
-        if (active.length > 0) {
-            await nango.batchSave(active, 'Account');
+        const parsedPage = z.object({ Accounts: z.array(AccountProviderSchema) }).safeParse(response.data);
+        if (!parsedPage.success) {
+            throw new Error(`Failed to parse accounts response: ${parsedPage.error.message}`);
         }
 
-        if (checkpoint) {
-            const archived = mapped.filter((a) => a.Status === 'ARCHIVED');
-            if (archived.length > 0) {
-                await nango.batchDelete(archived, 'Account');
+        const accounts = parsedPage.data.Accounts;
+
+        if (accounts.length > 0) {
+            const mappedAccounts = accounts.map((account) => ({
+                id: account.AccountID,
+                ...(account.Code != null && { code: account.Code }),
+                ...(account.Name != null && { name: account.Name }),
+                ...(account.Type != null && { type: account.Type }),
+                ...(account.BankAccountType != null && { bankAccountType: account.BankAccountType }),
+                ...(account.Status != null && { status: account.Status }),
+                ...(account.Description != null && { description: account.Description }),
+                ...(account.TaxType != null && { taxType: account.TaxType }),
+                ...(account.EnablePaymentsToAccount != null && { enablePaymentsToAccount: account.EnablePaymentsToAccount }),
+                ...(account.ShowInExpenseClaims != null && { showInExpenseClaims: account.ShowInExpenseClaims }),
+                ...(account.Class != null && { class: account.Class }),
+                ...(account.SystemAccount != null && { systemAccount: account.SystemAccount }),
+                ...(account.BankAccountNumber != null && { bankAccountNumber: account.BankAccountNumber }),
+                ...(account.CurrencyCode != null && { currencyCode: account.CurrencyCode }),
+                ...(account.ReportingCode != null && { reportingCode: account.ReportingCode }),
+                ...(account.ReportingCodeName != null && { reportingCodeName: account.ReportingCodeName }),
+                ...(account.HasAttachments != null && { hasAttachments: account.HasAttachments }),
+                ...(account.UpdatedDateUTC != null && { updatedDateUTC: account.UpdatedDateUTC })
+            }));
+
+            const activeAccounts = mappedAccounts.filter((account) => account.status !== 'ARCHIVED');
+            if (activeAccounts.length > 0) {
+                await nango.batchSave(activeAccounts, 'Account');
             }
-        }
 
-        let latestDate: Date | null = null;
-        for (const record of accountsRaw) {
-            if (record.UpdatedDateUTC) {
-                const d = parseMsJsonDate(record.UpdatedDateUTC);
-                if (d && (!latestDate || d > latestDate)) {
-                    latestDate = d;
+            if (checkpoint) {
+                const archivedAccounts = mappedAccounts.filter((account) => account.status === 'ARCHIVED');
+                if (archivedAccounts.length > 0) {
+                    await nango.batchDelete(archivedAccounts, 'Account');
                 }
             }
+
+            let latestUpdatedDate: Date | null = null;
+            let latestUpdatedDateUTC = '';
+            for (const account of accounts) {
+                if (!account.UpdatedDateUTC) {
+                    continue;
+                }
+                const parsedDate = parseXeroDate(account.UpdatedDateUTC);
+                if (parsedDate && (!latestUpdatedDate || parsedDate > latestUpdatedDate)) {
+                    latestUpdatedDate = parsedDate;
+                    latestUpdatedDateUTC = account.UpdatedDateUTC;
+                }
+            }
+
+            if (latestUpdatedDateUTC.length > 0) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedDateUTC });
+            }
         }
 
-        if (latestDate) {
-            await nango.saveCheckpoint({
-                updated_after: latestDate.toUTCString()
-            });
+        if (isFullRefresh) {
+            await nango.trackDeletesEnd('Account');
         }
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
+
+function parseXeroDate(value: string): Date | null {
+    // Allow negative timestamps for pre-1970 Xero dates (see general-ledger.ts parseDate).
+    const match = value.match(/^\/Date\((-?\d+)(?:[+-]\d{4})?\)\/$/);
+    if (match && match[1]) {
+        return new Date(parseInt(match[1], 10));
+    }
+
+    const parsed = new Date(value);
+    if (Number.isNaN(parsed.getTime())) {
+        return null;
+    }
+
+    return parsed;
+}
+
+function xeroDateToHttpDate(xeroDate: string): string {
+    const parsed = parseXeroDate(xeroDate);
+    if (parsed) {
+        return parsed.toUTCString();
+    }
+
+    throw new Error(`Invalid Xero date format: ${xeroDate}`);
+}
+
+async function resolveTenantId(nango: NangoSyncLocal): Promise<string> {
+    const connection = await nango.getConnection();
+
+    if (connection.connection_config && typeof connection.connection_config === 'object' && 'tenant_id' in connection.connection_config) {
+        const tenantId = connection.connection_config['tenant_id'];
+        if (typeof tenantId === 'string' && tenantId.length > 0) {
+            return tenantId;
+        }
+    }
+
+    if (connection.metadata && typeof connection.metadata === 'object' && 'tenantId' in connection.metadata) {
+        const tenantId = connection.metadata['tenantId'];
+        if (typeof tenantId === 'string' && tenantId.length > 0) {
+            return tenantId;
+        }
+    }
+
+    // https://developer.xero.com/documentation/api/accounting/overview
+    const response = await nango.get({
+        endpoint: 'connections',
+        retries: 10
+    });
+
+    const parsed = z.array(z.record(z.string(), z.unknown())).safeParse(response.data);
+    if (!parsed.success || parsed.data.length === 0) {
+        throw new Error('No Xero tenants found for this connection.');
+    }
+
+    const connections = parsed.data;
+
+    if (connections.length > 1) {
+        throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
+    }
+
+    const firstConnection = connections[0];
+    const tenantId = firstConnection ? firstConnection['tenantId'] : undefined;
+    if (typeof tenantId === 'string' && tenantId.length > 0) {
+        return tenantId;
+    }
+
+    throw new Error('Unable to resolve xero-tenant-id.');
+}

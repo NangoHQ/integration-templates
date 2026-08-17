@@ -86,20 +86,23 @@ async function resolveTenantId(nango: {
     // https://developer.xero.com/documentation/api/accounting/connections
     const connectionsResponse = await nango.get({ endpoint: 'connections', retries: 10 });
 
-    const parseResult = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
-    if (!parseResult.success) {
-        throw new Error('Failed to parse connections response');
+    if (!Array.isArray(connectionsResponse.data) || connectionsResponse.data.length === 0) {
+        throw new Error('No Xero tenants found for this connection.');
     }
 
-    const connections = parseResult.data;
-    if (connections.length === 1 && connections[0]?.tenantId) {
-        return connections[0].tenantId;
-    }
-    if (connections.length > 1) {
+    if (connectionsResponse.data.length > 1) {
         throw new Error('Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.');
     }
 
-    throw new Error('No tenant ID found. Please configure tenant_id in connection_config or tenantId in metadata.');
+    const parseResult = ConnectionsResponseSchema.safeParse(connectionsResponse.data);
+    if (parseResult.success) {
+        const first = parseResult.data[0];
+        if (first?.tenantId) {
+            return first.tenantId;
+        }
+    }
+
+    throw new Error('Unable to resolve xero-tenant-id.');
 }
 
 interface XeroTrackingCategory {

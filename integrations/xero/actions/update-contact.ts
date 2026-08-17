@@ -1,36 +1,78 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    ContactID: z.string().describe('Xero identifier for the contact. Example: "eaa28f49-6028-4b6e-bb12-d8f6278073fc"'),
-    ContactNumber: z.string().optional().describe('External system identifier (max 50).'),
-    AccountNumber: z.string().optional().describe('User defined account number (max 50).'),
-    ContactStatus: z.string().optional().describe('Current status of the contact, e.g. ACTIVE or ARCHIVED.'),
-    Name: z.string().optional().describe('Full name of the contact or organisation (max 255).'),
-    FirstName: z.string().optional().describe('First name of contact person (max 255).'),
-    LastName: z.string().optional().describe('Last name of contact person (max 255).'),
-    EmailAddress: z.string().optional().describe('Email address of contact person (max 255).'),
-    BankAccountDetails: z.string().optional().describe('Bank account number.'),
-    TaxNumber: z.string().optional().describe('Tax number of the contact.'),
-    DefaultCurrency: z.string().optional().describe('Default currency for the contact, e.g. NZD.'),
-    IsCustomer: z.boolean().optional().describe('Whether the contact is a customer.'),
-    IsSupplier: z.boolean().optional().describe('Whether the contact is a supplier.'),
-    Addresses: z.array(z.record(z.string(), z.unknown())).optional().describe('Array of addresses.'),
-    Phones: z.array(z.record(z.string(), z.unknown())).optional().describe('Array of phone numbers.')
+const PhoneSchema = z.object({
+    PhoneType: z.string().describe('The type of phone number. Example: "DEFAULT", "DDI", "MOBILE", "FAX"'),
+    PhoneNumber: z.string().optional().describe('The phone number.'),
+    PhoneAreaCode: z.string().optional().describe('The area code of the phone number.'),
+    PhoneCountryCode: z.string().optional().describe('The country code of the phone number.')
 });
 
-const OutputSchema = z.object({
-    ContactID: z.string(),
-    Name: z.string().optional(),
-    ContactStatus: z.string().optional(),
-    EmailAddress: z.string().optional(),
-    FirstName: z.string().optional(),
-    LastName: z.string().optional()
+const AddressSchema = z.object({
+    AddressType: z.string().describe('The type of address. Example: "STREET", "POBOX", "DELIVERY"'),
+    AttentionTo: z.string().optional().describe('The attention line for the address.'),
+    AddressLine1: z.string().optional().describe('The first line of the address.'),
+    AddressLine2: z.string().optional().describe('The second line of the address.'),
+    AddressLine3: z.string().optional().describe('The third line of the address.'),
+    City: z.string().optional().describe('The city of the address.'),
+    Region: z.string().optional().describe('The region or state of the address.'),
+    PostalCode: z.string().optional().describe('The postal or ZIP code of the address.'),
+    Country: z.string().optional().describe('The country of the address.')
 });
 
+const InputSchema = z
+    .object({
+        contactId: z.string().describe('The Xero ContactID of the contact to update. Example: "de917205-1599-4dd4-b319-4adf72eadfe3"'),
+        name: z.string().optional().describe('The full display name of the contact.'),
+        firstName: z.string().optional().describe('The first name of the contact (for person contacts).'),
+        lastName: z.string().optional().describe('The last name of the contact (for person contacts).'),
+        emailAddress: z.string().optional().describe('The primary email address of the contact.'),
+        accountNumber: z.string().optional().describe('The account number assigned to the contact.'),
+        contactNumber: z.string().optional().describe('The external system identifier for the contact.'),
+        contactStatus: z.string().optional().describe('The status of the contact. Valid values: "ACTIVE", "ARCHIVED".'),
+        bankAccountDetails: z.string().optional().describe('The bank account details for the contact.'),
+        taxNumber: z.string().optional().describe('The tax number for the contact.'),
+        defaultCurrency: z.string().optional().describe('The default currency for the contact. Example: "USD"'),
+        addresses: z.array(AddressSchema).optional().describe('The addresses to set for the contact.'),
+        phones: z.array(PhoneSchema).optional().describe('The phone numbers to set for the contact.')
+    })
+    .describe('Input fields for updating an existing Xero contact.');
+
+const OutputSchema = z
+    .object({
+        ContactID: z.string().describe('The unique identifier for the contact.'),
+        ContactNumber: z.string().optional().describe('The contact number.'),
+        AccountNumber: z.string().optional().describe('The account number assigned to the contact.'),
+        ContactStatus: z.string().describe('The current status of the contact. Example: "ACTIVE", "ARCHIVED".'),
+        Name: z.string().describe('The full display name of the contact.'),
+        FirstName: z.string().optional().describe('The first name of the contact.'),
+        LastName: z.string().optional().describe('The last name of the contact.'),
+        EmailAddress: z.string().optional().describe('The primary email address of the contact.'),
+        BankAccountDetails: z.string().optional().describe('The bank account details for the contact.'),
+        TaxNumber: z.string().optional().describe('The tax number for the contact.'),
+        AccountsReceivableTaxType: z.string().optional().describe('The default tax type for accounts receivable.'),
+        AccountsPayableTaxType: z.string().optional().describe('The default tax type for accounts payable.'),
+        Addresses: z.array(AddressSchema).optional().describe('The addresses associated with the contact.'),
+        Phones: z.array(PhoneSchema).optional().describe('The phone numbers associated with the contact.'),
+        UpdatedDateUTC: z.string().describe('The UTC timestamp when the contact was last updated.'),
+        IsSupplier: z.boolean().optional().describe('Whether the contact is tracked as a supplier.'),
+        IsCustomer: z.boolean().optional().describe('Whether the contact is tracked as a customer.'),
+        DefaultCurrency: z.string().optional().describe('The default currency for the contact.')
+    })
+    .describe('The updated Xero contact returned by the API.');
+
+const ConnectionItemSchema = z.object({
+    tenantId: z.string()
+});
+
+/**
+ * @tags: [write]
+ * @tagReason: Updates an existing contact in Xero via POST /Contacts.
+ * @pitfalls: Archiving a contact by setting ContactStatus to ARCHIVED freezes it; subsequent update attempts on an already-archived contact return a 400 error.
+ */
 const action = createAction({
     description: 'Update an existing contact.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['accounting.contacts'],
@@ -41,151 +83,109 @@ const action = createAction({
         let tenantId: string | undefined;
 
         const connectionConfig = connection.connection_config;
-        if (connectionConfig && typeof connectionConfig === 'object' && 'tenant_id' in connectionConfig) {
-            const val = connectionConfig['tenant_id'];
-            if (typeof val === 'string' && val.length > 0) {
-                tenantId = val;
-            }
-        }
-
-        if (!tenantId) {
-            const metadata = connection.metadata;
-            if (metadata && typeof metadata === 'object' && 'tenantId' in metadata) {
-                const val = metadata['tenantId'];
-                if (typeof val === 'string' && val.length > 0) {
-                    tenantId = val;
+        if (connectionConfig !== null && connectionConfig !== undefined && typeof connectionConfig === 'object' && !Array.isArray(connectionConfig)) {
+            if ('tenant_id' in connectionConfig) {
+                const candidate = connectionConfig['tenant_id'];
+                if (typeof candidate === 'string' && candidate.length > 0) {
+                    tenantId = candidate;
                 }
             }
         }
 
-        if (!tenantId) {
+        if (tenantId === undefined) {
+            const metadata = connection.metadata;
+            if (metadata !== null && metadata !== undefined && typeof metadata === 'object' && !Array.isArray(metadata)) {
+                if ('tenantId' in metadata) {
+                    const candidate = metadata['tenantId'];
+                    if (typeof candidate === 'string' && candidate.length > 0) {
+                        tenantId = candidate;
+                    }
+                }
+            }
+        }
+
+        if (tenantId === undefined) {
             // https://developer.xero.com/documentation/api/accounting/overview
-            const connectionsResponse = await nango.get({
+            const response = await nango.get({
                 endpoint: 'connections',
                 retries: 10
             });
-            const connectionsData = z.array(z.record(z.string(), z.unknown())).parse(connectionsResponse.data);
-            if (connectionsData.length === 0) {
+
+            const rawConnections = response.data;
+            if (!Array.isArray(rawConnections) || rawConnections.length === 0) {
                 throw new nango.ActionError({
-                    type: 'no_tenant',
-                    message: 'No tenant found for this connection.'
+                    type: 'missing_tenant',
+                    message: 'No Xero tenants found for this connection.'
                 });
             }
-            if (connectionsData.length > 1) {
+
+            if (rawConnections.length > 1) {
                 throw new nango.ActionError({
                     type: 'multiple_tenants',
                     message: 'Multiple tenants found. Please use the get-tenants action to set the chosen tenantId in the metadata.'
                 });
             }
-            const singleTenant = connectionsData[0];
-            if (singleTenant && typeof singleTenant === 'object' && 'tenantId' in singleTenant) {
-                const val = singleTenant['tenantId'];
-                if (typeof val === 'string' && val.length > 0) {
-                    tenantId = val;
-                }
+
+            const firstConnection = ConnectionItemSchema.safeParse(rawConnections[0]);
+            if (firstConnection.success && firstConnection.data.tenantId.length > 0) {
+                tenantId = firstConnection.data.tenantId;
             }
         }
 
-        if (!tenantId) {
+        if (tenantId === undefined) {
             throw new nango.ActionError({
-                type: 'no_tenant',
-                message: 'No tenant found for this connection.'
+                type: 'missing_tenant',
+                message: 'Unable to resolve xero-tenant-id.'
             });
         }
 
-        const contactPayload: Record<string, unknown> = {
-            ContactID: input.ContactID
+        const body: Record<string, unknown> = {
+            Contacts: [
+                {
+                    ContactID: input.contactId,
+                    ...(input.name !== undefined && { Name: input.name }),
+                    ...(input.firstName !== undefined && { FirstName: input.firstName }),
+                    ...(input.lastName !== undefined && { LastName: input.lastName }),
+                    ...(input.emailAddress !== undefined && { EmailAddress: input.emailAddress }),
+                    ...(input.accountNumber !== undefined && { AccountNumber: input.accountNumber }),
+                    ...(input.contactNumber !== undefined && { ContactNumber: input.contactNumber }),
+                    ...(input.contactStatus !== undefined && { ContactStatus: input.contactStatus }),
+                    ...(input.bankAccountDetails !== undefined && { BankAccountDetails: input.bankAccountDetails }),
+                    ...(input.taxNumber !== undefined && { TaxNumber: input.taxNumber }),
+                    ...(input.defaultCurrency !== undefined && { DefaultCurrency: input.defaultCurrency }),
+                    ...(input.addresses !== undefined && { Addresses: input.addresses }),
+                    ...(input.phones !== undefined && { Phones: input.phones })
+                }
+            ]
         };
 
-        if (input['ContactNumber'] !== undefined) {
-            contactPayload['ContactNumber'] = input['ContactNumber'];
-        }
-        if (input['AccountNumber'] !== undefined) {
-            contactPayload['AccountNumber'] = input['AccountNumber'];
-        }
-        if (input['ContactStatus'] !== undefined) {
-            contactPayload['ContactStatus'] = input['ContactStatus'];
-        }
-        if (input['Name'] !== undefined) {
-            contactPayload['Name'] = input['Name'];
-        }
-        if (input['FirstName'] !== undefined) {
-            contactPayload['FirstName'] = input['FirstName'];
-        }
-        if (input['LastName'] !== undefined) {
-            contactPayload['LastName'] = input['LastName'];
-        }
-        if (input['EmailAddress'] !== undefined) {
-            contactPayload['EmailAddress'] = input['EmailAddress'];
-        }
-        if (input['BankAccountDetails'] !== undefined) {
-            contactPayload['BankAccountDetails'] = input['BankAccountDetails'];
-        }
-        if (input['TaxNumber'] !== undefined) {
-            contactPayload['TaxNumber'] = input['TaxNumber'];
-        }
-        if (input['DefaultCurrency'] !== undefined) {
-            contactPayload['DefaultCurrency'] = input['DefaultCurrency'];
-        }
-        if (input['IsCustomer'] !== undefined) {
-            contactPayload['IsCustomer'] = input['IsCustomer'];
-        }
-        if (input['IsSupplier'] !== undefined) {
-            contactPayload['IsSupplier'] = input['IsSupplier'];
-        }
-        if (input['Addresses'] !== undefined) {
-            contactPayload['Addresses'] = input['Addresses'];
-        }
-        if (input['Phones'] !== undefined) {
-            contactPayload['Phones'] = input['Phones'];
-        }
-
-        // https://developer.xero.com/documentation/api/accounting/contacts
+        // https://developer.xero.com/documentation/api/accounting/overview
         const response = await nango.post({
             endpoint: 'api.xro/2.0/Contacts',
             headers: {
                 'xero-tenant-id': tenantId
             },
-            data: {
-                Contacts: [contactPayload]
-            },
+            data: body,
             retries: 3
         });
 
-        const responseSchema = z.object({
-            Contacts: z.array(z.record(z.string(), z.unknown()))
+        const ResponseSchema = z.object({
+            Contacts: z.array(z.unknown())
         });
 
-        const parsedResponse = responseSchema.parse(response.data);
-        const contacts = parsedResponse.Contacts;
-        if (!Array.isArray(contacts) || contacts.length === 0) {
+        const parsedResponse = ResponseSchema.parse(response.data);
+
+        if (!Array.isArray(parsedResponse.Contacts) || parsedResponse.Contacts.length === 0) {
             throw new nango.ActionError({
                 type: 'no_contact_returned',
-                message: 'No contact returned in the update response.'
+                message: 'The Xero API did not return any contact data after the update.'
             });
         }
 
-        const updatedContact = contacts[0];
+        const rawContact = parsedResponse.Contacts[0];
+        const contact = OutputSchema.parse(rawContact);
 
-        const contactSchema = z.object({
-            ContactID: z.string(),
-            Name: z.string().optional(),
-            ContactStatus: z.string().optional(),
-            EmailAddress: z.string().optional(),
-            FirstName: z.string().optional(),
-            LastName: z.string().optional()
-        });
-
-        const parsedContact = contactSchema.parse(updatedContact);
-
-        return {
-            ContactID: parsedContact.ContactID,
-            ...(parsedContact.Name !== undefined && { Name: parsedContact.Name }),
-            ...(parsedContact.ContactStatus !== undefined && { ContactStatus: parsedContact.ContactStatus }),
-            ...(parsedContact.EmailAddress !== undefined && { EmailAddress: parsedContact.EmailAddress }),
-            ...(parsedContact.FirstName !== undefined && { FirstName: parsedContact.FirstName }),
-            ...(parsedContact.LastName !== undefined && { LastName: parsedContact.LastName })
-        };
+        return contact;
     }
 });
 
