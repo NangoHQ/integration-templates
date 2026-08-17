@@ -135,10 +135,10 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
             checkpointSaved = true;
         }
 
-        await nango.trackDeletesEnd('Task');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Task');
     }
 });
 

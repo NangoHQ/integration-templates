@@ -176,10 +176,10 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('Meeting');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Meeting');
     }
 });
 

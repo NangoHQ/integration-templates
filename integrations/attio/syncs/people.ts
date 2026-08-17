@@ -88,10 +88,10 @@ const sync = createSync({
             checkpointSaved = true;
         }
 
-        await nango.trackDeletesEnd('Person');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Person');
     }
 });
 

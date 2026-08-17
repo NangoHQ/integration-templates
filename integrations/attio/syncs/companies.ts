@@ -109,10 +109,10 @@ const sync = createSync({
             checkpointSaved = true;
         }
 
-        await nango.trackDeletesEnd('Company');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Company');
     }
 });
 

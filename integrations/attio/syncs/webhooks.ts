@@ -102,10 +102,10 @@ const sync = createSync({
             checkpointSaved = true;
         }
 
-        await nango.trackDeletesEnd('Webhook');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Webhook');
     }
 });
 

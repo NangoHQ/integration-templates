@@ -157,10 +157,10 @@ const sync = createSync({
             }
         }
 
-        await nango.trackDeletesEnd('Record');
         if (checkpointSaved || inProgress) {
             await nango.clearCheckpoint();
         }
+        await nango.trackDeletesEnd('Record');
     }
 });
 
