@@ -95,6 +95,8 @@ const sync = createSync({
         const startIndex = resumeObjectSlug ? objects.findIndex((object) => object.api_slug === resumeObjectSlug) : 0;
         const objectsToSync = startIndex >= 0 ? objects.slice(startIndex) : objects;
 
+        let checkpointSaved = false;
+
         for (const [index, object] of objectsToSync.entries()) {
             const objectSlug = object.api_slug;
             if (!objectSlug) {
@@ -148,13 +150,17 @@ const sync = createSync({
                     hasMore = false;
                 } else {
                     offset += limit;
-                    await nango.saveCheckpoint({ object_slug: objectSlug, offset, in_progress: true });
                 }
+
+                await nango.saveCheckpoint({ object_slug: objectSlug, offset, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
         await nango.trackDeletesEnd('Record');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

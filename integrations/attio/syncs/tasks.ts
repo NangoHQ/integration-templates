@@ -75,6 +75,7 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
         const inProgress = checkpoint.in_progress ?? false;
         const limit = 500;
         let hasMore = true;
+        let checkpointSaved = false;
 
         if (!inProgress) {
             await nango.trackDeletesStart('Task');
@@ -128,12 +129,16 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
                 hasMore = false;
             } else {
                 offset += limit;
-                await nango.saveCheckpoint({ offset, in_progress: true });
             }
+
+            await nango.saveCheckpoint({ offset, in_progress: hasMore });
+            checkpointSaved = true;
         }
 
         await nango.trackDeletesEnd('Task');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

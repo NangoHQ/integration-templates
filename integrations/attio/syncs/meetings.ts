@@ -98,6 +98,7 @@ const sync = createSync({
         }
 
         let nextCursor: string | undefined;
+        let checkpointSaved = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/meetings/list-meetings
@@ -171,11 +172,14 @@ const sync = createSync({
 
             if (nextCursor) {
                 await nango.saveCheckpoint({ cursor: nextCursor, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
         await nango.trackDeletesEnd('Meeting');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

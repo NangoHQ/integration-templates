@@ -92,6 +92,8 @@ const sync = createSync({
         const startIndex = resumeListId ? lists.findIndex((list) => list.id.list_id === resumeListId) : 0;
         const listsToSync = startIndex >= 0 ? lists.slice(startIndex) : lists;
 
+        let checkpointSaved = false;
+
         for (const [index, list] of listsToSync.entries()) {
             const listId = list.id.list_id;
             let offset = index === 0 && startIndex >= 0 && resumeListId === listId ? resumeOffset : 0;
@@ -130,13 +132,17 @@ const sync = createSync({
                     hasMore = false;
                 } else {
                     offset += limit;
-                    await nango.saveCheckpoint({ list_id: listId, offset, in_progress: true });
                 }
+
+                await nango.saveCheckpoint({ list_id: listId, offset, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
         await nango.trackDeletesEnd('ListEntry');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 

@@ -58,6 +58,7 @@ const sync = createSync({
         }
 
         let hasMore = true;
+        let checkpointSaved = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -91,12 +92,16 @@ const sync = createSync({
                 hasMore = false;
             } else {
                 offset += limit;
-                await nango.saveCheckpoint({ offset, in_progress: true });
             }
+
+            await nango.saveCheckpoint({ offset, in_progress: hasMore });
+            checkpointSaved = true;
         }
 
         await nango.trackDeletesEnd('Deal');
-        await nango.clearCheckpoint();
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
     }
 });
 
