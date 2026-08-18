@@ -31,7 +31,7 @@ const QueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio person records.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/people' }],
@@ -52,6 +52,7 @@ const sync = createSync({
         }
 
         let hasMore = true;
+        let checkpointSaved = false;
 
         while (hasMore) {
             // https://docs.attio.com/rest-api/endpoint-reference/records/query
@@ -81,12 +82,16 @@ const sync = createSync({
                 hasMore = false;
             } else {
                 offset += limit;
-                await nango.saveCheckpoint({ offset, in_progress: true });
             }
+
+            await nango.saveCheckpoint({ offset, in_progress: true });
+            checkpointSaved = true;
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Person');
-        await nango.clearCheckpoint();
     }
 });
 

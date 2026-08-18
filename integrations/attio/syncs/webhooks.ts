@@ -41,7 +41,7 @@ const ProviderWebhooksResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webhooks from Attio.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/webhooks' }],
     frequency: 'every hour',
     autoStart: true,
@@ -62,6 +62,7 @@ const sync = createSync({
         }
 
         let hasMore = true;
+        let checkpointSaved = false;
 
         while (hasMore) {
             const response = await nango.get({
@@ -95,12 +96,16 @@ const sync = createSync({
                 hasMore = false;
             } else {
                 offset += limit;
-                await nango.saveCheckpoint({ offset, in_progress: true });
             }
+
+            await nango.saveCheckpoint({ offset, in_progress: true });
+            checkpointSaved = true;
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Webhook');
-        await nango.clearCheckpoint();
     }
 });
 

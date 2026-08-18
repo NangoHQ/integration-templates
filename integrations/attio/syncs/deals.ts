@@ -32,7 +32,7 @@ const QueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio deal records',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
     endpoints: [
@@ -58,6 +58,7 @@ const sync = createSync({
         }
 
         let hasMore = true;
+        let checkpointSaved = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -91,12 +92,16 @@ const sync = createSync({
                 hasMore = false;
             } else {
                 offset += limit;
-                await nango.saveCheckpoint({ offset, in_progress: true });
             }
+
+            await nango.saveCheckpoint({ offset, in_progress: true });
+            checkpointSaved = true;
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Deal');
-        await nango.clearCheckpoint();
     }
 });
 

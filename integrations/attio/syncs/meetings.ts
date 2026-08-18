@@ -73,7 +73,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync meetings from Attio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -98,6 +98,7 @@ const sync = createSync({
         }
 
         let nextCursor: string | undefined;
+        let checkpointSaved = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://docs.attio.com/rest-api/endpoint-reference/meetings/list-meetings
@@ -171,11 +172,14 @@ const sync = createSync({
 
             if (nextCursor) {
                 await nango.saveCheckpoint({ cursor: nextCursor, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Meeting');
-        await nango.clearCheckpoint();
     }
 });
 

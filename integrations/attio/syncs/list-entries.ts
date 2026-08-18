@@ -56,7 +56,7 @@ const ListEntryModelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync list entries from Attio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -91,6 +91,8 @@ const sync = createSync({
 
         const startIndex = resumeListId ? lists.findIndex((list) => list.id.list_id === resumeListId) : 0;
         const listsToSync = startIndex >= 0 ? lists.slice(startIndex) : lists;
+
+        let checkpointSaved = false;
 
         for (const [index, list] of listsToSync.entries()) {
             const listId = list.id.list_id;
@@ -130,13 +132,17 @@ const sync = createSync({
                     hasMore = false;
                 } else {
                     offset += limit;
-                    await nango.saveCheckpoint({ list_id: listId, offset, in_progress: true });
                 }
+
+                await nango.saveCheckpoint({ list_id: listId, offset, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('ListEntry');
-        await nango.clearCheckpoint();
     }
 });
 

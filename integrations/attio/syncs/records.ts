@@ -44,7 +44,7 @@ type SyncRecordType = z.infer<typeof SyncRecordSchema>;
 
 const sync = createSync({
     description: 'Sync records from Attio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -94,6 +94,8 @@ const sync = createSync({
 
         const startIndex = resumeObjectSlug ? objects.findIndex((object) => object.api_slug === resumeObjectSlug) : 0;
         const objectsToSync = startIndex >= 0 ? objects.slice(startIndex) : objects;
+
+        let checkpointSaved = false;
 
         for (const [index, object] of objectsToSync.entries()) {
             const objectSlug = object.api_slug;
@@ -148,13 +150,17 @@ const sync = createSync({
                     hasMore = false;
                 } else {
                     offset += limit;
-                    await nango.saveCheckpoint({ object_slug: objectSlug, offset, in_progress: true });
                 }
+
+                await nango.saveCheckpoint({ object_slug: objectSlug, offset, in_progress: true });
+                checkpointSaved = true;
             }
         }
 
+        if (checkpointSaved || inProgress) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Record');
-        await nango.clearCheckpoint();
     }
 });
 
