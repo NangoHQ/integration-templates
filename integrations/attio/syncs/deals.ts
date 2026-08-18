@@ -32,7 +32,7 @@ const QueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio deal records',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
     endpoints: [
@@ -94,7 +94,7 @@ const sync = createSync({
                 offset += limit;
             }
 
-            await nango.saveCheckpoint({ offset, in_progress: hasMore });
+            await nango.saveCheckpoint({ offset, in_progress: true });
             checkpointSaved = true;
         }
 

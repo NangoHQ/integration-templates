@@ -44,7 +44,7 @@ type SyncRecordType = z.infer<typeof SyncRecordSchema>;
 
 const sync = createSync({
     description: 'Sync records from Attio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

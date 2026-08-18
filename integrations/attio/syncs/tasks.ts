@@ -55,7 +55,7 @@ type CheckpointModel = typeof CheckpointSchema;
 
 const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
     description: 'Sync tasks from Attio',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -131,7 +131,7 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
                 offset += limit;
             }
 
-            await nango.saveCheckpoint({ offset, in_progress: hasMore });
+            await nango.saveCheckpoint({ offset, in_progress: true });
             checkpointSaved = true;
         }
 
