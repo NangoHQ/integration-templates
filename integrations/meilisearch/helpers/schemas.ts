@@ -15,7 +15,7 @@ export const filterSchema = z.union([z.string(), z.array(z.union([z.string(), z.
  * Strict: Meilisearch ignores unknown rule keys, so a typo like "filters" would silently
  * remove the restriction from a signed token. Fail closed instead.
  */
-const searchRuleValueSchema = z.union([z.strictObject({ filter: filterSchema.optional() }), z.null()]);
+const searchRuleValueSchema = z.strictObject({ filter: filterSchema.optional() }).nullable();
 
 /** Per-index search rules keyed by index uid or the "*" wildcard. */
 export const searchRulesSchema = z.record(z.string(), searchRuleValueSchema);

@@ -15,8 +15,8 @@ const InputSchema = z.looseObject({
         .describe('Specific document ids to fetch.'),
     filter: filterSchema.optional().describe('Filter expression selecting the documents to fetch.'),
     fields: z.array(z.string()).optional(),
-    limit: z.number().optional(),
-    offset: z.number().optional()
+    limit: z.number().int().nonnegative().optional(),
+    offset: z.number().int().nonnegative().optional()
 });
 
 const OutputSchema = z

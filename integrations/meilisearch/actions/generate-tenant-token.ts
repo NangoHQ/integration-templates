@@ -8,7 +8,6 @@ import type { ProxyConfiguration } from 'nango';
 
 const DEFAULT_TTL_SECONDS = 3600;
 const KEYS_PAGE_SIZE = 100;
-const MAX_KEY_PAGES = 20;
 
 const InputSchema = z.object({
     searchRules: searchRulesSchema.describe('Per-index search rules (the ACL carried by the token), keyed by index uid or "*".'),
@@ -17,7 +16,9 @@ const InputSchema = z.object({
     apiKeyUid: z
         .string()
         .optional()
-        .describe('The uid of the signing API key. When omitted, it is resolved by listing keys, which requires the keys.get action.')
+        .describe(
+            "Uid of the connection's API key. Must match the key used by this connection or Meilisearch will reject the token. When omitted, it is resolved by listing keys, which requires the keys.get action."
+        )
 });
 
 const OutputSchema = z.object({
@@ -61,25 +62,26 @@ const action = createAction({
             // would put the raw key in the URL path, which proxy/access logs record unredacted.
             // @allowTryCatch rethrown with an actionable message: the common cause is a key without the keys.get action.
             try {
-                for (let page = 0; page < MAX_KEY_PAGES && !apiKeyUid; page++) {
+                let offset = 0;
+                let total = Number.POSITIVE_INFINITY;
+                while (!apiKeyUid && offset < total) {
                     const config: ProxyConfiguration = {
                         // https://www.meilisearch.com/docs/reference/api/keys#get-all-keys
                         endpoint: '/keys',
-                        params: { limit: String(KEYS_PAGE_SIZE), offset: String(page * KEYS_PAGE_SIZE) },
+                        params: { limit: String(KEYS_PAGE_SIZE), offset: String(offset) },
                         retries: 3
                     };
                     const response = await nango.get(config);
                     const keysPage = KeysPageSchema.parse(response.data);
                     apiKeyUid = keysPage.results.find((k) => k.key === apiKey)?.uid;
-                    if ((page + 1) * KEYS_PAGE_SIZE >= keysPage.total) {
-                        break;
-                    }
+                    total = keysPage.total;
+                    offset += KEYS_PAGE_SIZE;
                 }
-            } catch (_err) {
-                // Rethrown with an actionable message: the common cause is a key without the keys.get action.
+            } catch (err) {
+                // Rethrown with an actionable message; the underlying error is preserved for debugging.
+                const cause = err instanceof Error ? err.message : String(err);
                 throw new nango.ActionError({
-                    message:
-                        'Could not list keys to resolve the API key uid. This requires a key with the keys.get action. Either connect with a key that has keys.get, or pass apiKeyUid explicitly.'
+                    message: `Could not list keys to resolve the API key uid (${cause}). Listing keys requires a key with the keys.get action. Either connect with a key that has keys.get, or pass apiKeyUid explicitly.`
                 });
             }
             if (!apiKeyUid) {

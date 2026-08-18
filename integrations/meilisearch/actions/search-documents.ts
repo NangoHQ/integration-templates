@@ -12,8 +12,8 @@ const InputSchema = z.looseObject({
     q: z.string().optional().describe('Search query.'),
     filter: filterSchema.optional().describe('Filter expression applied to the search.'),
     sort: z.array(z.string()).optional(),
-    limit: z.number().optional(),
-    offset: z.number().optional(),
+    limit: z.number().int().nonnegative().optional(),
+    offset: z.number().int().nonnegative().optional(),
     attributesToRetrieve: z.array(z.string()).optional(),
     facets: z.array(z.string()).optional()
 });

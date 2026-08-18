@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z.object({
-    taskUid: z.number().describe('Uid of the async task returned by a write operation.')
+    taskUid: z.number().int().nonnegative().describe('Uid of the async task returned by a write operation.')
 });
 
 const OutputSchema = z
