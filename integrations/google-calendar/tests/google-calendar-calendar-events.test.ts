@@ -1,4 +1,4 @@
-import { afterEach, vi, expect, it, describe } from 'vitest';
+import { afterEach, beforeEach, vi, expect, it, describe } from 'vitest';
 
 import createSync from '../syncs/calendar-events.js';
 
@@ -18,7 +18,17 @@ describe('google-calendar calendar-events tests', () => {
         };
     };
 
+    beforeEach(() => {
+        // The sync computes `new Date()` minus 30 days (truncated to UTC midnight) as the default
+        // `timeMin` when no checkpoint/metadata override exists, and that value flows into the
+        // request sent to Google Calendar. The fixture was recorded with `timeMin`
+        // "2026-07-15T00:00:00.000Z", so the clock must be frozen to a moment on 2026-08-14 (UTC)
+        // or the computed value won't match the recorded request and the mock lookup will fail.
+        vi.useFakeTimers({ now: new Date('2026-08-14T12:00:00.000Z') });
+    });
+
     afterEach(() => {
+        vi.useRealTimers();
         vi.clearAllMocks();
         vi.restoreAllMocks();
     });
