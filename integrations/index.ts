@@ -954,11 +954,14 @@ import './cal-com-v2/actions/create-event-type.js';
 import './cal-com-v2/actions/create-team.js';
 import './cal-com-v2/actions/create-webhook.js';
 import './cal-com-v2/actions/delete-availability-schedule.js';
+import './cal-com-v2/actions/delete-booking.js';
 import './cal-com-v2/actions/delete-event-type.js';
+import './cal-com-v2/actions/delete-team.js';
 import './cal-com-v2/actions/delete-webhook.js';
 import './cal-com-v2/actions/get-availability-schedule.js';
 import './cal-com-v2/actions/get-booking.js';
 import './cal-com-v2/actions/get-event-type.js';
+import './cal-com-v2/actions/get-team.js';
 import './cal-com-v2/actions/get-webhook.js';
 import './cal-com-v2/actions/list-availability-schedules.js';
 import './cal-com-v2/actions/list-bookings.js';
@@ -970,6 +973,7 @@ import './cal-com-v2/actions/reschedule-booking.js';
 import './cal-com-v2/actions/update-availability-schedule.js';
 import './cal-com-v2/actions/update-booking.js';
 import './cal-com-v2/actions/update-event-type.js';
+import './cal-com-v2/actions/update-team.js';
 import './cal-com-v2/actions/update-webhook.js';
 
 // -- Integration: calendly
