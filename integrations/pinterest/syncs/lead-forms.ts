@@ -54,16 +54,24 @@ const AdAccountSchema = z.object({
     id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    ad_account_id: z.string(),
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync lead-generation ad forms',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LeadForm: LeadFormSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+
         const adAccountProxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#tag/ad_accounts
             endpoint: '/v5/ad_accounts',
@@ -96,6 +104,8 @@ const sync = createSync({
         await nango.trackDeletesStart('LeadForm');
 
         for (const adAccount of adAccounts) {
+            let bookmark: string | undefined = checkpoint?.ad_account_id === adAccount.id && checkpoint?.bookmark ? checkpoint.bookmark : undefined;
+
             const leadFormProxyConfig: ProxyConfiguration = {
                 // https://developers.pinterest.com/docs/api/v5/#tag/lead_forms
                 endpoint: `/v5/ad_accounts/${encodeURIComponent(adAccount.id)}/lead_forms`,
@@ -105,10 +115,17 @@ const sync = createSync({
                     cursor_path_in_response: 'bookmark',
                     response_path: 'items',
                     limit_name_in_request: 'page_size',
-                    limit: 25
+                    limit: 25,
+                    on_page: async ({ nextPageParam }) => {
+                        bookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                    }
                 },
                 retries: 3
             };
+
+            if (bookmark) {
+                leadFormProxyConfig.params = { bookmark };
+            }
 
             for await (const page of nango.paginate(leadFormProxyConfig)) {
                 const leadForms = [];
@@ -146,9 +163,15 @@ const sync = createSync({
                 if (leadForms.length > 0) {
                     await nango.batchSave(leadForms, 'LeadForm');
                 }
+
+                await nango.saveCheckpoint({
+                    ad_account_id: adAccount.id,
+                    bookmark: bookmark ?? ''
+                });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LeadForm');
     }
 });

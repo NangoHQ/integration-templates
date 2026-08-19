@@ -6,6 +6,10 @@ import type { ProxyConfiguration } from 'nango';
 import { StandardEmployee } from '../models.js';
 import * as z from 'zod';
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Fetches a list of current employees from ADP and maps them to the standard HRIS model',
     version: '0.1.0',
@@ -21,16 +25,20 @@ const sync = createSync({
         }
     ],
 
+    checkpoint: CheckpointSchema,
+
     models: {
         StandardEmployee: StandardEmployee
     },
 
-    metadata: z.object({}),
-
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { offset: 0 });
+
         await nango.trackDeletesStart('StandardEmployee');
 
         let total = 0;
+        let nextOffset: number | undefined = checkpoint.offset;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.adp.com/apis/api-explorer/hcm-offrg-wfn/hcm-offrg-wfn-hr-workers-v2-workers?operation=GET%2Fhr%2Fv2%2Fworkers#swagger
@@ -41,11 +49,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
-                offset_start_value: 0,
+                offset_start_value: nextOffset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '$top',
                 limit: 100,
-                response_path: 'workers'
+                response_path: 'workers',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 10
         };
@@ -58,9 +69,14 @@ const sync = createSync({
             await nango.log(`Saving batch of ${batchSize} unified employee(s)`);
             await nango.batchSave(mappedEmployees, 'StandardEmployee');
             total += batchSize;
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
         await nango.log(`Total unified employee(s) processed: ${total}`);
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('StandardEmployee');
     }
 });

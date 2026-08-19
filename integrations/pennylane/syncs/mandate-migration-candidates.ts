@@ -44,34 +44,52 @@ function getErrorStatus(err: unknown): number | undefined {
     return undefined;
 }
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync mandates eligible for Pro Account migration.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         MandateMigrationCandidate: MandateMigrationCandidateSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
+        let nextCursor: string | undefined = checkpoint?.cursor;
+
         // https://pennylane.readme.io/reference/getproaccountmandatemigrations
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getproaccountmandatemigrations
             endpoint: '/api/external/v2/pro_account/mandate_migrations',
-
+            params: {
+                ...(nextCursor && { cursor: nextCursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'metadata.next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
         let deleteTrackingStarted = false;
 
+        // @allowTryCatch The Pro Account endpoint returns 404 with a JSON body when the company
+        // does not have a Pro Account configured. Treating this as a graceful empty sync avoids
+        // false deletion tracking and hard failures.
         try {
             for await (const page of nango.paginate<ProviderMandateMigrationCandidate>(proxyConfig)) {
                 if (!deleteTrackingStarted) {
@@ -101,11 +119,12 @@ const sync = createSync({
                 if (candidates.length > 0) {
                     await nango.batchSave(candidates, 'MandateMigrationCandidate');
                 }
+
+                if (nextCursor !== undefined) {
+                    await nango.saveCheckpoint({ cursor: nextCursor });
+                }
             }
         } catch (err) {
-            // @allowTryCatch The Pro Account endpoint returns 404 with a JSON body when the company
-            // does not have a Pro Account configured. Treating this as a graceful empty sync avoids
-            // false deletion tracking and hard failures.
             const status = getErrorStatus(err);
             if (status === 404) {
                 return;
@@ -115,6 +134,7 @@ const sync = createSync({
         }
 
         if (deleteTrackingStarted) {
+            await nango.clearCheckpoint();
             await nango.trackDeletesEnd('MandateMigrationCandidate');
         }
     }

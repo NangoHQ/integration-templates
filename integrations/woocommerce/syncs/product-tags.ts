@@ -17,11 +17,16 @@ const ProviderTagSchema = z.object({
     count: z.number().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync product tags from WooCommerce.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ProductTag: ProductTagSchema
     },
@@ -37,6 +42,9 @@ const sync = createSync({
         // Blocker: WooCommerce product tags endpoint does not support updated_after,
         // modified_since, since_id, after, or before filters. There is no deleted-record
         // endpoint for tags. Full refresh is required.
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = typeof checkpoint?.['page'] === 'number' ? checkpoint['page'] : 1;
+
         await nango.trackDeletesStart('ProductTag');
 
         const proxyConfig: ProxyConfiguration = {
@@ -45,16 +53,19 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderTagSchema).parse(page);
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderTagSchema).parse(pageResults);
 
             const tags = parsed.map((raw) => ({
                 id: String(raw.id),
@@ -67,8 +78,13 @@ const sync = createSync({
             if (tags.length > 0) {
                 await nango.batchSave(tags, 'ProductTag');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProductTag');
     }
 });

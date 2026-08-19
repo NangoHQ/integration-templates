@@ -29,30 +29,46 @@ const PennylaneGocardlessMandateSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync GoCardless mandates.',
     version: '1.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     scopes: ['customer_mandates:readonly'],
     models: {
         PennylaneGocardlessMandate: PennylaneGocardlessMandateSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint ? checkpoint.cursor : undefined;
+
         await nango.trackDeletesStart('PennylaneGocardlessMandate');
 
         const config: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getgocardlessmandates
             endpoint: '/api/external/v2/gocardless_mandates',
             retries: 3,
+            params: {
+                limit: 100,
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -79,8 +95,13 @@ const sync = createSync({
             if (mandates.length > 0) {
                 await nango.batchSave(mandates, 'PennylaneGocardlessMandate');
             }
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('PennylaneGocardlessMandate');
     }
 });

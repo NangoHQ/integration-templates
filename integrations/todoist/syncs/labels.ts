@@ -1,6 +1,8 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const LIMIT = 100;
+
 const LabelSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -17,11 +19,16 @@ const ProviderLabelSchema = z.object({
     is_favorite: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync personal labels.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Label: LabelSchema
     },
@@ -29,19 +36,29 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/v1/labels does not support any modified-since or updated-after filter.
         // Unrecognized query params are silently ignored, so incremental filtering is not possible.
-        // The dataset is small, so a full refresh with delete tracking is appropriate.
+        // The provider cursor still lets us resume an interrupted full-refresh crawl.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint?.cursor;
+
         await nango.trackDeletesStart('Label');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.todoist.com/api/v1#get-all-personal-labels
             endpoint: '/api/v1/labels',
+            params: {
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'results',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: LIMIT,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -73,8 +90,13 @@ const sync = createSync({
             if (labels.length > 0) {
                 await nango.batchSave(labels, 'Label');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Label');
     }
 });

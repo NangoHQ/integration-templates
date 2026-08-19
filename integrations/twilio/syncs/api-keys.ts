@@ -15,6 +15,14 @@ const ProviderKeySchema = z.object({
     date_updated: z.string().optional().nullable()
 });
 
+const PaginationResponseSchema = z.object({
+    next_page_uri: z.string().nullable().optional()
+});
+
+const CheckpointSchema = z.object({
+    page_token: z.string()
+});
+
 const BasicCredentialsSchema = z.object({
     type: z.literal('BASIC'),
     username: z.string()
@@ -31,11 +39,19 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         ApiKey: ApiKeySchema
     },
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
+        let pageToken = checkpoint?.data.page_token || undefined;
+
         const connection = await nango.getConnection();
         const credentialsResult = BasicCredentialsSchema.safeParse(connection.credentials);
         if (!credentialsResult.success) {
@@ -43,20 +59,33 @@ const sync = createSync({
         }
         const accountSid = credentialsResult.data.username;
 
-        // Blocker: Twilio Keys API only supports PageSize/Page/PageToken pagination
-        // with no changed-since filter, no deleted-record endpoint, and no resumable
-        // cursor that can be used for incremental filtering.
+        // Blocker: Twilio Keys API has no changed-since filter or deleted-record endpoint,
+        // so use full-refresh with trackDeletesStart/trackDeletesEnd.
         await nango.trackDeletesStart('ApiKey');
+
+        const params: Record<string, string | number> = {
+            PageSize: 50
+        };
+        if (pageToken) {
+            params['PageToken'] = pageToken;
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.twilio.com/docs/iam/api-keys/key-resource-v2010
             endpoint: `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Keys.json`,
+            params,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'next_page_uri',
                 response_path: 'keys',
                 limit_name_in_request: 'PageSize',
-                limit: 50
+                limit: 50,
+                on_page: async ({ response }) => {
+                    const parsed = PaginationResponseSchema.parse(response.data);
+                    pageToken = parsed.next_page_uri
+                        ? (new URL(parsed.next_page_uri, 'https://api.twilio.com').searchParams.get('PageToken') ?? undefined)
+                        : undefined;
+                }
             },
             retries: 3
         };
@@ -80,8 +109,13 @@ const sync = createSync({
             if (apiKeys.length > 0) {
                 await nango.batchSave(apiKeys, 'ApiKey');
             }
+
+            if (pageToken) {
+                await nango.saveCheckpoint({ page_token: pageToken });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ApiKey');
     }
 });

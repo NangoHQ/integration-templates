@@ -17,11 +17,16 @@ const AgentSchema = z.object({
     modifiedTime: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync agents.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Agent: AgentSchema
     },
@@ -36,8 +41,12 @@ const sync = createSync({
         // Blocker: Zoho Desk /api/v1/agents does not expose an updated/modified
         // timestamp filter or a changed-records endpoint. Agents are a small/static
         // resource, so we perform a full snapshot with offset pagination and
-        // full-refresh delete tracking. We do not persist page checkpoints because
-        // resuming mid-snapshot would break delete detection for unseen earlier pages.
+        // full-refresh delete tracking.
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const startFrom = parsedCheckpoint.success ? parsedCheckpoint.data.from : 1;
+        let nextFrom: number | undefined;
+
         await nango.trackDeletesStart('Agent');
 
         const proxyConfig: ProxyConfiguration = {
@@ -46,11 +55,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 1,
+                offset_start_value: startFrom ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 50,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    nextFrom = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -80,8 +92,13 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'Agent');
             }
+
+            if (nextFrom !== undefined) {
+                await nango.saveCheckpoint({ from: nextFrom });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Agent');
     }
 });

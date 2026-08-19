@@ -11,11 +11,16 @@ const TemplateSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync templates.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Template: TemplateSchema
     },
@@ -23,20 +28,40 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/templates does not expose an updated-since or modified-since filter,
         // deleted-record endpoint, or resumable cursor suitable for incremental sync.
+        const checkpoint = await nango.getCheckpoint();
+        let cursor: string | undefined;
+
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            cursor = parsedCheckpoint.data.cursor;
+        }
+
         await nango.trackDeletesStart('Template');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.klaviyo.com/en/reference/get_templates
             endpoint: '/api/templates',
             params: {
-                'page[size]': 10
+                'page[size]': 10,
+                ...(cursor && { 'page[cursor]': cursor })
             },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
                 response_path: 'data',
                 limit_name_in_request: 'page[size]',
-                limit: 10
+                limit: 10,
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'string') {
+                        const url = new URL(nextPageParam);
+                        cursor = url.searchParams.get('page[cursor]') ?? undefined;
+                    } else {
+                        cursor = undefined;
+                    }
+                }
             },
             retries: 3,
             headers: {
@@ -78,8 +103,13 @@ const sync = createSync({
             if (templates.length > 0) {
                 await nango.batchSave(templates, 'Template');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Template');
     }
 });

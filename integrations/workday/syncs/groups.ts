@@ -28,6 +28,10 @@ const GroupSchema = z.object({
 
 const GROUP_ORGANIZATION_TYPES = ['SUPERVISORY', 'SECURITY', 'MATRIX', 'COMPANY', 'COST_CENTER', 'CUSTOM_ORGANIZATION'];
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 type Connection = {
     credentials: {
         type?: string;
@@ -62,20 +66,24 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
     models: {
         Group: GroupSchema
     },
     endpoints: [{ method: 'POST', path: '/syncs/groups' }],
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw || { page: 1 };
+        let page = checkpoint.page;
+        let hasMoreData = true;
+
         const connection = await nango.getConnection();
         const client = await getSoapClient('Human_Resources', connection);
 
         // Blocker: Workday Get_Organizations does not support a modified_since filter.
         // Full refresh with deletion tracking is required.
-        let page = 1;
-        let hasMoreData = true;
-        let trackingStarted = false;
+        await nango.trackDeletesStart('Group');
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -90,17 +98,12 @@ const sync = createSync({
                 })
             );
 
-            if (!trackingStarted) {
-                if (!res?.Response_Results) {
-                    throw new Error('Unexpected Workday response: missing Response_Results');
-                }
-                await nango.trackDeletesStart('Group');
-                trackingStarted = true;
+            if (!res?.Response_Results) {
+                throw new Error('Unexpected Workday response: missing Response_Results');
             }
 
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
-            page += 1;
 
             const rawOrganizations = res.Response_Data?.Organization;
             const organizations = Array.isArray(rawOrganizations) ? rawOrganizations : rawOrganizations ? [rawOrganizations] : [];
@@ -132,8 +135,15 @@ const sync = createSync({
             if (groups.length > 0) {
                 await nango.batchSave(groups, 'Group');
             }
+
+            // Persist forward progress after every page so a resumed run does not restart from page 1.
+            if (hasMoreData) {
+                page += 1;
+                await nango.saveCheckpoint({ page });
+            }
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Group');
     }
 });

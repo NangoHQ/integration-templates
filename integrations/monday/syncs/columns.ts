@@ -24,11 +24,16 @@ const BoardSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync columns from monday.com',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Column: ColumnSchema
     },
@@ -41,6 +46,10 @@ const sync = createSync({
         // cursors, or any changed-records endpoint for columns. Columns are nested under
         // boards and must be fetched by walking all boards.
         // https://developer.monday.com/api-reference/docs
+        const checkpoint = await nango.getCheckpoint();
+        const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        let page: number | undefined = validatedCheckpoint.success ? (validatedCheckpoint.data.page ?? 1) : 1;
+
         await nango.trackDeletesStart('Column');
 
         const proxyConfig: ProxyConfiguration = {
@@ -70,11 +79,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'variables.page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'variables.limit',
                 limit: 25,
-                response_path: 'data.boards'
+                response_path: 'data.boards',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -108,8 +120,13 @@ const sync = createSync({
             if (columns.length > 0) {
                 await nango.batchSave(columns, 'Column');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Column');
     }
 });

@@ -33,17 +33,33 @@ const RawCustomerSchema = z.object({
     website: z.string().nullish()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync customers.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
 
     exec: async (nango) => {
         // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
+        const checkpoint = await nango.getCheckpoint();
+
+        let from = 0;
+        if (checkpoint != null) {
+            const parsed = CheckpointSchema.safeParse(checkpoint);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse checkpoint: ${parsed.error.message}`);
+            }
+            from = parsed.data.from;
+        }
+
         await nango.trackDeletesStart('Customer');
 
         const proxyConfig: ProxyConfiguration = {
@@ -52,7 +68,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: from,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
@@ -62,6 +78,10 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(page)) {
+                throw new Error('Expected paginate page to be an array');
+            }
+
             const customers = page.map((record: unknown) => {
                 const parsed = RawCustomerSchema.safeParse(record);
 
@@ -91,8 +111,12 @@ const sync = createSync({
             if (customers.length > 0) {
                 await nango.batchSave(customers, 'Customer');
             }
+
+            from += page.length;
+            await nango.saveCheckpoint({ from });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Customer');
     }
 });

@@ -57,11 +57,18 @@ const BranchSchema = z.object({
     commit_web_url: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    project_page: z.number().int().positive(),
+    project_id: z.string(),
+    branch_page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync branches from GitLab',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Branch: BranchSchema
     },
@@ -75,6 +82,12 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GitLab branches API does not support filtering by updated timestamp,
         // cursor, or high-watermark ID. It only returns the full list of branches for a project.
+        const checkpoint = await nango.getCheckpoint();
+
+        const resumeProjectPage = typeof checkpoint?.['project_page'] === 'number' ? checkpoint['project_page'] : 1;
+        const resumeProjectId = typeof checkpoint?.['project_id'] === 'string' && checkpoint['project_id'] !== '' ? checkpoint['project_id'] : undefined;
+        const resumeBranchPage = typeof checkpoint?.['branch_page'] === 'number' ? checkpoint['branch_page'] : 1;
+
         await nango.trackDeletesStart('Branch');
 
         const projectsConfig: ProxyConfiguration = {
@@ -86,7 +99,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: resumeProjectPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 10
@@ -94,14 +107,37 @@ const sync = createSync({
             retries: 3
         };
 
+        let currentProjectPage: number = resumeProjectPage;
+        let resumeProjectIdLocal: string | undefined = resumeProjectId;
+        let resumeBranchPageLocal: number = resumeBranchPage;
+
         for await (const projectsPage of nango.paginate(projectsConfig)) {
             const projects = z.array(ProviderProjectSchema).safeParse(projectsPage);
             if (!projects.success) {
                 throw new Error('Failed to parse projects response: ' + JSON.stringify(projects.error.issues));
             }
 
+            if (projects.data.length === 0) {
+                currentProjectPage += 1;
+                await nango.saveCheckpoint({
+                    project_page: currentProjectPage,
+                    project_id: '',
+                    branch_page: 1
+                });
+                continue;
+            }
+
             for (const project of projects.data) {
                 const projectId = String(project.id);
+
+                if (resumeProjectIdLocal && projectId !== resumeProjectIdLocal) {
+                    continue;
+                }
+                if (resumeProjectIdLocal && projectId === resumeProjectIdLocal) {
+                    resumeProjectIdLocal = undefined;
+                }
+
+                let currentBranchPage: number = resumeBranchPageLocal;
 
                 const branchesConfig: ProxyConfiguration = {
                     // https://docs.gitlab.com/api/branches/
@@ -109,7 +145,7 @@ const sync = createSync({
                     paginate: {
                         type: 'offset',
                         offset_name_in_request: 'page',
-                        offset_start_value: 1,
+                        offset_start_value: currentBranchPage,
                         offset_calculation_method: 'per-page',
                         limit_name_in_request: 'per_page',
                         limit: 100
@@ -151,10 +187,27 @@ const sync = createSync({
                     if (mapped.length > 0) {
                         await nango.batchSave(mapped, 'Branch');
                     }
+
+                    currentBranchPage += 1;
+                    await nango.saveCheckpoint({
+                        project_page: currentProjectPage,
+                        project_id: projectId,
+                        branch_page: currentBranchPage
+                    });
                 }
+
+                resumeBranchPageLocal = 1;
             }
+
+            currentProjectPage += 1;
+            await nango.saveCheckpoint({
+                project_page: currentProjectPage,
+                project_id: '',
+                branch_page: 1
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Branch');
     }
 });

@@ -57,6 +57,10 @@ const ProviderFeatureFlagSchema = z.object({
     user_access_level: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync feature flags from PostHog.',
     version: '1.0.0',
@@ -69,6 +73,7 @@ const sync = createSync({
         }
     ],
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         FeatureFlag: FeatureFlagSchema
     },
@@ -84,6 +89,11 @@ const sync = createSync({
         // Blocker: the feature flags list endpoint supports limit/offset pagination
         // but does not expose an updated_after filter, cursor, or since_id parameter
         // for incremental fetching.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+        let offset: number | undefined = checkpoint.offset;
+
         await nango.trackDeletesStart('FeatureFlag');
 
         const proxyConfig: ProxyConfiguration = {
@@ -97,8 +107,12 @@ const sync = createSync({
                 limit: 100,
                 limit_name_in_request: 'limit',
                 offset_name_in_request: 'offset',
+                offset_start_value: checkpoint.offset,
                 offset_calculation_method: 'per-page',
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -140,8 +154,13 @@ const sync = createSync({
             if (flags.length > 0) {
                 await nango.batchSave(flags, 'FeatureFlag');
             }
+
+            if (offset !== undefined) {
+                await nango.saveCheckpoint({ offset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('FeatureFlag');
     }
 });

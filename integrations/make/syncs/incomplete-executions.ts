@@ -43,17 +43,28 @@ const IncompleteExecutionSchema = z.object({
     attempts: z.number().int().optional()
 });
 
+const CheckpointSchema = z.object({
+    scenarioId: z.number().int(),
+    dlqOffset: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync incomplete/failed executions (dead-letter queue) for each scenario in a team.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         IncompleteExecution: IncompleteExecutionSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const savedScenarioId = parsedCheckpoint.success ? parsedCheckpoint.data.scenarioId : undefined;
+        const savedDlqOffset = parsedCheckpoint.success ? parsedCheckpoint.data.dlqOffset : undefined;
+
         const metadata = await nango.getMetadata();
         const parsedMetadata = MetadataSchema.safeParse(metadata);
         let teamIds: number[];
@@ -126,7 +137,7 @@ const sync = createSync({
             teamIds = teams.map((team) => team.id);
         }
 
-        const scenarios = [];
+        const scenarios: Array<z.infer<typeof ScenarioSchema>> = [];
 
         for (const teamId of teamIds) {
             // https://developers.make.com/api-documentation/api-reference/scenarios
@@ -155,7 +166,27 @@ const sync = createSync({
 
         await nango.trackDeletesStart('IncompleteExecution');
 
-        for (const scenario of scenarios) {
+        let startScenarioIndex = 0;
+        let startDlqOffset = 0;
+
+        if (savedScenarioId !== undefined && savedDlqOffset !== undefined) {
+            const idx = scenarios.findIndex((s) => s.id === savedScenarioId);
+            if (idx !== -1) {
+                startScenarioIndex = idx;
+                startDlqOffset = savedDlqOffset;
+            }
+        }
+
+        for (let i = startScenarioIndex; i < scenarios.length; i++) {
+            const scenario = scenarios[i];
+            if (!scenario) {
+                continue;
+            }
+
+            const currentStartOffset = i === startScenarioIndex ? startDlqOffset : 0;
+
+            let nextDlqOffset = currentStartOffset;
+
             // https://developers.make.com/api-documentation/api-reference/incomplete-executions
             for await (const page of nango.paginate({
                 endpoint: '/dlqs',
@@ -165,7 +196,7 @@ const sync = createSync({
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'pg[offset]',
-                    offset_start_value: 0,
+                    offset_start_value: currentStartOffset,
                     offset_calculation_method: 'by-response-size',
                     limit_name_in_request: 'pg[limit]',
                     limit: 50,
@@ -191,9 +222,20 @@ const sync = createSync({
                 if (dlqs.length > 0) {
                     await nango.batchSave(dlqs, 'IncompleteExecution');
                 }
+
+                nextDlqOffset += page.length;
+                await nango.saveCheckpoint({ scenarioId: scenario.id, dlqOffset: nextDlqOffset });
+            }
+
+            if (i + 1 < scenarios.length) {
+                const nextScenario = scenarios[i + 1];
+                if (nextScenario) {
+                    await nango.saveCheckpoint({ scenarioId: nextScenario.id, dlqOffset: 0 });
+                }
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('IncompleteExecution');
     }
 });

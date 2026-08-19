@@ -31,11 +31,22 @@ const ConversationSchema = z.object({
     links: z.record(z.string(), z.string()).optional()
 });
 
+const PaginationResponseSchema = z.object({
+    meta: z.object({
+        next_page_url: z.string().nullable().optional()
+    })
+});
+
+const CheckpointSchema = z.object({
+    page_token: z.string()
+});
+
 const sync = createSync({
     description: 'Sync conversations from Twilio.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Conversation: ConversationSchema
     },
@@ -47,27 +58,52 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
+
+        let pageToken = checkpoint?.data.page_token;
+
         // Full refresh because the Twilio Conversations API does not support
         // an updated_since or modified_since filter; it only supports
         // startDate/endDate by creation date and pageToken pagination.
         await nango.trackDeletesStart('Conversation');
 
         // https://www.twilio.com/docs/conversations/api/conversation-resource#read-multiple-conversation-resources
+        const params: Record<string, string | number> = {
+            PageSize: 100
+        };
+        if (pageToken) {
+            params['PageToken'] = pageToken;
+        }
+
         const proxyConfig: ProxyConfiguration = {
             baseUrlOverride: 'https://conversations.twilio.com',
             // https://www.twilio.com/docs/conversations/api/conversation-resource#read-multiple-conversation-resources
             endpoint: '/v1/Conversations',
+            params,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'meta.next_page_url',
                 response_path: 'conversations',
                 limit_name_in_request: 'PageSize',
-                limit: 100
+                limit: 100,
+                on_page: async ({ response }) => {
+                    const parsed = PaginationResponseSchema.safeParse(response.data);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse pagination metadata: ${parsed.error.message}`);
+                    }
+                    pageToken = parsed.data.meta.next_page_url
+                        ? (new URL(parsed.data.meta.next_page_url).searchParams.get('PageToken') ?? undefined)
+                        : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        for await (const page of nango.paginate<z.infer<typeof ProviderConversationSchema>>(proxyConfig)) {
             const parsed = ProviderConversationSchema.array().safeParse(page);
             if (!parsed.success) {
                 throw new Error(`Failed to parse conversations: ${parsed.error.message}`);
@@ -91,8 +127,13 @@ const sync = createSync({
             if (conversations.length > 0) {
                 await nango.batchSave(conversations, 'Conversation');
             }
+
+            if (pageToken) {
+                await nango.saveCheckpoint({ page_token: pageToken });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Conversation');
     }
 });

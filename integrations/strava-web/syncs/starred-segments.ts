@@ -82,16 +82,31 @@ const StarredSegmentSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: "Sync the authenticated athlete's starred segments.",
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         StarredSegment: StarredSegmentSchema
     },
 
     exec: async (nango) => {
+        // Blocker: GET /segments/starred exposes no updated/modified filter,
+        // no deleted-record endpoint, and no resumable cursor — only page-based
+        // offset pagination. Full refresh with page checkpoints is required.
+        const checkpoint = await nango.getCheckpoint();
+        let nextPage: number | undefined = checkpoint?.page ?? 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('StarredSegment');
+
         const toRecords = (batch: unknown) => {
             if (!Array.isArray(batch)) {
                 throw new Error('Unexpected response: batch is not an array');
@@ -140,33 +155,33 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: nextPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 30
+                limit: 30,
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        // Validate the first page before opening delete tracking, so a request or schema
-        // failure on it doesn't leave tracking started with nothing ever saved or closed.
-        const pages = nango.paginate(proxyConfig);
-        const firstPage = await pages.next();
-        const firstRecords = firstPage.done ? [] : toRecords(firstPage.value);
-
-        await nango.trackDeletesStart('StarredSegment');
-
-        if (firstRecords.length > 0) {
-            await nango.batchSave(firstRecords, 'StarredSegment');
-        }
-
-        for await (const batch of pages) {
+        for await (const batch of nango.paginate(proxyConfig)) {
             const segments = toRecords(batch);
             if (segments.length > 0) {
                 await nango.batchSave(segments, 'StarredSegment');
             }
+
+            // Persist pagination progress after every page so a run that exceeds the
+            // execution window resumes from the next page instead of restarting.
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('StarredSegment');
     }
 });

@@ -27,11 +27,16 @@ const ProjectSchema = z.object({
     access_control: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync projects from PostHog.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema
     },
@@ -39,6 +44,15 @@ const sync = createSync({
     endpoints: [{ method: 'GET', path: '/syncs/projects' }],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ?? { offset: 0 };
+        const checkpointParse = CheckpointSchema.safeParse(checkpoint);
+        if (!checkpointParse.success) {
+            throw new Error(`Failed to parse checkpoint: ${checkpointParse.error.message}`);
+        }
+        let offset = checkpointParse.data.offset;
+        let nextOffset: number | undefined = offset;
+
         await nango.trackDeletesStart('Project');
 
         const proxyConfig: ProxyConfiguration = {
@@ -47,11 +61,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -78,8 +95,14 @@ const sync = createSync({
             if (projects.length > 0) {
                 await nango.batchSave(projects, 'Project');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+                offset = nextOffset;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Project');
     }
 });

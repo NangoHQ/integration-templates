@@ -29,16 +29,37 @@ const TeamItemSchema = z.object({
     consumedCenticredits: z.number().optional()
 });
 
+const TeamsResponseSchema = z.object({
+    teams: z.array(TeamItemSchema),
+    pg: z
+        .object({
+            offset: z.number(),
+            limit: z.number()
+        })
+        .passthrough()
+});
+
+const CheckpointSchema = z.object({
+    orgId: z.number(),
+    teamOffset: z.number().min(0)
+});
+
 const sync = createSync({
     description: 'Sync teams across accessible organizations.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const resumeOrgId = parsedCheckpoint.success ? parsedCheckpoint.data.orgId : undefined;
+        const resumeTeamOffset = parsedCheckpoint.success ? parsedCheckpoint.data.teamOffset : undefined;
+
         const orgProxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/
             endpoint: '/organizations',
@@ -64,38 +85,44 @@ const sync = createSync({
             }
         }
 
+        const hasValidResumeOrg = resumeOrgId !== undefined && organizations.some((o) => o.id === resumeOrgId);
+        const effectiveResumeOrgId = hasValidResumeOrg ? resumeOrgId : undefined;
+
         // Only open delete tracking once every organization has been enumerated and
         // validated, so a failed run never leaves tracking started without a matching
         // trackDeletesEnd.
         await nango.trackDeletesStart('Team');
 
-        for (const org of organizations) {
-            const teamProxyConfig: ProxyConfiguration = {
-                // https://developers.make.com/api-documentation/
-                endpoint: '/teams',
-                params: {
-                    organizationId: org.id
-                },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'pg[offset]',
-                    offset_calculation_method: 'by-response-size',
-                    limit_name_in_request: 'pg[limit]',
-                    limit: 100,
-                    response_path: 'teams'
-                },
-                retries: 3
-            };
+        const limit = 100;
+        let resumeOffsetConsumed = false;
 
-            for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
+        for (const [i, org] of organizations.entries()) {
+            if (effectiveResumeOrgId !== undefined) {
+                if (org.id !== effectiveResumeOrgId) {
+                    continue;
+                }
+            }
+
+            const offset = !resumeOffsetConsumed && resumeTeamOffset !== undefined ? resumeTeamOffset : 0;
+            resumeOffsetConsumed = true;
+            let hasMore = true;
+            let currentOffset = offset;
+
+            while (hasMore) {
+                const teamResponse = await nango.get({
+                    // https://developers.make.com/api-documentation/
+                    endpoint: '/teams',
+                    params: {
+                        organizationId: org.id,
+                        'pg[limit]': limit,
+                        'pg[offset]': currentOffset
+                    },
+                    retries: 3
+                });
+
+                const parsedResponse = TeamsResponseSchema.parse(teamResponse.data);
                 const teams = [];
-                for (const rawTeam of teamPage) {
-                    const teamResult = TeamItemSchema.safeParse(rawTeam);
-                    if (!teamResult.success) {
-                        throw new Error(`Invalid team item: ${teamResult.error.message}`);
-                    }
-                    const team = teamResult.data;
-
+                for (const team of parsedResponse.teams) {
                     teams.push({
                         id: String(team.id),
                         name: team.name,
@@ -112,9 +139,22 @@ const sync = createSync({
                 if (teams.length > 0) {
                     await nango.batchSave(teams, 'Team');
                 }
+
+                if (teams.length < limit) {
+                    hasMore = false;
+                    const nextOrg = organizations[i + 1];
+                    if (nextOrg) {
+                        await nango.saveCheckpoint({ orgId: nextOrg.id, teamOffset: 0 });
+                    }
+                } else {
+                    currentOffset += limit;
+                    await nango.saveCheckpoint({ orgId: org.id, teamOffset: currentOffset });
+                    hasMore = true;
+                }
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Team');
     }
 });

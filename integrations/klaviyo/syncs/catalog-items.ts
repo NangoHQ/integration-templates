@@ -36,11 +36,16 @@ const CatalogItemSchema = z.object({
     updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync catalog items (products)',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CatalogItem: CatalogItemSchema
     },
@@ -49,6 +54,16 @@ const sync = createSync({
         // Blocker: GET /api/catalog-items only supports sorting by created and has no
         // updated_after, modified_since, or changed-records filter. Full-refresh delete
         // tracking is required.
+        const checkpoint = await nango.getCheckpoint();
+        let resumeCursor: string | undefined;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            resumeCursor = parsedCheckpoint.data.cursor;
+        }
+
         await nango.trackDeletesStart('CatalogItem');
 
         const proxyConfig: ProxyConfiguration = {
@@ -57,12 +72,24 @@ const sync = createSync({
             headers: {
                 revision: '2026-04-15'
             },
+            params: {
+                ...(resumeCursor && { 'page[cursor]': resumeCursor })
+            },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
                 response_path: 'data',
                 limit_name_in_request: 'page[size]',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'string') {
+                        const url = new URL(nextPageParam);
+                        const nextCursor = url.searchParams.get('page[cursor]');
+                        if (nextCursor) {
+                            await nango.saveCheckpoint({ cursor: nextCursor });
+                        }
+                    }
+                }
             },
             retries: 3
         };
@@ -101,6 +128,7 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CatalogItem');
     }
 });

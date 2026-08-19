@@ -22,12 +22,17 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    spaceIndex: z.number()
+});
+
 const sync = createSync({
     description: 'Sync folders from ClickUp.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Folder: SyncFolderSchema
     },
@@ -48,6 +53,10 @@ const sync = createSync({
         // Blocker: ClickUp folders endpoint has no updated_at filter or incremental
         // support. Full refresh with deletion detection is required.
         await nango.trackDeletesStart('Folder');
+
+        const checkpoint = await nango.getCheckpoint();
+        const rawSpaceIndex = checkpoint?.['spaceIndex'];
+        const startIndex = typeof rawSpaceIndex === 'number' ? rawSpaceIndex : 0;
 
         // Get all spaces in the workspace
         // https://developer.clickup.com/reference/getspaces
@@ -71,17 +80,12 @@ const sync = createSync({
             return { id: space.id };
         });
 
-        // Fetch folders for each space
-        const allFolders: Array<{
-            id: string;
-            name: string;
-            orderindex: number;
-            overrideStatuses: boolean;
-            hidden: boolean;
-            spaceId: string;
-        }> = [];
+        for (let i = startIndex; i < spaces.length; i++) {
+            const space = spaces[i];
+            if (!space) {
+                throw new Error(`Unexpected undefined space at index ${i}`);
+            }
 
-        for (const space of spaces) {
             // https://developer.clickup.com/reference/getfolders
             const foldersResponse = await nango.get({
                 endpoint: `/api/v2/space/${encodeURIComponent(space.id)}/folder`,
@@ -91,8 +95,17 @@ const sync = createSync({
 
             const rawFolders = foldersResponse.data.folders;
             if (!Array.isArray(rawFolders)) {
-                continue;
+                throw new Error(`Invalid folders response for space ${space.id}: expected array`);
             }
+
+            const spaceFolders: Array<{
+                id: string;
+                name: string;
+                orderindex: number;
+                overrideStatuses: boolean;
+                hidden: boolean;
+                spaceId: string;
+            }> = [];
 
             for (const folder of rawFolders) {
                 const parsed = FolderSchema.safeParse(folder);
@@ -100,7 +113,7 @@ const sync = createSync({
                     throw new Error(`Failed to parse folder: ${JSON.stringify(parsed.error.issues)}`);
                 }
 
-                allFolders.push({
+                spaceFolders.push({
                     id: parsed.data.id,
                     name: parsed.data.name,
                     orderindex: parsed.data.orderindex,
@@ -109,12 +122,16 @@ const sync = createSync({
                     spaceId: space.id
                 });
             }
+
+            if (spaceFolders.length > 0) {
+                await nango.batchSave(spaceFolders, 'Folder');
+            }
+
+            // Persist forward progress even when a valid page is empty.
+            await nango.saveCheckpoint({ spaceIndex: i + 1 });
         }
 
-        if (allFolders.length > 0) {
-            await nango.batchSave(allFolders, 'Folder');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Folder');
     }
 });

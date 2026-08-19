@@ -93,15 +93,30 @@ const ReviewSchema = z.object({
     event_ids: z.array(z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync product reviews',
     version: '1.0.0',
     frequency: 'every hour',
+    checkpoint: CheckpointSchema,
     models: {
         Review: ReviewSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        let checkpoint: z.infer<typeof CheckpointSchema> | undefined;
+        if (rawCheckpoint != null) {
+            const parsed = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsed.success) {
+                throw new Error(`Invalid checkpoint: ${parsed.error.message}`);
+            }
+            checkpoint = parsed.data;
+        }
+
         // Blocker: the reviews list endpoint does not expose an updated_after or
         // modified_since filter. The available filters (created, rating, id,
         // item.id, content, status, review_type, verified) cannot identify
@@ -109,16 +124,34 @@ const sync = createSync({
         // moderated, so full-refresh delete tracking is required.
         await nango.trackDeletesStart('Review');
 
+        let nextCursor: string | undefined = checkpoint?.cursor;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developers.klaviyo.com/en/reference/get_reviews
             endpoint: '/api/reviews',
             headers: { revision: '2026-04-15' },
+            params: {
+                ...(nextCursor && { 'page[cursor]': nextCursor })
+            },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
                 response_path: 'data',
                 limit_name_in_request: 'page[size]',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'string') {
+                        const url = new URL(nextPageParam, 'https://a.klaviyo.com');
+                        const cursor = url.searchParams.get('page[cursor]');
+                        if (!cursor) {
+                            throw new Error('Expected page[cursor] in links.next URL');
+                        }
+                        nextCursor = cursor;
+                        await nango.saveCheckpoint({ cursor });
+                    } else {
+                        nextCursor = undefined;
+                    }
+                }
             },
             retries: 3
         };
@@ -174,6 +207,7 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Review');
     }
 });

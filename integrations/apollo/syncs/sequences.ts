@@ -53,11 +53,16 @@ const SequenceSchema = z.object({
 
 type ApolloEmailerCampaign = z.infer<typeof _ApolloEmailerCampaignSchema>;
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync sequences from Apollo.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     // https://docs.apollo.io/reference/search-for-sequences
     endpoints: [
         {
@@ -72,6 +77,9 @@ const sync = createSync({
     exec: async (nango) => {
         // Apollo sequence search supports page-based pagination but does not expose a
         // changed-since filter or cursor we can use for incremental syncs.
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('Sequence');
 
         const proxyConfig: ProxyConfiguration = {
@@ -87,46 +95,53 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'pagination.page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'pagination.per_page',
                 limit: 100,
-                response_path: 'emailer_campaigns'
+                response_path: 'emailer_campaigns',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
         for await (const campaigns of nango.paginate<ApolloEmailerCampaign>(proxyConfig)) {
-            if (campaigns.length === 0) {
-                continue;
+            if (campaigns.length > 0) {
+                const sequences = campaigns.map((campaign) => ({
+                    id: campaign.id,
+                    name: campaign.name,
+                    active: campaign.active,
+                    created_at: campaign.created_at,
+                    updated_at: campaign.updated_at,
+                    num_steps: campaign.num_steps,
+                    unique_scheduled: campaign.unique_scheduled,
+                    unique_delivered: campaign.unique_delivered,
+                    unique_opened: campaign.unique_opened,
+                    unique_replied: campaign.unique_replied,
+                    unique_bounced: campaign.unique_bounced,
+                    user_id: campaign.user_id,
+                    email_account_id: campaign.email_account_id,
+                    label_ids: campaign.label_ids,
+                    folder_id: campaign.folder_id,
+                    tags: campaign.tags,
+                    archived: campaign.archived,
+                    scheduling_status: campaign.scheduling_status,
+                    pause_on_out_of_office: campaign.pause_on_out_of_office,
+                    pause_on_holiday: campaign.pause_on_holiday
+                }));
+
+                await nango.batchSave(sequences, 'Sequence');
             }
 
-            const sequences = campaigns.map((campaign) => ({
-                id: campaign.id,
-                name: campaign.name,
-                active: campaign.active,
-                created_at: campaign.created_at,
-                updated_at: campaign.updated_at,
-                num_steps: campaign.num_steps,
-                unique_scheduled: campaign.unique_scheduled,
-                unique_delivered: campaign.unique_delivered,
-                unique_opened: campaign.unique_opened,
-                unique_replied: campaign.unique_replied,
-                unique_bounced: campaign.unique_bounced,
-                user_id: campaign.user_id,
-                email_account_id: campaign.email_account_id,
-                label_ids: campaign.label_ids,
-                folder_id: campaign.folder_id,
-                tags: campaign.tags,
-                archived: campaign.archived,
-                scheduling_status: campaign.scheduling_status,
-                pause_on_out_of_office: campaign.pause_on_out_of_office,
-                pause_on_holiday: campaign.pause_on_holiday
-            }));
-
-            await nango.batchSave(sequences, 'Sequence');
+            // Persist forward progress even when a valid page is empty.
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Sequence');
     }
 });

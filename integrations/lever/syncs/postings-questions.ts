@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const LIMIT = 100;
@@ -33,70 +33,86 @@ const ApplyResponseSchema = z
     })
     .passthrough();
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
 const sync = createSync({
     description: "Fetches a list of all questions included in a posting's application form in Lever",
     version: '3.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
     metadata: z.object({}),
+    checkpoint: CheckpointSchema,
     models: {
         LeverPostingApply: LeverPostingApplySchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let offset = checkpoint?.offset ?? '';
+
         let totalRecords = 0;
 
         await nango.trackDeletesStart('LeverPostingApply');
 
-        // https://hire.lever.co/developer/documentation#list-all-postings
-        const records: z.infer<typeof PostingSchema>[] = [];
-
-        for await (const recordBatch of nango.paginate({
+        const config: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-postings
             endpoint: '/v1/postings',
+            params: {
+                limit: LIMIT,
+                ...(offset ? { offset } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next',
                 cursor_name_in_request: 'offset',
                 limit_name_in_request: 'limit',
                 response_path: 'data',
-                limit: LIMIT
+                limit: LIMIT,
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'string' ? nextPageParam : '';
+                }
             },
             retries: 3
-        })) {
+        };
+
+        for await (const recordBatch of nango.paginate(config)) {
             for (const record of recordBatch) {
-                records.push(PostingSchema.parse(record));
+                const posting = PostingSchema.parse(record);
+                const endpoint = `/v1/postings/${encodeURIComponent(posting.id)}/apply`;
+                // https://hire.lever.co/developer/documentation#apply-to-a-posting
+                const applyResponse = await nango.get({ endpoint, retries: 3 });
+                const parsedResponse = ApplyResponseSchema.safeParse(applyResponse.data);
+                if (!parsedResponse.success) {
+                    throw new Error(`Invalid apply response for posting ${posting.id}: ${parsedResponse.error.message}`);
+                }
+
+                const applyData = parsedResponse.data.data;
+                const mappedApply = {
+                    id: applyData.id || posting.id,
+                    text: applyData.text,
+                    customQuestions: applyData.customQuestions,
+                    eeoQuestions: applyData.eeoQuestions,
+                    personalInformation: applyData.personalInformation,
+                    urls: applyData.urls
+                };
+
+                const parsedApply = LeverPostingApplySchema.safeParse(mappedApply);
+                if (!parsedApply.success) {
+                    throw new Error(`Invalid apply data for posting ${posting.id}: ${parsedApply.error.message}`);
+                }
+
+                totalRecords++;
+                await nango.log(`Saving apply for posting ${posting.id} (total applie(s): ${totalRecords})`);
+                await nango.batchSave([parsedApply.data], 'LeverPostingApply');
             }
+
+            await nango.saveCheckpoint({ offset });
         }
 
-        for (const posting of records) {
-            const endpoint = `/v1/postings/${encodeURIComponent(posting.id)}/apply`;
-            // https://hire.lever.co/developer/documentation#apply-to-a-posting
-            const applyResponse = await nango.get({ endpoint, retries: 3 });
-            const parsedResponse = ApplyResponseSchema.safeParse(applyResponse.data);
-            if (!parsedResponse.success) {
-                throw new Error(`Invalid apply response for posting ${posting.id}: ${parsedResponse.error.message}`);
-            }
-
-            const applyData = parsedResponse.data.data;
-            const mappedApply = {
-                id: applyData.id || posting.id,
-                text: applyData.text,
-                customQuestions: applyData.customQuestions,
-                eeoQuestions: applyData.eeoQuestions,
-                personalInformation: applyData.personalInformation,
-                urls: applyData.urls
-            };
-
-            const parsedApply = LeverPostingApplySchema.safeParse(mappedApply);
-            if (!parsedApply.success) {
-                throw new Error(`Invalid apply data for posting ${posting.id}: ${parsedApply.error.message}`);
-            }
-
-            totalRecords++;
-            await nango.log(`Saving apply for posting ${posting.id} (total applie(s): ${totalRecords})`);
-            await nango.batchSave([parsedApply.data], 'LeverPostingApply');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LeverPostingApply');
     }
 });

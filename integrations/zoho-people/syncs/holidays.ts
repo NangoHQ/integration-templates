@@ -24,11 +24,16 @@ const ProviderResponseSchema = z.object({
     status: z.string()
 });
 
+const CheckpointSchema = z.object({
+    year: z.number()
+});
+
 const sync = createSync({
     description: 'Sync configured holidays.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Holiday: HolidaySchema
     },
@@ -43,13 +48,23 @@ const sync = createSync({
         // Full refresh: the provider does not expose a changed-since filter,
         // cursor, or deleted-record endpoint for holidays. The dataset is small
         // and static, so we fetch all configured holidays year-by-year.
+        const checkpoint = await nango.getCheckpoint();
+
         const currentYear = new Date().getFullYear();
         const years = [currentYear, currentYear + 1, currentYear + 2];
-        const allHolidays: Array<{ id: string; name?: string; from?: string; to?: string; holidayType?: string }> = [];
+
+        let startIndex = 0;
+        if (checkpoint != null && checkpoint['year'] !== undefined && typeof checkpoint['year'] === 'number') {
+            const idx = years.indexOf(checkpoint['year']);
+            if (idx !== -1) {
+                startIndex = idx;
+            }
+        }
 
         await nango.trackDeletesStart('Holiday');
 
-        for (const year of years) {
+        for (let i = startIndex; i < years.length; i++) {
+            const year = years[i];
             const fromDate = `01-Jan-${year}`;
             const toDate = `31-Dec-${year}`;
 
@@ -83,13 +98,17 @@ const sync = createSync({
                 };
             });
 
-            allHolidays.push(...mapped);
+            if (mapped.length > 0) {
+                await nango.batchSave(mapped, 'Holiday');
+            }
+
+            const nextYear = years[i + 1];
+            if (nextYear !== undefined) {
+                await nango.saveCheckpoint({ year: nextYear });
+            }
         }
 
-        if (allHolidays.length > 0) {
-            await nango.batchSave(allHolidays, 'Holiday');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Holiday');
     }
 });

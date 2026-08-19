@@ -21,6 +21,10 @@ const MetadataSchema = z.object({
     organization_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const OrganizationsResponseSchema = z.object({
     organizations: z.array(
         z
@@ -55,6 +59,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         CreditNote: CreditNoteSchema
     },
@@ -83,6 +88,16 @@ const sync = createSync({
             organizationId = firstOrg.organization_id;
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        let page: number | undefined = 1;
+        if (rawCheckpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error('Failed to parse checkpoint: ' + parsedCheckpoint.error.message);
+            }
+            page = parsedCheckpoint.data.page;
+        }
+
         // Blocker: List Credit Notes documents pagination, filters, and sorting, but
         // no changed-since cursor or last_modified_time filter for incremental syncs.
         await nango.trackDeletesStart('CreditNote');
@@ -98,18 +113,21 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'creditnotes'
+                response_path: 'creditnotes',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
             const creditNotes: Array<z.infer<typeof CreditNoteSchema>> = [];
-            for (const raw of page) {
+            for (const raw of pageResults) {
                 const parsed = ProviderCreditNoteSchema.safeParse(raw);
                 if (!parsed.success) {
                     throw new Error('Failed to parse credit note from provider response');
@@ -132,13 +150,16 @@ const sync = createSync({
                 });
             }
 
-            if (creditNotes.length === 0) {
-                continue;
+            if (creditNotes.length > 0) {
+                await nango.batchSave(creditNotes, 'CreditNote');
             }
 
-            await nango.batchSave(creditNotes, 'CreditNote');
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CreditNote');
     }
 });

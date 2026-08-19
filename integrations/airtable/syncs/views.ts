@@ -29,6 +29,10 @@ const ViewSchema = z.object({
     table_name: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
 type ProviderBase = z.infer<typeof ProviderBaseSchema>;
 
 const sync = createSync({
@@ -36,6 +40,7 @@ const sync = createSync({
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         View: ViewSchema
     },
@@ -49,15 +54,25 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextOffset: string | undefined;
+
         const config: ProxyConfiguration = {
             // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
             retries: 10,
+            params: {
+                ...(checkpoint?.offset && { offset: checkpoint.offset })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'offset',
                 cursor_name_in_request: 'offset',
-                response_path: 'bases'
+                response_path: 'bases',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -65,8 +80,9 @@ const sync = createSync({
 
         for await (const page of nango.paginate<ProviderBase>(config)) {
             const allViews: z.infer<typeof ViewSchema>[] = [];
+            const bases = z.array(ProviderBaseSchema).parse(page);
 
-            for (const base of page) {
+            for (const base of bases) {
                 const tablesResponse = await nango.get({
                     // https://airtable.com/developers/web/api/get-base-schema
                     // Returns tables including their views as embedded metadata.
@@ -94,8 +110,13 @@ const sync = createSync({
             if (allViews.length > 0) {
                 await nango.batchSave(allViews, 'View');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('View');
     }
 });

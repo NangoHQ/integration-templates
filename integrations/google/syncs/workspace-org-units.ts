@@ -2,118 +2,120 @@ import { createSync } from 'nango';
 import { OrganizationalUnit } from '../models.js';
 import { z } from 'zod';
 
-interface OrganizationUnit {
-    kind: string;
-    etag: string;
-    name: string;
-    description: string;
-    orgUnitPath: string;
-    orgUnitId: string;
-    parentOrgUnitPath: string;
-    parentOrgUnitId: string;
-}
-interface OrganizationUnitResponse {
-    kind: string;
-    etag: string;
-    organizationUnits: OrganizationUnit[];
-}
+const OrganizationUnitSchema = z.object({
+    kind: z.string().optional(),
+    etag: z.string().optional(),
+    name: z.string(),
+    description: z.string().optional().nullable(),
+    orgUnitPath: z.string(),
+    orgUnitId: z.string(),
+    parentOrgUnitPath: z.string().optional().nullable(),
+    parentOrgUnitId: z.string().optional().nullable()
+});
+
+const OrganizationUnitResponseSchema = z.object({
+    kind: z.string().optional(),
+    etag: z.string().optional(),
+    organizationUnits: z.array(OrganizationUnitSchema).optional().nullable(),
+    nextPageToken: z.string().optional().nullable()
+});
+
+const CheckpointSchema = z.object({
+    page_token: z.string(),
+    root_unit_id: z.string()
+});
 
 const sync = createSync({
     description: 'Sync all workspace org units',
     version: '2.1.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'full',
-
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/google/workspace-org-unit'
-        }
-    ],
-
-    scopes: ['https://www.googleapis.com/auth/admin.directory.orgunit.readonly', 'https://www.googleapis.com/auth/admin.directory.user.readonly'],
-
+    checkpoint: CheckpointSchema,
     models: {
         OrganizationalUnit: OrganizationalUnit
     },
 
+    scopes: ['https://www.googleapis.com/auth/admin.directory.orgunit.readonly', 'https://www.googleapis.com/auth/admin.directory.user.readonly'],
+
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = checkpoint ? CheckpointSchema.parse(checkpoint) : null;
+        let pageToken = parsedCheckpoint?.page_token || undefined;
+        const rootUnitId = parsedCheckpoint?.root_unit_id || undefined;
+
         const endpoint = '/admin/directory/v1/customer/my_customer/orgunits';
-        let pageToken: string | undefined;
-        let deleteTrackingStarted = false;
 
         const rootUnit: OrganizationalUnit = {
             name: '{Root Directory}',
             description: 'Root Directory',
             path: '/',
-            id: '',
+            id: rootUnitId ?? '',
             parentPath: null,
             parentId: null,
             createdAt: null,
             deletedAt: null
         };
 
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('OrganizationalUnit');
+
+        // Re-save the root unit on resumed executions so it survives delete tracking.
+        if (rootUnitId) {
+            await nango.batchSave([rootUnit], 'OrganizationalUnit');
+        }
+
         do {
             const params = pageToken ? { type: 'all', pageToken } : { type: 'all' };
 
-            const response = await nango.get<OrganizationUnitResponse & { nextPageToken?: string }>({
+            const response = await nango.get({
                 baseUrlOverride: 'https://admin.googleapis.com',
                 endpoint,
                 params,
                 retries: 5
             });
 
-            if (!response) {
-                await nango.log('No response from the Google API');
-                return;
-            }
+            const parsed = OrganizationUnitResponseSchema.parse(response.data);
 
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('OrganizationalUnit');
-                deleteTrackingStarted = true;
-            }
-
-            const { data } = response;
-
-            if (data.organizationUnits) {
+            if (parsed.organizationUnits) {
                 if (
                     !rootUnit.id &&
-                    data.organizationUnits.length > 0 &&
-                    data.organizationUnits[0]?.parentOrgUnitId &&
-                    data.organizationUnits[0]?.parentOrgUnitPath === '/'
+                    parsed.organizationUnits.length > 0 &&
+                    parsed.organizationUnits[0]?.parentOrgUnitId &&
+                    parsed.organizationUnits[0]?.parentOrgUnitPath === '/'
                 ) {
-                    rootUnit.id = data.organizationUnits[0].parentOrgUnitId;
+                    rootUnit.id = parsed.organizationUnits[0].parentOrgUnitId;
 
                     await nango.batchSave([rootUnit], 'OrganizationalUnit');
                 }
 
-                const units: OrganizationalUnit[] = data.organizationUnits.map((ou: OrganizationUnit) => {
-                    const unit: OrganizationalUnit = {
-                        name: ou.name,
-                        description: ou.description,
-                        path: ou.orgUnitPath,
-                        id: ou.orgUnitId,
-                        parentPath: ou.parentOrgUnitPath,
-                        parentId: ou.parentOrgUnitId,
-                        createdAt: null,
-                        deletedAt: null
-                    };
-
-                    return unit;
-                });
+                const units = parsed.organizationUnits.map((ou) => ({
+                    name: ou.name,
+                    description: ou.description ?? null,
+                    path: ou.orgUnitPath,
+                    id: ou.orgUnitId,
+                    parentPath: ou.parentOrgUnitPath ?? null,
+                    parentId: ou.parentOrgUnitId ?? null,
+                    createdAt: null,
+                    deletedAt: null
+                }));
 
                 await nango.batchSave(units, 'OrganizationalUnit');
             }
 
-            pageToken = response.data.nextPageToken;
+            pageToken = parsed.nextPageToken ?? undefined;
+            const nextRootUnitId = rootUnit.id || undefined;
+
+            await nango.saveCheckpoint({
+                page_token: pageToken ?? '',
+                root_unit_id: nextRootUnitId ?? ''
+            });
         } while (pageToken);
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('OrganizationalUnit');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('OrganizationalUnit');
     }
 });
 

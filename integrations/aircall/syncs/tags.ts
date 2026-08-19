@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const AircallTagSchema = z.object({
@@ -15,11 +15,25 @@ const TagSchema = z.object({
     description: z.string().optional()
 });
 
+const AircallTagsPageSchema = z.object({
+    tags: z.array(AircallTagSchema),
+    meta: z
+        .object({
+            next_page_link: z.string().nullable().optional()
+        })
+        .passthrough()
+});
+
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync tags from Aircall',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
@@ -28,39 +42,59 @@ const sync = createSync({
         // Blocker: GET /v1/tags does not support updated_after, cursor, or any
         // changed-since filter. There is no deleted-record endpoint for tags.
         // Full refresh with deletion detection is required.
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+        const checkpoint = checkpointParse?.data;
+
         await nango.trackDeletesStart('Tag');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developer.aircall.io/api-references/#list-all-tags
-            endpoint: '/v1/tags',
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'meta.next_page_link',
-                response_path: 'tags',
-                limit_name_in_request: 'per_page',
-                limit: 50
-            },
-            retries: 3
-        };
+        let currentPage = checkpoint?.page ?? 1;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const tags = page.map((item: unknown) => {
-                const parsed = AircallTagSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse tag: ${parsed.error.message}`);
-                }
-                const tag = parsed.data;
-                return {
+        while (true) {
+            const response = await nango.get({
+                // https://developer.aircall.io/api-references/#list-all-tags
+                endpoint: '/v1/tags',
+                params: {
+                    page: currentPage,
+                    per_page: 50
+                },
+                retries: 3
+            });
+
+            const pageParse = AircallTagsPageSchema.safeParse(response.data);
+            if (!pageParse.success) {
+                throw new Error(`Failed to parse tags page: ${pageParse.error.message}`);
+            }
+
+            const tags = pageParse.data.tags.map((tag) => {
+                const mapped = {
                     id: String(tag.id),
                     name: tag.name,
                     ...(tag.color != null && { color: tag.color }),
                     ...(tag.description != null && { description: tag.description })
                 };
+                const mappedParse = TagSchema.safeParse(mapped);
+                if (!mappedParse.success) {
+                    throw new Error(`Failed to validate mapped tag: ${mappedParse.error.message}`);
+                }
+                return mappedParse.data;
             });
 
             if (tags.length > 0) {
                 await nango.batchSave(tags, 'Tag');
             }
+
+            if (pageParse.data.meta.next_page_link == null) {
+                await nango.clearCheckpoint();
+                break;
+            }
+
+            currentPage += 1;
+            await nango.saveCheckpoint({ page: currentPage });
         }
 
         await nango.trackDeletesEnd('Tag');

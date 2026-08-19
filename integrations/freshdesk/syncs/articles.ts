@@ -6,6 +6,10 @@ import type { ProxyConfiguration } from 'nango';
 import { Article } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    completed_folder_ids: z.string()
+});
+
 /**
  * Fetches articles and folders from Freshdesk by first retrieving categories, then folders, and finally articles for each folder.
  * Uses pagination and retries for robust data retrieval and saving.
@@ -20,6 +24,7 @@ const sync = createSync({
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -35,7 +40,12 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
         await nango.trackDeletesStart('Article');
+
+        const completedFolderIds = new Set(checkpoint?.completed_folder_ids ? checkpoint.completed_folder_ids.split(',').filter(Boolean).map(Number) : []);
 
         const foldersEndpoint = (categoryId: number) => `/api/v2/solutions/categories/${categoryId}/folders`;
 
@@ -64,11 +74,25 @@ const sync = createSync({
             //https://developers.freshdesk.com/api/#solution_folder_attributes
             for await (const folders of nango.paginate<FreshdeskFolder>(folderConfig)) {
                 for (const folder of folders) {
-                    await fetchArticlesAndSubfolders(nango, folder.id);
+                    if (completedFolderIds.has(folder.id)) {
+                        continue;
+                    }
+
+                    await fetchArticlesAndSubfolders(nango, folder.id, completedFolderIds, async () => {
+                        await nango.saveCheckpoint({
+                            completed_folder_ids: Array.from(completedFolderIds).join(',')
+                        });
+                    });
+
+                    completedFolderIds.add(folder.id);
+                    await nango.saveCheckpoint({
+                        completed_folder_ids: Array.from(completedFolderIds).join(',')
+                    });
                 }
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Article');
     }
 });
@@ -81,18 +105,25 @@ export default sync;
  *
  * @param nango An instance of NangoSync for handling synchronization tasks.
  * @param folderId The ID of the folder to fetch articles from.
+ * @param completedFolderIds Set of folder IDs that have been fully processed.
+ * @param saveCheckpoint Callback to persist checkpoint after progress.
  * @returns Promise that resolves when all articles in the folder and its subfolders are fetched and saved.
  */
-async function fetchArticlesAndSubfolders(nango: NangoSyncLocal, folderId: number): Promise<void> {
+async function fetchArticlesAndSubfolders(
+    nango: NangoSyncLocal,
+    folderId: number,
+    completedFolderIds: Set<number>,
+    saveCheckpoint: () => Promise<void>
+): Promise<void> {
     let subfolders: FreshdeskFolder[] = [];
     // Fetch articles for the current folder
-    await fetchArticlesFromFolder(nango, folderId);
+    await fetchArticlesFromFolder(nango, folderId, saveCheckpoint);
 
     // Fetch subfolders.
     // Some user accounts do not support subfolders. Handling that edge case here.
     // @allowTryCatch
     try {
-        subfolders = await fetchSubfolders(nango, folderId);
+        subfolders = await fetchSubfolders(nango, folderId, saveCheckpoint);
     } catch (e: any) {
         await nango.log(`error. could not fetch subfolders, reason: ${e.message}`);
         return;
@@ -101,11 +132,18 @@ async function fetchArticlesAndSubfolders(nango: NangoSyncLocal, folderId: numbe
     // Process each subfolder recursively if there are subfolders to fetch
     if (subfolders.length > 0) {
         for (const subfolder of subfolders) {
-            if (subfolder.sub_folders_count > 0) {
-                await fetchArticlesAndSubfolders(nango, subfolder.id);
-            } else {
-                await fetchArticlesFromFolder(nango, subfolder.id);
+            if (completedFolderIds.has(subfolder.id)) {
+                continue;
             }
+
+            if (subfolder.sub_folders_count > 0) {
+                await fetchArticlesAndSubfolders(nango, subfolder.id, completedFolderIds, saveCheckpoint);
+            } else {
+                await fetchArticlesFromFolder(nango, subfolder.id, saveCheckpoint);
+            }
+
+            completedFolderIds.add(subfolder.id);
+            await saveCheckpoint();
         }
     }
 }
@@ -115,9 +153,10 @@ async function fetchArticlesAndSubfolders(nango: NangoSyncLocal, folderId: numbe
  *
  * @param nango An instance of NangoSync for handling synchronization tasks.
  * @param folderId The ID of the folder to fetch articles from.
+ * @param saveCheckpoint Callback to persist checkpoint after each page.
  * @returns Promise that resolves when all articles in the folder are fetched and saved.
  */
-async function fetchArticlesFromFolder(nango: NangoSyncLocal, folderId: number): Promise<void> {
+async function fetchArticlesFromFolder(nango: NangoSyncLocal, folderId: number, saveCheckpoint: () => Promise<void>): Promise<void> {
     const articlesEndpoint = (folderId: number) => `/api/v2/solutions/folders/${folderId}/articles`;
     const articlesConfig: ProxyConfiguration = {
         // https://developers.freshdesk.com/api/#solutions
@@ -138,6 +177,7 @@ async function fetchArticlesFromFolder(nango: NangoSyncLocal, folderId: number):
         if (mappedArticles.length > 0) {
             await nango.batchSave(mappedArticles, 'Article');
         }
+        await saveCheckpoint();
     }
 }
 
@@ -146,9 +186,10 @@ async function fetchArticlesFromFolder(nango: NangoSyncLocal, folderId: number):
  *
  * @param nango An instance of NangoSync for handling synchronization tasks.
  * @param folderId The ID of the folder to fetch subfolders from.
+ * @param saveCheckpoint Callback to persist checkpoint after each page.
  * @returns Promise that resolves to an array of subfolders.
  */
-async function fetchSubfolders(nango: NangoSyncLocal, folderId: number): Promise<FreshdeskFolder[]> {
+async function fetchSubfolders(nango: NangoSyncLocal, folderId: number, saveCheckpoint: () => Promise<void>): Promise<FreshdeskFolder[]> {
     const subfoldersEndpoint = `/api/v2/solutions/folders/${folderId}/subfolders`;
     const subfoldersConfig: ProxyConfiguration = {
         // https://developers.freshdesk.com/api/#solutions
@@ -166,6 +207,7 @@ async function fetchSubfolders(nango: NangoSyncLocal, folderId: number): Promise
     //https://community.freshworks.dev/t/unable-to-access-the-nested-sub-categories-in-solutions-using-the-api/6084
     for await (const folderBatch of nango.paginate<FreshdeskFolder>(subfoldersConfig)) {
         subfolders.push(...folderBatch);
+        await saveCheckpoint();
     }
 
     return subfolders;

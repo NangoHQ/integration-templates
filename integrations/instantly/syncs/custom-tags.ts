@@ -21,11 +21,16 @@ const CustomTagSchema = z.object({
     timestamp_updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    starting_after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync custom tags.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CustomTag: CustomTagSchema
     },
@@ -38,23 +43,39 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /v2/custom-tags with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor that can be safely used
-        // alongside delete tracking (delete tracking requires a complete unfiltered crawl
-        // from page 1 every run).
-        await nango.trackDeletesStart('CustomTag');
+        const checkpoint = await nango.getCheckpoint();
+        let nextStartingAfter: string | undefined;
+        if (checkpoint !== undefined && checkpoint !== null) {
+            const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!validatedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${validatedCheckpoint.error.message}`);
+            }
+            nextStartingAfter = validatedCheckpoint.data.starting_after;
+        }
 
         // https://developer.instantly.ai/api-reference/groups/custom-tag
+        // Provider only exposes /v2/custom-tags with no changed-since filter and no
+        // deleted-record endpoint. Delete tracking is safe only after a complete
+        // unfiltered crawl, so we checkpoint pagination progress and resume from the
+        // saved cursor on subsequent executions.
+        await nango.trackDeletesStart('CustomTag');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.instantly.ai/api-reference/groups/custom-tag
             endpoint: '/v2/custom-tags',
+            params: {
+                ...(nextStartingAfter && { starting_after: nextStartingAfter })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'starting_after',
                 cursor_path_in_response: 'next_starting_after',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextStartingAfter = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -80,8 +101,13 @@ const sync = createSync({
             if (tags.length > 0) {
                 await nango.batchSave(tags, 'CustomTag');
             }
+
+            if (nextStartingAfter !== undefined) {
+                await nango.saveCheckpoint({ starting_after: nextStartingAfter });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CustomTag');
     }
 });

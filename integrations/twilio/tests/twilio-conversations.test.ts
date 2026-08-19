@@ -11,6 +11,7 @@ describe('twilio conversations tests', () => {
             name: 'conversations',
             Model: 'Conversation'
         });
+        nangoMock.providerConfigKey = 'twilio';
 
         return {
             nangoMock,

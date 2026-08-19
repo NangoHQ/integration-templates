@@ -42,12 +42,17 @@ const MetadataSchema = z.object({
     project_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync insights from PostHog',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/insights' }],
     models: {
         Insight: InsightSchema
@@ -66,6 +71,11 @@ const sync = createSync({
             throw new Error('project_id is required in metadata or connection config');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+        let nextOffset: number | undefined = checkpoint.offset;
+
         // Blocker: the insights list endpoint does not expose an updated_after,
         // modified_since, or equivalent query parameter, and there is no
         // changed-records or cursor-based delta endpoint.
@@ -77,11 +87,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: checkpoint.offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -115,8 +128,13 @@ const sync = createSync({
             if (insights.length > 0) {
                 await nango.batchSave(insights, 'Insight');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Insight');
     }
 });

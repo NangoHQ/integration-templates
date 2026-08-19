@@ -40,16 +40,28 @@ const CompanyItemSchema = z
     })
     .passthrough();
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync MSP client companies in this account.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Company: CompanySchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointParsed = checkpoint == null ? null : CheckpointSchema.safeParse(checkpoint);
+        if (checkpointParsed != null && !checkpointParsed.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParsed.error.message}`);
+        }
+        let offset: number | undefined = checkpointParsed?.success ? (checkpointParsed.data.offset ?? 0) : 0;
+
         const connection = await nango.getConnection();
         const parsedConfig = ConnectionConfigSchema.safeParse(connection.connection_config);
         let tenant = parsedConfig.success ? parsedConfig.data.tenant : undefined;
@@ -95,7 +107,8 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'skip',
-                offset_calculation_method: 'per-page',
+                offset_calculation_method: 'by-response-size',
+                offset_start_value: offset,
                 limit_name_in_request: 'limit',
                 limit: 100,
                 response_path: 'data'
@@ -121,8 +134,12 @@ const sync = createSync({
             if (companies.length > 0) {
                 await nango.batchSave(companies, 'Company');
             }
+
+            offset = (offset ?? 0) + page.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Company');
     }
 });

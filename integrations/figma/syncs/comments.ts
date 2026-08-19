@@ -86,12 +86,18 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    project_index: z.number().int().min(0),
+    file_index: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync comments from Figma',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Comment: CommentSchema
     },
@@ -108,6 +114,8 @@ const sync = createSync({
         if (!metadata?.team_id) {
             throw new Error('team_id is required in metadata');
         }
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { project_index: 0, file_index: 0 };
 
         // Blocker: Figma Comments API does not support modified_since, updated_after,
         // cursors, or pagination parameters. We must perform a full refresh.
@@ -120,9 +128,15 @@ const sync = createSync({
         });
 
         const projectsData = GetTeamProjectsResponseSchema.parse(projectsResponse.data);
-        const allComments: z.infer<typeof CommentSchema>[] = [];
 
-        for (const project of projectsData.projects) {
+        const startProjectIndex = Math.min(checkpoint.project_index, projectsData.projects.length);
+
+        for (let projectIndex = startProjectIndex; projectIndex < projectsData.projects.length; projectIndex++) {
+            const project = projectsData.projects[projectIndex];
+            if (!project) {
+                continue;
+            }
+
             // https://www.figma.com/developers/api#get-project-files-endpoint
             const filesResponse = await nango.get({
                 endpoint: `/v1/projects/${encodeURIComponent(project.id)}/files`,
@@ -131,7 +145,14 @@ const sync = createSync({
 
             const filesData = GetProjectFilesResponseSchema.parse(filesResponse.data);
 
-            for (const file of filesData.files) {
+            const startFileIndex = projectIndex === startProjectIndex ? Math.min(checkpoint.file_index, filesData.files.length) : 0;
+
+            for (let fileIndex = startFileIndex; fileIndex < filesData.files.length; fileIndex++) {
+                const file = filesData.files[fileIndex];
+                if (!file) {
+                    continue;
+                }
+
                 // https://www.figma.com/developers/api#get-comments-endpoint
                 const commentsResponse = await nango.get({
                     endpoint: `/v1/files/${encodeURIComponent(file.key)}/comments`,
@@ -139,6 +160,8 @@ const sync = createSync({
                 });
 
                 const commentsData = GetCommentsResponseSchema.parse(commentsResponse.data);
+
+                const comments: z.infer<typeof CommentSchema>[] = [];
 
                 for (const comment of commentsData.comments) {
                     const normalized: z.infer<typeof CommentSchema> = {
@@ -153,19 +176,45 @@ const sync = createSync({
                         message: comment.message,
                         ...(comment.order_id != null && { order_id: comment.order_id }),
                         ...(comment.client_meta?.node_id && { node_id: comment.client_meta.node_id }),
-                        ...(comment.client_meta?.node_offset?.x != null && { node_offset_x: comment.client_meta.node_offset.x }),
-                        ...(comment.client_meta?.node_offset?.y != null && { node_offset_y: comment.client_meta.node_offset.y }),
+                        ...(comment.client_meta?.node_offset?.x != null && {
+                            node_offset_x: comment.client_meta.node_offset.x
+                        }),
+                        ...(comment.client_meta?.node_offset?.y != null && {
+                            node_offset_y: comment.client_meta.node_offset.y
+                        }),
                         reactions: comment.reactions
                     };
-                    allComments.push(normalized);
+                    comments.push(normalized);
                 }
+
+                if (comments.length > 0) {
+                    await nango.batchSave(comments, 'Comment');
+                }
+
+                // Persist forward progress even when a valid page is empty.
+                if (fileIndex + 1 < filesData.files.length) {
+                    await nango.saveCheckpoint({
+                        project_index: projectIndex,
+                        file_index: fileIndex + 1
+                    });
+                } else {
+                    await nango.saveCheckpoint({
+                        project_index: projectIndex + 1,
+                        file_index: 0
+                    });
+                }
+            }
+
+            // Persist progress when a project has no files so we do not restart it.
+            if (filesData.files.length === 0) {
+                await nango.saveCheckpoint({
+                    project_index: projectIndex + 1,
+                    file_index: 0
+                });
             }
         }
 
-        if (allComments.length > 0) {
-            await nango.batchSave(allComments, 'Comment');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Comment');
     }
 });

@@ -21,30 +21,50 @@ const ProviderWebhookSchema = z.object({
     created_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync webhook subscriptions from Aircall.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Webhook: WebhookSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+
+        let nextPage: number | undefined = checkpointParse?.data.page ?? 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Webhook');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.aircall.io/api-references/#list-webhooks
             endpoint: '/v1/webhooks',
             paginate: {
-                type: 'link',
-                limit: 50,
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: nextPage,
+                offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
+                limit: 50,
                 response_path: 'webhooks',
-                link_path_in_response_body: 'meta.next_page_link'
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        let trackingStarted = false;
 
         for await (const page of nango.paginate<z.infer<typeof ProviderWebhookSchema>>(proxyConfig)) {
             const parsed = z.array(ProviderWebhookSchema).safeParse(page);
@@ -62,19 +82,17 @@ const sync = createSync({
                 created_at: webhook.created_at
             }));
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('Webhook');
-                trackingStarted = true;
-            }
-
             if (records.length > 0) {
                 await nango.batchSave(records, 'Webhook');
             }
+
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
-        if (trackingStarted) {
-            await nango.trackDeletesEnd('Webhook');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Webhook');
     }
 });
 

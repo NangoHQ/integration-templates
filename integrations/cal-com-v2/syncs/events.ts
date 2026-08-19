@@ -2,6 +2,10 @@ import { createSync } from 'nango';
 import { Event } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Retrieve all upcoming events per a user',
     version: '2.1.0',
@@ -16,6 +20,8 @@ const sync = createSync({
         }
     ],
 
+    checkpoint: CheckpointSchema,
+
     models: {
         Event: Event
     },
@@ -23,21 +29,37 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let cursor: string | undefined = checkpoint?.cursor;
+
         await nango.trackDeletesStart('Event');
 
+        // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
         for await (const eventResponse of nango.paginate<Event>({
             endpoint: '/bookings',
             params: {
-                ['filters[status]']: 'upcoming'
+                ['filters[status]']: 'upcoming',
+                ...(cursor && { cursor })
             },
             paginate: {
-                response_path: 'data.bookings'
+                type: 'cursor',
+                cursor_name_in_request: 'cursor',
+                cursor_path_in_response: 'pagination.nextCursor',
+                response_path: 'data.bookings',
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 10
         })) {
             await nango.batchSave(eventResponse, 'Event');
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Event');
     }
 });

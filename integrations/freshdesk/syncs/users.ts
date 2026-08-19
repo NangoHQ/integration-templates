@@ -1,9 +1,19 @@
 import { createSync } from 'nango';
-import type { FreshdeskAgent } from '../types.js';
-
 import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
+
+const FreshdeskAgentSchema = z.object({
+    id: z.number(),
+    contact: z.object({
+        name: z.string().nullable().optional(),
+        email: z.string()
+    })
+});
+
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
 
 const sync = createSync({
     description: 'Fetches the list of users',
@@ -25,28 +35,44 @@ const sync = createSync({
     },
 
     metadata: z.object({}),
+    checkpoint: CheckpointSchema,
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
         await nango.trackDeletesStart('User');
+
+        let page = checkpoint?.page ?? 1;
 
         const proxyConfiguration: ProxyConfiguration = {
             // https://developer.freshdesk.com/api/#list_all_agents
             endpoint: '/api/v2/agents',
             retries: 10,
             paginate: {
-                type: 'link',
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: page,
+                offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                link_rel_in_response_header: 'next',
                 limit: 100
             }
         };
 
-        for await (const freshdeskUsers of nango.paginate<FreshdeskAgent>(proxyConfiguration)) {
-            const users: User[] = freshdeskUsers.map(mapUser) || [];
+        for await (const freshdeskUsers of nango.paginate(proxyConfiguration)) {
+            const users: User[] =
+                freshdeskUsers.map((raw) => {
+                    const user = FreshdeskAgentSchema.parse(raw);
+                    return mapUser(user);
+                }) || [];
 
             await nango.batchSave(users, 'User');
+
+            page++;
+            await nango.saveCheckpoint({ page });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });
@@ -57,8 +83,7 @@ export default sync;
 /**
  * Maps a Freshdesk user object to a Nango User object.
  */
-
-function mapUser(user: FreshdeskAgent): User {
+function mapUser(user: z.infer<typeof FreshdeskAgentSchema>): User {
     const [firstName = '', lastName = ''] = (user?.contact?.name ?? '').split(' ');
 
     return {

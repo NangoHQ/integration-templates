@@ -14,12 +14,39 @@ const UserSchema = z.object({
     updated: z.number()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
+const SlackMemberSchema = z.object({
+    id: z.string(),
+    team_id: z.string(),
+    name: z.string(),
+    profile: z
+        .object({
+            real_name: z.string().nullish(),
+            email: z.string().nullish()
+        })
+        .optional(),
+    is_admin: z.boolean().optional(),
+    is_owner: z.boolean().optional(),
+    is_bot: z.boolean().optional(),
+    deleted: z.boolean().optional(),
+    updated: z.number().optional()
+});
+
+function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
+    const result = schema.safeParse(value);
+    return result.success ? result.data : undefined;
+}
+
 const sync = createSync({
     description: 'Sync all workspace users including deactivated accounts with email and profile fields',
     version: '3.0.0',
     endpoints: [{ method: 'POST', path: '/syncs/users', group: 'Users' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
 
     models: {
         User: UserSchema
@@ -32,13 +59,19 @@ const sync = createSync({
         // - Does not support webhooks for user changes
         // The API only returns a complete list of all users
 
+        const checkpoint = parseOptional(CheckpointSchema, await nango.getCheckpoint());
+        const nextCursor = checkpoint?.cursor && checkpoint.cursor.length > 0 ? checkpoint.cursor : undefined;
+
         await nango.trackDeletesStart('User');
 
         // https://api.slack.com/methods/users.list
+        let currentCursor: string | undefined = nextCursor;
+
         const proxyConfig = {
             endpoint: 'users.list',
             params: {
-                limit: 200
+                limit: 200,
+                ...(currentCursor && { cursor: currentCursor })
             },
             paginate: {
                 type: 'cursor',
@@ -46,45 +79,41 @@ const sync = createSync({
                 cursor_name_in_request: 'cursor',
                 response_path: 'members',
                 limit_name_in_request: 'limit',
-                limit: 200
+                limit: 200,
+                on_page: async ({ nextPageParam }) => {
+                    currentCursor = typeof nextPageParam === 'string' && nextPageParam.length > 0 ? nextPageParam : undefined;
+                }
             },
             retries: 3
         } satisfies ProxyConfiguration;
 
         for await (const batch of nango.paginate(proxyConfig)) {
-            const users = batch.map(
-                (member: {
-                    id: string;
-                    team_id: string;
-                    name: string;
-                    profile?: {
-                        real_name?: string;
-                        email?: string;
-                    };
-                    is_admin?: boolean;
-                    is_owner?: boolean;
-                    is_bot?: boolean;
-                    deleted?: boolean;
-                    updated?: number;
-                }) => ({
-                    id: member.id,
-                    team_id: member.team_id,
-                    name: member.name,
-                    real_name: member.profile?.real_name ?? undefined,
-                    email: member.profile?.email ?? undefined,
-                    is_admin: member.is_admin ?? false,
-                    is_owner: member.is_owner ?? false,
-                    is_bot: member.is_bot ?? false,
-                    deleted: member.deleted ?? false,
-                    updated: member.updated ?? 0
-                })
-            );
+            const users = batch.map((member: unknown) => {
+                const parsed = SlackMemberSchema.parse(member);
+                return {
+                    id: parsed.id,
+                    team_id: parsed.team_id,
+                    name: parsed.name,
+                    real_name: parsed.profile?.real_name ?? undefined,
+                    email: parsed.profile?.email ?? undefined,
+                    is_admin: parsed.is_admin ?? false,
+                    is_owner: parsed.is_owner ?? false,
+                    is_bot: parsed.is_bot ?? false,
+                    deleted: parsed.deleted ?? false,
+                    updated: parsed.updated ?? 0
+                };
+            });
 
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (currentCursor !== undefined) {
+                await nango.saveCheckpoint({ cursor: currentCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

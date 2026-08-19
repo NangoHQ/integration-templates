@@ -112,11 +112,25 @@ const VerifyServiceSchema = z.object({
     links: z.record(z.string(), z.string()).optional()
 });
 
+const ListServicesMetaSchema = z.object({
+    next_page_url: z.string().nullish()
+});
+
+const ListServicesResponseSchema = z.object({
+    meta: ListServicesMetaSchema,
+    services: z.array(z.unknown())
+});
+
+const CheckpointSchema = z.object({
+    next_page_url: z.string()
+});
+
 const sync = createSync({
     description: 'Sync Verify services from Twilio',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         VerifyService: VerifyServiceSchema
     },
@@ -130,24 +144,44 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: Twilio List Services endpoint does not support changed-since filtering,
         // modified_after, or cursor-based incremental retrieval. Full refresh is required.
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
         await nango.trackDeletesStart('VerifyService');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.twilio.com/docs/verify/api/service#list-a-service
-            endpoint: '/v2/Services',
-            baseUrlOverride: 'https://verify.twilio.com',
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'meta.next_page_url',
-                response_path: 'services',
-                limit_name_in_request: 'PageSize',
-                limit: 50
-            },
-            retries: 3
-        };
+        let nextPageUrl: string | null | undefined = checkpoint?.data.next_page_url ?? null;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const services = page.map((item) => {
+        do {
+            let proxyConfig: ProxyConfiguration = {
+                // https://www.twilio.com/docs/verify/api/service#list-a-service
+                endpoint: '/v2/Services',
+                baseUrlOverride: 'https://verify.twilio.com',
+                params: {
+                    PageSize: '50'
+                },
+                retries: 3
+            };
+
+            if (nextPageUrl) {
+                const parsedUrl = new URL(nextPageUrl);
+                const params: Record<string, string> = {};
+                for (const [key, value] of parsedUrl.searchParams) {
+                    params[key] = value;
+                }
+                proxyConfig = {
+                    // https://www.twilio.com/docs/verify/api/service#list-a-service
+                    endpoint: parsedUrl.pathname,
+                    baseUrlOverride: 'https://verify.twilio.com',
+                    params,
+                    retries: 3
+                };
+            }
+
+            const response = await nango.get(proxyConfig);
+            const parsed = ListServicesResponseSchema.parse(response.data);
+            const services = parsed.services.map((item) => {
                 const service = ProviderServiceSchema.parse(item);
                 return {
                     id: service.sid,
@@ -217,8 +251,15 @@ const sync = createSync({
             if (services.length > 0) {
                 await nango.batchSave(services, 'VerifyService');
             }
-        }
 
+            nextPageUrl = parsed.meta.next_page_url ?? null;
+
+            if (nextPageUrl) {
+                await nango.saveCheckpoint({ next_page_url: nextPageUrl });
+            }
+        } while (nextPageUrl);
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('VerifyService');
     }
 });

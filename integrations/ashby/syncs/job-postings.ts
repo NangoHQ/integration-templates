@@ -47,6 +47,10 @@ const JobPostingSchema = z.object({
     updatedAt: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 type ProviderJobPosting = z.infer<typeof ProviderJobPostingSchema>;
 
 const sync = createSync({
@@ -55,24 +59,35 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/job-postings' }],
+    checkpoint: CheckpointSchema,
     models: {
         JobPosting: JobPostingSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let nextCursor = checkpoint?.cursor || undefined;
+
         await nango.trackDeletesStart('JobPosting');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.ashbyhq.com/reference/jobpostinglist
             endpoint: '/jobPosting.list',
             method: 'POST',
+            data: {
+                limit: 100,
+                ...(nextCursor && { cursor: nextCursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'nextCursor',
                 response_path: 'results',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -87,33 +102,36 @@ const sync = createSync({
                 rawPostings.push(parsed.data);
             }
 
-            if (rawPostings.length === 0) {
-                continue;
+            if (rawPostings.length > 0) {
+                const postings = rawPostings.map((posting) => ({
+                    id: posting.id,
+                    title: posting.title,
+                    jobId: posting.jobId,
+                    departmentName: posting.departmentName,
+                    teamName: posting.teamName,
+                    locationName: posting.locationName,
+                    locationIds: posting.locationIds,
+                    ...(posting.workplaceType != null && { workplaceType: posting.workplaceType }),
+                    employmentType: posting.employmentType,
+                    isListed: posting.isListed,
+                    publishedDate: posting.publishedDate,
+                    ...(posting.applicationDeadline != null && { applicationDeadline: posting.applicationDeadline }),
+                    ...(posting.externalLink != null && { externalLink: posting.externalLink }),
+                    applyLink: posting.applyLink,
+                    ...(posting.compensationTierSummary != null && { compensationTierSummary: posting.compensationTierSummary }),
+                    shouldDisplayCompensationOnJobBoard: posting.shouldDisplayCompensationOnJobBoard,
+                    updatedAt: posting.updatedAt
+                }));
+
+                await nango.batchSave(postings, 'JobPosting');
             }
 
-            const postings = rawPostings.map((posting) => ({
-                id: posting.id,
-                title: posting.title,
-                jobId: posting.jobId,
-                departmentName: posting.departmentName,
-                teamName: posting.teamName,
-                locationName: posting.locationName,
-                locationIds: posting.locationIds,
-                ...(posting.workplaceType != null && { workplaceType: posting.workplaceType }),
-                employmentType: posting.employmentType,
-                isListed: posting.isListed,
-                publishedDate: posting.publishedDate,
-                ...(posting.applicationDeadline != null && { applicationDeadline: posting.applicationDeadline }),
-                ...(posting.externalLink != null && { externalLink: posting.externalLink }),
-                applyLink: posting.applyLink,
-                ...(posting.compensationTierSummary != null && { compensationTierSummary: posting.compensationTierSummary }),
-                shouldDisplayCompensationOnJobBoard: posting.shouldDisplayCompensationOnJobBoard,
-                updatedAt: posting.updatedAt
-            }));
-
-            await nango.batchSave(postings, 'JobPosting');
+            if (nextCursor !== undefined) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('JobPosting');
     }
 });

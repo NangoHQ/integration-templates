@@ -17,28 +17,50 @@ const CatalogSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync product catalogs',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Catalog: CatalogSchema
     },
 
     exec: async (nango) => {
+        // Blocker: GET /v5/catalogs does not expose an updated-since or modified-since filter,
+        // so every run must walk the full dataset. The provider bookmark cursor is used as a
+        // checkpoint so that a resumed full refresh continues from the last fetched page.
+        // https://developers.pinterest.com/docs/api/v5/#operation/catalogs/list
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { bookmark: '' });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+        let bookmark = checkpointResult.data.bookmark !== '' ? checkpointResult.data.bookmark : undefined;
+
         await nango.trackDeletesStart('Catalog');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/catalogs/list
             endpoint: '/v5/catalogs',
+            params: {
+                ...(bookmark && { bookmark })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'bookmark',
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    bookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -63,8 +85,13 @@ const sync = createSync({
             if (catalogs.length > 0) {
                 await nango.batchSave(catalogs, 'Catalog');
             }
+
+            if (bookmark !== undefined) {
+                await nango.saveCheckpoint({ bookmark });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Catalog');
     }
 });

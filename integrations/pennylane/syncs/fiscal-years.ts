@@ -19,28 +19,43 @@ const FiscalYearSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync company fiscal years.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         FiscalYear: FiscalYearSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor: string | undefined = checkpoint ? checkpoint['cursor'] : undefined;
+
         await nango.trackDeletesStart('FiscalYear');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/company-fiscal-years
             endpoint: '/api/external/v2/fiscal_years',
+            params: {
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -61,11 +76,14 @@ const sync = createSync({
                 updated_at: record.updated_at
             }));
 
-            if (fiscalYears.length > 0) {
-                await nango.batchSave(fiscalYears, 'FiscalYear');
+            await nango.batchSave(fiscalYears, 'FiscalYear');
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('FiscalYear');
     }
 });

@@ -33,11 +33,16 @@ const SectionSchema = z.object({
     goal_ids: z.array(z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync sections.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Section: SectionSchema
     },
@@ -46,18 +51,28 @@ const sync = createSync({
         // Blocker: GET /api/v1/sections does not support any changed-since filter,
         // deleted-record endpoint, or resumable cursor. A full refresh with delete
         // tracking is required.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint?.cursor;
+
         await nango.trackDeletesStart('Section');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.todoist.com/api/v1/#get-all-sections
             endpoint: '/api/v1/sections',
+            params: {
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'results',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -95,8 +110,13 @@ const sync = createSync({
             if (sections.length > 0) {
                 await nango.batchSave(sections, 'Section');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Section');
     }
 });

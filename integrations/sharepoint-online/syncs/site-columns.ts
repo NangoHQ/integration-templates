@@ -5,6 +5,10 @@ const MetadataSchema = z.object({
     siteIds: z.array(z.string())
 });
 
+const CheckpointSchema = z.object({
+    state_json: z.string()
+});
+
 const ProviderColumnSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -73,6 +77,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             path: '/syncs/site-columns',
@@ -90,18 +95,57 @@ const sync = createSync({
             throw new Error('siteIds are required in metadata');
         }
 
+        const checkpoint = await nango.getCheckpoint();
+        const state: { siteIndex: number; nextLink?: string } = { siteIndex: 0 };
+        if (checkpoint != null) {
+            const raw = JSON.parse(checkpoint.state_json);
+            if (raw !== null && typeof raw === 'object' && !Array.isArray(raw)) {
+                if (typeof raw.siteIndex === 'number') {
+                    state.siteIndex = raw.siteIndex;
+                }
+                if (typeof raw.nextLink === 'string') {
+                    state.nextLink = raw.nextLink;
+                }
+            }
+        }
+        const startSiteIndex = state.siteIndex;
+
         await nango.trackDeletesStart('SiteColumn');
 
-        for (const siteId of parsedMetadata.data.siteIds) {
+        const siteIds = parsedMetadata.data.siteIds;
+
+        for (let i = startSiteIndex; i < siteIds.length; i++) {
+            const siteId = siteIds[i];
+            if (typeof siteId !== 'string') {
+                continue;
+            }
+            let nextLink: string | undefined;
+
+            let endpoint: string;
+            let baseUrlOverride: string | undefined;
+
+            if (i === state.siteIndex && state.nextLink) {
+                const url = new URL(state.nextLink);
+                baseUrlOverride = url.origin;
+                endpoint = url.pathname + url.search;
+            } else {
+                endpoint = `/v1.0/sites/${encodeURIComponent(siteId)}/columns`;
+            }
+
             const proxyConfig: ProxyConfiguration = {
                 // https://learn.microsoft.com/graph/api/site-list-columns
-                endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/columns`,
+                endpoint,
+                baseUrlOverride,
                 paginate: {
                     type: 'link',
                     link_path_in_response_body: '@odata.nextLink',
                     response_path: 'value',
                     limit: 100,
-                    limit_name_in_request: '$top'
+                    limit_name_in_request: '$top',
+                    on_page: async ({ response }) => {
+                        const parsed = z.object({ '@odata.nextLink': z.string().optional() }).parse(response.data);
+                        nextLink = parsed['@odata.nextLink'];
+                    }
                 },
                 retries: 3
             };
@@ -153,9 +197,14 @@ const sync = createSync({
                 if (columns.length > 0) {
                     await nango.batchSave(columns, 'SiteColumn');
                 }
+
+                await nango.saveCheckpoint({ state_json: JSON.stringify({ siteIndex: i, ...(nextLink && { nextLink }) }) });
             }
+
+            await nango.saveCheckpoint({ state_json: JSON.stringify({ siteIndex: i + 1 }) });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SiteColumn');
     }
 });

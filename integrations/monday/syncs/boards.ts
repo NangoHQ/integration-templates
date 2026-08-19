@@ -23,12 +23,17 @@ const RawBoardSchema = z.object({
     url: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync boards from monday.com.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/boards' }],
+    checkpoint: CheckpointSchema,
     models: {
         Board: BoardSchema
     },
@@ -39,6 +44,12 @@ const sync = createSync({
         // or modified_since filter. The order_by argument only supports created_at
         // and used_at (both descending), not updated_at. There is no deleted-boards
         // endpoint or changes feed. Therefore a full refresh is required.
+        const checkpoint = await nango.getCheckpoint();
+        const validatedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        let page = validatedCheckpoint.success ? validatedCheckpoint.data.page : 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Board');
 
         const proxyConfig: ProxyConfiguration = {
@@ -71,7 +82,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'variables.page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'variables.limit',
                 limit: 100,
@@ -80,12 +91,12 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(pageResults)) {
                 throw new Error('Expected boards page to be an array');
             }
 
-            const boards = page.map((record) => {
+            const boards = pageResults.map((record) => {
                 const parsed = RawBoardSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Invalid board record: ${parsed.error.message}`);
@@ -105,8 +116,17 @@ const sync = createSync({
             if (boards.length > 0) {
                 await nango.batchSave(boards, 'Board');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            page++;
+            await nango.saveCheckpoint({ page });
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Board');
     }
 });

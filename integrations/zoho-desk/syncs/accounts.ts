@@ -33,12 +33,17 @@ const providerAccountSchema = z.object({
     zcrmAccountId: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync accounts',
     version: '1.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/accounts', group: 'Accounts' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Account: accountSchema
     },
@@ -54,6 +59,11 @@ const sync = createSync({
         const parsedMetadata = metadataSchema.safeParse(metadata);
         const orgId = parsedMetadata.success ? parsedMetadata.data.orgId : undefined;
 
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const startFrom = parsedCheckpoint.success ? parsedCheckpoint.data.from : 0;
+        let nextFrom: number | undefined;
+
         await nango.trackDeletesStart('Account');
 
         const proxyConfig: ProxyConfiguration = {
@@ -67,8 +77,12 @@ const sync = createSync({
                 limit: LIMIT,
                 limit_name_in_request: 'limit',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
-                response_path: 'data'
+                offset_start_value: startFrom,
+                offset_calculation_method: 'by-response-size',
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    nextFrom = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -98,8 +112,13 @@ const sync = createSync({
             if (mappedAccounts.length > 0) {
                 await nango.batchSave(mappedAccounts, 'Account');
             }
+
+            if (nextFrom !== undefined) {
+                await nango.saveCheckpoint({ from: nextFrom });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Account');
     }
 });

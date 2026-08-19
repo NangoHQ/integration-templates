@@ -58,11 +58,16 @@ const TwimlAppSchema = z.object({
     public_application_connect_enabled: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    next_page_uri: z.string()
+});
+
 const sync = createSync({
     description: 'Sync TwiML applications from Twilio.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         TwimlApp: TwimlAppSchema
     },
@@ -82,9 +87,15 @@ const sync = createSync({
             throw new Error('Account SID is required: set it in connection metadata or ensure credentials include a username');
         }
 
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
+
         await nango.trackDeletesStart('TwimlApp');
 
-        let endpoint = `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Applications.json`;
+        let endpoint = checkpoint?.data.next_page_uri || `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Applications.json`;
         let hasMore = true;
 
         while (hasMore) {
@@ -139,11 +150,13 @@ const sync = createSync({
 
             if (page.next_page_uri) {
                 endpoint = page.next_page_uri;
+                await nango.saveCheckpoint({ next_page_uri: page.next_page_uri });
             } else {
                 hasMore = false;
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('TwimlApp');
     }
 });

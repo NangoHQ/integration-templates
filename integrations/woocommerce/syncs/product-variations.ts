@@ -54,11 +54,18 @@ const ProductVariationSchema = z.object({
 
 type ProductVariation = z.infer<typeof ProductVariationSchema>;
 
+const CheckpointSchema = z.object({
+    product_page: z.number(),
+    product_index: z.number(),
+    variation_page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync product variations from WooCommerce.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ProductVariation: ProductVariationSchema
     },
@@ -76,6 +83,14 @@ const sync = createSync({
         // The `after` parameter only filters by published/created date, not
         // modification date. Full refresh is required to capture all changes.
 
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointProductPage = typeof checkpoint?.['product_page'] === 'number' ? checkpoint['product_page'] : undefined;
+        const checkpointProductIndex = typeof checkpoint?.['product_index'] === 'number' ? checkpoint['product_index'] : undefined;
+        const checkpointVariationPage = typeof checkpoint?.['variation_page'] === 'number' ? checkpoint['variation_page'] : undefined;
+        let currentProductPage = checkpointProductPage ?? 1;
+
+        await nango.trackDeletesStart('ProductVariation');
+
         const productsConfig: ProxyConfiguration = {
             // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-products
             endpoint: '/wp-json/wc/v3/products',
@@ -86,15 +101,13 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: currentProductPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('ProductVariation');
 
         for await (const productsPage of nango.paginate<unknown>(productsConfig)) {
             if (!Array.isArray(productsPage)) {
@@ -115,7 +128,17 @@ const sync = createSync({
                 }
             }
 
+            let productIndex = 0;
             for (const productId of variableProductIds) {
+                if (currentProductPage === checkpointProductPage && productIndex < (checkpointProductIndex ?? 0)) {
+                    productIndex++;
+                    continue;
+                }
+
+                const variationStartPage =
+                    currentProductPage === checkpointProductPage && productIndex === checkpointProductIndex ? (checkpointVariationPage ?? 1) : 1;
+                let nextVariationPage: number | undefined = variationStartPage;
+
                 const variationsConfig: ProxyConfiguration = {
                     // https://woocommerce.github.io/woocommerce-rest-api-docs/#list-all-product-variations
                     endpoint: `/wp-json/wc/v3/products/${encodeURIComponent(productId)}/variations`,
@@ -125,10 +148,13 @@ const sync = createSync({
                     paginate: {
                         type: 'offset',
                         offset_name_in_request: 'page',
-                        offset_start_value: 1,
+                        offset_start_value: variationStartPage,
                         offset_calculation_method: 'per-page',
                         limit_name_in_request: 'per_page',
-                        limit: 100
+                        limit: 100,
+                        on_page: async ({ nextPageParam }) => {
+                            nextVariationPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                        }
                     },
                     retries: 3
                 };
@@ -225,10 +251,36 @@ const sync = createSync({
                     if (variations.length > 0) {
                         await nango.batchSave(variations, 'ProductVariation');
                     }
+
+                    if (nextVariationPage !== undefined) {
+                        await nango.saveCheckpoint({
+                            product_page: currentProductPage,
+                            product_index: productIndex,
+                            variation_page: nextVariationPage
+                        });
+                    }
                 }
+
+                if (productIndex + 1 < variableProductIds.length) {
+                    await nango.saveCheckpoint({
+                        product_page: currentProductPage,
+                        product_index: productIndex + 1,
+                        variation_page: 1
+                    });
+                }
+
+                productIndex++;
             }
+
+            currentProductPage++;
+            await nango.saveCheckpoint({
+                product_page: currentProductPage,
+                product_index: 0,
+                variation_page: 1
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProductVariation');
     }
 });

@@ -14,11 +14,22 @@ const TrackerSchema = z.object({
     filterQuery: z.string().nullish()
 });
 
+const ProviderResponseSchema = z.object({
+    requestId: z.string().optional(),
+    keywordTrackers: z.array(z.unknown()).nullish(),
+    cursor: z.string().nullish()
+});
+
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync keyword trackers from Gong.',
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Tracker: TrackerSchema
     },
@@ -33,22 +44,35 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /v2/settings/trackers does not support a changed-since filter,
         // so every run walks the full dataset to detect deletions.
-        const proxyConfig: ProxyConfiguration = {
-            // https://help.gong.io/docs/what-the-gong-api-provides
-            endpoint: '/v2/settings/trackers',
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'cursor',
-                response_path: 'keywordTrackers'
-            },
-            retries: 3
-        };
+        const rawCheckpoint = await nango.getCheckpoint();
+        let cursor: string | undefined;
+        if (rawCheckpoint != null) {
+            const parsed = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsed.success) {
+                throw new Error(`Invalid checkpoint: ${JSON.stringify(parsed.error.issues)}`);
+            }
+            cursor = parsed.data.cursor;
+        }
 
-        const allTrackers: z.infer<typeof TrackerSchema>[] = [];
+        await nango.trackDeletesStart('Tracker');
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const trackers = page.map((record: unknown) => {
+        while (true) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://help.gong.io/docs/what-the-gong-api-provides
+                endpoint: '/v2/settings/trackers',
+                params: {
+                    ...(cursor && { cursor })
+                },
+                retries: 3
+            };
+
+            const response = await nango.get(proxyConfig);
+            const parsed = ProviderResponseSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Invalid trackers response: ${JSON.stringify(parsed.error.issues)}`);
+            }
+
+            const trackers = (parsed.data.keywordTrackers ?? []).map((record: unknown) => {
                 const raw = z
                     .object({
                         trackerId: z.string().nullable(),
@@ -85,15 +109,20 @@ const sync = createSync({
                 };
             });
 
-            allTrackers.push(...trackers);
+            if (trackers.length > 0) {
+                await nango.batchSave(trackers, 'Tracker');
+            }
+
+            const nextCursor = parsed.data.cursor;
+            if (!nextCursor) {
+                break;
+            }
+
+            cursor = nextCursor;
+            await nango.saveCheckpoint({ cursor });
         }
 
-        await nango.trackDeletesStart('Tracker');
-
-        if (allTrackers.length > 0) {
-            await nango.batchSave(allTrackers, 'Tracker');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Tracker');
     }
 });
