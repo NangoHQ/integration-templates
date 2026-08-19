@@ -940,8 +940,37 @@ import './brightcrowd/syncs/books-by-id.js';
 import './brightcrowd/syncs/pages.js';
 
 // -- Integration: cal-com-v2
+import './cal-com-v2/syncs/availability-schedules.js';
+import './cal-com-v2/syncs/bookings.js';
+import './cal-com-v2/syncs/calendars.js';
 import './cal-com-v2/syncs/event-types.js';
 import './cal-com-v2/syncs/events.js';
+import './cal-com-v2/syncs/teams.js';
+import './cal-com-v2/syncs/webhooks.js';
+import './cal-com-v2/actions/cancel-booking.js';
+import './cal-com-v2/actions/create-availability-schedule.js';
+import './cal-com-v2/actions/create-booking.js';
+import './cal-com-v2/actions/create-event-type.js';
+import './cal-com-v2/actions/create-team.js';
+import './cal-com-v2/actions/create-webhook.js';
+import './cal-com-v2/actions/delete-availability-schedule.js';
+import './cal-com-v2/actions/delete-event-type.js';
+import './cal-com-v2/actions/delete-webhook.js';
+import './cal-com-v2/actions/get-availability-schedule.js';
+import './cal-com-v2/actions/get-booking.js';
+import './cal-com-v2/actions/get-event-type.js';
+import './cal-com-v2/actions/get-webhook.js';
+import './cal-com-v2/actions/list-availability-schedules.js';
+import './cal-com-v2/actions/list-bookings.js';
+import './cal-com-v2/actions/list-calendars.js';
+import './cal-com-v2/actions/list-event-types.js';
+import './cal-com-v2/actions/list-teams.js';
+import './cal-com-v2/actions/list-webhooks.js';
+import './cal-com-v2/actions/reschedule-booking.js';
+import './cal-com-v2/actions/update-availability-schedule.js';
+import './cal-com-v2/actions/update-booking.js';
+import './cal-com-v2/actions/update-event-type.js';
+import './cal-com-v2/actions/update-webhook.js';
 
 // -- Integration: calendly
 import './calendly/syncs/event-invitees.js';

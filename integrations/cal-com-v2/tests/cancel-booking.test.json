@@ -1,0 +1,153 @@
+{
+  "input": {
+    "bookingUid": "8TUQMge89MtQGaquGGUkqK",
+    "cancellationReason": "Test dryrun cancellation"
+  },
+  "output": {
+    "id": 24054678,
+    "uid": "8TUQMge89MtQGaquGGUkqK",
+    "title": "30 min meeting between Nango Developer and Save Test",
+    "description": "",
+    "status": "cancelled",
+    "start": "2026-08-27T10:00:00.000Z",
+    "end": "2026-08-27T10:30:00.000Z",
+    "duration": 30,
+    "eventType": {
+      "id": 6732808,
+      "slug": "30min"
+    },
+    "location": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+    "attendees": [
+      {
+        "name": "Save Test",
+        "email": "savetest@example.com",
+        "displayEmail": "savetest@example.com",
+        "timeZone": "America/New_York",
+        "language": "en",
+        "absent": false
+      }
+    ],
+    "hosts": [
+      {
+        "id": 3140613,
+        "name": "Nango Developer",
+        "email": "api@nango.dev",
+        "displayEmail": "api@nango.dev",
+        "username": "nango-developer-4putea",
+        "timeZone": "Africa/Nairobi"
+      }
+    ],
+    "cancellationReason": "Test dryrun cancellation",
+    "cancelledByEmail": "",
+    "createdAt": "2026-08-19T21:18:43.057Z",
+    "updatedAt": "2026-08-19T21:18:51.018Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/bookings/8TUQMge89MtQGaquGGUkqK/cancel": {
+        "response": {
+          "status": "success",
+          "data": {
+            "id": 24054678,
+            "uid": "8TUQMge89MtQGaquGGUkqK",
+            "title": "30 min meeting between Nango Developer and Save Test",
+            "description": "",
+            "hosts": [
+              {
+                "id": 3140613,
+                "name": "Nango Developer",
+                "email": "api@nango.dev",
+                "displayEmail": "api@nango.dev",
+                "username": "nango-developer-4putea",
+                "timeZone": "Africa/Nairobi"
+              }
+            ],
+            "status": "cancelled",
+            "cancellationReason": "Test dryrun cancellation",
+            "cancelledByEmail": "",
+            "rescheduledByEmail": null,
+            "start": "2026-08-27T10:00:00.000Z",
+            "end": "2026-08-27T10:30:00.000Z",
+            "duration": 30,
+            "eventTypeId": 6732808,
+            "eventType": {
+              "id": 6732808,
+              "slug": "30min"
+            },
+            "meetingUrl": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+            "location": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+            "absentHost": false,
+            "createdAt": "2026-08-19T21:18:43.057Z",
+            "updatedAt": "2026-08-19T21:18:51.018Z",
+            "metadata": {},
+            "rating": null,
+            "icsUid": "8TUQMge89MtQGaquGGUkqK@Cal.com",
+            "attendees": [
+              {
+                "name": "Save Test",
+                "email": "savetest@example.com",
+                "displayEmail": "savetest@example.com",
+                "timeZone": "America/New_York",
+                "language": "en",
+                "absent": false
+              }
+            ],
+            "bookingFieldsResponses": {
+              "email": "savetest@example.com",
+              "name": "Save Test",
+              "displayEmail": "savetest@example.com"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 21:18:51 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1787174377",
+          "cf-ray": "a2dc316f1c93ff13-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"487-FjLLIEU7mpM/ACe4XRhpxh2GQrY\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "116",
+          "x-ratelimit-reset-default": "41",
+          "x-request-id": "pdx1::9v69g-1787174330750-8eab5f80ae8d",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::9v69g-1787174330750-8eab5f80ae8d",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "cf70951330473d79e20d3dc67ce177c72888ee32",
+        "request": {
+          "headers": {
+            "cal-api-version": "2026-02-25"
+          },
+          "data": {
+            "cancellationReason": "Test dryrun cancellation"
+          }
+        }
+      }
+    }
+  }
+}

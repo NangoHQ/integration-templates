@@ -1,0 +1,1556 @@
+{
+  "nango": {
+    "batchSave": {
+      "Event": [
+        {
+          "id": "2VqMQQowuGAFXA7kbD7LC6",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T06:00:00.000Z",
+          "end": "2026-08-20T06:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/2VqMQQowuGAFXA7kbD7LC6",
+          "createdAt": "2026-08-19T21:28:34.085Z",
+          "updatedAt": "2026-08-19T21:28:35.163Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "2VqMQQowuGAFXA7kbD7LC6@Cal.com"
+        },
+        {
+          "id": "eU5DVKYYzvkPe47KKsLLg8",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T07:00:00.000Z",
+          "end": "2026-08-20T07:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/eU5DVKYYzvkPe47KKsLLg8",
+          "createdAt": "2026-08-19T21:28:40.726Z",
+          "updatedAt": "2026-08-19T21:28:41.675Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "eU5DVKYYzvkPe47KKsLLg8@Cal.com"
+        },
+        {
+          "id": "b5UcTDE1cC3axu3gDJQync",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T08:00:00.000Z",
+          "end": "2026-08-20T08:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/b5UcTDE1cC3axu3gDJQync",
+          "createdAt": "2026-08-19T21:28:46.471Z",
+          "updatedAt": "2026-08-19T21:28:47.489Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "b5UcTDE1cC3axu3gDJQync@Cal.com"
+        },
+        {
+          "id": "fh6AZ6nN9yTK5fm6XzSdtE",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T09:00:00.000Z",
+          "end": "2026-08-20T09:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/fh6AZ6nN9yTK5fm6XzSdtE",
+          "createdAt": "2026-08-19T21:28:14.753Z",
+          "updatedAt": "2026-08-19T21:28:15.781Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "fh6AZ6nN9yTK5fm6XzSdtE@Cal.com"
+        },
+        {
+          "id": "hnkXxYWUQWGhfAttjt4fpM",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T10:00:00.000Z",
+          "end": "2026-08-20T10:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/hnkXxYWUQWGhfAttjt4fpM",
+          "createdAt": "2026-08-19T21:28:56.791Z",
+          "updatedAt": "2026-08-19T21:28:57.506Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "hnkXxYWUQWGhfAttjt4fpM@Cal.com"
+        },
+        {
+          "id": "ibT6N1BvGft6bxT7Ap2WfK",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T11:00:00.000Z",
+          "end": "2026-08-20T11:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/ibT6N1BvGft6bxT7Ap2WfK",
+          "createdAt": "2026-08-19T21:29:02.958Z",
+          "updatedAt": "2026-08-19T21:29:06.510Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "ibT6N1BvGft6bxT7Ap2WfK@Cal.com"
+        },
+        {
+          "id": "dwiZ4yEpSCL1AMv2y6QV4y",
+          "title": "30 min meeting between Nango Developer and Test User",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T12:00:00.000Z",
+          "end": "2026-08-20T12:30:00.000Z",
+          "duration": 30,
+          "location": "https://example.com/test-meeting",
+          "createdAt": "2026-08-19T21:17:08.498Z",
+          "updatedAt": "2026-08-19T21:31:40.551Z",
+          "eventTypeId": 6732808,
+          "eventTypeSlug": "30min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test User",
+              "email": "test@example.com",
+              "timeZone": "Europe/London",
+              "absent": false
+            }
+          ],
+          "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com"
+        },
+        {
+          "id": "7JUU4m7cNpA7JgU6CGLnKu",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T13:00:00.000Z",
+          "end": "2026-08-20T13:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/7JUU4m7cNpA7JgU6CGLnKu",
+          "createdAt": "2026-08-19T21:29:17.072Z",
+          "updatedAt": "2026-08-19T21:29:17.966Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "7JUU4m7cNpA7JgU6CGLnKu@Cal.com"
+        },
+        {
+          "id": "oeNf8RNgXVSgTtGJKe6RkU",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T06:00:00.000Z",
+          "end": "2026-08-21T06:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/oeNf8RNgXVSgTtGJKe6RkU",
+          "createdAt": "2026-08-19T21:29:37.583Z",
+          "updatedAt": "2026-08-19T21:29:38.431Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "oeNf8RNgXVSgTtGJKe6RkU@Cal.com"
+        },
+        {
+          "id": "dnZFm6AkU9k51QK7GaGng3",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T07:00:00.000Z",
+          "end": "2026-08-21T07:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/dnZFm6AkU9k51QK7GaGng3",
+          "createdAt": "2026-08-19T21:29:43.595Z",
+          "updatedAt": "2026-08-19T21:29:44.915Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "dnZFm6AkU9k51QK7GaGng3@Cal.com"
+        },
+        {
+          "id": "hk4W4zC7NfVGZwKY2B2vaS",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T08:00:00.000Z",
+          "end": "2026-08-21T08:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/hk4W4zC7NfVGZwKY2B2vaS",
+          "createdAt": "2026-08-19T21:29:49.871Z",
+          "updatedAt": "2026-08-19T21:29:50.656Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "hk4W4zC7NfVGZwKY2B2vaS@Cal.com"
+        },
+        {
+          "id": "wKmm4gtKRSyiRjsPLmq4wX",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T09:00:00.000Z",
+          "end": "2026-08-21T09:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/wKmm4gtKRSyiRjsPLmq4wX",
+          "createdAt": "2026-08-19T21:29:59.306Z",
+          "updatedAt": "2026-08-19T21:30:00.763Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "wKmm4gtKRSyiRjsPLmq4wX@Cal.com"
+        },
+        {
+          "id": "ct6SmUoW2EJSHiZwwBkXkX",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T10:00:00.000Z",
+          "end": "2026-08-21T10:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/ct6SmUoW2EJSHiZwwBkXkX",
+          "createdAt": "2026-08-19T21:30:07.107Z",
+          "updatedAt": "2026-08-19T21:30:08.890Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "ct6SmUoW2EJSHiZwwBkXkX@Cal.com"
+        },
+        {
+          "id": "91gze5TGZ4gqbdCH9BPfWq",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T11:00:00.000Z",
+          "end": "2026-08-21T11:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/91gze5TGZ4gqbdCH9BPfWq",
+          "createdAt": "2026-08-19T21:30:15.454Z",
+          "updatedAt": "2026-08-19T21:30:16.901Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "91gze5TGZ4gqbdCH9BPfWq@Cal.com"
+        },
+        {
+          "id": "hZmMoLqarbrPw3aWZ5oEN8",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T12:00:00.000Z",
+          "end": "2026-08-21T12:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/hZmMoLqarbrPw3aWZ5oEN8",
+          "createdAt": "2026-08-19T21:30:23.068Z",
+          "updatedAt": "2026-08-19T21:30:24.337Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "hZmMoLqarbrPw3aWZ5oEN8@Cal.com"
+        },
+        {
+          "id": "6VE98VNgmaj31QuQRKohNU",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-21T13:00:00.000Z",
+          "end": "2026-08-21T13:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/6VE98VNgmaj31QuQRKohNU",
+          "createdAt": "2026-08-19T21:30:29.269Z",
+          "updatedAt": "2026-08-19T21:30:30.199Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "6VE98VNgmaj31QuQRKohNU@Cal.com"
+        },
+        {
+          "id": "bE86XY2tLCfqQhpVtWV9Ku",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-25T10:30:00.000Z",
+          "end": "2026-08-25T10:45:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/bE86XY2tLCfqQhpVtWV9Ku",
+          "createdAt": "2026-08-19T21:30:51.135Z",
+          "updatedAt": "2026-08-19T21:30:52.004Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "icsUid": "bE86XY2tLCfqQhpVtWV9Ku@Cal.com"
+        },
+        {
+          "id": "21UnCcNMWfvtYoY9rWdXhm",
+          "title": "15 min meeting between Nango Developer and Test Attendee",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-25T13:00:00.000Z",
+          "end": "2026-08-25T13:15:00.000Z",
+          "duration": 15,
+          "location": "https://app.cal.com/video/21UnCcNMWfvtYoY9rWdXhm",
+          "createdAt": "2026-08-19T21:59:23.348Z",
+          "updatedAt": "2026-08-19T21:59:24.270Z",
+          "eventTypeId": 6732810,
+          "eventTypeSlug": "15min",
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test Attendee",
+              "email": "test@example.com",
+              "timeZone": "America/New_York",
+              "absent": false
+            }
+          ],
+          "rescheduledFromUid": "moXzDpPBeWrqYUPHX2LJXz",
+          "icsUid": "7bgmnmmBTMhNsBjTW1obax@Cal.com"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Event": []
+    }
+  },
+  "api": {
+    "get": {
+      "/bookings": {
+        "response": {
+          "status": "success",
+          "data": [
+            {
+              "id": 24055075,
+              "uid": "2VqMQQowuGAFXA7kbD7LC6",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T06:00:00.000Z",
+              "end": "2026-08-20T06:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/2VqMQQowuGAFXA7kbD7LC6",
+              "location": "https://app.cal.com/video/2VqMQQowuGAFXA7kbD7LC6",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:28:34.085Z",
+              "updatedAt": "2026-08-19T21:28:35.163Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "2VqMQQowuGAFXA7kbD7LC6@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055081,
+              "uid": "eU5DVKYYzvkPe47KKsLLg8",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T07:00:00.000Z",
+              "end": "2026-08-20T07:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/eU5DVKYYzvkPe47KKsLLg8",
+              "location": "https://app.cal.com/video/eU5DVKYYzvkPe47KKsLLg8",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:28:40.726Z",
+              "updatedAt": "2026-08-19T21:28:41.675Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "eU5DVKYYzvkPe47KKsLLg8@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055090,
+              "uid": "b5UcTDE1cC3axu3gDJQync",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T08:00:00.000Z",
+              "end": "2026-08-20T08:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/b5UcTDE1cC3axu3gDJQync",
+              "location": "https://app.cal.com/video/b5UcTDE1cC3axu3gDJQync",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:28:46.471Z",
+              "updatedAt": "2026-08-19T21:28:47.489Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "b5UcTDE1cC3axu3gDJQync@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055065,
+              "uid": "fh6AZ6nN9yTK5fm6XzSdtE",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T09:00:00.000Z",
+              "end": "2026-08-20T09:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/fh6AZ6nN9yTK5fm6XzSdtE",
+              "location": "https://app.cal.com/video/fh6AZ6nN9yTK5fm6XzSdtE",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:28:14.753Z",
+              "updatedAt": "2026-08-19T21:28:15.781Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "fh6AZ6nN9yTK5fm6XzSdtE@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055097,
+              "uid": "hnkXxYWUQWGhfAttjt4fpM",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T10:00:00.000Z",
+              "end": "2026-08-20T10:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/hnkXxYWUQWGhfAttjt4fpM",
+              "location": "https://app.cal.com/video/hnkXxYWUQWGhfAttjt4fpM",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:28:56.791Z",
+              "updatedAt": "2026-08-19T21:28:57.506Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "hnkXxYWUQWGhfAttjt4fpM@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055104,
+              "uid": "ibT6N1BvGft6bxT7Ap2WfK",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T11:00:00.000Z",
+              "end": "2026-08-20T11:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/ibT6N1BvGft6bxT7Ap2WfK",
+              "location": "https://app.cal.com/video/ibT6N1BvGft6bxT7Ap2WfK",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:02.958Z",
+              "updatedAt": "2026-08-19T21:29:06.510Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "ibT6N1BvGft6bxT7Ap2WfK@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24054611,
+              "uid": "dwiZ4yEpSCL1AMv2y6QV4y",
+              "title": "30 min meeting between Nango Developer and Test User",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T12:00:00.000Z",
+              "end": "2026-08-20T12:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://example.com/test-meeting",
+              "location": "https://example.com/test-meeting",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:17:08.498Z",
+              "updatedAt": "2026-08-19T21:31:40.551Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test User",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "Europe/London",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test User",
+                "location": {
+                  "value": "link",
+                  "optionValue": "https://example.com/test-meeting"
+                },
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055114,
+              "uid": "7JUU4m7cNpA7JgU6CGLnKu",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T13:00:00.000Z",
+              "end": "2026-08-20T13:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/7JUU4m7cNpA7JgU6CGLnKu",
+              "location": "https://app.cal.com/video/7JUU4m7cNpA7JgU6CGLnKu",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:17.072Z",
+              "updatedAt": "2026-08-19T21:29:17.966Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "7JUU4m7cNpA7JgU6CGLnKu@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055127,
+              "uid": "oeNf8RNgXVSgTtGJKe6RkU",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T06:00:00.000Z",
+              "end": "2026-08-21T06:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/oeNf8RNgXVSgTtGJKe6RkU",
+              "location": "https://app.cal.com/video/oeNf8RNgXVSgTtGJKe6RkU",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:37.583Z",
+              "updatedAt": "2026-08-19T21:29:38.431Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "oeNf8RNgXVSgTtGJKe6RkU@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055131,
+              "uid": "dnZFm6AkU9k51QK7GaGng3",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T07:00:00.000Z",
+              "end": "2026-08-21T07:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/dnZFm6AkU9k51QK7GaGng3",
+              "location": "https://app.cal.com/video/dnZFm6AkU9k51QK7GaGng3",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:43.595Z",
+              "updatedAt": "2026-08-19T21:29:44.915Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "dnZFm6AkU9k51QK7GaGng3@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055138,
+              "uid": "hk4W4zC7NfVGZwKY2B2vaS",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T08:00:00.000Z",
+              "end": "2026-08-21T08:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/hk4W4zC7NfVGZwKY2B2vaS",
+              "location": "https://app.cal.com/video/hk4W4zC7NfVGZwKY2B2vaS",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:49.871Z",
+              "updatedAt": "2026-08-19T21:29:50.656Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "hk4W4zC7NfVGZwKY2B2vaS@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055143,
+              "uid": "wKmm4gtKRSyiRjsPLmq4wX",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T09:00:00.000Z",
+              "end": "2026-08-21T09:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/wKmm4gtKRSyiRjsPLmq4wX",
+              "location": "https://app.cal.com/video/wKmm4gtKRSyiRjsPLmq4wX",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:29:59.306Z",
+              "updatedAt": "2026-08-19T21:30:00.763Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "wKmm4gtKRSyiRjsPLmq4wX@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055151,
+              "uid": "ct6SmUoW2EJSHiZwwBkXkX",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T10:00:00.000Z",
+              "end": "2026-08-21T10:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/ct6SmUoW2EJSHiZwwBkXkX",
+              "location": "https://app.cal.com/video/ct6SmUoW2EJSHiZwwBkXkX",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:30:07.107Z",
+              "updatedAt": "2026-08-19T21:30:08.890Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "ct6SmUoW2EJSHiZwwBkXkX@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055160,
+              "uid": "91gze5TGZ4gqbdCH9BPfWq",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T11:00:00.000Z",
+              "end": "2026-08-21T11:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/91gze5TGZ4gqbdCH9BPfWq",
+              "location": "https://app.cal.com/video/91gze5TGZ4gqbdCH9BPfWq",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:30:15.454Z",
+              "updatedAt": "2026-08-19T21:30:16.901Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "91gze5TGZ4gqbdCH9BPfWq@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055169,
+              "uid": "hZmMoLqarbrPw3aWZ5oEN8",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T12:00:00.000Z",
+              "end": "2026-08-21T12:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/hZmMoLqarbrPw3aWZ5oEN8",
+              "location": "https://app.cal.com/video/hZmMoLqarbrPw3aWZ5oEN8",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:30:23.068Z",
+              "updatedAt": "2026-08-19T21:30:24.337Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "hZmMoLqarbrPw3aWZ5oEN8@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055172,
+              "uid": "6VE98VNgmaj31QuQRKohNU",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T13:00:00.000Z",
+              "end": "2026-08-21T13:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/6VE98VNgmaj31QuQRKohNU",
+              "location": "https://app.cal.com/video/6VE98VNgmaj31QuQRKohNU",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:30:29.269Z",
+              "updatedAt": "2026-08-19T21:30:30.199Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "6VE98VNgmaj31QuQRKohNU@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24055186,
+              "uid": "bE86XY2tLCfqQhpVtWV9Ku",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-25T10:30:00.000Z",
+              "end": "2026-08-25T10:45:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/bE86XY2tLCfqQhpVtWV9Ku",
+              "location": "https://app.cal.com/video/bE86XY2tLCfqQhpVtWV9Ku",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:30:51.135Z",
+              "updatedAt": "2026-08-19T21:30:52.004Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "bE86XY2tLCfqQhpVtWV9Ku@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24056323,
+              "uid": "21UnCcNMWfvtYoY9rWdXhm",
+              "title": "15 min meeting between Nango Developer and Test Attendee",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "rescheduledFromUid": "moXzDpPBeWrqYUPHX2LJXz",
+              "start": "2026-08-25T13:00:00.000Z",
+              "end": "2026-08-25T13:15:00.000Z",
+              "duration": 15,
+              "eventTypeId": 6732810,
+              "eventType": {
+                "id": 6732810,
+                "slug": "15min"
+              },
+              "meetingUrl": "https://app.cal.com/video/21UnCcNMWfvtYoY9rWdXhm",
+              "location": "https://app.cal.com/video/21UnCcNMWfvtYoY9rWdXhm",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:59:23.348Z",
+              "updatedAt": "2026-08-19T21:59:24.270Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "7bgmnmmBTMhNsBjTW1obax@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test Attendee",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test Attendee",
+                "displayEmail": "test@example.com"
+              }
+            }
+          ],
+          "pagination": {
+            "nextCursor": null,
+            "hasMore": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 22:13:55 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1787177664",
+          "cf-ray": "a2dc821a198eb8b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"4e28-IGxV9UInj9P3qi0K3GaHb5IPT5M\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "115",
+          "x-ratelimit-reset-default": "45",
+          "x-request-id": "pdx1::m958t-1787177634906-b20ee7d51cc6",
+          "x-vercel-cache": "BYPASS",
+          "x-vercel-id": "pdx1::cle1::m958t-1787177634906-b20ee7d51cc6",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "f0a81f56b96d696051f501c2796efb9b5cd221fb",
+        "request": {
+          "params": {
+            "limit": "100",
+            "status": "upcoming"
+          },
+          "headers": {
+            "cal-api-version": "2026-05-01"
+          }
+        }
+      }
+    }
+  }
+}
