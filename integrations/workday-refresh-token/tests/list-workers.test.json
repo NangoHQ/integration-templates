@@ -1,0 +1,552 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "fa1a4057915f1010adcb915e0b120000",
+        "descriptor": "27373",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000",
+        "primaryWorkPhone": "+91 (73264) 16007",
+        "businessTitle": "Manager, IT Operations",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "04ab2d251adf100195092cf33fa70000",
+        "descriptor": "3.17.1 [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/04ab2d251adf100195092cf33fa70000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Product Manager",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "b647f08b8df91000f6e5c557b9bc0000",
+        "descriptor": "ADMIN [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b647f08b8df91000f6e5c557b9bc0000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Program Manager",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "baf00a57d25f10098e0ac975d7070000",
+        "descriptor": "AIRBUSTEST",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/baf00a57d25f10098e0ac975d7070000",
+        "primaryWorkPhone": "+91 (73264) 16007",
+        "businessTitle": "Development Engineer",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "b8ef48a7f8281005df6b2ecc263b0000",
+        "descriptor": "ANNVESHA",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b8ef48a7f8281005df6b2ecc263b0000",
+        "primaryWorkEmail": "ANNVESH@GMAIL.COM",
+        "primaryWorkPhone": "+91 (99009) 90088",
+        "businessTitle": "Development Engineer",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "601bb39a25b910015c1a4724522c0000",
+        "descriptor": "APR29",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/601bb39a25b910015c1a4724522c0000",
+        "businessTitle": "Executive Assistant",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "16e70a5cf7ff011733b793499f34ea0b",
+        "descriptor": "ASHLEY A PARKER",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/16e70a5cf7ff011733b793499f34ea0b",
+        "primaryWorkEmail": "aparker@zktechnology.com",
+        "businessTitle": "SALES ADMIN ASSISTANCE",
+        "primarySupervisoryOrganization": {
+          "id": "4d4ec8ccd07101a5082d0f761f0ea206",
+          "descriptor": "Sales (Luisa Martinez)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/4d4ec8ccd07101a5082d0f761f0ea206"
+        }
+      },
+      {
+        "id": "1061d3e9c3dc10000fdfd557dced0000",
+        "descriptor": "AUG0008 [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000fdfd557dced0000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Customer Service Representative",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "35525002249910010098e5fadfef0000",
+        "descriptor": "AUG04",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/35525002249910010098e5fadfef0000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Hardware Support",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "1061d3e9c3dc10000f926167af760000",
+        "descriptor": "AUG08 [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000f926167af760000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Corporate Counsel",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "1061d3e9c3dc1000102d023ae94a0000",
+        "descriptor": "AUG9890 [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc1000102d023ae94a0000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Chief Information Officer",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "89bd8d4009c7100159972e79c70d0000",
+        "descriptor": "AUGCONT [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100159972e79c70d0000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Workday Consultant - Diagram",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "355250022499100195a76531d1770000",
+        "descriptor": "AUGCONT [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/355250022499100195a76531d1770000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Senior Risk Analyst",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "89bd8d4009c7100191de6f9e0f300000",
+        "descriptor": "AUGSIxth [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100191de6f9e0f300000",
+        "primaryWorkPhone": "+91 (1234) 567890",
+        "businessTitle": "Product Developer",
+        "primarySupervisoryOrganization": {
+          "id": "87b6d8b120cc01c9f23e727a970e2f07",
+          "descriptor": "Mango LLC (William Christopher)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+        }
+      },
+      {
+        "id": "578440231c7e100158d3616c72d00000",
+        "descriptor": "Aaron Seeee [C]",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/578440231c7e100158d3616c72d00000",
+        "businessTitle": "Software Engineer",
+        "primarySupervisoryOrganization": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team (Rishi Jain)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/827db9d515f6100169b2701b93890000"
+        }
+      },
+      {
+        "id": "45b6a2bc45b61000b21bd7ce85e90000",
+        "descriptor": "Abc Def",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/45b6a2bc45b61000b21bd7ce85e90000",
+        "businessTitle": "Developer Dummy",
+        "primarySupervisoryOrganization": {
+          "id": "3aed2dc29d2f100d9285313eccb90000",
+          "descriptor": "Dummy Supervisory Organization",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/3aed2dc29d2f100d9285313eccb90000"
+        }
+      },
+      {
+        "id": "f5e230db077c100208df5d668b270000",
+        "descriptor": "Abctech",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/f5e230db077c100208df5d668b270000",
+        "businessTitle": "System Administrator",
+        "primarySupervisoryOrganization": {
+          "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+          "descriptor": "Global Modern Services",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/ef7a0ad4065e47bf83cb076399fc1dcc"
+        }
+      },
+      {
+        "id": "b3dc45a692481023bee0741fd7420000",
+        "descriptor": "Abdul Ahmed",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b3dc45a692481023bee0741fd7420000",
+        "businessTitle": "Mango Consultant",
+        "primarySupervisoryOrganization": {
+          "id": "dd782b74c51344dda5f4975404e8217f",
+          "descriptor": "HR Services",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/dd782b74c51344dda5f4975404e8217f"
+        }
+      },
+      {
+        "id": "71caea2b7a5210017d4f2b44ee2c0000",
+        "descriptor": "Abdul Khan",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017d4f2b44ee2c0000",
+        "primaryWorkPhone": "+1 (847) 7211717",
+        "businessTitle": "Workday Application Support",
+        "primarySupervisoryOrganization": {
+          "id": "5b609071d0db1001bc1909fa20cb0000",
+          "descriptor": "Wells Fargo LLC (Abdul Rahim Khan)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5b609071d0db1001bc1909fa20cb0000"
+        }
+      },
+      {
+        "id": "71caea2b7a5210017c14e0fbcfd00000",
+        "descriptor": "Abdul Moid",
+        "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017c14e0fbcfd00000",
+        "primaryWorkPhone": "+1 (847) 8481122",
+        "businessTitle": "Integrations Developer",
+        "primarySupervisoryOrganization": {
+          "id": "5b609071d0db1001bc1909fa20cb0000",
+          "descriptor": "Wells Fargo LLC (Abdul Rahim Khan)",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5b609071d0db1001bc1909fa20cb0000"
+        }
+      }
+    ],
+    "total": 1841,
+    "nextCursor": "20"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "zktechnology_pt1",
+      "metadata": {
+        "tenant": "zktechnology_pt1"
+      }
+    }
+  },
+  "api": {
+    "get": {
+      "/common/v1/zktechnology_pt1/workers": {
+        "response": {
+          "total": 1841,
+          "data": [
+            {
+              "id": "fa1a4057915f1010adcb915e0b120000",
+              "descriptor": "27373",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000",
+              "primaryWorkPhone": "+91 (73264) 16007",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Manager, IT Operations",
+              "isManager": false
+            },
+            {
+              "id": "04ab2d251adf100195092cf33fa70000",
+              "descriptor": "3.17.1 [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/04ab2d251adf100195092cf33fa70000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Product Manager",
+              "isManager": false
+            },
+            {
+              "id": "b647f08b8df91000f6e5c557b9bc0000",
+              "descriptor": "ADMIN [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b647f08b8df91000f6e5c557b9bc0000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Program Manager",
+              "isManager": false
+            },
+            {
+              "id": "baf00a57d25f10098e0ac975d7070000",
+              "descriptor": "AIRBUSTEST",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/baf00a57d25f10098e0ac975d7070000",
+              "primaryWorkPhone": "+91 (73264) 16007",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Development Engineer",
+              "isManager": false
+            },
+            {
+              "id": "b8ef48a7f8281005df6b2ecc263b0000",
+              "descriptor": "ANNVESHA",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b8ef48a7f8281005df6b2ecc263b0000",
+              "primaryWorkPhone": "+91 (99009) 90088",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "primaryWorkEmail": "ANNVESH@GMAIL.COM",
+              "businessTitle": "Development Engineer",
+              "isManager": false
+            },
+            {
+              "id": "601bb39a25b910015c1a4724522c0000",
+              "descriptor": "APR29",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/601bb39a25b910015c1a4724522c0000",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Executive Assistant",
+              "isManager": false
+            },
+            {
+              "id": "16e70a5cf7ff011733b793499f34ea0b",
+              "descriptor": "ASHLEY A PARKER",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/16e70a5cf7ff011733b793499f34ea0b",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Sales (Luisa Martinez)",
+                "id": "4d4ec8ccd07101a5082d0f761f0ea206",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/4d4ec8ccd07101a5082d0f761f0ea206"
+              },
+              "primaryWorkEmail": "aparker@zktechnology.com",
+              "businessTitle": "SALES ADMIN ASSISTANCE",
+              "isManager": false
+            },
+            {
+              "id": "1061d3e9c3dc10000fdfd557dced0000",
+              "descriptor": "AUG0008 [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000fdfd557dced0000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Customer Service Representative",
+              "isManager": false
+            },
+            {
+              "id": "35525002249910010098e5fadfef0000",
+              "descriptor": "AUG04",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/35525002249910010098e5fadfef0000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Hardware Support",
+              "isManager": false
+            },
+            {
+              "id": "1061d3e9c3dc10000f926167af760000",
+              "descriptor": "AUG08 [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000f926167af760000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Corporate Counsel",
+              "isManager": false
+            },
+            {
+              "id": "1061d3e9c3dc1000102d023ae94a0000",
+              "descriptor": "AUG9890 [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc1000102d023ae94a0000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Chief Information Officer",
+              "isManager": false
+            },
+            {
+              "id": "89bd8d4009c7100159972e79c70d0000",
+              "descriptor": "AUGCONT [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100159972e79c70d0000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Workday Consultant - Diagram",
+              "isManager": false
+            },
+            {
+              "id": "355250022499100195a76531d1770000",
+              "descriptor": "AUGCONT [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/355250022499100195a76531d1770000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Senior Risk Analyst",
+              "isManager": false
+            },
+            {
+              "id": "89bd8d4009c7100191de6f9e0f300000",
+              "descriptor": "AUGSIxth [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100191de6f9e0f300000",
+              "primaryWorkPhone": "+91 (1234) 567890",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Mango LLC (William Christopher)",
+                "id": "87b6d8b120cc01c9f23e727a970e2f07",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+              },
+              "businessTitle": "Product Developer",
+              "isManager": false
+            },
+            {
+              "id": "578440231c7e100158d3616c72d00000",
+              "descriptor": "Aaron Seeee [C]",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/578440231c7e100158d3616c72d00000",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Cobalt Dev Team (Rishi Jain)",
+                "id": "827db9d515f6100169b2701b93890000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/827db9d515f6100169b2701b93890000"
+              },
+              "businessTitle": "Software Engineer",
+              "isManager": false
+            },
+            {
+              "id": "45b6a2bc45b61000b21bd7ce85e90000",
+              "descriptor": "Abc Def",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/45b6a2bc45b61000b21bd7ce85e90000",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Dummy Supervisory Organization",
+                "id": "3aed2dc29d2f100d9285313eccb90000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/3aed2dc29d2f100d9285313eccb90000"
+              },
+              "businessTitle": "Developer Dummy",
+              "isManager": false
+            },
+            {
+              "id": "f5e230db077c100208df5d668b270000",
+              "descriptor": "Abctech",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/f5e230db077c100208df5d668b270000",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Global Modern Services",
+                "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/ef7a0ad4065e47bf83cb076399fc1dcc"
+              },
+              "businessTitle": "System Administrator",
+              "isManager": false
+            },
+            {
+              "id": "b3dc45a692481023bee0741fd7420000",
+              "descriptor": "Abdul Ahmed",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b3dc45a692481023bee0741fd7420000",
+              "primarySupervisoryOrganization": {
+                "descriptor": "HR Services",
+                "id": "dd782b74c51344dda5f4975404e8217f",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/dd782b74c51344dda5f4975404e8217f"
+              },
+              "businessTitle": "Mango Consultant",
+              "isManager": false
+            },
+            {
+              "id": "71caea2b7a5210017d4f2b44ee2c0000",
+              "descriptor": "Abdul Khan",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017d4f2b44ee2c0000",
+              "primaryWorkPhone": "+1 (847) 7211717",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Wells Fargo LLC (Abdul Rahim Khan)",
+                "id": "5b609071d0db1001bc1909fa20cb0000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5b609071d0db1001bc1909fa20cb0000"
+              },
+              "businessTitle": "Workday Application Support",
+              "isManager": false
+            },
+            {
+              "id": "71caea2b7a5210017c14e0fbcfd00000",
+              "descriptor": "Abdul Moid",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017c14e0fbcfd00000",
+              "primaryWorkPhone": "+1 (847) 8481122",
+              "primarySupervisoryOrganization": {
+                "descriptor": "Wells Fargo LLC (Abdul Rahim Khan)",
+                "id": "5b609071d0db1001bc1909fa20cb0000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5b609071d0db1001bc1909fa20cb0000"
+              },
+              "businessTitle": "Integrations Developer",
+              "isManager": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:47:32 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1787172493",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "10e33777-4b6f-4553-8ad9-214f099c155b",
+          "set-cookie": "TS012df9cf=010914a00c2c3b8efd93dfff3c3c3615753c3a9b80514273c5f10737b426d84b70e79716c30d817729610c989ae0a5bdc4bb4d5e6d; Path=/; HttpOnly"
+        },
+        "hash": "4a3ea2eed96d1c8b4273f8c23b2db0cc92154e40",
+        "request": {
+          "params": {
+            "limit": "20",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
