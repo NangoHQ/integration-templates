@@ -25,7 +25,7 @@ const FineTuningJobSchema = z.object({
     status: z.string(),
     validation_file: z.string().nullable().optional(),
     training_file: z.string(),
-    metadata: z.record(z.string(), z.unknown()).optional(),
+    metadata: z.record(z.string(), z.unknown()).nullable().optional(),
     error: z.unknown().nullable().optional()
 });
 
@@ -46,7 +46,7 @@ const FineTuningJobModelSchema = z.object({
         batch_size: z.union([z.number(), z.string()]).optional(),
         learning_rate_multiplier: z.union([z.number(), z.string()]).optional()
     }),
-    metadata: z.record(z.string(), z.unknown()).optional(),
+    metadata: z.record(z.string(), z.unknown()).nullable().optional(),
     error: z.unknown().optional()
 });
 
@@ -54,6 +54,10 @@ const ListFineTuningJobsResponseSchema = z.object({
     object: z.string().optional(),
     data: z.array(FineTuningJobSchema),
     has_more: z.boolean()
+});
+
+const CheckpointSchema = z.object({
+    after: z.string()
 });
 
 const sync = createSync({
@@ -67,19 +71,27 @@ const sync = createSync({
             path: '/syncs/fine-tuning-jobs'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         FineTuningJob: FineTuningJobModelSchema
     },
 
     exec: async (nango) => {
-        // Full refresh with delete tracking — always enumerate from page 1.
-        // Resuming from a saved cursor skips earlier pages and causes trackDeletesEnd
-        // to falsely delete records that were never re-seen.
-        // Start delete tracking only after the first page parses successfully so a
-        // network or validation failure doesn't leave tracking open without a matching end.
-        let after: string | undefined = undefined;
+        // Blocker: provider only exposes a full list endpoint with no changed-since
+        // filter, no deleted-record endpoint, and no resumable cursor other than the
+        // standard after-ID pagination cursor. Use a checkpointed full refresh.
+        const checkpoint = await nango.getCheckpoint();
+        let after: string | undefined;
+        const rawAfter = checkpoint?.['after'];
+        if (typeof rawAfter === 'string') {
+            after = rawAfter;
+        }
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('FineTuningJob');
+
         let hasMore = true;
-        let deleteTrackingStarted = false;
 
         while (hasMore) {
             // https://platform.openai.com/docs/api-reference/fine-tuning/list
@@ -98,14 +110,7 @@ const sync = createSync({
                 throw new Error(`Failed to parse fine-tuning jobs: ${parsedJobs.error.message}`);
             }
 
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('FineTuningJob');
-                deleteTrackingStarted = true;
-            }
-
             const jobsArray = parsedJobs.data.data;
-
-            const lastJobId = jobsArray[jobsArray.length - 1]?.id;
 
             if (jobsArray.length > 0) {
                 const records = jobsArray.map((job) => ({
@@ -134,22 +139,22 @@ const sync = createSync({
                 }));
 
                 await nango.batchSave(records, 'FineTuningJob');
-
-                if (lastJobId) {
-                    after = lastJobId;
-                }
             }
 
             hasMore = parsedJobs.data.has_more;
 
-            if (hasMore && !lastJobId) {
-                throw new Error('OpenAI fine-tuning jobs pagination returned has_more=true without a cursor');
+            if (hasMore) {
+                const lastJobId = jobsArray[jobsArray.length - 1]?.id;
+                if (!lastJobId) {
+                    throw new Error('OpenAI fine-tuning jobs pagination returned has_more=true without a cursor');
+                }
+                after = lastJobId;
+                await nango.saveCheckpoint({ after: lastJobId });
             }
         }
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('FineTuningJob');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('FineTuningJob');
     }
 });
 

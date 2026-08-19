@@ -64,27 +64,43 @@ const LedgerEntryLineSchema = z.object({
     categories: z.array(z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync ledger entry lines',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LedgerEntryLine: LedgerEntryLineSchema
     },
 
     exec: async (nango) => {
-        // Full-refresh delete tracking requires starting from page 1 on every run.
+        // Blocker: no changed-since filter, deleted-record endpoint, or changelog feed
+        // for ledger_entry_lines. Cursor pagination is used to resume full refresh.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor: string | undefined = checkpoint ? checkpoint['cursor'] : undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getledgerentrylines
             endpoint: '/api/external/v2/ledger_entry_lines',
+            params: {
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -122,8 +138,13 @@ const sync = createSync({
             if (lines.length > 0) {
                 await nango.batchSave(lines, 'LedgerEntryLine');
             }
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LedgerEntryLine');
     }
 });

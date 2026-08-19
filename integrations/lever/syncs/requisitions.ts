@@ -97,11 +97,16 @@ const RawRequisitionSchema = z.object({
     timeToFillEndAt: z.number().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches all requisitions on the account.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Requisition: RequisitionSchema
     },
@@ -110,18 +115,30 @@ const sync = createSync({
         // Blocker: GET /v1/requisitions does not support an updated_after or modified_since
         // filter, nor any cursor-based change feed. Only created_at_start/end, requisition_code,
         // status, and confidentiality filters are available, so incremental checkpoints are not viable.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let offset = checkpoint?.offset ?? '';
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Requisition');
 
         const proxyConfig: ProxyConfiguration = {
             // https://hire.lever.co/developer/documentation
             endpoint: '/v1/requisitions',
+            params: {
+                ...(offset ? { offset } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'next',
                 response_path: 'data',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'string' ? nextPageParam : '';
+                }
             },
             retries: 3
         };
@@ -182,8 +199,14 @@ const sync = createSync({
             if (requisitions.length > 0) {
                 await nango.batchSave(requisitions, 'Requisition');
             }
+
+            // Persist forward progress even when a valid page is empty.
+            await nango.saveCheckpoint({ offset });
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Requisition');
     }
 });

@@ -27,6 +27,10 @@ const ProviderBiteSchema = z.object({
     media_type: z.string().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number()
+});
+
 const sync = createSync({
     description: 'Full-refresh sync of soundbite clips.',
     version: '1.0.0',
@@ -34,6 +38,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
     models: {
         Bite: BiteSchema
     },
@@ -41,6 +46,16 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /graphql bites with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let skip = 0;
+        if (rawCheckpoint) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+            }
+            skip = checkpointResult.data.skip;
+        }
+
         await nango.trackDeletesStart('Bite');
 
         const proxyConfig: ProxyConfiguration = {
@@ -71,11 +86,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'variables.skip',
-                offset_start_value: 0,
+                offset_start_value: skip,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'variables.limit',
                 limit: 50,
-                response_path: 'data.bites'
+                response_path: 'data.bites',
+                on_page: async ({ nextPageParam }) => {
+                    skip = typeof nextPageParam === 'number' ? nextPageParam : skip;
+                }
             },
             retries: 3
         };
@@ -106,8 +124,11 @@ const sync = createSync({
             if (bites.length > 0) {
                 await nango.batchSave(bites, 'Bite');
             }
+
+            await nango.saveCheckpoint({ skip });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Bite');
     }
 });

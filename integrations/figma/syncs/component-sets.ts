@@ -19,12 +19,17 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync component sets from Figma',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         ComponentSet: ComponentSetSchema
     },
@@ -42,27 +47,37 @@ const sync = createSync({
             throw new Error('team_id is required in metadata');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { after: '' });
+        const afterCursor = checkpoint.after || undefined;
+
         // Blocker: Figma GET /v1/teams/{team_id}/component_sets only exposes
         // positional cursor pagination. It does not provide a changed-since
         // filter or append-only ordering we can checkpoint safely across runs,
         // so this sync must do a full refresh with delete tracking.
 
         // https://www.figma.com/developers/api#get-team-component-sets-endpoint
+        await nango.trackDeletesStart('ComponentSet');
+
+        let nextAfter: string | undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.figma.com/developers/api#get-team-component-sets-endpoint
             endpoint: `/v1/teams/${encodeURIComponent(metadata.team_id)}/component_sets`,
+            params: afterCursor ? { after: afterCursor } : {},
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'after',
                 cursor_path_in_response: 'meta.cursor.after',
                 response_path: 'meta.component_sets',
                 limit_name_in_request: 'page_size',
-                limit: 30
+                limit: 30,
+                on_page: async ({ nextPageParam }) => {
+                    nextAfter = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('ComponentSet');
 
         for await (const page of nango.paginate(proxyConfig)) {
             const componentSets = page.map((item: unknown) => {
@@ -98,8 +113,13 @@ const sync = createSync({
             if (componentSets.length > 0) {
                 await nango.batchSave(componentSets, 'ComponentSet');
             }
+
+            if (nextAfter !== undefined) {
+                await nango.saveCheckpoint({ after: nextAfter });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ComponentSet');
     }
 });

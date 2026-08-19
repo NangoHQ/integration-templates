@@ -52,12 +52,17 @@ const MetadataSchema = z.object({
     project_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number()
+});
+
 const sync = createSync({
     description: 'Sync cohorts from PostHog.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Cohort: CohortSchema
     },
@@ -69,6 +74,11 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+        let currentOffset = checkpoint.offset;
+
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
 
         if (!metadata?.project_id) {
@@ -83,6 +93,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: currentOffset,
                 limit_name_in_request: 'limit',
                 limit: 100,
                 response_path: 'results'
@@ -119,8 +130,12 @@ const sync = createSync({
             if (cohorts.length > 0) {
                 await nango.batchSave(cohorts, 'Cohort');
             }
+
+            currentOffset += parsedItems.data.length;
+            await nango.saveCheckpoint({ offset: currentOffset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Cohort');
     }
 });

@@ -28,11 +28,16 @@ const ResponseSchema = z.object({
     nextCursor: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync sources from Ashby.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Source: SourceSchema
     },
@@ -45,9 +50,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Source');
+        const checkpoint = await nango.getCheckpoint();
+        let nextCursor: string | null = checkpoint?.cursor || null;
 
-        let nextCursor: string | undefined;
+        await nango.trackDeletesStart('Source');
 
         do {
             // https://developers.ashbyhq.com/reference/sourcelist
@@ -72,9 +78,14 @@ const sync = createSync({
                 await nango.batchSave(sources, 'Source');
             }
 
-            nextCursor = envelope.nextCursor;
+            nextCursor = envelope.nextCursor ?? null;
+
+            if (nextCursor) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         } while (nextCursor);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Source');
     }
 });

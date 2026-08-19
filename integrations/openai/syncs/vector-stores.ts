@@ -38,11 +38,16 @@ const ListVectorStoresResponseSchema = z.object({
     has_more: z.boolean()
 });
 
+const CheckpointSchema = z.object({
+    after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync vector stores from OpenAI',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             path: '/syncs/vector-stores',
@@ -54,12 +59,12 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Full refresh with delete tracking — always enumerate from page 1.
-        // Resuming from a saved cursor skips earlier pages and causes trackDeletesEnd
-        // to falsely delete records that were never re-seen.
-        let after: string | undefined = undefined;
+        const checkpoint = await nango.getCheckpoint();
+        let after = checkpoint?.after;
+
+        await nango.trackDeletesStart('VectorStore');
+
         let hasMore = true;
-        let deleteTrackingStarted = false;
 
         while (hasMore) {
             // https://platform.openai.com/docs/api-reference/vector-stores/list
@@ -79,20 +84,11 @@ const sync = createSync({
                 throw new Error(`Failed to parse vector stores page: ${parsedResponse.error.message}`);
             }
 
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('VectorStore');
-                deleteTrackingStarted = true;
-            }
-
             const vectorStores = parsedResponse.data.data;
             const lastId = parsedResponse.data.last_id ?? vectorStores[vectorStores.length - 1]?.id;
 
             if (vectorStores.length > 0) {
                 await nango.batchSave(vectorStores, 'VectorStore');
-
-                if (lastId) {
-                    after = lastId;
-                }
             }
 
             hasMore = parsedResponse.data.has_more;
@@ -100,11 +96,15 @@ const sync = createSync({
             if (hasMore && !lastId) {
                 throw new Error('OpenAI vector stores pagination returned has_more=true without a cursor');
             }
+
+            if (hasMore && lastId) {
+                after = lastId;
+                await nango.saveCheckpoint({ after });
+            }
         }
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('VectorStore');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('VectorStore');
     }
 });
 

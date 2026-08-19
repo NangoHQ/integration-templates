@@ -41,11 +41,16 @@ const ConnectionConfigSchema = z.object({
     extension: z.string()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync departments.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'POST',
@@ -59,8 +64,9 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: The Zoho Desk GET /api/v1/departments endpoint does not expose
         // an updated/modified timestamp filter or a changed-records cursor.
-        // Pagination uses from/limit with no resumable state beyond offset.
         // Full refresh with trackDeletesStart/trackDeletesEnd is appropriate.
+        // Pagination uses from/limit; checkpoint the next from offset so a timed-out
+        // run resumes without restarting from page 1.
 
         const metadata = await nango.getMetadata();
         const metadataParse = ConnectionMetadataSchema.safeParse(metadata);
@@ -74,6 +80,13 @@ const sync = createSync({
         const configParse = ConnectionConfigSchema.safeParse(connection.connection_config);
         const baseUrlOverride = configParse.success ? `https://desk.zoho.${configParse.data.extension}` : undefined;
 
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const startFrom = parsedCheckpoint.success ? parsedCheckpoint.data.from : undefined;
+        let nextFrom: number | undefined;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Department');
 
         const proxyConfig: ProxyConfiguration = {
@@ -86,11 +99,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 1,
+                offset_start_value: startFrom ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 50,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    nextFrom = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -140,8 +156,18 @@ const sync = createSync({
             if (departments.length > 0) {
                 await nango.batchSave(departments, 'Department');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (nextFrom !== undefined) {
+                await nango.saveCheckpoint({ from: nextFrom });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Department');
     }
 });

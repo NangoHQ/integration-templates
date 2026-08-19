@@ -13,6 +13,10 @@ const MetadataSchema = z.object({
     advertiser_id: z.string().describe('TikTok advertiser ID')
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync TikTok user identities (TT_USER) connected to the Business Center or ad account.',
     version: '1.0.0',
@@ -20,6 +24,7 @@ const sync = createSync({
     autoStart: false,
     syncType: 'full',
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Identity: IdentitySchema
     },
@@ -41,6 +46,12 @@ const sync = createSync({
             throw new Error('advertiser_id is required. Set it in sync metadata, connection_config, or connection metadata.');
         }
 
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = 1;
+        if (typeof checkpoint?.['page'] === 'number') {
+            page = checkpoint['page'];
+        }
+
         await nango.trackDeletesStart('Identity');
 
         const proxyConfig: ProxyConfiguration = {
@@ -53,11 +64,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 2,
-                response_path: 'data.identity_list'
+                response_path: 'data.identity_list',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -92,8 +106,13 @@ const sync = createSync({
             if (identities.length > 0) {
                 await nango.batchSave(identities, 'Identity');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Identity');
     }
 });

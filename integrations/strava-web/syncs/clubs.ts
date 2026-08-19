@@ -10,8 +10,8 @@ const ProviderClubSchema = z.object({
     cover_photo_small: z.string().optional().describe('URL to a ~360x176 pixel cover photo'),
     sport_type: z.string().optional().describe('Deprecated. Prefer to use activity_types'),
     activity_types: z.array(z.string()).optional().describe('The activity types that count for a club'),
-    city: z.string().optional().describe("The club's city"),
-    state: z.string().optional().describe("The club's state or geographical region"),
+    city: z.string().nullable().optional().describe("The club's city"),
+    state: z.string().nullable().optional().describe("The club's state or geographical region"),
     country: z.string().optional().describe("The club's country"),
     private: z.boolean().optional().describe('Whether the club is private'),
     member_count: z.number().optional().describe("The club's member count"),
@@ -39,11 +39,16 @@ const ClubSchema = z.object({
     url: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync clubs.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Club: ClubSchema
     },
@@ -53,6 +58,29 @@ const sync = createSync({
         // updated_after, modified_since, or any incremental filter, cursor,
         // or deleted-record endpoint. It always returns the full snapshot of
         // the authenticated athlete's club memberships.
+        const checkpoint = await nango.getCheckpoint();
+        const page = checkpoint?.page ?? 1;
+        let nextPage: number | undefined;
+
+        await nango.trackDeletesStart('Club');
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs
+            endpoint: '/api/v3/athlete/clubs',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_calculation_method: 'per-page',
+                offset_start_value: page,
+                limit_name_in_request: 'per_page',
+                limit: 30,
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
+
         const toRecords = (clubs: unknown) => {
             const parsed = z.array(ProviderClubSchema).safeParse(clubs);
             if (!parsed.success) {
@@ -68,8 +96,8 @@ const sync = createSync({
                 ...(club.cover_photo_small !== undefined && { cover_photo_small: club.cover_photo_small }),
                 ...(club.sport_type !== undefined && { sport_type: club.sport_type }),
                 ...(club.activity_types !== undefined && { activity_types: club.activity_types }),
-                ...(club.city !== undefined && { city: club.city }),
-                ...(club.state !== undefined && { state: club.state }),
+                ...(club.city != null && { city: club.city }),
+                ...(club.state != null && { state: club.state }),
                 ...(club.country !== undefined && { country: club.country }),
                 ...(club.private !== undefined && { private: club.private }),
                 ...(club.member_count !== undefined && { member_count: club.member_count }),
@@ -79,39 +107,18 @@ const sync = createSync({
             }));
         };
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.strava.com/docs/reference/#api-Clubs-getLoggedInAthleteClubs
-            endpoint: '/api/v3/athlete/clubs',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_calculation_method: 'per-page',
-                offset_start_value: 1,
-                limit_name_in_request: 'per_page',
-                limit: 30
-            },
-            retries: 3
-        };
-
-        // Validate the first page before opening delete tracking, so a request or schema
-        // failure on it doesn't leave tracking started with nothing ever saved or closed.
-        const pages = nango.paginate(proxyConfig);
-        const firstPage = await pages.next();
-        const firstRecords = firstPage.done ? [] : toRecords(firstPage.value);
-
-        await nango.trackDeletesStart('Club');
-
-        if (firstRecords.length > 0) {
-            await nango.batchSave(firstRecords, 'Club');
-        }
-
-        for await (const clubs of pages) {
+        for await (const clubs of nango.paginate(proxyConfig)) {
             const records = toRecords(clubs);
             if (records.length > 0) {
                 await nango.batchSave(records, 'Club');
             }
+
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Club');
     }
 });

@@ -42,12 +42,17 @@ const ProviderTaxSchema = z.object({
     purchase_tax_account_id: z.string().nullish()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync taxes configured in Zoho Books.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Tax: TaxSchema
     },
@@ -60,6 +65,13 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : null;
+        if (parsedCheckpoint != null && !parsedCheckpoint.success) {
+            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+        let page: number | undefined = parsedCheckpoint?.data.page ?? 1;
 
         // Blocker: the Zoho Books taxes endpoint only supports page-based
         // pagination with no modified_since filter, no cursor for changed
@@ -75,11 +87,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'taxes'
+                response_path: 'taxes',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -112,8 +127,13 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'Tax');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Tax');
     }
 });

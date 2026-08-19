@@ -29,107 +29,159 @@ const ProviderDataStoreSchema = z.object({
     teamId: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    orgOffset: z.number(),
+    teamOffset: z.number(),
+    dataStoreOffset: z.number()
+});
+
 const sync = createSync({
     description: 'Sync data store metadata (not records) for a team.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         DataStore: DataStoreSchema
     },
 
     exec: async (nango) => {
-        const orgProxyConfig: ProxyConfiguration = {
-            // https://developers.make.com/api-documentation/
-            endpoint: '/organizations',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'pg[offset]',
-                offset_calculation_method: 'by-response-size',
-                limit_name_in_request: 'pg[limit]',
-                limit: 1000,
-                response_path: 'organizations'
-            },
-            retries: 3
-        };
+        const checkpoint = await nango.getCheckpoint();
+        let orgOffset = typeof checkpoint?.['orgOffset'] === 'number' ? checkpoint['orgOffset'] : 0;
+        let teamOffset = typeof checkpoint?.['teamOffset'] === 'number' ? checkpoint['teamOffset'] : 0;
+        let dataStoreOffset = typeof checkpoint?.['dataStoreOffset'] === 'number' ? checkpoint['dataStoreOffset'] : 0;
 
-        const teams: Array<z.infer<typeof TeamSchema>> = [];
-        for await (const orgPage of nango.paginate<unknown>(orgProxyConfig)) {
-            const orgsResult = z.array(OrganizationSchema).safeParse(orgPage);
-            if (!orgsResult.success) {
-                throw new Error(`Failed to parse organizations page: ${orgsResult.error.message}`);
-            }
-
-            for (const org of orgsResult.data) {
-                const teamProxyConfig: ProxyConfiguration = {
-                    // https://developers.make.com/api-documentation/
-                    endpoint: '/teams',
-                    params: {
-                        organizationId: String(org.id)
-                    },
-                    paginate: {
-                        type: 'offset',
-                        offset_name_in_request: 'pg[offset]',
-                        offset_calculation_method: 'by-response-size',
-                        limit_name_in_request: 'pg[limit]',
-                        limit: 1000,
-                        response_path: 'teams'
-                    },
-                    retries: 3
-                };
-
-                for await (const teamPage of nango.paginate<unknown>(teamProxyConfig)) {
-                    const teamsResult = z.array(TeamSchema).safeParse(teamPage);
-                    if (!teamsResult.success) {
-                        throw new Error(`Failed to parse teams page: ${teamsResult.error.message}`);
-                    }
-
-                    teams.push(...teamsResult.data);
-                }
-            }
-        }
-
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('DataStore');
 
-        for (const team of teams) {
-            const proxyConfig: ProxyConfiguration = {
+        while (true) {
+            const orgProxyConfig: ProxyConfiguration = {
                 // https://developers.make.com/api-documentation/
-                endpoint: '/data-stores',
+                endpoint: '/organizations',
                 params: {
-                    teamId: String(team.id),
-                    'pg[sortDir]': 'asc'
-                },
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'pg[offset]',
-                    limit_name_in_request: 'pg[limit]',
-                    limit: 100,
-                    response_path: 'dataStores'
+                    'pg[offset]': orgOffset,
+                    'pg[limit]': 1000
                 },
                 retries: 3
             };
 
-            for await (const page of nango.paginate(proxyConfig)) {
-                const validatedPage = z.array(ProviderDataStoreSchema).safeParse(page);
-                if (!validatedPage.success) {
-                    throw new Error(`Failed to parse data stores page: ${validatedPage.error.message}`);
-                }
+            const orgResponse = await nango.get(orgProxyConfig);
+            const orgsResult = z.array(OrganizationSchema).safeParse(orgResponse.data.organizations);
+            if (!orgsResult.success) {
+                throw new Error(`Failed to parse organizations page: ${orgsResult.error.message}`);
+            }
 
-                const dataStores = validatedPage.data.map((record) => ({
-                    id: String(record.id),
-                    ...(record.name != null && { name: record.name }),
-                    ...(record.records !== undefined && { records: record.records }),
-                    ...(record.size != null && { size: record.size }),
-                    ...(record.maxSize != null && { maxSize: record.maxSize }),
-                    ...(record.teamId !== undefined && { teamId: String(record.teamId) })
-                }));
+            if (orgsResult.data.length === 0) {
+                break;
+            }
 
-                if (dataStores.length > 0) {
-                    await nango.batchSave(dataStores, 'DataStore');
+            for (const org of orgsResult.data) {
+                while (true) {
+                    const teamProxyConfig: ProxyConfiguration = {
+                        // https://developers.make.com/api-documentation/
+                        endpoint: '/teams',
+                        params: {
+                            organizationId: String(org.id),
+                            'pg[offset]': teamOffset,
+                            'pg[limit]': 1000
+                        },
+                        retries: 3
+                    };
+
+                    const teamResponse = await nango.get(teamProxyConfig);
+                    const teamsResult = z.array(TeamSchema).safeParse(teamResponse.data.teams);
+                    if (!teamsResult.success) {
+                        throw new Error(`Failed to parse teams page: ${teamsResult.error.message}`);
+                    }
+
+                    if (teamsResult.data.length === 0) {
+                        teamOffset = 0;
+                        await nango.saveCheckpoint({
+                            orgOffset,
+                            teamOffset,
+                            dataStoreOffset: 0
+                        });
+                        break;
+                    }
+
+                    for (const team of teamsResult.data) {
+                        while (true) {
+                            const dsProxyConfig: ProxyConfiguration = {
+                                // https://developers.make.com/api-documentation/
+                                endpoint: '/data-stores',
+                                params: {
+                                    teamId: String(team.id),
+                                    'pg[sortDir]': 'asc',
+                                    'pg[offset]': dataStoreOffset,
+                                    'pg[limit]': 100
+                                },
+                                retries: 3
+                            };
+
+                            const dsResponse = await nango.get(dsProxyConfig);
+                            const validatedPage = z.array(ProviderDataStoreSchema).safeParse(dsResponse.data.dataStores);
+                            if (!validatedPage.success) {
+                                throw new Error(`Failed to parse data stores page: ${validatedPage.error.message}`);
+                            }
+
+                            if (validatedPage.data.length === 0) {
+                                dataStoreOffset = 0;
+                                await nango.saveCheckpoint({
+                                    orgOffset,
+                                    teamOffset,
+                                    dataStoreOffset
+                                });
+                                break;
+                            }
+
+                            const dataStores = validatedPage.data.map((record) => ({
+                                id: String(record.id),
+                                ...(record.name != null && { name: record.name }),
+                                ...(record.records !== undefined && { records: record.records }),
+                                ...(record.size != null && { size: record.size }),
+                                ...(record.maxSize != null && { maxSize: record.maxSize }),
+                                ...(record.teamId !== undefined && { teamId: String(record.teamId) })
+                            }));
+
+                            await nango.batchSave(dataStores, 'DataStore');
+                            dataStoreOffset += validatedPage.data.length;
+                            await nango.saveCheckpoint({
+                                orgOffset,
+                                teamOffset,
+                                dataStoreOffset
+                            });
+
+                            if (validatedPage.data.length < 100) {
+                                dataStoreOffset = 0;
+                                await nango.saveCheckpoint({
+                                    orgOffset,
+                                    teamOffset,
+                                    dataStoreOffset
+                                });
+                                break;
+                            }
+                        }
+                    }
+
+                    teamOffset += teamsResult.data.length;
+                    await nango.saveCheckpoint({
+                        orgOffset,
+                        teamOffset,
+                        dataStoreOffset: 0
+                    });
                 }
             }
+
+            orgOffset += orgsResult.data.length;
+            await nango.saveCheckpoint({
+                orgOffset,
+                teamOffset: 0,
+                dataStoreOffset: 0
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('DataStore');
     }
 });

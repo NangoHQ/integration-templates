@@ -12,17 +12,17 @@ const StepPropertySchema = z
 
 const StepSchema = z
     .object({
-        event: z.string().optional(),
-        properties: z.array(StepPropertySchema).optional(),
-        selector: z.string().optional(),
-        selector_regex: z.string().optional(),
-        tag_name: z.string().optional(),
-        text: z.string().optional(),
-        text_matching: z.string().optional(),
-        href: z.string().optional(),
-        href_matching: z.string().optional(),
-        url: z.string().optional(),
-        url_matching: z.string().optional()
+        event: z.string().nullish(),
+        properties: z.array(StepPropertySchema).nullish(),
+        selector: z.string().nullish(),
+        selector_regex: z.string().nullish(),
+        tag_name: z.string().nullish(),
+        text: z.string().nullish(),
+        text_matching: z.string().nullish(),
+        href: z.string().nullish(),
+        href_matching: z.string().nullish(),
+        url: z.string().nullish(),
+        url_matching: z.string().nullish()
     })
     .passthrough();
 
@@ -56,10 +56,10 @@ const ProviderActionSchema = z
         last_calculated_at: z.string().optional(),
         team_id: z.number().optional(),
         is_action: z.boolean().optional(),
-        bytecode_error: z.string().optional(),
+        bytecode_error: z.string().nullish(),
         pinned_at: z.string().nullable().optional(),
-        creation_context: z.string().optional(),
-        user_access_level: z.string().optional()
+        creation_context: z.string().nullish(),
+        user_access_level: z.string().nullish()
     })
     .passthrough();
 
@@ -84,6 +84,10 @@ const ActionSchema = z.object({
     user_access_level: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const MetadataSchema = z.object({
     project_id: z.string()
 });
@@ -96,6 +100,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Action: ActionSchema
     },
@@ -110,6 +115,11 @@ const sync = createSync({
         }
         const projectId = metadata.project_id;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+        let nextOffset: number | undefined = checkpoint.offset;
+
         await nango.trackDeletesStart('Action');
 
         const proxyConfig: ProxyConfiguration = {
@@ -118,18 +128,27 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: nextOffset,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'number') {
+                        nextOffset = nextPageParam;
+                    } else if (typeof nextPageParam === 'string' && nextPageParam.length > 0) {
+                        nextOffset = Number(nextPageParam);
+                    } else {
+                        nextOffset = undefined;
+                    }
+                }
             },
             retries: 3
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
-                continue;
+                throw new Error('Unexpected non-array page from PostHog actions API');
             }
 
             const actions: z.infer<typeof ActionSchema>[] = [];
@@ -166,8 +185,13 @@ const sync = createSync({
             if (actions.length > 0) {
                 await nango.batchSave(actions, 'Action');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Action');
     }
 });

@@ -80,11 +80,16 @@ const ContactSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync contacts from Apollo',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
     },
@@ -101,6 +106,10 @@ const sync = createSync({
         // updated_after filter or a changed-records endpoint. It only supports
         // sorting by contact_updated_at. Without a way to query only changed
         // records, we must perform a full refresh with deletion detection.
+        const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const startPage = checkpoint.success ? checkpoint.data.page : 1;
+        let nextPage: number | undefined = startPage;
+
         await nango.trackDeletesStart('Contact');
 
         const proxyConfig: ProxyConfiguration = {
@@ -114,19 +123,21 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: startPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'contacts'
+                response_path: 'contacts',
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const rawContacts = page;
-            if (!Array.isArray(rawContacts) || rawContacts.length === 0) {
-                continue;
+        for await (const rawContacts of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(rawContacts)) {
+                throw new Error('Unexpected non-array contacts response');
             }
 
             const contacts = rawContacts.map((raw) => {
@@ -208,8 +219,13 @@ const sync = createSync({
             if (contacts.length > 0) {
                 await nango.batchSave(contacts, 'Contact');
             }
+
+            if (typeof nextPage === 'number') {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Contact');
     }
 });

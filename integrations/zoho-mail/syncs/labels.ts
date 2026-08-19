@@ -33,6 +33,10 @@ const LabelsResponseSchema = z.object({
     data: z.array(z.unknown())
 });
 
+const CheckpointSchema = z.object({
+    accountIndex: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync all labels for each account from Zoho Mail',
     version: '1.0.0',
@@ -44,11 +48,19 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         Label: LabelSchema
     },
 
     exec: async (nango) => {
+        // Blocker: /api/accounts/{accountId}/labels returns all labels in a single
+        // response with no changed-since filter, no deleted-record endpoint, and no
+        // resumable cursor. We checkpoint progress through the accounts outer loop.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointParse.success ? checkpointParse.data : undefined;
+
         // https://www.zoho.com/mail/help/api/get-all-users-accounts.html
         const accountsResponse = await nango.get({
             endpoint: '/api/accounts',
@@ -70,7 +82,13 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Label');
 
-        for (const account of accounts) {
+        const startIndex = checkpoint?.accountIndex ?? 0;
+
+        for (let i = startIndex; i < accounts.length; i++) {
+            const account = accounts[i];
+            if (!account) {
+                continue;
+            }
             const accountId = account.accountId;
 
             // https://www.zoho.com/mail/help/api/get-all-label-details.html
@@ -107,8 +125,11 @@ const sync = createSync({
             if (labels.length > 0) {
                 await nango.batchSave(labels, 'Label');
             }
+
+            await nango.saveCheckpoint({ accountIndex: i + 1 });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Label');
     }
 });

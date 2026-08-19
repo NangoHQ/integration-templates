@@ -1,15 +1,20 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/shared-folders.js';
+import createSync from '../syncs/files.js';
 
-describe('dropbox shared-folders tests', () => {
-    const models = 'SharedFolder'.split(',');
+describe('box files tests', () => {
+    const models = 'BoxDocument'.split(',');
 
     const createTestContext = () => {
         const nangoMock = new global.vitest.NangoSyncMock({
             dirname: __dirname,
-            name: 'shared-folders',
-            Model: 'SharedFolder'
+            name: 'files',
+            Model: 'BoxDocument'
+        });
+
+        vi.spyOn(nangoMock, 'getMetadata').mockResolvedValue({
+            files: [],
+            folders: ['0']
         });
 
         return {

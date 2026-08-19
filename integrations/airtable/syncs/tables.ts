@@ -2,12 +2,6 @@ import type { ProxyConfiguration } from 'nango';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const ProviderBaseSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    permissionLevel: z.string().optional()
-});
-
 const ProviderTableFieldSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -58,13 +52,22 @@ const TableSchema = z.object({
     views: TableViewSchema.array()
 });
 
-type ProviderBase = z.infer<typeof ProviderBaseSchema>;
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
+type ProviderBase = {
+    id: string;
+    name: string;
+    permissionLevel?: string;
+};
 
 const sync = createSync({
     description: 'Sync Airtable table schemas across bases in scope.',
     version: '2.0.1',
     frequency: 'every day',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'GET',
@@ -76,15 +79,26 @@ const sync = createSync({
         Table: TableSchema
     },
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const offset = typeof checkpoint?.['offset'] === 'string' ? checkpoint['offset'] : undefined;
+
+        let nextOffset: string | undefined;
+
         const config: ProxyConfiguration = {
             // https://airtable.com/developers/web/api/list-bases
             endpoint: '/v0/meta/bases',
             retries: 10,
+            params: {
+                ...(offset ? { offset } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'offset',
                 cursor_name_in_request: 'offset',
-                response_path: 'bases'
+                response_path: 'bases',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -118,8 +132,13 @@ const sync = createSync({
             if (allTables.length > 0) {
                 await nango.batchSave(allTables, 'Table');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Table');
     }
 });

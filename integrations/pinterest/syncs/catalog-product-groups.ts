@@ -52,36 +52,55 @@ function getErrorStatus(error: unknown): number | undefined {
     return undefined;
 }
 
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync catalog product groups.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CatalogProductGroup: CatalogProductGroupSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { bookmark: '' });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+        const checkpoint = checkpointResult.data;
+
+        await nango.trackDeletesStart('CatalogProductGroup');
+
+        let nextBookmark: string | undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/catalogs_product_groups/list
             endpoint: '/v5/catalogs/product_groups',
+            params: {
+                ...(checkpoint.bookmark !== '' && { bookmark: checkpoint.bookmark })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'bookmark',
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextBookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        await nango.trackDeletesStart('CatalogProductGroup');
-
         // @allowTryCatch: Pinterest returns 409 when the connected account has no catalog set up.
         // This is a normal, empty-snapshot state, not a failure.
         try {
-            // https://developers.pinterest.com/docs/api/v5/#operation/catalogs_product_groups/list
             for await (const page of nango.paginate(proxyConfig)) {
                 const items = z.array(RawCatalogsProductGroupItemSchema).parse(page);
 
@@ -104,6 +123,10 @@ const sync = createSync({
                 if (groups.length > 0) {
                     await nango.batchSave(groups, 'CatalogProductGroup');
                 }
+
+                if (nextBookmark !== undefined) {
+                    await nango.saveCheckpoint({ bookmark: nextBookmark });
+                }
             }
         } catch (error) {
             const status = getErrorStatus(error);
@@ -114,6 +137,7 @@ const sync = createSync({
             // synced product groups as removed.
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CatalogProductGroup');
     }
 });

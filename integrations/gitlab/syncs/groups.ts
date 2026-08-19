@@ -38,11 +38,16 @@ const GroupSchema = z.object({
     request_access_enabled: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync groups from GitLab.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/groups' }],
     models: {
         Group: GroupSchema
@@ -54,6 +59,12 @@ const sync = createSync({
         // does not support cursor pagination for authenticated users,
         // and does not have a since_id filter parameter.
         // Full refresh is required to keep group data current and detect deletions.
+        const checkpoint = await nango.getCheckpoint();
+        const startPage = typeof checkpoint?.['page'] === 'number' ? checkpoint['page'] : 1;
+        let page: number | undefined = startPage;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Group');
 
         const proxyConfig: ProxyConfiguration = {
@@ -65,16 +76,19 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: startPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderGroupSchema).safeParse(page);
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const parsed = z.array(ProviderGroupSchema).safeParse(pageResults);
             if (!parsed.success) {
                 throw new Error(`Failed to parse groups page: ${parsed.error.message}`);
             }
@@ -99,8 +113,17 @@ const sync = createSync({
             if (groups.length > 0) {
                 await nango.batchSave(groups, 'Group');
             }
+
+            // Save pagination progress after every page so a run that exceeds the
+            // execution window resumes where it left off instead of restarting.
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Group');
     }
 });

@@ -5,6 +5,10 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    after: z.string()
+});
+
 const ProviderUserSchema = z.object({
     id: z.string(),
     handle: z.string(),
@@ -48,6 +52,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Style: StyleSchema
     },
@@ -62,21 +67,35 @@ const sync = createSync({
 
         const metadata = metadataResult.data;
 
-        // Blocker: provider only exposes /v1/teams/{team_id}/styles with no
-        // changed-since filter and only positional cursor pagination. Without
-        // append-only ordering, a cross-run checkpoint is not safe here.
+        const checkpointResult = CheckpointSchema.safeParse((await nango.getCheckpoint()) ?? { after: '' });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+
+        let after: string | undefined = checkpointResult.data.after || undefined;
+
+        // Provider exposes /v1/teams/{team_id}/styles with cursor pagination but no
+        // changed-since filter, so this is a checkpointed full refresh. The
+        // checkpoint stores the next-page cursor to resume pagination across
+        // execution windows.
         await nango.trackDeletesStart('Style');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.figma.com/docs/rest-api/component-endpoints/
             endpoint: `/v1/teams/${encodeURIComponent(metadata.team_id)}/styles`,
+            params: {
+                ...(after && { after })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'after',
                 cursor_path_in_response: 'meta.cursor.after',
                 response_path: 'meta.styles',
                 limit_name_in_request: 'page_size',
-                limit: 30
+                limit: 30,
+                on_page: async ({ nextPageParam }) => {
+                    after = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -117,8 +136,13 @@ const sync = createSync({
             if (styles.length > 0) {
                 await nango.batchSave(styles, 'Style');
             }
+
+            if (after !== undefined) {
+                await nango.saveCheckpoint({ after });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Style');
     }
 });

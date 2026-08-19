@@ -14,6 +14,10 @@ const ProjectComponentSchema = z.object({
     leadDisplayName: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    projectIndex: z.number().int().min(0)
+});
+
 const JiraComponentSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -175,58 +179,65 @@ const sync = createSync({
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ProjectComponent: ProjectComponentSchema
     },
     endpoints: [{ path: '/syncs/project-components', method: 'POST' }],
 
     exec: async (nango) => {
+        const checkpointResult = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.safeParse(checkpointResult);
+
         const projectKeys = await getProjectKeys(nango);
-
-        if (projectKeys.length === 0) {
-            await nango.log('No projects found to sync components');
-            return;
-        }
-
-        const { cloudId } = await getCloudIdAndBaseUrl(nango);
+        const startIndex = checkpoint.success && checkpoint.data.projectIndex < projectKeys.length ? checkpoint.data.projectIndex : 0;
 
         await nango.trackDeletesStart('ProjectComponent');
 
-        for (let projectIndex = 0; projectIndex < projectKeys.length; projectIndex++) {
-            const projectKey = projectKeys[projectIndex];
+        if (projectKeys.length === 0) {
+            await nango.log('No projects found to sync components');
+        } else {
+            const { cloudId } = await getCloudIdAndBaseUrl(nango);
 
-            // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-project-components/#api-rest-api-3-project-projectidorkey-components-get
-            const response = await nango.get({
-                endpoint: `/ex/jira/${cloudId}/rest/api/3/project/${projectKey}/components`,
-                headers: {
-                    'X-Atlassian-Token': 'no-check'
-                },
-                retries: 3
-            });
+            for (let projectIndex = startIndex; projectIndex < projectKeys.length; projectIndex++) {
+                const projectKey = projectKeys[projectIndex];
 
-            const parsedComponents = z.array(JiraComponentSchema).safeParse(response.data);
-            if (!parsedComponents.success) {
-                throw new Error(`Failed to parse Jira components for project ${projectKey}: ${parsedComponents.error.message}`);
-            }
+                // https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-project-components/#api-rest-api-3-project-projectidorkey-components-get
+                const response = await nango.get({
+                    endpoint: `/ex/jira/${cloudId}/rest/api/3/project/${projectKey}/components`,
+                    headers: {
+                        'X-Atlassian-Token': 'no-check'
+                    },
+                    retries: 3
+                });
 
-            const components = parsedComponents.data.map((component) => ({
-                id: component.id,
-                projectId: String(component.projectId ?? ''),
-                projectKey,
-                name: component.name,
-                ...(component.description != null && { description: component.description }),
-                ...(component.assigneeType != null && { assigneeType: component.assigneeType }),
-                ...(component.realAssigneeType != null && { realAssigneeType: component.realAssigneeType }),
-                ...(component.isAssigneeTypeValid != null && { isAssigneeTypeValid: component.isAssigneeTypeValid }),
-                ...(component.lead?.accountId != null && { leadAccountId: component.lead.accountId }),
-                ...(component.lead?.displayName != null && { leadDisplayName: component.lead.displayName })
-            }));
+                const parsedComponents = z.array(JiraComponentSchema).safeParse(response.data);
+                if (!parsedComponents.success) {
+                    throw new Error(`Failed to parse Jira components for project ${projectKey}: ${parsedComponents.error.message}`);
+                }
 
-            if (components.length > 0) {
-                await nango.batchSave(components, 'ProjectComponent');
+                const components = parsedComponents.data.map((component) => ({
+                    id: component.id,
+                    projectId: String(component.projectId ?? ''),
+                    projectKey,
+                    name: component.name,
+                    ...(component.description != null && { description: component.description }),
+                    ...(component.assigneeType != null && { assigneeType: component.assigneeType }),
+                    ...(component.realAssigneeType != null && { realAssigneeType: component.realAssigneeType }),
+                    ...(component.isAssigneeTypeValid != null && { isAssigneeTypeValid: component.isAssigneeTypeValid }),
+                    ...(component.lead?.accountId != null && { leadAccountId: component.lead.accountId }),
+                    ...(component.lead?.displayName != null && { leadDisplayName: component.lead.displayName })
+                }));
+
+                if (components.length > 0) {
+                    await nango.batchSave(components, 'ProjectComponent');
+                }
+
+                await nango.saveCheckpoint({ projectIndex: projectIndex + 1 });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProjectComponent');
     }
 });

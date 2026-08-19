@@ -73,12 +73,17 @@ const MetadataSchema = z.object({
     date_to: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync ledger entries.',
     version: '1.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         LedgerEntry: LedgerEntrySchema
     },
@@ -96,8 +101,16 @@ const sync = createSync({
         }
         const isFiltered = filters.length > 0;
 
-        const params: { limit: number; filter?: string } = {
-            limit: 100
+        // Blocker: provider only exposes /ledger_entries with no changed-since filter,
+        // no deleted-record endpoint, and no resumable cursor. Full refresh with cursor
+        // pagination checkpoint to survive execution-window timeouts.
+        const rawCheckpoint = !isFiltered ? await nango.getCheckpoint() : undefined;
+        const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextCursor: string | undefined = checkpoint ? checkpoint.cursor : undefined;
+
+        const params: { limit: number; cursor?: string; filter?: string } = {
+            limit: 100,
+            ...(nextCursor && { cursor: nextCursor })
         };
         if (filters.length > 0) {
             params.filter = JSON.stringify(filters);
@@ -113,7 +126,10 @@ const sync = createSync({
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -158,9 +174,14 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'LedgerEntry');
             }
+
+            if (!isFiltered && nextCursor !== undefined) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
         if (!isFiltered) {
+            await nango.clearCheckpoint();
             await nango.trackDeletesEnd('LedgerEntry');
         }
     }

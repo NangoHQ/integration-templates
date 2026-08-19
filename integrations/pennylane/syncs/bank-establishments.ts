@@ -15,30 +15,53 @@ const BankEstablishmentSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync bank establishments',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         BankEstablishment: BankEstablishmentSchema
     },
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /bank_establishments with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor across runs (cursors are temporary).
+        // Blocker: provider only exposes /bank_establishments with no changed-since filter
+        // and no deleted-record endpoint. Full-refresh delete tracking is used, and cursor
+        // pagination is checkpointed so an interrupted crawl can resume instead of restarting.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let checkpoint: z.infer<typeof CheckpointSchema> | undefined;
+        if (rawCheckpoint) {
+            const result = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!result.success) {
+                throw new Error(`Invalid checkpoint: ${result.error.message}`);
+            }
+            checkpoint = result.data;
+        }
+        let nextCursor: string | undefined = checkpoint?.cursor;
+
         await nango.trackDeletesStart('BankEstablishment');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getbankestablishments
             endpoint: '/api/external/v2/bank_establishments',
+            params: {
+                ...(nextCursor ? { cursor: nextCursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -60,8 +83,13 @@ const sync = createSync({
             if (establishments.length > 0) {
                 await nango.batchSave(establishments, 'BankEstablishment');
             }
+
+            if (nextCursor !== undefined) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BankEstablishment');
     }
 });
