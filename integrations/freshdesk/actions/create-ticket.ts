@@ -60,12 +60,9 @@ const InputSchema = z
             )
     })
     .describe('Input to create a ticket in Freshdesk.')
-    .refine(
-        (data) => data.requester_id || data.email || data.facebook_id || data.phone || data.mobile || data.twitter_id || data.unique_external_id,
-        {
-            message: 'At least one of requester_id, email, facebook_id, phone, mobile, twitter_id, or unique_external_id is required.'
-        }
-    );
+    .refine((data) => data.requester_id || data.email || data.facebook_id || data.phone || data.mobile || data.twitter_id || data.unique_external_id, {
+        message: 'At least one of requester_id, email, facebook_id, phone, mobile, twitter_id, or unique_external_id is required.'
+    });
 
 const ProviderAttachmentSchema = z.object({
     id: z.number(),
