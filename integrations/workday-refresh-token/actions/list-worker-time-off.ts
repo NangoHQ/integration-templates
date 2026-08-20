@@ -106,8 +106,7 @@ const action = createAction({
                 };
             });
 
-        const nextOffset =
-            providerResponse.total !== undefined && items.length > 0 ? (input.offset ?? 0) + items.length : undefined;
+        const nextOffset = providerResponse.total !== undefined && items.length > 0 ? (input.offset ?? 0) + items.length : undefined;
 
         const hasMore = nextOffset !== undefined && providerResponse.total !== undefined && nextOffset < providerResponse.total;
 

@@ -3,7 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        cursor: z.string().regex(/^\d+$/, 'Cursor must be a non-negative integer.').optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+        cursor: z
+            .string()
+            .regex(/^\d+$/, 'Cursor must be a non-negative integer.')
+            .optional()
+            .describe('Pagination cursor from the previous response. Omit for the first page.'),
         limit: z.number().int().min(1).max(100).optional().describe('Maximum number of supervisory organizations to return per page.')
     })
     .describe('Input for listing supervisory organizations');
