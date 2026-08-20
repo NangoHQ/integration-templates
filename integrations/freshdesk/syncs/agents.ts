@@ -5,8 +5,9 @@ const ProviderContactSchema = z.object({
     name: z.string().nullable().optional(),
     email: z.string().nullable().optional(),
     avatar: z.string().nullable().optional(),
-    phone: z.string().nullable().optional(),
-    mobile: z.string().nullable().optional(),
+    // Freshdesk can return phone/mobile as a number rather than the documented string.
+    phone: z.union([z.string(), z.number()]).nullable().optional(),
+    mobile: z.union([z.string(), z.number()]).nullable().optional(),
     job_title: z.string().nullable().optional(),
     language: z.string().nullable().optional(),
     time_zone: z.string().nullable().optional()
@@ -144,8 +145,8 @@ const sync = createSync({
                     ...(agent.updated_at != null && { updated_at: agent.updated_at }),
                     ...(agent.contact?.email != null && { email: agent.contact.email }),
                     ...(agent.contact?.name != null && { name: agent.contact.name }),
-                    ...(agent.contact?.phone != null && { phone: agent.contact.phone }),
-                    ...(agent.contact?.mobile != null && { mobile: agent.contact.mobile }),
+                    ...(agent.contact?.phone != null && { phone: String(agent.contact.phone) }),
+                    ...(agent.contact?.mobile != null && { mobile: String(agent.contact.mobile) }),
                     ...(agent.contact?.job_title != null && { job_title: agent.contact.job_title }),
                     ...(agent.contact?.language != null && { language: agent.contact.language }),
                     ...(agent.contact?.time_zone != null && { time_zone: agent.contact.time_zone })

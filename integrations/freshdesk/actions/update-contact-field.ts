@@ -77,7 +77,9 @@ function normalizeChoices(choices: z.infer<typeof ProviderContactFieldSchema>['c
                 : { id: choice.id ?? index, label: choice.label, value: choice.value, position: choice.position ?? index }
         );
     }
-    return Object.entries(choices).map(([label, value], index) => ({ id: index, label, value, position: index }));
+    // The map's key is the internal value used when setting the field, and its value is the
+    // human-readable label (e.g. { "International Date Line West": "(GMT-12:00) International..." }).
+    return Object.entries(choices).map(([value, label], index) => ({ id: index, label, value, position: index }));
 }
 
 const OutputChoiceSchema = z.object({

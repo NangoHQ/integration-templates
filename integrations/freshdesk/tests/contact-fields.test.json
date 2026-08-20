@@ -211,159 +211,914 @@
           "label_for_customers": "Time zone",
           "required_for_customers": false,
           "displayed_for_customers": true,
-          "choices": {
-            "International Date Line West": "(GMT-12:00) International Date Line West",
-            "American Samoa": "(GMT-11:00) American Samoa",
-            "Midway Island": "(GMT-11:00) Midway Island",
-            "Hawaii": "(GMT-10:00) Hawaii",
-            "Alaska": "(GMT-09:00) Alaska",
-            "Pacific Time (US & Canada)": "(GMT-08:00) Pacific Time (US & Canada)",
-            "Tijuana": "(GMT-08:00) Tijuana",
-            "Arizona": "(GMT-07:00) Arizona",
-            "Mazatlan": "(GMT-07:00) Mazatlan",
-            "Mountain Time (US & Canada)": "(GMT-07:00) Mountain Time (US & Canada)",
-            "Central America": "(GMT-06:00) Central America",
-            "Central Time (US & Canada)": "(GMT-06:00) Central Time (US & Canada)",
-            "Chihuahua": "(GMT-06:00) Chihuahua",
-            "Guadalajara": "(GMT-06:00) Guadalajara",
-            "Mexico City": "(GMT-06:00) Mexico City",
-            "Monterrey": "(GMT-06:00) Monterrey",
-            "Saskatchewan": "(GMT-06:00) Saskatchewan",
-            "Bogota": "(GMT-05:00) Bogota",
-            "Eastern Time (US & Canada)": "(GMT-05:00) Eastern Time (US & Canada)",
-            "Indiana (East)": "(GMT-05:00) Indiana (East)",
-            "Lima": "(GMT-05:00) Lima",
-            "Quito": "(GMT-05:00) Quito",
-            "Atlantic Time (Canada)": "(GMT-04:00) Atlantic Time (Canada)",
-            "Caracas": "(GMT-04:00) Caracas",
-            "Georgetown": "(GMT-04:00) Georgetown",
-            "La Paz": "(GMT-04:00) La Paz",
-            "Puerto Rico": "(GMT-04:00) Puerto Rico",
-            "Santiago": "(GMT-04:00) Santiago",
-            "Newfoundland": "(GMT-03:30) Newfoundland",
-            "Brasilia": "(GMT-03:00) Brasilia",
-            "Buenos Aires": "(GMT-03:00) Buenos Aires",
-            "Montevideo": "(GMT-03:00) Montevideo",
-            "Greenland": "(GMT-02:00) Greenland",
-            "Mid-Atlantic": "(GMT-02:00) Mid-Atlantic",
-            "Azores": "(GMT-01:00) Azores",
-            "Cape Verde Is.": "(GMT-01:00) Cape Verde Is.",
-            "Edinburgh": "(GMT+00:00) Edinburgh",
-            "Lisbon": "(GMT+00:00) Lisbon",
-            "London": "(GMT+00:00) London",
-            "Monrovia": "(GMT+00:00) Monrovia",
-            "UTC": "(GMT+00:00) UTC",
-            "Amsterdam": "(GMT+01:00) Amsterdam",
-            "Belgrade": "(GMT+01:00) Belgrade",
-            "Berlin": "(GMT+01:00) Berlin",
-            "Bern": "(GMT+01:00) Bern",
-            "Bratislava": "(GMT+01:00) Bratislava",
-            "Brussels": "(GMT+01:00) Brussels",
-            "Budapest": "(GMT+01:00) Budapest",
-            "Casablanca": "(GMT+01:00) Casablanca",
-            "Copenhagen": "(GMT+01:00) Copenhagen",
-            "Dublin": "(GMT+01:00) Dublin",
-            "Ljubljana": "(GMT+01:00) Ljubljana",
-            "Madrid": "(GMT+01:00) Madrid",
-            "Paris": "(GMT+01:00) Paris",
-            "Prague": "(GMT+01:00) Prague",
-            "Rome": "(GMT+01:00) Rome",
-            "Sarajevo": "(GMT+01:00) Sarajevo",
-            "Skopje": "(GMT+01:00) Skopje",
-            "Stockholm": "(GMT+01:00) Stockholm",
-            "Vienna": "(GMT+01:00) Vienna",
-            "Warsaw": "(GMT+01:00) Warsaw",
-            "West Central Africa": "(GMT+01:00) West Central Africa",
-            "Zagreb": "(GMT+01:00) Zagreb",
-            "Zurich": "(GMT+01:00) Zurich",
-            "Athens": "(GMT+02:00) Athens",
-            "Bucharest": "(GMT+02:00) Bucharest",
-            "Cairo": "(GMT+02:00) Cairo",
-            "Harare": "(GMT+02:00) Harare",
-            "Helsinki": "(GMT+02:00) Helsinki",
-            "Jerusalem": "(GMT+02:00) Jerusalem",
-            "Kaliningrad": "(GMT+02:00) Kaliningrad",
-            "Kyiv": "(GMT+02:00) Kyiv",
-            "Pretoria": "(GMT+02:00) Pretoria",
-            "Riga": "(GMT+02:00) Riga",
-            "Sofia": "(GMT+02:00) Sofia",
-            "Tallinn": "(GMT+02:00) Tallinn",
-            "Vilnius": "(GMT+02:00) Vilnius",
-            "Baghdad": "(GMT+03:00) Baghdad",
-            "Istanbul": "(GMT+03:00) Istanbul",
-            "Kuwait": "(GMT+03:00) Kuwait",
-            "Minsk": "(GMT+03:00) Minsk",
-            "Moscow": "(GMT+03:00) Moscow",
-            "Nairobi": "(GMT+03:00) Nairobi",
-            "Riyadh": "(GMT+03:00) Riyadh",
-            "St. Petersburg": "(GMT+03:00) St. Petersburg",
-            "Volgograd": "(GMT+03:00) Volgograd",
-            "Tehran": "(GMT+03:30) Tehran",
-            "Abu Dhabi": "(GMT+04:00) Abu Dhabi",
-            "Baku": "(GMT+04:00) Baku",
-            "Muscat": "(GMT+04:00) Muscat",
-            "Samara": "(GMT+04:00) Samara",
-            "Tbilisi": "(GMT+04:00) Tbilisi",
-            "Yerevan": "(GMT+04:00) Yerevan",
-            "Kabul": "(GMT+04:30) Kabul",
-            "Almaty": "(GMT+05:00) Almaty",
-            "Ekaterinburg": "(GMT+05:00) Ekaterinburg",
-            "Islamabad": "(GMT+05:00) Islamabad",
-            "Karachi": "(GMT+05:00) Karachi",
-            "Tashkent": "(GMT+05:00) Tashkent",
-            "Chennai": "(GMT+05:30) Chennai",
-            "Kolkata": "(GMT+05:30) Kolkata",
-            "Mumbai": "(GMT+05:30) Mumbai",
-            "New Delhi": "(GMT+05:30) New Delhi",
-            "Sri Jayawardenepura": "(GMT+05:30) Sri Jayawardenepura",
-            "Kathmandu": "(GMT+05:45) Kathmandu",
-            "Astana": "(GMT+06:00) Astana",
-            "Dhaka": "(GMT+06:00) Dhaka",
-            "Urumqi": "(GMT+06:00) Urumqi",
-            "Rangoon": "(GMT+06:30) Rangoon",
-            "Bangkok": "(GMT+07:00) Bangkok",
-            "Hanoi": "(GMT+07:00) Hanoi",
-            "Jakarta": "(GMT+07:00) Jakarta",
-            "Krasnoyarsk": "(GMT+07:00) Krasnoyarsk",
-            "Novosibirsk": "(GMT+07:00) Novosibirsk",
-            "Beijing": "(GMT+08:00) Beijing",
-            "Chongqing": "(GMT+08:00) Chongqing",
-            "Hong Kong": "(GMT+08:00) Hong Kong",
-            "Irkutsk": "(GMT+08:00) Irkutsk",
-            "Kuala Lumpur": "(GMT+08:00) Kuala Lumpur",
-            "Perth": "(GMT+08:00) Perth",
-            "Singapore": "(GMT+08:00) Singapore",
-            "Taipei": "(GMT+08:00) Taipei",
-            "Ulaanbaatar": "(GMT+08:00) Ulaanbaatar",
-            "Osaka": "(GMT+09:00) Osaka",
-            "Sapporo": "(GMT+09:00) Sapporo",
-            "Seoul": "(GMT+09:00) Seoul",
-            "Tokyo": "(GMT+09:00) Tokyo",
-            "Yakutsk": "(GMT+09:00) Yakutsk",
-            "Adelaide": "(GMT+09:30) Adelaide",
-            "Darwin": "(GMT+09:30) Darwin",
-            "Brisbane": "(GMT+10:00) Brisbane",
-            "Canberra": "(GMT+10:00) Canberra",
-            "Guam": "(GMT+10:00) Guam",
-            "Hobart": "(GMT+10:00) Hobart",
-            "Melbourne": "(GMT+10:00) Melbourne",
-            "Port Moresby": "(GMT+10:00) Port Moresby",
-            "Sydney": "(GMT+10:00) Sydney",
-            "Vladivostok": "(GMT+10:00) Vladivostok",
-            "Magadan": "(GMT+11:00) Magadan",
-            "New Caledonia": "(GMT+11:00) New Caledonia",
-            "Solomon Is.": "(GMT+11:00) Solomon Is.",
-            "Srednekolymsk": "(GMT+11:00) Srednekolymsk",
-            "Auckland": "(GMT+12:00) Auckland",
-            "Fiji": "(GMT+12:00) Fiji",
-            "Kamchatka": "(GMT+12:00) Kamchatka",
-            "Marshall Is.": "(GMT+12:00) Marshall Is.",
-            "Wellington": "(GMT+12:00) Wellington",
-            "Chatham Is.": "(GMT+12:45) Chatham Is.",
-            "Nuku'alofa": "(GMT+13:00) Nuku'alofa",
-            "Samoa": "(GMT+13:00) Samoa",
-            "Tokelau Is.": "(GMT+13:00) Tokelau Is."
-          },
+          "choices": [
+            {
+              "id": 0,
+              "label": "(GMT-12:00) International Date Line West",
+              "value": "International Date Line West",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "(GMT-11:00) American Samoa",
+              "value": "American Samoa",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "(GMT-11:00) Midway Island",
+              "value": "Midway Island",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "(GMT-10:00) Hawaii",
+              "value": "Hawaii",
+              "position": 3
+            },
+            {
+              "id": 4,
+              "label": "(GMT-09:00) Alaska",
+              "value": "Alaska",
+              "position": 4
+            },
+            {
+              "id": 5,
+              "label": "(GMT-08:00) Pacific Time (US & Canada)",
+              "value": "Pacific Time (US & Canada)",
+              "position": 5
+            },
+            {
+              "id": 6,
+              "label": "(GMT-08:00) Tijuana",
+              "value": "Tijuana",
+              "position": 6
+            },
+            {
+              "id": 7,
+              "label": "(GMT-07:00) Arizona",
+              "value": "Arizona",
+              "position": 7
+            },
+            {
+              "id": 8,
+              "label": "(GMT-07:00) Mazatlan",
+              "value": "Mazatlan",
+              "position": 8
+            },
+            {
+              "id": 9,
+              "label": "(GMT-07:00) Mountain Time (US & Canada)",
+              "value": "Mountain Time (US & Canada)",
+              "position": 9
+            },
+            {
+              "id": 10,
+              "label": "(GMT-06:00) Central America",
+              "value": "Central America",
+              "position": 10
+            },
+            {
+              "id": 11,
+              "label": "(GMT-06:00) Central Time (US & Canada)",
+              "value": "Central Time (US & Canada)",
+              "position": 11
+            },
+            {
+              "id": 12,
+              "label": "(GMT-06:00) Chihuahua",
+              "value": "Chihuahua",
+              "position": 12
+            },
+            {
+              "id": 13,
+              "label": "(GMT-06:00) Guadalajara",
+              "value": "Guadalajara",
+              "position": 13
+            },
+            {
+              "id": 14,
+              "label": "(GMT-06:00) Mexico City",
+              "value": "Mexico City",
+              "position": 14
+            },
+            {
+              "id": 15,
+              "label": "(GMT-06:00) Monterrey",
+              "value": "Monterrey",
+              "position": 15
+            },
+            {
+              "id": 16,
+              "label": "(GMT-06:00) Saskatchewan",
+              "value": "Saskatchewan",
+              "position": 16
+            },
+            {
+              "id": 17,
+              "label": "(GMT-05:00) Bogota",
+              "value": "Bogota",
+              "position": 17
+            },
+            {
+              "id": 18,
+              "label": "(GMT-05:00) Eastern Time (US & Canada)",
+              "value": "Eastern Time (US & Canada)",
+              "position": 18
+            },
+            {
+              "id": 19,
+              "label": "(GMT-05:00) Indiana (East)",
+              "value": "Indiana (East)",
+              "position": 19
+            },
+            {
+              "id": 20,
+              "label": "(GMT-05:00) Lima",
+              "value": "Lima",
+              "position": 20
+            },
+            {
+              "id": 21,
+              "label": "(GMT-05:00) Quito",
+              "value": "Quito",
+              "position": 21
+            },
+            {
+              "id": 22,
+              "label": "(GMT-04:00) Atlantic Time (Canada)",
+              "value": "Atlantic Time (Canada)",
+              "position": 22
+            },
+            {
+              "id": 23,
+              "label": "(GMT-04:00) Caracas",
+              "value": "Caracas",
+              "position": 23
+            },
+            {
+              "id": 24,
+              "label": "(GMT-04:00) Georgetown",
+              "value": "Georgetown",
+              "position": 24
+            },
+            {
+              "id": 25,
+              "label": "(GMT-04:00) La Paz",
+              "value": "La Paz",
+              "position": 25
+            },
+            {
+              "id": 26,
+              "label": "(GMT-04:00) Puerto Rico",
+              "value": "Puerto Rico",
+              "position": 26
+            },
+            {
+              "id": 27,
+              "label": "(GMT-04:00) Santiago",
+              "value": "Santiago",
+              "position": 27
+            },
+            {
+              "id": 28,
+              "label": "(GMT-03:30) Newfoundland",
+              "value": "Newfoundland",
+              "position": 28
+            },
+            {
+              "id": 29,
+              "label": "(GMT-03:00) Brasilia",
+              "value": "Brasilia",
+              "position": 29
+            },
+            {
+              "id": 30,
+              "label": "(GMT-03:00) Buenos Aires",
+              "value": "Buenos Aires",
+              "position": 30
+            },
+            {
+              "id": 31,
+              "label": "(GMT-03:00) Montevideo",
+              "value": "Montevideo",
+              "position": 31
+            },
+            {
+              "id": 32,
+              "label": "(GMT-02:00) Greenland",
+              "value": "Greenland",
+              "position": 32
+            },
+            {
+              "id": 33,
+              "label": "(GMT-02:00) Mid-Atlantic",
+              "value": "Mid-Atlantic",
+              "position": 33
+            },
+            {
+              "id": 34,
+              "label": "(GMT-01:00) Azores",
+              "value": "Azores",
+              "position": 34
+            },
+            {
+              "id": 35,
+              "label": "(GMT-01:00) Cape Verde Is.",
+              "value": "Cape Verde Is.",
+              "position": 35
+            },
+            {
+              "id": 36,
+              "label": "(GMT+00:00) Edinburgh",
+              "value": "Edinburgh",
+              "position": 36
+            },
+            {
+              "id": 37,
+              "label": "(GMT+00:00) Lisbon",
+              "value": "Lisbon",
+              "position": 37
+            },
+            {
+              "id": 38,
+              "label": "(GMT+00:00) London",
+              "value": "London",
+              "position": 38
+            },
+            {
+              "id": 39,
+              "label": "(GMT+00:00) Monrovia",
+              "value": "Monrovia",
+              "position": 39
+            },
+            {
+              "id": 40,
+              "label": "(GMT+00:00) UTC",
+              "value": "UTC",
+              "position": 40
+            },
+            {
+              "id": 41,
+              "label": "(GMT+01:00) Amsterdam",
+              "value": "Amsterdam",
+              "position": 41
+            },
+            {
+              "id": 42,
+              "label": "(GMT+01:00) Belgrade",
+              "value": "Belgrade",
+              "position": 42
+            },
+            {
+              "id": 43,
+              "label": "(GMT+01:00) Berlin",
+              "value": "Berlin",
+              "position": 43
+            },
+            {
+              "id": 44,
+              "label": "(GMT+01:00) Bern",
+              "value": "Bern",
+              "position": 44
+            },
+            {
+              "id": 45,
+              "label": "(GMT+01:00) Bratislava",
+              "value": "Bratislava",
+              "position": 45
+            },
+            {
+              "id": 46,
+              "label": "(GMT+01:00) Brussels",
+              "value": "Brussels",
+              "position": 46
+            },
+            {
+              "id": 47,
+              "label": "(GMT+01:00) Budapest",
+              "value": "Budapest",
+              "position": 47
+            },
+            {
+              "id": 48,
+              "label": "(GMT+01:00) Casablanca",
+              "value": "Casablanca",
+              "position": 48
+            },
+            {
+              "id": 49,
+              "label": "(GMT+01:00) Copenhagen",
+              "value": "Copenhagen",
+              "position": 49
+            },
+            {
+              "id": 50,
+              "label": "(GMT+01:00) Dublin",
+              "value": "Dublin",
+              "position": 50
+            },
+            {
+              "id": 51,
+              "label": "(GMT+01:00) Ljubljana",
+              "value": "Ljubljana",
+              "position": 51
+            },
+            {
+              "id": 52,
+              "label": "(GMT+01:00) Madrid",
+              "value": "Madrid",
+              "position": 52
+            },
+            {
+              "id": 53,
+              "label": "(GMT+01:00) Paris",
+              "value": "Paris",
+              "position": 53
+            },
+            {
+              "id": 54,
+              "label": "(GMT+01:00) Prague",
+              "value": "Prague",
+              "position": 54
+            },
+            {
+              "id": 55,
+              "label": "(GMT+01:00) Rome",
+              "value": "Rome",
+              "position": 55
+            },
+            {
+              "id": 56,
+              "label": "(GMT+01:00) Sarajevo",
+              "value": "Sarajevo",
+              "position": 56
+            },
+            {
+              "id": 57,
+              "label": "(GMT+01:00) Skopje",
+              "value": "Skopje",
+              "position": 57
+            },
+            {
+              "id": 58,
+              "label": "(GMT+01:00) Stockholm",
+              "value": "Stockholm",
+              "position": 58
+            },
+            {
+              "id": 59,
+              "label": "(GMT+01:00) Vienna",
+              "value": "Vienna",
+              "position": 59
+            },
+            {
+              "id": 60,
+              "label": "(GMT+01:00) Warsaw",
+              "value": "Warsaw",
+              "position": 60
+            },
+            {
+              "id": 61,
+              "label": "(GMT+01:00) West Central Africa",
+              "value": "West Central Africa",
+              "position": 61
+            },
+            {
+              "id": 62,
+              "label": "(GMT+01:00) Zagreb",
+              "value": "Zagreb",
+              "position": 62
+            },
+            {
+              "id": 63,
+              "label": "(GMT+01:00) Zurich",
+              "value": "Zurich",
+              "position": 63
+            },
+            {
+              "id": 64,
+              "label": "(GMT+02:00) Athens",
+              "value": "Athens",
+              "position": 64
+            },
+            {
+              "id": 65,
+              "label": "(GMT+02:00) Bucharest",
+              "value": "Bucharest",
+              "position": 65
+            },
+            {
+              "id": 66,
+              "label": "(GMT+02:00) Cairo",
+              "value": "Cairo",
+              "position": 66
+            },
+            {
+              "id": 67,
+              "label": "(GMT+02:00) Harare",
+              "value": "Harare",
+              "position": 67
+            },
+            {
+              "id": 68,
+              "label": "(GMT+02:00) Helsinki",
+              "value": "Helsinki",
+              "position": 68
+            },
+            {
+              "id": 69,
+              "label": "(GMT+02:00) Jerusalem",
+              "value": "Jerusalem",
+              "position": 69
+            },
+            {
+              "id": 70,
+              "label": "(GMT+02:00) Kaliningrad",
+              "value": "Kaliningrad",
+              "position": 70
+            },
+            {
+              "id": 71,
+              "label": "(GMT+02:00) Kyiv",
+              "value": "Kyiv",
+              "position": 71
+            },
+            {
+              "id": 72,
+              "label": "(GMT+02:00) Pretoria",
+              "value": "Pretoria",
+              "position": 72
+            },
+            {
+              "id": 73,
+              "label": "(GMT+02:00) Riga",
+              "value": "Riga",
+              "position": 73
+            },
+            {
+              "id": 74,
+              "label": "(GMT+02:00) Sofia",
+              "value": "Sofia",
+              "position": 74
+            },
+            {
+              "id": 75,
+              "label": "(GMT+02:00) Tallinn",
+              "value": "Tallinn",
+              "position": 75
+            },
+            {
+              "id": 76,
+              "label": "(GMT+02:00) Vilnius",
+              "value": "Vilnius",
+              "position": 76
+            },
+            {
+              "id": 77,
+              "label": "(GMT+03:00) Baghdad",
+              "value": "Baghdad",
+              "position": 77
+            },
+            {
+              "id": 78,
+              "label": "(GMT+03:00) Istanbul",
+              "value": "Istanbul",
+              "position": 78
+            },
+            {
+              "id": 79,
+              "label": "(GMT+03:00) Kuwait",
+              "value": "Kuwait",
+              "position": 79
+            },
+            {
+              "id": 80,
+              "label": "(GMT+03:00) Minsk",
+              "value": "Minsk",
+              "position": 80
+            },
+            {
+              "id": 81,
+              "label": "(GMT+03:00) Moscow",
+              "value": "Moscow",
+              "position": 81
+            },
+            {
+              "id": 82,
+              "label": "(GMT+03:00) Nairobi",
+              "value": "Nairobi",
+              "position": 82
+            },
+            {
+              "id": 83,
+              "label": "(GMT+03:00) Riyadh",
+              "value": "Riyadh",
+              "position": 83
+            },
+            {
+              "id": 84,
+              "label": "(GMT+03:00) St. Petersburg",
+              "value": "St. Petersburg",
+              "position": 84
+            },
+            {
+              "id": 85,
+              "label": "(GMT+03:00) Volgograd",
+              "value": "Volgograd",
+              "position": 85
+            },
+            {
+              "id": 86,
+              "label": "(GMT+03:30) Tehran",
+              "value": "Tehran",
+              "position": 86
+            },
+            {
+              "id": 87,
+              "label": "(GMT+04:00) Abu Dhabi",
+              "value": "Abu Dhabi",
+              "position": 87
+            },
+            {
+              "id": 88,
+              "label": "(GMT+04:00) Baku",
+              "value": "Baku",
+              "position": 88
+            },
+            {
+              "id": 89,
+              "label": "(GMT+04:00) Muscat",
+              "value": "Muscat",
+              "position": 89
+            },
+            {
+              "id": 90,
+              "label": "(GMT+04:00) Samara",
+              "value": "Samara",
+              "position": 90
+            },
+            {
+              "id": 91,
+              "label": "(GMT+04:00) Tbilisi",
+              "value": "Tbilisi",
+              "position": 91
+            },
+            {
+              "id": 92,
+              "label": "(GMT+04:00) Yerevan",
+              "value": "Yerevan",
+              "position": 92
+            },
+            {
+              "id": 93,
+              "label": "(GMT+04:30) Kabul",
+              "value": "Kabul",
+              "position": 93
+            },
+            {
+              "id": 94,
+              "label": "(GMT+05:00) Almaty",
+              "value": "Almaty",
+              "position": 94
+            },
+            {
+              "id": 95,
+              "label": "(GMT+05:00) Ekaterinburg",
+              "value": "Ekaterinburg",
+              "position": 95
+            },
+            {
+              "id": 96,
+              "label": "(GMT+05:00) Islamabad",
+              "value": "Islamabad",
+              "position": 96
+            },
+            {
+              "id": 97,
+              "label": "(GMT+05:00) Karachi",
+              "value": "Karachi",
+              "position": 97
+            },
+            {
+              "id": 98,
+              "label": "(GMT+05:00) Tashkent",
+              "value": "Tashkent",
+              "position": 98
+            },
+            {
+              "id": 99,
+              "label": "(GMT+05:30) Chennai",
+              "value": "Chennai",
+              "position": 99
+            },
+            {
+              "id": 100,
+              "label": "(GMT+05:30) Kolkata",
+              "value": "Kolkata",
+              "position": 100
+            },
+            {
+              "id": 101,
+              "label": "(GMT+05:30) Mumbai",
+              "value": "Mumbai",
+              "position": 101
+            },
+            {
+              "id": 102,
+              "label": "(GMT+05:30) New Delhi",
+              "value": "New Delhi",
+              "position": 102
+            },
+            {
+              "id": 103,
+              "label": "(GMT+05:30) Sri Jayawardenepura",
+              "value": "Sri Jayawardenepura",
+              "position": 103
+            },
+            {
+              "id": 104,
+              "label": "(GMT+05:45) Kathmandu",
+              "value": "Kathmandu",
+              "position": 104
+            },
+            {
+              "id": 105,
+              "label": "(GMT+06:00) Astana",
+              "value": "Astana",
+              "position": 105
+            },
+            {
+              "id": 106,
+              "label": "(GMT+06:00) Dhaka",
+              "value": "Dhaka",
+              "position": 106
+            },
+            {
+              "id": 107,
+              "label": "(GMT+06:00) Urumqi",
+              "value": "Urumqi",
+              "position": 107
+            },
+            {
+              "id": 108,
+              "label": "(GMT+06:30) Rangoon",
+              "value": "Rangoon",
+              "position": 108
+            },
+            {
+              "id": 109,
+              "label": "(GMT+07:00) Bangkok",
+              "value": "Bangkok",
+              "position": 109
+            },
+            {
+              "id": 110,
+              "label": "(GMT+07:00) Hanoi",
+              "value": "Hanoi",
+              "position": 110
+            },
+            {
+              "id": 111,
+              "label": "(GMT+07:00) Jakarta",
+              "value": "Jakarta",
+              "position": 111
+            },
+            {
+              "id": 112,
+              "label": "(GMT+07:00) Krasnoyarsk",
+              "value": "Krasnoyarsk",
+              "position": 112
+            },
+            {
+              "id": 113,
+              "label": "(GMT+07:00) Novosibirsk",
+              "value": "Novosibirsk",
+              "position": 113
+            },
+            {
+              "id": 114,
+              "label": "(GMT+08:00) Beijing",
+              "value": "Beijing",
+              "position": 114
+            },
+            {
+              "id": 115,
+              "label": "(GMT+08:00) Chongqing",
+              "value": "Chongqing",
+              "position": 115
+            },
+            {
+              "id": 116,
+              "label": "(GMT+08:00) Hong Kong",
+              "value": "Hong Kong",
+              "position": 116
+            },
+            {
+              "id": 117,
+              "label": "(GMT+08:00) Irkutsk",
+              "value": "Irkutsk",
+              "position": 117
+            },
+            {
+              "id": 118,
+              "label": "(GMT+08:00) Kuala Lumpur",
+              "value": "Kuala Lumpur",
+              "position": 118
+            },
+            {
+              "id": 119,
+              "label": "(GMT+08:00) Perth",
+              "value": "Perth",
+              "position": 119
+            },
+            {
+              "id": 120,
+              "label": "(GMT+08:00) Singapore",
+              "value": "Singapore",
+              "position": 120
+            },
+            {
+              "id": 121,
+              "label": "(GMT+08:00) Taipei",
+              "value": "Taipei",
+              "position": 121
+            },
+            {
+              "id": 122,
+              "label": "(GMT+08:00) Ulaanbaatar",
+              "value": "Ulaanbaatar",
+              "position": 122
+            },
+            {
+              "id": 123,
+              "label": "(GMT+09:00) Osaka",
+              "value": "Osaka",
+              "position": 123
+            },
+            {
+              "id": 124,
+              "label": "(GMT+09:00) Sapporo",
+              "value": "Sapporo",
+              "position": 124
+            },
+            {
+              "id": 125,
+              "label": "(GMT+09:00) Seoul",
+              "value": "Seoul",
+              "position": 125
+            },
+            {
+              "id": 126,
+              "label": "(GMT+09:00) Tokyo",
+              "value": "Tokyo",
+              "position": 126
+            },
+            {
+              "id": 127,
+              "label": "(GMT+09:00) Yakutsk",
+              "value": "Yakutsk",
+              "position": 127
+            },
+            {
+              "id": 128,
+              "label": "(GMT+09:30) Adelaide",
+              "value": "Adelaide",
+              "position": 128
+            },
+            {
+              "id": 129,
+              "label": "(GMT+09:30) Darwin",
+              "value": "Darwin",
+              "position": 129
+            },
+            {
+              "id": 130,
+              "label": "(GMT+10:00) Brisbane",
+              "value": "Brisbane",
+              "position": 130
+            },
+            {
+              "id": 131,
+              "label": "(GMT+10:00) Canberra",
+              "value": "Canberra",
+              "position": 131
+            },
+            {
+              "id": 132,
+              "label": "(GMT+10:00) Guam",
+              "value": "Guam",
+              "position": 132
+            },
+            {
+              "id": 133,
+              "label": "(GMT+10:00) Hobart",
+              "value": "Hobart",
+              "position": 133
+            },
+            {
+              "id": 134,
+              "label": "(GMT+10:00) Melbourne",
+              "value": "Melbourne",
+              "position": 134
+            },
+            {
+              "id": 135,
+              "label": "(GMT+10:00) Port Moresby",
+              "value": "Port Moresby",
+              "position": 135
+            },
+            {
+              "id": 136,
+              "label": "(GMT+10:00) Sydney",
+              "value": "Sydney",
+              "position": 136
+            },
+            {
+              "id": 137,
+              "label": "(GMT+10:00) Vladivostok",
+              "value": "Vladivostok",
+              "position": 137
+            },
+            {
+              "id": 138,
+              "label": "(GMT+11:00) Magadan",
+              "value": "Magadan",
+              "position": 138
+            },
+            {
+              "id": 139,
+              "label": "(GMT+11:00) New Caledonia",
+              "value": "New Caledonia",
+              "position": 139
+            },
+            {
+              "id": 140,
+              "label": "(GMT+11:00) Solomon Is.",
+              "value": "Solomon Is.",
+              "position": 140
+            },
+            {
+              "id": 141,
+              "label": "(GMT+11:00) Srednekolymsk",
+              "value": "Srednekolymsk",
+              "position": 141
+            },
+            {
+              "id": 142,
+              "label": "(GMT+12:00) Auckland",
+              "value": "Auckland",
+              "position": 142
+            },
+            {
+              "id": 143,
+              "label": "(GMT+12:00) Fiji",
+              "value": "Fiji",
+              "position": 143
+            },
+            {
+              "id": 144,
+              "label": "(GMT+12:00) Kamchatka",
+              "value": "Kamchatka",
+              "position": 144
+            },
+            {
+              "id": 145,
+              "label": "(GMT+12:00) Marshall Is.",
+              "value": "Marshall Is.",
+              "position": 145
+            },
+            {
+              "id": 146,
+              "label": "(GMT+12:00) Wellington",
+              "value": "Wellington",
+              "position": 146
+            },
+            {
+              "id": 147,
+              "label": "(GMT+12:45) Chatham Is.",
+              "value": "Chatham Is.",
+              "position": 147
+            },
+            {
+              "id": 148,
+              "label": "(GMT+13:00) Nuku'alofa",
+              "value": "Nuku'alofa",
+              "position": 148
+            },
+            {
+              "id": 149,
+              "label": "(GMT+13:00) Samoa",
+              "value": "Samoa",
+              "position": 149
+            },
+            {
+              "id": 150,
+              "label": "(GMT+13:00) Tokelau Is.",
+              "value": "Tokelau Is.",
+              "position": 150
+            }
+          ],
           "created_at": "2026-08-14T05:51:04Z",
           "updated_at": "2026-08-19T23:50:41Z"
         },
@@ -384,53 +1139,278 @@
           "label_for_customers": "Language",
           "required_for_customers": false,
           "displayed_for_customers": true,
-          "choices": {
-            "ar": "Arabic",
-            "bs": "Bosnian",
-            "bg": "Bulgarian",
-            "ca": "Catalan",
-            "zh-CN": "Chinese",
-            "zh-TW": "Chinese (Traditional)",
-            "hr": "Croatian",
-            "cs": "Czech",
-            "da": "Danish",
-            "nl": "Dutch",
-            "en": "English",
-            "en-GB": "English (UK)",
-            "et": "Estonian",
-            "fil": "Filipino",
-            "fi": "Finnish",
-            "fr": "French",
-            "de": "German",
-            "el": "Greek",
-            "he": "Hebrew",
-            "hi": "Hindi",
-            "hu": "Hungarian",
-            "is": "Icelandic",
-            "id": "Indonesian",
-            "it": "Italian",
-            "ja-JP": "Japanese",
-            "ko": "Korean",
-            "lv-LV": "Latvian",
-            "lt": "Lithuanian",
-            "ms": "Malay",
-            "nb-NO": "Norwegian",
-            "pl": "Polish",
-            "pt-BR": "Portuguese (BR)",
-            "pt-PT": "Portuguese/Portugal",
-            "ro": "Romanian",
-            "ru-RU": "Russian",
-            "sr": "Serbian",
-            "sk": "Slovak",
-            "sl": "Slovenian",
-            "es": "Spanish",
-            "es-LA": "Spanish (Latin America)",
-            "sv-SE": "Swedish",
-            "th": "Thai",
-            "tr": "Turkish",
-            "uk": "Ukrainian",
-            "vi": "Vietnamese"
-          },
+          "choices": [
+            {
+              "id": 0,
+              "label": "Arabic",
+              "value": "ar",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "Bosnian",
+              "value": "bs",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "Bulgarian",
+              "value": "bg",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "Catalan",
+              "value": "ca",
+              "position": 3
+            },
+            {
+              "id": 4,
+              "label": "Chinese",
+              "value": "zh-CN",
+              "position": 4
+            },
+            {
+              "id": 5,
+              "label": "Chinese (Traditional)",
+              "value": "zh-TW",
+              "position": 5
+            },
+            {
+              "id": 6,
+              "label": "Croatian",
+              "value": "hr",
+              "position": 6
+            },
+            {
+              "id": 7,
+              "label": "Czech",
+              "value": "cs",
+              "position": 7
+            },
+            {
+              "id": 8,
+              "label": "Danish",
+              "value": "da",
+              "position": 8
+            },
+            {
+              "id": 9,
+              "label": "Dutch",
+              "value": "nl",
+              "position": 9
+            },
+            {
+              "id": 10,
+              "label": "English",
+              "value": "en",
+              "position": 10
+            },
+            {
+              "id": 11,
+              "label": "English (UK)",
+              "value": "en-GB",
+              "position": 11
+            },
+            {
+              "id": 12,
+              "label": "Estonian",
+              "value": "et",
+              "position": 12
+            },
+            {
+              "id": 13,
+              "label": "Filipino",
+              "value": "fil",
+              "position": 13
+            },
+            {
+              "id": 14,
+              "label": "Finnish",
+              "value": "fi",
+              "position": 14
+            },
+            {
+              "id": 15,
+              "label": "French",
+              "value": "fr",
+              "position": 15
+            },
+            {
+              "id": 16,
+              "label": "German",
+              "value": "de",
+              "position": 16
+            },
+            {
+              "id": 17,
+              "label": "Greek",
+              "value": "el",
+              "position": 17
+            },
+            {
+              "id": 18,
+              "label": "Hebrew",
+              "value": "he",
+              "position": 18
+            },
+            {
+              "id": 19,
+              "label": "Hindi",
+              "value": "hi",
+              "position": 19
+            },
+            {
+              "id": 20,
+              "label": "Hungarian",
+              "value": "hu",
+              "position": 20
+            },
+            {
+              "id": 21,
+              "label": "Icelandic",
+              "value": "is",
+              "position": 21
+            },
+            {
+              "id": 22,
+              "label": "Indonesian",
+              "value": "id",
+              "position": 22
+            },
+            {
+              "id": 23,
+              "label": "Italian",
+              "value": "it",
+              "position": 23
+            },
+            {
+              "id": 24,
+              "label": "Japanese",
+              "value": "ja-JP",
+              "position": 24
+            },
+            {
+              "id": 25,
+              "label": "Korean",
+              "value": "ko",
+              "position": 25
+            },
+            {
+              "id": 26,
+              "label": "Latvian",
+              "value": "lv-LV",
+              "position": 26
+            },
+            {
+              "id": 27,
+              "label": "Lithuanian",
+              "value": "lt",
+              "position": 27
+            },
+            {
+              "id": 28,
+              "label": "Malay",
+              "value": "ms",
+              "position": 28
+            },
+            {
+              "id": 29,
+              "label": "Norwegian",
+              "value": "nb-NO",
+              "position": 29
+            },
+            {
+              "id": 30,
+              "label": "Polish",
+              "value": "pl",
+              "position": 30
+            },
+            {
+              "id": 31,
+              "label": "Portuguese (BR)",
+              "value": "pt-BR",
+              "position": 31
+            },
+            {
+              "id": 32,
+              "label": "Portuguese/Portugal",
+              "value": "pt-PT",
+              "position": 32
+            },
+            {
+              "id": 33,
+              "label": "Romanian",
+              "value": "ro",
+              "position": 33
+            },
+            {
+              "id": 34,
+              "label": "Russian",
+              "value": "ru-RU",
+              "position": 34
+            },
+            {
+              "id": 35,
+              "label": "Serbian",
+              "value": "sr",
+              "position": 35
+            },
+            {
+              "id": 36,
+              "label": "Slovak",
+              "value": "sk",
+              "position": 36
+            },
+            {
+              "id": 37,
+              "label": "Slovenian",
+              "value": "sl",
+              "position": 37
+            },
+            {
+              "id": 38,
+              "label": "Spanish",
+              "value": "es",
+              "position": 38
+            },
+            {
+              "id": 39,
+              "label": "Spanish (Latin America)",
+              "value": "es-LA",
+              "position": 39
+            },
+            {
+              "id": 40,
+              "label": "Swedish",
+              "value": "sv-SE",
+              "position": 40
+            },
+            {
+              "id": 41,
+              "label": "Thai",
+              "value": "th",
+              "position": 41
+            },
+            {
+              "id": 42,
+              "label": "Turkish",
+              "value": "tr",
+              "position": 42
+            },
+            {
+              "id": 43,
+              "label": "Ukrainian",
+              "value": "uk",
+              "position": 43
+            },
+            {
+              "id": 44,
+              "label": "Vietnamese",
+              "value": "vi",
+              "position": 44
+            }
+          ],
           "created_at": "2026-08-14T05:51:04Z",
           "updated_at": "2026-08-19T23:50:41Z"
         },
@@ -512,10 +1492,30 @@
           "required_for_customers": false,
           "displayed_for_customers": true,
           "choices": [
-            "whatsapp",
-            "facebook",
-            "instagram",
-            "x"
+            {
+              "id": 0,
+              "label": "whatsapp",
+              "value": "whatsapp",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "facebook",
+              "value": "facebook",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "instagram",
+              "value": "instagram",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "x",
+              "value": "x",
+              "position": 3
+            }
           ],
           "created_at": "2026-08-14T05:51:04Z",
           "updated_at": "2026-08-19T23:50:41Z"

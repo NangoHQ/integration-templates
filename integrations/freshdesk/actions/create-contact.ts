@@ -11,13 +11,14 @@ const InputSchema = z
         name: z.string().describe('Full name of the contact. Example: "Jane Doe"'),
         email: z
             .string()
+            .trim()
             .min(1)
             .optional()
             .describe('Primary email address of the contact. One of email, phone, mobile, twitter_id, or unique_external_id is required.'),
-        phone: z.string().min(1).optional().describe('Telephone number of the contact.'),
-        mobile: z.string().min(1).optional().describe('Mobile number of the contact.'),
-        twitter_id: z.string().min(1).optional().describe('Twitter handle of the contact.'),
-        unique_external_id: z.string().min(1).optional().describe('External ID of the contact.'),
+        phone: z.string().trim().min(1).optional().describe('Telephone number of the contact.'),
+        mobile: z.string().trim().min(1).optional().describe('Mobile number of the contact.'),
+        twitter_id: z.string().trim().min(1).optional().describe('Twitter handle of the contact.'),
+        unique_external_id: z.string().trim().min(1).optional().describe('External ID of the contact.'),
         other_emails: z.array(z.string()).optional().describe('Additional email addresses associated with the contact.'),
         company_id: z.number().optional().describe('ID of the primary company to which this contact belongs.'),
         view_all_tickets: z.boolean().optional().describe('Set to true if the contact can see all tickets associated with the primary company.'),
@@ -53,8 +54,10 @@ const OtherCompanyOutputSchema = z.object({
 
 const ProviderContactSchema = z.object({
     // Plan-gated fields (e.g. Multiple Companies, Multiple Language/Time Zone features) may be
-    // entirely absent from the response rather than null, so every field but id/name is nullish.
-    active: z.boolean().nullable().optional(),
+    // entirely absent from the response rather than null, so those fields are nullish below.
+    // `active` is a core field Freshdesk always returns and is kept required so a malformed
+    // response fails loudly instead of returning an incomplete contact.
+    active: z.boolean(),
     address: z.string().nullable().optional(),
     company_id: z.number().nullable().optional(),
     view_all_tickets: z.boolean().nullable().optional(),
@@ -100,7 +103,7 @@ const OutputSchema = z
         language: z.string().optional().describe('Language of the contact.'),
         tags: z.array(z.string()).optional().describe('Tags associated with the contact.'),
         time_zone: z.string().optional().describe('Time zone of the contact.'),
-        active: z.boolean().optional().describe('Whether the contact has been verified.'),
+        active: z.boolean().describe('Whether the contact has been verified.'),
         deleted: z.boolean().optional().describe('Whether the contact has been deleted.'),
         contact_type: z.string().optional().describe('Type of the contact (Visitor / Contact).'),
         created_at: z.string().describe('Contact creation timestamp in UTC. Example: "2015-08-28T09:08:16Z"'),
@@ -211,7 +214,7 @@ const action = createAction({
             language: providerContact.language ?? undefined,
             tags: providerContact.tags ?? undefined,
             time_zone: providerContact.time_zone ?? undefined,
-            active: providerContact.active ?? undefined,
+            active: providerContact.active,
             deleted: providerContact.deleted ?? undefined,
             contact_type: providerContact.contact_type ?? undefined,
             created_at: providerContact.created_at,

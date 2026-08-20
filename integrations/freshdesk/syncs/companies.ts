@@ -2,8 +2,11 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const CheckpointSchema = z.object({
-    updated_after: z.string().describe('ISO 8601 timestamp of the last processed company updated_at'),
-    page: z.number().describe('Page number to resume pagination within the same updated_since window')
+    updated_after: z.string().describe('ISO 8601 timestamp boundary for the updated_since filter, fixed for the entire pass'),
+    page: z.number().describe('Page number to resume pagination within the same updated_since window'),
+    high_water_mark: z
+        .string()
+        .describe('Running max updated_at seen so far this pass, accumulated across resumes so a resume never loses an earlier page contribution')
 });
 
 const CompanySchema = z
@@ -52,7 +55,9 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const updatedAfter = checkpoint?.updated_after || undefined;
         let page: number | undefined = checkpoint?.page ?? 1;
-        let lastProcessedUpdatedAt: string | undefined;
+        // Carry the running high-water mark forward across resumes so a page processed in an
+        // earlier, interrupted execution isn't lost when this pass finally completes.
+        let highWaterMark: string | undefined = checkpoint?.high_water_mark || undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_companies
@@ -102,33 +107,43 @@ const sync = createSync({
             });
 
             if (companies.length === 0) {
-                if (page === undefined && lastProcessedUpdatedAt) {
+                if (page === undefined) {
+                    // Nothing matched this pass; preserve the existing filter boundary rather than
+                    // resetting it, so a future run doesn't refetch the entire company list.
                     await nango.saveCheckpoint({
-                        updated_after: lastProcessedUpdatedAt,
-                        page: 1
+                        updated_after: highWaterMark ?? updatedAfter ?? '',
+                        page: 1,
+                        high_water_mark: ''
                     });
                 }
                 continue;
             }
 
             await nango.batchSave(companies, 'Company');
-            if (pageMaxUpdatedAt && (lastProcessedUpdatedAt === undefined || pageMaxUpdatedAt > lastProcessedUpdatedAt)) {
-                lastProcessedUpdatedAt = pageMaxUpdatedAt;
+            if (pageMaxUpdatedAt && (highWaterMark === undefined || pageMaxUpdatedAt > highWaterMark)) {
+                highWaterMark = pageMaxUpdatedAt;
             }
 
             if (page !== undefined) {
                 // Preserve the window boundary that was active when this pass started so that
                 // resuming at a later page re-requests the same filtered set instead of shifting it.
+                // Persist the running high-water mark too, so a later resume doesn't lose this
+                // page's contribution to the max when the pass eventually finishes.
                 await nango.saveCheckpoint({
                     updated_after: updatedAfter ?? '',
-                    page
+                    page,
+                    high_water_mark: highWaterMark ?? ''
                 });
                 continue;
             }
 
+            // Full pass complete: advance the filter window using the high-water mark accumulated
+            // across every page of this pass (including pages from earlier, interrupted runs).
+            // Fall back to the existing boundary (not an empty reset) if nothing was ever seen.
             await nango.saveCheckpoint({
-                updated_after: lastProcessedUpdatedAt ?? '',
-                page: 1
+                updated_after: highWaterMark ?? updatedAfter ?? '',
+                page: 1,
+                high_water_mark: ''
             });
         }
     }

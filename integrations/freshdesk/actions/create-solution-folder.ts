@@ -8,9 +8,11 @@ const InputSchema = z
         description: z.string().optional().describe('Description of the solution folder.'),
         parent_folder_id: z.number().optional().describe('ID of the parent folder to create a sub-folder.'),
         visibility: z
-            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)])
+            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5), z.literal(6), z.literal(7)])
             .optional()
-            .describe('Accessibility of this folder. 1 for all users, 2 for logged-in users, 3 for agents only, 4 for selected companies. Defaults to 1.'),
+            .describe(
+                'Accessibility of this folder. 1=All Users, 2=Logged In Users, 3=Agents, 4=Selected Companies, 5=Bots, 6=Selected Contact Segments, 7=Selected Company Segments. Defaults to 1.'
+            ),
         company_ids: z.array(z.number()).optional().describe('IDs of the companies to whom this solution folder is visible.'),
         contact_segment_ids: z.array(z.number()).optional().describe('IDs of the contact segments to whom this solution folder is visible.'),
         company_segment_ids: z.array(z.number()).optional().describe('IDs of the company segments to whom this solution folder is visible.')
@@ -39,9 +41,9 @@ const ProviderFolderSchema = z.object({
     sub_folders_count: z.number(),
     visibility: z.number(),
     category_id: z.number(),
-    company_ids: z.array(z.number()).optional(),
-    contact_segment_ids: z.array(z.number()).optional(),
-    company_segment_ids: z.array(z.number()).optional(),
+    company_ids: z.array(z.number()).nullable().optional(),
+    contact_segment_ids: z.array(z.number()).nullable().optional(),
+    company_segment_ids: z.array(z.number()).nullable().optional(),
     created_at: z.string(),
     updated_at: z.string()
 });

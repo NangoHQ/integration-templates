@@ -83,15 +83,22 @@ const sync = createSync({
         const iterator = nango.paginate(proxyConfig);
 
         // Fetch and validate the first page before opening the delete-tracking window, so a
-        // transient empty or invalid response can't wipe out previously-synced records.
+        // transient empty or invalid response can't wipe out previously-synced records. An empty
+        // first page is inconclusive (it may be a transient provider glitch rather than a genuine
+        // zero-record account), so skip this run entirely rather than opening a tracking window
+        // that would delete every previously-synced record; the next scheduled run retries.
         const first = await iterator.next();
-        const firstTimeEntries = first.done ? [] : mapTimeEntries(first.value);
+        if (first.done) {
+            return;
+        }
+        const firstTimeEntries = mapTimeEntries(first.value);
+        if (firstTimeEntries.length === 0) {
+            return;
+        }
 
         await nango.trackDeletesStart('TimeEntry');
 
-        if (firstTimeEntries.length > 0) {
-            await nango.batchSave(firstTimeEntries, 'TimeEntry');
-        }
+        await nango.batchSave(firstTimeEntries, 'TimeEntry');
 
         let next = await iterator.next();
         while (!next.done) {

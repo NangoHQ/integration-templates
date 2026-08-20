@@ -1,6 +1,20 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const ProviderChoiceObjectSchema = z
+    .object({
+        id: z.number().optional(),
+        label: z.string(),
+        value: z.string(),
+        position: z.number().optional()
+    })
+    .passthrough();
+
+// Freshdesk returns choices as a map (e.g. time zones, where the key is the internal value and
+// the map value is the display label), a string array (e.g. social handles), or an array of
+// choice objects (custom dropdown fields), depending on field type.
+const ProviderChoicesSchema = z.union([z.array(ProviderChoiceObjectSchema), z.array(z.string()), z.record(z.string(), z.string())]);
+
 const ProviderContactFieldSchema = z.object({
     id: z.number(),
     name: z.string().optional(),
@@ -18,12 +32,33 @@ const ProviderContactFieldSchema = z.object({
     label_for_customers: z.string().optional(),
     required_for_customers: z.boolean().optional(),
     displayed_for_customers: z.boolean().optional(),
-    // Freshdesk returns choices as a map (e.g. time zones), a string array (e.g. social
-    // handles), or an array of choice objects (custom dropdown fields) depending on field type.
-    choices: z.unknown().optional(),
+    choices: ProviderChoicesSchema.optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
 });
+
+const ChoiceSchema = z.object({
+    id: z.number().describe('Unique identifier of the dropdown choice.'),
+    label: z.string().describe('Display label of the dropdown choice.'),
+    value: z.string().describe('Internal value of the dropdown choice.'),
+    position: z.number().describe('Display order position of the dropdown choice.')
+});
+
+function normalizeChoices(choices: z.infer<typeof ProviderChoicesSchema> | undefined): z.infer<typeof ChoiceSchema>[] | undefined {
+    if (choices == null) {
+        return undefined;
+    }
+    if (Array.isArray(choices)) {
+        return choices.map((choice, index) =>
+            typeof choice === 'string'
+                ? { id: index, label: choice, value: choice, position: index }
+                : { id: choice.id ?? index, label: choice.label, value: choice.value, position: choice.position ?? index }
+        );
+    }
+    // The map's key is the internal value used when setting the field, and its value is the
+    // human-readable label (e.g. { "International Date Line West": "(GMT-12:00) International..." }).
+    return Object.entries(choices).map(([value, label], index) => ({ id: index, label, value, position: index }));
+}
 
 const ContactFieldSchema = z
     .object({
@@ -43,7 +78,7 @@ const ContactFieldSchema = z
         label_for_customers: z.string().optional().describe('Display label shown to customers'),
         required_for_customers: z.boolean().optional().describe('Whether the field is mandatory for customers'),
         displayed_for_customers: z.boolean().optional().describe('Whether the field is visible to customers'),
-        choices: z.unknown().optional().describe('Available choices for dropdown-type fields. Format varies by field type.'),
+        choices: z.array(ChoiceSchema).optional().describe('Available choices for dropdown-type fields.'),
         created_at: z.string().optional().describe('UTC timestamp when the field was created'),
         updated_at: z.string().optional().describe('UTC timestamp when the field was last updated')
     })
@@ -73,7 +108,7 @@ function mapContactFields(pageResults: unknown[]): z.infer<typeof ContactFieldSc
             ...(field.label_for_customers != null && { label_for_customers: field.label_for_customers }),
             ...(field.required_for_customers != null && { required_for_customers: field.required_for_customers }),
             ...(field.displayed_for_customers != null && { displayed_for_customers: field.displayed_for_customers }),
-            ...(field.choices != null && { choices: field.choices }),
+            ...(normalizeChoices(field.choices) != null && { choices: normalizeChoices(field.choices) }),
             ...(field.created_at != null && { created_at: field.created_at }),
             ...(field.updated_at != null && { updated_at: field.updated_at })
         };
@@ -109,15 +144,22 @@ const sync = createSync({
         const iterator = nango.paginate(proxyConfig);
 
         // Fetch and validate the first page before opening the delete-tracking window, so a
-        // transient empty or invalid response can't wipe out previously-synced records.
+        // transient empty or invalid response can't wipe out previously-synced records. An empty
+        // first page is inconclusive (it may be a transient provider glitch rather than a genuine
+        // zero-record account), so skip this run entirely rather than opening a tracking window
+        // that would delete every previously-synced record; the next scheduled run retries.
         const first = await iterator.next();
-        const firstFields = first.done ? [] : mapContactFields(first.value);
+        if (first.done) {
+            return;
+        }
+        const firstFields = mapContactFields(first.value);
+        if (firstFields.length === 0) {
+            return;
+        }
 
         await nango.trackDeletesStart('ContactField');
 
-        if (firstFields.length > 0) {
-            await nango.batchSave(firstFields, 'ContactField');
-        }
+        await nango.batchSave(firstFields, 'ContactField');
 
         let next = await iterator.next();
         while (!next.done) {
