@@ -3,24 +3,24 @@
 Changes backed by a successful real dryrun --save on a working connection.
 
 - Branch: `marcin/NAN-6669/backfill-checkpoints--verified`
-- Commit reviewed: `f778f244e0be798dd8fa553b79a030774ea44b60`
+- Commit reviewed: `3eb63ce10f18f4bc591b2d5657ffddeedc16de97`
 - Original combined change: `6b121377688ad6754df71e5b7d44435516c68039`
 - Comparison base: `78a950c69fab9ac98dc3546b4f1e092cd57ee6e5`
-- Generated: 2026-08-20T08:16:29.069Z
+- Generated: 2026-08-20T10:46:36.440Z
 
 ## Executive summary
 
 | Measure | Count |
 |---|---:|
 | Targets assigned to this branch | 200 |
-| Real checkpoints added | 147 |
-| No-checkpoint API exceptions | 53 |
-| Changed sync source files | 147 |
+| Real checkpoints added | 148 |
+| No-checkpoint API exceptions | 52 |
+| Changed sync source files | 148 |
 | Changed snapshot JSON files | 195 |
-| Changed/generated test TypeScript files | 35 |
+| Changed/generated test TypeScript files | 36 |
 | Snapshots manually sanitized | 16 |
 | Successful real dryrun saves | 200 |
-| Files changed before adding this report | 381 |
+| Files changed before adding this report | 383 |
 
 ### Verification and artifact policy
 
@@ -80,7 +80,6 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `acuity-scheduling/products` | `/products` | Query: `deleted`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/get-products) |
 | `algolia/api-keys` | `/1/keys` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://www.algolia.com/doc/rest-api/search/list-api-keys) |
 | `amplitude/annotation-categories` | `/api/3/annotation-categories` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/chart-annotations) |
-| `amplitude/annotations` | `/api/3/annotations` | Query: `category`, `chart_id`, `start`, `end`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/chart-annotations#get-all-annotations) |
 | `amplitude/cohorts` | `/api/3/cohorts` | Query: `includeSyncInfo`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/behavioral-cohorts) |
 | `amplitude/event-categories` | `/api/2/taxonomy/category` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/taxonomy) |
 | `amplitude/event-properties` | `/api/2/taxonomy/event-property` | Body: `event_type` (optional). | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/taxonomy) |
@@ -131,7 +130,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `aircall` | 6 | 6 | 0 | 6 | 6 | 0 |
 | `airtable` | 3 | 3 | 0 | 3 | 3 | 0 |
 | `algolia` | 1 | 0 | 1 | 0 | 1 | 0 |
-| `amplitude` | 8 | 0 | 8 | 0 | 8 | 0 |
+| `amplitude` | 8 | 1 | 7 | 1 | 8 | 0 |
 | `apollo` | 5 | 5 | 0 | 5 | 5 | 0 |
 | `asana` | 1 | 1 | 0 | 1 | 1 | 0 |
 | `ashby` | 2 | 2 | 0 | 2 | 2 | 0 |
@@ -198,7 +197,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `airtable/views` | Added a real checkpoint using `offset`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 1c5f99e5-bb6c-44b8-a992-20f6684ffaf6 (dev) | Manually sanitized after real save: After a successful live save, the captured Set-Cookie response header was replaced with a redacted placeholder so session cookies were not committed. | `integrations/airtable/syncs/views.ts`<br>`integrations/airtable/tests/views.test.json` |
 | `algolia/api-keys` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 799146b0-1507-4928-8868-6ff1e7c0aeda (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/algolia/tests/api-keys.test.json` |
 | `amplitude/annotation-categories` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotation-categories.test.json` |
-| `amplitude/annotations` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotations.test.json` |
+| `amplitude/annotations` | Converted to a partial sync: the first execution seeds all current matches, then subsequent executions resume from `next_window_start` in one-week `start`/`end` windows. Progress is saved after every window, including empty windows; delete tracking is intentionally disabled because each resumed execution reads only a partial time range. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotations.test.json`<br>`integrations/amplitude/syncs/annotations.ts`<br>`integrations/amplitude/tests/annotations.checkpoint.test.ts` |
 | `amplitude/cohorts` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/cohorts.test.json` |
 | `amplitude/event-categories` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/event-categories.test.json` |
 | `amplitude/event-properties` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/event-properties.test.json` |
@@ -213,7 +212,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `asana/workspaces` | Added a real checkpoint using `offset`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 7e96a7f8-8db8-4fd7-b0b6-365d8766c579 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/asana/syncs/workspaces.ts`<br>`integrations/asana/tests/workspaces.test.json` |
 | `ashby/job-postings` | Added a real checkpoint using `cursor`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 8147dbcb-5350-49c8-8664-9bbfcb19fa14 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/ashby/syncs/job-postings.ts`<br>`integrations/ashby/tests/job-postings.test.json` |
 | `ashby/sources` | Added a real checkpoint using `cursor`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 8147dbcb-5350-49c8-8664-9bbfcb19fa14 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/ashby/syncs/sources.ts`<br>`integrations/ashby/tests/sources.test.json` |
-| `box/files` | Added a real checkpoint using `folderQueue`, `currentFolderId`, `folderMarker`, `fileQueue`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3aaf1702-c0ec-4700-9bbb-c135ff5167bc (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/box/syncs/files.ts`<br>`integrations/box/tests/box-files.test.ts`<br>`integrations/box/tests/files.test.json`<br>`integrations/box/tests/files.pagination.test.ts` |
+| `box/files` | Added a real checkpoint using `folderQueue`, `currentFolderId`, `folderMarker`, `fileQueue`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3aaf1702-c0ec-4700-9bbb-c135ff5167bc (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/box/syncs/files.ts`<br>`integrations/box/tests/box-files.test.ts`<br>`integrations/box/tests/files.test.json`<br>`integrations/box/tests/files.pagination.test.ts`<br>`integrations/box/tests/files.pagination.test.ts` |
 | `clickup/comments` | Added a real checkpoint using `space_id`, `folder_id`, `list_id`, `list_comment_cursor`, `task_page`, `task_id`, `task_comment_cursor`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: e5f5d605-fef0-4cc9-b782-44537101dbf4 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/clickup/syncs/comments.ts`<br>`integrations/clickup/tests/comments.test.json` |
 | `clickup/folders` | Added a real checkpoint using `spaceIndex`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: e5f5d605-fef0-4cc9-b782-44537101dbf4 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/clickup/syncs/folders.ts`<br>`integrations/clickup/tests/folders.test.json` |
 | `clickup/goals` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: e5f5d605-fef0-4cc9-b782-44537101dbf4 (dev) | Manually sanitized after real save: GitHub secret review found live editor_token values. Only those token fields were replaced with deterministic redacted placeholders. | `integrations/clickup/tests/goals.test.json` |
