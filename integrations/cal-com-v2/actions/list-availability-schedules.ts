@@ -50,14 +50,25 @@ const action = createAction({
     scopes: ['SCHEDULE_READ'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/schedules/get-all-schedules
-            endpoint: '/schedules',
-            headers: {
-                'cal-api-version': '2024-06-11'
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/schedules/get-all-schedules
+                endpoint: '/schedules',
+                headers: {
+                    'cal-api-version': '2024-06-11'
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const ProviderResponseSchema = z.object({
             status: z.enum(['success', 'error']),

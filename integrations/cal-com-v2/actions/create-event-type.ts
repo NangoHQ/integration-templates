@@ -515,69 +515,75 @@ const action = createAction({
     scopes: ['EVENT_TYPE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://cal.com/docs/api-reference/v2/event-types/create-an-event-type
-        const response = await nango.post({
-            endpoint: '/event-types',
-            headers: {
-                'cal-api-version': '2024-06-14'
-            },
-            data: {
-                lengthInMinutes: input.lengthInMinutes,
-                title: input.title,
-                slug: input.slug,
-                ...(input.lengthInMinutesOptions !== undefined && { lengthInMinutesOptions: input.lengthInMinutesOptions }),
-                ...(input.description !== undefined && { description: input.description }),
-                ...(input.locations !== undefined && { locations: input.locations }),
-                ...(input.bookingFields !== undefined && { bookingFields: input.bookingFields }),
-                ...(input.disableGuests !== undefined && { disableGuests: input.disableGuests }),
-                ...(input.slotInterval !== undefined && { slotInterval: input.slotInterval }),
-                ...(input.minimumBookingNotice !== undefined && { minimumBookingNotice: input.minimumBookingNotice }),
-                ...(input.beforeEventBuffer !== undefined && { beforeEventBuffer: input.beforeEventBuffer }),
-                ...(input.afterEventBuffer !== undefined && { afterEventBuffer: input.afterEventBuffer }),
-                ...(input.scheduleId !== undefined && { scheduleId: input.scheduleId }),
-                ...(input.bookingLimitsCount !== undefined && { bookingLimitsCount: input.bookingLimitsCount }),
-                ...(input.bookerActiveBookingsLimit !== undefined && { bookerActiveBookingsLimit: input.bookerActiveBookingsLimit }),
-                ...(input.onlyShowFirstAvailableSlot !== undefined && { onlyShowFirstAvailableSlot: input.onlyShowFirstAvailableSlot }),
-                ...(input.bookingLimitsDuration !== undefined && { bookingLimitsDuration: input.bookingLimitsDuration }),
-                ...(input.bookingWindow !== undefined && { bookingWindow: input.bookingWindow }),
-                ...(input.offsetStart !== undefined && { offsetStart: input.offsetStart }),
-                ...(input.bookerLayouts !== undefined && { bookerLayouts: input.bookerLayouts }),
-                ...(input.confirmationPolicy !== undefined && { confirmationPolicy: input.confirmationPolicy }),
-                ...(input.recurrence !== undefined && { recurrence: input.recurrence }),
-                ...(input.requiresBookerEmailVerification !== undefined && { requiresBookerEmailVerification: input.requiresBookerEmailVerification }),
-                ...(input.skipAttendeeEmailDeliverabilityCheck !== undefined && {
-                    skipAttendeeEmailDeliverabilityCheck: input.skipAttendeeEmailDeliverabilityCheck
-                }),
-                ...(input.hideCalendarNotes !== undefined && { hideCalendarNotes: input.hideCalendarNotes }),
-                ...(input.lockTimeZoneToggleOnBookingPage !== undefined && { lockTimeZoneToggleOnBookingPage: input.lockTimeZoneToggleOnBookingPage }),
-                ...(input.color !== undefined && { color: input.color }),
-                ...(input.seats !== undefined && { seats: input.seats }),
-                ...(input.customName !== undefined && { customName: input.customName }),
-                ...(input.destinationCalendar !== undefined && { destinationCalendar: input.destinationCalendar }),
-                ...(input.useDestinationCalendarEmail !== undefined && { useDestinationCalendarEmail: input.useDestinationCalendarEmail }),
-                ...(input.hideCalendarEventDetails !== undefined && { hideCalendarEventDetails: input.hideCalendarEventDetails }),
-                ...(input.successRedirectUrl !== undefined && { successRedirectUrl: input.successRedirectUrl }),
-                ...(input.hideOrganizerEmail !== undefined && { hideOrganizerEmail: input.hideOrganizerEmail }),
-                ...(input.calVideoSettings !== undefined && { calVideoSettings: input.calVideoSettings }),
-                ...(input.hidden !== undefined && { hidden: input.hidden }),
-                ...(input.bookingRequiresAuthentication !== undefined && { bookingRequiresAuthentication: input.bookingRequiresAuthentication }),
-                ...(input.disableCancelling !== undefined && { disableCancelling: input.disableCancelling }),
-                ...(input.disableRescheduling !== undefined && { disableRescheduling: input.disableRescheduling }),
-                ...(input.interfaceLanguage !== undefined && { interfaceLanguage: input.interfaceLanguage }),
-                ...(input.allowReschedulingPastBookings !== undefined && { allowReschedulingPastBookings: input.allowReschedulingPastBookings }),
-                ...(input.allowReschedulingCancelledBookings !== undefined && { allowReschedulingCancelledBookings: input.allowReschedulingCancelledBookings }),
-                ...(input.showOptimizedSlots !== undefined && { showOptimizedSlots: input.showOptimizedSlots }),
-                ...(input.privateNoteEnabled !== undefined && { privateNoteEnabled: input.privateNoteEnabled }),
-                ...(input.privateNoteMode !== undefined && { privateNoteMode: input.privateNoteMode }),
-                ...(input.privateNoteTemplate !== undefined && { privateNoteTemplate: input.privateNoteTemplate })
-            },
-            retries: 1
-        });
-
-        if (response.status < 200 || response.status >= 300) {
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            // https://cal.com/docs/api-reference/v2/event-types/create-an-event-type
+            response = await nango.post({
+                endpoint: '/event-types',
+                headers: {
+                    'cal-api-version': '2024-06-14'
+                },
+                data: {
+                    lengthInMinutes: input.lengthInMinutes,
+                    title: input.title,
+                    slug: input.slug,
+                    ...(input.lengthInMinutesOptions !== undefined && { lengthInMinutesOptions: input.lengthInMinutesOptions }),
+                    ...(input.description !== undefined && { description: input.description }),
+                    ...(input.locations !== undefined && { locations: input.locations }),
+                    ...(input.bookingFields !== undefined && { bookingFields: input.bookingFields }),
+                    ...(input.disableGuests !== undefined && { disableGuests: input.disableGuests }),
+                    ...(input.slotInterval !== undefined && { slotInterval: input.slotInterval }),
+                    ...(input.minimumBookingNotice !== undefined && { minimumBookingNotice: input.minimumBookingNotice }),
+                    ...(input.beforeEventBuffer !== undefined && { beforeEventBuffer: input.beforeEventBuffer }),
+                    ...(input.afterEventBuffer !== undefined && { afterEventBuffer: input.afterEventBuffer }),
+                    ...(input.scheduleId !== undefined && { scheduleId: input.scheduleId }),
+                    ...(input.bookingLimitsCount !== undefined && { bookingLimitsCount: input.bookingLimitsCount }),
+                    ...(input.bookerActiveBookingsLimit !== undefined && { bookerActiveBookingsLimit: input.bookerActiveBookingsLimit }),
+                    ...(input.onlyShowFirstAvailableSlot !== undefined && { onlyShowFirstAvailableSlot: input.onlyShowFirstAvailableSlot }),
+                    ...(input.bookingLimitsDuration !== undefined && { bookingLimitsDuration: input.bookingLimitsDuration }),
+                    ...(input.bookingWindow !== undefined && { bookingWindow: input.bookingWindow }),
+                    ...(input.offsetStart !== undefined && { offsetStart: input.offsetStart }),
+                    ...(input.bookerLayouts !== undefined && { bookerLayouts: input.bookerLayouts }),
+                    ...(input.confirmationPolicy !== undefined && { confirmationPolicy: input.confirmationPolicy }),
+                    ...(input.recurrence !== undefined && { recurrence: input.recurrence }),
+                    ...(input.requiresBookerEmailVerification !== undefined && { requiresBookerEmailVerification: input.requiresBookerEmailVerification }),
+                    ...(input.skipAttendeeEmailDeliverabilityCheck !== undefined && {
+                        skipAttendeeEmailDeliverabilityCheck: input.skipAttendeeEmailDeliverabilityCheck
+                    }),
+                    ...(input.hideCalendarNotes !== undefined && { hideCalendarNotes: input.hideCalendarNotes }),
+                    ...(input.lockTimeZoneToggleOnBookingPage !== undefined && { lockTimeZoneToggleOnBookingPage: input.lockTimeZoneToggleOnBookingPage }),
+                    ...(input.color !== undefined && { color: input.color }),
+                    ...(input.seats !== undefined && { seats: input.seats }),
+                    ...(input.customName !== undefined && { customName: input.customName }),
+                    ...(input.destinationCalendar !== undefined && { destinationCalendar: input.destinationCalendar }),
+                    ...(input.useDestinationCalendarEmail !== undefined && { useDestinationCalendarEmail: input.useDestinationCalendarEmail }),
+                    ...(input.hideCalendarEventDetails !== undefined && { hideCalendarEventDetails: input.hideCalendarEventDetails }),
+                    ...(input.successRedirectUrl !== undefined && { successRedirectUrl: input.successRedirectUrl }),
+                    ...(input.hideOrganizerEmail !== undefined && { hideOrganizerEmail: input.hideOrganizerEmail }),
+                    ...(input.calVideoSettings !== undefined && { calVideoSettings: input.calVideoSettings }),
+                    ...(input.hidden !== undefined && { hidden: input.hidden }),
+                    ...(input.bookingRequiresAuthentication !== undefined && { bookingRequiresAuthentication: input.bookingRequiresAuthentication }),
+                    ...(input.disableCancelling !== undefined && { disableCancelling: input.disableCancelling }),
+                    ...(input.disableRescheduling !== undefined && { disableRescheduling: input.disableRescheduling }),
+                    ...(input.interfaceLanguage !== undefined && { interfaceLanguage: input.interfaceLanguage }),
+                    ...(input.allowReschedulingPastBookings !== undefined && { allowReschedulingPastBookings: input.allowReschedulingPastBookings }),
+                    ...(input.allowReschedulingCancelledBookings !== undefined && {
+                        allowReschedulingCancelledBookings: input.allowReschedulingCancelledBookings
+                    }),
+                    ...(input.showOptimizedSlots !== undefined && { showOptimizedSlots: input.showOptimizedSlots }),
+                    ...(input.privateNoteEnabled !== undefined && { privateNoteEnabled: input.privateNoteEnabled }),
+                    ...(input.privateNoteMode !== undefined && { privateNoteMode: input.privateNoteMode }),
+                    ...(input.privateNoteTemplate !== undefined && { privateNoteTemplate: input.privateNoteTemplate })
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `Failed to create event type: ${response.status}`
+                message: 'Failed to create event type.',
+                details: err instanceof Error ? err.message : String(err)
             });
         }
 

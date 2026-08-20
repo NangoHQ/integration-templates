@@ -86,9 +86,9 @@ const sync = createSync({
             inProgress = parsedCheckpoint.data.inProgress;
         }
 
-        if (!inProgress) {
-            await nango.trackDeletesStart('Team');
-        }
+        // Defer trackDeletesStart until the first page is fetched and validated, so a
+        // failing/malformed initial response never opens a tracking window at all.
+        let deletesStarted = inProgress;
 
         const take = 100;
         let hasMore = true;
@@ -120,6 +120,11 @@ const sync = createSync({
             const parsedPage = z.array(ProviderTeamSchema).safeParse(envelope.data.data);
             if (!parsedPage.success) {
                 throw new Error(`Failed to parse team: ${parsedPage.error.message}`);
+            }
+
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Team');
+                deletesStarted = true;
             }
 
             const teams = parsedPage.data.map((team) => ({

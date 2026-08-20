@@ -137,10 +137,9 @@ const sync = createSync({
 
         let cursor = checkpoint.data.cursor;
         const inProgress = checkpoint.data.inProgress;
-
-        if (!inProgress) {
-            await nango.trackDeletesStart('Event');
-        }
+        // Defer trackDeletesStart until the first page is fetched and validated, so a
+        // failing/malformed initial response never opens a tracking window at all.
+        let deletesStarted = inProgress;
 
         let hasMore = true;
 
@@ -175,6 +174,11 @@ const sync = createSync({
             const page = z.array(ProviderBookingSchema).safeParse(envelope.data.data);
             if (!page.success) {
                 throw new Error(`Failed to parse booking: ${page.error.message}`);
+            }
+
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Event');
+                deletesStarted = true;
             }
 
             const events = page.data.map((record) => ({

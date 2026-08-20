@@ -60,10 +60,9 @@ const sync = createSync({
         // changed-since filter or updated timestamp for incremental syncs.
         let skip = checkpoint.data.skip;
         const inProgress = checkpoint.data.inProgress;
-
-        if (!inProgress) {
-            await nango.trackDeletesStart('Webhook');
-        }
+        // Defer trackDeletesStart until the first page is fetched and validated, so a
+        // failing/malformed initial response never opens a tracking window at all.
+        let deletesStarted = inProgress;
 
         const take = 100;
         let hasMore = true;
@@ -95,6 +94,11 @@ const sync = createSync({
             const items = z.array(ProviderWebhookSchema).safeParse(envelope.data.data);
             if (!items.success) {
                 throw new Error(`Failed to parse webhooks page: ${items.error.message}`);
+            }
+
+            if (!deletesStarted) {
+                await nango.trackDeletesStart('Webhook');
+                deletesStarted = true;
             }
 
             const webhooks = items.data.map((webhook) => ({

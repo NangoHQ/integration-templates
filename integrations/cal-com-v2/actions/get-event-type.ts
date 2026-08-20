@@ -17,7 +17,10 @@ const ProviderResponseSchema = z.object({
         .optional()
 });
 
-const DisabledFlagSchema = z.union([z.boolean(), z.object({ disabled: z.boolean() }).passthrough()]).optional();
+const DisabledFlagSchema = z
+    .union([z.boolean(), z.object({ disabled: z.boolean() }).passthrough()])
+    .nullable()
+    .optional();
 
 function readDisabledFlag(value: z.infer<typeof DisabledFlagSchema>): boolean {
     if (typeof value === 'boolean') {
@@ -157,14 +160,25 @@ const action = createAction({
     scopes: ['EVENT_TYPE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/event-types
-            endpoint: `/event-types/${encodeURIComponent(String(input.id))}`,
-            headers: {
-                'cal-api-version': '2024-06-14'
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 404 for
+        // a non-existent event type, which we convert into a structured provider_error.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/event-types
+                endpoint: `/event-types/${encodeURIComponent(String(input.id))}`,
+                headers: {
+                    'cal-api-version': '2024-06-14'
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when retrieving the event type.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

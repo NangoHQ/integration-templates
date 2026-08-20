@@ -163,15 +163,26 @@ const action = createAction({
             ...(input.skipBookingLimits !== undefined && { skipBookingLimits: input.skipBookingLimits })
         };
 
-        const response = await nango.post({
-            // https://cal.com/docs/api-reference/v2/bookings/reschedule-a-booking
-            endpoint: `/bookings/${encodeURIComponent(input.bookingUid)}/reschedule`,
-            headers: {
-                'cal-api-version': '2026-02-25'
-            },
-            data: requestBody,
-            retries: 10
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.post({
+                // https://cal.com/docs/api-reference/v2/bookings/reschedule-a-booking
+                endpoint: `/bookings/${encodeURIComponent(input.bookingUid)}/reschedule`,
+                headers: {
+                    'cal-api-version': '2026-02-25'
+                },
+                data: requestBody,
+                retries: 10
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when rescheduling the booking.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         if (!response.data) {
             throw new nango.ActionError({

@@ -95,21 +95,32 @@ const action = createAction({
     scopes: ['SCHEDULE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.patch({
-            // https://cal.com/docs/api-reference/v2/schedules/update-a-schedule
-            endpoint: `/schedules/${encodeURIComponent(String(input.scheduleId))}`,
-            headers: {
-                'cal-api-version': '2024-06-11'
-            },
-            data: {
-                ...(input.name !== undefined && { name: input.name }),
-                ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
-                ...(input.availability !== undefined && { availability: input.availability }),
-                ...(input.isDefault !== undefined && { isDefault: input.isDefault }),
-                ...(input.overrides !== undefined && { overrides: input.overrides })
-            },
-            retries: 10
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.patch({
+                // https://cal.com/docs/api-reference/v2/schedules/update-a-schedule
+                endpoint: `/schedules/${encodeURIComponent(String(input.scheduleId))}`,
+                headers: {
+                    'cal-api-version': '2024-06-11'
+                },
+                data: {
+                    ...(input.name !== undefined && { name: input.name }),
+                    ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
+                    ...(input.availability !== undefined && { availability: input.availability }),
+                    ...(input.isDefault !== undefined && { isDefault: input.isDefault }),
+                    ...(input.overrides !== undefined && { overrides: input.overrides })
+                },
+                retries: 10
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'update_failed',
+                message: 'Schedule update returned an error status.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = z
             .object({

@@ -27,26 +27,30 @@ const OutputSchema = z
  * @pitfalls: Delete is restricted to the event type owner only; team and organization admins who are authorized to read the event type will still receive an authorization error when attempting to delete it.
  */
 const action = createAction({
-    description: 'Delete or archive a event type in Cal.com',
+    description: 'Delete an event type in Cal.com.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['EVENT_TYPE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
-            // https://cal.com/docs/api-reference/v2/event-types/delete-an-event-type
-            endpoint: `/event-types/${encodeURIComponent(input.id)}`,
-            headers: {
-                'cal-api-version': '2024-06-14'
-            },
-            retries: 1
-        });
-
-        if (response.status !== 200) {
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.delete({
+                // https://cal.com/docs/api-reference/v2/event-types/delete-an-event-type
+                endpoint: `/event-types/${encodeURIComponent(input.id)}`,
+                headers: {
+                    'cal-api-version': '2024-06-14'
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
             throw new nango.ActionError({
                 type: 'provider_error',
-                message: `Unexpected status ${response.status} from Cal.com when deleting event type ${input.id}`
+                message: `Failed to delete event type ${input.id}.`,
+                details: err instanceof Error ? err.message : String(err)
             });
         }
 

@@ -97,13 +97,24 @@ const action = createAction({
             retries: 3
         };
 
-        // https://cal.com/docs/api-reference/v2/webhooks/get-all-webhooks
-        const response = await nango.get(config);
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            // https://cal.com/docs/api-reference/v2/webhooks/get-all-webhooks
+            response = await nango.get(config);
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when listing webhooks.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = z
             .object({
                 status: z.enum(['success', 'error']),
-                data: z.array(ProviderWebhookSchema)
+                data: z.array(ProviderWebhookSchema).optional()
             })
             .parse(response.data);
 
@@ -114,7 +125,7 @@ const action = createAction({
             });
         }
 
-        const items = providerResponse.data.map((webhook) => ({
+        const items = (providerResponse.data ?? []).map((webhook) => ({
             id: webhook.id,
             userId: webhook.userId,
             subscriberUrl: webhook.subscriberUrl,

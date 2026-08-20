@@ -74,21 +74,32 @@ const action = createAction({
     scopes: ['WEBHOOK_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.patch({
-            // https://cal.com/docs/api-reference/v2/webhooks/update-a-webhook
-            endpoint: `/webhooks/${encodeURIComponent(input.id)}`,
-            data: {
-                ...(input.payloadTemplate !== undefined && { payloadTemplate: input.payloadTemplate }),
-                ...(input.active !== undefined && { active: input.active }),
-                ...(input.subscriberUrl !== undefined && { subscriberUrl: input.subscriberUrl }),
-                ...(input.triggers !== undefined && { triggers: input.triggers }),
-                ...(input.secret !== undefined && { secret: input.secret }),
-                ...(input.version !== undefined && { version: input.version }),
-                ...(input.time !== undefined && { time: input.time }),
-                ...(input.timeUnit !== undefined && { timeUnit: input.timeUnit })
-            },
-            retries: 10
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.patch({
+                // https://cal.com/docs/api-reference/v2/webhooks/update-a-webhook
+                endpoint: `/webhooks/${encodeURIComponent(input.id)}`,
+                data: {
+                    ...(input.payloadTemplate !== undefined && { payloadTemplate: input.payloadTemplate }),
+                    ...(input.active !== undefined && { active: input.active }),
+                    ...(input.subscriberUrl !== undefined && { subscriberUrl: input.subscriberUrl }),
+                    ...(input.triggers !== undefined && { triggers: input.triggers }),
+                    ...(input.secret !== undefined && { secret: input.secret }),
+                    ...(input.version !== undefined && { version: input.version }),
+                    ...(input.time !== undefined && { time: input.time }),
+                    ...(input.timeUnit !== undefined && { timeUnit: input.timeUnit })
+                },
+                retries: 10
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when updating the webhook.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const ProviderResponseSchema = z.object({
             status: z.enum(['success', 'error']),

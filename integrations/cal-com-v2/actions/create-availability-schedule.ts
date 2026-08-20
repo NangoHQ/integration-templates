@@ -94,21 +94,32 @@ const action = createAction({
     scopes: ['SCHEDULE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://cal.com/docs/api-reference/v2/schedules/create-a-schedule
-            endpoint: '/schedules',
-            headers: {
-                'cal-api-version': '2024-06-11'
-            },
-            data: {
-                name: input.name,
-                timeZone: input.timeZone,
-                isDefault: input.isDefault,
-                ...(input.availability !== undefined && { availability: input.availability }),
-                ...(input.overrides !== undefined && { overrides: input.overrides })
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.post({
+                // https://cal.com/docs/api-reference/v2/schedules/create-a-schedule
+                endpoint: '/schedules',
+                headers: {
+                    'cal-api-version': '2024-06-11'
+                },
+                data: {
+                    name: input.name,
+                    timeZone: input.timeZone,
+                    isDefault: input.isDefault,
+                    ...(input.availability !== undefined && { availability: input.availability }),
+                    ...(input.overrides !== undefined && { overrides: input.overrides })
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when creating the availability schedule.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

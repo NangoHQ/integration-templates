@@ -170,24 +170,35 @@ const action = createAction({
     scopes: ['BOOKING_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://cal.com/docs/api-reference/v2/bookings/cancel-a-booking
-            endpoint: `/bookings/${encodeURIComponent(input.bookingUid)}/cancel`,
-            data: {
-                ...(input.cancellationReason !== undefined && { cancellationReason: input.cancellationReason }),
-                ...(input.cancelSubsequentBookings !== undefined && { cancelSubsequentBookings: input.cancelSubsequentBookings }),
-                ...(input.seatUid !== undefined && { seatUid: input.seatUid })
-            },
-            headers: {
-                'cal-api-version': '2026-02-25'
-            },
-            retries: 10
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.post({
+                // https://cal.com/docs/api-reference/v2/bookings/cancel-a-booking
+                endpoint: `/bookings/${encodeURIComponent(input.bookingUid)}/cancel`,
+                data: {
+                    ...(input.cancellationReason !== undefined && { cancellationReason: input.cancellationReason }),
+                    ...(input.cancelSubsequentBookings !== undefined && { cancelSubsequentBookings: input.cancelSubsequentBookings }),
+                    ...(input.seatUid !== undefined && { seatUid: input.seatUid })
+                },
+                headers: {
+                    'cal-api-version': '2026-02-25'
+                },
+                retries: 10
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'cancel_failed',
+                message: 'Provider returned an error status when cancelling the booking.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = z
             .object({
                 status: z.enum(['success', 'error']),
-                data: z.unknown()
+                data: z.unknown().optional()
             })
             .parse(response.data);
 

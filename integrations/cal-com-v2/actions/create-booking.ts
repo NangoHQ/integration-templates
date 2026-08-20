@@ -204,36 +204,47 @@ const action = createAction({
     scopes: ['BOOKING_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://cal.com/docs/api-reference/v2/bookings/create-a-booking
-        const response = await nango.post({
-            endpoint: '/bookings',
-            headers: {
-                'cal-api-version': '2026-02-25'
-            },
-            data: {
-                start: input.start,
-                attendee: input.attendee,
-                ...(input.eventTypeId !== undefined && { eventTypeId: input.eventTypeId }),
-                ...(input.eventTypeSlug !== undefined && { eventTypeSlug: input.eventTypeSlug }),
-                ...(input.username !== undefined && { username: input.username }),
-                ...(input.teamSlug !== undefined && { teamSlug: input.teamSlug }),
-                ...(input.organizationSlug !== undefined && { organizationSlug: input.organizationSlug }),
-                ...(input.guests !== undefined && { guests: input.guests }),
-                ...(input.location !== undefined && { location: input.location }),
-                ...(input.metadata !== undefined && { metadata: input.metadata }),
-                ...(input.lengthInMinutes !== undefined && { lengthInMinutes: input.lengthInMinutes }),
-                ...(input.bookingFieldsResponses !== undefined && { bookingFieldsResponses: input.bookingFieldsResponses }),
-                ...(input.routing !== undefined && { routing: input.routing }),
-                ...(input.emailVerificationCode !== undefined && { emailVerificationCode: input.emailVerificationCode }),
-                ...(input.allowConflicts !== undefined && { allowConflicts: input.allowConflicts }),
-                ...(input.allowBookingOutOfBounds !== undefined && { allowBookingOutOfBounds: input.allowBookingOutOfBounds }),
-                ...(input.skipBookingLimits !== undefined && { skipBookingLimits: input.skipBookingLimits }),
-                ...(input.instant !== undefined && { instant: input.instant }),
-                ...(input.recurrenceCount !== undefined && { recurrenceCount: input.recurrenceCount })
-            },
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-            retries: 0
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            // https://cal.com/docs/api-reference/v2/bookings/create-a-booking
+            response = await nango.post({
+                endpoint: '/bookings',
+                headers: {
+                    'cal-api-version': '2026-02-25'
+                },
+                data: {
+                    start: input.start,
+                    attendee: input.attendee,
+                    ...(input.eventTypeId !== undefined && { eventTypeId: input.eventTypeId }),
+                    ...(input.eventTypeSlug !== undefined && { eventTypeSlug: input.eventTypeSlug }),
+                    ...(input.username !== undefined && { username: input.username }),
+                    ...(input.teamSlug !== undefined && { teamSlug: input.teamSlug }),
+                    ...(input.organizationSlug !== undefined && { organizationSlug: input.organizationSlug }),
+                    ...(input.guests !== undefined && { guests: input.guests }),
+                    ...(input.location !== undefined && { location: input.location }),
+                    ...(input.metadata !== undefined && { metadata: input.metadata }),
+                    ...(input.lengthInMinutes !== undefined && { lengthInMinutes: input.lengthInMinutes }),
+                    ...(input.bookingFieldsResponses !== undefined && { bookingFieldsResponses: input.bookingFieldsResponses }),
+                    ...(input.routing !== undefined && { routing: input.routing }),
+                    ...(input.emailVerificationCode !== undefined && { emailVerificationCode: input.emailVerificationCode }),
+                    ...(input.allowConflicts !== undefined && { allowConflicts: input.allowConflicts }),
+                    ...(input.allowBookingOutOfBounds !== undefined && { allowBookingOutOfBounds: input.allowBookingOutOfBounds }),
+                    ...(input.skipBookingLimits !== undefined && { skipBookingLimits: input.skipBookingLimits }),
+                    ...(input.instant !== undefined && { instant: input.instant }),
+                    ...(input.recurrenceCount !== undefined && { recurrenceCount: input.recurrenceCount })
+                },
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when creating the booking.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

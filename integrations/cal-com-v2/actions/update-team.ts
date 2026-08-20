@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const TeamMetadataSchema = z
+    .record(z.string().max(40), z.union([z.string().max(500), z.number(), z.boolean()]))
+    .refine((value) => Object.keys(value).length <= 50, { message: 'metadata supports at most 50 keys' });
+
 const InputSchema = z
     .object({
         teamId: z.number().describe('ID of the team to update.'),
@@ -14,12 +18,9 @@ const InputSchema = z
         hideBranding: z.boolean().optional().describe('Whether to hide branding.'),
         isPrivate: z.boolean().optional().describe('Whether the team is private.'),
         hideBookATeamMember: z.boolean().optional().describe('Whether to hide the book-a-team-member option.'),
-        metadata: z
-            .record(z.string(), z.unknown())
-            .optional()
-            .describe(
-                'Additional metadata. Must have at most 50 keys, each up to 40 characters. Values can be strings (up to 500 characters), numbers, or booleans.'
-            ),
+        metadata: TeamMetadataSchema.optional().describe(
+            'Additional metadata. Must have at most 50 keys, each up to 40 characters. Values can be strings (up to 500 characters), numbers, or booleans.'
+        ),
         theme: z.string().optional().describe('Team theme.'),
         brandColor: z.string().optional().describe('Brand color.'),
         darkBrandColor: z.string().optional().describe('Dark brand color.'),
@@ -34,26 +35,28 @@ const InputSchema = z
 
 const ProviderTeamOutputSchema = z.object({
     id: z.number().describe('Team ID.'),
-    parentId: z.number().optional().describe('Parent team ID.'),
+    parentId: z.number().nullish().describe('Parent team ID.'),
     name: z.string().describe('Team name.'),
-    slug: z.string().optional().describe('Team slug.'),
-    logoUrl: z.string().optional().describe("URL of the team's logo image."),
-    calVideoLogo: z.string().optional().describe('Cal video logo URL.'),
-    appLogo: z.string().optional().describe('App logo URL.'),
-    appIconLogo: z.string().optional().describe('App icon logo URL.'),
-    bio: z.string().optional().describe('Team biography or description.'),
-    hideBranding: z.boolean().optional().describe('Whether to hide branding.'),
+    slug: z.string().nullish().describe('Team slug.'),
+    logoUrl: z.string().nullish().describe("URL of the team's logo image."),
+    calVideoLogo: z.string().nullish().describe('Cal video logo URL.'),
+    appLogo: z.string().nullish().describe('App logo URL.'),
+    appIconLogo: z.string().nullish().describe('App icon logo URL.'),
+    bio: z.string().nullish().describe('Team biography or description.'),
+    hideBranding: z.boolean().nullish().describe('Whether to hide branding.'),
     isOrganization: z.boolean().describe('Whether the team is an organization.'),
-    isPrivate: z.boolean().optional().describe('Whether the team is private.'),
-    hideBookATeamMember: z.boolean().optional().describe('Whether to hide the book-a-team-member option.'),
-    metadata: z.record(z.string(), z.unknown()).optional().describe('Team metadata.'),
-    theme: z.string().optional().describe('Team theme.'),
-    brandColor: z.string().optional().describe('Brand color.'),
-    darkBrandColor: z.string().optional().describe('Dark brand color.'),
-    bannerUrl: z.string().optional().describe("URL of the team's banner image shown on the booker."),
-    timeFormat: z.number().optional().describe('Time format preference.'),
-    timeZone: z.string().optional().describe('Team timezone. Defaults to Europe/London.'),
-    weekStart: z.string().optional().describe('Day the week starts on.')
+    isPrivate: z.boolean().nullish().describe('Whether the team is private.'),
+    hideBookATeamMember: z.boolean().nullish().describe('Whether to hide the book-a-team-member option.'),
+    metadata: z.record(z.string(), z.unknown()).nullish().describe('Team metadata.'),
+    theme: z.string().nullish().describe('Team theme.'),
+    brandColor: z.string().nullish().describe('Brand color.'),
+    darkBrandColor: z.string().nullish().describe('Dark brand color.'),
+    bannerUrl: z.string().nullish().describe("URL of the team's banner image shown on the booker."),
+    timeFormat: z.number().nullish().describe('Time format preference.'),
+    timeZone: z.string().nullish().describe('Team timezone. Defaults to Europe/London.'),
+    weekStart: z.string().nullish().describe('Day the week starts on.'),
+    bookingLimits: z.record(z.string(), z.unknown()).nullish().describe('Booking limits configuration.'),
+    includeManagedEventsInLimits: z.boolean().nullish().describe('Whether managed events are included in booking limits.')
 });
 
 const OutputSchema = z
@@ -62,6 +65,11 @@ const OutputSchema = z
         data: ProviderTeamOutputSchema.describe('The updated team data.')
     })
     .describe('Output from updating a Cal.com team.');
+
+const ResponseEnvelopeSchema = z.object({
+    status: z.enum(['success', 'error']),
+    data: z.unknown().optional()
+});
 
 /**
  * @tags: [write]
@@ -99,12 +107,23 @@ const action = createAction({
             ...(input.includeManagedEventsInLimits !== undefined && { includeManagedEventsInLimits: input.includeManagedEventsInLimits })
         };
 
-        const response = await nango.patch({
-            // https://cal.com/docs/api-reference/v2/teams/update-a-team
-            endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
-            data,
-            retries: 1
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns an error
+        // status (e.g. 403 for inaccessible teams) that we convert into a structured ActionError.
+        try {
+            response = await nango.patch({
+                // https://cal.com/docs/api-reference/v2/teams/update-a-team
+                endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
+                data,
+                retries: 1
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when updating the team.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         if (!response.data) {
             throw new nango.ActionError({
@@ -113,8 +132,19 @@ const action = createAction({
             });
         }
 
-        const output = OutputSchema.parse(response.data);
-        return output;
+        const envelope = ResponseEnvelopeSchema.parse(response.data);
+
+        if (envelope.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when updating the team.'
+            });
+        }
+
+        return {
+            status: envelope.status,
+            data: ProviderTeamOutputSchema.parse(envelope.data)
+        };
     }
 });
 

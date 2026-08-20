@@ -209,15 +209,26 @@ const action = createAction({
             ...(input.limit !== undefined && { limit: input.limit })
         };
 
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
-            endpoint: '/bookings',
-            params,
-            headers: {
-                'cal-api-version': '2026-05-01'
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
+                endpoint: '/bookings',
+                params,
+                headers: {
+                    'cal-api-version': '2026-05-01'
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned a non-success status.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const parsed = ProviderResponseSchema.parse(response.data);
 

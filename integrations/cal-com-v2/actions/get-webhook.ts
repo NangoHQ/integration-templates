@@ -34,11 +34,27 @@ const action = createAction({
     scopes: ['WEBHOOK_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/webhooks/get-a-webhook
-            endpoint: `/webhooks/${encodeURIComponent(input.webhookId)}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 404 for
+        // a non-existent webhook, which we convert into a structured not_found error.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/webhooks/get-a-webhook
+                endpoint: `/webhooks/${encodeURIComponent(input.webhookId)}`,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const errResponse = err.response;
+                if (typeof errResponse === 'object' && errResponse !== null && 'status' in errResponse && errResponse.status === 404) {
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: `Webhook ${input.webhookId} not found.`
+                    });
+                }
+            }
+            throw err;
+        }
 
         const envelope = z
             .object({

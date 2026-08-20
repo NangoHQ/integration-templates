@@ -42,11 +42,28 @@ const action = createAction({
     scopes: ['WEBHOOK_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
-            // https://cal.com/docs/api-reference/v2/webhooks/delete-a-webhook
-            endpoint: `/webhooks/${encodeURIComponent(input.webhookId)}`,
-            retries: 10
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 404 for
+        // a non-existent/already-deleted webhook, which we convert into a not_found error.
+        try {
+            response = await nango.delete({
+                // https://cal.com/docs/api-reference/v2/webhooks/delete-a-webhook
+                endpoint: `/webhooks/${encodeURIComponent(input.webhookId)}`,
+                retries: 10
+            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const errResponse = err.response;
+                if (typeof errResponse === 'object' && errResponse !== null && 'status' in errResponse && errResponse.status === 404) {
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: 'Webhook not found or already deleted.',
+                        webhookId: input.webhookId
+                    });
+                }
+            }
+            throw err;
+        }
 
         if (!response.data) {
             throw new nango.ActionError({

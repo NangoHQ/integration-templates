@@ -23,21 +23,32 @@ const OutputSchema = z
  * @pitfalls: Attempting to delete a non-existent schedule returns a 400 Bad Request error rather than a 404.
  */
 const action = createAction({
-    description: 'Delete or archive an availability schedule in Cal.com.',
+    description: 'Delete an availability schedule in Cal.com.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['SCHEDULE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
-            // https://cal.com/docs/api-reference/v2/schedules/delete-a-schedule
-            endpoint: `/schedules/${encodeURIComponent(input.scheduleId)}`,
-            headers: {
-                'cal-api-version': '2024-06-11'
-            },
-            retries: 1
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.delete({
+                // https://cal.com/docs/api-reference/v2/schedules/delete-a-schedule
+                endpoint: `/schedules/${encodeURIComponent(input.scheduleId)}`,
+                headers: {
+                    'cal-api-version': '2024-06-11'
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Failed to delete schedule ${input.scheduleId}.`,
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

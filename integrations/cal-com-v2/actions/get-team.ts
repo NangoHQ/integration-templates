@@ -29,9 +29,33 @@ const TeamOutputSchema = z.object({
     weekStart: z.string().optional().describe('The day the week starts on (e.g., Sunday or Monday).')
 });
 
-const GetTeamResponseSchema = z.object({
+const ProviderTeamSchema = z.object({
+    id: z.number(),
+    parentId: z.number().nullish(),
+    name: z.string(),
+    slug: z.string().nullish(),
+    logoUrl: z.string().nullish(),
+    calVideoLogo: z.string().nullish(),
+    appLogo: z.string().nullish(),
+    appIconLogo: z.string().nullish(),
+    bio: z.string().nullish(),
+    hideBranding: z.boolean().nullish(),
+    isOrganization: z.boolean(),
+    isPrivate: z.boolean().nullish(),
+    hideBookATeamMember: z.boolean().nullish(),
+    metadata: z.record(z.string(), z.unknown()).nullish(),
+    theme: z.string().nullish(),
+    brandColor: z.string().nullish(),
+    darkBrandColor: z.string().nullish(),
+    bannerUrl: z.string().nullish(),
+    timeFormat: z.number().nullish(),
+    timeZone: z.string().nullish(),
+    weekStart: z.string().nullish()
+});
+
+const ResponseEnvelopeSchema = z.object({
     status: z.enum(['success', 'error']),
-    data: TeamOutputSchema
+    data: z.unknown().optional()
 });
 
 /**
@@ -47,22 +71,67 @@ const action = createAction({
     scopes: ['TEAM_PROFILE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof TeamOutputSchema>> => {
-        // https://cal.com/docs/api-reference/v2/teams/get-a-team
-        const response = await nango.get({
-            endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 403 for
+        // both non-existent and inaccessible teams, which we convert into a not_found error.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/teams/get-a-team
+                endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const errResponse = err.response;
+                if (
+                    typeof errResponse === 'object' &&
+                    errResponse !== null &&
+                    'status' in errResponse &&
+                    (errResponse.status === 404 || errResponse.status === 403)
+                ) {
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: `Team ${input.teamId} not found.`
+                    });
+                }
+            }
+            throw err;
+        }
 
-        if (!response.data) {
+        const envelope = ResponseEnvelopeSchema.parse(response.data);
+
+        if (envelope.status !== 'success') {
             throw new nango.ActionError({
-                type: 'not_found',
-                message: `Team ${input.teamId} not found.`
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when retrieving the team.'
             });
         }
 
-        const parsed = GetTeamResponseSchema.parse(response.data);
+        const team = ProviderTeamSchema.parse(envelope.data);
 
-        return parsed.data;
+        return {
+            id: team.id,
+            ...(team.parentId != null && { parentId: team.parentId }),
+            name: team.name,
+            ...(team.slug != null && { slug: team.slug }),
+            ...(team.logoUrl != null && { logoUrl: team.logoUrl }),
+            ...(team.calVideoLogo != null && { calVideoLogo: team.calVideoLogo }),
+            ...(team.appLogo != null && { appLogo: team.appLogo }),
+            ...(team.appIconLogo != null && { appIconLogo: team.appIconLogo }),
+            ...(team.bio != null && { bio: team.bio }),
+            ...(team.hideBranding != null && { hideBranding: team.hideBranding }),
+            isOrganization: team.isOrganization,
+            ...(team.isPrivate != null && { isPrivate: team.isPrivate }),
+            ...(team.hideBookATeamMember != null && { hideBookATeamMember: team.hideBookATeamMember }),
+            ...(team.metadata != null && { metadata: team.metadata }),
+            ...(team.theme != null && { theme: team.theme }),
+            ...(team.brandColor != null && { brandColor: team.brandColor }),
+            ...(team.darkBrandColor != null && { darkBrandColor: team.darkBrandColor }),
+            ...(team.bannerUrl != null && { bannerUrl: team.bannerUrl }),
+            ...(team.timeFormat != null && { timeFormat: team.timeFormat }),
+            ...(team.timeZone != null && { timeZone: team.timeZone }),
+            ...(team.weekStart != null && { weekStart: team.weekStart })
+        };
     }
 });
 

@@ -96,32 +96,43 @@ const action = createAction({
     scopes: ['TEAM_PROFILE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
             // https://cal.com/docs/api-reference/v2/teams/create-a-team
-            endpoint: '/teams',
-            data: {
-                name: input.name,
-                ...(input.slug !== undefined && { slug: input.slug }),
-                ...(input.logoUrl !== undefined && { logoUrl: input.logoUrl }),
-                ...(input.calVideoLogo !== undefined && { calVideoLogo: input.calVideoLogo }),
-                ...(input.appLogo !== undefined && { appLogo: input.appLogo }),
-                ...(input.appIconLogo !== undefined && { appIconLogo: input.appIconLogo }),
-                ...(input.bio !== undefined && { bio: input.bio }),
-                ...(input.hideBranding !== undefined && { hideBranding: input.hideBranding }),
-                ...(input.isPrivate !== undefined && { isPrivate: input.isPrivate }),
-                ...(input.hideBookATeamMember !== undefined && { hideBookATeamMember: input.hideBookATeamMember }),
-                ...(input.metadata !== undefined && { metadata: input.metadata }),
-                ...(input.theme !== undefined && { theme: input.theme }),
-                ...(input.brandColor !== undefined && { brandColor: input.brandColor }),
-                ...(input.darkBrandColor !== undefined && { darkBrandColor: input.darkBrandColor }),
-                ...(input.bannerUrl !== undefined && { bannerUrl: input.bannerUrl }),
-                ...(input.timeFormat !== undefined && { timeFormat: input.timeFormat }),
-                ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
-                ...(input.weekStart !== undefined && { weekStart: input.weekStart }),
-                ...(input.autoAcceptCreator !== undefined && { autoAcceptCreator: input.autoAcceptCreator })
-            },
-            retries: 1
-        });
+            response = await nango.post({
+                endpoint: '/teams',
+                data: {
+                    name: input.name,
+                    ...(input.slug !== undefined && { slug: input.slug }),
+                    ...(input.logoUrl !== undefined && { logoUrl: input.logoUrl }),
+                    ...(input.calVideoLogo !== undefined && { calVideoLogo: input.calVideoLogo }),
+                    ...(input.appLogo !== undefined && { appLogo: input.appLogo }),
+                    ...(input.appIconLogo !== undefined && { appIconLogo: input.appIconLogo }),
+                    ...(input.bio !== undefined && { bio: input.bio }),
+                    ...(input.hideBranding !== undefined && { hideBranding: input.hideBranding }),
+                    ...(input.isPrivate !== undefined && { isPrivate: input.isPrivate }),
+                    ...(input.hideBookATeamMember !== undefined && { hideBookATeamMember: input.hideBookATeamMember }),
+                    ...(input.metadata !== undefined && { metadata: input.metadata }),
+                    ...(input.theme !== undefined && { theme: input.theme }),
+                    ...(input.brandColor !== undefined && { brandColor: input.brandColor }),
+                    ...(input.darkBrandColor !== undefined && { darkBrandColor: input.darkBrandColor }),
+                    ...(input.bannerUrl !== undefined && { bannerUrl: input.bannerUrl }),
+                    ...(input.timeFormat !== undefined && { timeFormat: input.timeFormat }),
+                    ...(input.timeZone !== undefined && { timeZone: input.timeZone }),
+                    ...(input.weekStart !== undefined && { weekStart: input.weekStart }),
+                    ...(input.autoAcceptCreator !== undefined && { autoAcceptCreator: input.autoAcceptCreator })
+                },
+                retries: 1
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when creating the team.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const apiResponse = ApiResponseSchema.safeParse(response.data);
         if (!apiResponse.success) {

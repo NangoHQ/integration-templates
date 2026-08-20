@@ -954,7 +954,6 @@ import './cal-com-v2/actions/create-event-type.js';
 import './cal-com-v2/actions/create-team.js';
 import './cal-com-v2/actions/create-webhook.js';
 import './cal-com-v2/actions/delete-availability-schedule.js';
-import './cal-com-v2/actions/delete-booking.js';
 import './cal-com-v2/actions/delete-event-type.js';
 import './cal-com-v2/actions/delete-team.js';
 import './cal-com-v2/actions/delete-webhook.js';

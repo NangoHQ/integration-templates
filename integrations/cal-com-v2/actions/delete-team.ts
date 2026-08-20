@@ -7,26 +7,26 @@ const InputSchema = z.object({
 
 const ProviderTeamSchema = z.object({
     id: z.number(),
-    parentId: z.number().optional(),
+    parentId: z.number().nullish(),
     name: z.string(),
-    slug: z.string().optional(),
-    logoUrl: z.string().optional(),
-    calVideoLogo: z.string().optional(),
-    appLogo: z.string().optional(),
-    appIconLogo: z.string().optional(),
-    bio: z.string().optional(),
-    hideBranding: z.boolean().optional(),
+    slug: z.string().nullish(),
+    logoUrl: z.string().nullish(),
+    calVideoLogo: z.string().nullish(),
+    appLogo: z.string().nullish(),
+    appIconLogo: z.string().nullish(),
+    bio: z.string().nullish(),
+    hideBranding: z.boolean().nullish(),
     isOrganization: z.boolean(),
-    isPrivate: z.boolean().optional(),
-    hideBookATeamMember: z.boolean().optional(),
-    metadata: z.record(z.string(), z.unknown()).optional(),
-    theme: z.string().optional(),
-    brandColor: z.string().optional(),
-    darkBrandColor: z.string().optional(),
-    bannerUrl: z.string().optional(),
-    timeFormat: z.number().optional(),
-    timeZone: z.string().optional(),
-    weekStart: z.string().optional()
+    isPrivate: z.boolean().nullish(),
+    hideBookATeamMember: z.boolean().nullish(),
+    metadata: z.record(z.string(), z.unknown()).nullish(),
+    theme: z.string().nullish(),
+    brandColor: z.string().nullish(),
+    darkBrandColor: z.string().nullish(),
+    bannerUrl: z.string().nullish(),
+    timeFormat: z.number().nullish(),
+    timeZone: z.string().nullish(),
+    weekStart: z.string().nullish()
 });
 
 const OutputSchema = z.object({
@@ -59,27 +59,39 @@ const OutputSchema = z.object({
  * @pitfalls: The API returns 403 for inaccessible or non-existent team IDs instead of 404, and deleting a team permanently removes all associated event types and bookings.
  */
 const action = createAction({
-    description: 'Delete or archive a team in Cal.com.',
+    description: 'Delete a team in Cal.com.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['TEAM_PROFILE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.delete({
-            // https://cal.com/docs/api-reference/v2/teams/delete-a-team
-            endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 403 for
+        // both non-existent and inaccessible teams, which we convert into a structured error.
+        try {
+            response = await nango.delete({
+                // https://cal.com/docs/api-reference/v2/teams/delete-a-team
+                endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'delete_failed',
+                message: 'Team deletion failed.',
+                teamId: input.teamId,
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
-        const providerResponse = z
+        const envelope = z
             .object({
                 status: z.enum(['success', 'error']),
-                data: ProviderTeamSchema
+                data: z.unknown().optional()
             })
             .parse(response.data);
 
-        if (providerResponse.status !== 'success') {
+        if (envelope.status !== 'success') {
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: 'Team deletion failed.',
@@ -87,30 +99,30 @@ const action = createAction({
             });
         }
 
-        const team = providerResponse.data;
+        const team = ProviderTeamSchema.parse(envelope.data);
 
         return {
             id: team.id,
             name: team.name,
             isOrganization: team.isOrganization,
-            ...(team.parentId !== undefined && { parentId: team.parentId }),
-            ...(team.slug !== undefined && { slug: team.slug }),
-            ...(team.logoUrl !== undefined && { logoUrl: team.logoUrl }),
-            ...(team.calVideoLogo !== undefined && { calVideoLogo: team.calVideoLogo }),
-            ...(team.appLogo !== undefined && { appLogo: team.appLogo }),
-            ...(team.appIconLogo !== undefined && { appIconLogo: team.appIconLogo }),
-            ...(team.bio !== undefined && { bio: team.bio }),
-            ...(team.hideBranding !== undefined && { hideBranding: team.hideBranding }),
-            ...(team.isPrivate !== undefined && { isPrivate: team.isPrivate }),
-            ...(team.hideBookATeamMember !== undefined && { hideBookATeamMember: team.hideBookATeamMember }),
-            ...(team.metadata !== undefined && { metadata: team.metadata }),
-            ...(team.theme !== undefined && { theme: team.theme }),
-            ...(team.brandColor !== undefined && { brandColor: team.brandColor }),
-            ...(team.darkBrandColor !== undefined && { darkBrandColor: team.darkBrandColor }),
-            ...(team.bannerUrl !== undefined && { bannerUrl: team.bannerUrl }),
-            ...(team.timeFormat !== undefined && { timeFormat: team.timeFormat }),
-            ...(team.timeZone !== undefined && { timeZone: team.timeZone }),
-            ...(team.weekStart !== undefined && { weekStart: team.weekStart })
+            ...(team.parentId != null && { parentId: team.parentId }),
+            ...(team.slug != null && { slug: team.slug }),
+            ...(team.logoUrl != null && { logoUrl: team.logoUrl }),
+            ...(team.calVideoLogo != null && { calVideoLogo: team.calVideoLogo }),
+            ...(team.appLogo != null && { appLogo: team.appLogo }),
+            ...(team.appIconLogo != null && { appIconLogo: team.appIconLogo }),
+            ...(team.bio != null && { bio: team.bio }),
+            ...(team.hideBranding != null && { hideBranding: team.hideBranding }),
+            ...(team.isPrivate != null && { isPrivate: team.isPrivate }),
+            ...(team.hideBookATeamMember != null && { hideBookATeamMember: team.hideBookATeamMember }),
+            ...(team.metadata != null && { metadata: team.metadata }),
+            ...(team.theme != null && { theme: team.theme }),
+            ...(team.brandColor != null && { brandColor: team.brandColor }),
+            ...(team.darkBrandColor != null && { darkBrandColor: team.darkBrandColor }),
+            ...(team.bannerUrl != null && { bannerUrl: team.bannerUrl }),
+            ...(team.timeFormat != null && { timeFormat: team.timeFormat }),
+            ...(team.timeZone != null && { timeZone: team.timeZone }),
+            ...(team.weekStart != null && { weekStart: team.weekStart })
         };
     }
 });

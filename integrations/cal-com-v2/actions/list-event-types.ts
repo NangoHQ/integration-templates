@@ -96,22 +96,33 @@ const action = createAction({
     scopes: ['EVENT_TYPE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/event-types/get-all-event-types
-            endpoint: '/event-types',
-            params: {
-                ...(input.username !== undefined && { username: input.username }),
-                ...(input.eventSlug !== undefined && { eventSlug: input.eventSlug }),
-                ...(input.usernames !== undefined && { usernames: input.usernames }),
-                ...(input.orgSlug !== undefined && { orgSlug: input.orgSlug }),
-                ...(input.orgId !== undefined && { orgId: String(input.orgId) }),
-                ...(input.sortCreatedAt !== undefined && { sortCreatedAt: input.sortCreatedAt })
-            },
-            headers: {
-                'cal-api-version': '2024-06-14'
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Convert Cal.com's error
+        // envelope into a structured ActionError instead of letting the raw error propagate.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/event-types/get-all-event-types
+                endpoint: '/event-types',
+                params: {
+                    ...(input.username !== undefined && { username: input.username }),
+                    ...(input.eventSlug !== undefined && { eventSlug: input.eventSlug }),
+                    ...(input.usernames !== undefined && { usernames: input.usernames }),
+                    ...(input.orgSlug !== undefined && { orgSlug: input.orgSlug }),
+                    ...(input.orgId !== undefined && { orgId: String(input.orgId) }),
+                    ...(input.sortCreatedAt !== undefined && { sortCreatedAt: input.sortCreatedAt })
+                },
+                headers: {
+                    'cal-api-version': '2024-06-14'
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when listing event types.',
+                details: err instanceof Error ? err.message : String(err)
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
@@ -122,7 +133,15 @@ const action = createAction({
             });
         }
 
-        const eventTypes = z.array(ProviderEventTypeSchema).parse(providerResponse.data);
+        const parsedEventTypes = z.array(ProviderEventTypeSchema).safeParse(providerResponse.data);
+        if (!parsedEventTypes.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Cal.com API returned an unexpected response format when listing event types.',
+                details: parsedEventTypes.error.issues
+            });
+        }
+        const eventTypes = parsedEventTypes.data;
 
         return {
             eventTypes: eventTypes.map((item) => ({

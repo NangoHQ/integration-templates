@@ -71,14 +71,30 @@ const action = createAction({
     scopes: ['SCHEDULE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://cal.com/docs/api-reference/v2/schedules/get-a-schedule
-            endpoint: `/schedules/${encodeURIComponent(input.id)}`,
-            headers: {
-                'cal-api-version': '2024-06-11'
-            },
-            retries: 3
-        });
+        let response;
+        // @allowTryCatch: The Nango SDK throws for non-2xx responses. Cal.com returns 404
+        // for a non-existent schedule, which we convert into a structured not_found error.
+        try {
+            response = await nango.get({
+                // https://cal.com/docs/api-reference/v2/schedules/get-a-schedule
+                endpoint: `/schedules/${encodeURIComponent(input.id)}`,
+                headers: {
+                    'cal-api-version': '2024-06-11'
+                },
+                retries: 3
+            });
+        } catch (err: unknown) {
+            if (typeof err === 'object' && err !== null && 'response' in err) {
+                const errResponse = err.response;
+                if (typeof errResponse === 'object' && errResponse !== null && 'status' in errResponse && errResponse.status === 404) {
+                    throw new nango.ActionError({
+                        type: 'not_found',
+                        message: `Schedule with id ${input.id} not found.`
+                    });
+                }
+            }
+            throw err;
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
