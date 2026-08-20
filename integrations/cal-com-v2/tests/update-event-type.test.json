@@ -89,6 +89,9 @@
     "metadata": {},
     "price": 0,
     "currency": "usd",
+    "seats": {
+      "disabled": true
+    },
     "bookerActiveBookingsLimit": {
       "disabled": true
     },
@@ -292,7 +295,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 19 Aug 2026 21:24:13 GMT",
+          "date": "Thu, 20 Aug 2026 11:09:51 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -307,9 +310,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1965",
-          "x-ratelimit-reset": "1787174682",
-          "cf-ray": "a2dc394d4d4e88dc-PDX",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1787224248",
+          "cf-ray": "a2e0f2b88efdfef1-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "public, max-age=0, must-revalidate",
           "etag": "W/\"9fb-bcpCjz7C4q8jTp9ZCaJAZMiejmo\"",
@@ -321,12 +324,12 @@
           "origin-agent-cluster": "?1",
           "x-permitted-cross-domain-policies": "none",
           "x-ratelimit-limit-default": "120",
-          "x-ratelimit-remaining-default": "111",
-          "x-ratelimit-reset-default": "35",
-          "x-request-id": "pdx1::h5b6p-1787174653015-2c4acd0644fe",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::j98fs-1787224190823-7d7dae70c4ea",
           "x-vercel-cache": "MISS",
-          "x-vercel-id": "pdx1::cle1::h5b6p-1787174653015-2c4acd0644fe",
-          "set-cookie": "__cf_bm=VoJ151pOqdFuABMNHPX8lGT95zMyg.TlSQUqBdPzRVg-1787174653.002508-1.0.1.1-4Bmjt673Z_Yrn8XJUYetkJpOgwsRxiXHeuILEG6uv54.E0pYx0A7jKaJQLIQOXgdDPFhfN_ImmmTk3jsj4ZnIc2fAzcck1VIiS87GZcOz2iIxmsFFYUjeU8lm0jkju2k; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 19 Aug 2026 21:54:13 GMT"
+          "x-vercel-id": "pdx1::cle1::j98fs-1787224190823-7d7dae70c4ea",
+          "set-cookie": "__cf_bm=wG5C0FHwc0RZYnQo.GpmFhYAjbCvNJyMFhbMGdcYRIE-1787224190.8084655-1.0.1.1-Oedz1RWmr_mlVLgjArwm5DHhHUa1scTu6X0OoMmzDcbTV3CdJAPp5tMTlaeLWf2idGAZnt0o84JJwMGZfZz.yWcYLaiU_dOG83esqXQUFDlTZ4K3sHRbY26aOp5YQIid; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Thu, 20 Aug 2026 11:39:51 GMT"
         },
         "hash": "c0d97645dc7c3b4a4cb9b317b48a1fe682dcd76f",
         "request": {

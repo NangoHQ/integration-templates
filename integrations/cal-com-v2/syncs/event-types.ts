@@ -72,7 +72,7 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync event types from Cal.com',
-    version: '1.0.0',
+    version: '2.2.0',
     frequency: 'every hour',
     autoStart: true,
     models: {

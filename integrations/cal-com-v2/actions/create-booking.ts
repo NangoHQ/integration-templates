@@ -133,7 +133,7 @@ const ProviderBookingSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     status: z.enum(['success', 'error']),
-    data: z.union([ProviderBookingSchema, z.array(ProviderBookingSchema)])
+    data: z.unknown().optional()
 });
 
 const HostSchema = z.object({
@@ -201,6 +201,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['BOOKING_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://cal.com/docs/api-reference/v2/bookings/create-a-booking
@@ -236,6 +237,13 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (providerResponse.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when creating the booking.'
+            });
+        }
+
         const normalizeBooking = (booking: z.infer<typeof ProviderBookingSchema>) => ({
             id: booking.id,
             uid: booking.uid,
@@ -260,7 +268,8 @@ const action = createAction({
             bookingFieldsResponses: booking.bookingFieldsResponses
         });
 
-        const data = Array.isArray(providerResponse.data) ? providerResponse.data.map(normalizeBooking) : normalizeBooking(providerResponse.data);
+        const bookingData = z.union([ProviderBookingSchema, z.array(ProviderBookingSchema)]).parse(providerResponse.data);
+        const data = Array.isArray(bookingData) ? bookingData.map(normalizeBooking) : normalizeBooking(bookingData);
 
         return {
             status: providerResponse.status,

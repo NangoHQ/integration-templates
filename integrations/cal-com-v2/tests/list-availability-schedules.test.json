@@ -141,7 +141,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 19 Aug 2026 21:25:37 GMT",
+          "date": "Thu, 20 Aug 2026 10:56:51 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -156,9 +156,9 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1953",
-          "x-ratelimit-reset": "1787174743",
-          "cf-ray": "a2dc3b5d6d3188dc-PDX",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1787223468",
+          "cf-ray": "a2e0dfb09b6631df-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "public, max-age=0, must-revalidate",
           "etag": "W/\"2ea-ELA2csH5QsrttZp2R+ZF/Jm5B7M\"",
@@ -169,19 +169,15 @@
           "origin-agent-cluster": "?1",
           "x-permitted-cross-domain-policies": "none",
           "x-ratelimit-limit-default": "120",
-          "x-ratelimit-remaining-default": "105",
-          "x-ratelimit-reset-default": "12",
-          "x-request-id": "pdx1::qf57s-1787174737520-3e4a2e738f0f",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::bfdxm-1787223411310-2762dbec0abb",
           "x-vercel-cache": "BYPASS",
-          "x-vercel-id": "pdx1::cle1::qf57s-1787174737520-3e4a2e738f0f",
-          "set-cookie": "__cf_bm=xZ9QcbolX.9IPOOZN.rU8dZRtyuaVwdmp_0hmvJJuXE-1787174737.5081902-1.0.1.1-slVwikKcY4NE3FJw1SaOVeCUg62DLrHDPjHMZY4UdktCRobVgumu530JK_Fbd_zaHDTq9R04PHxch3dkU82RmWPzjSlG3n3BGcZpKk4it18zV60LQqO_21uzaTkP2Bdf; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 19 Aug 2026 21:55:37 GMT"
+          "x-vercel-id": "pdx1::cle1::bfdxm-1787223411310-2762dbec0abb",
+          "set-cookie": "__cf_bm=hLqGDblbFoC4kPaFe.SvGzNRhKhpfEXE6x3CxLhyOF4-1787223411.2987444-1.0.1.1-HXvN8v3xjKamksi_HP.CgOpioEVMhGgXo1MUzL9eGpc8Mf7tLPDQ9JTVzfPvv1dx9WrqUKZmN0.oWkpu8fEcthoWxRZaj4kvCDhM4g0mZAD3qkVSjRqHtIfEaodj8xzp; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Thu, 20 Aug 2026 11:26:51 GMT"
         },
-        "hash": "00bdc726633a517f8027ad31db2147db86c10617",
+        "hash": "4895e48ecc3f955c23e029fbba9af5f68e3f0b8d",
         "request": {
-          "params": {
-            "skip": "0",
-            "take": "250"
-          },
           "headers": {
             "cal-api-version": "2024-06-11"
           }

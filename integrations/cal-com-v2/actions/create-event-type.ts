@@ -135,13 +135,13 @@ const InputBookingWindowSchema = z
 const InputBookingLimitsCountSchema = z
     .union([
         z.object({
+            disabled: z.literal(true).describe('Disable booking limits count.')
+        }),
+        z.object({
             PER_DAY: z.number().optional().describe('Maximum bookings per day.'),
             PER_WEEK: z.number().optional().describe('Maximum bookings per week.'),
             PER_MONTH: z.number().optional().describe('Maximum bookings per month.'),
             PER_YEAR: z.number().optional().describe('Maximum bookings per year.')
-        }),
-        z.object({
-            disabled: z.literal(true).describe('Disable booking limits count.')
         })
     ])
     .optional();
@@ -149,13 +149,13 @@ const InputBookingLimitsCountSchema = z
 const InputBookingLimitsDurationSchema = z
     .union([
         z.object({
+            disabled: z.literal(true).describe('Disable booking limits duration.')
+        }),
+        z.object({
             PER_DAY: z.number().optional().describe('Maximum booking duration in minutes per day.'),
             PER_WEEK: z.number().optional().describe('Maximum booking duration in minutes per week.'),
             PER_MONTH: z.number().optional().describe('Maximum booking duration in minutes per month.'),
             PER_YEAR: z.number().optional().describe('Maximum booking duration in minutes per year.')
-        }),
-        z.object({
-            disabled: z.literal(true).describe('Disable booking limits duration.')
         })
     ])
     .optional();
@@ -239,29 +239,17 @@ const InputSchema = z
     })
     .describe('Input to create a new Cal.com event type.');
 
-const OutputLocationSchema = z.union([
-    z.object({
+const OutputLocationSchema = z
+    .object({
         type: z.string().describe('Location type.'),
         link: z.string().optional().describe('Meeting link URL.'),
-        public: z.boolean().optional().describe('Whether the location is publicly visible.')
-    }),
-    z.object({
-        type: z.string().describe('Location type.'),
         address: z.string().optional().describe('Meeting address.'),
-        public: z.boolean().optional().describe('Whether the location is publicly visible.')
-    }),
-    z.object({
-        type: z.string().describe('Location type.'),
-        integration: z.string().describe('Integration identifier.'),
-        link: z.string().optional().describe('Generated meeting link.'),
-        credentialId: z.number().optional().describe('Credential ID associated with the integration.')
-    }),
-    z.object({
-        type: z.string().describe('Location type.'),
+        integration: z.string().optional().describe('Integration identifier.'),
+        credentialId: z.number().optional().describe('Credential ID associated with the integration.'),
         phone: z.string().optional().describe('Phone number.'),
         public: z.boolean().optional().describe('Whether the location is publicly visible.')
     })
-]);
+    .passthrough();
 
 const OutputColorSchema = z.object({
     lightThemeHex: z.string().describe('Color used in light theme.'),
@@ -342,25 +330,25 @@ const OutputBookingWindowSchema = z.union([
 
 const OutputBookingLimitsCountSchema = z.union([
     z.object({
+        disabled: z.literal(true).describe('Booking limits count is disabled.')
+    }),
+    z.object({
         PER_DAY: z.number().optional().describe('Maximum bookings per day.'),
         PER_WEEK: z.number().optional().describe('Maximum bookings per week.'),
         PER_MONTH: z.number().optional().describe('Maximum bookings per month.'),
         PER_YEAR: z.number().optional().describe('Maximum bookings per year.')
-    }),
-    z.object({
-        disabled: z.literal(true).describe('Booking limits count is disabled.')
     })
 ]);
 
 const OutputBookingLimitsDurationSchema = z.union([
     z.object({
+        disabled: z.literal(true).describe('Booking limits duration is disabled.')
+    }),
+    z.object({
         PER_DAY: z.number().optional().describe('Maximum duration in minutes per day.'),
         PER_WEEK: z.number().optional().describe('Maximum duration in minutes per week.'),
         PER_MONTH: z.number().optional().describe('Maximum duration in minutes per month.'),
         PER_YEAR: z.number().optional().describe('Maximum duration in minutes per year.')
-    }),
-    z.object({
-        disabled: z.literal(true).describe('Booking limits duration is disabled.')
     })
 ]);
 
@@ -524,6 +512,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['EVENT_TYPE_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://cal.com/docs/api-reference/v2/event-types/create-an-event-type

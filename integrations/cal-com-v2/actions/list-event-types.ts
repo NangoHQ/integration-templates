@@ -10,6 +10,10 @@ const InputSchema = z
         orgId: z.number().optional().describe('ID of the organization. orgSlug is not needed when using this parameter.'),
         sortCreatedAt: z.enum(['asc', 'desc']).optional().describe('Sort event types by creation date. When not provided, no explicit ordering is applied.')
     })
+    .refine((input) => input.eventSlug === undefined || input.username !== undefined, {
+        message: 'username is required when eventSlug is provided',
+        path: ['username']
+    })
     .describe('Input for listing Cal.com event types');
 
 const ProviderUserSchema = z.object({
@@ -26,25 +30,25 @@ const ProviderEventTypeSchema = z
         title: z.string(),
         slug: z.string(),
         description: z.string().nullable().optional(),
-        locations: z.array(z.record(z.string(), z.unknown())).optional(),
+        locations: z.array(z.record(z.string(), z.unknown())).nullable().optional(),
         disableGuests: z.boolean().optional(),
         hidden: z.boolean().optional(),
         bookingRequiresAuthentication: z.boolean().optional(),
         ownerId: z.number(),
-        users: z.array(ProviderUserSchema).optional(),
+        users: z.array(ProviderUserSchema).nullable().optional(),
         bookingUrl: z.string().optional(),
         scheduleId: z.number().nullable().optional(),
         isInstantEvent: z.boolean().optional(),
         price: z.number().optional(),
         currency: z.string().optional(),
         recurrence: z.record(z.string(), z.unknown()).nullable().optional(),
-        metadata: z.record(z.string(), z.unknown()).optional()
+        metadata: z.record(z.string(), z.unknown()).nullable().optional()
     })
     .passthrough();
 
 const ProviderResponseSchema = z.object({
-    status: z.string(),
-    data: z.array(ProviderEventTypeSchema)
+    status: z.enum(['success', 'error']),
+    data: z.unknown().optional()
 });
 
 const UserSchema = z.object({
@@ -89,6 +93,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['EVENT_TYPE_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -110,8 +115,17 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (providerResponse.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when listing event types.'
+            });
+        }
+
+        const eventTypes = z.array(ProviderEventTypeSchema).parse(providerResponse.data);
+
         return {
-            eventTypes: providerResponse.data.map((item) => ({
+            eventTypes: eventTypes.map((item) => ({
                 id: item.id,
                 title: item.title,
                 slug: item.slug,
@@ -126,8 +140,8 @@ const action = createAction({
                 ...(item.scheduleId != null && { scheduleId: item.scheduleId }),
                 ...(item.isInstantEvent !== undefined && { isInstantEvent: item.isInstantEvent }),
                 ...(item.disableGuests !== undefined && { disableGuests: item.disableGuests }),
-                ...(item.locations !== undefined && { locations: item.locations }),
-                ...(item.users !== undefined && {
+                ...(item.locations != null && { locations: item.locations }),
+                ...(item.users != null && {
                     users: item.users.map((user) => ({
                         id: user.id,
                         ...(user.username !== undefined && { username: user.username }),

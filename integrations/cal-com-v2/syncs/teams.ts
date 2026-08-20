@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const ProviderTeamSchema = z.object({
@@ -52,7 +52,13 @@ const TeamSchema = z
     .describe('A team in Cal.com representing a group of users with shared scheduling settings.');
 
 const CheckpointSchema = z.object({
-    skip: z.number()
+    skip: z.number(),
+    inProgress: z.boolean()
+});
+
+const ResponseEnvelopeSchema = z.object({
+    status: z.enum(['success', 'error']),
+    data: z.unknown().optional()
 });
 
 const sync = createSync({
@@ -66,7 +72,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        let skip: number | undefined = 0;
+        let skip = 0;
+        let inProgress = false;
 
         const checkpoint = await nango.getCheckpoint();
         if (checkpoint != null) {
@@ -76,72 +83,80 @@ const sync = createSync({
             }
 
             skip = parsedCheckpoint.data.skip;
+            inProgress = parsedCheckpoint.data.inProgress;
         }
 
-        await nango.trackDeletesStart('Team');
+        if (!inProgress) {
+            await nango.trackDeletesStart('Team');
+        }
 
-        const proxyConfig: ProxyConfiguration = {
+        const take = 100;
+        let hasMore = true;
+
+        // A manual loop (not nango.paginate) is required here: its offset paginator
+        // treats any response with an empty/missing array at `response_path` as "no
+        // more pages" and stops silently, with no way to inspect `status` first. A
+        // provider error would look identical to "zero teams" and trigger a false
+        // full deletion via trackDeletesEnd.
+        while (hasMore) {
             // https://cal.com/docs/api-reference/v2/teams/get-teams
-            endpoint: '/teams',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'skip',
-                offset_start_value: skip ?? 0,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'take',
-                limit: 100,
-                response_path: 'data',
-                on_page: async ({ nextPageParam }) => {
-                    skip = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            const response = await nango.get({
+                endpoint: '/teams',
+                params: {
+                    skip: String(skip),
+                    take: String(take)
+                },
+                retries: 3
+            });
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
-                throw new Error('Expected page to be an array');
+            const envelope = ResponseEnvelopeSchema.safeParse(response.data);
+            if (!envelope.success) {
+                throw new Error(`Failed to parse teams response: ${envelope.error.message}`);
+            }
+            if (envelope.data.status !== 'success') {
+                throw new Error('Cal.com API returned an error status while syncing teams.');
             }
 
-            const teams = page.map((item) => {
-                const parsed = ProviderTeamSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse team: ${parsed.error.message}`);
-                }
+            const parsedPage = z.array(ProviderTeamSchema).safeParse(envelope.data.data);
+            if (!parsedPage.success) {
+                throw new Error(`Failed to parse team: ${parsedPage.error.message}`);
+            }
 
-                const team = parsed.data;
-                return {
-                    id: String(team.id),
-                    ...(team.parentId != null && { parentId: String(team.parentId) }),
-                    name: team.name,
-                    ...(team.slug != null && { slug: team.slug }),
-                    ...(team.logoUrl != null && { logoUrl: team.logoUrl }),
-                    ...(team.calVideoLogo != null && { calVideoLogo: team.calVideoLogo }),
-                    ...(team.appLogo != null && { appLogo: team.appLogo }),
-                    ...(team.appIconLogo != null && { appIconLogo: team.appIconLogo }),
-                    ...(team.bio != null && { bio: team.bio }),
-                    ...(team.hideBranding != null && { hideBranding: team.hideBranding }),
-                    isOrganization: team.isOrganization,
-                    ...(team.isPrivate != null && { isPrivate: team.isPrivate }),
-                    ...(team.hideBookATeamMember != null && { hideBookATeamMember: team.hideBookATeamMember }),
-                    ...(team.metadata != null && { metadata: team.metadata }),
-                    ...(team.theme != null && { theme: team.theme }),
-                    ...(team.brandColor != null && { brandColor: team.brandColor }),
-                    ...(team.darkBrandColor != null && { darkBrandColor: team.darkBrandColor }),
-                    ...(team.bannerUrl != null && { bannerUrl: team.bannerUrl }),
-                    ...(team.timeFormat != null && { timeFormat: team.timeFormat }),
-                    ...(team.timeZone != null && { timeZone: team.timeZone }),
-                    ...(team.weekStart != null && { weekStart: team.weekStart })
-                };
-            });
+            const teams = parsedPage.data.map((team) => ({
+                id: String(team.id),
+                ...(team.parentId != null && { parentId: String(team.parentId) }),
+                name: team.name,
+                ...(team.slug != null && { slug: team.slug }),
+                ...(team.logoUrl != null && { logoUrl: team.logoUrl }),
+                ...(team.calVideoLogo != null && { calVideoLogo: team.calVideoLogo }),
+                ...(team.appLogo != null && { appLogo: team.appLogo }),
+                ...(team.appIconLogo != null && { appIconLogo: team.appIconLogo }),
+                ...(team.bio != null && { bio: team.bio }),
+                ...(team.hideBranding != null && { hideBranding: team.hideBranding }),
+                isOrganization: team.isOrganization,
+                ...(team.isPrivate != null && { isPrivate: team.isPrivate }),
+                ...(team.hideBookATeamMember != null && { hideBookATeamMember: team.hideBookATeamMember }),
+                ...(team.metadata != null && { metadata: team.metadata }),
+                ...(team.theme != null && { theme: team.theme }),
+                ...(team.brandColor != null && { brandColor: team.brandColor }),
+                ...(team.darkBrandColor != null && { darkBrandColor: team.darkBrandColor }),
+                ...(team.bannerUrl != null && { bannerUrl: team.bannerUrl }),
+                ...(team.timeFormat != null && { timeFormat: team.timeFormat }),
+                ...(team.timeZone != null && { timeZone: team.timeZone }),
+                ...(team.weekStart != null && { weekStart: team.weekStart })
+            }));
 
             if (teams.length > 0) {
                 await nango.batchSave(teams, 'Team');
             }
 
-            if (skip !== undefined) {
-                await nango.saveCheckpoint({ skip });
+            if (parsedPage.data.length < take) {
+                hasMore = false;
+            } else {
+                skip += take;
             }
+
+            await nango.saveCheckpoint({ skip, inProgress: true });
         }
 
         await nango.clearCheckpoint();

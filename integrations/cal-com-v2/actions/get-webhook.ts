@@ -40,32 +40,34 @@ const action = createAction({
             retries: 3
         });
 
-        const wrapper = z
+        const envelope = z
             .object({
                 status: z.string(),
-                data: z.object({
-                    id: z.union([z.number(), z.string()]),
-                    userId: z.number(),
-                    subscriberUrl: z.string(),
-                    active: z.boolean(),
-                    payloadTemplate: z.string().nullable(),
-                    triggers: z.array(z.string()),
-                    secret: z.string().nullable(),
-                    time: z.number().nullable().optional(),
-                    timeUnit: z.string().nullable().optional(),
-                    version: z.string().nullable().optional()
-                })
+                data: z.unknown().optional()
             })
             .parse(response.data);
 
-        if (wrapper.status !== 'success') {
+        if (envelope.status !== 'success') {
             throw new nango.ActionError({
                 type: 'provider_error',
                 message: 'Cal.com returned a non-success status for the webhook request.'
             });
         }
 
-        const webhook = wrapper.data;
+        const webhook = z
+            .object({
+                id: z.union([z.number(), z.string()]),
+                userId: z.number(),
+                subscriberUrl: z.string(),
+                active: z.boolean(),
+                payloadTemplate: z.string().nullable(),
+                triggers: z.array(z.string()),
+                secret: z.string().nullable(),
+                time: z.number().nullable().optional(),
+                timeUnit: z.string().nullable().optional(),
+                version: z.string().nullable().optional()
+            })
+            .parse(envelope.data);
 
         return {
             id: String(webhook.id),

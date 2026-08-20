@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const WebhookSchema = z
@@ -9,7 +9,7 @@ const WebhookSchema = z
         active: z.boolean().describe('Whether the webhook is active'),
         triggers: z.array(z.string()).describe('List of event triggers this webhook subscribes to'),
         payloadTemplate: z.string().optional().describe('Template of the payload sent to the subscriberUrl'),
-        version: z.string().describe('Payload format version of the webhook'),
+        version: z.string().optional().describe('Payload format version of the webhook'),
         time: z.number().optional().describe('How long after the booking start time the no-show triggers are evaluated'),
         timeUnit: z.string().optional().describe('Unit of the no-show time value'),
         secret: z.string().optional().describe('Webhook secret for verifying payloads')
@@ -17,7 +17,8 @@ const WebhookSchema = z
     .describe('A Cal.com webhook configuration');
 
 const CheckpointSchema = z.object({
-    skip: z.number().int().min(0)
+    skip: z.number().int().min(0),
+    inProgress: z.boolean()
 });
 
 const ProviderWebhookSchema = z.object({
@@ -27,10 +28,15 @@ const ProviderWebhookSchema = z.object({
     active: z.boolean(),
     triggers: z.array(z.string()),
     payloadTemplate: z.string().nullable(),
-    version: z.string(),
+    version: z.string().nullish(),
     time: z.number().nullable(),
     timeUnit: z.string().nullable(),
     secret: z.string().nullable()
+});
+
+const ResponseEnvelopeSchema = z.object({
+    status: z.enum(['success', 'error']),
+    data: z.unknown().optional()
 });
 
 const sync = createSync({
@@ -45,36 +51,48 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint ?? { skip: 0 });
+        const checkpoint = CheckpointSchema.safeParse(rawCheckpoint ?? { skip: 0, inProgress: false });
         if (!checkpoint.success) {
             throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
         }
 
         // /v2/webhooks supports offset pagination, but it does not expose a
         // changed-since filter or updated timestamp for incremental syncs.
-        await nango.trackDeletesStart('Webhook');
+        let skip = checkpoint.data.skip;
+        const inProgress = checkpoint.data.inProgress;
 
-        let skip: number | undefined = checkpoint.data.skip;
+        if (!inProgress) {
+            await nango.trackDeletesStart('Webhook');
+        }
 
-        const proxyConfig: ProxyConfiguration = {
+        const take = 100;
+        let hasMore = true;
+
+        // A manual loop (not nango.paginate) is required here: its offset paginator
+        // treats any response with an empty/missing array at `response_path` as "no
+        // more pages" and stops silently, with no way to inspect `status` first. A
+        // provider error would look identical to "zero webhooks" and trigger a false
+        // full deletion via trackDeletesEnd.
+        while (hasMore) {
             // https://cal.com/docs/api-reference/v2/webhooks/get-all-webhooks
-            endpoint: '/webhooks',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'skip',
-                offset_start_value: skip ?? 0,
-                limit_name_in_request: 'take',
-                limit: 100,
-                response_path: 'data',
-                on_page: async (pagination: { nextPageParam?: string | number | undefined }) => {
-                    skip = typeof pagination.nextPageParam === 'number' ? pagination.nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            const response = await nango.get({
+                endpoint: '/webhooks',
+                params: {
+                    skip: String(skip),
+                    take: String(take)
+                },
+                retries: 3
+            });
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const items = z.array(ProviderWebhookSchema).safeParse(page);
+            const envelope = ResponseEnvelopeSchema.safeParse(response.data);
+            if (!envelope.success) {
+                throw new Error(`Failed to parse webhooks response: ${envelope.error.message}`);
+            }
+            if (envelope.data.status !== 'success') {
+                throw new Error('Cal.com API returned an error status while syncing webhooks.');
+            }
+
+            const items = z.array(ProviderWebhookSchema).safeParse(envelope.data.data);
             if (!items.success) {
                 throw new Error(`Failed to parse webhooks page: ${items.error.message}`);
             }
@@ -85,7 +103,7 @@ const sync = createSync({
                 subscriberUrl: webhook.subscriberUrl,
                 active: webhook.active,
                 triggers: webhook.triggers,
-                version: webhook.version,
+                ...(webhook.version != null && { version: webhook.version }),
                 ...(webhook.payloadTemplate != null && { payloadTemplate: webhook.payloadTemplate }),
                 ...(webhook.time != null && { time: webhook.time }),
                 ...(webhook.timeUnit != null && { timeUnit: webhook.timeUnit }),
@@ -96,9 +114,13 @@ const sync = createSync({
                 await nango.batchSave(webhooks, 'Webhook');
             }
 
-            if (skip !== undefined) {
-                await nango.saveCheckpoint({ skip });
+            if (items.data.length < take) {
+                hasMore = false;
+            } else {
+                skip += take;
             }
+
+            await nango.saveCheckpoint({ skip, inProgress: true });
         }
 
         await nango.clearCheckpoint();

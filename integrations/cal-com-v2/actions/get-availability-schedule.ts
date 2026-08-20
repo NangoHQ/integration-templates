@@ -31,7 +31,7 @@ const ProviderScheduleSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     status: z.enum(['success', 'error']),
-    data: ProviderScheduleSchema.nullable()
+    data: ProviderScheduleSchema.nullable().optional()
 });
 
 const AvailabilitySchema = z.object({
@@ -82,7 +82,14 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        if (providerResponse.status !== 'success' || !providerResponse.data) {
+        if (providerResponse.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when retrieving the schedule.'
+            });
+        }
+
+        if (!providerResponse.data) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Schedule with id ${input.id} not found.`

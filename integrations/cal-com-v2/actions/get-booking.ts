@@ -104,7 +104,11 @@ const ProviderAttendeeSchema = z.object({
     timeZone: z.string(),
     language: z.string().nullable().optional(),
     absent: z.boolean(),
-    phoneNumber: z.string().nullable().optional()
+    phoneNumber: z.string().nullable().optional(),
+    seatUid: z.string().nullable().optional(),
+    createdAt: z.string().nullable().optional(),
+    bookingFieldsResponses: z.record(z.string(), z.unknown()).nullable().optional(),
+    metadata: z.record(z.string(), z.string()).nullable().optional()
 });
 
 const ProviderBookingSchema = z.object({
@@ -133,7 +137,7 @@ const ProviderBookingSchema = z.object({
     metadata: z.record(z.string(), z.string()).nullable().optional(),
     rating: z.number().nullable().optional(),
     icsUid: z.string().nullable().optional(),
-    attendees: z.array(ProviderAttendeeSchema),
+    attendees: z.array(ProviderAttendeeSchema).nullish(),
     guests: z.array(z.string()).nullable().optional(),
     bookingFieldsResponses: z.record(z.string(), z.unknown()).nullable().optional(),
     recurringBookingUid: z.string().nullable().optional()
@@ -178,14 +182,18 @@ function mapBooking(raw: ProviderBooking): BookingOutput {
         ...(raw.metadata != null && { metadata: raw.metadata }),
         ...(raw.rating != null && { rating: raw.rating }),
         ...(raw.icsUid != null && { icsUid: raw.icsUid }),
-        attendees: raw.attendees.map((attendee) => ({
+        attendees: (raw.attendees ?? []).map((attendee) => ({
             name: attendee.name,
             email: attendee.email,
             displayEmail: attendee.displayEmail,
             timeZone: attendee.timeZone,
             ...(attendee.language != null && { language: attendee.language }),
             absent: attendee.absent,
-            ...(attendee.phoneNumber != null && { phoneNumber: attendee.phoneNumber })
+            ...(attendee.phoneNumber != null && { phoneNumber: attendee.phoneNumber }),
+            ...(attendee.seatUid != null && { seatUid: attendee.seatUid }),
+            ...(attendee.createdAt != null && { createdAt: attendee.createdAt }),
+            ...(attendee.bookingFieldsResponses != null && { bookingFieldsResponses: attendee.bookingFieldsResponses }),
+            ...(attendee.metadata != null && { metadata: attendee.metadata })
         })),
         ...(raw.guests != null && { guests: raw.guests }),
         ...(raw.bookingFieldsResponses != null && { bookingFieldsResponses: raw.bookingFieldsResponses }),
@@ -203,6 +211,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['BOOKING_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

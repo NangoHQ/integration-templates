@@ -90,7 +90,7 @@ const InputSchema = z
         sortEnd: z.enum(['asc', 'desc']).optional().describe('Sort results by end time.'),
         sortCreated: z.enum(['asc', 'desc']).optional().describe('Sort results by creation time.'),
         sortUpdatedAt: z.enum(['asc', 'desc']).optional().describe('Sort results by updated time.'),
-        limit: z.number().min(1).max(100).optional().describe('Number of items to return per page. Default: 50, max: 100.')
+        limit: z.number().int().min(1).max(100).optional().describe('Number of items to return per page. Default: 50, max: 100.')
     })
     .describe('Input for listing bookings from Cal.com.');
 
@@ -156,7 +156,7 @@ const RawBookingSchema = z.object({
     metadata: z.record(z.string(), z.string()).nullable().optional(),
     rating: z.number().nullable().optional(),
     icsUid: z.string().nullable().optional(),
-    attendees: z.array(RawAttendeeSchema),
+    attendees: z.array(RawAttendeeSchema).nullish(),
     guests: z.array(z.string()).nullable().optional(),
     bookingFieldsResponses: z.record(z.string(), z.unknown()).nullable().optional(),
     recurringBookingUid: z.string().nullable().optional()
@@ -164,11 +164,13 @@ const RawBookingSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     status: z.enum(['success', 'error']),
-    data: z.unknown(),
-    pagination: z.object({
-        nextCursor: z.string().nullable(),
-        hasMore: z.boolean()
-    })
+    data: z.unknown().optional(),
+    pagination: z
+        .object({
+            nextCursor: z.string().nullable(),
+            hasMore: z.boolean()
+        })
+        .optional()
 });
 
 /**
@@ -254,7 +256,7 @@ const action = createAction({
             ...(raw.metadata != null && { metadata: raw.metadata }),
             ...(raw.rating != null && { rating: raw.rating }),
             ...(raw.icsUid != null && { icsUid: raw.icsUid }),
-            attendees: raw.attendees.map((attendee) => ({
+            attendees: (raw.attendees ?? []).map((attendee) => ({
                 name: attendee.name,
                 email: attendee.email,
                 displayEmail: attendee.displayEmail,
@@ -276,8 +278,8 @@ const action = createAction({
             status: parsed.status,
             data: bookings,
             pagination: {
-                nextCursor: parsed.pagination.nextCursor,
-                hasMore: parsed.pagination.hasMore
+                nextCursor: parsed.pagination?.nextCursor ?? null,
+                hasMore: parsed.pagination?.hasMore ?? false
             }
         };
     }

@@ -1,8 +1,20 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const CheckpointSchema = z.object({
-    cursor: z.string()
+    cursor: z.string(),
+    inProgress: z.boolean()
+});
+
+const ResponseEnvelopeSchema = z.object({
+    status: z.enum(['success', 'error']),
+    data: z.unknown().optional(),
+    pagination: z
+        .object({
+            nextCursor: z.string().nullable().optional(),
+            hasMore: z.boolean().optional()
+        })
+        .optional()
 });
 
 const EventHostSchema = z
@@ -108,7 +120,7 @@ const ProviderBookingSchema = z.object({
 
 const sync = createSync({
     description: 'Retrieve all upcoming events per a user',
-    version: '1.0.0',
+    version: '2.2.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -117,87 +129,95 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let cursor = checkpoint != null && typeof checkpoint['cursor'] === 'string' ? checkpoint['cursor'] : undefined;
-
-        await nango.trackDeletesStart('Event');
-
-        const params: Record<string, string> = {
-            status: 'upcoming'
-        };
-        if (cursor !== undefined) {
-            params['cursor'] = cursor;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.partial().safeParse(rawCheckpoint ?? {});
+        if (!checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
         }
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
-            endpoint: '/bookings',
-            params,
-            headers: {
-                'cal-api-version': '2026-05-01'
-            },
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'pagination.nextCursor',
-                response_path: 'data',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                on_page: async (paginationState) => {
-                    const nextPageParam = paginationState.nextPageParam;
-                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+        let cursor = checkpoint.data.cursor;
+        const inProgress = checkpoint.data.inProgress;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const events = page.map((item) => {
-                const parsed = ProviderBookingSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse booking: ${parsed.error.message}`);
-                }
-                const record = parsed.data;
-                return {
-                    id: record.uid,
-                    title: record.title,
-                    description: record.description,
-                    status: record.status,
-                    start: record.start,
-                    end: record.end,
-                    duration: record.duration,
-                    location: record.location,
-                    createdAt: record.createdAt,
-                    ...(record.updatedAt != null && { updatedAt: record.updatedAt }),
-                    eventTypeId: record.eventTypeId,
-                    ...(record.eventType?.slug && { eventTypeSlug: record.eventType.slug }),
-                    hosts: record.hosts.map((host) => ({
-                        id: host.id,
-                        name: host.name,
-                        email: host.email,
-                        timeZone: host.timeZone
-                    })),
-                    attendees: (record.attendees ?? []).map((attendee) => ({
-                        name: attendee.name,
-                        email: attendee.email,
-                        timeZone: attendee.timeZone,
-                        absent: attendee.absent
-                    })),
-                    guests: record.guests,
-                    ...(record.metadata && Object.keys(record.metadata).length > 0 && { metadata: record.metadata }),
-                    ...(record.cancellationReason && { cancellationReason: record.cancellationReason }),
-                    ...(record.rescheduledFromUid && { rescheduledFromUid: record.rescheduledFromUid }),
-                    ...(record.icsUid && { icsUid: record.icsUid })
-                };
+        if (!inProgress) {
+            await nango.trackDeletesStart('Event');
+        }
+
+        let hasMore = true;
+
+        // A manual loop (not nango.paginate) is required here: its cursor paginator
+        // treats any response with an empty/missing array at `response_path` as "no
+        // more pages" and stops silently, with no way to inspect `status` first. A
+        // provider error would look identical to "zero events" and trigger a false
+        // full deletion via trackDeletesEnd.
+        while (hasMore) {
+            // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
+            const response = await nango.get({
+                endpoint: '/bookings',
+                params: {
+                    status: 'upcoming',
+                    limit: 100,
+                    ...(cursor !== undefined && { cursor })
+                },
+                headers: {
+                    'cal-api-version': '2026-05-01'
+                },
+                retries: 3
             });
+
+            const envelope = ResponseEnvelopeSchema.safeParse(response.data);
+            if (!envelope.success) {
+                throw new Error(`Failed to parse bookings response: ${envelope.error.message}`);
+            }
+            if (envelope.data.status !== 'success') {
+                throw new Error('Cal.com API returned an error status while syncing events.');
+            }
+
+            const page = z.array(ProviderBookingSchema).safeParse(envelope.data.data);
+            if (!page.success) {
+                throw new Error(`Failed to parse booking: ${page.error.message}`);
+            }
+
+            const events = page.data.map((record) => ({
+                id: record.uid,
+                title: record.title,
+                description: record.description,
+                status: record.status,
+                start: record.start,
+                end: record.end,
+                duration: record.duration,
+                location: record.location,
+                createdAt: record.createdAt,
+                ...(record.updatedAt != null && { updatedAt: record.updatedAt }),
+                eventTypeId: record.eventTypeId,
+                ...(record.eventType?.slug && { eventTypeSlug: record.eventType.slug }),
+                hosts: record.hosts.map((host) => ({
+                    id: host.id,
+                    name: host.name,
+                    email: host.email,
+                    timeZone: host.timeZone
+                })),
+                attendees: (record.attendees ?? []).map((attendee) => ({
+                    name: attendee.name,
+                    email: attendee.email,
+                    timeZone: attendee.timeZone,
+                    absent: attendee.absent
+                })),
+                guests: record.guests,
+                ...(record.metadata && Object.keys(record.metadata).length > 0 && { metadata: record.metadata }),
+                ...(record.cancellationReason && { cancellationReason: record.cancellationReason }),
+                ...(record.rescheduledFromUid && { rescheduledFromUid: record.rescheduledFromUid }),
+                ...(record.icsUid && { icsUid: record.icsUid })
+            }));
 
             if (events.length > 0) {
                 await nango.batchSave(events, 'Event');
             }
 
-            if (cursor !== undefined) {
-                await nango.saveCheckpoint({ cursor });
-            }
+            const nextCursor = envelope.data.pagination?.nextCursor;
+            hasMore = Boolean(envelope.data.pagination?.hasMore) && typeof nextCursor === 'string' && nextCursor.length > 0;
+            cursor = hasMore ? (nextCursor ?? undefined) : undefined;
+
+            await nango.saveCheckpoint({ cursor: cursor ?? '', inProgress: true });
         }
 
         await nango.clearCheckpoint();

@@ -34,8 +34,8 @@ const WebhookTrigger = z.enum([
 
 const InputSchema = z
     .object({
-        cursor: z.number().optional().describe('Pagination offset (skip value). Omit for the first page.'),
-        take: z.number().min(1).max(250).optional().describe('Maximum number of webhooks to return per page. Defaults to 250.')
+        cursor: z.number().int().min(0).optional().describe('Pagination offset (skip value). Omit for the first page.'),
+        take: z.number().int().min(1).max(250).optional().describe('Maximum number of webhooks to return per page. Defaults to 250.')
     })
     .describe('Input for listing Cal.com webhooks.');
 

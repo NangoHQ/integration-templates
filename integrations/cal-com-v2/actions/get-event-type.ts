@@ -14,7 +14,17 @@ const ProviderResponseSchema = z.object({
             eventType: z.record(z.string(), z.unknown()).optional()
         })
         .passthrough()
+        .optional()
 });
+
+const DisabledFlagSchema = z.union([z.boolean(), z.object({ disabled: z.boolean() }).passthrough()]).optional();
+
+function readDisabledFlag(value: z.infer<typeof DisabledFlagSchema>): boolean {
+    if (typeof value === 'boolean') {
+        return value;
+    }
+    return value?.disabled ?? false;
+}
 
 const EventTypeSchema = z
     .object({
@@ -28,8 +38,8 @@ const EventTypeSchema = z
         lockTimeZoneToggleOnBookingPage: z.boolean().optional(),
         requiresBookerEmailVerification: z.boolean().optional(),
         disableGuests: z.boolean().optional(),
-        disableCancelling: z.unknown().optional(),
-        disableRescheduling: z.unknown().optional(),
+        disableCancelling: DisabledFlagSchema,
+        disableRescheduling: DisabledFlagSchema,
         minimumBookingNotice: z.number().optional(),
         beforeEventBuffer: z.number().optional(),
         afterEventBuffer: z.number().optional(),
@@ -157,6 +167,14 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+
+        if (providerResponse.status !== 'success' || !providerResponse.data) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when retrieving the event type.'
+            });
+        }
+
         const rawData = providerResponse.data;
         const rawEventType = rawData.eventType;
         const eventType = rawEventType ? EventTypeSchema.parse(rawEventType) : EventTypeSchema.parse(rawData);
@@ -172,8 +190,8 @@ const action = createAction({
             lockTimeZoneToggleOnBookingPage: eventType.lockTimeZoneToggleOnBookingPage ?? false,
             requiresBookerEmailVerification: eventType.requiresBookerEmailVerification ?? false,
             disableGuests: eventType.disableGuests ?? false,
-            disableCancelling: typeof eventType.disableCancelling === 'boolean' ? eventType.disableCancelling : false,
-            disableRescheduling: typeof eventType.disableRescheduling === 'boolean' ? eventType.disableRescheduling : false,
+            disableCancelling: readDisabledFlag(eventType.disableCancelling),
+            disableRescheduling: readDisabledFlag(eventType.disableRescheduling),
             minimumBookingNotice: eventType.minimumBookingNotice ?? 0,
             beforeEventBuffer: eventType.beforeEventBuffer ?? 0,
             afterEventBuffer: eventType.afterEventBuffer ?? 0,

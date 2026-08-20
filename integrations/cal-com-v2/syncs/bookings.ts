@@ -205,6 +205,9 @@ const sync = createSync({
         const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : { updated_after: '', cursor: '' };
         let updatedAfter = checkpoint.updated_after || undefined;
         let cursor: string | undefined = checkpoint.cursor || undefined;
+        // Snapshot "now" so a final page whose bookings all lack `updatedAt` still
+        // advances the watermark, instead of repeating the same window forever.
+        const runStartedAt = new Date().toISOString();
 
         const proxyConfig: ProxyConfiguration = {
             // https://cal.com/docs/api-reference/v2/bookings/get-all-bookings
@@ -264,9 +267,7 @@ const sync = createSync({
                     maxUpdatedAt = booking.updatedAt;
                 }
             }
-            if (maxUpdatedAt != null) {
-                updatedAfter = maxUpdatedAt;
-            }
+            updatedAfter = maxUpdatedAt ?? runStartedAt;
             await nango.saveCheckpoint({
                 updated_after: updatedAfter ?? '',
                 cursor: ''

@@ -65,7 +65,10 @@ const OutputSchema = z
         status: z.enum(['success', 'error']).describe('Response status.'),
         team: TeamOutputSchema.optional().describe('The created team when available immediately.'),
         message: z.string().optional().describe('Message returned when team creation requires payment.'),
-        paymentLink: z.string().optional().describe('Payment link when team creation requires payment.')
+        paymentLink: z.string().optional().describe('Payment link when team creation requires payment.'),
+        pendingTeam: TeamOutputSchema.optional().describe(
+            'The pending team awaiting payment. Not yet active; use paymentLink to complete payment before treating it as a real team.'
+        )
     })
     .describe('Output for creating a team in Cal.com.');
 
@@ -144,7 +147,7 @@ const action = createAction({
                 status: apiResponse.data.status,
                 message: paymentResult.data.message,
                 ...(paymentResult.data.paymentLink !== undefined && { paymentLink: paymentResult.data.paymentLink }),
-                ...(paymentResult.data.pendingTeam !== undefined && { team: paymentResult.data.pendingTeam })
+                ...(paymentResult.data.pendingTeam !== undefined && { pendingTeam: paymentResult.data.pendingTeam })
             };
         }
 

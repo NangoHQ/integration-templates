@@ -56,14 +56,22 @@ const action = createAction({
             });
         }
 
-        const providerResponse = z
+        const envelope = z
             .object({
                 status: z.string(),
-                data: ProviderWebhookSchema
+                data: z.unknown().optional()
             })
             .parse(response.data);
 
-        const webhook = providerResponse.data;
+        if (envelope.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com returned an error status when deleting the webhook.',
+                webhookId: input.webhookId
+            });
+        }
+
+        const webhook = ProviderWebhookSchema.parse(envelope.data);
 
         return {
             id: webhook.id,

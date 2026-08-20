@@ -1,15 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        cursor: z
-            .string()
-            .optional()
-            .describe('Pagination cursor from the previous response. For offset-based pagination, this is the next skip value. Omit for the first page.'),
-        take: z.number().min(1).max(250).optional().describe('Maximum number of schedules to return. Defaults to 250.')
-    })
-    .describe('Input for listing availability schedules.');
+const InputSchema = z.object({}).describe('No input required for listing availability schedules.');
 
 const ScheduleAvailabilitySchema = z
     .object({
@@ -41,14 +33,14 @@ const ScheduleSchema = z
 
 const OutputSchema = z
     .object({
-        schedules: z.array(ScheduleSchema).describe('List of availability schedules.'),
-        next_cursor: z.string().optional().describe('Cursor to fetch the next page of results. Omitted when there are no more results.')
+        schedules: z.array(ScheduleSchema).describe('List of availability schedules.')
     })
     .describe('Output for listing availability schedules.');
 
 /**
  * @tags: [read]
  * @tagReason: Reads availability schedules from the authenticated user's Cal.com account.
+ * @pitfalls: Cal.com's v2 /schedules endpoint returns the full snapshot and does not support skip/take pagination.
  */
 const action = createAction({
     description: 'List availability schedules from Cal.com.',
@@ -57,19 +49,12 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['SCHEDULE_READ'],
 
-    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
-        const take = input.take ?? 250;
-
+    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://cal.com/docs/api-reference/v2/schedules/get-all-schedules
             endpoint: '/schedules',
             headers: {
                 'cal-api-version': '2024-06-11'
-            },
-            params: {
-                skip: String(skip),
-                take: String(take)
             },
             retries: 3
         });
@@ -128,11 +113,8 @@ const action = createAction({
             }))
         }));
 
-        const nextCursor = providerResponse.data.length === take ? String(skip + take) : undefined;
-
         return {
-            schedules,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            schedules
         };
     }
 });

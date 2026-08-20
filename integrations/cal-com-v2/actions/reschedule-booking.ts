@@ -49,13 +49,13 @@ const ProviderAttendeeSchema = z.object({
     email: z.string(),
     displayEmail: z.string(),
     timeZone: z.string(),
-    language: z.string().optional(),
+    language: z.string().nullable().optional(),
     absent: z.boolean(),
-    phoneNumber: z.string().optional(),
-    seatUid: z.string().optional(),
-    createdAt: z.string().optional(),
-    bookingFieldsResponses: z.record(z.string(), z.unknown()).optional(),
-    metadata: z.record(z.string(), z.string()).optional()
+    phoneNumber: z.string().nullable().optional(),
+    seatUid: z.string().nullable().optional(),
+    createdAt: z.string().nullable().optional(),
+    bookingFieldsResponses: z.record(z.string(), z.unknown()).nullable().optional(),
+    metadata: z.record(z.string(), z.string()).nullable().optional()
 });
 
 const ProviderBookingDataSchema = z.object({
@@ -92,7 +92,7 @@ const ProviderBookingDataSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     status: z.enum(['success', 'error']),
-    data: ProviderBookingDataSchema
+    data: z.unknown().optional()
 });
 
 const OutputHostSchema = z.object({
@@ -148,6 +148,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['BOOKING_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody = {
@@ -180,7 +181,15 @@ const action = createAction({
         }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const booking = providerResponse.data;
+
+        if (providerResponse.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Cal.com API returned an error status when rescheduling the booking.'
+            });
+        }
+
+        const booking = ProviderBookingDataSchema.parse(providerResponse.data);
 
         return {
             id: booking.id,
@@ -206,7 +215,7 @@ const action = createAction({
                 email: attendee.email,
                 timeZone: attendee.timeZone,
                 absent: attendee.absent,
-                ...(attendee.seatUid !== undefined && { seatUid: attendee.seatUid })
+                ...(attendee.seatUid != null && { seatUid: attendee.seatUid })
             })),
             ...(booking.rescheduledFromUid != null && { rescheduledFromUid: booking.rescheduledFromUid }),
             ...(booking.rescheduledToUid != null && { rescheduledToUid: booking.rescheduledToUid }),

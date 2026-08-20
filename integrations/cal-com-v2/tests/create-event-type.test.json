@@ -2,17 +2,18 @@
   "input": {
     "lengthInMinutes": 30,
     "title": "Test Event Type",
-    "slug": "test-event-type-1787174702"
+    "slug": "test-event-type-1787223676-b"
   },
   "output": {
-    "id": 6737902,
+    "id": 6744802,
     "lengthInMinutes": 30,
     "title": "Test Event Type",
-    "slug": "test-event-type-1787174702",
+    "slug": "test-event-type-1787223676-b",
     "description": "",
     "locations": [
       {
-        "type": "integration"
+        "type": "integration",
+        "integration": "cal-video"
       }
     ],
     "bookingFields": [
@@ -134,7 +135,7 @@
         }
       }
     ],
-    "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787174702"
+    "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787223676-b"
   },
   "nango": {},
   "api": {
@@ -143,10 +144,10 @@
         "response": {
           "status": "success",
           "data": {
-            "id": 6737902,
+            "id": 6744802,
             "lengthInMinutes": 30,
             "title": "Test Event Type",
-            "slug": "test-event-type-1787174702",
+            "slug": "test-event-type-1787223676-b",
             "description": "",
             "locations": [
               {
@@ -278,14 +279,14 @@
                 }
               }
             ],
-            "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787174702"
+            "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787223676-b"
           }
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 19 Aug 2026 21:25:07 GMT",
+          "date": "Thu, 20 Aug 2026 11:02:50 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "2491",
+          "content-length": "2495",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
@@ -298,12 +299,12 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1979",
-          "x-ratelimit-reset": "1787174743",
-          "cf-ray": "a2dc3a9cea4f88dc-PDX",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1787223827",
+          "cf-ray": "a2e0e8721c24afe8-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "public, max-age=0, must-revalidate",
-          "etag": "W/\"9bb-FlaJ5DANjX8oqi5YyrA6R6SYI9s\"",
+          "etag": "W/\"9bf-Z4ocL7GxkjqQi3u9dHg1/vczQuE\"",
           "server": "cloudflare",
           "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
           "cross-origin-opener-policy": "same-origin",
@@ -311,14 +312,14 @@
           "origin-agent-cluster": "?1",
           "x-permitted-cross-domain-policies": "none",
           "x-ratelimit-limit-default": "120",
-          "x-ratelimit-remaining-default": "114",
-          "x-ratelimit-reset-default": "43",
-          "x-request-id": "pdx1::7fmxv-1787174706724-41c5cdef8185",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::72vjv-1787223769948-af27c914df37",
           "x-vercel-cache": "MISS",
-          "x-vercel-id": "pdx1::cle1::7fmxv-1787174706724-41c5cdef8185",
-          "set-cookie": "__cf_bm=VWV4cPmhTnF._hUaWgq3sXp_Z6rAnMLLuWUukakk7G0-1787174706.7061672-1.0.1.1-CQspuLCRUdtr99LDCs3ghH5wVxDZxBUD.2ekcIBl7hN6iZbGYnVSjE_oG4iKgktq_MX22hux8KCSg7rMf7zcKcIgBPoyZazKGsLITA7D0_7At8ATB4rH867WGuy5juQa; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 19 Aug 2026 21:55:07 GMT"
+          "x-vercel-id": "pdx1::cle1::72vjv-1787223769948-af27c914df37",
+          "set-cookie": "__cf_bm=nNV6d8v.X8RzxAZFobGzxszqHbUweipehbjJ4sKpr7A-1787223769.9334416-1.0.1.1-GBfW56yy3bzXJ1Slb33tVVMNcXu2EinWojV1riSMNmUpndxhroZPYlU5L6ZsOKP9fRGlteqnebFNLy5Rmr422J4aiqzMWB1b7XlN2q2VoPFvFOZCTo5WAE4F.qvbY0vv; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Thu, 20 Aug 2026 11:32:50 GMT"
         },
-        "hash": "3f4a2264beca46a7bbda2f05cec0f03082e5c869",
+        "hash": "7cc61c8ec2b35a91fc665a200b065cd7368a332a",
         "request": {
           "headers": {
             "cal-api-version": "2024-06-14"
@@ -326,7 +327,7 @@
           "data": {
             "lengthInMinutes": 30,
             "title": "Test Event Type",
-            "slug": "test-event-type-1787174702"
+            "slug": "test-event-type-1787223676-b"
           }
         }
       }

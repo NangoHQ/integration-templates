@@ -41,6 +41,13 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
+        if (providerResponse.status !== 'success') {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: `Failed to delete schedule ${input.scheduleId}.`
+            });
+        }
+
         return {
             status: providerResponse.status
         };
