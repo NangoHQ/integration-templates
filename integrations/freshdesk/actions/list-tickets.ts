@@ -119,8 +119,8 @@ const InputSchema = z
 
 const OutputSchema = z
     .object({
-        tickets: z.array(TicketSchema).describe('List of tickets returned for the current page.'),
-        next_cursor: z.string().optional().describe('Pagination cursor for the next page. Omit if there are no more pages.')
+        items: z.array(TicketSchema).describe('List of tickets returned for the current page.'),
+        next_page: z.string().optional().describe('Pagination cursor (page number) for the next page. Omit if there are no more pages.')
     })
     .describe('Output of the list tickets action.');
 
@@ -131,7 +131,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List tickets from Freshdesk.',
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:read'],
@@ -165,17 +165,17 @@ const action = createAction({
 
         const tickets = z.array(ProviderTicketSchema).parse(response.data);
 
-        let next_cursor: string | undefined;
+        let next_page: string | undefined;
         const linkHeader = response.headers?.['link'];
         if (typeof linkHeader === 'string' && linkHeader.includes('rel="next"')) {
             const match = linkHeader.match(/[?&]page=(\d+)/);
             if (match) {
-                next_cursor = match[1];
+                next_page = match[1];
             }
         }
 
         return {
-            tickets: tickets.map((ticket) => ({
+            items: tickets.map((ticket) => ({
                 id: ticket.id,
                 cc_emails: ticket.cc_emails,
                 fwd_emails: ticket.fwd_emails,
@@ -222,7 +222,7 @@ const action = createAction({
                     }
                 })
             })),
-            ...(next_cursor !== undefined && { next_cursor })
+            ...(next_page !== undefined && { next_page })
         };
     }
 });

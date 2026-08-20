@@ -35,7 +35,7 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         items: z.array(GroupSchema).describe('List of groups for the current page.'),
-        next_cursor: z.string().optional().describe('Cursor for the next page. Omit if there are no more pages.')
+        next_page: z.string().optional().describe('Pagination cursor (page number) for the next page. Omit if there are no more pages.')
     })
     .describe('Output for listing Freshdesk groups.');
 
@@ -46,7 +46,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List groups from Freshdesk.',
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
 
@@ -78,20 +78,20 @@ const action = createAction({
             ...(group.updated_at != null && { updated_at: group.updated_at })
         }));
 
-        let nextCursor: string | undefined;
+        let nextPage: string | undefined;
         const linkHeader =
             (typeof response.headers === 'object' && response.headers !== null ? response.headers['link'] || response.headers['Link'] : undefined) || undefined;
 
         if (typeof linkHeader === 'string') {
             const nextMatch = linkHeader.match(/<[^>]*[?&]page=(\d+)[^>]*>\s*;\s*rel="next"/i);
             if (nextMatch) {
-                nextCursor = nextMatch[1];
+                nextPage = nextMatch[1];
             }
         }
 
         return {
             items,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });

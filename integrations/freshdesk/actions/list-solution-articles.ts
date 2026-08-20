@@ -76,7 +76,7 @@ const ArticleSchema = z.object({
 const OutputSchema = z
     .object({
         items: z.array(ArticleSchema).describe('List of solution articles.'),
-        next_cursor: z.string().optional().describe('Cursor for the next page. Omitted when there are no more pages.')
+        next_page: z.string().optional().describe('Pagination cursor (page number) for the next page. Omitted when there are no more pages.')
     })
     .describe('Output of listing Freshdesk solution articles.');
 
@@ -131,7 +131,7 @@ function normalizeArticle(article: z.infer<typeof ProviderArticleSchema>): z.inf
  */
 const action = createAction({
     description: 'List solution articles from Freshdesk.',
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
 
@@ -164,7 +164,7 @@ const action = createAction({
 
         return {
             items,
-            ...(nextPage !== undefined && { next_cursor: String(nextPage) })
+            ...(nextPage !== undefined && { next_page: String(nextPage) })
         };
     }
 });

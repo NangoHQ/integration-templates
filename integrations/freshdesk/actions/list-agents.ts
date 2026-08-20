@@ -81,7 +81,7 @@ const AgentSchema = z
 const OutputSchema = z
     .object({
         items: z.array(AgentSchema).describe('List of agents matching the request.'),
-        next_page: z.number().optional().describe('Next page number if more results are available.')
+        next_page: z.string().optional().describe('Pagination cursor (page number) for the next page, if more results are available.')
     })
     .describe('Output for listing agents from Freshdesk.');
 
@@ -92,7 +92,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List agents from Freshdesk.',
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -134,8 +134,13 @@ const action = createAction({
         const agents = z.array(ProviderAgentSchema).parse(response.data);
 
         const linkHeader = typeof response.headers?.['link'] === 'string' ? response.headers['link'] : undefined;
-        const hasNextPage = linkHeader !== undefined && linkHeader.length > 0;
-        const nextPage = hasNextPage ? page + 1 : undefined;
+        let nextPage: string | undefined;
+        if (linkHeader !== undefined && linkHeader.includes('rel="next"')) {
+            const match = linkHeader.match(/[?&]page=(\d+)/);
+            if (match && match[1]) {
+                nextPage = match[1];
+            }
+        }
 
         return {
             items: agents.map((agent) => ({

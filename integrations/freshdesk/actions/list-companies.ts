@@ -42,7 +42,7 @@ const CompanySchema = z.object({
 const OutputSchema = z
     .object({
         items: z.array(CompanySchema).describe('List of companies returned for the current page.'),
-        next_cursor: z.string().optional().describe('Pagination cursor for the next page. Omitted if there are no more pages.')
+        next_page: z.string().optional().describe('Pagination cursor (page number) for the next page. Omitted if there are no more pages.')
     })
     .describe('Output containing a page of Freshdesk companies and an optional next pagination cursor.');
 
@@ -53,7 +53,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List companies from Freshdesk.',
-    version: '1.0.0',
+    version: '2.0.0',
     input: InputSchema,
     output: OutputSchema,
 
@@ -87,22 +87,22 @@ const action = createAction({
         }));
 
         const linkHeader = response.headers['link'];
-        let nextCursor: string | undefined;
+        let nextPage: string | undefined;
         if (typeof linkHeader === 'string') {
             const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
             if (nextMatch && nextMatch[1]) {
                 const nextUrlStr = nextMatch[1].trim();
                 const nextUrl = new URL(nextUrlStr);
-                const nextPage = nextUrl.searchParams.get('page');
-                if (nextPage) {
-                    nextCursor = nextPage;
+                const nextPageParam = nextUrl.searchParams.get('page');
+                if (nextPageParam) {
+                    nextPage = nextPageParam;
                 }
             }
         }
 
         return {
             items,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(nextPage !== undefined && { next_page: nextPage })
         };
     }
 });
