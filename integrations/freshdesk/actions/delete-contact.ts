@@ -1,36 +1,32 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { idEntitySchema } from '../schema.zod.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+const InputSchema = z
+    .object({
+        id: z.number().describe('Freshdesk contact ID to soft-delete. Example: 123456789')
+    })
+    .describe('Input to soft-delete a Freshdesk contact.');
 
 /**
- * Deletes a user in Freshdesk
- *
- * Delete user Freshdesk API docs: https://developer.freshdesk.com/api/#soft_delete_contact
- *
+ * @tags: [write, destructive]
+ * @tagReason: Soft-deletes a contact on the provider; the contact becomes inaccessible and associated tickets are unassigned.
+ * @pitfalls: This action performs a soft delete so the contact remains restorable; re-invoking it on an already deleted or blocked contact returns 405 Method Not Allowed.
  */
 const action = createAction({
-    description: 'Deletes a contact in FreshDesk',
-    version: '2.0.1',
+    description: 'Delete or archive a contact in Freshdesk.',
+    version: '3.0.0',
+    input: InputSchema,
+    output: z.null().describe('Empty response indicating the contact was soft-deleted successfully.'),
 
-    input: IdEntity,
-    output: SuccessResponse,
+    exec: async (nango, input): Promise<null> => {
+        // https://developers.freshdesk.com/api/#delete_contact
+        await nango.delete({
+            endpoint: `/api/v2/contacts/${encodeURIComponent(input.id)}`,
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
+        });
 
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
-
-        const config: ProxyConfiguration = {
-            // https://developer.freshdesk.com/api/#soft_delete_contact
-            endpoint: `/api/v2/contacts/${input.id}`,
-            retries: 3
-        };
-
-        await nango.delete(config);
-
-        return {
-            success: true
-        };
+        return null;
     }
 });
 
