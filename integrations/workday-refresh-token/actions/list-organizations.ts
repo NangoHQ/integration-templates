@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        limit: z.number().optional().describe('Maximum number of organizations to return.'),
-        offset: z.number().optional().describe('Zero-based index of the first organization to return.')
+        limit: z.number().int().min(1).max(100).optional().describe('Maximum number of organizations to return.'),
+        offset: z.number().int().min(0).optional().describe('Zero-based index of the first organization to return.')
     })
     .describe('Input for listing Workday organizations.');
 
@@ -40,12 +40,12 @@ const action = createAction({
         const connection = await nango.getConnection();
         let tenant = connection.connection_config?.['tenant'];
 
-        if (typeof tenant !== 'string') {
+        if (typeof tenant !== 'string' || tenant.length === 0) {
             const metadata = await nango.getMetadata();
             tenant = metadata?.['tenant'];
         }
 
-        if (typeof tenant !== 'string') {
+        if (typeof tenant !== 'string' || tenant.length === 0) {
             throw new nango.ActionError({
                 type: 'invalid_configuration',
                 message: 'Missing tenant in connection configuration or metadata.'
@@ -62,20 +62,22 @@ const action = createAction({
             retries: 3
         });
 
-        const data = response.data;
-
-        if (!data || typeof data !== 'object') {
+        const ProviderResponseSchema = z.object({
+            data: z.array(OrganizationSchema),
+            total: z.number()
+        });
+        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
+        if (!parsedResponse.success) {
             throw new nango.ActionError({
                 type: 'invalid_response',
                 message: 'Unexpected response from Workday API.'
             });
         }
 
-        const organizations = Array.isArray(data.data) ? data.data : [];
-        const total = typeof data.total === 'number' ? data.total : organizations.length;
+        const organizations = parsedResponse.data.data;
+        const total = parsedResponse.data.total;
         const currentOffset = input.offset ?? 0;
-        const currentLimit = input.limit ?? organizations.length;
-        const nextOffset = currentOffset + organizations.length < total ? currentOffset + currentLimit : undefined;
+        const nextOffset = currentOffset + organizations.length < total ? currentOffset + organizations.length : undefined;
 
         return {
             organizations,

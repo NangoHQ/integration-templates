@@ -88,14 +88,19 @@ const action = createAction({
             });
         }
 
-        let rawItems: unknown[] = [];
+        let rawItems: unknown[];
         if (Array.isArray(responseData)) {
             rawItems = responseData;
         } else {
             const parsedCollection = ProviderCollectionSchema.safeParse(responseData);
-            if (parsedCollection.success && Array.isArray(parsedCollection.data.data)) {
-                rawItems = parsedCollection.data.data;
+            if (!parsedCollection.success || !Array.isArray(parsedCollection.data.data)) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected response shape from Workday API.',
+                    workerId: input.workerId
+                });
             }
+            rawItems = parsedCollection.data.data;
         }
 
         const balances: z.infer<typeof BalanceSchema>[] = [];

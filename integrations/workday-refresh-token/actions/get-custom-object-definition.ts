@@ -23,7 +23,7 @@ const ProviderCustomObjectDefinitionSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    tenant: z.string()
+    tenant: z.string().min(1)
 });
 
 const BusinessObjectSchema = z.object({
@@ -83,7 +83,15 @@ const action = createAction({
             });
         }
 
-        const providerData = ProviderCustomObjectDefinitionSchema.parse(response.data);
+        const providerResult = ProviderCustomObjectDefinitionSchema.safeParse(response.data);
+        if (!providerResult.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response shape from Workday API.',
+                details: providerResult.error.message
+            });
+        }
+        const providerData = providerResult.data;
 
         return {
             id: providerData.id,

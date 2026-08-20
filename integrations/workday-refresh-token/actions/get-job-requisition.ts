@@ -99,17 +99,25 @@ const action = createAction({
             });
         }
 
-        // https://community.workday.com/api/recruiting/v1/jobPostings/{id}
-        const response = await nango.get({
-            endpoint: `recruiting/v1/${encodeURIComponent(tenant)}/jobPostings/${encodeURIComponent(input.id)}`,
-            retries: 3
-        });
+        const HttpErrorSchema = z.object({ response: z.object({ status: z.number().optional() }).optional() }).passthrough();
 
-        if (response.status === 404) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: `Job posting not found for ID: ${input.id}`
+        // https://community.workday.com/api/recruiting/v1/jobPostings/{id}
+        let response;
+        // @allowTryCatch: nango.get throws on non-2xx responses; a missing posting must be translated to a not_found ActionError.
+        try {
+            response = await nango.get({
+                endpoint: `recruiting/v1/${encodeURIComponent(tenant)}/jobPostings/${encodeURIComponent(input.id)}`,
+                retries: 3
             });
+        } catch (err) {
+            const parsedError = HttpErrorSchema.safeParse(err);
+            if (parsedError.success && parsedError.data.response?.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: `Job posting not found for ID: ${input.id}`
+                });
+            }
+            throw err;
         }
 
         const providerPosting = ProviderJobPostingSchema.parse(response.data);

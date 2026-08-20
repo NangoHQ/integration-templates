@@ -74,4 +74,19 @@ describe('workday-refresh-token workers tests', () => {
       }
     }
   });
+
+  it('should track deletes on a fresh (offset 0) run but not on a resumed run', async () => {
+    const { nangoMock: freshRunMock } = createTestContext();
+    freshRunMock.paginate = vi.fn(async function* () {});
+    await createSync.exec(freshRunMock);
+    expect(freshRunMock.trackDeletesStart).toHaveBeenCalledWith('Worker');
+    expect(freshRunMock.trackDeletesEnd).toHaveBeenCalledWith('Worker');
+
+    const { nangoMock: resumedRunMock } = createTestContext();
+    resumedRunMock.checkpoint = { offset: 100 };
+    resumedRunMock.paginate = vi.fn(async function* () {});
+    await createSync.exec(resumedRunMock);
+    expect(resumedRunMock.trackDeletesStart).not.toHaveBeenCalled();
+    expect(resumedRunMock.trackDeletesEnd).not.toHaveBeenCalled();
+  });
 });

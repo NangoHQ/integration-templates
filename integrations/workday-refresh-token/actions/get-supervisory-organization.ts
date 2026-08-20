@@ -66,8 +66,14 @@ const action = createAction({
         if (input.tenant) {
             tenant = input.tenant;
         } else {
-            const connection = ConnectionSchema.parse(await nango.getConnection());
-            tenant = connection.connection_config.tenant;
+            const connectionResult = ConnectionSchema.safeParse(await nango.getConnection());
+            if (!connectionResult.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_connection',
+                    message: 'Missing tenant in connection configuration or input.'
+                });
+            }
+            tenant = connectionResult.data.connection_config.tenant;
         }
 
         const response = await nango.get({

@@ -117,10 +117,21 @@ const action = createAction({
         const days: Record<string, unknown>[] = [];
         const start = new Date(input.start_date + 'T00:00:00Z');
         const end = new Date(input.end_date + 'T00:00:00Z');
-        if (start > end) {
+        const isValidDate = (value: string, date: Date) =>
+            /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(date.getTime()) && date.toISOString().slice(0, 10) === value;
+        if (!isValidDate(input.start_date, start) || !isValidDate(input.end_date, end) || start > end) {
             throw new nango.ActionError({
                 type: 'invalid_dates',
-                message: 'start_date must be on or before end_date.'
+                message: 'start_date and end_date must be valid YYYY-MM-DD dates, with start_date on or before end_date.'
+            });
+        }
+
+        const MAX_DAYS_PER_REQUEST = 366;
+        const dayCount = Math.round((end.getTime() - start.getTime()) / (24 * 60 * 60 * 1000)) + 1;
+        if (dayCount > MAX_DAYS_PER_REQUEST) {
+            throw new nango.ActionError({
+                type: 'invalid_dates',
+                message: `Date range cannot exceed ${MAX_DAYS_PER_REQUEST} days.`
             });
         }
 
@@ -148,7 +159,9 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `absenceManagement/v4/${encodeURIComponent(tenant)}/workers/${encodeURIComponent(input.worker_id)}/requestTimeOff`,
             data: { days },
-            retries: 10
+            // Non-idempotent write: retrying could create duplicate time-off business processes if a prior attempt succeeded but its response was lost.
+            // retries: 1 means a single attempt with no retry (the SDK treats any value below 1 as 1 attempt).
+            retries: 1
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);
@@ -162,9 +175,17 @@ const action = createAction({
 
         const data = parsed.data;
         const bp = data.businessProcessParameters;
+        const businessProcessId = bp?.overallBusinessProcess?.id;
+
+        if (!businessProcessId) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Workday did not return a business process id for the submitted time off request.'
+            });
+        }
 
         return {
-            id: bp?.overallBusinessProcess?.id ?? '',
+            id: businessProcessId,
             ...(bp?.overallBusinessProcess?.descriptor !== undefined && { descriptor: bp.overallBusinessProcess.descriptor }),
             ...(bp?.overallStatus !== undefined && { status: bp.overallStatus }),
             ...(data.days !== undefined && {

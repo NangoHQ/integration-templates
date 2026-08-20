@@ -13,7 +13,7 @@ const ProviderWorkerSchema = z.object({
     href: z.string().optional(),
     primaryWorkEmail: z.string().optional(),
     primaryWorkPhone: z.string().optional(),
-    isPrimaryJob: z.boolean().optional(),
+    isManager: z.boolean().optional(),
     businessTitle: z.string().optional(),
     primarySupervisoryOrganization: ResourceReferenceSchema.optional()
 });
@@ -21,7 +21,7 @@ const ProviderWorkerSchema = z.object({
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        limit: z.number().min(1).max(100).optional().describe('Maximum number of workers to return per page. Default is 20, maximum is 100.'),
+        limit: z.number().int().min(1).max(100).optional().describe('Maximum number of workers to return per page. Default is 20, maximum is 100.'),
         search: z.string().optional().describe('Case-insensitive search string to filter workers by name.')
     })
     .describe('Input parameters for listing Workday worker records.');
@@ -33,7 +33,7 @@ const WorkerSchema = z
         href: z.string().optional().describe('URL to the full worker resource.'),
         primaryWorkEmail: z.string().optional().describe('Primary work email address of the worker.'),
         primaryWorkPhone: z.string().optional().describe('Primary work phone number of the worker.'),
-        isPrimaryJob: z.boolean().optional().describe('Whether this is the primary job for the worker.'),
+        isManager: z.boolean().optional().describe('Whether the worker holds a manager position.'),
         businessTitle: z.string().optional().describe('Business title of the worker.'),
         primarySupervisoryOrganization: z
             .object({
@@ -69,16 +69,16 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
         const MetadataSchema = z.object({
-            tenant: z.string().optional()
+            tenant: z.string().min(1)
         });
-        const parsedMetadata = MetadataSchema.parse(metadata);
-        const tenant = parsedMetadata.tenant;
-        if (!tenant || typeof tenant !== 'string') {
+        const parsedMetadata = MetadataSchema.safeParse(metadata);
+        if (!parsedMetadata.success) {
             throw new nango.ActionError({
                 type: 'missing_tenant',
                 message: 'Tenant is missing in connection metadata.'
             });
         }
+        const tenant = parsedMetadata.data.tenant;
 
         const limit = input.limit ?? 20;
 
@@ -118,7 +118,7 @@ const action = createAction({
             ...(worker.href !== undefined && { href: worker.href }),
             ...(worker.primaryWorkEmail !== undefined && { primaryWorkEmail: worker.primaryWorkEmail }),
             ...(worker.primaryWorkPhone !== undefined && { primaryWorkPhone: worker.primaryWorkPhone }),
-            ...(worker.isPrimaryJob !== undefined && { isPrimaryJob: worker.isPrimaryJob }),
+            ...(worker.isManager !== undefined && { isManager: worker.isManager }),
             ...(worker.businessTitle !== undefined && { businessTitle: worker.businessTitle }),
             ...(worker.primarySupervisoryOrganization !== undefined && {
                 primarySupervisoryOrganization: {

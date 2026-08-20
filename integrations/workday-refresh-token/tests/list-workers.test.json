@@ -7,6 +7,7 @@
         "descriptor": "27373",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000",
         "primaryWorkPhone": "+91 (73264) 16007",
+        "isManager": false,
         "businessTitle": "Manager, IT Operations",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -19,6 +20,7 @@
         "descriptor": "3.17.1 [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/04ab2d251adf100195092cf33fa70000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Product Manager",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -31,6 +33,7 @@
         "descriptor": "ADMIN [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b647f08b8df91000f6e5c557b9bc0000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Program Manager",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -43,6 +46,7 @@
         "descriptor": "AIRBUSTEST",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/baf00a57d25f10098e0ac975d7070000",
         "primaryWorkPhone": "+91 (73264) 16007",
+        "isManager": false,
         "businessTitle": "Development Engineer",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -56,6 +60,7 @@
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b8ef48a7f8281005df6b2ecc263b0000",
         "primaryWorkEmail": "ANNVESH@GMAIL.COM",
         "primaryWorkPhone": "+91 (99009) 90088",
+        "isManager": false,
         "businessTitle": "Development Engineer",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -67,6 +72,7 @@
         "id": "601bb39a25b910015c1a4724522c0000",
         "descriptor": "APR29",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/601bb39a25b910015c1a4724522c0000",
+        "isManager": false,
         "businessTitle": "Executive Assistant",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -79,6 +85,7 @@
         "descriptor": "ASHLEY A PARKER",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/16e70a5cf7ff011733b793499f34ea0b",
         "primaryWorkEmail": "aparker@zktechnology.com",
+        "isManager": false,
         "businessTitle": "SALES ADMIN ASSISTANCE",
         "primarySupervisoryOrganization": {
           "id": "4d4ec8ccd07101a5082d0f761f0ea206",
@@ -91,6 +98,7 @@
         "descriptor": "AUG0008 [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000fdfd557dced0000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Customer Service Representative",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -103,6 +111,7 @@
         "descriptor": "AUG04",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/35525002249910010098e5fadfef0000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Hardware Support",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -115,6 +124,7 @@
         "descriptor": "AUG08 [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc10000f926167af760000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Corporate Counsel",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -127,6 +137,7 @@
         "descriptor": "AUG9890 [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/1061d3e9c3dc1000102d023ae94a0000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Chief Information Officer",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -139,6 +150,7 @@
         "descriptor": "AUGCONT [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100159972e79c70d0000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Workday Consultant - Diagram",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -151,6 +163,7 @@
         "descriptor": "AUGCONT [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/355250022499100195a76531d1770000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Senior Risk Analyst",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -163,6 +176,7 @@
         "descriptor": "AUGSIxth [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/89bd8d4009c7100191de6f9e0f300000",
         "primaryWorkPhone": "+91 (1234) 567890",
+        "isManager": false,
         "businessTitle": "Product Developer",
         "primarySupervisoryOrganization": {
           "id": "87b6d8b120cc01c9f23e727a970e2f07",
@@ -174,6 +188,7 @@
         "id": "578440231c7e100158d3616c72d00000",
         "descriptor": "Aaron Seeee [C]",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/578440231c7e100158d3616c72d00000",
+        "isManager": false,
         "businessTitle": "Software Engineer",
         "primarySupervisoryOrganization": {
           "id": "827db9d515f6100169b2701b93890000",
@@ -185,6 +200,7 @@
         "id": "45b6a2bc45b61000b21bd7ce85e90000",
         "descriptor": "Abc Def",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/45b6a2bc45b61000b21bd7ce85e90000",
+        "isManager": false,
         "businessTitle": "Developer Dummy",
         "primarySupervisoryOrganization": {
           "id": "3aed2dc29d2f100d9285313eccb90000",
@@ -196,6 +212,7 @@
         "id": "f5e230db077c100208df5d668b270000",
         "descriptor": "Abctech",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/f5e230db077c100208df5d668b270000",
+        "isManager": false,
         "businessTitle": "System Administrator",
         "primarySupervisoryOrganization": {
           "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
@@ -207,6 +224,7 @@
         "id": "b3dc45a692481023bee0741fd7420000",
         "descriptor": "Abdul Ahmed",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/b3dc45a692481023bee0741fd7420000",
+        "isManager": false,
         "businessTitle": "Mango Consultant",
         "primarySupervisoryOrganization": {
           "id": "dd782b74c51344dda5f4975404e8217f",
@@ -219,6 +237,7 @@
         "descriptor": "Abdul Khan",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017d4f2b44ee2c0000",
         "primaryWorkPhone": "+1 (847) 7211717",
+        "isManager": false,
         "businessTitle": "Workday Application Support",
         "primarySupervisoryOrganization": {
           "id": "5b609071d0db1001bc1909fa20cb0000",
@@ -231,6 +250,7 @@
         "descriptor": "Abdul Moid",
         "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/71caea2b7a5210017c14e0fbcfd00000",
         "primaryWorkPhone": "+1 (847) 8481122",
+        "isManager": false,
         "businessTitle": "Integrations Developer",
         "primarySupervisoryOrganization": {
           "id": "5b609071d0db1001bc1909fa20cb0000",

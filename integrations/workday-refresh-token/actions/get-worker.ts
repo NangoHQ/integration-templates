@@ -58,7 +58,7 @@ const ProviderResponseSchema = z.object({
 });
 
 const MetadataSchema = z.object({
-    tenant: z.string().describe('The Workday tenant identifier. Example: "zktechnology_pt1"')
+    tenant: z.string().min(1).describe('The Workday tenant identifier. Example: "zktechnology_pt1"')
 });
 
 /**

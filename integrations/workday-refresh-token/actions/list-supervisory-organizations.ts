@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
+        cursor: z.string().regex(/^\d+$/, 'Cursor must be a non-negative integer.').optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
         limit: z.number().int().min(1).max(100).optional().describe('Maximum number of supervisory organizations to return per page.')
     })
     .describe('Input for listing supervisory organizations');
@@ -36,18 +36,25 @@ const action = createAction({
         const metadata = await nango.getMetadata();
 
         const MetadataSchema = z.object({
-            tenant: z.string()
+            tenant: z.string().min(1)
         });
 
-        const parsedMetadata = MetadataSchema.parse(metadata);
-        const tenant = parsedMetadata.tenant;
+        const parsedMetadata = MetadataSchema.safeParse(metadata);
+        if (!parsedMetadata.success) {
+            throw new nango.ActionError({
+                type: 'missing_tenant',
+                message: 'Tenant is missing in connection metadata.'
+            });
+        }
+        const tenant = parsedMetadata.data.tenant;
+        const limit = input.limit ?? 20;
 
         // https://community.workday.com/api (official, gated)
         const response = await nango.get({
             endpoint: `/common/v1/${encodeURIComponent(tenant)}/supervisoryOrganizations`,
             params: {
                 ...(input.cursor !== undefined && { offset: input.cursor }),
-                ...(input.limit !== undefined && { limit: String(input.limit) })
+                limit: String(limit)
             },
             retries: 3
         });
@@ -61,7 +68,7 @@ const action = createAction({
 
         const ProviderItemSchema = z
             .object({
-                id: z.string().optional(),
+                id: z.string().min(1),
                 name: z.string().optional().nullable()
             })
             .passthrough();
@@ -69,21 +76,14 @@ const action = createAction({
         const items = (providerResponse.data || []).map((item) => {
             const parsed = ProviderItemSchema.parse(item);
             return {
-                id: parsed.id || '',
+                id: parsed.id,
                 ...(parsed.name != null && { name: parsed.name })
             };
         });
 
-        let nextCursor: string | undefined;
-        if (input.limit !== undefined && input.limit > 0) {
-            const currentOffset = input.cursor !== undefined ? parseInt(input.cursor, 10) : 0;
-            if (!Number.isNaN(currentOffset)) {
-                const total = providerResponse.total ?? 0;
-                if (currentOffset + items.length < total) {
-                    nextCursor = String(currentOffset + input.limit);
-                }
-            }
-        }
+        const currentOffset = input.cursor !== undefined ? parseInt(input.cursor, 10) : 0;
+        const total = providerResponse.total ?? 0;
+        const nextCursor = currentOffset + items.length < total ? String(currentOffset + items.length) : undefined;
 
         return {
             items,

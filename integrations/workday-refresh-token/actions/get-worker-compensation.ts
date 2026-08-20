@@ -67,7 +67,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
         const metadataSchema = z.object({
-            tenant: z.string()
+            tenant: z.string().min(1)
         });
         const metadataResult = metadataSchema.safeParse(metadata);
 

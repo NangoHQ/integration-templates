@@ -81,7 +81,8 @@
         "id": "2493493042641001660aeadf2a830000",
         "name": "ABS Marketing"
       }
-    ]
+    ],
+    "nextCursor": "20"
   },
   "nango": {
     "getConnection": {},
@@ -351,7 +352,11 @@
           "set-cookie": "TS012df9cf=010914a00cdf6b7af455da701ec8076b016289195c87017bbcaf55815086917208cf55292538561a489834af0717afc1e71cbbe6bc; Path=/; HttpOnly"
         },
         "hash": "548c092456d04cf74b36d57947769303e8e29c36",
-        "request": {}
+        "request": {
+          "params": {
+            "limit": "20"
+          }
+        }
       }
     }
   }

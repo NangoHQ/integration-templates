@@ -44,7 +44,9 @@ const sync = createSync({
             throw new Error('Missing tenant in connection config or metadata');
         }
 
-        await nango.trackDeletesStart('Organization');
+        if (initialOffset === 0) {
+            await nango.trackDeletesStart('Organization');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://community.workday.com/api
@@ -90,7 +92,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Organization');
+        if (initialOffset === 0) {
+            await nango.trackDeletesEnd('Organization');
+        }
     }
 });
 

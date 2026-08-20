@@ -17,7 +17,7 @@ const ProviderOrganizationSchema = z
 
 const OutputSchema = z
     .object({
-        id: z.string().optional().describe('Unique identifier for the organization'),
+        id: z.string().describe('Unique identifier for the organization'),
         descriptor: z.string().optional().describe('Human-readable descriptor of the organization'),
         href: z.string().optional().describe('API URL for the organization resource')
     })
@@ -35,16 +35,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const MetadataSchema = z.object({
-            tenant: z.string().optional()
-        });
-        const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const tenant = metadata.tenant;
+        const connection = await nango.getConnection();
+        const metadata = await nango.getMetadata<{ tenant?: string }>();
+        const tenant = connection.connection_config?.['tenant'] ?? metadata?.['tenant'];
 
-        if (!tenant) {
+        if (typeof tenant !== 'string' || tenant.length === 0) {
             throw new nango.ActionError({
                 type: 'invalid_connection',
-                message: 'Missing tenant in connection configuration'
+                message: 'Missing tenant in connection configuration or metadata'
             });
         }
 
@@ -65,7 +63,7 @@ const action = createAction({
         const org = ProviderOrganizationSchema.parse(response.data);
 
         return {
-            ...(org.id !== undefined && { id: org.id }),
+            id: org.id ?? input.id,
             ...(org.descriptor != null && { descriptor: org.descriptor }),
             ...(org.href != null && { href: org.href })
         };

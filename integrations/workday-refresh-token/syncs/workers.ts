@@ -67,7 +67,9 @@ const sync = createSync({
         const initialOffset = checkpoint?.offset ?? 0;
         let nextOffset: number | undefined = initialOffset;
 
-        await nango.trackDeletesStart('Worker');
+        if (initialOffset === 0) {
+            await nango.trackDeletesStart('Worker');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://community.workday.com/api
@@ -123,7 +125,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Worker');
+        if (initialOffset === 0) {
+            await nango.trackDeletesEnd('Worker');
+        }
     }
 });
 

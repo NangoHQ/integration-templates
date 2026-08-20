@@ -89,11 +89,11 @@ const action = createAction({
         const tenant = parsedConfig.data.tenant;
 
         const limit = input.limit ?? 20;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (Number.isNaN(offset)) {
+        const offset = input.cursor === undefined ? 0 : Number(input.cursor);
+        if (!Number.isSafeInteger(offset) || offset < 0 || (input.cursor !== undefined && !/^\d+$/.test(input.cursor))) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid integer string.'
+                message: 'cursor must be a valid non-negative integer string.'
             });
         }
 
@@ -113,7 +113,7 @@ const action = createAction({
         });
         const providerResponse = providerResponseSchema.parse(response.data);
 
-        const hasMore = offset + providerResponse.data.length < providerResponse.total;
+        const hasMore = providerResponse.data.length > 0 && offset + providerResponse.data.length < providerResponse.total;
         const nextCursor = hasMore ? String(offset + providerResponse.data.length) : undefined;
 
         return {

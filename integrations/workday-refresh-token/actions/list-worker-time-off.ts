@@ -4,8 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         workerId: z.string().describe('The Workday worker ID to query time-off entries for. Example: "baf00a57d25f10098e0ac975d7070000"'),
-        offset: z.number().optional().describe('Pagination offset for skipping results. Omit for the first page.'),
-        limit: z.number().optional().describe('Maximum number of results to return per page.')
+        offset: z.number().int().min(0).optional().describe('Pagination offset for skipping results. Omit for the first page.'),
+        limit: z.number().int().min(1).optional().describe('Maximum number of results to return per page.')
     })
     .describe("Input for listing a worker's time-off entries.");
 
@@ -90,24 +90,24 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const items = (providerResponse.data || []).map((entry) => {
-            return {
-                id: entry.timeOffEntryId || '',
-                workerId: entry.worker?.id || input.workerId,
-                ...(entry.date !== undefined && { date: entry.date }),
-                ...(entry.timeOffType?.descriptor !== undefined && { timeOffType: entry.timeOffType.descriptor }),
-                ...(entry.status?.descriptor !== undefined && { status: entry.status.descriptor }),
-                ...(entry.quantity !== undefined && { quantity: entry.quantity }),
-                ...(entry.unit?.descriptor !== undefined && { unit: entry.unit.descriptor }),
-                ...(entry.timeOffEventId?.id !== undefined && { timeOffEventId: entry.timeOffEventId.id }),
-                ...(entry.comment !== undefined && { comment: entry.comment })
-            };
-        });
+        const items = (providerResponse.data || [])
+            .filter((entry): entry is typeof entry & { timeOffEntryId: string } => Boolean(entry.timeOffEntryId))
+            .map((entry) => {
+                return {
+                    id: entry.timeOffEntryId,
+                    workerId: entry.worker?.id || input.workerId,
+                    ...(entry.date !== undefined && { date: entry.date }),
+                    ...(entry.timeOffType?.descriptor !== undefined && { timeOffType: entry.timeOffType.descriptor }),
+                    ...(entry.status?.descriptor !== undefined && { status: entry.status.descriptor }),
+                    ...(entry.quantity !== undefined && { quantity: entry.quantity }),
+                    ...(entry.unit?.descriptor !== undefined && { unit: entry.unit.descriptor }),
+                    ...(entry.timeOffEventId?.id !== undefined && { timeOffEventId: entry.timeOffEventId.id }),
+                    ...(entry.comment !== undefined && { comment: entry.comment })
+                };
+            });
 
         const nextOffset =
-            input.offset !== undefined && input.limit !== undefined && providerResponse.total !== undefined && items.length > 0
-                ? input.offset + items.length
-                : undefined;
+            providerResponse.total !== undefined && items.length > 0 ? (input.offset ?? 0) + items.length : undefined;
 
         const hasMore = nextOffset !== undefined && providerResponse.total !== undefined && nextOffset < providerResponse.total;
 

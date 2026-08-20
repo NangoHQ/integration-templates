@@ -74,4 +74,19 @@ describe('workday-refresh-token organizations tests', () => {
       }
     }
   });
+
+  it('should track deletes on a fresh (offset 0) run but not on a resumed run', async () => {
+    const { nangoMock: freshRunMock } = createTestContext();
+    freshRunMock.paginate = vi.fn(async function* () {});
+    await createSync.exec(freshRunMock);
+    expect(freshRunMock.trackDeletesStart).toHaveBeenCalledWith('Organization');
+    expect(freshRunMock.trackDeletesEnd).toHaveBeenCalledWith('Organization');
+
+    const { nangoMock: resumedRunMock } = createTestContext();
+    resumedRunMock.checkpoint = { offset: 50 };
+    resumedRunMock.paginate = vi.fn(async function* () {});
+    await createSync.exec(resumedRunMock);
+    expect(resumedRunMock.trackDeletesStart).not.toHaveBeenCalled();
+    expect(resumedRunMock.trackDeletesEnd).not.toHaveBeenCalled();
+  });
 });

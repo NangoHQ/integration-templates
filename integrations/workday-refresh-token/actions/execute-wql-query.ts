@@ -82,10 +82,23 @@ const action = createAction({
             });
         }
 
-        return {
+        const output = {
             total: parsed.data.total,
             rows: parsed.data.data
         };
+
+        // Nango caps action output at 2 MB; leave headroom for serialization overhead.
+        const MAX_OUTPUT_BYTES = 1_900_000;
+        const outputSize = Buffer.byteLength(JSON.stringify(output), 'utf8');
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: 'The WQL result exceeds the maximum action output size. Reduce the limit or select fewer fields and retry.',
+                sizeBytes: outputSize
+            });
+        }
+
+        return output;
     }
 });
 

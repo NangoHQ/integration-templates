@@ -45,19 +45,20 @@ const action = createAction({
     metadata: MetadataSchema,
 
     exec: async (nango, input) => {
-        const metadata = await nango.getMetadata();
-        const tenant = metadata.tenant;
+        const connection = await nango.getConnection();
+        const metadata = await nango.getMetadata<{ tenant?: string }>();
+        const tenant = connection.connection_config?.['tenant'] ?? metadata?.['tenant'];
 
         if (typeof tenant !== 'string' || tenant.length === 0) {
             throw new nango.ActionError({
                 type: 'missing_tenant',
-                message: 'Tenant is missing in connection metadata.'
+                message: 'Tenant is missing in connection configuration or metadata.'
             });
         }
 
         const response = await nango.get({
             // https://community.workday.com/api/reference/absence-management/get-time-off-details
-            endpoint: `absenceManagement/v4/${tenant}/workers/${encodeURIComponent(input.workerId)}/timeOffDetails/${encodeURIComponent(input.timeOffDetailId)}`,
+            endpoint: `absenceManagement/v4/${encodeURIComponent(tenant)}/workers/${encodeURIComponent(input.workerId)}/timeOffDetails/${encodeURIComponent(input.timeOffDetailId)}`,
             retries: 3
         });
 
