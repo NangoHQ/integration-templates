@@ -7,7 +7,7 @@ const InputSchema = z
         description: z.string().optional().describe('Description of the group.'),
         agent_ids: z.array(z.number()).optional().describe('Array of agent user IDs to add to the group.'),
         auto_ticket_assign: z
-            .number()
+            .union([z.literal(0), z.literal(1)])
             .optional()
             .describe(
                 'Automatic ticket assignment type. Accepted values are 0 and 1. Requires a plan that supports automatic ticket assignment. Defaults to 0.'
@@ -18,7 +18,17 @@ const InputSchema = z
             .optional()
             .describe('User ID to whom escalation emails are sent when a ticket is unassigned. Pass null to set to none.'),
         unassigned_for: z
-            .string()
+            .union([
+                z.literal('30m'),
+                z.literal('1h'),
+                z.literal('2h'),
+                z.literal('4h'),
+                z.literal('8h'),
+                z.literal('12h'),
+                z.literal('1d'),
+                z.literal('2d'),
+                z.literal('3d')
+            ])
             .optional()
             .describe(
                 'Time after which an escalation email is sent if a ticket remains unassigned. Accepted values: 30m, 1h, 2h, 4h, 8h, 12h, 1d, 2d, 3d. Defaults to 30m.'
@@ -78,7 +88,8 @@ const action = createAction({
                 ...(input.escalate_to !== undefined && { escalate_to: input.escalate_to }),
                 ...(input.unassigned_for !== undefined && { unassigned_for: input.unassigned_for })
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerGroup = ProviderGroupSchema.parse(response.data);

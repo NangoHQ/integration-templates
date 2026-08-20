@@ -14,7 +14,7 @@ const InputSchema = z
  * @pitfalls: Deleting a group does not delete its members, and deleted groups cannot be restored.
  */
 const action = createAction({
-    description: 'Delete or archive a group in Freshdesk.',
+    description: 'Permanently delete a group in Freshdesk. This cannot be undone.',
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty success response'),

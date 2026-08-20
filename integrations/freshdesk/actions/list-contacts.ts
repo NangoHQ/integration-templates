@@ -92,13 +92,13 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid page number string'
             });
         }
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
 
         const params: Record<string, string | number> = {
             page: page

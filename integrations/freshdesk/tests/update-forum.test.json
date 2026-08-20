@@ -12,7 +12,8 @@
     "forum_category_id": 158000093937,
     "forum_type": 2,
     "forum_visibility": 1,
-    "topics_count": 0
+    "topics_count": 0,
+    "comments_count": 0
   },
   "nango": {},
   "api": {

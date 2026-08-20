@@ -8,7 +8,7 @@
     "business_hour_id": 158000271923,
     "unassigned_for": "30m",
     "agent_ids": [],
-    "auto_ticket_assign": false,
+    "auto_ticket_assign": 0,
     "created_at": "2026-08-19T23:36:33Z",
     "updated_at": "2026-08-19T23:36:33Z"
   },

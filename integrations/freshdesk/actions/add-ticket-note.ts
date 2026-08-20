@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         ticket_id: z.number().describe('Freshdesk ticket ID to which the note will be added.'),
         body: z.string().describe('Note content. May contain HTML.'),
-        private: z.boolean().optional().describe('Whether the note is private (visible only to agents). Defaults to public if omitted.')
+        private: z.boolean().optional().describe('Whether the note is private (visible only to agents). Defaults to false (public) if omitted.')
     })
     .describe('Input for adding a note to a Freshdesk ticket.');
 
@@ -41,7 +41,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates a new note on a Freshdesk ticket.
- * @pitfalls: Omitting private defaults to a public note visible to the requester; for webchat or mobile SDK tickets, structured_body is required instead of body for public notes.
+ * @pitfalls: For webchat or mobile SDK tickets, structured_body is required instead of body for public notes.
  */
 const action = createAction({
     description: 'Add a private or public note to a Freshdesk ticket.',
@@ -55,9 +55,12 @@ const action = createAction({
             endpoint: `/api/v2/tickets/${encodeURIComponent(String(input.ticket_id))}/notes`,
             data: {
                 body: input.body,
-                ...(input.private !== undefined && { private: input.private })
+                // Freshdesk defaults an omitted `private` to true, despite this action documenting
+                // a public default; send the desired default explicitly.
+                private: input.private ?? false
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerNote = ProviderConversationSchema.parse(response.data);

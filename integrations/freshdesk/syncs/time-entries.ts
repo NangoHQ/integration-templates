@@ -31,73 +31,78 @@ const TimeEntrySchema = z
     })
     .describe('A ticket time entry logged by an agent in Freshdesk.');
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
+function mapTimeEntries(pageResults: unknown[]): z.infer<typeof TimeEntrySchema>[] {
+    const parsedPage = z.array(ProviderTimeEntrySchema).safeParse(pageResults);
+    if (!parsedPage.success) {
+        throw new Error(`Failed to parse time entries page: ${parsedPage.error.message}`);
+    }
+
+    return parsedPage.data.map((data) => ({
+        id: String(data.id),
+        billable: data.billable,
+        ...(data.note != null && { note: data.note }),
+        timer_running: data.timer_running,
+        agent_id: data.agent_id,
+        ticket_id: data.ticket_id,
+        time_spent: data.time_spent,
+        created_at: data.created_at,
+        updated_at: data.updated_at,
+        executed_at: data.executed_at,
+        start_time: data.start_time
+    }));
+}
 
 const sync = createSync({
     description: 'Sync ticket time entries from Freshdesk.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         TimeEntry: TimeEntrySchema
     },
 
+    // Blocker: /api/v2/time_entries does not support an updated_after or changed-since filter,
+    // and there is no deleted-record endpoint, so this is a delete-tracked full refresh.
+    // Delete-tracked syncs must always start from page 1 and complete a full enumeration per
+    // Nango requirements, so there is no resumable checkpoint.
     exec: async (nango) => {
-        // Blocker: /api/v2/time_entries does not support an updated_after or changed-since filter,
-        // and there is no deleted-record endpoint. Full refresh with a pagination checkpoint is used.
-        const checkpoint = await nango.getCheckpoint();
-        let page: number | undefined = checkpoint?.page ?? 1;
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_time_entries
             endpoint: '/api/v2/time_entries',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page ?? 1,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const parsedPage = z.array(ProviderTimeEntrySchema).safeParse(pageResults);
-            if (!parsedPage.success) {
-                throw new Error(`Failed to parse time entries page: ${parsedPage.error.message}`);
-            }
+        const iterator = nango.paginate(proxyConfig);
 
-            const timeEntries = parsedPage.data.map((data) => ({
-                id: String(data.id),
-                billable: data.billable,
-                ...(data.note != null && { note: data.note }),
-                timer_running: data.timer_running,
-                agent_id: data.agent_id,
-                ticket_id: data.ticket_id,
-                time_spent: data.time_spent,
-                created_at: data.created_at,
-                updated_at: data.updated_at,
-                executed_at: data.executed_at,
-                start_time: data.start_time
-            }));
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstTimeEntries = first.done ? [] : mapTimeEntries(first.value);
 
+        await nango.trackDeletesStart('TimeEntry');
+
+        if (firstTimeEntries.length > 0) {
+            await nango.batchSave(firstTimeEntries, 'TimeEntry');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const timeEntries = mapTimeEntries(next.value);
             if (timeEntries.length > 0) {
                 await nango.batchSave(timeEntries, 'TimeEntry');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
+            next = await iterator.next();
         }
 
-        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('TimeEntry');
     }
 });
 

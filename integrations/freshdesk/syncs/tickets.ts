@@ -178,8 +178,10 @@ const sync = createSync({
             lastProcessedUpdatedAt = lastTicket.updated_at;
 
             if (page !== undefined) {
+                // Preserve the window boundary that was active when this pass started so that
+                // resuming at a later page re-requests the same filtered set instead of shifting it.
                 await nango.saveCheckpoint({
-                    updated_after: updatedAfter || lastProcessedUpdatedAt,
+                    updated_after: updatedAfter ?? '',
                     page
                 });
                 continue;

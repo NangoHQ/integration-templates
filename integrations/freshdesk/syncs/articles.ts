@@ -70,12 +70,6 @@ const ProviderArticleSchema = z.object({
     type: z.number().nullish()
 });
 
-const CheckpointSchema = z.object({
-    folder_ids_json: z.string(),
-    folder_index: z.number().int(),
-    article_page: z.number().int()
-});
-
 const HierarchyNodeSchema = z
     .object({
         level: z.number().describe('Depth level of the hierarchy node'),
@@ -116,25 +110,74 @@ const sync = createSync({
     version: '3.0.0',
     frequency: 'every day',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Article: ArticleSchema
     },
 
+    // Delete-tracked syncs must always complete a full enumeration per Nango requirements,
+    // so category/folder discovery and the article walk always run in full; there is no
+    // resumable checkpoint (an interrupted run is retried from scratch on the next execution).
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
+        const folderIds: number[] = [];
+        const categoryConfig: ProxyConfiguration = {
+            // https://developers.freshdesk.com/api/#solution_category_attributes
+            endpoint: '/api/v2/solutions/categories',
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: 1,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'per_page',
+                limit: 100
+            },
+            retries: 3
+        };
 
+        for await (const categories of nango.paginate(categoryConfig)) {
+            if (!Array.isArray(categories)) {
+                throw new Error('Unexpected response format for categories');
+            }
+            for (const rawCategory of categories) {
+                const category = ProviderCategorySchema.parse(rawCategory);
+
+                const folderConfig: ProxyConfiguration = {
+                    // https://developers.freshdesk.com/api/#solution_folder_attributes
+                    endpoint: `/api/v2/solutions/categories/${encodeURIComponent(category.id)}/folders`,
+                    paginate: {
+                        type: 'offset',
+                        offset_name_in_request: 'page',
+                        offset_start_value: 1,
+                        offset_calculation_method: 'per-page',
+                        limit_name_in_request: 'per_page',
+                        limit: 100
+                    },
+                    retries: 3
+                };
+
+                for await (const folders of nango.paginate(folderConfig)) {
+                    if (!Array.isArray(folders)) {
+                        throw new Error('Unexpected response format for folders');
+                    }
+                    for (const rawFolder of folders) {
+                        const folder = ProviderFolderSchema.parse(rawFolder);
+
+                        folderIds.push(folder.id);
+                        if (folder.sub_folders_count && folder.sub_folders_count > 0) {
+                            await discoverSubFolders(nango, folder.id, folderIds);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Categories, folders, and sub-folders are fully discovered and validated above
+        // before the delete-tracking window opens.
         await nango.trackDeletesStart('Article');
 
-        let folderIds: number[];
-        let folderIndex: number;
-        let articlePage: number;
-
-        if (checkpoint === null || checkpoint === undefined) {
-            folderIds = [];
-            const categoryConfig: ProxyConfiguration = {
-                // https://developers.freshdesk.com/api/#solution_category_attributes
-                endpoint: '/api/v2/solutions/categories',
+        for (const folderId of folderIds) {
+            const articleConfig: ProxyConfiguration = {
+                // https://developers.freshdesk.com/api/#solution_article_attributes
+                endpoint: `/api/v2/solutions/folders/${encodeURIComponent(folderId)}/articles`,
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'page',
@@ -142,89 +185,6 @@ const sync = createSync({
                     offset_calculation_method: 'per-page',
                     limit_name_in_request: 'per_page',
                     limit: 100
-                },
-                retries: 3
-            };
-
-            for await (const categories of nango.paginate(categoryConfig)) {
-                if (!Array.isArray(categories)) {
-                    throw new Error('Unexpected response format for categories');
-                }
-                for (const rawCategory of categories) {
-                    const category = ProviderCategorySchema.parse(rawCategory);
-
-                    const folderConfig: ProxyConfiguration = {
-                        // https://developers.freshdesk.com/api/#solution_folder_attributes
-                        endpoint: `/api/v2/solutions/categories/${encodeURIComponent(category.id)}/folders`,
-                        paginate: {
-                            type: 'offset',
-                            offset_name_in_request: 'page',
-                            offset_start_value: 1,
-                            offset_calculation_method: 'per-page',
-                            limit_name_in_request: 'per_page',
-                            limit: 100
-                        },
-                        retries: 3
-                    };
-
-                    for await (const folders of nango.paginate(folderConfig)) {
-                        if (!Array.isArray(folders)) {
-                            throw new Error('Unexpected response format for folders');
-                        }
-                        for (const rawFolder of folders) {
-                            const folder = ProviderFolderSchema.parse(rawFolder);
-
-                            folderIds.push(folder.id);
-                            if (folder.sub_folders_count && folder.sub_folders_count > 0) {
-                                await discoverSubFolders(nango, folder.id, folderIds);
-                            }
-                        }
-                    }
-                }
-            }
-
-            await nango.saveCheckpoint({
-                folder_ids_json: JSON.stringify(folderIds),
-                folder_index: 0,
-                article_page: 1
-            });
-            folderIndex = 0;
-            articlePage = 1;
-        } else {
-            const parsedFolderIds = z.array(z.number()).safeParse(JSON.parse(checkpoint.folder_ids_json));
-            if (!parsedFolderIds.success) {
-                throw new Error(`Failed to parse folder_ids from checkpoint: ${parsedFolderIds.error.message}`);
-            }
-            folderIds = parsedFolderIds.data;
-            folderIndex = checkpoint.folder_index;
-            articlePage = checkpoint.article_page;
-        }
-
-        for (let i = folderIndex; i < folderIds.length; i++) {
-            const folderId = folderIds[i];
-            if (folderId === undefined) {
-                continue;
-            }
-            let nextArticlePage = articlePage;
-
-            const articleConfig: ProxyConfiguration = {
-                // https://developers.freshdesk.com/api/#solution_article_attributes
-                endpoint: `/api/v2/solutions/folders/${encodeURIComponent(folderId)}/articles`,
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'page',
-                    offset_start_value: articlePage,
-                    offset_calculation_method: 'per-page',
-                    limit_name_in_request: 'per_page',
-                    limit: 100,
-                    on_page: async ({ nextPageParam }) => {
-                        nextArticlePage = typeof nextPageParam === 'number' ? nextPageParam + 1 : 1;
-                        await nango.saveCheckpoint({
-                            folder_ids_json: JSON.stringify(folderIds),
-                            folder_index: i,
-                            article_page: nextArticlePage
-                        });
-                    }
                 },
                 retries: 3
             };
@@ -260,16 +220,8 @@ const sync = createSync({
                     await nango.batchSave(mapped, 'Article');
                 }
             }
-
-            articlePage = 1;
-            await nango.saveCheckpoint({
-                folder_ids_json: JSON.stringify(folderIds),
-                folder_index: i + 1,
-                article_page: 1
-            });
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Article');
     }
 });

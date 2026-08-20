@@ -107,7 +107,8 @@ const action = createAction({
                 ...(input.private !== undefined && { private: input.private }),
                 ...(input.agent_id !== undefined && { agent_id: input.agent_id })
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         };
 
         const response = await nango.post(config);

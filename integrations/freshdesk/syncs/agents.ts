@@ -4,7 +4,12 @@ import { z } from 'zod';
 const ProviderContactSchema = z.object({
     name: z.string().nullable().optional(),
     email: z.string().nullable().optional(),
-    avatar: z.string().nullable().optional()
+    avatar: z.string().nullable().optional(),
+    phone: z.string().nullable().optional(),
+    mobile: z.string().nullable().optional(),
+    job_title: z.string().nullable().optional(),
+    language: z.string().nullable().optional(),
+    time_zone: z.string().nullable().optional()
 });
 
 const ProviderAgentSchema = z.object({
@@ -19,6 +24,8 @@ const ProviderAgentSchema = z.object({
     group_ids: z.array(z.number()).nullable().optional(),
     role_ids: z.array(z.number()).nullable().optional(),
     focus_mode: z.boolean().nullable().optional(),
+    // Freshdesk nests contact details (email, name, phone, mobile, job_title, language,
+    // time_zone) under `contact` rather than exposing them on the agent object directly.
     contact: ProviderContactSchema.nullable().optional(),
     last_active_at: z.string().nullable().optional(),
     deactivated: z.boolean().nullable().optional(),
@@ -30,14 +37,7 @@ const ProviderAgentSchema = z.object({
     scope: z.unknown().nullable().optional(),
     availability: z.unknown().nullable().optional(),
     created_at: z.string().nullable().optional(),
-    updated_at: z.string().nullable().optional(),
-    email: z.string().nullable().optional(),
-    name: z.string().nullable().optional(),
-    phone: z.string().nullable().optional(),
-    mobile: z.string().nullable().optional(),
-    job_title: z.string().nullable().optional(),
-    language: z.string().nullable().optional(),
-    time_zone: z.string().nullable().optional()
+    updated_at: z.string().nullable().optional()
 });
 
 const AgentSchema = z
@@ -77,29 +77,21 @@ const AgentSchema = z
     })
     .describe('Freshdesk support agent.');
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
-
 const sync = createSync({
     description: 'Sync agents from Freshdesk.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Agent: AgentSchema
     },
 
+    // Blocker: The /api/v2/agents endpoint does not support updated_since,
+    // modified_since, cursor, or since_id parameters. It only supports page
+    // and per_page pagination, plus basic filters (email, phone, mobile, state).
+    // Delete-tracked syncs must always start from page 1 and complete a full
+    // enumeration per Nango requirements, so there is no resumable checkpoint.
     exec: async (nango) => {
-        // Blocker: The /api/v2/agents endpoint does not support updated_since,
-        // modified_since, cursor, or since_id parameters. It only supports page
-        // and per_page pagination, plus basic filters (email, phone, mobile, state).
-        CheckpointSchema.safeParse(await nango.getCheckpoint());
-
-        // Delete-tracked syncs must always start from page 1 per Nango requirements.
-        let page: number | undefined = 1;
-
         await nango.trackDeletesStart('Agent');
 
         const proxyConfig: ProxyConfiguration = {
@@ -108,13 +100,10 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
@@ -153,26 +142,21 @@ const sync = createSync({
                     ...(agent.availability != null && { availability: agent.availability }),
                     ...(agent.created_at != null && { created_at: agent.created_at }),
                     ...(agent.updated_at != null && { updated_at: agent.updated_at }),
-                    ...(agent.email != null && { email: agent.email }),
-                    ...(agent.name != null && { name: agent.name }),
-                    ...(agent.phone != null && { phone: agent.phone }),
-                    ...(agent.mobile != null && { mobile: agent.mobile }),
-                    ...(agent.job_title != null && { job_title: agent.job_title }),
-                    ...(agent.language != null && { language: agent.language }),
-                    ...(agent.time_zone != null && { time_zone: agent.time_zone })
+                    ...(agent.contact?.email != null && { email: agent.contact.email }),
+                    ...(agent.contact?.name != null && { name: agent.contact.name }),
+                    ...(agent.contact?.phone != null && { phone: agent.contact.phone }),
+                    ...(agent.contact?.mobile != null && { mobile: agent.contact.mobile }),
+                    ...(agent.contact?.job_title != null && { job_title: agent.contact.job_title }),
+                    ...(agent.contact?.language != null && { language: agent.contact.language }),
+                    ...(agent.contact?.time_zone != null && { time_zone: agent.contact.time_zone })
                 };
             });
 
             if (agents.length > 0) {
                 await nango.batchSave(agents, 'Agent');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Agent');
     }
 });

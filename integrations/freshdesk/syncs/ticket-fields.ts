@@ -73,9 +73,9 @@ const TicketFieldSchema = z
     })
     .describe('A ticket field definition from Freshdesk, including both built-in and custom fields.');
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
+function mapTicketFields(pageResults: unknown[]): z.infer<typeof TicketFieldSchema>[] {
+    return pageResults.map((record) => mapToTicketField(ProviderTicketFieldSchema.parse(record)));
+}
 
 function mapToTicketField(record: z.infer<typeof ProviderTicketFieldSchema>): z.infer<typeof TicketFieldSchema> {
     return {
@@ -118,20 +118,14 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         TicketField: TicketFieldSchema
     },
 
+    // Delete-tracked syncs must always complete a full enumeration per Nango requirements.
+    // Link-based pagination has no numeric page to persist across executions, so there is
+    // no resumable checkpoint; an interrupted run is retried from the first page.
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        if (rawCheckpoint != null) {
-            CheckpointSchema.parse(rawCheckpoint);
-        }
-        let page: number | undefined = 1;
-
-        await nango.trackDeletesStart('TicketField');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_ticket_fields
             endpoint: '/api/v2/ticket_fields',
@@ -139,30 +133,33 @@ const sync = createSync({
                 type: 'link',
                 link_rel_in_response_header: 'next',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const fields = pageResults.map((record) => {
-                const validated = ProviderTicketFieldSchema.parse(record);
-                return mapToTicketField(validated);
-            });
+        const iterator = nango.paginate(proxyConfig);
 
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstFields = first.done ? [] : mapTicketFields(first.value);
+
+        await nango.trackDeletesStart('TicketField');
+
+        if (firstFields.length > 0) {
+            await nango.batchSave(firstFields, 'TicketField');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const fields = mapTicketFields(next.value);
             if (fields.length > 0) {
                 await nango.batchSave(fields, 'TicketField');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
+            next = await iterator.next();
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('TicketField');
     }
 });

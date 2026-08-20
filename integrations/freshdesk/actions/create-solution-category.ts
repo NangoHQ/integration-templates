@@ -50,7 +50,8 @@ const action = createAction({
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.visible_in_portals !== undefined && { visible_in_portals: input.visible_in_portals })
             },
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const category = ProviderCategorySchema.parse(response.data);

@@ -28,6 +28,7 @@ const ProviderFolderSchema = z.object({
     articles_count: z.number().nullable().optional(),
     sub_folders_count: z.number().nullable().optional(),
     visibility: z.number().nullable().optional(),
+    category_id: z.number().nullable().optional(),
     company_ids: z.array(z.number()).nullable().optional(),
     contact_segment_ids: z.array(z.number()).nullable().optional(),
     company_segment_ids: z.array(z.number()).nullable().optional(),
@@ -62,6 +63,7 @@ const OutputSchema = z
             .describe(
                 'Accessibility of this folder. 1=All Users, 2=Logged In Users, 3=Agents, 4=Selected Companies, 5=Bots, 6=Selected Contact Segments, 7=Selected Company Segments.'
             ),
+        category_id: z.number().optional().describe('ID of the parent category.'),
         company_ids: z.array(z.number()).optional().describe('IDs of the companies to whom this solution folder is visible.'),
         contact_segment_ids: z.array(z.number()).optional().describe('IDs of the contact segments to whom this solution folder is visible.'),
         company_segment_ids: z.array(z.number()).optional().describe('IDs of the company segments to whom this solution folder is visible.'),
@@ -108,6 +110,7 @@ const action = createAction({
             ...(providerFolder.articles_count != null && { articles_count: providerFolder.articles_count }),
             ...(providerFolder.sub_folders_count != null && { sub_folders_count: providerFolder.sub_folders_count }),
             ...(providerFolder.visibility != null && { visibility: providerFolder.visibility }),
+            ...(providerFolder.category_id != null && { category_id: providerFolder.category_id }),
             ...(providerFolder.company_ids != null && { company_ids: providerFolder.company_ids }),
             ...(providerFolder.contact_segment_ids != null && { contact_segment_ids: providerFolder.contact_segment_ids }),
             ...(providerFolder.company_segment_ids != null && { company_segment_ids: providerFolder.company_segment_ids }),

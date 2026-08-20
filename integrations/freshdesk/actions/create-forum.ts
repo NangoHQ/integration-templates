@@ -5,9 +5,11 @@ const InputSchema = z
     .object({
         category_id: z.number().describe('ID of the discussion category that will contain the new forum. Example: 1'),
         name: z.string().describe('Unique name of the forum. Example: "Ticket Operations"'),
-        forum_type: z.number().describe("Type of forum. 1 = How To's, 2 = Ideas, 3 = Problems, 4 = Announcements."),
+        forum_type: z
+            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)])
+            .describe("Type of forum. 1 = How To's, 2 = Ideas, 3 = Problems, 4 = Announcements."),
         forum_visibility: z
-            .number()
+            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)])
             .describe('Visibility level. 1 = Everyone, 2 = Logged in users only, 3 = Agents only, 4 = Users in specific companies only.'),
         description: z.string().optional().describe('Description of the forum.'),
         company_ids: z.array(z.number()).optional().describe('Company IDs allowed to view the forum when forum_visibility is 4.')
@@ -67,7 +69,8 @@ const action = createAction({
                 ...(input.description !== undefined && { description: input.description }),
                 ...(input.company_ids !== undefined && { company_ids: input.company_ids })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerForum = ProviderForumSchema.parse(response.data);

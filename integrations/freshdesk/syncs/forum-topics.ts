@@ -31,7 +31,9 @@ const TopicSchema = z.object({
     published: z.boolean().nullable().optional(),
     stamp_type: z.number().nullable().optional(),
     replied_by: z.number().nullable().optional(),
+    // The topic-list endpoint returns comments_count, not the documented posts_count.
     posts_count: z.number().nullable().optional(),
+    comments_count: z.number().nullable().optional(),
     hits: z.number().nullable().optional(),
     user_votes: z.number().nullable().optional(),
     merged_topic_id: z.number().nullable().optional(),
@@ -65,29 +67,19 @@ const ForumTopicSchema = z
     })
     .describe('A discussion topic within a Freshdesk forum, including its parent forum and category context.');
 
-const CheckpointSchema = z
-    .object({
-        forum_id: z.number().int().describe('ID of the forum whose topics were being processed when the sync was interrupted; zero means no resume point.'),
-        topic_page: z.number().int().positive().describe('Next page of topics to resume fetching for the interrupted forum.')
-    })
-    .describe('Checkpoint for resuming the forum topics full refresh sync across nested category, forum, and topic pagination.');
-
 const sync = createSync({
     description:
         'Recursively fetches discussion forum topics from Freshdesk (categories -> forums -> topics), mirroring the categories -> folders -> articles traversal used by the articles sync.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         ForumTopic: ForumTopicSchema
     },
 
+    // Delete-tracked syncs must always complete a full enumeration per Nango requirements;
+    // there is no resumable checkpoint across the nested category/forum/topic traversal.
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint ?? { forum_id: 0, topic_page: 1 });
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { forum_id: 0, topic_page: 1 };
-
         const allCategories: Array<z.infer<typeof CategorySchema>> = [];
         const categoriesConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#discussions
@@ -147,36 +139,16 @@ const sync = createSync({
             }
         }
 
-        let resumeForumId = checkpoint.forum_id === 0 ? undefined : checkpoint.forum_id;
-        let resumeTopicPage = checkpoint.forum_id === 0 ? undefined : checkpoint.topic_page;
-
-        if (resumeForumId && !allForums.some((f) => f.id === resumeForumId)) {
-            resumeForumId = undefined;
-            resumeTopicPage = undefined;
-        }
-
         await nango.trackDeletesStart('ForumTopic');
 
-        let reachedResumePoint = !resumeForumId;
-
         for (const forum of allForums) {
-            if (!reachedResumePoint) {
-                if (forum.id === resumeForumId) {
-                    reachedResumePoint = true;
-                } else {
-                    continue;
-                }
-            }
-
-            let nextTopicPage = forum.id === resumeForumId ? (resumeTopicPage ?? 1) : 1;
-
             const topicsConfig: ProxyConfiguration = {
                 // https://developers.freshdesk.com/api/#discussions
                 endpoint: `/api/v2/discussions/forums/${encodeURIComponent(String(forum.id))}/topics`,
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'page',
-                    offset_start_value: nextTopicPage,
+                    offset_start_value: 1,
                     offset_calculation_method: 'per-page',
                     limit_name_in_request: 'per_page',
                     limit: 100
@@ -202,7 +174,8 @@ const sync = createSync({
                     published: topic.published ?? false,
                     ...(topic.stamp_type != null && { stamp_type: topic.stamp_type }),
                     ...(topic.replied_by != null && { replied_by: topic.replied_by }),
-                    posts_count: topic.posts_count ?? 0,
+                    // The topic-list endpoint reports post counts under comments_count.
+                    posts_count: topic.comments_count ?? topic.posts_count ?? 0,
                     hits: topic.hits ?? 0,
                     user_votes: topic.user_votes ?? 0,
                     ...(topic.merged_topic_id != null && { merged_topic_id: topic.merged_topic_id }),
@@ -215,13 +188,9 @@ const sync = createSync({
                 if (topics.length > 0) {
                     await nango.batchSave(topics, 'ForumTopic');
                 }
-
-                nextTopicPage++;
-                await nango.saveCheckpoint({ forum_id: forum.id, topic_page: nextTopicPage });
             }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ForumTopic');
     }
 });

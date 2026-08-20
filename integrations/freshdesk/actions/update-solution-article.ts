@@ -12,7 +12,7 @@ const InputSchema = z
             .object({
                 meta_title: z.string().optional().describe('SEO meta title.'),
                 meta_description: z.string().optional().describe('SEO meta description.'),
-                meta_keywords: z.string().optional().describe('SEO meta keywords.')
+                meta_keywords: z.array(z.string()).optional().describe('SEO meta keywords. The response returns these as a comma-separated string.')
             })
             .optional()
             .describe('SEO metadata for the article.'),

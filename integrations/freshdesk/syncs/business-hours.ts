@@ -60,93 +60,88 @@ const BusinessHourSchema = z
     })
     .describe('Business hours configuration defining support desk operating hours');
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
+function mapBusinessHours(pageResults: unknown[]): z.infer<typeof BusinessHourSchema>[] {
+    return pageResults.map((record) => {
+        const validated = ProviderBusinessHoursSchema.safeParse(record);
+        if (!validated.success) {
+            throw new Error(`Failed to parse business hour record: ${validated.error.message}`);
+        }
+
+        const data = validated.data;
+
+        return {
+            id: String(data.id),
+            name: data.name,
+            ...(data.description != null && { description: data.description }),
+            time_zone: data.time_zone,
+            is_default: data.is_default,
+            ...(data.business_hours != null && {
+                business_hours: {
+                    ...(data.business_hours.monday != null && { monday: data.business_hours.monday }),
+                    ...(data.business_hours.tuesday != null && { tuesday: data.business_hours.tuesday }),
+                    ...(data.business_hours.wednesday != null && { wednesday: data.business_hours.wednesday }),
+                    ...(data.business_hours.thursday != null && { thursday: data.business_hours.thursday }),
+                    ...(data.business_hours.friday != null && { friday: data.business_hours.friday }),
+                    ...(data.business_hours.saturday != null && { saturday: data.business_hours.saturday }),
+                    ...(data.business_hours.sunday != null && { sunday: data.business_hours.sunday })
+                }
+            }),
+            created_at: data.created_at,
+            updated_at: data.updated_at
+        };
+    });
+}
 
 const sync = createSync({
     description: 'Sync business hours configurations from Freshdesk',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         BusinessHour: BusinessHourSchema
     },
 
+    // Blocker: provider only exposes /api/v2/business_hours with no changed-since filter
+    // and no deleted-record endpoint, so this is a delete-tracked full refresh. Delete-tracked
+    // syncs must always start from page 1 and complete a full enumeration per Nango
+    // requirements, so there is no resumable checkpoint.
     exec: async (nango) => {
-        // Blocker: provider only exposes /api/v2/business_hours with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor. Full refresh is required.
-        const checkpoint = await nango.getCheckpoint();
-        let page: number | undefined = checkpoint?.page ?? 1;
-
-        // Safe to call every execution: trackDeletesStart() will not overwrite the
-        // start of a delete-tracking window this refresh already opened.
-        await nango.trackDeletesStart('BusinessHour');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_business_hours
             endpoint: '/api/v2/business_hours',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const records = pageResults.map((record) => {
-                const validated = ProviderBusinessHoursSchema.safeParse(record);
-                if (!validated.success) {
-                    throw new Error(`Failed to parse business hour record: ${validated.error.message}`);
-                }
+        const iterator = nango.paginate(proxyConfig);
 
-                const data = validated.data;
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstRecords = first.done ? [] : mapBusinessHours(first.value);
 
-                return {
-                    id: String(data.id),
-                    name: data.name,
-                    ...(data.description != null && { description: data.description }),
-                    time_zone: data.time_zone,
-                    is_default: data.is_default,
-                    ...(data.business_hours != null && {
-                        business_hours: {
-                            ...(data.business_hours.monday != null && { monday: data.business_hours.monday }),
-                            ...(data.business_hours.tuesday != null && { tuesday: data.business_hours.tuesday }),
-                            ...(data.business_hours.wednesday != null && { wednesday: data.business_hours.wednesday }),
-                            ...(data.business_hours.thursday != null && { thursday: data.business_hours.thursday }),
-                            ...(data.business_hours.friday != null && { friday: data.business_hours.friday }),
-                            ...(data.business_hours.saturday != null && { saturday: data.business_hours.saturday }),
-                            ...(data.business_hours.sunday != null && { sunday: data.business_hours.sunday })
-                        }
-                    }),
-                    created_at: data.created_at,
-                    updated_at: data.updated_at
-                };
-            });
+        await nango.trackDeletesStart('BusinessHour');
 
+        if (firstRecords.length > 0) {
+            await nango.batchSave(firstRecords, 'BusinessHour');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const records = mapBusinessHours(next.value);
             if (records.length > 0) {
                 await nango.batchSave(records, 'BusinessHour');
             }
-
-            // Save pagination progress after every page. Without this, a run that
-            // exceeds the execution window restarts from page 1 next time instead of
-            // resuming where it left off.
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
+            next = await iterator.next();
         }
 
-        // Clear the checkpoint only after the last page has been saved, then close the
-        // delete-tracking window opened by trackDeletesStart().
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BusinessHour');
     }
 });

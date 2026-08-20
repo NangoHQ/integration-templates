@@ -106,75 +106,75 @@ const SlaPolicySchema = z
     })
     .describe('An SLA policy that defines response and resolution targets for tickets');
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
+function mapSlaPolicies(pageResults: unknown[]): z.infer<typeof SlaPolicySchema>[] {
+    const parsed = z.array(ProviderSlaPolicySchema).safeParse(pageResults);
+    if (!parsed.success) {
+        throw new Error(`Failed to parse SLA policies: ${parsed.error.message}`);
+    }
+
+    return parsed.data.map((record) => ({
+        id: String(record.id),
+        name: record.name,
+        ...(record.description != null && { description: record.description }),
+        active: record.active,
+        is_default: record.is_default,
+        ...(record.position !== undefined && { position: record.position }),
+        ...(record.sla_target !== undefined && { sla_target: record.sla_target }),
+        ...(record.applicable_to !== undefined && { applicable_to: record.applicable_to }),
+        ...(record.escalation !== undefined && { escalation: record.escalation }),
+        created_at: record.created_at,
+        updated_at: record.updated_at
+    }));
+}
 
 const sync = createSync({
     description: 'Sync SLA policies from Freshdesk',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         SlaPolicy: SlaPolicySchema
     },
 
+    // Delete-tracked syncs must always start from page 1 and complete a full enumeration
+    // per Nango requirements; there is no resumable checkpoint.
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const checkpointPage = checkpoint?.['page'];
-        let page: number | undefined = typeof checkpointPage === 'number' ? checkpointPage : 1;
-
-        // https://developers.freshdesk.com/api/#list_all_sla_policies
-        await nango.trackDeletesStart('SlaPolicy');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_sla_policies
             endpoint: '/api/v2/sla_policies',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }: { nextPageParam?: string | number | undefined }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderSlaPolicySchema).safeParse(pageResults);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse SLA policies: ${parsed.error.message}`);
-            }
+        const iterator = nango.paginate(proxyConfig);
 
-            const policies = parsed.data.map((record) => ({
-                id: String(record.id),
-                name: record.name,
-                ...(record.description != null && { description: record.description }),
-                active: record.active,
-                is_default: record.is_default,
-                ...(record.position !== undefined && { position: record.position }),
-                ...(record.sla_target !== undefined && { sla_target: record.sla_target }),
-                ...(record.applicable_to !== undefined && { applicable_to: record.applicable_to }),
-                ...(record.escalation !== undefined && { escalation: record.escalation }),
-                created_at: record.created_at,
-                updated_at: record.updated_at
-            }));
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstPolicies = first.done ? [] : mapSlaPolicies(first.value);
 
+        await nango.trackDeletesStart('SlaPolicy');
+
+        if (firstPolicies.length > 0) {
+            await nango.batchSave(firstPolicies, 'SlaPolicy');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const policies = mapSlaPolicies(next.value);
             if (policies.length > 0) {
                 await nango.batchSave(policies, 'SlaPolicy');
             }
-
-            if (typeof page === 'number') {
-                await nango.saveCheckpoint({ page });
-            }
+            next = await iterator.next();
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SlaPolicy');
     }
 });

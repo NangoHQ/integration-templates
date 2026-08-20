@@ -26,7 +26,8 @@ const action = createAction({
             data: {
                 user_id: input.user_id
             },
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         return null;

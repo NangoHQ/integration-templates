@@ -85,7 +85,8 @@ const action = createAction({
                 ...(input.time_zone !== undefined && { time_zone: input.time_zone }),
                 ...(input.focus_mode !== undefined && { focus_mode: input.focus_mode })
             },
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerAgent = OutputSchema.parse(response.data);

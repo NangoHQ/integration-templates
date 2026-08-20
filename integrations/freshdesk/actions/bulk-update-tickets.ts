@@ -3,17 +3,20 @@ import { createAction } from 'nango';
 
 const PropertiesSchema = z.object({
     status: z
-        .number()
+        .union([z.literal(2), z.literal(3), z.literal(4), z.literal(5), z.literal(6), z.literal(7)])
         .optional()
         .describe(
             'Status of the ticket. Possible values: 2 (Open), 3 (Pending), 4 (Resolved), 5 (Closed), 6 (Waiting on Customer), 7 (Waiting on Third Party)'
         ),
-    priority: z.number().optional().describe('Priority of the ticket. Possible values: 1 (Low), 2 (Medium), 3 (High), 4 (Urgent)'),
+    priority: z
+        .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)])
+        .optional()
+        .describe('Priority of the ticket. Possible values: 1 (Low), 2 (Medium), 3 (High), 4 (Urgent)'),
     group_id: z.number().optional().describe('ID of the group to assign to the tickets'),
     responder_id: z.number().optional().describe('ID of the agent to assign to the tickets'),
     requester_id: z.number().optional().describe('ID of the requester for the tickets'),
     source: z
-        .number()
+        .union([z.literal(1), z.literal(2), z.literal(3), z.literal(7), z.literal(8), z.literal(9), z.literal(10)])
         .optional()
         .describe('Source of the ticket. Possible values: 1 (Email), 2 (Portal), 3 (Phone), 7 (Chat), 8 (MobiHelp), 9 (Feedback Widget), 10 (Outbound Email)'),
     type: z.string().optional().describe('Type of the ticket'),
@@ -94,7 +97,8 @@ const action = createAction({
         const response = await nango.post({
             endpoint: '/api/v2/tickets/bulk_update',
             data: payload,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

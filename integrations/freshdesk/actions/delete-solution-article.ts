@@ -16,7 +16,7 @@ const OutputSchema = z.null().describe('Empty null response indicating successfu
  * @pitfalls: Permanently deletes the article and all of its translated versions.
  */
 const action = createAction({
-    description: 'Delete or archive a solution article in Freshdesk.',
+    description: 'Permanently delete a solution article and all of its translated versions in Freshdesk. This cannot be undone.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,

@@ -25,6 +25,9 @@ const OutputSchema = z
         content: z.string().optional().describe('Plain-text content of the canned response.'),
         content_html: z.string().optional().describe('HTML content of the canned response.'),
         attachments: z.array(z.object({}).passthrough()).optional().describe('Attachments associated with the canned response.'),
+        short_code: z.string().optional().describe('Short code used to quickly insert the canned response.'),
+        group_ids: z.array(z.number()).optional().describe('Group IDs for which the canned response is visible. Only effective when visibility is 2.'),
+        visibility: z.number().optional().describe('Visibility of the canned response. 0 = all agents, 1 = personal, 2 = selected groups.'),
         created_at: z.string().optional().describe('ISO 8601 timestamp when the canned response was created.'),
         updated_at: z.string().optional().describe('ISO 8601 timestamp when the canned response was last updated.')
     })
@@ -56,7 +59,8 @@ const action = createAction({
         const response = await nango.post({
             endpoint: '/api/v2/canned_responses',
             data: payload,
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerResponse = z
@@ -67,6 +71,9 @@ const action = createAction({
                 content: z.string().optional(),
                 content_html: z.string().optional(),
                 attachments: z.array(z.object({}).passthrough()).optional(),
+                short_code: z.string().nullable().optional(),
+                group_ids: z.array(z.number()).nullable().optional(),
+                visibility: z.number().nullable().optional(),
                 created_at: z.string().optional(),
                 updated_at: z.string().optional()
             })
@@ -79,6 +86,9 @@ const action = createAction({
             ...(providerResponse.content !== undefined && { content: providerResponse.content }),
             ...(providerResponse.content_html !== undefined && { content_html: providerResponse.content_html }),
             ...(providerResponse.attachments !== undefined && { attachments: providerResponse.attachments }),
+            ...(providerResponse.short_code != null && { short_code: providerResponse.short_code }),
+            ...(providerResponse.group_ids != null && { group_ids: providerResponse.group_ids }),
+            ...(providerResponse.visibility != null && { visibility: providerResponse.visibility }),
             ...(providerResponse.created_at !== undefined && { created_at: providerResponse.created_at }),
             ...(providerResponse.updated_at !== undefined && { updated_at: providerResponse.updated_at })
         };

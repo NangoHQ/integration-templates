@@ -65,7 +65,7 @@ const ProviderContactSchema = z.object({
         )
         .nullable()
         .optional(),
-    email: z.string(),
+    email: z.string().nullable().optional(),
     id: z.number(),
     job_title: z.string().nullable().optional(),
     language: z.string().nullable().optional(),
@@ -98,7 +98,7 @@ const OutputSchema = z
         deleted: z.boolean().optional().describe('Whether the contact has been deleted. Only present for deleted contacts.'),
         description: z.string().optional().describe('Description or notes about the contact.'),
         devices: z.array(DeviceSchema).optional().describe('Devices associated with the contact.'),
-        email: z.string().describe('Primary email address of the contact.'),
+        email: z.string().optional().describe('Primary email address of the contact.'),
         id: z.number().describe('Unique identifier of the contact.'),
         job_title: z.string().optional().describe('Job title of the contact.'),
         language: z.string().optional().describe('Language preference of the contact.'),
@@ -158,7 +158,7 @@ const action = createAction({
             ...(contact.deleted != null && { deleted: contact.deleted }),
             ...(contact.description != null && { description: contact.description }),
             ...(contact.devices != null && { devices: contact.devices }),
-            email: contact.email,
+            ...(contact.email != null && { email: contact.email }),
             id: contact.id,
             ...(contact.job_title != null && { job_title: contact.job_title }),
             ...(contact.language != null && { language: contact.language }),

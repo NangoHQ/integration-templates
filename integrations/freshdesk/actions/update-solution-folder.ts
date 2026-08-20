@@ -20,7 +20,7 @@ const InputSchema = z
         description: z.string().optional().describe('Description of the solution folder.'),
         parent_folder_id: z.number().optional().describe('ID of the parent folder for nested hierarchy.'),
         visibility: z
-            .number()
+            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4), z.literal(5), z.literal(6), z.literal(7)])
             .optional()
             .describe(
                 'Accessibility of this folder. 1=All Users, 2=Logged In Users, 3=Agents, 4=Selected Companies, 5=Bots, 6=Selected Contact Segments, 7=Selected Company Segments. Default is 1.'

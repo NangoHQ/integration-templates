@@ -14,7 +14,7 @@ const InputSchema = z
         folder_id: z.number().describe('ID of the folder where the article will be created.'),
         title: z.string().describe('Title of the solution article.'),
         description: z.string().describe('Description of the solution article. May contain HTML.'),
-        status: z.number().describe('Status of the solution article. 1 = draft, 2 = published.'),
+        status: z.union([z.literal(1), z.literal(2)]).describe('Status of the solution article. 1 = draft, 2 = published.'),
         seo_data: SeoDataInputSchema.optional().describe('SEO metadata for search engine optimization.'),
         tags: z.array(z.string()).optional().describe('Tags to associate with the solution article.')
     })
@@ -91,7 +91,8 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `/api/v2/solutions/folders/${encodeURIComponent(String(input.folder_id))}/articles`,
             data,
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const article = OutputSchema.parse(response.data);

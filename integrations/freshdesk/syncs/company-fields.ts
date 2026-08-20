@@ -59,92 +59,92 @@ const CompanyFieldSchema = z
     })
     .describe('A company field definition in Freshdesk, including both default and custom fields.');
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
+function mapCompanyFields(pageResults: unknown[]): z.infer<typeof CompanyFieldSchema>[] {
+    return pageResults.map((raw) => {
+        const parsed = ProviderCompanyFieldSchema.parse(raw);
+        return {
+            id: String(parsed.id),
+            name: parsed.name,
+            label: parsed.label,
+            ...(parsed.description != null && { description: parsed.description }),
+            type: parsed.type,
+            default: parsed.default,
+            ...(parsed.required_for_agents !== undefined && { required_for_agents: parsed.required_for_agents }),
+            ...(parsed.required_for_customers !== undefined && { required_for_customers: parsed.required_for_customers }),
+            ...(parsed.required_for_closure !== undefined && { required_for_closure: parsed.required_for_closure }),
+            ...(parsed.agents_can_edit !== undefined && { agents_can_edit: parsed.agents_can_edit }),
+            ...(parsed.displayed_for_agents !== undefined && { displayed_for_agents: parsed.displayed_for_agents }),
+            ...(parsed.quick_add_for_agent !== undefined && { quick_add_for_agent: parsed.quick_add_for_agent }),
+            ...(parsed.unique !== undefined && { unique: parsed.unique }),
+            ...(parsed.position !== undefined && { position: parsed.position }),
+            ...(parsed.choices != null && {
+                choices: parsed.choices.map((choice, index) => {
+                    if (typeof choice === 'string') {
+                        return {
+                            id: index,
+                            label: choice,
+                            value: choice,
+                            position: index
+                        };
+                    }
+                    return ProviderChoiceSchema.parse(choice);
+                })
+            }),
+            ...(parsed.created_at != null && { created_at: parsed.created_at }),
+            ...(parsed.updated_at != null && { updated_at: parsed.updated_at })
+        };
+    });
+}
 
 const sync = createSync({
     description: 'Sync company field definitions from Freshdesk.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         CompanyField: CompanyFieldSchema
     },
 
+    // Blocker: provider only exposes /api/v2/company_fields with no changed-since filter,
+    // no deleted-record endpoint, and no resumable cursor. Delete-tracked syncs must always
+    // start from page 1 and complete a full enumeration per Nango requirements.
     exec: async (nango) => {
-        // Blocker: provider only exposes /api/v2/company_fields with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor.
-        const checkpoint = await nango.getCheckpoint();
-        let page: number | undefined = checkpoint != null && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
-
-        await nango.trackDeletesStart('CompanyField');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_company_fields
             endpoint: '/api/v2/company_fields',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page ?? 1,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async (paginationState) => {
-                    page = typeof paginationState.nextPageParam === 'number' ? paginationState.nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const records: unknown[] = pageResults;
-            const fields = records.map((raw) => {
-                const parsed = ProviderCompanyFieldSchema.parse(raw);
-                return {
-                    id: String(parsed.id),
-                    name: parsed.name,
-                    label: parsed.label,
-                    ...(parsed.description != null && { description: parsed.description }),
-                    type: parsed.type,
-                    default: parsed.default,
-                    ...(parsed.required_for_agents !== undefined && { required_for_agents: parsed.required_for_agents }),
-                    ...(parsed.required_for_customers !== undefined && { required_for_customers: parsed.required_for_customers }),
-                    ...(parsed.required_for_closure !== undefined && { required_for_closure: parsed.required_for_closure }),
-                    ...(parsed.agents_can_edit !== undefined && { agents_can_edit: parsed.agents_can_edit }),
-                    ...(parsed.displayed_for_agents !== undefined && { displayed_for_agents: parsed.displayed_for_agents }),
-                    ...(parsed.quick_add_for_agent !== undefined && { quick_add_for_agent: parsed.quick_add_for_agent }),
-                    ...(parsed.unique !== undefined && { unique: parsed.unique }),
-                    ...(parsed.position !== undefined && { position: parsed.position }),
-                    ...(parsed.choices != null && {
-                        choices: parsed.choices.map((choice, index) => {
-                            if (typeof choice === 'string') {
-                                return {
-                                    id: index,
-                                    label: choice,
-                                    value: choice,
-                                    position: index
-                                };
-                            }
-                            return ProviderChoiceSchema.parse(choice);
-                        })
-                    }),
-                    ...(parsed.created_at != null && { created_at: parsed.created_at }),
-                    ...(parsed.updated_at != null && { updated_at: parsed.updated_at })
-                };
-            });
+        const iterator = nango.paginate(proxyConfig);
 
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstFields = first.done ? [] : mapCompanyFields(first.value);
+
+        await nango.trackDeletesStart('CompanyField');
+
+        if (firstFields.length > 0) {
+            await nango.batchSave(firstFields, 'CompanyField');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const fields = mapCompanyFields(next.value);
             if (fields.length > 0) {
                 await nango.batchSave(fields, 'CompanyField');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
+            next = await iterator.next();
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CompanyField');
     }
 });

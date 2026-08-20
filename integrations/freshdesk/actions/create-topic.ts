@@ -76,7 +76,8 @@ const action = createAction({
                 ...(input.locked !== undefined && { locked: input.locked }),
                 ...(input.stamp_type !== undefined && { stamp_type: input.stamp_type })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const topic = ProviderTopicSchema.parse(response.data);

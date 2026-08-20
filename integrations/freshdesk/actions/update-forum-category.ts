@@ -12,7 +12,7 @@ const InputSchema = z
 const ProviderCategorySchema = z.object({
     id: z.number(),
     name: z.string(),
-    description: z.string(),
+    description: z.string().nullable().optional(),
     created_at: z.string(),
     updated_at: z.string()
 });
@@ -21,7 +21,7 @@ const OutputSchema = z
     .object({
         id: z.number().describe('Unique identifier of the forum category.'),
         name: z.string().describe('Name of the forum category.'),
-        description: z.string().describe('Description of the forum category.'),
+        description: z.string().optional().describe('Description of the forum category.'),
         created_at: z.string().describe('ISO 8601 timestamp when the category was created.'),
         updated_at: z.string().describe('ISO 8601 timestamp when the category was last updated.')
     })
@@ -68,7 +68,7 @@ const action = createAction({
         return {
             id: category.id,
             name: category.name,
-            description: category.description,
+            ...(category.description != null && { description: category.description }),
             created_at: category.created_at,
             updated_at: category.updated_at
         };

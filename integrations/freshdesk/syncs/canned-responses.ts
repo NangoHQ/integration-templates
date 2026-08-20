@@ -64,32 +64,21 @@ const CannedResponseSchema = z
 
 type CannedResponse = z.infer<typeof CannedResponseSchema>;
 
-const CheckpointSchema = z.object({
-    folder_index: z.number()
-});
-
 const sync = createSync({
     description: 'Recursively fetches canned responses from Freshdesk canned response folders.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         CannedResponse: CannedResponseSchema
     },
 
+    // Blocker: provider only exposes /api/v2/canned_response_folders and
+    // /api/v2/canned_response_folders/{id}/responses with no changed-since
+    // filter and no deleted-record endpoint. Delete-tracked syncs must always complete a
+    // full enumeration per Nango requirements, so there is no resumable checkpoint here:
+    // an interrupted run is retried from the first folder on the next execution.
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let folderIndex = 0;
-        if (checkpoint != null && typeof checkpoint.folder_index === 'number') {
-            folderIndex = checkpoint.folder_index;
-        }
-
-        // Blocker: provider only exposes /api/v2/canned_response_folders and
-        // /api/v2/canned_response_folders/{id}/responses with no changed-since
-        // filter, no deleted-record endpoint, and no resumable cursor.
-        await nango.trackDeletesStart('CannedResponse');
-
         const folders: ProviderFolder[] = [];
 
         // https://developers.freshdesk.com/api/#list_all_canned_response_folders
@@ -112,11 +101,9 @@ const sync = createSync({
             }
         }
 
-        for (let i = folderIndex; i < folders.length; i++) {
-            const folder = folders[i];
-            if (folder === undefined) {
-                continue;
-            }
+        await nango.trackDeletesStart('CannedResponse');
+
+        for (const folder of folders) {
             const responses: CannedResponse[] = [];
 
             // https://developers.freshdesk.com/api/#get_details_of_canned_responses_in_folders
@@ -164,15 +151,8 @@ const sync = createSync({
             if (responses.length > 0) {
                 await nango.batchSave(responses, 'CannedResponse');
             }
-
-            // Save checkpoint after completing each folder so an execution-window
-            // timeout does not restart from the first folder next run.
-            if (i + 1 < folders.length) {
-                await nango.saveCheckpoint({ folder_index: i + 1 });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CannedResponse');
     }
 });

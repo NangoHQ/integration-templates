@@ -26,17 +26,19 @@ const SectionMappingSchema = z
 
 const NestedChoiceSchema = z
     .object({
-        id: z.number().describe('Unique ID of the nested choice.'),
-        position: z.number().describe('Display position of the nested choice in the dropdown.'),
-        value: z.string().describe('Display value of the nested choice.')
+        id: z.number().nullish().describe('Unique ID of the nested choice.'),
+        position: z.number().nullish().describe('Display position of the nested choice in the dropdown.'),
+        value: z.union([z.string(), z.number()]).describe('Display value of the nested choice.')
     })
     .passthrough();
 
 const ChoiceSchema = z
     .object({
-        id: z.number().describe('Unique ID of the choice.'),
-        position: z.number().describe('Display position of the choice in the dropdown.'),
-        value: z.string().describe('Display value of the choice.'),
+        // Built-in fields (e.g. Type, Source, Priority) omit id/position or return a numeric
+        // value instead of the custom-dropdown shape of {id, label, value, position}.
+        id: z.number().nullish().describe('Unique ID of the choice.'),
+        position: z.number().nullish().describe('Display position of the choice in the dropdown.'),
+        value: z.union([z.string(), z.number()]).describe('Display value of the choice.'),
         parent_choice_id: z.number().nullish().describe('ID of the parent choice for nested dropdowns.'),
         choices: z.array(NestedChoiceSchema).nullish().describe('Nested child choices for multi-level dropdowns.')
     })

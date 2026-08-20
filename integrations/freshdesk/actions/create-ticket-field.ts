@@ -45,8 +45,8 @@ const OutputChoiceSchema = z.object({
     id: z.number().describe('ID of the choice.'),
     position: z.number().describe('Position of the choice.'),
     value: z.string().describe('Display value of the choice.'),
-    parent_choice_id: z.number().optional().describe('ID of the parent choice.'),
-    choices: z.array(z.unknown()).optional().describe('Nested sub-choices.')
+    parent_choice_id: z.number().nullable().optional().describe('ID of the parent choice.'),
+    choices: z.array(z.unknown()).nullable().optional().describe('Nested sub-choices.')
 });
 
 const OutputSectionSchema = z

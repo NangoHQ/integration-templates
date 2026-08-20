@@ -140,7 +140,8 @@ const action = createAction({
                 ...(input.displayed_for_customers !== undefined && { displayed_for_customers: input.displayed_for_customers }),
                 ...(input.choices !== undefined && { choices: input.choices })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerField = ProviderContactFieldSchema.parse(response.data);

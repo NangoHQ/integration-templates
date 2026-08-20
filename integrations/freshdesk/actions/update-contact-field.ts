@@ -32,10 +32,10 @@ const InputSchema = z
 
 const ProviderChoiceSchema = z
     .object({
-        id: z.number(),
+        id: z.number().optional(),
         label: z.string(),
         value: z.string(),
-        position: z.number()
+        position: z.number().optional()
     })
     .passthrough();
 
@@ -59,9 +59,26 @@ const ProviderContactFieldSchema = z
         displayed_for_agents: z.boolean().optional(),
         quick_add_for_agent: z.boolean().optional(),
         unique: z.boolean().optional(),
-        choices: z.array(ProviderChoiceSchema).optional()
+        // Custom dropdown fields return an array of choice objects, but built-in fields such as
+        // default_time_zone/default_language return a label->value map, and default_social_handler
+        // returns a plain string array.
+        choices: z.union([z.array(ProviderChoiceSchema), z.array(z.string()), z.record(z.string(), z.string())]).optional()
     })
     .passthrough();
+
+function normalizeChoices(choices: z.infer<typeof ProviderContactFieldSchema>['choices']): z.infer<typeof OutputChoiceSchema>[] | undefined {
+    if (choices == null) {
+        return undefined;
+    }
+    if (Array.isArray(choices)) {
+        return choices.map((choice, index) =>
+            typeof choice === 'string'
+                ? { id: index, label: choice, value: choice, position: index }
+                : { id: choice.id ?? index, label: choice.label, value: choice.value, position: choice.position ?? index }
+        );
+    }
+    return Object.entries(choices).map(([label, value], index) => ({ id: index, label, value, position: index }));
+}
 
 const OutputChoiceSchema = z.object({
     id: z.number().describe('ID of the choice.'),
@@ -156,14 +173,7 @@ const action = createAction({
             ...(providerField.displayed_for_agents !== undefined && { displayed_for_agents: providerField.displayed_for_agents }),
             ...(providerField.quick_add_for_agent !== undefined && { quick_add_for_agent: providerField.quick_add_for_agent }),
             ...(providerField.unique !== undefined && { unique: providerField.unique }),
-            ...(providerField.choices !== undefined && {
-                choices: providerField.choices.map((choice) => ({
-                    id: choice.id,
-                    label: choice.label,
-                    value: choice.value,
-                    position: choice.position
-                }))
-            })
+            ...(normalizeChoices(providerField.choices) !== undefined && { choices: normalizeChoices(providerField.choices) })
         };
     }
 });

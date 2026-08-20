@@ -29,39 +29,47 @@ const GroupSchema = z
     })
     .describe('Freshdesk support group');
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
+function mapGroups(pageResults: unknown[]): z.infer<typeof GroupSchema>[] {
+    return pageResults.map((raw) => {
+        const parsed = ProviderGroupSchema.safeParse(raw);
+        if (!parsed.success) {
+            throw new Error(`Failed to parse group: ${parsed.error.message}`);
+        }
+        const record = parsed.data;
+        return {
+            id: String(record.id),
+            name: record.name,
+            ...(record.description != null && { description: record.description }),
+            ...(record.business_hour_id != null && { business_hour_id: record.business_hour_id }),
+            ...(record.escalate_to != null && { escalate_to: record.escalate_to }),
+            ...(record.unassigned_for != null && { unassigned_for: record.unassigned_for }),
+            ...(record.auto_ticket_assign != null && { auto_ticket_assign: record.auto_ticket_assign }),
+            ...(record.agent_ids != null && { agent_ids: record.agent_ids }),
+            created_at: record.created_at,
+            updated_at: record.updated_at
+        };
+    });
+}
 
 const sync = createSync({
     description: 'Sync groups from Freshdesk',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Group: GroupSchema
     },
 
+    // Delete-tracked syncs must always start from page 1 and complete a full enumeration
+    // per Nango requirements; there is no resumable checkpoint.
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let page = 1;
-        if (checkpoint !== null) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
-            if (parsedCheckpoint.success && typeof parsedCheckpoint.data['page'] === 'number') {
-                page = parsedCheckpoint.data['page'];
-            }
-        }
-
-        await nango.trackDeletesStart('Group');
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.freshdesk.com/api/#list_all_groups
             endpoint: '/api/v2/groups',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100
@@ -69,37 +77,28 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const groups: z.infer<typeof GroupSchema>[] = [];
-            for (const raw of pageResults) {
-                const parsed = ProviderGroupSchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse group: ${parsed.error.message}`);
-                }
-                const record = parsed.data;
-                groups.push({
-                    id: String(record.id),
-                    name: record.name,
-                    ...(record.description != null && { description: record.description }),
-                    ...(record.business_hour_id != null && { business_hour_id: record.business_hour_id }),
-                    ...(record.escalate_to != null && { escalate_to: record.escalate_to }),
-                    ...(record.unassigned_for != null && { unassigned_for: record.unassigned_for }),
-                    ...(record.auto_ticket_assign != null && { auto_ticket_assign: record.auto_ticket_assign }),
-                    ...(record.agent_ids != null && { agent_ids: record.agent_ids }),
-                    created_at: record.created_at,
-                    updated_at: record.updated_at
-                });
-            }
+        const iterator = nango.paginate(proxyConfig);
 
+        // Fetch and validate the first page before opening the delete-tracking window, so a
+        // transient empty or invalid response can't wipe out previously-synced records.
+        const first = await iterator.next();
+        const firstGroups = first.done ? [] : mapGroups(first.value);
+
+        await nango.trackDeletesStart('Group');
+
+        if (firstGroups.length > 0) {
+            await nango.batchSave(firstGroups, 'Group');
+        }
+
+        let next = await iterator.next();
+        while (!next.done) {
+            const groups = mapGroups(next.value);
             if (groups.length > 0) {
                 await nango.batchSave(groups, 'Group');
             }
-
-            page++;
-            await nango.saveCheckpoint({ page });
+            next = await iterator.next();
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Group');
     }
 });

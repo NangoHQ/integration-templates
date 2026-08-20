@@ -15,7 +15,11 @@
           "deactivated": false,
           "agent_operational_status": "available",
           "created_at": "2026-08-19T23:43:25Z",
-          "updated_at": "2026-08-19T23:47:29Z"
+          "updated_at": "2026-08-19T23:47:29Z",
+          "email": "makeagent-test-2026d@example.com",
+          "name": "Make Agent Test D",
+          "language": "en",
+          "time_zone": "UTC"
         },
         {
           "id": "158018097114",
@@ -29,7 +33,11 @@
           "deactivated": false,
           "agent_operational_status": "available",
           "created_at": "2026-08-19T23:49:10Z",
-          "updated_at": "2026-08-19T23:49:10Z"
+          "updated_at": "2026-08-19T23:49:10Z",
+          "email": "makeagent-test-2026e@example.com",
+          "name": "Make Agent Test E",
+          "language": "en",
+          "time_zone": "UTC"
         },
         {
           "id": "158017609801",
@@ -44,7 +52,11 @@
           "deactivated": false,
           "agent_operational_status": "available",
           "created_at": "2026-08-14T05:51:03Z",
-          "updated_at": "2026-08-19T21:47:38Z"
+          "updated_at": "2026-08-19T21:47:38Z",
+          "email": "api@nango.dev",
+          "name": "Nango Developer",
+          "language": "en",
+          "time_zone": "UTC"
         },
         {
           "id": "158018096667",
@@ -59,7 +71,11 @@
           "deactivated": false,
           "agent_operational_status": "available",
           "created_at": "2026-08-19T23:38:10Z",
-          "updated_at": "2026-08-19T23:38:10Z"
+          "updated_at": "2026-08-19T23:38:10Z",
+          "email": "nango-test-agent-2026-08-19-a@example.com",
+          "name": "Nango Test Agent",
+          "language": "en",
+          "time_zone": "UTC"
         },
         {
           "id": "158018096716",
@@ -74,7 +90,11 @@
           "deactivated": false,
           "agent_operational_status": "available",
           "created_at": "2026-08-19T23:39:26Z",
-          "updated_at": "2026-08-19T23:39:26Z"
+          "updated_at": "2026-08-19T23:39:26Z",
+          "email": "nango-test-agent-2026-08-19-b@example.com",
+          "name": "Nango Test Agent",
+          "language": "en",
+          "time_zone": "UTC"
         }
       ]
     },

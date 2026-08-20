@@ -11,7 +11,7 @@ const OutputSchema = z
     .object({
         id: z.number().describe('Unique ID of the role'),
         name: z.string().describe('Name of the role'),
-        description: z.string().describe('Description of the role'),
+        description: z.string().optional().describe('Description of the role'),
         default: z.boolean().describe('Set to true if this is the default role'),
         created_at: z.string().describe('Role creation timestamp in UTC format'),
         updated_at: z.string().describe('Role updated timestamp in UTC format')
@@ -49,7 +49,7 @@ const action = createAction({
             .object({
                 id: z.number(),
                 name: z.string(),
-                description: z.string(),
+                description: z.string().nullable().optional(),
                 default: z.boolean(),
                 created_at: z.string(),
                 updated_at: z.string()
@@ -59,7 +59,7 @@ const action = createAction({
         return {
             id: providerRole.id,
             name: providerRole.name,
-            description: providerRole.description,
+            ...(providerRole.description != null && { description: providerRole.description }),
             default: providerRole.default,
             created_at: providerRole.created_at,
             updated_at: providerRole.updated_at

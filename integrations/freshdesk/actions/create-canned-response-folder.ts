@@ -37,7 +37,8 @@ const action = createAction({
             data: {
                 name: input.name
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerResponse = ProviderCreateFolderResponseSchema.parse(response.data);

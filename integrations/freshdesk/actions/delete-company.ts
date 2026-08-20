@@ -13,7 +13,7 @@ const InputSchema = z
  * @pitfalls: Deleting a company is permanent with no restore option; associated contacts are not deleted but lose their company association.
  */
 const action = createAction({
-    description: 'Delete or archive a company in Freshdesk.',
+    description: 'Permanently delete a company in Freshdesk. This cannot be undone.',
     version: '1.0.0',
     input: InputSchema,
     output: z.null(),

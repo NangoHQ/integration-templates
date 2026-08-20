@@ -8,7 +8,7 @@ const InputSchema = z
         description: z.string().optional().describe('Description of the solution folder.'),
         parent_folder_id: z.number().optional().describe('ID of the parent folder to create a sub-folder.'),
         visibility: z
-            .number()
+            .union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)])
             .optional()
             .describe('Accessibility of this folder. 1 for all users, 2 for logged-in users, 3 for agents only, 4 for selected companies. Defaults to 1.'),
         company_ids: z.array(z.number()).optional().describe('IDs of the companies to whom this solution folder is visible.'),
@@ -39,6 +39,9 @@ const ProviderFolderSchema = z.object({
     sub_folders_count: z.number(),
     visibility: z.number(),
     category_id: z.number(),
+    company_ids: z.array(z.number()).optional(),
+    contact_segment_ids: z.array(z.number()).optional(),
+    company_segment_ids: z.array(z.number()).optional(),
     created_at: z.string(),
     updated_at: z.string()
 });
@@ -66,6 +69,9 @@ const OutputSchema = z
         sub_folders_count: z.number().describe('Number of folders present inside the folder.'),
         visibility: z.number().describe('Accessibility of this folder. 1 for all users, 2 for logged-in users, 3 for agents only, 4 for selected companies.'),
         category_id: z.number().describe('ID of the parent category.'),
+        company_ids: z.array(z.number()).optional().describe('IDs of the companies to whom this solution folder is visible.'),
+        contact_segment_ids: z.array(z.number()).optional().describe('IDs of the contact segments to whom this solution folder is visible.'),
+        company_segment_ids: z.array(z.number()).optional().describe('IDs of the company segments to whom this solution folder is visible.'),
         created_at: z.string().describe('Solution folder creation timestamp in UTC ISO 8601 format.'),
         updated_at: z.string().describe('Solution folder updated timestamp in UTC ISO 8601 format.')
     })
@@ -95,7 +101,8 @@ const action = createAction({
                 ...(input.contact_segment_ids !== undefined && { contact_segment_ids: input.contact_segment_ids }),
                 ...(input.company_segment_ids !== undefined && { company_segment_ids: input.company_segment_ids })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         });
 
         const providerFolder = ProviderFolderSchema.parse(response.data);
@@ -110,6 +117,9 @@ const action = createAction({
             sub_folders_count: providerFolder.sub_folders_count,
             visibility: providerFolder.visibility,
             category_id: providerFolder.category_id,
+            ...(providerFolder.company_ids != null && { company_ids: providerFolder.company_ids }),
+            ...(providerFolder.contact_segment_ids != null && { contact_segment_ids: providerFolder.contact_segment_ids }),
+            ...(providerFolder.company_segment_ids != null && { company_segment_ids: providerFolder.company_segment_ids }),
             created_at: providerFolder.created_at,
             updated_at: providerFolder.updated_at
         };

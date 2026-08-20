@@ -11,12 +11,13 @@ const InputSchema = z
         name: z.string().describe('Full name of the contact. Example: "Jane Doe"'),
         email: z
             .string()
+            .min(1)
             .optional()
             .describe('Primary email address of the contact. One of email, phone, mobile, twitter_id, or unique_external_id is required.'),
-        phone: z.string().optional().describe('Telephone number of the contact.'),
-        mobile: z.string().optional().describe('Mobile number of the contact.'),
-        twitter_id: z.string().optional().describe('Twitter handle of the contact.'),
-        unique_external_id: z.string().optional().describe('External ID of the contact.'),
+        phone: z.string().min(1).optional().describe('Telephone number of the contact.'),
+        mobile: z.string().min(1).optional().describe('Mobile number of the contact.'),
+        twitter_id: z.string().min(1).optional().describe('Twitter handle of the contact.'),
+        unique_external_id: z.string().min(1).optional().describe('External ID of the contact.'),
         other_emails: z.array(z.string()).optional().describe('Additional email addresses associated with the contact.'),
         company_id: z.number().optional().describe('ID of the primary company to which this contact belongs.'),
         view_all_tickets: z.boolean().optional().describe('Set to true if the contact can see all tickets associated with the primary company.'),
@@ -40,7 +41,10 @@ const InputSchema = z
             .optional()
             .describe('Social handles of the contact. Up to 10 values. Valid Facebook, Instagram and Twitter handles supported.')
     })
-    .describe('Payload to create a new Freshdesk contact.');
+    .describe('Payload to create a new Freshdesk contact.')
+    .refine((data) => data.email || data.phone || data.mobile || data.twitter_id || data.unique_external_id, {
+        message: 'At least one of email, phone, mobile, twitter_id, or unique_external_id is required.'
+    });
 
 const OtherCompanyOutputSchema = z.object({
     company_id: z.number().describe('ID of the additional company associated with the contact.'),
@@ -48,31 +52,33 @@ const OtherCompanyOutputSchema = z.object({
 });
 
 const ProviderContactSchema = z.object({
-    active: z.boolean(),
-    address: z.string().nullable(),
-    company_id: z.number().nullable(),
-    view_all_tickets: z.boolean().nullable(),
-    deleted: z.boolean(),
-    description: z.string().nullable(),
-    email: z.string().nullable(),
+    // Plan-gated fields (e.g. Multiple Companies, Multiple Language/Time Zone features) may be
+    // entirely absent from the response rather than null, so every field but id/name is nullish.
+    active: z.boolean().nullable().optional(),
+    address: z.string().nullable().optional(),
+    company_id: z.number().nullable().optional(),
+    view_all_tickets: z.boolean().nullable().optional(),
+    deleted: z.boolean().nullable().optional(),
+    description: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
     id: z.number(),
-    contact_type: z.string(),
-    job_title: z.string().nullable(),
-    language: z.string().nullable(),
-    mobile: z.string().nullable(),
+    contact_type: z.string().nullable().optional(),
+    job_title: z.string().nullable().optional(),
+    language: z.string().nullable().optional(),
+    mobile: z.string().nullable().optional(),
     name: z.string(),
-    phone: z.string().nullable(),
-    time_zone: z.string().nullable(),
-    twitter_id: z.string().nullable(),
-    social_handler: z.array(z.record(z.string(), z.unknown())),
-    other_emails: z.array(z.string()),
-    other_companies: z.array(OtherCompanyOutputSchema),
+    phone: z.string().nullable().optional(),
+    time_zone: z.string().nullable().optional(),
+    twitter_id: z.string().nullable().optional(),
+    social_handler: z.array(z.record(z.string(), z.unknown())).nullable().optional(),
+    other_emails: z.array(z.string()).nullable().optional(),
+    other_companies: z.array(OtherCompanyOutputSchema).nullable().optional(),
     created_at: z.string(),
     updated_at: z.string(),
-    tags: z.array(z.string()),
-    avatar: z.unknown().nullable(),
-    custom_fields: z.record(z.string(), z.unknown()).nullable(),
-    unique_external_id: z.string().nullable()
+    tags: z.array(z.string()).nullable().optional(),
+    avatar: z.unknown().nullable().optional(),
+    custom_fields: z.record(z.string(), z.unknown()).nullable().optional(),
+    unique_external_id: z.string().nullable().optional()
 });
 
 const OutputSchema = z
@@ -94,9 +100,9 @@ const OutputSchema = z
         language: z.string().optional().describe('Language of the contact.'),
         tags: z.array(z.string()).optional().describe('Tags associated with the contact.'),
         time_zone: z.string().optional().describe('Time zone of the contact.'),
-        active: z.boolean().describe('Whether the contact has been verified.'),
-        deleted: z.boolean().describe('Whether the contact has been deleted.'),
-        contact_type: z.string().describe('Type of the contact (Visitor / Contact).'),
+        active: z.boolean().optional().describe('Whether the contact has been verified.'),
+        deleted: z.boolean().optional().describe('Whether the contact has been deleted.'),
+        contact_type: z.string().optional().describe('Type of the contact (Visitor / Contact).'),
         created_at: z.string().describe('Contact creation timestamp in UTC. Example: "2015-08-28T09:08:16Z"'),
         updated_at: z.string().describe('Contact last updated timestamp in UTC. Example: "2015-08-28T09:08:16Z"'),
         social_handler: z.array(z.record(z.string(), z.unknown())).optional().describe('Social handles of the contact.'),
@@ -195,22 +201,22 @@ const action = createAction({
             mobile: providerContact.mobile ?? undefined,
             twitter_id: providerContact.twitter_id ?? undefined,
             unique_external_id: providerContact.unique_external_id ?? undefined,
-            other_emails: providerContact.other_emails,
+            other_emails: providerContact.other_emails ?? undefined,
             company_id: providerContact.company_id ?? undefined,
             view_all_tickets: providerContact.view_all_tickets ?? undefined,
-            other_companies: providerContact.other_companies,
+            other_companies: providerContact.other_companies ?? undefined,
             address: providerContact.address ?? undefined,
             description: providerContact.description ?? undefined,
             job_title: providerContact.job_title ?? undefined,
             language: providerContact.language ?? undefined,
-            tags: providerContact.tags,
+            tags: providerContact.tags ?? undefined,
             time_zone: providerContact.time_zone ?? undefined,
-            active: providerContact.active,
-            deleted: providerContact.deleted,
-            contact_type: providerContact.contact_type,
+            active: providerContact.active ?? undefined,
+            deleted: providerContact.deleted ?? undefined,
+            contact_type: providerContact.contact_type ?? undefined,
             created_at: providerContact.created_at,
             updated_at: providerContact.updated_at,
-            social_handler: providerContact.social_handler,
+            social_handler: providerContact.social_handler ?? undefined,
             avatar: providerContact.avatar ?? undefined,
             custom_fields: providerContact.custom_fields ?? undefined
         };

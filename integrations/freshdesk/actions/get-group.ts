@@ -15,7 +15,7 @@ const ProviderGroupSchema = z.object({
     escalate_to: z.number().nullable(),
     unassigned_for: z.string().nullable(),
     agent_ids: z.array(z.number()),
-    auto_ticket_assign: z.union([z.boolean(), z.number()]),
+    auto_ticket_assign: z.number(),
     created_at: z.string(),
     updated_at: z.string()
 });
@@ -29,7 +29,7 @@ const OutputSchema = z
         escalate_to: z.number().optional().describe('ID of the agent to escalate unassigned tickets to'),
         unassigned_for: z.string().optional().describe('Duration after which unassigned tickets are escalated, e.g. "30m"'),
         agent_ids: z.array(z.number()).describe('IDs of agents belonging to the group'),
-        auto_ticket_assign: z.boolean().describe('Whether tickets are automatically assigned within the group'),
+        auto_ticket_assign: z.number().describe('Automatic ticket assignment type for the group.'),
         created_at: z.string().describe('Timestamp when the group was created'),
         updated_at: z.string().describe('Timestamp when the group was last updated')
     })
@@ -71,7 +71,7 @@ const action = createAction({
             ...(providerGroup.escalate_to != null && { escalate_to: providerGroup.escalate_to }),
             ...(providerGroup.unassigned_for != null && { unassigned_for: providerGroup.unassigned_for }),
             agent_ids: providerGroup.agent_ids,
-            auto_ticket_assign: Boolean(providerGroup.auto_ticket_assign),
+            auto_ticket_assign: providerGroup.auto_ticket_assign,
             created_at: providerGroup.created_at,
             updated_at: providerGroup.updated_at
         };

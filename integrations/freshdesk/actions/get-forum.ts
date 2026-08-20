@@ -10,12 +10,13 @@ const InputSchema = z
 const ProviderForumSchema = z.object({
     id: z.number(),
     name: z.string(),
-    description: z.string(),
+    description: z.string().nullable().optional(),
     position: z.number(),
     forum_category_id: z.number(),
     forum_type: z.number(),
     forum_visibility: z.number(),
     topics_count: z.number(),
+    comments_count: z.number().optional(),
     posts_count: z.number().optional()
 });
 
@@ -23,20 +24,20 @@ const OutputSchema = z
     .object({
         id: z.number().describe('Unique identifier of the forum.'),
         name: z.string().describe('Name of the forum.'),
-        description: z.string().describe('Description of the forum.'),
+        description: z.string().optional().describe('Description of the forum.'),
         position: z.number().describe('Position of the forum in the category listing.'),
         forum_category_id: z.number().describe('ID of the parent forum category.'),
         forum_type: z.number().describe('Type of the forum.'),
         forum_visibility: z.number().describe('Visibility level of the forum.'),
         topics_count: z.number().describe('Number of topics in the forum.'),
-        posts_count: z.number().optional().describe('Number of posts in the forum.')
+        comments_count: z.number().optional().describe('Total number of comments in the forum.'),
+        posts_count: z.number().optional().describe('Number of posts in the forum (legacy field from some API responses).')
     })
     .describe('A single Freshdesk discussion forum returned by the provider.');
 
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single discussion forum by ID without modifying any provider data.
- * @pitfalls: The provider may return comments_count instead of the documented posts_count field, causing posts_count to be omitted from the output even when the forum contains posts.
  */
 const action = createAction({
     description: 'Retrieve a single discussion forum from Freshdesk.',
@@ -64,12 +65,13 @@ const action = createAction({
         return {
             id: raw.id,
             name: raw.name,
-            description: raw.description,
+            ...(raw.description != null && { description: raw.description }),
             position: raw.position,
             forum_category_id: raw.forum_category_id,
             forum_type: raw.forum_type,
             forum_visibility: raw.forum_visibility,
             topics_count: raw.topics_count,
+            ...(raw.comments_count !== undefined && { comments_count: raw.comments_count }),
             ...(raw.posts_count !== undefined && { posts_count: raw.posts_count })
         };
     }

@@ -18,6 +18,10 @@ const InputSchema = z
             .string()
             .optional()
             .describe('Phone number of the requester. If no contact exists with this phone number in Freshdesk, it will be added as a new contact.'),
+        mobile: z
+            .string()
+            .optional()
+            .describe('Mobile number of the requester. If no contact exists with this mobile number in Freshdesk, it will be added as a new contact.'),
         twitter_id: z
             .string()
             .optional()
@@ -55,7 +59,13 @@ const InputSchema = z
                 'Attribute for tickets when Custom Objects is enabled and a lookup field has been added under ticket fields. Default value is display_id.'
             )
     })
-    .describe('Input to create a ticket in Freshdesk.');
+    .describe('Input to create a ticket in Freshdesk.')
+    .refine(
+        (data) => data.requester_id || data.email || data.facebook_id || data.phone || data.mobile || data.twitter_id || data.unique_external_id,
+        {
+            message: 'At least one of requester_id, email, facebook_id, phone, mobile, twitter_id, or unique_external_id is required.'
+        }
+    );
 
 const ProviderAttachmentSchema = z.object({
     id: z.number(),
@@ -165,6 +175,7 @@ const action = createAction({
                 ...(input.email !== undefined && { email: input.email }),
                 ...(input.facebook_id !== undefined && { facebook_id: input.facebook_id }),
                 ...(input.phone !== undefined && { phone: input.phone }),
+                ...(input.mobile !== undefined && { mobile: input.mobile }),
                 ...(input.twitter_id !== undefined && { twitter_id: input.twitter_id }),
                 ...(input.unique_external_id !== undefined && { unique_external_id: input.unique_external_id }),
                 ...(input.subject !== undefined && { subject: input.subject }),
@@ -188,7 +199,8 @@ const action = createAction({
                 ...(input.internal_group_id !== undefined && { internal_group_id: input.internal_group_id }),
                 ...(input.lookup_parameter !== undefined && { lookup_parameter: input.lookup_parameter })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create/mutation; retries must be 0
+            retries: 0
         };
 
         const response = await nango.post(config);

@@ -7,7 +7,10 @@ const InputSchema = z
         title: z.string().optional().describe('Title of the canned response.'),
         content_html: z.string().optional().describe('HTML version of the canned response content.'),
         folder_id: z.number().optional().describe('Folder ID where the canned response should be placed.'),
-        visibility: z.number().optional().describe('Visibility of the canned response. 0 = visible to all agents, 1 = personal, 2 = visible to select groups.'),
+        visibility: z
+            .union([z.literal(0), z.literal(1), z.literal(2)])
+            .optional()
+            .describe('Visibility of the canned response. 0 = visible to all agents, 1 = personal, 2 = visible to select groups.'),
         group_ids: z.array(z.number()).optional().describe('Group IDs for which the canned response is visible. Only effective when visibility is set to 2.')
     })
     .describe('Input to update an existing canned response in Freshdesk.');

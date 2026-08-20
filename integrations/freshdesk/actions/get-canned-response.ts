@@ -24,6 +24,9 @@ const ProviderCannedResponseSchema = z.object({
     content: z.string().nullable(),
     content_html: z.string().nullable(),
     attachments: z.array(ProviderAttachmentSchema).nullable(),
+    short_code: z.string().nullable().optional(),
+    group_ids: z.array(z.number()).nullable().optional(),
+    visibility: z.number().nullable().optional(),
     created_at: z.string().nullable(),
     updated_at: z.string().nullable()
 });
@@ -49,6 +52,9 @@ const OutputSchema = z
             )
             .optional()
             .describe('List of attachments associated with the canned response.'),
+        short_code: z.string().optional().describe('Short code used to quickly insert the canned response.'),
+        group_ids: z.array(z.number()).optional().describe('Group IDs for which the canned response is visible. Only effective when visibility is 2.'),
+        visibility: z.number().optional().describe('Visibility of the canned response. 0 = all agents, 1 = personal, 2 = selected groups.'),
         created_at: z.string().optional().describe('The creation timestamp in UTC ISO 8601 format.'),
         updated_at: z.string().optional().describe('The last update timestamp in UTC ISO 8601 format.')
     })
@@ -57,7 +63,6 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single canned response by ID from Freshdesk.
- * @pitfalls: Output omits provider fields such as short_code, group_ids, and visibility that the API returns alongside the documented shape.
  */
 const action = createAction({
     description: 'Retrieve a single canned response from Freshdesk.',
@@ -98,6 +103,9 @@ const action = createAction({
                     ...(attachment.attachment_url != null && { attachment_url: attachment.attachment_url })
                 }))
             }),
+            ...(providerCannedResponse.short_code != null && { short_code: providerCannedResponse.short_code }),
+            ...(providerCannedResponse.group_ids != null && { group_ids: providerCannedResponse.group_ids }),
+            ...(providerCannedResponse.visibility != null && { visibility: providerCannedResponse.visibility }),
             ...(providerCannedResponse.created_at != null && { created_at: providerCannedResponse.created_at }),
             ...(providerCannedResponse.updated_at != null && { updated_at: providerCannedResponse.updated_at })
         };
