@@ -99,7 +99,7 @@ const action = createAction({
             });
         }
 
-        const HttpErrorSchema = z.object({ response: z.object({ status: z.number().optional() }).optional() }).passthrough();
+        const HttpErrorSchema = z.object({ status: z.number().optional(), response: z.object({ status: z.number().optional() }).optional() }).passthrough();
 
         // https://community.workday.com/api/recruiting/v1/jobPostings/{id}
         let response;
@@ -111,7 +111,8 @@ const action = createAction({
             });
         } catch (err) {
             const parsedError = HttpErrorSchema.safeParse(err);
-            if (parsedError.success && parsedError.data.response?.status === 404) {
+            const status = parsedError.success ? (parsedError.data.status ?? parsedError.data.response?.status) : undefined;
+            if (status === 404) {
                 throw new nango.ActionError({
                     type: 'not_found',
                     message: `Job posting not found for ID: ${input.id}`

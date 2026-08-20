@@ -131,7 +131,7 @@ const action = createAction({
 
         const total = providerResponse.total ?? items.length;
         const nextOffset = offset + items.length;
-        const nextCursor = nextOffset < total ? String(nextOffset) : undefined;
+        const nextCursor = items.length > 0 && nextOffset < total ? String(nextOffset) : undefined;
 
         return {
             items,

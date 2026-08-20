@@ -159,9 +159,10 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `absenceManagement/v4/${encodeURIComponent(tenant)}/workers/${encodeURIComponent(input.worker_id)}/requestTimeOff`,
             data: { days },
-            // Non-idempotent write: retrying could create duplicate time-off business processes if a prior attempt succeeded but its response was lost.
-            // retries: 1 means a single attempt with no retry (the SDK treats any value below 1 as 1 attempt).
-            retries: 1
+            // Non-idempotent write with no idempotency key support: a retry after a lost response could create a duplicate
+            // time-off business process, so retries must stay disabled despite the lint rule's default-positive-integer preference.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);

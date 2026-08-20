@@ -6,6 +6,7 @@ const InputSchema = z
         cursor: z
             .string()
             .regex(/^\d+$/, 'Cursor must be a non-negative integer.')
+            .refine((value) => Number.isSafeInteger(Number(value)), { message: 'Cursor must not exceed Number.MAX_SAFE_INTEGER.' })
             .optional()
             .describe('Pagination cursor from the previous response. Omit for the first page.'),
         limit: z.number().int().min(1).max(100).optional().describe('Maximum number of supervisory organizations to return per page.')
@@ -87,7 +88,7 @@ const action = createAction({
 
         const currentOffset = input.cursor !== undefined ? parseInt(input.cursor, 10) : 0;
         const total = providerResponse.total ?? 0;
-        const nextCursor = currentOffset + items.length < total ? String(currentOffset + items.length) : undefined;
+        const nextCursor = items.length > 0 && currentOffset + items.length < total ? String(currentOffset + items.length) : undefined;
 
         return {
             items,

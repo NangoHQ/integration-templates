@@ -90,7 +90,8 @@ const action = createAction({
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        const items = (providerResponse.data || [])
+        const rawPage = providerResponse.data || [];
+        const items = rawPage
             .filter((entry): entry is typeof entry & { timeOffEntryId: string } => Boolean(entry.timeOffEntryId))
             .map((entry) => {
                 return {
@@ -106,7 +107,8 @@ const action = createAction({
                 };
             });
 
-        const nextOffset = providerResponse.total !== undefined && items.length > 0 ? (input.offset ?? 0) + items.length : undefined;
+        // Advance by the raw page length (not the filtered item count) so skipped entries don't cause overlapping or truncated pages.
+        const nextOffset = providerResponse.total !== undefined && rawPage.length > 0 ? (input.offset ?? 0) + rawPage.length : undefined;
 
         const hasMore = nextOffset !== undefined && providerResponse.total !== undefined && nextOffset < providerResponse.total;
 
