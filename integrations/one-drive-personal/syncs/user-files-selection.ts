@@ -40,8 +40,8 @@ const DriveItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync selected OneDrive files from metadata',
-    version: '2.0.0',
-    frequency: 'every 5 minutes',
+    version: '2.0.1',
+    frequency: 'every hour',
     autoStart: true,
     models: {
         UserFileSelection: UserFileSelectionSchema

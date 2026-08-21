@@ -71,8 +71,8 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync file metadata from the user OneDrive',
-    version: '3.0.0',
-    frequency: 'every 5 minutes',
+    version: '3.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [
         {

@@ -119,9 +119,9 @@ async function fetchAssociatedIds(client: AssociationClient, dealId: string, ass
 
 const sync = createSync({
     description: 'Sync deals with amount, close date, stage, owner, description, and associated companies and contacts',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/deals', group: 'Deals' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
 

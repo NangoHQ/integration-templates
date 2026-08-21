@@ -204,8 +204,8 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<stri
 
 const sync = createSync({
     description: 'Sync pull requests for one or more GitHub repositories, including status, branches, and merge state.',
-    version: '1.0.1',
-    frequency: 'every 5 minutes',
+    version: '1.0.2',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,

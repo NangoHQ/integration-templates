@@ -37,8 +37,8 @@ type Note = z.infer<typeof NoteSchema>;
 
 const sync = createSync({
     description: 'Sync notes from Pipedrive',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/notes' }],
     checkpoint: CheckpointSchema,

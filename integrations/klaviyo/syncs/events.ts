@@ -84,8 +84,8 @@ function extractPageCursor(nextLink: string | null | undefined): string | undefi
 
 const sync = createSync({
     description: 'Sync events.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

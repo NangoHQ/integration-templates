@@ -54,9 +54,9 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync time entries from ClickUp',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/time-entries' }],
-    frequency: 'every 30 minutes',
+    frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
     models: {

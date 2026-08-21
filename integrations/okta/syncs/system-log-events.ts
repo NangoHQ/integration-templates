@@ -30,8 +30,8 @@ const SystemLogEventSchema = LogEventSchema.extend({
 
 const sync = createSync({
     description: 'Sync system log events.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

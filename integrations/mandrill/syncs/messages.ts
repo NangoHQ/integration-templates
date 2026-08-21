@@ -41,8 +41,8 @@ function tsToIso(ts: number): string {
 
 const sync = createSync({
     description: 'Sync recently sent transactional messages (activity log).',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

@@ -88,8 +88,8 @@ const DeletedDealSchema = z.object({
 
 const sync = createSync<typeof modelSchemas, undefined, typeof CheckpointSchema>({
     description: 'Sync deals from Zoho CRM',
-    version: '2.0.0',
-    frequency: 'every 5 minutes',
+    version: '2.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [
         {

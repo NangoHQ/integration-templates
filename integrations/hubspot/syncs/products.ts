@@ -92,9 +92,9 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync product records with pricing, SKU, quantity, and billing details',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/products', group: 'Products' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
 

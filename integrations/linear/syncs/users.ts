@@ -45,8 +45,8 @@ const GraphQLResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Linear users with profile and active state fields.',
-    version: '3.0.1',
-    frequency: 'every 5 minutes',
+    version: '3.0.2',
+    frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
     endpoints: [{ method: 'GET', path: '/syncs/users' }],

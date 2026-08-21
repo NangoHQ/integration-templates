@@ -82,8 +82,8 @@ function normalizeNull<T>(value: T | null | undefined): T | undefined {
 
 const sync = createSync({
     description: 'Sync calls from Twilio.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

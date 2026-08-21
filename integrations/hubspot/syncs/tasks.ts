@@ -124,9 +124,9 @@ async function fetchAssociatedIds(client: AssociationClient, taskId: string, ass
 
 const sync = createSync({
     description: 'Sync tasks with type, title, priority, assignee, due date, notes, and related contacts, companies, and deals',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/tasks', group: 'Tasks' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
 

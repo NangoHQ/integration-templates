@@ -89,8 +89,8 @@ function mapMessage(raw: z.infer<typeof RawMessageSchema>): z.infer<typeof Messa
 
 const sync = createSync({
     description: 'Sync messages from Discord.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
