@@ -3,24 +3,24 @@
 Changes backed by a successful real dryrun --save on a working connection.
 
 - Branch: `marcin/NAN-6669/backfill-checkpoints--verified`
-- Commit reviewed: `dae7fa0609c9eb01904540f9c7c1a2fc35bd980f`
+- Commit reviewed: `1a02bc3d1b94ca1b62af149c22e305a87ab56f56`
 - Original combined change: `6b121377688ad6754df71e5b7d44435516c68039`
 - Comparison base: `78a950c69fab9ac98dc3546b4f1e092cd57ee6e5`
-- Generated: 2026-08-20T12:45:17.281Z
+- Generated: 2026-08-21T11:17:15.095Z
 
 ## Executive summary
 
 | Measure | Count |
 |---|---:|
 | Targets assigned to this branch | 200 |
-| Real checkpoints added | 149 |
-| No-checkpoint API exceptions | 51 |
-| Changed sync source files | 149 |
+| Real checkpoints added | 147 |
+| No-checkpoint API exceptions | 53 |
+| Changed sync source files | 147 |
 | Changed snapshot JSON files | 195 |
-| Changed/generated test TypeScript files | 37 |
+| Changed/generated test TypeScript files | 35 |
 | Snapshots manually sanitized | 16 |
 | Successful real dryrun saves | 200 |
-| Files changed before adding this report | 385 |
+| Files changed before adding this report | 381 |
 
 ### Verification and artifact policy
 
@@ -70,6 +70,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | Target | Endpoint | Supported parameters | Source action | Documentation |
 |---|---|---|---|---|
 | `acuity-scheduling/appointment-types` | `/appointment-types` | Query: `includeDeleted`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/appointment-types) |
+| `acuity-scheduling/blocks` | `/blocks` | Query: `max`, `minDate`, `maxDate`, `calendarID`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/blocks) |
 | `acuity-scheduling/calendars` | `/calendars` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/get-calendars) |
 | `acuity-scheduling/certificates` | `/certificates` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/get-certificates) |
 | `acuity-scheduling/clients` | `/clients` | Query: `search`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/clients) |
@@ -79,6 +80,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `acuity-scheduling/products` | `/products` | Query: `deleted`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://developers.acuityscheduling.com/reference/get-products) |
 | `algolia/api-keys` | `/1/keys` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://www.algolia.com/doc/rest-api/search/list-api-keys) |
 | `amplitude/annotation-categories` | `/api/3/annotation-categories` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/chart-annotations) |
+| `amplitude/annotations` | `/api/3/annotations` | Query: `category`, `chart_id`, `start`, `end`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/chart-annotations#get-all-annotations) |
 | `amplitude/cohorts` | `/api/3/cohorts` | Query: `includeSyncInfo`. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/behavioral-cohorts) |
 | `amplitude/event-categories` | `/api/2/taxonomy/category` | None; the inspected official contract defines no request parameters beyond authentication. | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/taxonomy) |
 | `amplitude/event-properties` | `/api/2/taxonomy/event-property` | Body: `event_type` (optional). | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | [Official provider docs](https://amplitude.com/docs/apis/analytics/taxonomy) |
@@ -125,11 +127,11 @@ Each endpoint below was left without a checkpoint because the inspected official
 
 | Integration | Targets | Checkpoints added | No checkpoint | Source files changed | Snapshots changed | Connection issues |
 |---|---:|---:|---:|---:|---:|---:|
-| `acuity-scheduling` | 9 | 1 | 8 | 1 | 9 | 0 |
+| `acuity-scheduling` | 9 | 0 | 9 | 0 | 9 | 0 |
 | `aircall` | 6 | 6 | 0 | 6 | 6 | 0 |
 | `airtable` | 3 | 3 | 0 | 3 | 3 | 0 |
 | `algolia` | 1 | 0 | 1 | 0 | 1 | 0 |
-| `amplitude` | 8 | 1 | 7 | 1 | 8 | 0 |
+| `amplitude` | 8 | 0 | 8 | 0 | 8 | 0 |
 | `apollo` | 5 | 5 | 0 | 5 | 5 | 0 |
 | `asana` | 1 | 1 | 0 | 1 | 1 | 0 |
 | `ashby` | 2 | 2 | 0 | 2 | 2 | 0 |
@@ -177,7 +179,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | Target | Checkpoint outcome | Connection/live evidence | Snapshot | Files changed |
 |---|---|---|---|---|
 | `acuity-scheduling/appointment-types` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/appointment-types.test.json` |
-| `acuity-scheduling/blocks` | Converted to a partial sync: the first execution seeds all existing blocks, then historical catch-up resumes from `window_start` in overlapping one-week `minDate`/`maxDate` windows. Once caught up, every execution refreshes blocks from the current date forward so newly created future blocks are not delayed. Progress is saved after every historical window, including empty windows; delete tracking is intentionally disabled because each resumed execution reads only partial date ranges. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/blocks.test.json`<br>`integrations/acuity-scheduling/syncs/blocks.ts`<br>`integrations/acuity-scheduling/tests/blocks.checkpoint.test.ts` |
+| `acuity-scheduling/blocks` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/blocks.test.json` |
 | `acuity-scheduling/calendars` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/calendars.test.json` |
 | `acuity-scheduling/certificates` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/certificates.test.json` |
 | `acuity-scheduling/clients` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 90ab6ccb-5881-4ce2-a255-8f6431981fc7 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/acuity-scheduling/tests/clients.test.json` |
@@ -196,7 +198,7 @@ Each endpoint below was left without a checkpoint because the inspected official
 | `airtable/views` | Added a real checkpoint using `offset`; the sync reads resume state, saves forward progress in the crawl, clears it on completion, then ends deletion tracking. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 1c5f99e5-bb6c-44b8-a992-20f6684ffaf6 (dev) | Manually sanitized after real save: After a successful live save, the captured Set-Cookie response header was replaced with a redacted placeholder so session cookies were not committed. | `integrations/airtable/syncs/views.ts`<br>`integrations/airtable/tests/views.test.json` |
 | `algolia/api-keys` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 799146b0-1507-4928-8868-6ff1e7c0aeda (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/algolia/tests/api-keys.test.json` |
 | `amplitude/annotation-categories` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotation-categories.test.json` |
-| `amplitude/annotations` | Converted to a partial sync: the first execution seeds all current matches, then subsequent executions resume from `next_window_start` in one-week `start`/`end` windows. Progress is saved after every window, including empty windows; delete tracking is intentionally disabled because each resumed execution reads only a partial time range. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotations.test.json`<br>`integrations/amplitude/syncs/annotations.ts`<br>`integrations/amplitude/tests/annotations.checkpoint.test.ts` |
+| `amplitude/annotations` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/annotations.test.json` |
 | `amplitude/cohorts` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/cohorts.test.json` |
 | `amplitude/event-categories` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/event-categories.test.json` |
 | `amplitude/event-properties` | No checkpoint added. The endpoint is a single provider request with no genuine page, offset, cursor, token, or next-link to resume from. | Working: Real dryrun --validate and dryrun --save succeeded. Connection: 3434fd1f-ad15-4e03-83b3-680945c565e0 (dev) | Refreshed from a successful real dryrun --save; no manual fixture authoring was detected. | `integrations/amplitude/tests/event-properties.test.json` |
