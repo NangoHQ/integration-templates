@@ -1,0 +1,83 @@
+{
+  "input": {
+    "id": "bc692dca-69b2-48cd-9ee0-f55ebb45bb9a",
+    "active": false
+  },
+  "output": {
+    "id": "bc692dca-69b2-48cd-9ee0-f55ebb45bb9a",
+    "userId": 3140613,
+    "subscriberUrl": "https://example.com/webhook",
+    "active": false,
+    "triggers": [
+      "BOOKING_CREATED"
+    ],
+    "version": "2021-10-20"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/webhooks/bc692dca-69b2-48cd-9ee0-f55ebb45bb9a": {
+        "response": {
+          "status": "success",
+          "data": {
+            "id": "bc692dca-69b2-48cd-9ee0-f55ebb45bb9a",
+            "payloadTemplate": null,
+            "triggers": [
+              "BOOKING_CREATED"
+            ],
+            "subscriberUrl": "https://example.com/webhook",
+            "active": false,
+            "secret": null,
+            "time": null,
+            "timeUnit": null,
+            "version": "2021-10-20",
+            "userId": 3140613
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 21:15:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1950",
+          "x-ratelimit-reset": "1787174188",
+          "cf-ray": "a2dc2d1e8a56ff13-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"10e-7/Rp5qlQqVnypSVL4sktNSadMcg\"",
+          "server": "cloudflare",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "93",
+          "x-ratelimit-reset-default": "25",
+          "x-request-id": "pdx1::mk5rb-1787174154024-007f1bf6f79c",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::mk5rb-1787174154024-007f1bf6f79c",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "ff42debb86ccfd9d9b370031d29f16e6dc7836e7",
+        "request": {
+          "data": {
+            "active": false
+          }
+        }
+      }
+    }
+  }
+}

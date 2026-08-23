@@ -1,0 +1,569 @@
+{
+  "nango": {
+    "batchSave": {
+      "Booking": [
+        {
+          "id": "4jroE1v7jB4YuNksRedoZp",
+          "bookingId": 24054517,
+          "title": "30 min meeting between Nango Developer and Test User",
+          "description": "",
+          "status": "cancelled",
+          "start": "2026-08-21T10:00:00.000Z",
+          "end": "2026-08-21T10:30:00.000Z",
+          "duration": 30,
+          "location": "https://app.cal.com/video/4jroE1v7jB4YuNksRedoZp",
+          "createdAt": "2026-08-19T21:15:00.077Z",
+          "updatedAt": "2026-08-19T21:15:44.185Z",
+          "cancellationReason": "Test cancellation",
+          "cancelledByEmail": "",
+          "absentHost": false,
+          "icsUid": "4jroE1v7jB4YuNksRedoZp@Cal.com",
+          "eventTypeId": 6732808,
+          "eventType": {
+            "id": 6732808,
+            "slug": "30min"
+          },
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayEmail": "api@nango.dev",
+              "username": "nango-developer-4putea",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test User",
+              "email": "testuser@example.com",
+              "displayEmail": "testuser@example.com",
+              "timeZone": "America/New_York",
+              "language": "en",
+              "absent": false
+            }
+          ],
+          "metadata": {},
+          "bookingFieldsResponses": {
+            "email": "testuser@example.com",
+            "name": "Test User",
+            "displayEmail": "testuser@example.com"
+          }
+        },
+        {
+          "id": "dwiZ4yEpSCL1AMv2y6QV4y",
+          "bookingId": 24054611,
+          "title": "30 min meeting between Nango Developer and Test User",
+          "description": "",
+          "status": "accepted",
+          "start": "2026-08-20T12:00:00.000Z",
+          "end": "2026-08-20T12:30:00.000Z",
+          "duration": 30,
+          "location": "https://app.cal.com/video/dwiZ4yEpSCL1AMv2y6QV4y",
+          "createdAt": "2026-08-19T21:17:08.498Z",
+          "updatedAt": "2026-08-19T21:17:09.488Z",
+          "cancellationReason": "",
+          "cancelledByEmail": "",
+          "absentHost": false,
+          "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com",
+          "eventTypeId": 6732808,
+          "eventType": {
+            "id": 6732808,
+            "slug": "30min"
+          },
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayEmail": "api@nango.dev",
+              "username": "nango-developer-4putea",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Test User",
+              "email": "test@example.com",
+              "displayEmail": "test@example.com",
+              "timeZone": "Europe/London",
+              "language": "en",
+              "absent": false
+            }
+          ],
+          "metadata": {},
+          "bookingFieldsResponses": {
+            "email": "test@example.com",
+            "name": "Test User",
+            "displayEmail": "test@example.com"
+          }
+        },
+        {
+          "id": "eHMftMXjbfqjHpcba8B9xW",
+          "bookingId": 24054609,
+          "title": "30 min meeting between Nango Developer and Dryrun Test",
+          "description": "",
+          "status": "cancelled",
+          "start": "2026-08-25T10:00:00.000Z",
+          "end": "2026-08-25T10:30:00.000Z",
+          "duration": 30,
+          "location": "https://app.cal.com/video/eHMftMXjbfqjHpcba8B9xW",
+          "createdAt": "2026-08-19T21:17:06.187Z",
+          "updatedAt": "2026-08-19T21:17:14.788Z",
+          "cancellationReason": "Test dryrun cancellation",
+          "cancelledByEmail": "",
+          "absentHost": false,
+          "icsUid": "eHMftMXjbfqjHpcba8B9xW@Cal.com",
+          "eventTypeId": 6732808,
+          "eventType": {
+            "id": 6732808,
+            "slug": "30min"
+          },
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayEmail": "api@nango.dev",
+              "username": "nango-developer-4putea",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Dryrun Test",
+              "email": "dryrun@example.com",
+              "displayEmail": "dryrun@example.com",
+              "timeZone": "America/New_York",
+              "language": "en",
+              "absent": false
+            }
+          ],
+          "metadata": {},
+          "bookingFieldsResponses": {
+            "email": "dryrun@example.com",
+            "name": "Dryrun Test",
+            "displayEmail": "dryrun@example.com"
+          }
+        },
+        {
+          "id": "gQWHsxn7PHgMes51CBmCAD",
+          "bookingId": 24054654,
+          "title": "30 min meeting between Nango Developer and Dryrun Test 2",
+          "description": "",
+          "status": "cancelled",
+          "start": "2026-08-26T10:00:00.000Z",
+          "end": "2026-08-26T10:30:00.000Z",
+          "duration": 30,
+          "location": "https://app.cal.com/video/gQWHsxn7PHgMes51CBmCAD",
+          "createdAt": "2026-08-19T21:18:03.335Z",
+          "updatedAt": "2026-08-19T21:18:31.726Z",
+          "cancellationReason": "Test dryrun cancellation",
+          "cancelledByEmail": "",
+          "absentHost": false,
+          "icsUid": "gQWHsxn7PHgMes51CBmCAD@Cal.com",
+          "eventTypeId": 6732808,
+          "eventType": {
+            "id": 6732808,
+            "slug": "30min"
+          },
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayEmail": "api@nango.dev",
+              "username": "nango-developer-4putea",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Dryrun Test 2",
+              "email": "dryrun2@example.com",
+              "displayEmail": "dryrun2@example.com",
+              "timeZone": "America/New_York",
+              "language": "en",
+              "absent": false
+            }
+          ],
+          "metadata": {},
+          "bookingFieldsResponses": {
+            "email": "dryrun2@example.com",
+            "name": "Dryrun Test 2",
+            "displayEmail": "dryrun2@example.com"
+          }
+        },
+        {
+          "id": "8TUQMge89MtQGaquGGUkqK",
+          "bookingId": 24054678,
+          "title": "30 min meeting between Nango Developer and Save Test",
+          "description": "",
+          "status": "cancelled",
+          "start": "2026-08-27T10:00:00.000Z",
+          "end": "2026-08-27T10:30:00.000Z",
+          "duration": 30,
+          "location": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+          "createdAt": "2026-08-19T21:18:43.057Z",
+          "updatedAt": "2026-08-19T21:18:51.018Z",
+          "cancellationReason": "Test dryrun cancellation",
+          "cancelledByEmail": "",
+          "absentHost": false,
+          "icsUid": "8TUQMge89MtQGaquGGUkqK@Cal.com",
+          "eventTypeId": 6732808,
+          "eventType": {
+            "id": 6732808,
+            "slug": "30min"
+          },
+          "hosts": [
+            {
+              "id": 3140613,
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "displayEmail": "api@nango.dev",
+              "username": "nango-developer-4putea",
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "attendees": [
+            {
+              "name": "Save Test",
+              "email": "savetest@example.com",
+              "displayEmail": "savetest@example.com",
+              "timeZone": "America/New_York",
+              "language": "en",
+              "absent": false
+            }
+          ],
+          "metadata": {},
+          "bookingFieldsResponses": {
+            "email": "savetest@example.com",
+            "name": "Save Test",
+            "displayEmail": "savetest@example.com"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Booking": []
+    }
+  },
+  "api": {
+    "get": {
+      "/bookings": {
+        "response": {
+          "status": "success",
+          "data": [
+            {
+              "id": 24054517,
+              "uid": "4jroE1v7jB4YuNksRedoZp",
+              "title": "30 min meeting between Nango Developer and Test User",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "cancelled",
+              "cancellationReason": "Test cancellation",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-21T10:00:00.000Z",
+              "end": "2026-08-21T10:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://app.cal.com/video/4jroE1v7jB4YuNksRedoZp",
+              "location": "https://app.cal.com/video/4jroE1v7jB4YuNksRedoZp",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:15:00.077Z",
+              "updatedAt": "2026-08-19T21:15:44.185Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "4jroE1v7jB4YuNksRedoZp@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test User",
+                  "email": "testuser@example.com",
+                  "displayEmail": "testuser@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "testuser@example.com",
+                "name": "Test User",
+                "displayEmail": "testuser@example.com"
+              }
+            },
+            {
+              "id": 24054611,
+              "uid": "dwiZ4yEpSCL1AMv2y6QV4y",
+              "title": "30 min meeting between Nango Developer and Test User",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "accepted",
+              "cancellationReason": "",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-20T12:00:00.000Z",
+              "end": "2026-08-20T12:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://app.cal.com/video/dwiZ4yEpSCL1AMv2y6QV4y",
+              "location": "https://app.cal.com/video/dwiZ4yEpSCL1AMv2y6QV4y",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:17:08.498Z",
+              "updatedAt": "2026-08-19T21:17:09.488Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com",
+              "attendees": [
+                {
+                  "name": "Test User",
+                  "email": "test@example.com",
+                  "displayEmail": "test@example.com",
+                  "timeZone": "Europe/London",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "test@example.com",
+                "name": "Test User",
+                "displayEmail": "test@example.com"
+              }
+            },
+            {
+              "id": 24054609,
+              "uid": "eHMftMXjbfqjHpcba8B9xW",
+              "title": "30 min meeting between Nango Developer and Dryrun Test",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "cancelled",
+              "cancellationReason": "Test dryrun cancellation",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-25T10:00:00.000Z",
+              "end": "2026-08-25T10:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://app.cal.com/video/eHMftMXjbfqjHpcba8B9xW",
+              "location": "https://app.cal.com/video/eHMftMXjbfqjHpcba8B9xW",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:17:06.187Z",
+              "updatedAt": "2026-08-19T21:17:14.788Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "eHMftMXjbfqjHpcba8B9xW@Cal.com",
+              "attendees": [
+                {
+                  "name": "Dryrun Test",
+                  "email": "dryrun@example.com",
+                  "displayEmail": "dryrun@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "dryrun@example.com",
+                "name": "Dryrun Test",
+                "displayEmail": "dryrun@example.com"
+              }
+            },
+            {
+              "id": 24054654,
+              "uid": "gQWHsxn7PHgMes51CBmCAD",
+              "title": "30 min meeting between Nango Developer and Dryrun Test 2",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "cancelled",
+              "cancellationReason": "Test dryrun cancellation",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-26T10:00:00.000Z",
+              "end": "2026-08-26T10:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://app.cal.com/video/gQWHsxn7PHgMes51CBmCAD",
+              "location": "https://app.cal.com/video/gQWHsxn7PHgMes51CBmCAD",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:18:03.335Z",
+              "updatedAt": "2026-08-19T21:18:31.726Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "gQWHsxn7PHgMes51CBmCAD@Cal.com",
+              "attendees": [
+                {
+                  "name": "Dryrun Test 2",
+                  "email": "dryrun2@example.com",
+                  "displayEmail": "dryrun2@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "dryrun2@example.com",
+                "name": "Dryrun Test 2",
+                "displayEmail": "dryrun2@example.com"
+              }
+            },
+            {
+              "id": 24054678,
+              "uid": "8TUQMge89MtQGaquGGUkqK",
+              "title": "30 min meeting between Nango Developer and Save Test",
+              "description": "",
+              "hosts": [
+                {
+                  "id": 3140613,
+                  "name": "Nango Developer",
+                  "email": "api@nango.dev",
+                  "displayEmail": "api@nango.dev",
+                  "username": "nango-developer-4putea",
+                  "timeZone": "Africa/Nairobi"
+                }
+              ],
+              "status": "cancelled",
+              "cancellationReason": "Test dryrun cancellation",
+              "cancelledByEmail": "",
+              "rescheduledByEmail": null,
+              "start": "2026-08-27T10:00:00.000Z",
+              "end": "2026-08-27T10:30:00.000Z",
+              "duration": 30,
+              "eventTypeId": 6732808,
+              "eventType": {
+                "id": 6732808,
+                "slug": "30min"
+              },
+              "meetingUrl": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+              "location": "https://app.cal.com/video/8TUQMge89MtQGaquGGUkqK",
+              "absentHost": false,
+              "createdAt": "2026-08-19T21:18:43.057Z",
+              "updatedAt": "2026-08-19T21:18:51.018Z",
+              "metadata": {},
+              "rating": null,
+              "icsUid": "8TUQMge89MtQGaquGGUkqK@Cal.com",
+              "attendees": [
+                {
+                  "name": "Save Test",
+                  "email": "savetest@example.com",
+                  "displayEmail": "savetest@example.com",
+                  "timeZone": "America/New_York",
+                  "language": "en",
+                  "absent": false
+                }
+              ],
+              "bookingFieldsResponses": {
+                "email": "savetest@example.com",
+                "name": "Save Test",
+                "displayEmail": "savetest@example.com"
+              }
+            }
+          ],
+          "pagination": {
+            "nextCursor": null,
+            "hasMore": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 21:23:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1946",
+          "x-ratelimit-reset": "1787174621",
+          "cf-ray": "a2dc38878dbbb1c2-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"163d-hqM09muLNHyMpynonhV7i3JwlHM\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "88",
+          "x-ratelimit-reset-default": "4",
+          "x-request-id": "pdx1::72g7z-1787174621373-81db9bbf63cd",
+          "x-vercel-cache": "BYPASS",
+          "x-vercel-id": "pdx1::cle1::72g7z-1787174621373-81db9bbf63cd",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "a59fdabdbc9618cff36499fb78bab5782af2287f",
+        "request": {
+          "params": {
+            "limit": "100",
+            "sortUpdatedAt": "asc"
+          },
+          "headers": {
+            "cal-api-version": "2026-05-01"
+          }
+        }
+      }
+    }
+  }
+}
