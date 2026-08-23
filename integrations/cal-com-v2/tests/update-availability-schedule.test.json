@@ -1,0 +1,104 @@
+{
+  "input": {
+    "scheduleId": 2261460,
+    "name": "Nango Test Schedule"
+  },
+  "output": {
+    "id": 2261460,
+    "ownerId": 3140613,
+    "name": "Nango Test Schedule",
+    "timeZone": "America/New_York",
+    "availability": [
+      {
+        "days": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "startTime": "09:00",
+        "endTime": "17:00"
+      }
+    ],
+    "isDefault": false,
+    "overrides": []
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/schedules/2261460": {
+        "response": {
+          "status": "success",
+          "data": {
+            "id": 2261460,
+            "ownerId": 3140613,
+            "name": "Nango Test Schedule",
+            "timeZone": "America/New_York",
+            "availability": [
+              {
+                "days": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "startTime": "09:00",
+                "endTime": "17:00"
+              }
+            ],
+            "isDefault": false,
+            "overrides": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 21:28:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1933",
+          "x-ratelimit-reset": "1787174936",
+          "cf-ray": "a2dc3fe6db1288dc-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"10d-4g/TJCwEL9+Wt2gZ5FkULzx14YQ\"",
+          "server": "cloudflare",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "107",
+          "x-ratelimit-reset-default": "23",
+          "x-request-id": "pdx1::ch9d9-1787174923349-929803352947",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::ch9d9-1787174923349-929803352947",
+          "set-cookie": "__cf_bm=htWG2a3tZLo2OSwQ1Y13zBqTsna5ysTfbO2B51Y4KrU-1787174923.3347778-1.0.1.1-tY6iPJSFzA7KMKewPHwt7qaYZ.Cdw_gVKG1TBlibRPwZbOGf.lGZJvKuiSOk_W1m6HIPwFg_JNDmZDyiO1St5MHfcb0o2R0O6VsHUO0_PAYpQZ2eD.uWcgh2OCp_IBNT; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 19 Aug 2026 21:58:43 GMT"
+        },
+        "hash": "79ca6bc89433fc0d2920af3bd2818c386cd26191",
+        "request": {
+          "headers": {
+            "cal-api-version": "2024-06-11"
+          },
+          "data": {
+            "name": "Nango Test Schedule"
+          }
+        }
+      }
+    }
+  }
+}
