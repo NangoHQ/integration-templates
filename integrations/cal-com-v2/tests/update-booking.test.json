@@ -1,0 +1,176 @@
+{
+  "input": {
+    "bookingUid": "dwiZ4yEpSCL1AMv2y6QV4y",
+    "location": {
+      "type": "link",
+      "link": "https://example.com/test-meeting"
+    }
+  },
+  "output": {
+    "id": 24054611,
+    "uid": "dwiZ4yEpSCL1AMv2y6QV4y",
+    "title": "30 min meeting between Nango Developer and Test User",
+    "description": "",
+    "hosts": [
+      {
+        "id": 3140613,
+        "name": "Nango Developer",
+        "email": "api@nango.dev",
+        "displayEmail": "api@nango.dev",
+        "username": "nango-developer-4putea",
+        "timeZone": "Africa/Nairobi"
+      }
+    ],
+    "status": "accepted",
+    "cancellationReason": "",
+    "cancelledByEmail": "",
+    "start": "2026-08-20T12:00:00.000Z",
+    "end": "2026-08-20T12:30:00.000Z",
+    "duration": 30,
+    "eventTypeId": 6732808,
+    "eventType": {
+      "id": 6732808,
+      "slug": "30min"
+    },
+    "location": "https://example.com/test-meeting",
+    "absentHost": false,
+    "createdAt": "2026-08-19T21:17:08.498Z",
+    "updatedAt": "2026-08-19T21:28:41.865Z",
+    "metadata": {},
+    "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com",
+    "attendees": [
+      {
+        "name": "Test User",
+        "email": "test@example.com",
+        "displayEmail": "test@example.com",
+        "timeZone": "Europe/London",
+        "language": "en",
+        "absent": false
+      }
+    ],
+    "bookingFieldsResponses": {
+      "email": "test@example.com",
+      "name": "Test User",
+      "location": {
+        "value": "link",
+        "optionValue": "https://example.com/test-meeting"
+      },
+      "displayEmail": "test@example.com"
+    }
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/bookings/dwiZ4yEpSCL1AMv2y6QV4y/location": {
+        "response": {
+          "status": "success",
+          "data": {
+            "id": 24054611,
+            "uid": "dwiZ4yEpSCL1AMv2y6QV4y",
+            "title": "30 min meeting between Nango Developer and Test User",
+            "description": "",
+            "hosts": [
+              {
+                "id": 3140613,
+                "name": "Nango Developer",
+                "email": "api@nango.dev",
+                "displayEmail": "api@nango.dev",
+                "username": "nango-developer-4putea",
+                "timeZone": "Africa/Nairobi"
+              }
+            ],
+            "status": "accepted",
+            "cancellationReason": "",
+            "cancelledByEmail": "",
+            "rescheduledByEmail": null,
+            "start": "2026-08-20T12:00:00.000Z",
+            "end": "2026-08-20T12:30:00.000Z",
+            "duration": 30,
+            "eventTypeId": 6732808,
+            "eventType": {
+              "id": 6732808,
+              "slug": "30min"
+            },
+            "meetingUrl": "https://example.com/test-meeting",
+            "location": "https://example.com/test-meeting",
+            "absentHost": false,
+            "createdAt": "2026-08-19T21:17:08.498Z",
+            "updatedAt": "2026-08-19T21:28:41.865Z",
+            "metadata": {},
+            "rating": null,
+            "icsUid": "dwiZ4yEpSCL1AMv2y6QV4y@Cal.com",
+            "attendees": [
+              {
+                "name": "Test User",
+                "email": "test@example.com",
+                "displayEmail": "test@example.com",
+                "timeZone": "Europe/London",
+                "language": "en",
+                "absent": false
+              }
+            ],
+            "bookingFieldsResponses": {
+              "email": "test@example.com",
+              "name": "Test User",
+              "location": {
+                "value": "link",
+                "optionValue": "https://example.com/test-meeting"
+              },
+              "displayEmail": "test@example.com"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 21:28:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1787174936",
+          "cf-ray": "a2dc3fdaaa604518-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"488-ylJDxMjv0fAbift9jpYLswbPTRs\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "108",
+          "x-ratelimit-reset-default": "25",
+          "x-request-id": "pdx1::snq2x-1787174921402-ba7af5248677",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::snq2x-1787174921402-ba7af5248677",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "11fb7bbeb3b4c2059ade9dd25041393d038a1e0f",
+        "request": {
+          "headers": {
+            "cal-api-version": "2024-08-13"
+          },
+          "data": {
+            "location": {
+              "type": "link",
+              "link": "https://example.com/test-meeting"
+            }
+          }
+        }
+      }
+    }
+  }
+}
