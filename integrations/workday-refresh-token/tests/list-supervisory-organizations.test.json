@@ -1,0 +1,363 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "5d60f3aee0da1001bc52dee15cec0000"
+      },
+      {
+        "id": "36a6f7a8e1eb1000df0164ce90640000",
+        "name": "Certificate Marketing"
+      },
+      {
+        "id": "89964cc3209c10020110eb65018a0000",
+        "name": "Nike Marketing HS"
+      },
+      {
+        "id": "69f6599a46fe1000ea194ffcdc4c0000",
+        "name": "IT Department - Canada"
+      },
+      {
+        "id": "935ee230c695100fa1e804e67a470000",
+        "name": "Human Resources"
+      },
+      {
+        "id": "935ee230c695100f595017b40e780000",
+        "name": "GSS Ruhul Amin"
+      },
+      {
+        "id": "f5e230db077c1001b91c52e39a060000",
+        "name": "ceo"
+      },
+      {
+        "id": "797ecf7afdc81001f105616979b70000",
+        "name": "Adex adex  CEO"
+      },
+      {
+        "id": "5fadc92e33b51000c0424dbc69a70000",
+        "name": "Fabrice's Company"
+      },
+      {
+        "id": "cefa6ba30e651001661e9a2ec4070000",
+        "name": "ABS Application Development"
+      },
+      {
+        "id": "cefa6ba30e6510016613c6fdfec20000",
+        "name": "ABS Application Support"
+      },
+      {
+        "id": "cefa6ba30e651000cdf6cc11ebdf0000",
+        "name": "ABS Finance"
+      },
+      {
+        "id": "2493493042641000ce3f6bf2f2ca0000",
+        "name": "ABS HR"
+      },
+      {
+        "id": "2493493042641001656b19d543bc0000",
+        "name": "ABS HR MIS"
+      },
+      {
+        "id": "249349304264100165862adff9c10000",
+        "name": "ABS HR Recruiting"
+      },
+      {
+        "id": "cefa6ba30e65100165be2c7d19900000",
+        "name": "ABS HR Support"
+      },
+      {
+        "id": "cefa6ba30e651000ce504dfeb2ef0000",
+        "name": "ABS Information Technology"
+      },
+      {
+        "id": "249349304264100166006f5654600000",
+        "name": "ABS IT Support"
+      },
+      {
+        "id": "cefa6ba30e65100166463706f2610000",
+        "name": "ABS Loan"
+      },
+      {
+        "id": "2493493042641001660aeadf2a830000",
+        "name": "ABS Marketing"
+      }
+    ],
+    "nextCursor": "20"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "zktechnology_pt1"
+    }
+  },
+  "api": {
+    "get": {
+      "/common/v1/zktechnology_pt1/supervisoryOrganizations": {
+        "response": {
+          "total": 477,
+          "data": [
+            {
+              "id": "5d60f3aee0da1001bc52dee15cec0000",
+              "descriptor": "",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5d60f3aee0da1001bc52dee15cec0000",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5d60f3aee0da1001bc52dee15cec0000/workers",
+              "code": "1"
+            },
+            {
+              "id": "36a6f7a8e1eb1000df0164ce90640000",
+              "descriptor": "0002 Certificate Marketing",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/36a6f7a8e1eb1000df0164ce90640000",
+              "name": "Certificate Marketing",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/36a6f7a8e1eb1000df0164ce90640000/workers",
+              "manager": {
+                "descriptor": "Steve Morgan",
+                "id": "0e44c92412d34b01ace61e80a47aaf6d",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/0e44c92412d34b01ace61e80a47aaf6d"
+              },
+              "code": "0002"
+            },
+            {
+              "id": "89964cc3209c10020110eb65018a0000",
+              "descriptor": "0002 Nike Marketing HS",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/89964cc3209c10020110eb65018a0000",
+              "name": "Nike Marketing HS",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/89964cc3209c10020110eb65018a0000/workers",
+              "manager": {
+                "descriptor": "Logan McNeil",
+                "id": "3aa5550b7fe348b98d7b5741afc65534",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/3aa5550b7fe348b98d7b5741afc65534"
+              },
+              "code": "0002"
+            },
+            {
+              "id": "69f6599a46fe1000ea194ffcdc4c0000",
+              "descriptor": "101 IT Department - Canada",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/69f6599a46fe1000ea194ffcdc4c0000",
+              "name": "IT Department - Canada",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/69f6599a46fe1000ea194ffcdc4c0000/workers",
+              "code": "101"
+            },
+            {
+              "id": "935ee230c695100fa1e804e67a470000",
+              "descriptor": "103 Human Resources () (SUPERVISORY_ORGANIZATION-6-434)",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/935ee230c695100fa1e804e67a470000",
+              "name": "Human Resources",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/935ee230c695100fa1e804e67a470000/workers",
+              "code": "103"
+            },
+            {
+              "id": "935ee230c695100f595017b40e780000",
+              "descriptor": "123 GSS Ruhul Amin () (SUPERVISORY_ORGANIZATION-6-433)",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/935ee230c695100f595017b40e780000",
+              "name": "GSS Ruhul Amin",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/935ee230c695100f595017b40e780000/workers",
+              "code": "123"
+            },
+            {
+              "id": "f5e230db077c1001b91c52e39a060000",
+              "descriptor": "1 ceo ()",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/f5e230db077c1001b91c52e39a060000",
+              "name": "ceo",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/f5e230db077c1001b91c52e39a060000/workers",
+              "code": "1"
+            },
+            {
+              "id": "797ecf7afdc81001f105616979b70000",
+              "descriptor": "345678 Adex adex  CEO Group () (SUPERVISORY_ORGANIZATION-6-654)",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/797ecf7afdc81001f105616979b70000",
+              "name": "Adex adex  CEO",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/797ecf7afdc81001f105616979b70000/workers",
+              "code": "345678"
+            },
+            {
+              "id": "5fadc92e33b51000c0424dbc69a70000",
+              "descriptor": "8936 Fabrice's Company",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5fadc92e33b51000c0424dbc69a70000",
+              "name": "Fabrice's Company",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/5fadc92e33b51000c0424dbc69a70000/workers",
+              "manager": {
+                "descriptor": "Steve Morgan",
+                "id": "0e44c92412d34b01ace61e80a47aaf6d",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/0e44c92412d34b01ace61e80a47aaf6d"
+              },
+              "code": "8936"
+            },
+            {
+              "id": "cefa6ba30e651001661e9a2ec4070000",
+              "descriptor": "ABS Application Development (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651001661e9a2ec4070000",
+              "name": "ABS Application Development",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651001661e9a2ec4070000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Application_Development"
+            },
+            {
+              "id": "cefa6ba30e6510016613c6fdfec20000",
+              "descriptor": "ABS Application Support",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e6510016613c6fdfec20000",
+              "name": "ABS Application Support",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e6510016613c6fdfec20000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Application_Support"
+            },
+            {
+              "id": "cefa6ba30e651000cdf6cc11ebdf0000",
+              "descriptor": "ABS Finance (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651000cdf6cc11ebdf0000",
+              "name": "ABS Finance",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651000cdf6cc11ebdf0000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Germany_Finance"
+            },
+            {
+              "id": "2493493042641000ce3f6bf2f2ca0000",
+              "descriptor": "ABS HR (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641000ce3f6bf2f2ca0000",
+              "name": "ABS HR",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641000ce3f6bf2f2ca0000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Germany_HR"
+            },
+            {
+              "id": "2493493042641001656b19d543bc0000",
+              "descriptor": "ABS HR MIS (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641001656b19d543bc0000",
+              "name": "ABS HR MIS",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641001656b19d543bc0000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_HR_MIS"
+            },
+            {
+              "id": "249349304264100165862adff9c10000",
+              "descriptor": "ABS HR Recruiting (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/249349304264100165862adff9c10000",
+              "name": "ABS HR Recruiting",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/249349304264100165862adff9c10000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_HR_Recruiting"
+            },
+            {
+              "id": "cefa6ba30e65100165be2c7d19900000",
+              "descriptor": "ABS HR Support (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e65100165be2c7d19900000",
+              "name": "ABS HR Support",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e65100165be2c7d19900000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_HR_Support"
+            },
+            {
+              "id": "cefa6ba30e651000ce504dfeb2ef0000",
+              "descriptor": "ABS Information Technology (Shtar Shtar (Inherited))",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651000ce504dfeb2ef0000",
+              "name": "ABS Information Technology",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e651000ce504dfeb2ef0000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Information_Technology"
+            },
+            {
+              "id": "249349304264100166006f5654600000",
+              "descriptor": "ABS IT Support",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/249349304264100166006f5654600000",
+              "name": "ABS IT Support",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/249349304264100166006f5654600000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_IT_Support"
+            },
+            {
+              "id": "cefa6ba30e65100166463706f2610000",
+              "descriptor": "ABS Loan",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e65100166463706f2610000",
+              "name": "ABS Loan",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/cefa6ba30e65100166463706f2610000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Loan"
+            },
+            {
+              "id": "2493493042641001660aeadf2a830000",
+              "descriptor": "ABS Marketing",
+              "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641001660aeadf2a830000",
+              "name": "ABS Marketing",
+              "workers": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/2493493042641001660aeadf2a830000/workers",
+              "manager": {
+                "descriptor": "Shtar Shtar",
+                "id": "442514f36126101b8cc2ef687fd50000",
+                "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/442514f36126101b8cc2ef687fd50000"
+              },
+              "code": "ABS_Marketing"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:46:12 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1787172429",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "2b7c53c9-35d8-4930-adf6-b9080e74ff93",
+          "set-cookie": "TS012df9cf=010914a00cdf6b7af455da701ec8076b016289195c87017bbcaf55815086917208cf55292538561a489834af0717afc1e71cbbe6bc; Path=/; HttpOnly"
+        },
+        "hash": "548c092456d04cf74b36d57947769303e8e29c36",
+        "request": {
+          "params": {
+            "limit": "20"
+          }
+        }
+      }
+    }
+  }
+}
