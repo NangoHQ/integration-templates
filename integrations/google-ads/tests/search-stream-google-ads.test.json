@@ -2,8 +2,7 @@
     "input": {
         "customerId": "1781900691",
         "query": "SELECT campaign.id, campaign.name FROM campaign WHERE campaign.id = 24027360183",
-        "loginCustomerId": "3608201627",
-        "developerToken": "YOUR_DEVELOPER_TOKEN"
+        "loginCustomerId": "3608201627"
     },
     "output": {
         "rows": [
@@ -18,7 +17,13 @@
         "fieldMask": "campaign.id,campaign.name",
         "requestId": "-wmLytVuBONxut172E248A"
     },
-    "nango": {},
+    "nango": {
+        "getConnection": {
+            "connection_config": {
+                "developer_token": "YOUR_DEVELOPER_TOKEN"
+            }
+        }
+    },
     "api": {
         "post": {
             "/v21/customers/1781900691/googleAds:searchStream": {

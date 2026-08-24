@@ -20,8 +20,7 @@ const ConversionActionSchema = z.object({
 
 const MetadataSchema = z.object({
     customerIds: z.array(z.string()).min(1),
-    loginCustomerId: z.string().optional(),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    loginCustomerId: z.string().optional()
 });
 
 const GoogleAdsRowSchema = z.object({
@@ -55,7 +54,7 @@ const SearchStreamChunkSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -71,6 +70,12 @@ const sync = createSync({
         }
         const metadata = metadataResult.data;
 
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new Error('developer_token is required in connection config');
+        }
+
         // Blocker: Google Ads SearchStream does not support incremental filters,
         // resumable cursor pagination, or a deleted-record endpoint for conversion_action.
         // Conversion actions are a small, low-cardinality, long-lived reference set,
@@ -82,7 +87,7 @@ const sync = createSync({
             const response = await nango.post({
                 endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
-                    'developer-token': metadata.developerToken,
+                    'developer-token': developerToken,
                     ...(metadata.loginCustomerId && {
                         'login-customer-id': metadata.loginCustomerId
                     })

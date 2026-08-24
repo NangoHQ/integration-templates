@@ -1,13 +1,18 @@
 {
     "input": {
         "resource_name": "customers/1781900691/campaignBudgets/15722745985",
-        "login_customer_id": "3608201627",
-        "developer_token": "YOUR_DEVELOPER_TOKEN"
+        "login_customer_id": "3608201627"
     },
     "output": {
         "resource_name": "customers/1781900691/campaignBudgets/15722745985"
     },
-    "nango": {},
+    "nango": {
+        "getConnection": {
+            "connection_config": {
+                "developer_token": "YOUR_DEVELOPER_TOKEN"
+            }
+        }
+    },
     "api": {
         "post": {
             "/v21/customers/1781900691/campaignBudgets:mutate": {

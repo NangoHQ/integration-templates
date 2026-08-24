@@ -46,13 +46,11 @@ const InputSchema = z.object({
     loginCustomerId: z
         .string()
         .optional()
-        .describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"'),
-    developerToken: z.string().optional().describe('Google Ads developer token. Falls back to connection metadata. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"')
 });
 
 const MetadataSchema = z.object({
-    loginCustomerId: z.string().describe('Manager account ID for login-customer-id header. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    loginCustomerId: z.string().describe('Manager account ID for login-customer-id header. Example: "3608201627"')
 });
 
 const OutputSchema = z.object({
@@ -61,7 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable campaign settings.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -69,19 +67,20 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let loginCustomerId = input.loginCustomerId;
-        let developerToken = input.developerToken;
 
-        if (!loginCustomerId || !developerToken) {
+        if (!loginCustomerId) {
             const rawMetadata = await nango.getMetadata();
             const metadata = rawMetadata ? MetadataSchema.parse(rawMetadata) : null;
             loginCustomerId = loginCustomerId ?? metadata?.loginCustomerId;
-            developerToken = developerToken ?? metadata?.developerToken;
         }
+
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
 
         if (!loginCustomerId || !developerToken) {
             throw new nango.ActionError({
                 type: 'missing_configuration',
-                message: 'loginCustomerId and developerToken are required. Set them in connection metadata or pass as input.'
+                message: 'loginCustomerId is required (pass as input or set in connection metadata); developer_token is required in connection config.'
             });
         }
 

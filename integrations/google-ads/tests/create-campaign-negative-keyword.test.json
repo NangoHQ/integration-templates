@@ -4,13 +4,18 @@
         "campaignId": "24027360183",
         "text": "test-negative-keyword-2026-07-15",
         "matchType": "EXACT",
-        "loginCustomerId": "3608201627",
-        "developerToken": "YOUR_DEVELOPER_TOKEN"
+        "loginCustomerId": "3608201627"
     },
     "output": {
         "resourceName": "customers/1781900691/campaignCriteria/24027360183~2491232117279"
     },
-    "nango": {},
+    "nango": {
+        "getConnection": {
+            "connection_config": {
+                "developer_token": "YOUR_DEVELOPER_TOKEN"
+            }
+        }
+    },
     "api": {
         "post": {
             "/v21/customers/1781900691/campaignCriteria:mutate": {

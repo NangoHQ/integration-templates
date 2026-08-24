@@ -3,8 +3,7 @@ import { z } from 'zod';
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).min(1),
-    login_customer_id: z.string(),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string()
 });
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
@@ -197,7 +196,7 @@ function extractSearchStreamRows(data: unknown): unknown[] {
 
 const sync = createSync({
     description: 'Sync campaigns for customer accounts in scope.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -215,6 +214,12 @@ const sync = createSync({
         const metadata = metadataResult.data;
         if (!metadata.customer_ids.length) {
             throw new Error('customer_ids is required in metadata');
+        }
+
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new Error('developer_token is required in connection config');
         }
 
         const rawCheckpoint = await nango.getCheckpoint();
@@ -238,7 +243,7 @@ const sync = createSync({
             const response = await nango.post({
                 endpoint: `/v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
-                    'developer-token': metadata.developer_token,
+                    'developer-token': developerToken,
                     'login-customer-id': loginCustomerId
                 },
                 data: {

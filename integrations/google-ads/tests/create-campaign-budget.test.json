@@ -5,14 +5,19 @@
     "name": "Nango Test Budget",
     "amountMicros": "1000000",
     "deliveryMethod": "STANDARD",
-    "explicitlyShared": false,
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "explicitlyShared": false
   },
   "output": {
     "resourceName": "customers/1781900691/campaignBudgets/15722764465",
     "id": "15722764465"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
       "/v21/customers/1781900691/campaignBudgets:mutate": {

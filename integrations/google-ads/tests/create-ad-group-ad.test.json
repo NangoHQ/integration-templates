@@ -15,15 +15,20 @@
     "finalUrls": [
       "https://example.com"
     ],
-    "status": "ENABLED",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "status": "ENABLED"
   },
   "output": {
     "resourceName": "customers/1781900691/adGroupAds/197714341345~816948922766",
     "adGroupAdId": "197714341345~816948922766",
     "adId": "816948922766"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
       "/v21/customers/1781900691/adGroupAds:mutate": {

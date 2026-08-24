@@ -8,8 +8,7 @@ const InputSchema = z.object({
         .optional()
         .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     campaign: z.string().describe('Campaign resource name. Example: "customers/1781900691/campaigns/24027360183"'),
-    geoTargetConstant: z.string().describe('Geo target constant resource name. Example: "geoTargetConstants/21167"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    geoTargetConstant: z.string().describe('Geo target constant resource name. Example: "geoTargetConstants/21167"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -23,17 +22,26 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add geographic location targeting to a campaign using a geo target constant.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/rest/reference/rest/v21/customers/campaignCriteria/mutate
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {

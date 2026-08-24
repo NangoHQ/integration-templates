@@ -2,7 +2,6 @@
   "input": {
     "customerId": "1781900691",
     "loginCustomerId": "3608201627",
-    "developerToken": "YOUR_DEVELOPER_TOKEN",
     "name": "Nango Test Conversion 1784076979",
     "type": "WEBPAGE",
     "category": "DEFAULT",
@@ -12,7 +11,13 @@
   "output": {
     "resourceName": "customers/1781900691/conversionActions/7685281095"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
       "/v21/customers/1781900691/conversionActions:mutate": {

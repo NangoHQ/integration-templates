@@ -4,7 +4,6 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
     loginCustomerId: z.string().optional().describe('Manager account ID for API access. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"'),
     name: z.string().describe('Unique conversion action name.'),
     type: z.string().describe('Conversion action type. Example: "WEBPAGE"'),
     category: z.string().describe('Conversion action category. Example: "DEFAULT"'),
@@ -26,14 +25,23 @@ const MutateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a conversion action for tracking conversions.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId !== undefined && input.loginCustomerId !== '') {

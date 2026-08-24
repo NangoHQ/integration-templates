@@ -3,13 +3,18 @@
     "customerId": "1781900691",
     "loginCustomerId": "3608201627",
     "adGroupId": "197714341345",
-    "name": "Seed Ad Group Keep 1 - Updated",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "name": "Seed Ad Group Keep 1 - Updated"
   },
   "output": {
     "resourceName": "customers/1781900691/adGroups/197714341345"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
       "/v21/customers/1781900691/adGroups:mutate": {

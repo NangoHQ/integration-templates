@@ -11,8 +11,7 @@ const InputSchema = z.object({
     loginCustomerId: z
         .string()
         .optional()
-        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"')
 });
 
 const ProviderResultSchema = z.object({
@@ -30,12 +29,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a positive keyword criterion to an ad group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const mutateBody: {
             operations: Array<{
                 create: {
@@ -70,7 +78,7 @@ const action = createAction({
             data: mutateBody,
             retries: 1,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             }
         });

@@ -1,10 +1,6 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
 
-const MetadataSchema = z.object({
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
-});
-
 const CustomerSchema = z.object({
     id: z.string(),
     resourceName: z.string(),
@@ -69,27 +65,25 @@ const SearchStreamResponseSchema = z.array(z.union([SearchStreamResultSchema, Se
 
 const sync = createSync({
     description: 'Sync directly accessible Google Ads customer accounts',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
-    metadata: MetadataSchema,
     models: {
         Customer: CustomerSchema
     },
 
     exec: async (nango) => {
-        const rawMetadata = await nango.getMetadata();
-        const metadataResult = MetadataSchema.safeParse(rawMetadata);
-        if (!metadataResult.success) {
-            throw new Error('Invalid metadata: ' + metadataResult.error.message);
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new Error('developer_token is required in connection config');
         }
-        const metadata = metadataResult.data;
 
         // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
         const listResponse = await nango.get({
             endpoint: 'v21/customers:listAccessibleCustomers',
             headers: {
-                'developer-token': metadata.developerToken
+                'developer-token': developerToken
             },
             retries: 3
         });
@@ -116,7 +110,7 @@ const sync = createSync({
                         query: 'SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer'
                     },
                     headers: {
-                        'developer-token': metadata.developerToken
+                        'developer-token': developerToken
                     },
                     retries: 3
                 });

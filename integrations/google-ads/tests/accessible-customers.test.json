@@ -15,8 +15,11 @@
     "batchDelete": {
       "Customer": []
     },
-    "getMetadata": {
-      "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "getMetadata": {},
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
     }
   },
   "api": {

@@ -4,8 +4,12 @@
       "customerIds": [
         "1781900691"
       ],
-      "loginCustomerId": "3608201627",
-      "developerToken": "YOUR_DEVELOPER_TOKEN"
+      "loginCustomerId": "3608201627"
+    },
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
     },
     "batchSave": {
       "ConversionAction": [

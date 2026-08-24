@@ -20,8 +20,7 @@ const InputSchema = z.object({
                 .optional()
         })
         .optional()
-        .describe('Targeting settings to update.'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Targeting settings to update.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -38,12 +37,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on an ad group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const resourceName = `customers/${input.customerId}/adGroups/${input.adGroupId}`;
 
         const updateBody: Record<string, unknown> = {
@@ -80,7 +88,7 @@ const action = createAction({
         }
 
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId) {

@@ -6,8 +6,7 @@ const InputSchema = z.object({
     login_customer_id: z
         .string()
         .optional()
-        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: 3608201627'),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: 3608201627')
 });
 
 const ProviderResponseSchema = z.object({
@@ -27,12 +26,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a keyword criterion from an ad group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const match = input.resource_name.match(/^customers\/(\d+)\/adGroupCriteria\/(.+)$/);
         if (!match) {
             throw new nango.ActionError({
@@ -53,7 +61,7 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `v21/customers/${encodeURIComponent(customerId)}/adGroupCriteria:mutate`,
             headers: {
-                'developer-token': input.developer_token,
+                'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             data: {

@@ -2,7 +2,6 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const MetadataSchema = z.object({
-    developerToken: z.string().optional(),
     loginCustomerId: z.string().optional()
 });
 
@@ -19,7 +18,6 @@ const InputSchema = z.object({
         })
         .optional()
         .describe('Value settings for the conversion action'),
-    developerToken: z.string().optional().describe('Google Ads developer token'),
     loginCustomerId: z.string().optional().describe('Manager account ID for access. Example: "3608201627"')
 });
 
@@ -37,26 +35,27 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a conversion action',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let developerToken = input.developerToken;
         let loginCustomerId = input.loginCustomerId;
 
-        if (!developerToken || !loginCustomerId) {
+        if (!loginCustomerId) {
             const rawMetadata = await nango.getMetadata();
             const metadata = MetadataSchema.parse(rawMetadata ?? {});
-            developerToken = developerToken ?? metadata.developerToken;
             loginCustomerId = loginCustomerId ?? metadata.loginCustomerId;
         }
 
-        if (!developerToken) {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+
+        if (!developerToken || typeof developerToken !== 'string') {
             throw new nango.ActionError({
-                type: 'missing_developer_token',
-                message: 'developerToken is required in input or connection metadata.'
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
             });
         }
 

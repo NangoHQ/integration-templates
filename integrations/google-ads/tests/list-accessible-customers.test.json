@@ -1,14 +1,18 @@
 {
-  "input": {
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
-  },
+  "input": {},
   "output": {
     "resourceNames": [
       "customers/3608201627",
       "customers/7202353356"
     ]
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "get": {
       "/v21/customers:listAccessibleCustomers": {

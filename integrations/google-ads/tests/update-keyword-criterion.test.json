@@ -3,13 +3,18 @@
     "customerId": "1781900691",
     "loginCustomerId": "3608201627",
     "resourceName": "customers/1781900691/adGroupCriteria/197714341345~2491223357039",
-    "cpcBidMicros": "1500000",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "cpcBidMicros": "1500000"
   },
   "output": {
     "resourceName": "customers/1781900691/adGroupCriteria/197714341345~2491223357039"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
       "/v21/customers/1781900691/adGroupCriteria:mutate": {

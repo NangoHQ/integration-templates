@@ -11,8 +11,7 @@ const InputSchema = z.object({
     name: z.string().describe('The name of the campaign budget.'),
     amountMicros: z.string().describe('The budget amount in micros. Example: "1000000"'),
     deliveryMethod: z.enum(['STANDARD', 'ACCELERATED']).describe('The delivery method for the budget.'),
-    explicitlyShared: z.boolean().describe('Whether the budget is shared across multiple campaigns.'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    explicitlyShared: z.boolean().describe('Whether the budget is shared across multiple campaigns.')
 });
 
 const OutputSchema = z.object({
@@ -37,12 +36,21 @@ const PartialFailureErrorSchema = z.object({
 
 const action = createAction({
     description: 'Create a campaign budget for one or more campaigns.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const config: ProxyConfiguration = {
             // https://developers.google.com/google-ads/api/reference/rpc/v21/CampaignBudgetService/MutateCampaignBudgets
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignBudgets:mutate`,
@@ -59,7 +67,7 @@ const action = createAction({
                 ]
             },
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             retries: 3

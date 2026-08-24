@@ -3,8 +3,7 @@ import { z } from 'zod';
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).optional(),
-    login_customer_id: z.string().optional(),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string().optional()
 });
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
@@ -250,7 +249,7 @@ function extractCustomerId(resourceName: string): string | undefined {
 
 const sync = createSync({
     description: 'Sync ad groups for customer accounts in scope.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -266,6 +265,12 @@ const sync = createSync({
             throw new Error(`Invalid metadata: ${metadataResult.error.message}`);
         }
         const metadata = metadataResult.data;
+
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new Error('developer_token is required in connection config');
+        }
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
@@ -290,7 +295,7 @@ const sync = createSync({
                 // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
                 endpoint: 'v21/customers:listAccessibleCustomers',
                 headers: {
-                    'developer-token': metadata.developer_token
+                    'developer-token': developerToken
                 },
                 retries: 3
             };
@@ -304,7 +309,7 @@ const sync = createSync({
                     endpoint: `v21/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
                     method: 'POST',
                     headers: {
-                        'developer-token': metadata.developer_token
+                        'developer-token': developerToken
                     },
                     data: {
                         query: 'SELECT customer_client.id, customer_client.manager FROM customer_client WHERE customer_client.manager = FALSE'
@@ -384,7 +389,7 @@ const sync = createSync({
 
         for (const account of accountsToProcess) {
             const headers: Record<string, string> = {
-                'developer-token': metadata.developer_token
+                'developer-token': developerToken
             };
             if (account.loginCustomerId) {
                 headers['login-customer-id'] = account.loginCustomerId;

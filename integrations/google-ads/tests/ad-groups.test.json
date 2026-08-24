@@ -4,8 +4,12 @@
       "customer_ids": [
         "1781900691"
       ],
-      "login_customer_id": "3608201627",
-      "developer_token": "YOUR_DEVELOPER_TOKEN"
+      "login_customer_id": "3608201627"
+    },
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
     },
     "batchSave": {
       "AdGroup": [

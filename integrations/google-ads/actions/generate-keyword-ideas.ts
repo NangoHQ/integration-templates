@@ -37,7 +37,6 @@ const InputSchema = z
         language: z.string().optional().describe('Language constant resource name. Example: "languageConstants/1000"'),
         geoTargetConstants: z.array(z.string()).optional().describe('Geo target constant resource names. Example: ["geoTargetConstants/2840"]'),
         keywordPlanNetwork: z.string().optional().describe('Keyword plan network. Example: "GOOGLE_SEARCH"'),
-        developerToken: z.string().describe('Google Ads developer token.'),
         loginCustomerId: z.string().optional().describe('Login customer ID when accessing via a manager account. Example: "3608201627"'),
         includeAdultKeywords: z.boolean().optional().describe('Whether to include adult keywords in the response.'),
         pageToken: z.string().optional().describe('Pagination token for the next page of results.'),
@@ -54,12 +53,21 @@ const InputSchema = z
 
 const action = createAction({
     description: 'Generate keyword ideas and search volume/competition metrics from a seed keyword list or URL.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input) => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const seed: Record<string, unknown> = {};
 
         if (input.keywords && input.keywords.length > 0 && input.url) {
@@ -92,7 +100,7 @@ const action = createAction({
         };
 
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId) {

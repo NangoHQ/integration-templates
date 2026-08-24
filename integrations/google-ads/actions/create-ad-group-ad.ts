@@ -21,8 +21,7 @@ const InputSchema = z.object({
     headlines: z.array(z.string()).min(3).describe('At least 3 headlines for the responsive search ad.'),
     descriptions: z.array(z.string()).min(2).describe('At least 2 descriptions for the responsive search ad.'),
     finalUrls: z.array(z.string()).min(1).describe('Final URLs for the ad.'),
-    status: z.enum(['ENABLED', 'PAUSED']).optional().describe('Ad status. Defaults to ENABLED.'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    status: z.enum(['ENABLED', 'PAUSED']).optional().describe('Ad status. Defaults to ENABLED.')
 });
 
 const OutputSchema = z.object({
@@ -33,12 +32,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an ad inside an ad group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const status = input.status ?? 'ENABLED';
 
         const requestBody = {
@@ -63,7 +71,7 @@ const action = createAction({
         const response = await nango.post({
             endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroupAds:mutate`,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: requestBody,

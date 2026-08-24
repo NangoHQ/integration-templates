@@ -17,8 +17,7 @@ const InputSchema = z
                 resourceNames: z.array(z.string())
             })
             .optional()
-            .describe('Geo target constant resource names to filter by.'),
-        developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+            .describe('Geo target constant resource names to filter by.')
     })
     .refine((data) => (data.locationNames !== undefined ? 1 : 0) + (data.geoTargetConstants !== undefined ? 1 : 0) === 1, {
         message: 'Exactly one of locationNames or geoTargetConstants must be provided, not both.'
@@ -52,12 +51,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Look up geo target constant resource names for location names or codes, for use in campaign location targeting.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const developerToken = connection.connection_config?.['developer_token'];
+        if (!developerToken || typeof developerToken !== 'string') {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const requestBody: Record<string, unknown> = {
             ...(input.locale !== undefined && { locale: input.locale }),
             ...(input.countryCode !== undefined && { countryCode: input.countryCode }),
@@ -70,7 +78,7 @@ const action = createAction({
             endpoint: 'v21/geoTargetConstants:suggest',
             data: requestBody,
             headers: {
-                'developer-token': input.developerToken
+                'developer-token': developerToken
             },
             retries: 3
         };
