@@ -92,7 +92,7 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync product records with pricing, SKU, quantity, and billing details',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/products', group: 'Products' }],
     frequency: 'every hour',
     autoStart: true,
@@ -174,9 +174,17 @@ const sync = createSync({
             return;
         }
 
-        const updatedAfter = checkpoint.updatedAfter;
+        // HubSpot search queries can only page through 10,000 total results; paging past that
+        // returns a 400. Once a search window approaches the cap, advance the window's lower
+        // bound to the latest modification time seen so far and resume paging from there, which
+        // partitions the incremental run into bounded sub-windows instead of ever hitting the cap.
+        // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
+        const SEARCH_WINDOW_RESULT_LIMIT = 9900;
+
+        let windowFloor = checkpoint.updatedAfter;
         let after = checkpoint.after;
-        let latestUpdatedAt = updatedAfter;
+        let latestUpdatedAt = windowFloor;
+        let resultsInWindow = 0;
         let hasMore = true;
 
         while (hasMore) {
@@ -205,7 +213,7 @@ const sync = createSync({
                             {
                                 propertyName: 'hs_lastmodifieddate',
                                 operator: 'GT',
-                                value: updatedAfter
+                                value: windowFloor
                             }
                         ]
                     }
@@ -214,9 +222,6 @@ const sync = createSync({
             };
 
             // Incremental syncs use search so they can filter by last modified date.
-            // HubSpot search queries are capped at 10,000 total results; paging past that returns a 400 and can leave this incremental sync incomplete.
-            // Template users should narrow the search window/filter strategy to fit their data volume before relying on this template.
-            // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
             const response = await nango.post({
                 endpoint: '/crm/v3/objects/products/search',
                 data: searchBody,
@@ -246,14 +251,27 @@ const sync = createSync({
             await nango.batchSave(records, 'Product');
 
             latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
+            resultsInWindow += products.length;
 
             const nextAfter = data.paging?.next?.after;
+
+            if (nextAfter && resultsInWindow >= SEARCH_WINDOW_RESULT_LIMIT) {
+                windowFloor = latestUpdatedAt || windowFloor;
+                after = '';
+                resultsInWindow = 0;
+                await nango.saveCheckpoint({
+                    phase: 'incremental',
+                    after: '',
+                    updatedAfter: windowFloor || ''
+                });
+                continue;
+            }
 
             if (nextAfter) {
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: nextAfter,
-                    updatedAfter: updatedAfter || ''
+                    updatedAfter: windowFloor || ''
                 });
                 after = nextAfter;
                 continue;
