@@ -50,6 +50,9 @@ const HubspotCrmCheckpointSchema = z.object({
     phase: z.string(),
     after: z.string(),
     updatedAfter: z.string(),
+    // Tie-breaker record id for the `updatedAfter` timestamp; lets the search filter make
+    // guaranteed progress through records that share a timestamp (see buildIncrementalFilterGroups).
+    updatedAfterId: z.string(),
     windowCount: z.number()
 });
 
@@ -57,16 +60,21 @@ type HubspotCrmCheckpoint = {
     phase: 'initial' | 'incremental';
     after?: string;
     updatedAfter?: string;
+    updatedAfterId?: string;
     windowCount: number;
 };
 
 function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undefined {
-    const result = HubspotCrmCheckpointSchema.safeParse(value);
+    // `windowCount` and `updatedAfterId` were added after this sync first shipped. Default them
+    // when absent so a checkpoint saved by an earlier version still resumes incrementally instead
+    // of failing validation and forcing a full resync.
+    const withDefaults = value && typeof value === 'object' ? { windowCount: 0, updatedAfterId: '', ...value } : value;
+    const result = HubspotCrmCheckpointSchema.safeParse(withDefaults);
     if (!result.success) {
         return undefined;
     }
 
-    const { phase, after, updatedAfter, windowCount } = result.data;
+    const { phase, after, updatedAfter, updatedAfterId, windowCount } = result.data;
     if (phase !== 'initial' && phase !== 'incremental') {
         return undefined;
     }
@@ -81,7 +89,49 @@ function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undef
         checkpoint.updatedAfter = updatedAfter;
     }
 
+    if (updatedAfterId) {
+        checkpoint.updatedAfterId = updatedAfterId;
+    }
+
     return checkpoint;
+}
+
+// Builds filters equivalent to `hs_lastmodifieddate > floor OR (hs_lastmodifieddate = floor AND
+// hs_object_id > floorId)`. Plain `GT`/`GTE` on the timestamp alone cannot both avoid data loss and
+// guarantee progress once more records than fit in a search window share the same timestamp: GT
+// permanently skips unseen ties, and GTE re-issues an identical query forever if the tied group
+// itself exceeds the window. The timestamp+id composite key strictly increases every page.
+function buildIncrementalFilterGroups(floor: string, floorId: string): Record<string, unknown>[] {
+    const filterGroups: Record<string, unknown>[] = [
+        {
+            filters: [
+                {
+                    propertyName: 'hs_lastmodifieddate',
+                    operator: 'GT',
+                    value: floor
+                }
+            ]
+        }
+    ];
+
+    if (floorId) {
+        filterGroups.push({
+            filters: [
+                {
+                    propertyName: 'hs_lastmodifieddate',
+                    operator: 'EQ',
+                    value: floor
+                },
+                {
+                    propertyName: 'hs_object_id',
+                    operator: 'GT',
+                    value: floorId
+                }
+            ]
+        });
+    }
+
+    return filterGroups;
 }
 
 function updateLatestUpdatedAt(current: string | undefined, candidate: string | null | undefined): string | undefined {
@@ -94,7 +144,7 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync product records with pricing, SKU, quantity, and billing details',
-    version: '3.0.2',
+    version: '3.0.3',
     endpoints: [{ method: 'POST', path: '/syncs/products', group: 'Products' }],
     frequency: 'every hour',
     autoStart: true,
@@ -157,6 +207,7 @@ const sync = createSync({
                         phase: 'initial',
                         after: nextAfter,
                         updatedAfter: latestUpdatedAt || '',
+                        updatedAfterId: '',
                         windowCount: 0
                     });
                     after = nextAfter;
@@ -168,6 +219,7 @@ const sync = createSync({
                         phase: 'incremental',
                         after: '',
                         updatedAfter: latestUpdatedAt,
+                        updatedAfterId: '',
                         windowCount: 0
                     });
                 }
@@ -180,16 +232,18 @@ const sync = createSync({
 
         // HubSpot search queries can only page through 10,000 total results; paging past that
         // returns a 400. Once a search window approaches the cap, advance the window's lower
-        // bound to the latest modification time seen so far and resume paging from there, which
-        // partitions the incremental run into bounded sub-windows instead of ever hitting the cap.
-        // The window count is persisted in the checkpoint since a run can be interrupted and
-        // resumed mid-window, at which point the in-memory count alone would be lost.
+        // bound to the latest modification time (and record) seen so far and resume paging from
+        // there, which partitions the incremental run into bounded sub-windows instead of ever
+        // hitting the cap. The window count is persisted in the checkpoint since a run can be
+        // interrupted and resumed mid-window, at which point the in-memory count alone would be lost.
         // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
         const SEARCH_WINDOW_RESULT_LIMIT = 9900;
 
         let windowFloor = checkpoint.updatedAfter;
+        let windowFloorId = checkpoint.updatedAfterId || '';
         let after = checkpoint.after;
         let latestUpdatedAt = windowFloor;
+        let latestId = windowFloorId;
         let resultsInWindow = checkpoint.windowCount;
         let hasMore = true;
 
@@ -211,23 +265,13 @@ const sync = createSync({
                     {
                         propertyName: 'hs_lastmodifieddate',
                         direction: 'ASCENDING'
-                    }
-                ],
-                filterGroups: [
+                    },
                     {
-                        filters: [
-                            {
-                                // GTE (not GT): records sharing the exact boundary timestamp with the
-                                // last-seen record may still be unfetched on a later page when a window
-                                // advance truncates the search early. GT would permanently skip them;
-                                // GTE re-fetches them and batchSave upserts them idempotently.
-                                propertyName: 'hs_lastmodifieddate',
-                                operator: 'GTE',
-                                value: windowFloor
-                            }
-                        ]
+                        propertyName: 'hs_object_id',
+                        direction: 'ASCENDING'
                     }
                 ],
+                filterGroups: buildIncrementalFilterGroups(windowFloor || '', windowFloorId),
                 ...(after && { after })
             };
 
@@ -260,19 +304,42 @@ const sync = createSync({
 
             await nango.batchSave(records, 'Product');
 
-            latestUpdatedAt = records.reduce((latest, record) => updateLatestUpdatedAt(latest, record.updatedAt), latestUpdatedAt);
+            // Sorted ascending by (hs_lastmodifieddate, hs_object_id), so the last item in the
+            // page holds the maximum composite key seen so far.
+            const lastItem = products[products.length - 1]!;
+            const lastItemTimestamp = lastItem.properties?.['hs_lastmodifieddate'];
+
+            if (lastItemTimestamp) {
+                latestUpdatedAt = lastItemTimestamp;
+                latestId = lastItem.id;
+            }
+
             resultsInWindow += products.length;
 
             const nextAfter = data.paging?.next?.after;
+            const madeProgress = latestUpdatedAt !== windowFloor || latestId !== windowFloorId;
 
             if (nextAfter && resultsInWindow >= SEARCH_WINDOW_RESULT_LIMIT) {
+                if (!madeProgress) {
+                    // Defensive backstop: the composite (timestamp, id) filter should always make
+                    // progress once it carries a tie-breaker id. Stop instead of re-issuing an
+                    // identical query forever if that invariant is ever violated.
+                    await nango.log('Incremental products sync made no progress advancing the search window; stopping to avoid an infinite loop', {
+                        windowFloor: windowFloor || '',
+                        windowFloorId
+                    });
+                    break;
+                }
+
                 windowFloor = latestUpdatedAt || windowFloor;
+                windowFloorId = latestId || '';
                 after = '';
                 resultsInWindow = 0;
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: '',
                     updatedAfter: windowFloor || '',
+                    updatedAfterId: windowFloorId,
                     windowCount: 0
                 });
                 continue;
@@ -283,6 +350,7 @@ const sync = createSync({
                     phase: 'incremental',
                     after: nextAfter,
                     updatedAfter: windowFloor || '',
+                    updatedAfterId: windowFloorId,
                     windowCount: resultsInWindow
                 });
                 after = nextAfter;
@@ -294,6 +362,7 @@ const sync = createSync({
                     phase: 'incremental',
                     after: '',
                     updatedAfter: latestUpdatedAt,
+                    updatedAfterId: latestId || '',
                     windowCount: 0
                 });
             }
