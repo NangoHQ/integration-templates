@@ -3,16 +3,21 @@
         "customerId": "1781900691",
         "campaignBudgetId": "15717542877",
         "amountMicros": "600000",
-        "loginCustomerId": "3608201627",
-        "developerToken": "YOUR_DEVELOPER_TOKEN"
+        "loginCustomerId": "3608201627"
     },
     "output": {
         "resourceName": "customers/1781900691/campaignBudgets/15717542877"
     },
-    "nango": {},
+    "nango": {
+        "getConnection": {
+            "connection_config": {
+                "developer_token": "YOUR_DEVELOPER_TOKEN"
+            }
+        }
+    },
     "api": {
         "post": {
-            "/v21/customers/1781900691/campaignBudgets:mutate": {
+            "/v25/customers/1781900691/campaignBudgets:mutate": {
                 "response": {
                     "results": [
                         {

@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('The Google Ads customer ID. Example: "1781900691"'),
@@ -9,8 +10,7 @@ const InputSchema = z.object({
         .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     resourceName: z
         .string()
-        .describe('The resource name of the campaign criterion to remove. Example: "customers/1781900691/campaignCriteria/24027360183~2515302470834"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('The resource name of the campaign criterion to remove. Example: "customers/1781900691/campaignCriteria/24027360183~2515302470834"')
 });
 
 const ProviderResultSchema = z.object({
@@ -34,17 +34,25 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a campaign-level criterion (negative keyword or location target) by resource name.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {

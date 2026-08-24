@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customer_id: z.string().describe('Customer ID. Example: "1781900691"'),
@@ -9,8 +10,7 @@ const InputSchema = z.object({
         .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     ad_group_id: z.string().describe('Ad group ID. Example: "197714341345"'),
     text: z.string().describe('Keyword text. Example: "free"'),
-    match_type: z.enum(['EXACT', 'PHRASE', 'BROAD']).describe('Keyword match type. Example: "EXACT"'),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    match_type: z.enum(['EXACT', 'PHRASE', 'BROAD']).describe('Keyword match type. Example: "EXACT"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -29,20 +29,28 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a negative keyword criterion to an ad group so its ads stop showing for that term.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const customerId = encodeURIComponent(input.customer_id);
         const adGroup = `customers/${input.customer_id}/adGroups/${input.ad_group_id}`;
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${customerId}/adGroupCriteria:mutate`,
+            endpoint: `v25/customers/${customerId}/adGroupCriteria:mutate`,
             headers: {
-                'developer-token': input.developer_token,
+                'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             data: {

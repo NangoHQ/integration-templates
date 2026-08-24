@@ -1,13 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     resource_name: z.string().describe('Ad group criterion resource name. Example: customers/1781900691/adGroupCriteria/197714341345~2491223357239'),
     login_customer_id: z
         .string()
         .optional()
-        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: 3608201627'),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: 3608201627')
 });
 
 const ProviderResponseSchema = z.object({
@@ -27,12 +27,20 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a keyword criterion from an ad group.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const match = input.resource_name.match(/^customers\/(\d+)\/adGroupCriteria\/(.+)$/);
         if (!match) {
             throw new nango.ActionError({
@@ -49,11 +57,11 @@ const action = createAction({
             });
         }
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupCriterionService/MutateAdGroupCriteria
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupCriterionService/MutateAdGroupCriteria
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/adGroupCriteria:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroupCriteria:mutate`,
             headers: {
-                'developer-token': input.developer_token,
+                'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             data: {

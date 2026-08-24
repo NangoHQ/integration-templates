@@ -3,16 +3,21 @@
     "customerId": "1781900691",
     "conversionActionId": "7685274465",
     "name": "Seed Conversion Action Keep 1 Updated",
-    "developerToken": "YOUR_DEVELOPER_TOKEN",
     "loginCustomerId": "3608201627"
   },
   "output": {
     "resourceName": "customers/1781900691/conversionActions/7685274465"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/customers/1781900691/conversionActions:mutate": {
+      "/v25/customers/1781900691/conversionActions:mutate": {
         "response": {
           "results": [
             {

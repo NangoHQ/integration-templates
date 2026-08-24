@@ -6,18 +6,21 @@
       "name"
     ],
     "name": "Seed Campaign Keep 1 Updated",
-    "loginCustomerId": "3608201627",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "loginCustomerId": "3608201627"
   },
   "output": {
     "resourceName": "customers/1781900691/campaigns/24027360183"
   },
   "nango": {
-    "getConnection": {}
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
   },
   "api": {
     "post": {
-      "/v21/customers/1781900691/campaigns:mutate": {
+      "/v25/customers/1781900691/campaigns:mutate": {
         "response": {
           "results": [
             {

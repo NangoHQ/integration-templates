@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('The customer ID. Example: "1781900691"'),
@@ -20,8 +21,7 @@ const InputSchema = z.object({
                 .optional()
         })
         .optional()
-        .describe('Targeting settings to update.'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Targeting settings to update.')
 });
 
 const ProviderResponseSchema = z.object({
@@ -38,12 +38,20 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on an ad group.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const resourceName = `customers/${input.customerId}/adGroups/${input.adGroupId}`;
 
         const updateBody: Record<string, unknown> = {
@@ -80,16 +88,16 @@ const action = createAction({
         }
 
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId) {
             headers['login-customer-id'] = input.loginCustomerId;
         }
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupService/MutateAdGroups
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupService/MutateAdGroups
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroups:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/adGroups:mutate`,
             data: {
                 operations: [
                     {

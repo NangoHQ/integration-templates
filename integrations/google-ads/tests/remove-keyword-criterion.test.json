@@ -1,17 +1,22 @@
 {
   "input": {
     "resource_name": "customers/1781900691/adGroupCriteria/197714341385~2491223357279",
-    "login_customer_id": "3608201627",
-    "developer_token": "YOUR_DEVELOPER_TOKEN"
+    "login_customer_id": "3608201627"
   },
   "output": {
     "resource_name": "customers/1781900691/adGroupCriteria/197714341385~2491223357279",
     "success": true
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/customers/1781900691/adGroupCriteria:mutate": {
+      "/v25/customers/1781900691/adGroupCriteria:mutate": {
         "response": {
           "results": [
             {

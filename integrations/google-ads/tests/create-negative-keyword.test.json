@@ -4,16 +4,21 @@
     "login_customer_id": "3608201627",
     "ad_group_id": "197714341345",
     "text": "test-negative-exact-002",
-    "match_type": "EXACT",
-    "developer_token": "YOUR_DEVELOPER_TOKEN"
+    "match_type": "EXACT"
   },
   "output": {
     "resource_name": "customers/1781900691/adGroupCriteria/197714341345~2493166445236"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/customers/1781900691/adGroupCriteria:mutate": {
+      "/v25/customers/1781900691/adGroupCriteria:mutate": {
         "response": {
           "results": [
             {

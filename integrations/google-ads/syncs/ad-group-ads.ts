@@ -1,4 +1,5 @@
 import { createSync, type ProxyConfiguration } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const AdGroupAdSchema = z.object({
@@ -22,8 +23,7 @@ const CheckpointSchema = z.object({
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).optional(),
-    login_customer_id: z.string().optional(),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string().optional()
 });
 
 const ListAccessibleCustomersResponseSchema = z.object({
@@ -314,7 +314,7 @@ function mapAdGroupAdRows(rawResults: unknown[], updatedAt: string | undefined, 
 
 const sync = createSync({
     description: 'Sync ad group ads for customer accounts in scope.',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -330,6 +330,11 @@ const sync = createSync({
             throw new Error(`Invalid metadata: ${metadataResult.error.message}`);
         }
         const metadata = metadataResult.data;
+
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new Error('developer_token is required in connection config');
+        }
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
@@ -352,9 +357,9 @@ const sync = createSync({
         } else {
             // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
             const accessibleResponse = await nango.get({
-                endpoint: 'v21/customers:listAccessibleCustomers',
+                endpoint: 'v25/customers:listAccessibleCustomers',
                 headers: {
-                    'developer-token': metadata.developer_token
+                    'developer-token': developerToken
                 },
                 retries: 3
             });
@@ -378,10 +383,10 @@ const sync = createSync({
                     do {
                         const clientConfig: ProxyConfiguration = {
                             // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-                            endpoint: `v21/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
+                            endpoint: `v25/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
                             method: 'POST',
                             headers: {
-                                'developer-token': metadata.developer_token
+                                'developer-token': developerToken
                             },
                             data: {
                                 query: 'SELECT customer_client.id, customer_client.manager FROM customer_client WHERE customer_client.manager = FALSE',
@@ -466,7 +471,7 @@ const sync = createSync({
 
         for (const account of accountsToProcess) {
             const headers: Record<string, string> = {
-                'developer-token': metadata.developer_token,
+                'developer-token': developerToken,
                 ...(account.loginCustomerId && { 'login-customer-id': account.loginCustomerId })
             };
 
@@ -476,7 +481,7 @@ const sync = createSync({
             try {
                 if (needsFullRefresh) {
                     const fullResponse = await nango.post({
-                        endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                         headers,
                         data: { query: FULL_FETCH_QUERY },
                         retries: 3
@@ -526,7 +531,7 @@ const sync = createSync({
 
                         // https://developers.google.com/google-ads/api/docs/change-status
                         const changeStatusResponse = await nango.post({
-                            endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                            endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                             headers,
                             data: { query: changeStatusQuery },
                             retries: 3
@@ -578,7 +583,7 @@ const sync = createSync({
                         const fetchQuery = `${FULL_FETCH_QUERY} WHERE ad_group_ad.resource_name IN (${inClause}) LIMIT 10000`;
 
                         const fetchResponse = await nango.post({
-                            endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                            endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                             headers,
                             data: { query: fetchQuery },
                             retries: 3

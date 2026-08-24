@@ -1,10 +1,10 @@
 import { createSync, type ProxyConfiguration } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).min(1).describe('Google Ads customer IDs to sync campaign budgets for'),
-    login_customer_id: z.string().optional().describe('Manager account ID for API access hierarchy'),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string().optional().describe('Manager account ID for API access hierarchy')
 });
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
@@ -224,7 +224,7 @@ function mapCampaignBudgetRows(rows: z.infer<typeof CampaignBudgetResultSchema>[
 
 const sync = createSync({
     description: 'Sync campaign budgets for customer accounts in scope',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -240,9 +240,14 @@ const sync = createSync({
             throw new Error(`Invalid metadata: ${metadataResult.error.message}`);
         }
 
-        const { customer_ids: customerIds, login_customer_id: loginCustomerId, developer_token: developerToken } = metadataResult.data;
+        const { customer_ids: customerIds, login_customer_id: loginCustomerId } = metadataResult.data;
         if (!customerIds || customerIds.length === 0) {
             throw new Error('customer_ids is required in metadata');
+        }
+
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new Error('developer_token is required in connection config');
         }
 
         const rawCheckpoint = await nango.getCheckpoint();
@@ -334,7 +339,7 @@ async function runFullFetch(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         data: { query: fullQuery },
         headers,
@@ -401,7 +406,7 @@ async function runIncrementalFetch(
 
         const changeStatusProxyConfig: ProxyConfiguration = {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
             method: 'POST',
             data: { query: changeStatusQuery },
             headers,
@@ -471,7 +476,7 @@ async function runIncrementalFetch(
 
             const budgetProxyConfig: ProxyConfiguration = {
                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 method: 'POST',
                 data: { query: budgetQuery },
                 headers,

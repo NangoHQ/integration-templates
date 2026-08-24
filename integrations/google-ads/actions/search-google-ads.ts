@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
@@ -8,8 +9,7 @@ const InputSchema = z.object({
     loginCustomerId: z
         .string()
         .optional()
-        .describe('Manager account ID (login-customer-id) required when accessing a client account through a manager hierarchy. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through a manager hierarchy. Example: "3608201627"')
 });
 
 const SearchResponseSchema = z.object({
@@ -25,17 +25,25 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a GAQL query and return paged Google Ads rows.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input) => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/googleAds:search`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/googleAds:search`,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {

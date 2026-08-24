@@ -1,8 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const MetadataSchema = z.object({
-    developerToken: z.string().optional(),
     loginCustomerId: z.string().optional()
 });
 
@@ -19,7 +19,6 @@ const InputSchema = z.object({
         })
         .optional()
         .describe('Value settings for the conversion action'),
-    developerToken: z.string().optional().describe('Google Ads developer token'),
     loginCustomerId: z.string().optional().describe('Manager account ID for access. Example: "3608201627"')
 });
 
@@ -37,26 +36,26 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a conversion action',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let developerToken = input.developerToken;
         let loginCustomerId = input.loginCustomerId;
 
-        if (!developerToken || !loginCustomerId) {
+        if (!loginCustomerId) {
             const rawMetadata = await nango.getMetadata();
             const metadata = MetadataSchema.parse(rawMetadata ?? {});
-            developerToken = developerToken ?? metadata.developerToken;
             loginCustomerId = loginCustomerId ?? metadata.loginCustomerId;
         }
 
+        const developerToken = await getDeveloperToken(nango);
+
         if (!developerToken) {
             throw new nango.ActionError({
-                type: 'missing_developer_token',
-                message: 'developerToken is required in input or connection metadata.'
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
             });
         }
 
@@ -114,8 +113,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/ConversionActionService/MutateConversionActions
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/ConversionActionService/MutateConversionActions
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
             data: {
                 operations: [
                     {
