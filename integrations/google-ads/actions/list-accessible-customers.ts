@@ -13,7 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List customer accounts directly accessible to the authenticated user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -30,7 +30,7 @@ const action = createAction({
 
         const response = await nango.get({
             // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-            endpoint: 'v21/customers:listAccessibleCustomers',
+            endpoint: 'v25/customers:listAccessibleCustomers',
             headers: {
                 'developer-token': developerToken
             },

@@ -1,6 +1,6 @@
 {
   "input": {
-    "path": "v21/customers/1781900691/campaignBudgets:mutate",
+    "path": "v25/customers/1781900691/campaignBudgets:mutate",
     "body": {
       "operations": [
         {
@@ -24,7 +24,7 @@
   },
   "api": {
     "post": {
-      "/v21/customers/1781900691/campaignBudgets:mutate": {
+      "/v25/customers/1781900691/campaignBudgets:mutate": {
         "response": {},
         "status": 200,
         "headers": {

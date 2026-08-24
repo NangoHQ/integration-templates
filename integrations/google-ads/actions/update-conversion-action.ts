@@ -35,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a conversion action',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -113,8 +113,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/ConversionActionService/MutateConversionActions
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/ConversionActionService/MutateConversionActions
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
             data: {
                 operations: [
                     {

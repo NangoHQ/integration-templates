@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on an ad group.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -95,9 +95,9 @@ const action = createAction({
             headers['login-customer-id'] = input.loginCustomerId;
         }
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupService/MutateAdGroups
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupService/MutateAdGroups
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroups:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/adGroups:mutate`,
             data: {
                 operations: [
                     {

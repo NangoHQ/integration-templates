@@ -22,7 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add geographic location targeting to a campaign using a geo target constant.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -38,8 +38,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/rest/reference/rest/v21/customers/campaignCriteria/mutate
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
+            // https://developers.google.com/google-ads/api/rest/reference/rest/v25/customers/campaignCriteria/mutate
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })

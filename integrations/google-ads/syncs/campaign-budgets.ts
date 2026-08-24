@@ -223,7 +223,7 @@ function mapCampaignBudgetRows(rows: z.infer<typeof CampaignBudgetResultSchema>[
 
 const sync = createSync({
     description: 'Sync campaign budgets for customer accounts in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -339,7 +339,7 @@ async function runFullFetch(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         data: { query: fullQuery },
         headers,
@@ -406,7 +406,7 @@ async function runIncrementalFetch(
 
         const changeStatusProxyConfig: ProxyConfiguration = {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
             method: 'POST',
             data: { query: changeStatusQuery },
             headers,
@@ -476,7 +476,7 @@ async function runIncrementalFetch(
 
             const budgetProxyConfig: ProxyConfiguration = {
                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 method: 'POST',
                 data: { query: budgetQuery },
                 headers,

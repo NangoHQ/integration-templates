@@ -36,7 +36,7 @@ const PartialFailureErrorSchema = z.object({
 
 const action = createAction({
     description: 'Create a campaign budget for one or more campaigns.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -52,8 +52,8 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/CampaignBudgetService/MutateCampaignBudgets
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignBudgets:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/CampaignBudgetService/MutateCampaignBudgets
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignBudgets:mutate`,
             data: {
                 operations: [
                     {

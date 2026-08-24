@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on an ad group keyword criterion.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -73,10 +73,10 @@ const action = createAction({
             });
         }
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupCriterionService/MutateAdGroupCriteria
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupCriterionService/MutateAdGroupCriteria
         const config: ProxyConfiguration = {
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupCriterionService/MutateAdGroupCriteria
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/adGroupCriteria:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupCriterionService/MutateAdGroupCriteria
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/adGroupCriteria:mutate`,
             data: {
                 operations: [
                     {

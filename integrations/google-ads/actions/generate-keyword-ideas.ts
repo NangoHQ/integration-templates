@@ -53,7 +53,7 @@ const InputSchema = z
 
 const action = createAction({
     description: 'Generate keyword ideas and search volume/competition metrics from a seed keyword list or URL.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -108,8 +108,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/KeywordPlanIdeaService/GenerateKeywordIdeas
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/KeywordPlanIdeaService/GenerateKeywordIdeas
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
             data: body,
             headers,
             retries: 3

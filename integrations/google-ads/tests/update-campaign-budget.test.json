@@ -17,7 +17,7 @@
     },
     "api": {
         "post": {
-            "/v21/customers/1781900691/campaignBudgets:mutate": {
+            "/v25/customers/1781900691/campaignBudgets:mutate": {
                 "response": {
                     "results": [
                         {

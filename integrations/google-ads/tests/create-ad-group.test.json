@@ -25,7 +25,7 @@
     },
     "api": {
         "post": {
-            "/v21/customers/1781900691/adGroups:mutate": {
+            "/v25/customers/1781900691/adGroups:mutate": {
                 "response": {
                     "results": [
                         {

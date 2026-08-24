@@ -30,7 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a GAQL query with streamed results',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -47,7 +47,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            endpoint: `/v21/customers/${encodeURIComponent(input.customerId)}/googleAds:searchStream`,
+            endpoint: `/v25/customers/${encodeURIComponent(input.customerId)}/googleAds:searchStream`,
             data: {
                 query: input.query
             },

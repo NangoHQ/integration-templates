@@ -15,7 +15,7 @@
   },
   "api": {
     "get": {
-      "/v21/customers:listAccessibleCustomers": {
+      "/v25/customers:listAccessibleCustomers": {
         "response": {
           "resourceNames": [
             "customers/3608201627",

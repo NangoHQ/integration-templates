@@ -249,7 +249,7 @@ function extractCustomerId(resourceName: string): string | undefined {
 
 const sync = createSync({
     description: 'Sync ad groups for customer accounts in scope.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -293,7 +293,7 @@ const sync = createSync({
         } else {
             const listConfig: ProxyConfiguration = {
                 // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-                endpoint: 'v21/customers:listAccessibleCustomers',
+                endpoint: 'v25/customers:listAccessibleCustomers',
                 headers: {
                     'developer-token': developerToken
                 },
@@ -306,7 +306,7 @@ const sync = createSync({
             for (const accessibleId of accessibleIds) {
                 const clientConfig: ProxyConfiguration = {
                     // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-                    endpoint: `v21/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
+                    endpoint: `v25/customers/${encodeURIComponent(accessibleId)}/googleAds:search`,
                     method: 'POST',
                     headers: {
                         'developer-token': developerToken
@@ -402,7 +402,7 @@ const sync = createSync({
                 // history, or a checkpoint too old for change_status's 90-day retention window.
                 const streamConfig: ProxyConfiguration = {
                     // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                    endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                    endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                     method: 'POST',
                     headers,
                     data: {
@@ -454,7 +454,7 @@ const sync = createSync({
 
                     const changeStatusConfig: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/change-status
-                        endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                         method: 'POST',
                         headers,
                         data: { query: changeStatusQuery },
@@ -514,7 +514,7 @@ const sync = createSync({
 
                     const refetchConfig: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v21/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
+                        endpoint: `v25/customers/${encodeURIComponent(account.customerId)}/googleAds:searchStream`,
                         method: 'POST',
                         headers,
                         data: { query: refetchQuery },

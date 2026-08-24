@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a negative keyword criterion to an ad group so its ads stop showing for that term.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -48,7 +48,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${customerId}/adGroupCriteria:mutate`,
+            endpoint: `v25/customers/${customerId}/adGroupCriteria:mutate`,
             headers: {
                 'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })

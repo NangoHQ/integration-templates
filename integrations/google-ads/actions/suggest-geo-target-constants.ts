@@ -51,7 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Look up geo target constant resource names for location names or codes, for use in campaign location targeting.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -74,8 +74,8 @@ const action = createAction({
         };
 
         const config: ProxyConfiguration = {
-            // https://developers.google.com/google-ads/api/rest/reference/rest/v21/geoTargetConstants/suggest
-            endpoint: 'v21/geoTargetConstants:suggest',
+            // https://developers.google.com/google-ads/api/rest/reference/rest/v25/geoTargetConstants/suggest
+            endpoint: 'v25/geoTargetConstants:suggest',
             data: requestBody,
             headers: {
                 'developer-token': developerToken

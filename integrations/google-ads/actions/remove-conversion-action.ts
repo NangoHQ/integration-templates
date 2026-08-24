@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a conversion action by resource name.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -59,7 +59,7 @@ const action = createAction({
 
         const config: ProxyConfiguration = {
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/conversionActions:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/conversionActions:mutate`,
             headers: {
                 'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })

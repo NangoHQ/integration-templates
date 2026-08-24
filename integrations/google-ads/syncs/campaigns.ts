@@ -196,7 +196,7 @@ function extractSearchStreamRows(data: unknown): unknown[] {
 
 const sync = createSync({
     description: 'Sync campaigns for customer accounts in scope.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -241,7 +241,7 @@ const sync = createSync({
         async function searchStream(customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
-                endpoint: `/v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `/v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
                     'developer-token': developerToken,
                     'login-customer-id': loginCustomerId

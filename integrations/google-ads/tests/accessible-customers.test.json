@@ -24,7 +24,7 @@
   },
   "api": {
     "get": {
-      "/v21/customers:listAccessibleCustomers": {
+      "/v25/customers:listAccessibleCustomers": {
         "response": {
           "resourceNames": [
             "customers/3608201627",
@@ -63,7 +63,7 @@
       }
     },
     "post": {
-      "/v21/customers/3608201627/googleAds:searchStream": {
+      "/v25/customers/3608201627/googleAds:searchStream": {
         "response": [
           {
             "results": [
@@ -115,7 +115,7 @@
           }
         }
       },
-      "/v21/customers/7202353356/googleAds:searchStream": {
+      "/v25/customers/7202353356/googleAds:searchStream": {
         "response": [
           {
             "error": {
@@ -124,7 +124,7 @@
               "status": "PERMISSION_DENIED",
               "details": [
                 {
-                  "@type": "type.googleapis.com/google.ads.googleads.v21.errors.GoogleAdsFailure",
+                  "@type": "type.googleapis.com/google.ads.googleads.v25.errors.GoogleAdsFailure",
                   "errors": [
                     {
                       "errorCode": {

@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove an ad from an ad group by resource name.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -58,7 +58,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/adGroupAds:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroupAds:mutate`,
             data: {
                 operations: [
                     {

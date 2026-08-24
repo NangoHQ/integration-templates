@@ -43,10 +43,7 @@ const InputSchema = z.object({
             targetPartnerSearchNetwork: z.boolean().optional()
         })
         .optional(),
-    loginCustomerId: z
-        .string()
-        .optional()
-        .describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"')
+    loginCustomerId: z.string().optional().describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"')
 });
 
 const MetadataSchema = z.object({
@@ -59,7 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable campaign settings.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -147,7 +144,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
             headers: {
                 'developer-token': developerToken,
                 'login-customer-id': loginCustomerId

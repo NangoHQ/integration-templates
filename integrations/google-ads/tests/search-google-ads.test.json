@@ -24,7 +24,7 @@
   },
   "api": {
     "post": {
-      "/v21/customers/1781900691/googleAds:search": {
+      "/v25/customers/1781900691/googleAds:search": {
         "response": {
           "results": [
             {

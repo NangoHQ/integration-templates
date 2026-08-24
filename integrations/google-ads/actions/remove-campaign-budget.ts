@@ -54,7 +54,7 @@ const ProviderErrorBodySchema = z.object({
 
 const action = createAction({
     description: 'Remove an unused campaign budget by resource name.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -83,7 +83,7 @@ const action = createAction({
         try {
             const response = await nango.post({
                 // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-                endpoint: `v21/customers/${encodeURIComponent(customerId)}/campaignBudgets:mutate`,
+                endpoint: `v25/customers/${encodeURIComponent(customerId)}/campaignBudgets:mutate`,
                 data: {
                     operations: [
                         {

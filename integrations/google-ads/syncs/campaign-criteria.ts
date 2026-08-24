@@ -201,7 +201,7 @@ function mapRowToCampaignCriterion(row: z.infer<typeof GoogleAdsRowSchema>): z.i
 
 const sync = createSync({
     description: 'Sync campaign-level criteria (negative keywords and location targeting) for customer accounts in scope.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -294,7 +294,7 @@ const sync = createSync({
 
                         const csConfig: ProxyConfiguration = {
                             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                             data: {
                                 query: csQuery,
                                 ...(csPageToken && { pageToken: csPageToken })
@@ -360,7 +360,7 @@ const sync = createSync({
 
                             const fetchConfig: ProxyConfiguration = {
                                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                                 data: {
                                     query: fetchQuery,
                                     ...(fetchPageToken && { pageToken: fetchPageToken })
@@ -405,7 +405,7 @@ const sync = createSync({
 
                     const config: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                         data: {
                             query,
                             ...(pageToken && { pageToken })

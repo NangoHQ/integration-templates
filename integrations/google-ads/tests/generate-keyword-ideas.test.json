@@ -54545,7 +54545,7 @@
   },
   "api": {
     "post": {
-      "/v21/customers/1781900691:generateKeywordIdeas": {
+      "/v25/customers/1781900691:generateKeywordIdeas": {
         "response": {
           "results": [
             {

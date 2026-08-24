@@ -33,7 +33,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a campaign-level criterion (negative keyword or location target) by resource name.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -50,7 +50,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })

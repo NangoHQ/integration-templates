@@ -26,7 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a keyword criterion from an ad group.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -57,9 +57,9 @@ const action = createAction({
             });
         }
 
-        // https://developers.google.com/google-ads/api/reference/rpc/v21/AdGroupCriterionService/MutateAdGroupCriteria
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupCriterionService/MutateAdGroupCriteria
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/adGroupCriteria:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroupCriteria:mutate`,
             headers: {
                 'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })

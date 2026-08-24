@@ -54,7 +54,7 @@ const SearchStreamChunkSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -85,7 +85,7 @@ const sync = createSync({
         for (const customerId of metadata.customerIds) {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
-                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
                     'developer-token': developerToken,
                     ...(metadata.loginCustomerId && {

@@ -65,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a campaign that references an existing budget.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -104,7 +104,7 @@ const action = createAction({
 
         // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
         const response = await nango.post({
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
             data: {
                 operations: [
                     {

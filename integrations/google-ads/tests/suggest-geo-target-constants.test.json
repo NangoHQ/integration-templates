@@ -325,7 +325,7 @@
   },
   "api": {
     "post": {
-      "/v21/geoTargetConstants:suggest": {
+      "/v25/geoTargetConstants:suggest": {
         "response": {
           "geoTargetConstantSuggestions": [
             {

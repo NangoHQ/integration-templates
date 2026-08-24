@@ -239,7 +239,7 @@ function mapResultToKeywordCriterion(result: z.infer<typeof SearchStreamResultSc
 async function fetchKeywordCriteriaViaSearchStream(nango: NangoSyncLocal, customerId: string, headers: Record<string, string>, query: string) {
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -284,7 +284,7 @@ async function fetchChangeStatusForWindow(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/change-status
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -311,7 +311,7 @@ async function fetchChangeStatusForWindow(
 
 const sync = createSync({
     description: 'Sync ad group keyword criteria for customer accounts in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
