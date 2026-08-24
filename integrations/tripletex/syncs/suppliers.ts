@@ -33,11 +33,20 @@ const SupplierSchema = z.object({
     displayName: z.string().optional()
 });
 
+const DEFAULT_CHECKPOINT = {
+    from: 0
+};
+
+const CheckpointSchema = z.object({
+    from: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync suppliers.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Supplier: SupplierSchema
     },
@@ -45,13 +54,25 @@ const sync = createSync({
     exec: async (nango) => {
         // Full refresh: no confirmed incremental filter (changedSince was present in swagger but not verified live
         // to return only changed rows vs the full set). Use delete tracking after a complete successful crawl.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse({
+            ...DEFAULT_CHECKPOINT,
+            ...(rawCheckpoint ?? {})
+        });
+        if (!parsedCheckpoint.success) {
+            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+
+        let from: number = parsedCheckpoint.data.from;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
             endpoint: 'v2/supplier',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: from,
+                offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
                 response_path: 'values'
@@ -82,27 +103,19 @@ const sync = createSync({
             }));
         }
 
-        // Fetch and validate the first page before starting delete tracking, so a failed/malformed
-        // initial response never leaves tracking open without a matching trackDeletesEnd.
-        const paginator = nango.paginate(proxyConfig);
-        const first = await paginator.next();
-        const firstSuppliers = first.done ? [] : parsePage(first.value);
-
         await nango.trackDeletesStart('Supplier');
 
-        if (firstSuppliers.length > 0) {
-            await nango.batchSave(firstSuppliers, 'Supplier');
-        }
-
-        let result = await paginator.next();
-        while (!result.done) {
-            const suppliers = parsePage(result.value);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const suppliers = parsePage(page);
             if (suppliers.length > 0) {
                 await nango.batchSave(suppliers, 'Supplier');
             }
-            result = await paginator.next();
+
+            from += suppliers.length;
+            await nango.saveCheckpoint({ from });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Supplier');
     }
 });

@@ -63,17 +63,27 @@ const ProviderRepositorySchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    repo_page: z.number().int().positive(),
+    repo_index: z.number().int().nonnegative(),
+    deployment_page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync deployments for a repository.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Deployment: DeploymentSchema
     },
 
     exec: async (nango) => {
-        const repos = await getRepositories(nango);
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+
+        const { repos, finalPage: repoPage } = await getRepositories(nango, checkpoint != null ? checkpoint['repo_page'] : undefined);
 
         if (repos.length === 0) {
             // An empty response may be transient rather than a genuine "installation has no
@@ -84,7 +94,13 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Deployment');
 
-        for (const repo of repos) {
+        const startIndex = checkpoint != null ? checkpoint['repo_index'] : 0;
+
+        for (let i = startIndex; i < repos.length; i++) {
+            const repo = repos[i];
+            if (repo == null) {
+                throw new Error(`Repository index ${i} is out of bounds`);
+            }
             const owner = repo.owner?.login;
             const name = repo.name;
 
@@ -92,13 +108,27 @@ const sync = createSync({
                 throw new Error('Repository missing required owner.login or name');
             }
 
+            let nextDeploymentPage: number | undefined;
+
             const proxyConfig: ProxyConfiguration = {
                 // https://docs.github.com/en/rest/deployments/deployments?apiVersion=2022-11-28#list-deployments
                 endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/deployments`,
+                params: {
+                    per_page: 100,
+                    ...(checkpoint != null && checkpoint['deployment_page'] > 1 && i === startIndex ? { page: checkpoint['deployment_page'] } : {})
+                },
                 paginate: {
                     type: 'link',
                     limit_name_in_request: 'per_page',
-                    limit: 100
+                    limit: 100,
+                    on_page: async (paginationState) => {
+                        if (typeof paginationState.nextPageParam === 'string') {
+                            const url = new URL(paginationState.nextPageParam);
+                            nextDeploymentPage = Number(url.searchParams.get('page'));
+                        } else {
+                            nextDeploymentPage = undefined;
+                        }
+                    }
                 },
                 retries: 3
             };
@@ -138,9 +168,20 @@ const sync = createSync({
                 if (deployments.length > 0) {
                     await nango.batchSave(deployments, 'Deployment');
                 }
+
+                if (nextDeploymentPage !== undefined) {
+                    await nango.saveCheckpoint({
+                        repo_page: repoPage,
+                        repo_index: i,
+                        deployment_page: nextDeploymentPage
+                    });
+                }
             }
+
+            await nango.saveCheckpoint({ repo_page: repoPage, repo_index: i + 1, deployment_page: 1 });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Deployment');
     }
 });
@@ -148,33 +189,43 @@ const sync = createSync({
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
 
-async function getRepositories(nango: NangoSyncLocal) {
-    const proxyConfig: ProxyConfiguration = {
-        // https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#list-repositories-accessible-to-the-app-installation
-        endpoint: '/installation/repositories',
-        paginate: {
-            type: 'link',
-            limit_name_in_request: 'per_page',
-            limit: 100,
-            response_path: 'repositories'
-        },
-        retries: 3
-    };
-
+async function getRepositories(nango: NangoSyncLocal, maxRepoPage: number | undefined) {
+    let repoPage = 1;
     const repos = [];
-    for await (const batch of nango.paginate(proxyConfig)) {
-        if (!Array.isArray(batch)) {
-            throw new Error('Expected paginated batch to be an array');
+    while (true) {
+        if (maxRepoPage != null && repoPage > maxRepoPage) {
+            break;
         }
 
-        for (const item of batch) {
-            const parsed = ProviderRepositorySchema.safeParse(item);
+        const repoResponse = await nango.get({
+            // https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#list-repositories-accessible-to-the-app-installation
+            endpoint: '/installation/repositories',
+            params: {
+                per_page: 100,
+                ...(repoPage > 1 ? { page: repoPage } : {})
+            },
+            retries: 3
+        });
+
+        const batch = z.array(z.unknown()).parse(repoResponse.data.repositories);
+        if (batch.length === 0) {
+            break;
+        }
+
+        for (const raw of batch) {
+            const parsed = ProviderRepositorySchema.safeParse(raw);
             if (!parsed.success) {
                 throw new Error(`Failed to parse repository: ${parsed.error.message}`);
             }
             repos.push(parsed.data);
         }
+
+        if (batch.length < 100) {
+            break;
+        }
+
+        repoPage++;
     }
 
-    return repos;
+    return { repos, finalPage: repoPage };
 }

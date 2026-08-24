@@ -41,11 +41,16 @@ const AdGroupSchema = z.object({
     modify_time: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync ad groups from TikTok Ads.',
     version: '1.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/ad-groups' }],
     frequency: 'every hour',
+    checkpoint: CheckpointSchema,
     models: {
         AdGroup: AdGroupSchema
     },
@@ -59,6 +64,17 @@ const sync = createSync({
             .parse(connection);
         const advertiserId = z.string().parse(parsedConnection.connection_config?.['advertiser_id'] ?? '7644143197428744199');
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        let page: number | undefined = 1;
+
+        if (rawCheckpoint) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            page = parsedCheckpoint.data.page;
+        }
+
         await nango.trackDeletesStart('AdGroup');
 
         const proxyConfig: ProxyConfiguration = {
@@ -70,11 +86,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 100,
-                response_path: 'data.list'
+                response_path: 'data.list',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -109,8 +128,13 @@ const sync = createSync({
             if (adGroups.length > 0) {
                 await nango.batchSave(adGroups, 'AdGroup');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('AdGroup');
     }
 });

@@ -31,35 +31,54 @@ const CandidateOfferSchema = z.object({
     document_variables: z.array(z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    next_page: z.string()
+});
+
 const sync = createSync({
     description: "Sync each candidate's latest offer, where one exists.",
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CandidateOffer: CandidateOfferSchema
     },
 
     exec: async (nango) => {
-        // The supplied context does not justify using candidate updated_at as a
-        // reliable offer delta, so this sync performs a full snapshot each run.
-        // Only start delete tracking once the first page has actually been fetched and
-        // validated, so a failure on the very first request doesn't leave delete-tracking
-        // started with nothing enumerated.
-        let deletesStarted = false;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { next_page: '' });
+        let nextPage: string | undefined = checkpoint.next_page || undefined;
+
+        const params: Record<string, string | number> = {
+            limit: 100
+        };
+
+        if (checkpoint.next_page) {
+            const nextUrl = new URL(checkpoint.next_page);
+            for (const [key, value] of nextUrl.searchParams.entries()) {
+                params[key] = value;
+            }
+            if (!('limit' in params)) {
+                params['limit'] = 100;
+            }
+        }
+
+        await nango.trackDeletesStart('CandidateOffer');
 
         const proxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/list-candidates
             endpoint: '/spi/v3/candidates',
-            params: {
-                limit: 100
-            },
+            params,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'paging.next',
                 response_path: 'candidates',
                 limit: 100,
-                limit_name_in_request: 'limit'
+                limit_name_in_request: 'limit',
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retryOn: [404, 429],
             retries: 3
@@ -98,23 +117,17 @@ const sync = createSync({
                 }
             }
 
-            // The page above parsed successfully, so enumeration is confirmed to proceed.
-            // Start delete tracking now (only once, on the first page).
-            if (!deletesStarted) {
-                await nango.trackDeletesStart('CandidateOffer');
-                deletesStarted = true;
-            }
-
             if (offers.length > 0) {
                 await nango.batchSave(offers, 'CandidateOffer');
             }
+
+            if (nextPage) {
+                await nango.saveCheckpoint({ next_page: nextPage });
+            }
         }
 
-        // Only finalize delete detection if enumeration actually started (and therefore ran to
-        // completion above without throwing) — never on a partial/failed run.
-        if (deletesStarted) {
-            await nango.trackDeletesEnd('CandidateOffer');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('CandidateOffer');
     }
 });
 

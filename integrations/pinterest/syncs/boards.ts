@@ -31,31 +31,51 @@ const RawBoardSchema = BoardSchema.extend({
         .nullish()
 }).passthrough();
 
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync boards.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Board: BoardSchema
     },
 
     exec: async (nango) => {
-        // Boards can be hard-deleted and the list endpoint has no incremental filter.
-        // We need a full page-1 crawl on every successful run so delete tracking stays correct.
+        // Boards can be hard-deleted and GET /v5/boards has no updated-since or
+        // modified-since filter, so every run must walk the full dataset. The bookmark
+        // cursor is used as a resumable page checkpoint so a run that exceeds the
+        // execution window does not restart from page 1.
         // https://developers.pinterest.com/docs/api/v5/#tag/boards
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { bookmark: '' });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+        let bookmark = checkpointResult.data.bookmark !== '' ? checkpointResult.data.bookmark : undefined;
+
         await nango.trackDeletesStart('Board');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#tag/boards
             endpoint: '/v5/boards',
+            params: {
+                ...(bookmark && { bookmark })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'bookmark',
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 250
+                limit: 250,
+                on_page: async ({ nextPageParam }) => {
+                    bookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -93,8 +113,13 @@ const sync = createSync({
             if (boards.length > 0) {
                 await nango.batchSave(boards, 'Board');
             }
+
+            if (bookmark !== undefined) {
+                await nango.saveCheckpoint({ bookmark });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Board');
     }
 });

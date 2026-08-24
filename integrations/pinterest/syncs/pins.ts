@@ -39,6 +39,15 @@ const RawPinSchema = z.object({
     title: z.string().nullable().optional()
 });
 
+const PinterestPinsResponseSchema = z.object({
+    items: z.array(z.unknown()),
+    bookmark: z.string().nullable().optional()
+});
+
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync pins.',
     version: '1.0.0',
@@ -48,30 +57,43 @@ const sync = createSync({
     models: {
         Pin: PinSchema
     },
+    checkpoint: CheckpointSchema,
 
     exec: async (nango) => {
         // Blocker: GET /v5/pins does not expose an updated-since or modified-since filter,
-        // so every run must walk the full dataset. The bookmark cursor is used for intra-run
-        // pagination only; it is not restored across runs because delete tracking requires
-        // starting from page 1 every time.
+        // so every run must walk the full dataset. The provider bookmark cursor is used as a
+        // checkpoint so that a resumed full refresh continues from the last fetched page.
+        const checkpoint = await nango.getCheckpoint();
+        let bookmark: string | undefined;
+        if (checkpoint != null) {
+            const validated = CheckpointSchema.safeParse(checkpoint);
+            if (!validated.success) {
+                throw new Error(`Failed to parse checkpoint: ${validated.error.message}`);
+            }
+            bookmark = validated.data.bookmark;
+        }
+
         await nango.trackDeletesStart('Pin');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.pinterest.com/docs/api/v5/#operation/pins/list
-            endpoint: '/v5/pins',
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'bookmark',
-                cursor_path_in_response: 'bookmark',
-                response_path: 'items',
-                limit_name_in_request: 'page_size',
-                limit: 100
-            },
-            retries: 3
-        };
+        while (true) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://developers.pinterest.com/docs/api/v5/#operation/pins/list
+                endpoint: '/v5/pins',
+                params: {
+                    page_size: 100,
+                    ...(bookmark && { bookmark })
+                },
+                retries: 3
+            };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const pins = page.map((item) => {
+            const response = await nango.proxy(proxyConfig);
+            const parsedResponse = PinterestPinsResponseSchema.safeParse(response.data);
+            if (!parsedResponse.success) {
+                throw new Error(`Failed to parse pins response: ${parsedResponse.error.message}`);
+            }
+
+            const { items, bookmark: nextBookmark } = parsedResponse.data;
+            const pins = items.map((item) => {
                 if (typeof item !== 'object' || item === null || Array.isArray(item)) {
                     throw new Error('Expected pin to be an object');
                 }
@@ -105,8 +127,16 @@ const sync = createSync({
             if (pins.length > 0) {
                 await nango.batchSave(pins, 'Pin');
             }
+
+            if (!nextBookmark) {
+                break;
+            }
+
+            bookmark = nextBookmark;
+            await nango.saveCheckpoint({ bookmark });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Pin');
     }
 });

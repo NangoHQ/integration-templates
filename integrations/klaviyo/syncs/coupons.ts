@@ -18,11 +18,23 @@ const ProviderCouponSchema = z.object({
     })
 });
 
+const ProviderCouponListSchema = z.object({
+    data: z.array(ProviderCouponSchema),
+    links: z.object({
+        next: z.string().nullable().optional()
+    })
+});
+
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync coupons.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Coupon: CouponSchema
     },
@@ -30,34 +42,47 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /api/coupons has no changed-since filter, deleted-record endpoint,
         // or resumable incremental cursor. Full refresh is required.
+        const checkpoint = await nango.getCheckpoint();
+
+        let cursor: string | undefined;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            cursor = parsedCheckpoint.data.cursor;
+        }
+
         await nango.trackDeletesStart('Coupon');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.klaviyo.com/en/reference/get_coupons
-            endpoint: '/api/coupons',
-            headers: {
-                revision: '2026-04-15'
-            },
-            params: {
+        let hasNext = true;
+        while (hasNext) {
+            const params: Record<string, string | number> = {
                 'page[size]': 100
-            },
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'links.next',
-                response_path: 'data',
-                limit_name_in_request: 'page[size]',
-                limit: 100
-            },
-            retries: 3
-        };
+            };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderCouponSchema).safeParse(page);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse coupon page: ${parsed.error.message}`);
+            if (cursor) {
+                params['page[cursor]'] = cursor;
             }
 
-            const coupons = parsed.data.map((record) => ({
+            const proxyConfig: ProxyConfiguration = {
+                // https://developers.klaviyo.com/en/reference/get_coupons
+                endpoint: '/api/coupons',
+                headers: {
+                    revision: '2026-04-15'
+                },
+                params,
+                retries: 3
+            };
+
+            const response = await nango.get(proxyConfig);
+
+            const parsedList = ProviderCouponListSchema.safeParse(response.data);
+            if (!parsedList.success) {
+                throw new Error(`Failed to parse coupon list: ${parsedList.error.message}`);
+            }
+
+            const coupons = parsedList.data.data.map((record) => ({
                 id: record.id,
                 external_id: record.attributes.external_id,
                 ...(record.attributes.description != null && { description: record.attributes.description }),
@@ -67,8 +92,24 @@ const sync = createSync({
             if (coupons.length > 0) {
                 await nango.batchSave(coupons, 'Coupon');
             }
+
+            const nextLink = parsedList.data.links.next;
+            if (!nextLink) {
+                hasNext = false;
+                break;
+            }
+
+            const nextUrl = new URL(nextLink);
+            const nextCursor = nextUrl.searchParams.get('page[cursor]');
+            if (!nextCursor) {
+                throw new Error(`Missing page[cursor] in next link: ${nextLink}`);
+            }
+
+            cursor = nextCursor;
+            await nango.saveCheckpoint({ cursor });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Coupon');
     }
 });

@@ -35,11 +35,16 @@ const VulnerabilitySchema = z.object({
     total_count: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync distinct vulnerabilities (CVEs) detected across assets in this account',
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Vulnerability: VulnerabilitySchema
     },
@@ -60,6 +65,10 @@ const sync = createSync({
         }
 
         const userId: string | undefined = typeof connection.connection_config?.['user_id'] === 'string' ? connection.connection_config['user_id'] : undefined;
+
+        const parsedCheckpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const initialSkip = parsedCheckpoint.success ? parsedCheckpoint.data.skip : 0;
+        let skip: number | undefined = initialSkip;
 
         // https://nango.dev/docs/api-integrations/connectsecure
         const authResponse = await nango.post({
@@ -90,18 +99,21 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'skip',
-                offset_start_value: 0,
+                offset_start_value: initialSkip,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 500,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    skip = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
-                continue;
+                throw new Error('Expected page to be an array');
             }
 
             const vulnerabilities = [];
@@ -171,8 +183,13 @@ const sync = createSync({
                 }
                 await nango.batchSave(deduplicated, 'Vulnerability');
             }
+
+            if (skip !== undefined) {
+                await nango.saveCheckpoint({ skip });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Vulnerability');
     }
 });

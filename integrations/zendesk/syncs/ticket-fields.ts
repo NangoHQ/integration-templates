@@ -66,12 +66,17 @@ const TicketFieldSchema = z.object({
     system_field_options: z.array(SystemFieldOptionSchema).optional()
 });
 
+const CheckpointSchema = z.object({
+    after_cursor: z.string()
+});
+
 // https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/
 const sync = createSync({
     description: 'Sync ticket field definitions from Zendesk',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         TicketField: TicketFieldSchema
     },
@@ -84,6 +89,16 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        let afterCursor: string | undefined;
+        if (rawCheckpoint !== null && rawCheckpoint !== undefined) {
+            const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointParse.success) {
+                throw new Error(`Invalid checkpoint: ${JSON.stringify(checkpointParse.error.issues)}`);
+            }
+            afterCursor = checkpointParse.data.after_cursor;
+        }
+
         // Blocker: The Zendesk ticket fields API does not support incremental filtering.
         // It returns all ticket fields without changed-since or modified_after parameters.
         // This is reference metadata that changes infrequently, so full refresh is appropriate.
@@ -92,75 +107,84 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/#list-ticket-fields
             endpoint: '/api/v2/ticket_fields',
+            params: {
+                ...(afterCursor && { 'page[after]': afterCursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'page[after]',
                 cursor_path_in_response: 'meta.after_cursor',
                 response_path: 'ticket_fields',
                 limit_name_in_request: 'page[size]',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    afterCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        try {
-            for await (const page of nango.paginate(proxyConfig)) {
-                const ticketFields: Array<z.infer<typeof TicketFieldSchema>> = [];
+        for await (const page of nango.paginate(proxyConfig)) {
+            const ticketFields: Array<z.infer<typeof TicketFieldSchema>> = [];
 
-                for (const record of page) {
-                    const parseResult = ProviderTicketFieldSchema.safeParse(record);
-                    if (!parseResult.success) {
-                        throw new Error(`Failed to parse ticket field: ${JSON.stringify(parseResult.error.issues)}`);
-                    }
-                    const raw = parseResult.data;
-
-                    ticketFields.push({
-                        id: String(raw.id),
-                        type: raw.type,
-                        title: raw.title,
-                        ...(raw.raw_title != null && { raw_title: raw.raw_title }),
-                        ...(raw.description != null && { description: raw.description }),
-                        ...(raw.raw_description != null && { raw_description: raw.raw_description }),
-                        ...(raw.position != null && { position: raw.position }),
-                        ...(raw.active != null && { active: raw.active }),
-                        ...(raw.required != null && { required: raw.required }),
-                        ...(raw.agent_can_edit != null && { agent_can_edit: raw.agent_can_edit }),
-                        ...(raw.removable != null && { removable: raw.removable }),
-                        created_at: raw.created_at,
-                        updated_at: raw.updated_at,
-                        ...(raw.visible_in_portal != null && { visible_in_portal: raw.visible_in_portal }),
-                        ...(raw.editable_in_portal != null && { editable_in_portal: raw.editable_in_portal }),
-                        ...(raw.required_in_portal != null && { required_in_portal: raw.required_in_portal }),
-                        ...(raw.title_in_portal != null && { title_in_portal: raw.title_in_portal }),
-                        ...(raw.raw_title_in_portal != null && { raw_title_in_portal: raw.raw_title_in_portal }),
-                        ...(raw.tag != null && { tag: raw.tag }),
-                        ...(raw.regexp_for_validation != null && { regexp_for_validation: raw.regexp_for_validation }),
-                        ...(raw.sub_type_id != null && { sub_type_id: raw.sub_type_id }),
-                        ...(raw.custom_field_options != null && {
-                            custom_field_options: raw.custom_field_options.map((opt) => ({
-                                ...(opt.id !== undefined && { id: opt.id }),
-                                ...(opt.name !== undefined && { name: opt.name }),
-                                ...(opt.raw_name !== undefined && { raw_name: opt.raw_name }),
-                                ...(opt.value !== undefined && { value: opt.value }),
-                                ...(opt.default !== undefined && { default: opt.default })
-                            }))
-                        }),
-                        ...(raw.system_field_options != null && {
-                            system_field_options: raw.system_field_options.map((opt) => ({
-                                ...(opt.name !== undefined && { name: opt.name }),
-                                ...(opt.value !== undefined && { value: opt.value })
-                            }))
-                        })
-                    });
+            for (const record of page) {
+                const parseResult = ProviderTicketFieldSchema.safeParse(record);
+                if (!parseResult.success) {
+                    throw new Error(`Failed to parse ticket field: ${JSON.stringify(parseResult.error.issues)}`);
                 }
+                const raw = parseResult.data;
 
-                if (ticketFields.length > 0) {
-                    await nango.batchSave(ticketFields, 'TicketField');
-                }
+                ticketFields.push({
+                    id: String(raw.id),
+                    type: raw.type,
+                    title: raw.title,
+                    ...(raw.raw_title != null && { raw_title: raw.raw_title }),
+                    ...(raw.description != null && { description: raw.description }),
+                    ...(raw.raw_description != null && { raw_description: raw.raw_description }),
+                    ...(raw.position != null && { position: raw.position }),
+                    ...(raw.active != null && { active: raw.active }),
+                    ...(raw.required != null && { required: raw.required }),
+                    ...(raw.agent_can_edit != null && { agent_can_edit: raw.agent_can_edit }),
+                    ...(raw.removable != null && { removable: raw.removable }),
+                    created_at: raw.created_at,
+                    updated_at: raw.updated_at,
+                    ...(raw.visible_in_portal != null && { visible_in_portal: raw.visible_in_portal }),
+                    ...(raw.editable_in_portal != null && { editable_in_portal: raw.editable_in_portal }),
+                    ...(raw.required_in_portal != null && { required_in_portal: raw.required_in_portal }),
+                    ...(raw.title_in_portal != null && { title_in_portal: raw.title_in_portal }),
+                    ...(raw.raw_title_in_portal != null && { raw_title_in_portal: raw.raw_title_in_portal }),
+                    ...(raw.tag != null && { tag: raw.tag }),
+                    ...(raw.regexp_for_validation != null && { regexp_for_validation: raw.regexp_for_validation }),
+                    ...(raw.sub_type_id != null && { sub_type_id: raw.sub_type_id }),
+                    ...(raw.custom_field_options != null && {
+                        custom_field_options: raw.custom_field_options.map((opt) => ({
+                            ...(opt.id !== undefined && { id: opt.id }),
+                            ...(opt.name !== undefined && { name: opt.name }),
+                            ...(opt.raw_name !== undefined && { raw_name: opt.raw_name }),
+                            ...(opt.value !== undefined && { value: opt.value }),
+                            ...(opt.default !== undefined && { default: opt.default })
+                        }))
+                    }),
+                    ...(raw.system_field_options != null && {
+                        system_field_options: raw.system_field_options.map((opt) => ({
+                            ...(opt.name !== undefined && { name: opt.name }),
+                            ...(opt.value !== undefined && { value: opt.value })
+                        }))
+                    })
+                });
             }
-        } finally {
-            await nango.trackDeletesEnd('TicketField');
+
+            if (ticketFields.length > 0) {
+                await nango.batchSave(ticketFields, 'TicketField');
+            }
+
+            if (afterCursor !== undefined) {
+                await nango.saveCheckpoint({ after_cursor: afterCursor });
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('TicketField');
     }
 });
 

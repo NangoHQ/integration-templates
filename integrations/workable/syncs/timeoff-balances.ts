@@ -40,17 +40,26 @@ const TimeoffBalanceSchema = z.object({
     time_off_tracking_unit: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync current-cycle time-off balances per employee.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['r_employees', 'r_timeoff'],
+    checkpoint: CheckpointSchema,
     models: {
         TimeoffBalance: TimeoffBalanceSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { offset: 0 });
+        let offset = checkpoint.offset;
+
         // https://workable.readme.io/reference/members.md
         const membersResponse = await nango.get({
             endpoint: '/spi/v3/members',
@@ -68,7 +77,7 @@ const sync = createSync({
         const adminMember = membersParsed.data.members.find((m) => m.active === true && (m.hris_role === 'hris_admin' || m.role === 'admin'));
         const memberId = adminMember?.id;
 
-        const employees: { id: string }[] = [];
+        await nango.trackDeletesStart('TimeoffBalance');
 
         // https://workable.readme.io/reference/employees
         const employeeProxyConfig: ProxyConfiguration = {
@@ -80,6 +89,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: offset,
                 limit_name_in_request: 'limit',
                 limit: 100,
                 response_path: 'employees'
@@ -92,37 +102,38 @@ const sync = createSync({
             if (!parsedPage.success) {
                 throw new Error(`Failed to parse employees page: ${parsedPage.error.message}`);
             }
-            employees.push(...parsedPage.data);
-        }
 
-        await nango.trackDeletesStart('TimeoffBalance');
+            for (const employee of parsedPage.data) {
+                const response = await getBalancesForEmployee(nango, employee.id);
 
-        for (const employee of employees) {
-            const response = await getBalancesForEmployee(nango, employee.id);
+                const parsed = ProviderBalancesResponseSchema.safeParse(response.data);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse timeoff balances for employee ${employee.id}: ${parsed.error.message}`);
+                }
 
-            const parsed = ProviderBalancesResponseSchema.safeParse(response.data);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse timeoff balances for employee ${employee.id}: ${parsed.error.message}`);
+                const balances = parsed.data.balances.map((balance) => ({
+                    id: `${employee.id}:${balance.category_id}`,
+                    employee_id: employee.id,
+                    category_id: balance.category_id,
+                    name: balance.name,
+                    ...(balance.description != null && { description: balance.description }),
+                    units_available: balance.units_available,
+                    units_carry_over_available: balance.units_carry_over_available,
+                    units_used: balance.units_used,
+                    has_unlimited_timeoff: balance.has_unlimited_timeoff,
+                    time_off_tracking_unit: balance.time_off_tracking_unit
+                }));
+
+                if (balances.length > 0) {
+                    await nango.batchSave(balances, 'TimeoffBalance');
+                }
             }
 
-            const balances = parsed.data.balances.map((balance) => ({
-                id: `${employee.id}:${balance.category_id}`,
-                employee_id: employee.id,
-                category_id: balance.category_id,
-                name: balance.name,
-                ...(balance.description != null && { description: balance.description }),
-                units_available: balance.units_available,
-                units_carry_over_available: balance.units_carry_over_available,
-                units_used: balance.units_used,
-                has_unlimited_timeoff: balance.has_unlimited_timeoff,
-                time_off_tracking_unit: balance.time_off_tracking_unit
-            }));
-
-            if (balances.length > 0) {
-                await nango.batchSave(balances, 'TimeoffBalance');
-            }
+            offset += parsedPage.data.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('TimeoffBalance');
     }
 });

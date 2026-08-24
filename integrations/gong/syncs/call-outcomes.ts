@@ -22,11 +22,16 @@ const ProviderCallOutcomeSchema = z.object({
     category: z.string().nullish()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string().describe('Pagination cursor for resuming a full refresh')
+});
+
 const sync = createSync({
     description: 'Sync configured call outcomes from Gong.',
     version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         GongCallOutcome: CallOutcomeSchema
     },
@@ -41,20 +46,30 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: Gong /v2/call-outcomes has no updated-timestamp filter,
-        // no deleted-record endpoint, and no resumable cursor across runs.
+        // no deleted-record endpoint, and no resumable cursor.
         // Outcomes rarely change, so this sync runs as a full refresh.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { cursor: '' });
+        let cursor = checkpoint.cursor || undefined;
+
         await nango.trackDeletesStart('GongCallOutcome');
 
         const proxyConfig: ProxyConfiguration = {
             // https://help.gong.io/apidocs/list-call-outcomes-v2call-outcomes-1
             endpoint: '/v2/call-outcomes',
+            params: {
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'records.cursor',
                 response_path: 'outcomes',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -86,8 +101,13 @@ const sync = createSync({
             if (outcomes.length > 0) {
                 await nango.batchSave(outcomes, 'GongCallOutcome');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('GongCallOutcome');
     }
 });

@@ -35,11 +35,16 @@ const VideoListResponseSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.number()
+});
+
 const sync = createSync({
     description: 'Sync videos from TikTok Accounts.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Video: VideoSchema
     },
@@ -50,10 +55,12 @@ const sync = createSync({
         }
     ],
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let cursor = checkpoint?.['cursor'];
+
         await nango.trackDeletesStart('Video');
 
         let hasMore = true;
-        let cursor: number | undefined;
 
         while (hasMore) {
             // https://developers.tiktok.com/doc/tiktok-api-v2-video-list
@@ -80,9 +87,6 @@ const sync = createSync({
             }
 
             const videos = data.videos;
-            if (videos.length === 0) {
-                break;
-            }
 
             const mappedVideos = videos.map((video) => {
                 const parsedVideo = VideoSchema.safeParse(video);
@@ -92,7 +96,9 @@ const sync = createSync({
                 return parsedVideo.data;
             });
 
-            await nango.batchSave(mappedVideos, 'Video');
+            if (mappedVideos.length > 0) {
+                await nango.batchSave(mappedVideos, 'Video');
+            }
 
             hasMore = Boolean(data.has_more);
             if (hasMore) {
@@ -100,9 +106,11 @@ const sync = createSync({
                     throw new Error('TikTok video list response missing cursor for next page');
                 }
                 cursor = data.cursor;
+                await nango.saveCheckpoint({ cursor });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Video');
     }
 });

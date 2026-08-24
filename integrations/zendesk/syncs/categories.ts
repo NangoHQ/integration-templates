@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const CategorySchema = z.object({
@@ -33,7 +33,8 @@ const CategoriesResponseSchema = z.object({
     categories: z.array(ProviderCategorySchema),
     meta: z
         .object({
-            has_more: z.boolean().optional()
+            has_more: z.boolean().optional(),
+            after_cursor: z.string().optional()
         })
         .optional(),
     links: z
@@ -43,11 +44,16 @@ const CategoriesResponseSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    after_cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync Zendesk Help Center categories',
     version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Category: CategorySchema
     },
@@ -59,30 +65,26 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : null;
+        const afterCursor = checkpoint?.after_cursor;
+
         // Blocker: The Zendesk Help Center Categories API does not provide a changed-since
         // filter (modified_after or updated_after) to retrieve only changed records.
         // While the API supports sorting by updated_at, it cannot filter by it.
         // Therefore, a full refresh with trackDeletes is used.
         await nango.trackDeletesStart('Category');
 
-        // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#list-categories
-        const proxyConfig: {
-            endpoint: string;
-            params: { sort_by: string; sort_order: string };
-            paginate: {
-                type: 'cursor';
-                cursor_name_in_request: string;
-                cursor_path_in_response: string;
-                response_path: string;
-                limit_name_in_request: string;
-                limit: number;
-            };
-            retries: number;
-        } = {
+        let nextAfterCursor: string | undefined;
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://developer.zendesk.com/api-reference/help_center/help-center-api/categories/#list-categories
             endpoint: '/api/v2/help_center/categories',
             params: {
                 sort_by: 'updated_at',
-                sort_order: 'asc'
+                sort_order: 'asc',
+                ...(afterCursor ? { 'page[after]': afterCursor } : {})
             },
             paginate: {
                 type: 'cursor',
@@ -90,39 +92,48 @@ const sync = createSync({
                 cursor_path_in_response: 'links.next',
                 response_path: 'categories',
                 limit_name_in_request: 'page[size]',
-                limit: 100
+                limit: 100,
+                on_page: async (paginationState) => {
+                    const parsedResponse = CategoriesResponseSchema.safeParse(paginationState.response.data);
+                    if (parsedResponse.success && parsedResponse.data.meta?.after_cursor) {
+                        nextAfterCursor = parsedResponse.data.meta.after_cursor;
+                    }
+                }
             },
             retries: 3
         };
 
-        try {
-            for await (const page of nango.paginate(proxyConfig)) {
-                const validated = CategoriesResponseSchema.safeParse({ categories: page });
-                if (!validated.success) {
-                    throw new Error(`Failed to validate categories: ${validated.error.message}`);
-                }
-
-                const categories = validated.data.categories.map((category) => ({
-                    id: String(category.id),
-                    name: category.name,
-                    ...(category.description != null && { description: category.description }),
-                    locale: category.locale,
-                    ...(category.source_locale != null && { source_locale: category.source_locale }),
-                    ...(category.position != null && { position: category.position }),
-                    ...(category.outdated != null && { outdated: category.outdated }),
-                    created_at: category.created_at,
-                    updated_at: category.updated_at,
-                    ...(category.html_url != null && { html_url: category.html_url }),
-                    ...(category.url != null && { url: category.url })
-                }));
-
-                if (categories.length > 0) {
-                    await nango.batchSave(categories, 'Category');
-                }
+        for await (const page of nango.paginate(proxyConfig)) {
+            const validated = CategoriesResponseSchema.safeParse({ categories: page });
+            if (!validated.success) {
+                throw new Error(`Failed to validate categories: ${validated.error.message}`);
             }
-        } finally {
-            await nango.trackDeletesEnd('Category');
+
+            const categories = validated.data.categories.map((category) => ({
+                id: String(category.id),
+                name: category.name,
+                ...(category.description != null && { description: category.description }),
+                locale: category.locale,
+                ...(category.source_locale != null && { source_locale: category.source_locale }),
+                ...(category.position != null && { position: category.position }),
+                ...(category.outdated != null && { outdated: category.outdated }),
+                created_at: category.created_at,
+                updated_at: category.updated_at,
+                ...(category.html_url != null && { html_url: category.html_url }),
+                ...(category.url != null && { url: category.url })
+            }));
+
+            if (categories.length > 0) {
+                await nango.batchSave(categories, 'Category');
+            }
+
+            if (nextAfterCursor !== undefined) {
+                await nango.saveCheckpoint({ after_cursor: nextAfterCursor });
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Category');
     }
 });
 

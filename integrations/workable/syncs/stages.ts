@@ -20,22 +20,17 @@ const StageSchema = z.object({
     position: z.number().int()
 });
 
-const CheckpointSchema = z.object({});
-
 const sync = createSync({
     description: 'Sync account-level recruitment pipeline stages.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['r_jobs'],
-    checkpoint: CheckpointSchema,
     models: {
         Stage: StageSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-
         // Blocker: the /stages endpoint has no changed-since filter, no pagination,
         // and no deleted-record endpoint. The dataset is small and low-churn,
         // so a full snapshot with delete tracking is appropriate.
@@ -67,10 +62,6 @@ const sync = createSync({
         }
 
         await nango.trackDeletesEnd('Stage');
-
-        if (checkpoint) {
-            await nango.saveCheckpoint({});
-        }
     }
 });
 

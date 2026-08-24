@@ -45,16 +45,28 @@ const MembersResponseSchema = z.object({
     members: z.array(MemberSchema)
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync HR employee records.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Employee: EmployeeSchema
     },
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpointParsed = CheckpointSchema.safeParse(checkpointRaw ?? { offset: 0 });
+        if (!checkpointParsed.success) {
+            throw new Error(`Failed to parse checkpoint: ${checkpointParsed.error.message}`);
+        }
+        const checkpoint = checkpointParsed.data;
+
         // https://workable.readme.io/reference/members.md
         const membersResponse = await nango.get({
             endpoint: '/spi/v3/members',
@@ -72,7 +84,18 @@ const sync = createSync({
         const adminMember = membersParsed.data.members.find((m) => m.active === true && (m.hris_role === 'hris_admin' || m.role === 'admin'));
         const memberId = adminMember?.id;
 
+        // Full refresh: /spi/v3/employees has no updated_after/modified_since filter, so every
+        // employee still returned by Workable is re-saved on every run. Employees removed from
+        // Workable simply stop appearing, so trackDeletesStart/trackDeletesEnd is required to
+        // detect and purge them. Call trackDeletesStart after prerequisite discovery/validation
+        // succeeds; it is safe every execution because it will not overwrite the start of a
+        // delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Employee');
+
         // https://workable.readme.io/reference/employees.md
+        const offset = checkpoint.offset;
+        let nextOffset: number | undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/employees.md
             endpoint: '/spi/v3/employees',
@@ -83,22 +106,17 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'employees'
+                response_path: 'employees',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' && Number.isInteger(nextPageParam) && nextPageParam >= 0 ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        // Full refresh: /spi/v3/employees has no updated_after/modified_since filter, so every
-        // employee still returned by Workable is re-saved on every run. Employees removed from
-        // Workable simply stop appearing, so trackDeletesStart/trackDeletesEnd is required to
-        // detect and purge them. Only start tracking once the first page has actually been
-        // fetched and validated, so a failure on the very first request doesn't leave
-        // delete-tracking started with nothing enumerated.
-        let deletesStarted = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const employees = page.map((record) => {
@@ -138,22 +156,17 @@ const sync = createSync({
                 };
             });
 
-            // The page above parsed successfully, so enumeration is confirmed to proceed.
-            if (!deletesStarted) {
-                await nango.trackDeletesStart('Employee');
-                deletesStarted = true;
-            }
-
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
-        // Only finalize delete detection if enumeration actually started (and therefore ran to
-        // completion above without throwing) — never on a partial/failed run.
-        if (deletesStarted) {
-            await nango.trackDeletesEnd('Employee');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Employee');
     }
 });
 

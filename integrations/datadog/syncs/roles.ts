@@ -19,11 +19,16 @@ const RawRoleSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page_number: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync roles (permission bundles) configured in this account.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Role: RoleSchema
     },
@@ -31,6 +36,9 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/roles with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
+        const checkpoint: z.infer<typeof CheckpointSchema> | null = await nango.getCheckpoint();
+        let pageNumber = checkpoint?.page_number ?? 0;
+
         await nango.trackDeletesStart('Role');
 
         const proxyConfig: ProxyConfiguration = {
@@ -39,7 +47,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page[number]',
-                offset_start_value: 0,
+                offset_start_value: pageNumber,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page[size]',
                 limit: 100,
@@ -71,8 +79,12 @@ const sync = createSync({
             if (roles.length > 0) {
                 await nango.batchSave(roles, 'Role');
             }
+
+            pageNumber += 1;
+            await nango.saveCheckpoint({ page_number: pageNumber });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Role');
     }
 });

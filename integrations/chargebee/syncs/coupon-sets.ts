@@ -23,33 +23,57 @@ const ListItemSchema = z.object({
     })
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
 const sync = createSync({
     description: 'Sync coupon sets as a full refresh (Product Catalog 2.0). PC2 replacement for legacy /coupons.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     // https://apidocs.chargebee.com/docs/api/coupon_sets
     models: {
         CouponSet: CouponSetSchema
     },
 
     exec: async (nango) => {
+        // Blocker: Chargebee coupon_sets endpoint does not expose incremental filters
+        // (e.g., updated_at[gt], modified_since). Full refresh with offset checkpoint.
+        // https://apidocs.chargebee.com/docs/api/coupon_sets
+        const rawCheckpoint = await nango.getCheckpoint();
+        let offset: string | undefined;
+        if (rawCheckpoint) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+            }
+            offset = checkpointResult.data.offset !== '' ? checkpointResult.data.offset : undefined;
+        }
+
+        await nango.trackDeletesStart('CouponSet');
+
         // https://apidocs.chargebee.com/docs/api/coupon_sets
         const proxyConfig: ProxyConfiguration = {
             // https://apidocs.chargebee.com/docs/api/coupon_sets
             endpoint: '/api/v2/coupon_sets',
+            params: {
+                ...(offset !== undefined && { offset })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'next_offset',
                 response_path: 'list',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'string' && nextPageParam !== '' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('CouponSet');
 
         for await (const page of nango.paginate(proxyConfig)) {
             const items = ListItemSchema.array().parse(page);
@@ -69,8 +93,13 @@ const sync = createSync({
             if (couponSets.length > 0) {
                 await nango.batchSave(couponSets, 'CouponSet');
             }
+
+            if (offset !== undefined) {
+                await nango.saveCheckpoint({ offset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CouponSet');
     }
 });

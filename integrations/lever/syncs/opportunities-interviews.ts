@@ -66,81 +66,98 @@ const InterviewItemSchema = z.object({
     gcalEventUrl: z.string().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    opportunityOffset: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of all interviews for every single opportunity',
     version: '3.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
-    syncType: 'full',
+    checkpoint: CheckpointSchema,
     metadata: z.object({}),
     models: {
         LeverOpportunityInterview: LeverOpportunityInterviewSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { opportunityOffset: '' });
+        let opportunityOffset = checkpoint.opportunityOffset;
         let totalRecords = 0;
 
-        const opportunities = await getAllOpportunities(nango);
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('LeverOpportunityInterview');
 
-        for (const opportunity of opportunities) {
-            const config: ProxyConfiguration = {
-                // https://hire.lever.co/developer/documentation#list-all-interviews
-                endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/interviews`,
-                paginate: {
-                    type: 'cursor',
-                    cursor_path_in_response: 'next',
-                    cursor_name_in_request: 'offset',
-                    limit_name_in_request: 'limit',
-                    response_path: 'data',
-                    limit: LIMIT
-                },
-                retries: 3
-            };
-            for await (const interviewBatch of nango.paginate(config)) {
-                if (!Array.isArray(interviewBatch)) {
-                    throw new Error('Unexpected non-array response from interviews list');
+        const opportunitiesConfig: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-opportunities
+            endpoint: '/v1/opportunities',
+            params: {
+                limit: LIMIT,
+                ...(opportunityOffset && { offset: opportunityOffset })
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'next',
+                cursor_name_in_request: 'offset',
+                limit_name_in_request: 'limit',
+                response_path: 'data',
+                limit: LIMIT,
+                on_page: async ({ nextPageParam }) => {
+                    opportunityOffset = typeof nextPageParam === 'string' ? nextPageParam : '';
                 }
-                const mappedInterviews = interviewBatch.map((raw) => mapInterview(raw));
-                const batchSize = mappedInterviews.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} interview(s) for opportunity ${opportunity.id} (total interviews: ${totalRecords})`);
-                await nango.batchSave(mappedInterviews, 'LeverOpportunityInterview');
+            },
+            retries: 3
+        };
+
+        for await (const opportunityBatch of nango.paginate(opportunitiesConfig)) {
+            const parsedOpportunities = z.array(OpportunityItemSchema).safeParse(opportunityBatch);
+            if (!parsedOpportunities.success) {
+                throw new Error(`Lever opportunities response did not match expected schema: ${parsedOpportunities.error.message}`);
             }
+
+            for (const opportunity of parsedOpportunities.data) {
+                const config: ProxyConfiguration = {
+                    // https://hire.lever.co/developer/documentation#list-all-interviews
+                    endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/interviews`,
+                    paginate: {
+                        type: 'cursor',
+                        cursor_path_in_response: 'next',
+                        cursor_name_in_request: 'offset',
+                        limit_name_in_request: 'limit',
+                        response_path: 'data',
+                        limit: LIMIT
+                    },
+                    retries: 3
+                };
+                for await (const interviewBatch of nango.paginate(config)) {
+                    if (!Array.isArray(interviewBatch)) {
+                        throw new Error('Unexpected non-array response from interviews list');
+                    }
+                    const mappedInterviews = interviewBatch.map((raw) => mapInterview(raw));
+                    const batchSize = mappedInterviews.length;
+                    totalRecords += batchSize;
+                    await nango.log(`Saving batch of ${batchSize} interview(s) for opportunity ${opportunity.id} (total interviews: ${totalRecords})`);
+                    await nango.batchSave(mappedInterviews, 'LeverOpportunityInterview');
+                }
+            }
+
+            // Save unconditionally, including the empty string on the final page, so a stale
+            // offset from a previous run's last page can't make the next run skip earlier
+            // opportunities.
+            await nango.saveCheckpoint({ opportunityOffset });
         }
+
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('LeverOpportunityInterview');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function getAllOpportunities(nango: NangoSyncLocal) {
-    const records: Array<{ id: string }> = [];
-    const config: ProxyConfiguration = {
-        // https://hire.lever.co/developer/documentation#list-all-opportunities
-        endpoint: '/v1/opportunities',
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next',
-            cursor_name_in_request: 'offset',
-            limit_name_in_request: 'limit',
-            response_path: 'data',
-            limit: LIMIT
-        },
-        retries: 3
-    };
-
-    for await (const recordBatch of nango.paginate(config)) {
-        if (!Array.isArray(recordBatch)) {
-            throw new Error('Unexpected non-array response from opportunities list');
-        }
-        for (const raw of recordBatch) {
-            const parsed = OpportunityItemSchema.parse(raw);
-            records.push(parsed);
-        }
-    }
-
-    return records;
-}
 
 function mapInterview(raw: unknown): LeverOpportunityInterview {
     const interview = InterviewItemSchema.parse(raw);

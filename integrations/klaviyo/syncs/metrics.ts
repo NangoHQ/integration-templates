@@ -35,30 +35,53 @@ const ProviderMetricSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    next_url: z.string()
+});
+
 const sync = createSync({
     description: 'Sync metrics.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Metric: MetricSchema
     },
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /api/metrics with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor for incremental sync.
+        const checkpoint = await nango.getCheckpoint();
+        let nextUrl: string | undefined;
+        if (checkpoint != null) {
+            const parsed = CheckpointSchema.safeParse(checkpoint);
+            if (!parsed.success) {
+                throw new Error(`Invalid checkpoint: ${parsed.error.message}`);
+            }
+            nextUrl = parsed.data.next_url;
+        }
+
+        // Blocker: provider only exposes /api/metrics with no changed-since filter
+        // and no deleted-record endpoint, so full refresh is required. Pagination
+        // is resumable via links.next.
         await nango.trackDeletesStart('Metric');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.klaviyo.com/en/reference/get_metrics
-            endpoint: '/api/metrics',
+            endpoint: nextUrl ?? '/api/metrics',
             headers: {
                 revision: '2026-04-15'
             },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'string') {
+                        nextUrl = nextPageParam;
+                    } else {
+                        nextUrl = undefined;
+                    }
+                }
             },
             retries: 3
         };
@@ -96,8 +119,13 @@ const sync = createSync({
             if (metrics.length > 0) {
                 await nango.batchSave(metrics, 'Metric');
             }
+
+            if (typeof nextUrl === 'string') {
+                await nango.saveCheckpoint({ next_url: nextUrl });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Metric');
     }
 });

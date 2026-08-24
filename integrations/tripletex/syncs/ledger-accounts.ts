@@ -37,19 +37,33 @@ const LedgerAccountSchema = z.object({
     isApplicableForSupplierInvoice: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync the chart of accounts.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LedgerAccount: LedgerAccountSchema
     },
 
     exec: async (nango) => {
-        // Blocker: Tripletex does not expose a changed-since filter for ledger accounts,
-        // and delete tracking requires starting from page 1 every run, so pagination
-        // checkpoints are invalid here. Full refresh is the only viable strategy.
+        // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
+        // https://api-test.tripletex.tech/v2/swagger.json
+        // Tripletex does not expose a changed-since filter for ledger accounts.
+        // Full refresh with offset checkpoints is used so the crawl can resume
+        // across executions and delete tracking runs after a complete pass.
+
+        const checkpoint = await nango.getCheckpoint();
+
+        const parsedCheckpoint = CheckpointSchema.parse({
+            from: 0,
+            ...(checkpoint ?? {})
+        });
 
         await nango.trackDeletesStart('LedgerAccount');
 
@@ -60,7 +74,8 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: parsedCheckpoint.from,
+                offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
                 response_path: 'values'
@@ -68,8 +83,16 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const batch of nango.paginate(proxyConfig)) {
-            const parsedBatch = z.array(z.unknown()).safeParse(batch);
+        const paginator = nango.paginate(proxyConfig);
+        let result = await paginator.next();
+        let currentFrom = parsedCheckpoint.from;
+
+        while (!result.done) {
+            if (!Array.isArray(result.value)) {
+                throw new Error('Expected paginate page to be an array');
+            }
+
+            const parsedBatch = z.array(z.unknown()).safeParse(result.value);
             if (!parsedBatch.success) {
                 throw new Error(`Failed to parse ledger account batch: ${parsedBatch.error.message}`);
             }
@@ -104,8 +127,14 @@ const sync = createSync({
             if (accounts.length > 0) {
                 await nango.batchSave(accounts, 'LedgerAccount');
             }
+
+            currentFrom += result.value.length;
+            await nango.saveCheckpoint({ from: currentFrom });
+
+            result = await paginator.next();
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LedgerAccount');
     }
 });

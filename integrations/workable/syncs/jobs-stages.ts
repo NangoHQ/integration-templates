@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const JobStageSchema = z.object({
@@ -25,37 +25,74 @@ const StagesResponseSchema = z.object({
     stages: z.array(ProviderStageSchema)
 });
 
+const JobsResponseSchema = z.object({
+    jobs: z.array(JobSchema),
+    paging: z
+        .object({
+            next: z.string().optional().nullable()
+        })
+        .optional()
+});
+
+const CheckpointSchema = z.object({
+    jobs_next_url: z.string()
+});
+
 const sync = createSync({
     description: 'Sync the pipeline stages configured for each job.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         JobStage: JobStageSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { jobs_next_url: '' });
+        if (!checkpointResult.success) {
+            throw new Error('Invalid checkpoint');
+        }
+        const checkpoint = checkpointResult.data;
+
         await nango.trackDeletesStart('JobStage');
 
-        const jobsProxyConfig: ProxyConfiguration = {
-            // https://workable.readme.io/reference/jobs
-            endpoint: '/spi/v3/jobs',
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'paging.next',
-                response_path: 'jobs',
-                limit_name_in_request: 'limit',
-                limit: 100
-            },
-            retries: 3
-        };
+        let jobsNextUrl: string | undefined = checkpoint.jobs_next_url || undefined;
 
-        for await (const jobsPage of nango.paginate(jobsProxyConfig)) {
-            if (!Array.isArray(jobsPage)) {
-                throw new Error('Invalid jobs page returned by provider');
+        while (true) {
+            let jobsResponse;
+            if (jobsNextUrl) {
+                const parsed = new URL(jobsNextUrl);
+                const params: Record<string, string> = {};
+                parsed.searchParams.forEach((value, key) => {
+                    params[key] = value;
+                });
+                jobsResponse = await nango.get({
+                    // https://workable.readme.io/reference/jobs
+                    endpoint: parsed.pathname,
+                    params,
+                    retries: 3
+                });
+            } else {
+                jobsResponse = await nango.get({
+                    // https://workable.readme.io/reference/jobs
+                    endpoint: '/spi/v3/jobs',
+                    params: {
+                        limit: 100
+                    },
+                    retries: 3
+                });
             }
 
-            for (const rawJob of jobsPage) {
+            const jobsResult = JobsResponseSchema.safeParse(jobsResponse.data);
+            if (!jobsResult.success) {
+                throw new Error('Invalid jobs response from provider');
+            }
+
+            const jobsData = jobsResult.data;
+
+            for (const rawJob of jobsData.jobs) {
                 const jobResult = JobSchema.safeParse(rawJob);
                 if (!jobResult.success) {
                     throw new Error('Invalid job object returned by provider');
@@ -98,8 +135,16 @@ const sync = createSync({
                     await nango.batchSave(stages, 'JobStage');
                 }
             }
+
+            if (jobsData.paging?.next) {
+                await nango.saveCheckpoint({ jobs_next_url: jobsData.paging.next });
+                jobsNextUrl = jobsData.paging.next;
+            } else {
+                break;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('JobStage');
     }
 });

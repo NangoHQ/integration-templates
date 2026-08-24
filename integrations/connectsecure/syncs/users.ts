@@ -51,16 +51,31 @@ const UserSchema = z.object({
     created_date: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync user accounts in this tenant.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = 0;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            page = parsedCheckpoint.data.page;
+        }
+
         const connection = await nango.getConnection();
         const connectionConfigTenant = connection.connection_config?.['tenant'];
         let tenant: string | undefined = typeof connectionConfigTenant === 'string' ? connectionConfigTenant : undefined;
@@ -103,15 +118,19 @@ const sync = createSync({
                 type: 'offset',
                 offset_name_in_request: 'skip',
                 offset_calculation_method: 'per-page',
+                offset_start_value: page ?? 0,
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const users = page.map((record: unknown) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const users = pageResults.map((record: unknown) => {
                 const parsed = ProviderUserSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse user: ${parsed.error.message}`);
@@ -133,8 +152,13 @@ const sync = createSync({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

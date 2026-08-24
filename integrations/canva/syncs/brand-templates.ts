@@ -22,20 +22,31 @@ const ListBrandTemplatesResponseSchema = z.object({
     items: z.array(BrandTemplateSchema)
 });
 
+const CheckpointSchema = z.object({
+    continuation: z.string()
+});
+
 const sync = createSync({
     description: 'Sync brand template metadata',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         BrandTemplate: BrandTemplateSchema
     },
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const cursor =
+            checkpoint != null && typeof checkpoint['continuation'] === 'string' && checkpoint['continuation'].length > 0
+                ? checkpoint['continuation']
+                : undefined;
+
         // Always start deletion tracking before full enumeration — cursor-based
         // partial resumption would leave earlier pages outside the tracking window.
         await nango.trackDeletesStart('BrandTemplate');
 
-        let cursor: string | undefined;
+        let nextCursor = cursor;
         let hasMore = true;
         while (hasMore) {
             // https://www.canva.dev/docs/connect/api-reference/brand-templates/
@@ -43,7 +54,7 @@ const sync = createSync({
                 endpoint: '/rest/v1/brand-templates',
                 params: {
                     limit: 100,
-                    ...(cursor !== undefined && { continuation: cursor })
+                    ...(nextCursor != null && { continuation: nextCursor })
                 },
                 retries: 3
             });
@@ -60,9 +71,14 @@ const sync = createSync({
                 await nango.batchSave(items, 'BrandTemplate');
             }
 
-            cursor = continuation;
+            if (continuation !== undefined) {
+                await nango.saveCheckpoint({ continuation });
+            }
+
+            nextCursor = continuation;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BrandTemplate');
     }
 });

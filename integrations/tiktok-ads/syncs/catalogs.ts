@@ -46,6 +46,10 @@ const FeedResponseSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync product catalogs and their feeds from TikTok Ads',
     version: '1.0.0',
@@ -53,6 +57,7 @@ const sync = createSync({
     autoStart: false,
     metadata: MetadataSchema,
     endpoints: [{ method: 'POST', path: '/syncs/catalogs' }],
+    checkpoint: CheckpointSchema,
     models: {
         Catalog: CatalogSchema
     },
@@ -66,6 +71,17 @@ const sync = createSync({
 
         const bcId = metadata.bc_id ?? metadata.advertiser_id;
 
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = 1;
+
+        if (checkpoint) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            page = parsedCheckpoint.data.page;
+        }
+
         await nango.trackDeletesStart('Catalog');
 
         const catalogProxyConfig: ProxyConfiguration = {
@@ -73,29 +89,32 @@ const sync = createSync({
             endpoint: 'catalog/get/',
             params: {
                 bc_id: bcId,
-                page: '1',
+                page: String(page),
                 page_size: '10'
             },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 10,
-                response_path: 'data.list'
+                response_path: 'data.list',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        const catalogs: Array<z.infer<typeof CatalogSchema>> = [];
-
-        for await (const page of nango.paginate(catalogProxyConfig)) {
-            if (!Array.isArray(page)) {
+        for await (const pageResults of nango.paginate(catalogProxyConfig)) {
+            if (!Array.isArray(pageResults)) {
                 throw new Error('Expected catalog page to be an array');
             }
 
-            for (const rawCatalog of page) {
+            const catalogs: Array<z.infer<typeof CatalogSchema>> = [];
+
+            for (const rawCatalog of pageResults) {
                 const catalogParse = CatalogItemSchema.safeParse(rawCatalog);
                 if (!catalogParse.success) {
                     throw new Error('Failed to parse catalog item');
@@ -142,12 +161,17 @@ const sync = createSync({
                     feeds: feeds.length > 0 ? feeds : undefined
                 });
             }
+
+            if (catalogs.length > 0) {
+                await nango.batchSave(catalogs, 'Catalog');
+            }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
-        if (catalogs.length > 0) {
-            await nango.batchSave(catalogs, 'Catalog');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Catalog');
     }
 });

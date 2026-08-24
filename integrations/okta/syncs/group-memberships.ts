@@ -23,16 +23,44 @@ const OktaUserSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    groupIndex: z.number().int().nonnegative(),
+    after: z.string()
+});
+
+const StoredCheckpointSchema = z.object({
+    groupIndex: z.number().int().nonnegative().optional(),
+    after: z.string().optional()
+});
+
+function extractAfterFromUrl(urlString: string): string | undefined {
+    try {
+        const url = new URL(urlString);
+        return url.searchParams.get('after') ?? undefined;
+    } catch {
+        const queryIndex = urlString.indexOf('?');
+        if (queryIndex !== -1) {
+            const params = new URLSearchParams(urlString.slice(queryIndex));
+            return params.get('after') ?? undefined;
+        }
+        return undefined;
+    }
+}
+
 const sync = createSync({
     description: 'Sync group membership',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         GroupMembership: GroupMembershipSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = StoredCheckpointSchema.parse(rawCheckpoint ?? {});
+
         // Delete tracking is model-wide, and Okta gives no way to fetch previously-synced
         // records back, so which members were removed from a specific group since the last
         // run can't be reconstructed. Reconciling deletions correctly requires re-crawling
@@ -68,15 +96,31 @@ const sync = createSync({
 
         await nango.trackDeletesStart('GroupMembership');
 
-        for (const group of groupsToProcess) {
+        const startIndex = checkpoint.groupIndex ?? 0;
+
+        let i = startIndex;
+        for (const group of groupsToProcess.slice(startIndex)) {
+            const groupIndex = i;
+            const groupId = group.id;
+            const resumeAfter = i === startIndex ? checkpoint.after : undefined;
+
             const proxyConfig: ProxyConfiguration = {
                 // https://developer.okta.com/docs/reference/api/groups/
-                endpoint: `/api/v1/groups/${encodeURIComponent(group.id)}/users`,
+                endpoint: `/api/v1/groups/${encodeURIComponent(groupId)}/users`,
+                ...(resumeAfter ? { params: { after: resumeAfter } } : {}),
                 paginate: {
                     type: 'link',
                     link_rel_in_response_header: 'next',
                     limit_name_in_request: 'limit',
-                    limit: 100
+                    limit: 100,
+                    on_page: async ({ nextPageParam }) => {
+                        if (typeof nextPageParam === 'string') {
+                            const after = extractAfterFromUrl(nextPageParam);
+                            if (after) {
+                                await nango.saveCheckpoint({ groupIndex, after });
+                            }
+                        }
+                    }
                 },
                 retries: 3
             };
@@ -91,7 +135,7 @@ const sync = createSync({
                 for (const rawUser of users) {
                     const parsed = OktaUserSchema.safeParse(rawUser);
                     if (!parsed.success) {
-                        throw new Error(`Failed to parse user in group ${group.id}: ${parsed.error.message}`);
+                        throw new Error(`Failed to parse user in group ${groupId}: ${parsed.error.message}`);
                     }
 
                     const user = parsed.data;
@@ -102,8 +146,8 @@ const sync = createSync({
                         email?: string;
                         status?: string;
                     } = {
-                        id: `${group.id}_${user.id}`,
-                        groupId: group.id,
+                        id: `${groupId}_${user.id}`,
+                        groupId: groupId,
                         userId: user.id
                     };
 
@@ -122,8 +166,12 @@ const sync = createSync({
                     await nango.batchSave(memberships, 'GroupMembership');
                 }
             }
+
+            await nango.saveCheckpoint({ groupIndex: groupIndex + 1, after: '' });
+            i++;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('GroupMembership');
     }
 });
