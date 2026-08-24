@@ -48,7 +48,13 @@ const ListReviewsOutput = z
         current_page: z.number().int().describe('Current page number in the paginated result set'),
         per_page: z.number().int().describe('Number of reviews returned per page'),
         reviews: z.array(ReviewOutput).describe('List of reviews for the current page'),
-        next_page: z.number().int().optional().describe('Page number to fetch next. Omitted when there are no more pages.')
+        next_page: z
+            .number()
+            .int()
+            .optional()
+            .describe(
+                'Page number to try next. Omitted when this page returned fewer results than per_page. The provider does not expose a total count, so a present value means another page is possible, not guaranteed — it may come back empty.'
+            )
     })
     .describe('Paginated list of reviews for the shop');
 

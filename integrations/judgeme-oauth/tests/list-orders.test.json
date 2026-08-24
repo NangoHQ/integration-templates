@@ -10,81 +10,57 @@
         "id": 3899672106,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 1715262,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899672702,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 3003982,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899672962,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 3003983,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899673095,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 3003984,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899673314,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 566095563,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899673464,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 566095659,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899674652,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 1715262,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       },
       {
         "id": 3899674825,
         "name": "Manual",
         "fulfilled_at": "2026-08-23T00:00:00+00:00",
-        "external_id": null,
         "reviewer_id": 1715262,
-        "fulfillment_status": "fulfilled",
-        "cancelled_at": null,
-        "country": null
+        "fulfillment_status": "fulfilled"
       }
     ]
   },

@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const PrivateReplyInputSchema = z.object({
     email_body: z.string().describe('Body content of the private reply email sent to the reviewer.'),
     email_subject: z.string().describe('Subject line of the private reply email sent to the reviewer.'),
-    review_id: z.number().int().describe('Judge.me internal ID of the review to reply to.'),
+    review_id: z.number().int().positive().describe('Judge.me internal ID of the review to reply to.'),
     send_private_email: z.boolean().optional().describe('Whether to send the reply as an email to the reviewer. Defaults to true.')
 });
 

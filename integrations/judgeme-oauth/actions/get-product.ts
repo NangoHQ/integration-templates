@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().int().describe('Judge.me internal product id. Example: 2117026531')
+        id: z.number().int().positive().describe('Judge.me internal product id. Example: 2117026531')
     })
     .describe('Input for fetching a single Judge.me product by its internal id');
 

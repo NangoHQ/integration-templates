@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        review_id: z.number().int().describe('Judge.me internal review ID to publish. Example: 1306611514')
+        review_id: z.number().int().positive().describe('Judge.me internal review ID to publish. Example: 1306611514')
     })
     .describe('Input for publishing a previously hidden review.');
 

@@ -29,7 +29,12 @@ const ProductSchema = z.object({
 const OutputSchema = z
     .object({
         products: z.array(ProductSchema).describe('List of products known to Judge.me for this shop.'),
-        next_cursor: z.string().optional().describe('Cursor for the next page. Omit when there are no more pages.')
+        next_cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Cursor to try next. Omitted when this page returned fewer results than per_page. The provider does not expose a total count, so a present value means another page is possible, not guaranteed — it may come back empty.'
+            )
     })
     .describe('Output of the list-products action.');
 

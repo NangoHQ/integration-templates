@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        external_id: z.number().int().describe('The external platform product ID to resolve. Example: 10291926270247')
+        external_id: z.number().int().positive().describe('The external platform product ID to resolve. Example: 10291926270247')
     })
     .describe('Input for resolving a product by its external platform ID.');
 

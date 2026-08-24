@@ -19,7 +19,7 @@ const InputSchema = z
     })
     .describe('Input for listing orders from Judge.me.');
 
-const OrderSchema = z
+const ProviderOrderSchema = z
     .object({
         id: z.number().describe('Order ID.'),
         name: z.string().nullable().optional().describe('Order name.'),
@@ -33,6 +33,19 @@ const OrderSchema = z
         updated_at: z.string().optional().describe('Date when the order was last updated.')
     })
     .passthrough();
+
+const OrderSchema = z.object({
+    id: z.number().describe('Order ID.'),
+    name: z.string().optional().describe('Order name.'),
+    external_id: z.union([z.string(), z.number()]).optional().describe('External order ID from the shop platform.'),
+    fulfilled_at: z.string().optional().describe('Date when the order was fulfilled.'),
+    fulfillment_status: z.string().optional().describe('Fulfillment status of the order.'),
+    cancelled_at: z.string().optional().describe('Date when the order was cancelled.'),
+    country: z.string().optional().describe('Country of the order.'),
+    reviewer_id: z.number().optional().describe('Reviewer ID associated with the order.'),
+    created_at: z.string().optional().describe('Date when the order was created.'),
+    updated_at: z.string().optional().describe('Date when the order was last updated.')
+});
 
 const ProviderResponseSchema = z.object({
     start_date: z.string(),
@@ -49,7 +62,12 @@ const OutputSchema = z
         current_page: z.number().describe('Current page number returned.'),
         per_page: z.number().describe('Number of orders returned per page.'),
         orders: z.array(OrderSchema).describe('Array of orders known to Judge.me for this shop.'),
-        next_cursor: z.string().optional().describe('Pagination cursor for the next page if more orders are available.')
+        next_cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Cursor to try next. Omitted when this page returned fewer results than per_page. The provider does not expose a total count, so a present value means another page is possible, not guaranteed — it may come back empty.'
+            )
     })
     .describe('Output for listing orders from Judge.me.');
 
@@ -90,7 +108,21 @@ const action = createAction({
 
         const rawData = ProviderResponseSchema.parse(response.data);
 
-        const orders = rawData.orders.map((order: unknown) => OrderSchema.parse(order));
+        const orders = rawData.orders.map((order: unknown) => {
+            const parsed = ProviderOrderSchema.parse(order);
+            return {
+                id: parsed.id,
+                ...(parsed.name != null && { name: parsed.name }),
+                ...(parsed.external_id != null && { external_id: parsed.external_id }),
+                ...(parsed.fulfilled_at != null && { fulfilled_at: parsed.fulfilled_at }),
+                ...(parsed.fulfillment_status != null && { fulfillment_status: parsed.fulfillment_status }),
+                ...(parsed.cancelled_at != null && { cancelled_at: parsed.cancelled_at }),
+                ...(parsed.country != null && { country: parsed.country }),
+                ...(parsed.reviewer_id != null && { reviewer_id: parsed.reviewer_id }),
+                ...(parsed.created_at != null && { created_at: parsed.created_at }),
+                ...(parsed.updated_at != null && { updated_at: parsed.updated_at })
+            };
+        });
 
         return {
             start_date: rawData.start_date,
