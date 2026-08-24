@@ -1,0 +1,75 @@
+{
+  "input": {
+    "id": 158000093930,
+    "name": "TestCategoryAgent123Updated",
+    "description": "Updated description"
+  },
+  "output": {
+    "id": 158000093930,
+    "name": "TestCategoryAgent123Updated",
+    "description": "Updated description",
+    "created_at": "2026-08-19T23:35:41Z",
+    "updated_at": "2026-08-19T23:36:18Z"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/v2/discussions/categories/158000093930": {
+        "response": {
+          "id": 158000093930,
+          "name": "TestCategoryAgent123Updated",
+          "description": "Updated description",
+          "created_at": "2026-08-19T23:35:41Z",
+          "updated_at": "2026-08-19T23:36:18Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 23:36:24 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "44.0",
+          "x-ratelimit-reset": "1787182636",
+          "status": "200 OK",
+          "cache-control": "no-store",
+          "pragma": "no-cache",
+          "x-request-id": "3e24e387-4570-9e08-abd1-a6ca5fcd6e48",
+          "x-freshdesk-api-version": "latest=v2; requested=v2",
+          "content-security-policy": "default-src 'self'; connect-src 'self' *.freshconnect.io/ *.freshsales.io/ *.freshworks.com/ *.freshdesk.com/ *.freshworksapi.com/ *.qualtrics.com/ *.freshdeskusercontent.com/ *.freshdeskusercontent-euc.com/ *.freshdeskusercontent-in.com/ *.freshdeskusercontent-aus.com/ *.fconstage.io/ analytics.inlinemanual.com/__profile analytics.inlinemanual.com/__ptm backend.getbeamer.com/ heapanalytics.com/ d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/assets/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2lz1e868xzctj.cloudfront.net/ rum.haystack.es/freshdesk/analytics rum.haystack.es/freshworks-rts/_logs fonts.googleapis.com/ fonts.gstatic.com/ sentry.io/api/ wss://*.freshworksapi.com/ wss://*.freshdesk.com/ fg8vvsvnieiv3ej16jby.litix.io/ distillery.wistia.com/ pipedream.wistia.com/ freshworks.asknice.ly/ embedwistia-a.akamaihd.net/ embed-fastly.wistia.com/ maps.googleapis.com/ graph.microsoft.com/v1.0/ freshcaller-attachments.s3.amazonaws.com/production/ euc-freshcaller-attachments.s3.eu-central-1.amazonaws.com/production/ mec-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ eun-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ au-freshcaller-attachments.s3-ap-southeast-2.amazonaws.com/production/ in-freshcaller-attachments.s3.ap-south-1.amazonaws.com/production/ pubsub.rtschannel.com/ api.fdcollab.com/ wss://pubsub.rtschannel.com/ cloudflareinsights.com/ data: blob: api.appcues.net/ wss://api.appcues.net/ fast.appcues.com/ cdn.jsdelivr.net/npm/@freshworks/crayons-icon@next/dist/ translate.googleapis.com/translate_a/t translate.googleapis.com/element/log fast.wistia.net/ fast.wistia.com/ embed-cloudfront.wistia.com/deliveries/ app.inlinemanual.com/ client-api.auryc.com/ *.surveyserv.com *.freshsurvey.com *.freddybot.com *.freshreports.com rum.haystack.es/freshreports/analytics dsv27oefxtf0.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ *.userpilot.io/ wss://*.userpilot.io/ www.youtube.com/oembed vimeo.com/api/ www.loom.com/v1/ api.vidyard.com/dashboard/; font-src 'self' *.freshdesk.com/ fonts.gstatic.com/ fonts.googleapis.com/ cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/ fast.wistia.net/ fast.wistia.com/ *.freddybot.com cdn.inlinemanual.com/inm/author/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ data:; frame-src 'self' https:; img-src 'self' https: data: blob:; media-src 'self' https: blob:; object-src 'none'; script-src 'self' *.freshworksapi.com/ *.freshworks.com/ *.myfreshworks.com/ *.freshdesk.com/ *.freshchat.com/ *.freshcaller.com/ *.freshconnect.io/ *.freshcloud.io/ *.fconstage.io/ accounts.freshworks.com/ wchat.freshchat.com/js/ wchat.freshchat.com/widget/js/ *.siteintercept.qualtrics.com/SIE/ *.qualtrics.com assets.calendly.com/assets/external/widget.js d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ app.getbeamer.com/js/beamer-embed.js analytics.inlinemanual.com/ cdn.inlinemanual.com/embed/ cdn.heapanalytics.com/ s3.amazonaws.com/assets.freshdesk.com/ cdnjs.cloudflare.com/ ajax.cloudflare.com/ static.cloudflareinsights.com/ js.chargebee.com/v1/chargebee.js js.braintreegateway.com/v1/braintree.js static.freshdev.io/ fast.wistia.net/ fast.wistia.com/ static.getbeamer.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js js-agent.newrelic.com/ www.googletagmanager.com/gtag/js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.js www.dropbox.com/static/api/2/dropins.js js.live.net/v7.2/OneDrive.js apis.google.com/ asknice.ly bam.nr-data.net/ www.google-analytics.com/analytics.js maps.googleapis.com/ unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.esm.js unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.js s3.amazonaws.com/freshcaller-widget-loader/ in-freshcaller-widget-loader.s3.ap-south-1.amazonaws.com/ s3.eu-central-1.amazonaws.com/euc-freshcaller-widget-loader/ mec-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ eun-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ au-freshcaller-widget-loader.s3-ap-southeast-2.amazonaws.com/ www.dropbox.com/static/api/1/dropbox.js fast.appcues.com/ translate.google.com/translate_a/element.js translate.googleapis.com/_/translate_http/_/js/ translate-pa.googleapis.com/v1/supportedLanguages cdn.surveyserv.com/widget.min.js cdn.freshdev.io/assets/marketplace-heap.js cdn.freshcloud.io/assets/marketplace-heap.js cdn.freshdev.io/assets/marketplace-analytics.js cdn.inlinemanual.com/inm/author/ app.inlinemanual.com/ *.surveyserv.com *.freshsurvey.com www.google.com/recaptcha/ www.gstatic.com/recaptcha/ *.freddybot.com d3el5jsqgryo0a.cloudfront.net d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ accounts.google.com/ js.userpilot.io/ 'unsafe-inline' 'unsafe-eval'; style-src 'self' *.freshworks.com *.myfreshworks.com/ *.freshchat.com/ d3h0owdjgzys62.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ fonts.googleapis.com/ app.getbeamer.com/styles/beamer-embed.css s3.amazonaws.com/assets.freshdesk.com/ *.freshdesk.com/ wchat.freshchat.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.css fast.appcues.com/ asknice.ly *.surveyserv.com *.freshsurvey.com *.freddybot.com cdn.inlinemanual.com/inm/author/ 'unsafe-inline'; worker-src 'self' blob:",
+          "expires": "Wed, 13 Oct 2010 00:00:00 UTC",
+          "x-envoy-upstream-service-time": "82",
+          "x-trace-id": "00-6a863df80000000010b9bfc48451e07f-93cb949011402757-01",
+          "nel": "{ \"report_to\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true}",
+          "report-to": "{ \"group\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true, \"endpoints\": [{\"url\": \"https://nel.us-east-1.freshedge.net/nelreports/freshdesk\"}]}",
+          "x-server-processing-time-ms": "86",
+          "x-fw-ratelimiting-managed": "true",
+          "x-ratelimit-total": "50.0",
+          "x-ratelimit-used-currentrequest": "1",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "vary": "accept-encoding",
+          "set-cookie": "_x_w=47_1; path=/; HttpOnly; secure, _x_m=x_c; path=/; HttpOnly; secure, __cf_bm=brelyXXStd60s72fYcD4UV0LQEku6xno6AvGuAKfJoQ-1787182584.3218045-1.0.1.1-IXHP64ZY8TX._02LoBu_68oSG_fafF9mQJBjSCxhHkR.FSyDOw4mMuEdS2zKa2fGCCWZ_wuTjjzb3SpZIn0UM2BwDIvxxCkJcLVqWjTSI3o8k2QElPvHtIcFDlz4oOkd; HttpOnly; SameSite=None; Secure; Path=/; Domain=freshdesk.com; Expires=Thu, 20 Aug 2026 00:06:24 GMT",
+          "cf-ray": "a2dcfaf00cdc0384-PDX"
+        },
+        "hash": "90068a1937bfa5bf565a57649810ab8bfe47450d",
+        "request": {
+          "data": {
+            "name": "TestCategoryAgent123Updated",
+            "description": "Updated description"
+          }
+        }
+      }
+    }
+  }
+}
