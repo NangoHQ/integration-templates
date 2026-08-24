@@ -49,13 +49,15 @@ const ProductResponseSchema = z.object({
 const HubspotCrmCheckpointSchema = z.object({
     phase: z.string(),
     after: z.string(),
-    updatedAfter: z.string()
+    updatedAfter: z.string(),
+    windowCount: z.number()
 });
 
 type HubspotCrmCheckpoint = {
     phase: 'initial' | 'incremental';
     after?: string;
     updatedAfter?: string;
+    windowCount: number;
 };
 
 function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undefined {
@@ -64,12 +66,12 @@ function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undef
         return undefined;
     }
 
-    const { phase, after, updatedAfter } = result.data;
+    const { phase, after, updatedAfter, windowCount } = result.data;
     if (phase !== 'initial' && phase !== 'incremental') {
         return undefined;
     }
 
-    const checkpoint: HubspotCrmCheckpoint = { phase };
+    const checkpoint: HubspotCrmCheckpoint = { phase, windowCount };
 
     if (after) {
         checkpoint.after = after;
@@ -154,7 +156,8 @@ const sync = createSync({
                     await nango.saveCheckpoint({
                         phase: 'initial',
                         after: nextAfter,
-                        updatedAfter: latestUpdatedAt || ''
+                        updatedAfter: latestUpdatedAt || '',
+                        windowCount: 0
                     });
                     after = nextAfter;
                     continue;
@@ -164,7 +167,8 @@ const sync = createSync({
                     await nango.saveCheckpoint({
                         phase: 'incremental',
                         after: '',
-                        updatedAfter: latestUpdatedAt
+                        updatedAfter: latestUpdatedAt,
+                        windowCount: 0
                     });
                 }
 
@@ -178,13 +182,15 @@ const sync = createSync({
         // returns a 400. Once a search window approaches the cap, advance the window's lower
         // bound to the latest modification time seen so far and resume paging from there, which
         // partitions the incremental run into bounded sub-windows instead of ever hitting the cap.
+        // The window count is persisted in the checkpoint since a run can be interrupted and
+        // resumed mid-window, at which point the in-memory count alone would be lost.
         // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
         const SEARCH_WINDOW_RESULT_LIMIT = 9900;
 
         let windowFloor = checkpoint.updatedAfter;
         let after = checkpoint.after;
         let latestUpdatedAt = windowFloor;
-        let resultsInWindow = 0;
+        let resultsInWindow = checkpoint.windowCount;
         let hasMore = true;
 
         while (hasMore) {
@@ -211,8 +217,12 @@ const sync = createSync({
                     {
                         filters: [
                             {
+                                // GTE (not GT): records sharing the exact boundary timestamp with the
+                                // last-seen record may still be unfetched on a later page when a window
+                                // advance truncates the search early. GT would permanently skip them;
+                                // GTE re-fetches them and batchSave upserts them idempotently.
                                 propertyName: 'hs_lastmodifieddate',
-                                operator: 'GT',
+                                operator: 'GTE',
                                 value: windowFloor
                             }
                         ]
@@ -262,7 +272,8 @@ const sync = createSync({
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: '',
-                    updatedAfter: windowFloor || ''
+                    updatedAfter: windowFloor || '',
+                    windowCount: 0
                 });
                 continue;
             }
@@ -271,7 +282,8 @@ const sync = createSync({
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: nextAfter,
-                    updatedAfter: windowFloor || ''
+                    updatedAfter: windowFloor || '',
+                    windowCount: resultsInWindow
                 });
                 after = nextAfter;
                 continue;
@@ -281,7 +293,8 @@ const sync = createSync({
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: '',
-                    updatedAfter: latestUpdatedAt
+                    updatedAfter: latestUpdatedAt,
+                    windowCount: 0
                 });
             }
 
