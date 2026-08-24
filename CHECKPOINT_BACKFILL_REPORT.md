@@ -3,10 +3,10 @@
 Changes backed by a successful real dryrun --save on a working connection.
 
 - Branch: `marcin/NAN-6669/backfill-checkpoints--verified`
-- Commit reviewed: `1a02bc3d1b94ca1b62af149c22e305a87ab56f56`
+- Branch state reviewed: current head after the test-regression repair and rebase
 - Original combined change: `6b121377688ad6754df71e5b7d44435516c68039`
-- Comparison base: `78a950c69fab9ac98dc3546b4f1e092cd57ee6e5`
-- Generated: 2026-08-21T11:17:15.095Z
+- Comparison base: `80803b3b93c962dc4f550cf5dd610a0a982a6fa7`
+- Revalidated: 2026-08-24
 
 ## Executive summary
 
@@ -27,6 +27,15 @@ Changes backed by a successful real dryrun --save on a working connection.
 A target is in this branch only when sandbox forensics found an exit-0 `nango dryrun ... --save` against a configured connection. Snapshot changes therefore originate from real provider requests, except for the explicitly listed post-save secret sanitizations.
 
 A checkpoint was added only when the provider exposes genuine resume state. Single-request APIs without page, cursor, offset, token, or next-link support remain checkpoint-free. Empty or ignored checkpoint objects are not accepted.
+
+## Test-regression repair
+
+The original PR changed the shared Vitest setup to replace Nango's standard sync mock and force `getCheckpoint()` to return `undefined`. That caused twelve Docusign/Docusign-sandbox assertions to reject the absent initial checkpoint and changed Monday's request-mock hash. The branch now retains the standard test setup from current `main`; no sync implementation or live snapshot needed to be changed for this repair.
+
+- Previously failing set: 7 test files / 13 tests — all passed.
+- All affected integration suites, including aliases: 2,613 test files / 3,069 tests — all passed.
+- Full integration compilation: 6,418 functions — passed.
+- Changed TypeScript lint: 0 errors — passed.
 
 ## Connection outcome
 
@@ -383,7 +392,6 @@ Each endpoint below was left without a checkpoint because the inspected official
 
 - `integrations/.nango/nango.json` — Regenerated Nango compile artifact for this branch subset.
 - `integrations/index.ts` — Registers verified syncs that were missing from the base index.
-- `integrations/vitest.setup.ts` — Adds checkpoint SDK methods to the shared Nango test mock.
 - `internal/flows.zero.json` — Regenerated catalog metadata for this branch subset.
 
 ## Evidence sources and limitations
