@@ -3138,6 +3138,29 @@ import './jira-basic/actions/create-user.js';
 import './jira-basic/actions/delete-user.js';
 import './jira-basic/actions/fetch-teams.js';
 
+// -- Integration: judgeme-oauth
+import './judgeme-oauth/syncs/orders.js';
+import './judgeme-oauth/syncs/products.js';
+import './judgeme-oauth/syncs/reviews.js';
+import './judgeme-oauth/actions/create-review.js';
+import './judgeme-oauth/actions/create-webhook.js';
+import './judgeme-oauth/actions/delete-webhook.js';
+import './judgeme-oauth/actions/get-product-review-widget.js';
+import './judgeme-oauth/actions/get-product.js';
+import './judgeme-oauth/actions/get-review.js';
+import './judgeme-oauth/actions/get-reviewer.js';
+import './judgeme-oauth/actions/get-shop-settings.js';
+import './judgeme-oauth/actions/list-orders.js';
+import './judgeme-oauth/actions/list-products.js';
+import './judgeme-oauth/actions/list-reviews.js';
+import './judgeme-oauth/actions/list-webhooks.js';
+import './judgeme-oauth/actions/publish-review.js';
+import './judgeme-oauth/actions/reply-to-review.js';
+import './judgeme-oauth/actions/resolve-product-by-external-id.js';
+import './judgeme-oauth/actions/send-manual-review-request.js';
+import './judgeme-oauth/actions/send-private-review-reply.js';
+import './judgeme-oauth/actions/unpublish-review.js';
+
 // -- Integration: keeper-scim
 import './keeper-scim/syncs/users.js';
 import './keeper-scim/actions/create-user.js';
