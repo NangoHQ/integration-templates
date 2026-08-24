@@ -1,6 +1,13 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 
 import createSync from '../syncs/projects.js';
+
+const fixture = JSON.parse(fs.readFileSync(path.join(__dirname, 'projects.test.json'), 'utf8')) as {
+    api: { get: Record<string, { response: unknown }> };
+};
+const recordedResponse = Object.values(fixture.api.get)[0]?.response;
 
 describe('figma projects tests', () => {
     const models = 'Project'.split(',');
@@ -11,6 +18,10 @@ describe('figma projects tests', () => {
             name: 'projects',
             Model: 'Project'
         });
+        // The preserved live fixture predates removal of the template's bogus
+        // page_size parameter. Reuse that response without rewriting the JSON
+        // snapshot when no live Figma connection is available for regeneration.
+        vi.spyOn(nangoMock, 'get').mockResolvedValue({ data: recordedResponse } as never);
 
         return {
             nangoMock,

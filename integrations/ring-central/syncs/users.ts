@@ -1,10 +1,57 @@
 import { createSync } from 'nango';
 import { toUser } from '../mappers/to-user.js';
-import type { RingCentralUser } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
+
+const CheckpointSchema = z.object({
+    startIndex: z.number()
+});
+
+const RingCentralUserSchema = z.object({
+    id: z.string(),
+    schemas: z.array(z.string()),
+    externalId: z.string(),
+    userName: z.string(),
+    name: z.object({
+        familyName: z.string(),
+        givenName: z.string()
+    }),
+    emails: z.array(
+        z.object({
+            type: z.literal('work'),
+            value: z.string()
+        })
+    ),
+    photos: z.array(
+        z.object({
+            type: z.literal('photo'),
+            value: z.string()
+        })
+    ),
+    phoneNumbers: z.array(
+        z.object({
+            type: z.union([z.literal('work'), z.literal('mobile'), z.literal('other')]),
+            value: z.string()
+        })
+    ),
+    addresses: z.array(
+        z.object({
+            type: z.literal('work'),
+            streetAddress: z.string(),
+            locality: z.string(),
+            region: z.string(),
+            postalCode: z.string(),
+            country: z.string()
+        })
+    ),
+    title: z.string(),
+    active: z.boolean(),
+    'urn:ietf:params:scim:schemas:extension:enterprise:2.0:User': z.object({
+        department: z.string()
+    })
+});
 
 /**
  * Fetches RingCentral users, maps them to Nango User objects,
@@ -42,7 +89,13 @@ const sync = createSync({
 
     metadata: z.object({}),
 
+    checkpoint: CheckpointSchema,
+
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { startIndex: 1 };
+        let nextStartIndex: number | undefined = checkpoint.startIndex;
+
         await nango.trackDeletesStart('User');
 
         const config: ProxyConfiguration = {
@@ -51,11 +104,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'startIndex', // startIndex is 1-based
-                offset_start_value: 1,
+                offset_start_value: checkpoint.startIndex,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'count',
                 response_path: 'Resources',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextStartIndex = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             data: {
                 schemas: ['urn:ietf:params:scim:api:messages:2.0:SearchRequest']
@@ -64,11 +120,20 @@ const sync = createSync({
             retries: 10
         };
 
-        for await (const ringCentralUser of nango.paginate<RingCentralUser>(config)) {
-            const users = ringCentralUser.map(toUser);
+        for await (const ringCentralUsers of nango.paginate(config)) {
+            const users = ringCentralUsers.map((raw) => {
+                const parsed = RingCentralUserSchema.parse(raw);
+                return toUser(parsed);
+            });
 
             await nango.batchSave(users, 'User');
+
+            if (nextStartIndex !== undefined) {
+                await nango.saveCheckpoint({ startIndex: nextStartIndex });
+            }
         }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

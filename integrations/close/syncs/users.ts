@@ -17,11 +17,16 @@ const UserSchema = z.object({
     organizations: z.array(z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Full-refresh sync of organization users.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
@@ -29,6 +34,10 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /v1/user/ does not support incremental filters (e.g. date_updated__gt).
         // No changed-since or deleted-record endpoint available. Full refresh required.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let skip: number | undefined = checkpoint?.skip ?? 0;
+
         await nango.trackDeletesStart('User');
 
         const proxyConfig: ProxyConfiguration = {
@@ -37,20 +46,22 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '_skip',
+                offset_start_value: skip ?? 0,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: '_limit',
                 limit: 200,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    skip = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
-                throw new Error('Expected array from Close user endpoint');
-            }
+            const items = z.array(z.unknown()).parse(page);
 
-            const users = page.map((item) => {
+            const users = items.map((item) => {
                 const validated = ProviderUserSchema.safeParse(item);
                 if (!validated.success) {
                     throw new Error(`Invalid user record: ${validated.error.message}`);
@@ -69,8 +80,13 @@ const sync = createSync({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (skip !== undefined) {
+                await nango.saveCheckpoint({ skip });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

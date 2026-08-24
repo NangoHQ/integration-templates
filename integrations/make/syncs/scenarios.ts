@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const SchedulingSchema = z.object({
@@ -61,12 +61,17 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync scenarios for a team',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Scenario: ScenarioSchema
     },
@@ -79,33 +84,14 @@ const sync = createSync({
         }
         const metadata = metadataResult.data;
 
-        // Blocker: provider only exposes /scenarios with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor.
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.make.com/api-documentation/
-            endpoint: '/scenarios',
-            params: {
-                teamId: metadata.team_id
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'pg[offset]',
-                offset_start_value: 0,
-                limit_name_in_request: 'pg[limit]',
-                limit: 500,
-                response_path: 'scenarios'
-            },
-            retries: 3
-        };
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+        let offset = checkpointResult.success ? checkpointResult.data.offset : 0;
+        const limit = 500;
 
-        const pageIterator = nango.paginate(proxyConfig)[Symbol.asyncIterator]();
-        const firstResult = await pageIterator.next();
-        if (!firstResult.done && !Array.isArray(firstResult.value)) {
-            throw new Error('Unexpected scenarios page format');
-        }
-
-        // Only open delete tracking once the first page is confirmed valid, so a failed
-        // run never leaves tracking started without a matching trackDeletesEnd.
+        // https://developers.make.com/api-documentation/
+        // Provider only exposes /scenarios with no changed-since filter,
+        // so we use full-refresh delete tracking with a resumable offset checkpoint.
         await nango.trackDeletesStart('Scenario');
 
         const mapScenarios = (page: unknown[]) =>
@@ -141,24 +127,37 @@ const sync = createSync({
                 };
             });
 
-        if (!firstResult.done) {
-            const scenarios = mapScenarios(firstResult.value);
-            if (scenarios.length > 0) {
-                await nango.batchSave(scenarios, 'Scenario');
-            }
-        }
+        let hasMore = true;
+        while (hasMore) {
+            const response = await nango.get({
+                // https://developers.make.com/api-documentation/
+                endpoint: '/scenarios',
+                params: {
+                    teamId: metadata.team_id,
+                    'pg[limit]': String(limit),
+                    'pg[offset]': String(offset)
+                },
+                retries: 3
+            });
 
-        for (let result = await pageIterator.next(); !result.done; result = await pageIterator.next()) {
-            if (!Array.isArray(result.value)) {
+            const pageResult = z.object({ scenarios: z.array(z.unknown()) }).safeParse(response.data);
+            if (!pageResult.success) {
                 throw new Error('Unexpected scenarios page format');
             }
 
-            const scenarios = mapScenarios(result.value);
+            const scenarios = mapScenarios(pageResult.data.scenarios);
             if (scenarios.length > 0) {
                 await nango.batchSave(scenarios, 'Scenario');
             }
+
+            hasMore = scenarios.length === limit;
+            if (hasMore) {
+                offset += scenarios.length;
+                await nango.saveCheckpoint({ offset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Scenario');
     }
 });

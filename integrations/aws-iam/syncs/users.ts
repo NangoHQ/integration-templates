@@ -1,10 +1,57 @@
 import { createSync } from 'nango';
 import { getAWSAuthHeader } from '../helper/utils.js';
-import type { AWSIAMRequestParams, AWSIAMUser, TagMember, ListUsersResponse, ListUserTagsResponse } from '../types.js';
-
+import type { AWSIAMRequestParams, TagMember } from '../types.js';
 import type { ProxyConfiguration } from 'nango';
 import { User } from '../models.js';
 import { z } from 'zod';
+
+const CheckpointSchema = z.object({
+    marker: z.string()
+});
+
+const ListUsersResponseSchema = z.object({
+    ListUsersResponse: z.object({
+        ListUsersResult: z.object({
+            Users: z.array(
+                z.object({
+                    UserId: z.string(),
+                    Path: z.string(),
+                    UserName: z.string(),
+                    Arn: z.string(),
+                    CreateDate: z.string(),
+                    PasswordLastUsed: z.string().optional()
+                })
+            ),
+            IsTruncated: z.boolean(),
+            Marker: z.string().optional()
+        })
+    })
+});
+
+const ListUserTagsResultSchema = z.object({
+    ListUserTagsResponse: z.object({
+        ListUserTagsResult: z.object({
+            Tags: z.union([
+                z.array(
+                    z.union([
+                        z.object({ Key: z.string(), Value: z.string() }),
+                        z.object({
+                            member: z.union([z.array(z.object({ Key: z.string(), Value: z.string() })), z.object({ Key: z.string(), Value: z.string() })])
+                        })
+                    ])
+                ),
+                z.union([
+                    z.object({ Key: z.string(), Value: z.string() }),
+                    z.object({
+                        member: z.union([z.array(z.object({ Key: z.string(), Value: z.string() })), z.object({ Key: z.string(), Value: z.string() })])
+                    })
+                ])
+            ]),
+            IsTruncated: z.boolean(),
+            Marker: z.string().optional()
+        })
+    })
+});
 
 const sync = createSync({
     description: 'Fetches a list of users from AWS IAM',
@@ -27,7 +74,19 @@ const sync = createSync({
 
     metadata: z.object({}),
 
+    checkpoint: CheckpointSchema,
+
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        let nextMarker: string | undefined;
+        if (rawCheckpoint != null) {
+            const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointParse.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+            }
+            nextMarker = checkpointParse.data.marker || undefined;
+        }
+
         await nango.trackDeletesStart('User');
 
         // Set AWS IAM parameters
@@ -42,7 +101,38 @@ const sync = createSync({
         };
 
         // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html
-        for await (const awsUsers of paginate<AWSIAMUser>(nango, requestParams)) {
+        do {
+            const { method, service, path, params } = requestParams;
+            const queryParams: Record<string, string> = {
+                ...params,
+                ...(nextMarker ? { Marker: nextMarker } : {})
+            };
+
+            // Sort and construct query string
+            const sortedQueryParams = new Map(Object.entries(queryParams).sort());
+            const querystring = new URLSearchParams(Array.from(sortedQueryParams)).toString();
+
+            // Authorization header setup
+            const { authorizationHeader, date } = await getAWSAuthHeader(nango, method, service, path, querystring);
+            const config: ProxyConfiguration = {
+                // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUsers.html
+                endpoint: '/',
+                params: queryParams,
+                headers: {
+                    Authorization: authorizationHeader,
+                    'x-amz-date': date
+                },
+                retries: 10
+            };
+
+            const response = await nango.get(config);
+            const parsed = ListUsersResponseSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Invalid ListUsers response: ${parsed.error.message}`);
+            }
+
+            const listUsersResult = parsed.data.ListUsersResponse.ListUsersResult;
+            const awsUsers = listUsersResult.Users;
             const users: User[] = [];
 
             for (const user of awsUsers) {
@@ -60,8 +150,18 @@ const sync = createSync({
             }
 
             await nango.batchSave(users, 'User');
-        }
 
+            if (listUsersResult.IsTruncated && !listUsersResult.Marker) {
+                throw new Error('ListUsers response is truncated but missing Marker');
+            }
+            nextMarker = listUsersResult.IsTruncated ? listUsersResult.Marker : undefined;
+
+            if (nextMarker) {
+                await nango.saveCheckpoint({ marker: nextMarker });
+            }
+        } while (nextMarker);
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });
@@ -82,32 +182,21 @@ async function fetchUserTags(nango: NangoSyncLocal, userName: string): Promise<T
     };
 
     const tags: TagMember[] = [];
-    // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserTags.html
-    for await (const response of paginate<TagMember>(nango, requestParams)) {
-        tags.push(...response);
-    }
-
-    return tags;
-}
-
-async function* paginate<T>(nango: NangoSyncLocal, requestParams: AWSIAMRequestParams): AsyncGenerator<T[], void, undefined> {
     let nextMarker: string | undefined;
 
+    // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserTags.html
     do {
-        const { method, service, path, params } = requestParams;
         const queryParams: Record<string, string> = {
-            ...params,
+            ...requestParams.params,
             ...(nextMarker ? { Marker: nextMarker } : {})
         };
 
-        // Sort and construct query string
         const sortedQueryParams = new Map(Object.entries(queryParams).sort());
         const querystring = new URLSearchParams(Array.from(sortedQueryParams)).toString();
 
-        // Authorization header setup
-        const { authorizationHeader, date } = await getAWSAuthHeader(nango, method, service, path, querystring);
+        const { authorizationHeader, date } = await getAWSAuthHeader(nango, requestParams.method, requestParams.service, requestParams.path, querystring);
         const config: ProxyConfiguration = {
-            // see docs in calling functions
+            // https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListUserTags.html
             endpoint: '/',
             params: queryParams,
             headers: {
@@ -117,27 +206,30 @@ async function* paginate<T>(nango: NangoSyncLocal, requestParams: AWSIAMRequestP
             retries: 10
         };
 
-        const response = await nango.get<{
-            ListUsersResponse?: ListUsersResponse;
-            ListUserTagsResponse?: ListUserTagsResponse;
-        }>(config);
-
-        // Handle ListUsersResponse
-        if (response.data.ListUsersResponse?.ListUsersResult) {
-            const listUsersResult = response.data.ListUsersResponse.ListUsersResult;
-            const users = listUsersResult.Users;
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-            yield users as T[];
-            nextMarker = listUsersResult.IsTruncated ? listUsersResult.Marker : undefined;
+        const response = await nango.get(config);
+        const parsed = ListUserTagsResultSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new Error(`Invalid ListUserTags response: ${parsed.error.message}`);
         }
 
-        // Handle ListUserTagsResponse
-        if (response.data.ListUserTagsResponse?.ListUserTagsResult) {
-            const listUserTagsResult = response.data.ListUserTagsResponse.ListUserTagsResult;
-            const tags = listUserTagsResult.Tags;
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/no-object-casting
-            yield tags as T[];
-            nextMarker = listUserTagsResult.IsTruncated ? listUserTagsResult.Marker : undefined;
+        const listUserTagsResult = parsed.data.ListUserTagsResponse.ListUserTagsResult;
+        const rawTags = listUserTagsResult.Tags;
+        const tagItems = Array.isArray(rawTags) ? rawTags : [rawTags];
+        for (const item of tagItems) {
+            if ('Key' in item) {
+                tags.push(item);
+            } else {
+                const member = item.member;
+                const members = Array.isArray(member) ? member : [member];
+                tags.push(...members);
+            }
         }
+
+        if (listUserTagsResult.IsTruncated && !listUserTagsResult.Marker) {
+            throw new Error('ListUserTags response is truncated but missing Marker');
+        }
+        nextMarker = listUserTagsResult.IsTruncated ? listUserTagsResult.Marker : undefined;
     } while (nextMarker);
+
+    return tags;
 }

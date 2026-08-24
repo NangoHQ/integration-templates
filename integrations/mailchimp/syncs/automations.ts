@@ -31,12 +31,17 @@ const AutomationSchema = z.object({
     workflow_type: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync automations from Mailchimp.',
     version: '1.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/automations' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Automation: AutomationSchema
     },
@@ -45,6 +50,16 @@ const sync = createSync({
         // Blocker: Mailchimp only supports create/start-time filters for this collection.
         // Automation status, recipient settings, and report summary fields can all change
         // after creation, so a create-time checkpoint would miss legitimate updates.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let offset = 0;
+        if (rawCheckpoint !== null && rawCheckpoint !== undefined) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Failed to parse checkpoint: ${checkpointResult.error.message}`);
+            }
+            offset = checkpointResult.data.offset;
+        }
+
         await nango.trackDeletesStart('Automation');
 
         const proxyConfig: ProxyConfiguration = {
@@ -53,7 +68,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: offset,
                 limit_name_in_request: 'count',
                 limit: 100,
                 response_path: 'automations'
@@ -150,8 +165,12 @@ const sync = createSync({
             if (automations.length > 0) {
                 await nango.batchSave(automations, 'Automation');
             }
+
+            offset += parsedPage.data.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Automation');
     }
 });

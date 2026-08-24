@@ -5,12 +5,33 @@ import type { ProxyConfiguration } from 'nango';
 import { Contact } from '../models.js';
 import { z } from 'zod';
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
+const PhoneNumberSchema = z.object({
+    type: z.union([z.literal('work'), z.literal('mobile'), z.literal('other')]),
+    value: z.string()
+});
+
+const RingCentralContactRecordSchema = z.object({
+    id: z.number(),
+    firstName: z.string().optional(),
+    lastName: z.string().optional(),
+    email: z.string().optional(),
+    phoneNumbers: z.array(PhoneNumberSchema).optional(),
+    company: z.string().optional(),
+    jobTitle: z.string().optional(),
+    notes: z.string().optional()
+});
+
 const sync = createSync({
     description: 'Fetches the list of external contacts from RingCentral',
     version: '1.1.0',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -29,6 +50,9 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let page = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('Contact');
 
         const config: ProxyConfiguration = {
@@ -40,14 +64,22 @@ const sync = createSync({
                 response_path: 'records',
                 offset_name_in_request: 'page',
                 offset_calculation_method: 'per-page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 limit_name_in_request: 'perPage',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : page;
+                }
             }
         };
 
         for await (const records of nango.paginate<RingCentralContactRecord>(config)) {
-            const contacts = records.map(
+            const parsed = RingCentralContactRecordSchema.array().safeParse(records);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse contact records: ${parsed.error.message}`);
+            }
+
+            const contacts = parsed.data.map(
                 (record): Contact => ({
                     id: record.id.toString(),
                     firstName: record.firstName,
@@ -61,7 +93,13 @@ const sync = createSync({
             );
 
             await nango.batchSave(contacts, 'Contact');
+
+            if (typeof page === 'number') {
+                await nango.saveCheckpoint({ page });
+            }
         }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Contact');
     }
 });

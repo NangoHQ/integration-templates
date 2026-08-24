@@ -67,17 +67,28 @@ const SearchStreamResultSchema = z.object({
 
 const SearchStreamResponseSchema = z.array(z.union([SearchStreamResultSchema, SearchStreamErrorSchema]));
 
+const CheckpointSchema = z.object({
+    resourceNames: z.string(),
+    nextIndex: z.number().int().min(0),
+    anyAccountSkipped: z.boolean()
+});
+
 const sync = createSync({
     description: 'Sync directly accessible Google Ads customer accounts',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
+
         const rawMetadata = await nango.getMetadata();
         const metadataResult = MetadataSchema.safeParse(rawMetadata);
         if (!metadataResult.success) {
@@ -85,86 +96,106 @@ const sync = createSync({
         }
         const metadata = metadataResult.data;
 
-        // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-        const listResponse = await nango.get({
-            endpoint: 'v21/customers:listAccessibleCustomers',
-            headers: {
-                'developer-token': metadata.developerToken
-            },
-            retries: 3
-        });
-
-        const listData = ListAccessibleCustomersResponseSchema.parse(listResponse.data);
-        const resourceNames = listData.resourceNames;
-
         await nango.trackDeletesStart('Customer');
 
-        const customers = [];
+        let resourceNames: string[];
+        let nextIndex: number;
         let anyAccountSkipped = false;
 
-        for (const resourceName of resourceNames) {
-            const customerId = resourceName.replace('customers/', '');
+        if (checkpoint) {
+            resourceNames = checkpoint.resourceNames.split(',').filter(Boolean);
+            nextIndex = checkpoint.nextIndex;
+            anyAccountSkipped = checkpoint.anyAccountSkipped;
+        } else {
+            // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
+            const listResponse = await nango.get({
+                endpoint: 'v21/customers:listAccessibleCustomers',
+                headers: {
+                    'developer-token': metadata.developerToken
+                },
+                retries: 3
+            });
 
-            // https://developers.google.com/google-ads/api/docs/reporting/streaming
-            let searchResponse;
-            // @allowTryCatch: test-only developer tokens cannot access non-test accounts.
-            // Skip these accounts gracefully; in production with an approved token this branch is unreachable.
-            try {
-                searchResponse = await nango.post({
-                    endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
-                    data: {
-                        query: 'SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer'
-                    },
-                    headers: {
-                        'developer-token': metadata.developerToken
-                    },
-                    retries: 3
-                });
-            } catch (err) {
-                const isDeveloperTokenError =
-                    err &&
-                    typeof err === 'object' &&
-                    'response' in err &&
-                    err.response &&
-                    typeof err.response === 'object' &&
-                    'status' in err.response &&
-                    err.response.status === 403 &&
-                    'data' in err.response &&
-                    JSON.stringify(err.response.data).includes('DEVELOPER_TOKEN_NOT_APPROVED');
-                if (isDeveloperTokenError) {
-                    anyAccountSkipped = true;
+            const listData = ListAccessibleCustomersResponseSchema.parse(listResponse.data);
+            resourceNames = listData.resourceNames;
+            nextIndex = 0;
+        }
+
+        if (resourceNames.length > 0) {
+            for (let i = nextIndex; i < resourceNames.length; i++) {
+                const resourceName = resourceNames[i];
+                if (!resourceName) {
                     continue;
                 }
-                throw err;
-            }
+                const customerId = resourceName.replace('customers/', '');
 
-            const searchData = SearchStreamResponseSchema.parse(searchResponse.data);
-
-            for (const streamResult of searchData) {
-                if ('error' in streamResult) {
-                    throw new Error(`Google Ads API error for customer ${customerId}: ${streamResult.error.message}`);
+                // https://developers.google.com/google-ads/api/docs/reporting/streaming
+                let searchResponse;
+                // @allowTryCatch: test-only developer tokens cannot access non-test accounts.
+                // Skip these accounts gracefully; in production with an approved token this branch is unreachable.
+                try {
+                    searchResponse = await nango.post({
+                        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                        data: {
+                            query: 'SELECT customer.id, customer.descriptive_name, customer.manager, customer.test_account, customer.status FROM customer'
+                        },
+                        headers: {
+                            'developer-token': metadata.developerToken
+                        },
+                        retries: 3
+                    });
+                } catch (err) {
+                    const isDeveloperTokenError =
+                        err &&
+                        typeof err === 'object' &&
+                        'response' in err &&
+                        err.response &&
+                        typeof err.response === 'object' &&
+                        'status' in err.response &&
+                        err.response.status === 403 &&
+                        'data' in err.response &&
+                        JSON.stringify(err.response.data).includes('DEVELOPER_TOKEN_NOT_APPROVED');
+                    if (isDeveloperTokenError) {
+                        anyAccountSkipped = true;
+                        await nango.saveCheckpoint({ resourceNames: resourceNames.join(','), nextIndex: i + 1, anyAccountSkipped });
+                        continue;
+                    }
+                    throw err;
                 }
 
-                const firstResult = streamResult.results?.[0];
-                if (!firstResult) {
-                    continue;
+                const searchData = SearchStreamResponseSchema.parse(searchResponse.data);
+
+                const customersToSave = [];
+                for (const streamResult of searchData) {
+                    if ('error' in streamResult) {
+                        throw new Error(`Google Ads API error for customer ${customerId}: ${streamResult.error.message}`);
+                    }
+
+                    const firstResult = streamResult.results?.[0];
+                    if (!firstResult) {
+                        continue;
+                    }
+
+                    const customerRow = firstResult.customer;
+                    customersToSave.push({
+                        id: customerRow.id,
+                        resourceName: customerRow.resourceName,
+                        ...(customerRow.descriptiveName !== undefined && { descriptiveName: customerRow.descriptiveName }),
+                        ...(customerRow.manager !== undefined && { manager: customerRow.manager }),
+                        ...(customerRow.testAccount !== undefined && { testAccount: customerRow.testAccount }),
+                        ...(customerRow.status !== undefined && { status: customerRow.status })
+                    });
                 }
 
-                const customerRow = firstResult.customer;
-                customers.push({
-                    id: customerRow.id,
-                    resourceName: customerRow.resourceName,
-                    ...(customerRow.descriptiveName !== undefined && { descriptiveName: customerRow.descriptiveName }),
-                    ...(customerRow.manager !== undefined && { manager: customerRow.manager }),
-                    ...(customerRow.testAccount !== undefined && { testAccount: customerRow.testAccount }),
-                    ...(customerRow.status !== undefined && { status: customerRow.status })
-                });
+                if (customersToSave.length > 0) {
+                    await nango.batchSave(customersToSave, 'Customer');
+                }
+
+                await nango.saveCheckpoint({ resourceNames: resourceNames.join(','), nextIndex: i + 1, anyAccountSkipped });
             }
         }
 
-        if (customers.length > 0) {
-            await nango.batchSave(customers, 'Customer');
-        }
+        await nango.clearCheckpoint();
 
         // If any account was skipped (test-only developer token cannot access it), this run only
         // observed a partial view of accessible customers. Finalizing deletion tracking here would

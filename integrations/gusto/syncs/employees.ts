@@ -1,9 +1,89 @@
 import { createSync } from 'nango';
-import type { EmployeeResponse } from '../types.js';
 
 import type { ProxyConfiguration } from 'nango';
 import { GustoEmployee } from '../models.js';
 import { z } from 'zod';
+
+const CheckpointSchema = z.object({
+    page: z.number().int().min(1)
+});
+
+const JobSchema = z.object({
+    uuid: z.string(),
+    version: z.string(),
+    employee_uuid: z.string(),
+    current_compensation_uuid: z.string(),
+    payment_unit: z.string().nullable(),
+    primary: z.boolean(),
+    title: z.string().nullable(),
+    compensations: z.array(z.any()),
+    rate: z.string(),
+    hire_date: z.string()
+});
+
+const PaidTimeOffSchema = z.object({
+    name: z.string().nullable(),
+    policy_name: z.string().nullable(),
+    policy_uuid: z.string().nullable(),
+    accrual_unit: z.string().nullable(),
+    accrual_rate: z.string().nullable(),
+    accrual_method: z.string().nullable().optional(),
+    accrual_period: z.string().nullable(),
+    accrual_balance: z.string().nullable(),
+    maximum_accrual_balance: z.string().nullable(),
+    paid_at_termination: z.boolean()
+});
+
+const CustomFieldSchema = z.object({
+    id: z.string(),
+    company_custom_field_id: z.string(),
+    name: z.string(),
+    description: z.string().nullable(),
+    type: z.string(),
+    value: z.string(),
+    selection_options: z.array(z.string()).nullable().optional()
+});
+
+const TerminationSchema = z.object({
+    uuid: z.string(),
+    version: z.string(),
+    employee_uuid: z.string(),
+    active: z.boolean(),
+    cancelable: z.boolean(),
+    effective_date: z.string(),
+    run_termination_payroll: z.boolean()
+});
+
+const EmployeeResponseSchema = z.object({
+    uuid: z.string(),
+    first_name: z.string(),
+    middle_initial: z.string().nullable(),
+    last_name: z.string(),
+    email: z.string().nullable(),
+    company_uuid: z.string(),
+    manager_uuid: z.string().nullable(),
+    version: z.string(),
+    department: z.string().nullable(),
+    department_uuid: z.string().nullable(),
+    terminated: z.boolean(),
+    two_percent_shareholder: z.boolean().nullable(),
+    onboarded: z.boolean(),
+    onboarding_status: z.string(),
+    jobs: z.array(JobSchema),
+    eligible_paid_time_off: z.array(PaidTimeOffSchema),
+    terminations: z.array(TerminationSchema),
+    garnishments: z.array(z.any()),
+    custom_fields: z.array(CustomFieldSchema).optional(),
+    date_of_birth: z.string().nullable(),
+    has_ssn: z.boolean(),
+    ssn: z.string(),
+    phone: z.string().nullable(),
+    preferred_first_name: z.string().nullable(),
+    work_email: z.string().nullable(),
+    current_employment_status: z.string().nullable().optional()
+});
+
+const EmployeesPageSchema = z.array(EmployeeResponseSchema);
 
 /**
  * Fetches all employees from Gusto and maps them to the GustoEmployee model
@@ -14,6 +94,7 @@ const sync = createSync({
     frequency: 'every 5m',
     autoStart: false,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     endpoints: [
         {
@@ -30,7 +111,12 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
-        // No checkpoint is used because the Gusto employees endpoint is only offset-paginated and does not expose a changed-since filter.
+        // Blocker: provider only exposes /v1/companies/{company_id}/employees with no changed-since filter,
+        // no deleted-record endpoint, and no resumable cursor.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
+        let page: number = checkpoint?.page ?? 1;
+
         const connection = await nango.getConnection();
 
         const companyUuid = connection.connection_config['companyUuid'];
@@ -41,22 +127,28 @@ const sync = createSync({
             });
         }
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://docs.gusto.com/embedded-payroll/reference/get-v1-companies-company_id-employees
-            endpoint: `/v1/companies/${companyUuid}/employees`,
-            retries: 10,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                response_path: '',
-                limit_name_in_request: 'per_page',
-                limit: 100
-            }
-        };
+        await nango.trackDeletesStart('GustoEmployee');
 
-        for await (const employees of nango.paginate<EmployeeResponse>(proxyConfig)) {
+        while (true) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.gusto.com/embedded-payroll/reference/get-v1-companies-company_id-employees
+                endpoint: `/v1/companies/${companyUuid}/employees`,
+                params: {
+                    page,
+                    per_page: 100
+                },
+                retries: 10
+            };
+
+            const response = await nango.get(proxyConfig);
+            const employees = EmployeesPageSchema.parse(response.data);
+
+            if (employees.length === 0) {
+                break;
+            }
+
             // Map employees to GustoEmployee model
-            const mappedEmployees: GustoEmployee[] = employees.map((employee: EmployeeResponse) => ({
+            const mappedEmployees = employees.map((employee) => ({
                 id: employee.uuid,
                 uuid: employee.uuid,
                 first_name: employee.first_name,
@@ -94,7 +186,13 @@ const sync = createSync({
 
             await nango.log(`Saving batch of ${mappedEmployees.length} employee(s)`);
             await nango.batchSave(mappedEmployees, 'GustoEmployee');
+
+            page++;
+            await nango.saveCheckpoint({ page });
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('GustoEmployee');
     }
 });
 

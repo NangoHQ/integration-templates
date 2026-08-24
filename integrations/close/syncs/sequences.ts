@@ -33,18 +33,27 @@ const ProviderSequenceSchema = z.object({
     steps: z.array(ProviderSequenceStepSchema)
 });
 
+const CheckpointSchema = z.object({
+    _skip: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Full-refresh sync of email sequences.',
     version: '1.0.0',
     // https://developer.close.com/api/resources/sequences/list
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Sequence: SequenceSchema
     },
 
     exec: async (nango) => {
-        let deleteTrackingStarted = false;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextSkip = checkpoint?._skip ?? 0;
+
+        await nango.trackDeletesStart('Sequence');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.close.com/api/resources/sequences/list
@@ -52,7 +61,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '_skip',
-                offset_start_value: 0,
+                offset_start_value: nextSkip,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: '_limit',
                 limit: 200,
@@ -62,7 +71,7 @@ const sync = createSync({
         };
 
         for await (const batch of nango.paginate(proxyConfig)) {
-            const items: unknown[] = batch;
+            const items = z.array(z.unknown()).parse(batch);
             const sequences: z.infer<typeof SequenceSchema>[] = [];
 
             for (const raw of items) {
@@ -100,17 +109,15 @@ const sync = createSync({
             }
 
             if (sequences.length > 0) {
-                if (!deleteTrackingStarted) {
-                    await nango.trackDeletesStart('Sequence');
-                    deleteTrackingStarted = true;
-                }
                 await nango.batchSave(sequences, 'Sequence');
             }
+
+            nextSkip += items.length;
+            await nango.saveCheckpoint({ _skip: nextSkip });
         }
 
-        if (deleteTrackingStarted) {
-            await nango.trackDeletesEnd('Sequence');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Sequence');
     }
 });
 

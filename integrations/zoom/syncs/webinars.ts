@@ -29,11 +29,16 @@ const WebinarSchema = z.object({
     join_url: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    next_page_token: z.string()
+});
+
 const sync = createSync({
     description: 'Sync webinars from Zoom.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Webinar: WebinarSchema
     },
@@ -46,15 +51,17 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        // next_page_token expires in 15 minutes — shorter than the hourly run interval.
-        // Always start fresh to avoid poisoning runs after failures with stale cursors.
+        const checkpoint = await nango.getCheckpoint();
+        let nextPageToken = checkpoint?.['next_page_token'] ?? '';
+
         await nango.trackDeletesStart('Webinar');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.zoom.us/docs/api/rest/reference/zoom-api/methods/#operation/webinars
             endpoint: '/users/me/webinars',
             params: {
-                page_size: 300
+                page_size: 300,
+                ...(nextPageToken && { next_page_token: nextPageToken })
             },
             paginate: {
                 type: 'cursor',
@@ -62,23 +69,22 @@ const sync = createSync({
                 cursor_path_in_response: 'next_page_token',
                 response_path: 'webinars',
                 limit_name_in_request: 'page_size',
-                limit: 300
+                limit: 300,
+                on_page: async ({ nextPageParam }) => {
+                    nextPageToken = typeof nextPageParam === 'string' ? nextPageParam : '';
+                }
             },
             retries: 3
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
             if (!Array.isArray(page)) {
-                continue;
+                throw new Error('Invalid webinars page: expected array');
             }
 
-            const records = page
-                .map((item) => {
-                    const result = ProviderWebinarSchema.safeParse(item);
-                    return result.success ? result.data : null;
-                })
-                .filter((webinar): webinar is z.infer<typeof ProviderWebinarSchema> => webinar !== null)
-                .map((webinar) => ({
+            const records = page.map((item) => {
+                const webinar = ProviderWebinarSchema.parse(item);
+                return {
                     id: String(webinar.id),
                     ...(webinar.uuid != null && { uuid: webinar.uuid }),
                     ...(webinar.host_id != null && { host_id: webinar.host_id }),
@@ -90,13 +96,19 @@ const sync = createSync({
                     ...(webinar.timezone != null && { timezone: webinar.timezone }),
                     ...(webinar.created_at != null && { created_at: webinar.created_at }),
                     ...(webinar.join_url != null && { join_url: webinar.join_url })
-                }));
+                };
+            });
 
             if (records.length > 0) {
                 await nango.batchSave(records, 'Webinar');
             }
+
+            if (nextPageToken) {
+                await nango.saveCheckpoint({ next_page_token: nextPageToken });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Webinar');
     }
 });

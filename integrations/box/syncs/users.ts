@@ -45,7 +45,11 @@ const ProviderUserSchema = z.object({
     modified_at: z.string().optional()
 });
 
-const sync = createSync<typeof ModelsSchema>({
+const CheckpointSchema = z.object({
+    marker: z.string()
+});
+
+const sync = createSync<typeof ModelsSchema, undefined, typeof CheckpointSchema>({
     description: 'Fetches a list of users from Box. Requires an enterprise account.',
     version: '3.0.0',
     frequency: 'every day',
@@ -57,21 +61,32 @@ const sync = createSync<typeof ModelsSchema>({
             group: 'Users'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: ModelsSchema,
 
     exec: async (nango) => {
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        let nextMarker: string | undefined = checkpointResult.success ? checkpointResult.data.marker : undefined;
+
         await nango.trackDeletesStart('User');
 
         for await (const boxUsers of nango.paginate<User>({
             // https://developer.box.com/reference/get-users/
             endpoint: '/2.0/users',
+            params: {
+                usemarker: 'true',
+                ...(nextMarker && { marker: nextMarker })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next_marker',
                 limit_name_in_request: 'limit',
                 cursor_name_in_request: 'marker',
                 response_path: 'entries',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextMarker = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         })) {
@@ -100,8 +115,13 @@ const sync = createSync<typeof ModelsSchema>({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (nextMarker !== undefined) {
+                await nango.saveCheckpoint({ marker: nextMarker });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

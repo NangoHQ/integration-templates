@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Speculative checkpoint backfill review</title>
+        <style>
+            :root {
+                color-scheme: light dark;
+                --bg: #f7f8fb;
+                --card: #fff;
+                --text: #172033;
+                --muted: #5d6678;
+                --line: #d9deea;
+                --warn: #a35400;
+                --accent: #3157d5;
+            }
+            @media (prefers-color-scheme: dark) {
+                :root {
+                    --bg: #10131b;
+                    --card: #181d28;
+                    --text: #eef2ff;
+                    --muted: #aeb7cc;
+                    --line: #343c50;
+                    --warn: #ffbd66;
+                    --accent: #91a8ff;
+                }
+            }
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--text);
+                font:
+                    15px/1.55 system-ui,
+                    -apple-system,
+                    sans-serif;
+            }
+            main {
+                max-width: 1280px;
+                margin: auto;
+                padding: 32px;
+            }
+            h1 {
+                font-size: 32px;
+                margin: 0 0 8px;
+            }
+            h2 {
+                margin-top: 34px;
+            }
+            .lead {
+                font-size: 18px;
+                max-width: 900px;
+            }
+            .muted {
+                color: var(--muted);
+            }
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 12px;
+                margin: 24px 0;
+            }
+            .card {
+                background: var(--card);
+                border: 1px solid var(--line);
+                border-radius: 12px;
+                padding: 16px;
+            }
+            .num {
+                font-size: 28px;
+                font-weight: 750;
+            }
+            .warn {
+                color: var(--warn);
+                font-weight: 700;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background: var(--card);
+                font-size: 13px;
+            }
+            th,
+            td {
+                text-align: left;
+                vertical-align: top;
+                border: 1px solid var(--line);
+                padding: 9px;
+            }
+            th {
+                position: sticky;
+                top: 0;
+                background: var(--card);
+            }
+            code {
+                font:
+                    12px ui-monospace,
+                    SFMono-Regular,
+                    monospace;
+            }
+            a {
+                color: var(--accent);
+            }
+            .scroll {
+                overflow: auto;
+                border-radius: 10px;
+            }
+            .note {
+                border-left: 4px solid var(--warn);
+                padding: 10px 14px;
+                background: var(--card);
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Speculative checkpoint backfill review</h1>
+            <p class="lead">Checkpoint changes that still lack complete successful live validate-and-save verification.</p>
+            <p class="muted">
+                <code>marcin/NAN-6669/backfill-checkpoints--speculative</code> · rebuilt from <code>origin/main@80803b3b</code> · split 2026-08-24
+            </p>
+            <div class="cards">
+                <div class="card">
+                    <div class="num">30</div>
+                    <div>integrations remaining</div>
+                </div>
+                <div class="card">
+                    <div class="num">95</div>
+                    <div>changed syncs</div>
+                </div>
+                <div class="card">
+                    <div class="num">94</div>
+                    <div>checkpoint implementations</div>
+                </div>
+                <div class="card">
+                    <div class="num">0</div>
+                    <div>new live snapshots</div>
+                </div>
+                <div class="card">
+                    <div class="num">6,410</div>
+                    <div>functions compiled</div>
+                </div>
+                <div class="card">
+                    <div class="num">1,275</div>
+                    <div>affected tests passed</div>
+                </div>
+                <div class="card">
+                    <div class="num">68</div>
+                    <div>syncs moved to <a href="https://github.com/NangoHQ/integration-templates/pull/649">PR #649</a></div>
+                </div>
+            </div>
+            <p class="note">
+                <strong>Snapshot policy:</strong> baseline JSON fixtures are preserved. No remaining sync completed the full live
+                <code>dryrun --validate</code> + <code>dryrun --save</code> bar.
+            </p>
+            <h2>Remaining integrations and blockers</h2>
+            <div class="scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Integration</th>
+                            <th>Syncs</th>
+                            <th>Changed syncs</th>
+                            <th>Connection (dev)</th>
+                            <th>Why speculative</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>1password-scim</code></td>
+                            <td>1</td>
+                            <td><code>scim-users</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>active-campaign</code></td>
+                            <td>9</td>
+                            <td>
+                                <code>accounts</code>, <code>automations</code>, <code>campaigns</code>, <code>custom-fields</code>, <code>deal-groups</code>,
+                                <code>deal-stages</code>, <code>lists</code>, <code>notes</code>, <code>tags</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/active-campaign/57bf0a39-cce7-40b2-8c88-952674fa244d/auth"
+                                    >57bf0a39-cce7-40b2-8c88-952674fa244d</a
+                                >
+                            </td>
+                            <td>Connection ID was not found in dev.</td>
+                        </tr>
+                        <tr>
+                            <td><code>adp</code></td>
+                            <td>1</td>
+                            <td><code>unified-employees</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>aws-iam</code></td>
+                            <td>1</td>
+                            <td><code>users</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>azure-devops</code></td>
+                            <td>6</td>
+                            <td>
+                                <code>branches</code>, <code>build-definitions</code>, <code>iterations</code>, <code>pipelines</code>,
+                                <code>repositories</code>, <code>teams</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/azure-devops/8fed0252-ad39-402d-90ec-82e2a925a908/auth"
+                                    >8fed0252-ad39-402d-90ec-82e2a925a908</a
+                                >
+                            </td>
+                            <td>401: the Azure DevOps PAT is expired; some calls also need metadata.</td>
+                        </tr>
+                        <tr>
+                            <td><code>box</code></td>
+                            <td>1</td>
+                            <td><code>users</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/box/3aaf1702-c0ec-4700-9bbb-c135ff5167bc/auth"
+                                    >3aaf1702-c0ec-4700-9bbb-c135ff5167bc</a
+                                >
+                            </td>
+                            <td>403: the connection cannot list enterprise users.</td>
+                        </tr>
+                        <tr>
+                            <td><code>close</code></td>
+                            <td>3</td>
+                            <td><code>pipelines</code>, <code>sequences</code>, <code>users</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/close/d87cabc9-bf29-4af9-9e07-b4daeebbfa70/auth"
+                                    >d87cabc9-bf29-4af9-9e07-b4daeebbfa70</a
+                                >
+                            </td>
+                            <td>401 Unauthorized; some calls also need metadata.</td>
+                        </tr>
+                        <tr>
+                            <td><code>connectsecure</code></td>
+                            <td>5</td>
+                            <td><code>agents</code>, <code>companies</code>, <code>problem_groups</code>, <code>users</code>, <code>vulnerabilities</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/connectsecure/c9ef67b1-e23f-4aa5-9563-8f773e7826fd/auth"
+                                    >c9ef67b1-e23f-4aa5-9563-8f773e7826fd</a
+                                >
+                            </td>
+                            <td>All five changed endpoints returned 403.</td>
+                        </tr>
+                        <tr>
+                            <td><code>figma</code></td>
+                            <td>2</td>
+                            <td><code>comments</code>, <code>projects</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/figma/1dc4bb1f-e9d5-4a65-af25-15d2535df190/auth"
+                                    >1dc4bb1f-e9d5-4a65-af25-15d2535df190</a
+                                >
+                            </td>
+                            <td>404: the deprecated team-projects endpoint is unavailable for this connection.</td>
+                        </tr>
+                        <tr>
+                            <td><code>github</code></td>
+                            <td>1</td>
+                            <td><code>repositories</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/github-app-oauth/9a029a76-8a73-4756-9e21-969c401dc8f9/auth"
+                                    >9a029a76-8a73-4756-9e21-969c401dc8f9</a
+                                >
+                            </td>
+                            <td>The repository traversal ended in a 504 gateway timeout, including retry.</td>
+                        </tr>
+                        <tr>
+                            <td><code>gong</code></td>
+                            <td>4</td>
+                            <td><code>call-outcomes</code>, <code>library-folders</code>, <code>scorecards</code>, <code>trackers</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/gong-oauth/8a2632ad-047e-4c8c-ae61-8db94e15c67f/auth"
+                                    >8a2632ad-047e-4c8c-ae61-8db94e15c67f</a
+                                >
+                            </td>
+                            <td>`library-folders` returned 400 Bad request; three other changed syncs passed.</td>
+                        </tr>
+                        <tr>
+                            <td><code>google</code></td>
+                            <td>1</td>
+                            <td><code>workspace-org-units</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>google-ads</code></td>
+                            <td>2</td>
+                            <td><code>accessible-customers</code>, <code>conversion-actions</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/google-ads/892a25cd-ab96-4d8b-b687-d7e106b9d3dc/auth"
+                                    >892a25cd-ab96-4d8b-b687-d7e106b9d3dc</a
+                                >
+                            </td>
+                            <td>Required developer-token/customer-ID metadata is absent.</td>
+                        </tr>
+                        <tr>
+                            <td><code>gusto</code></td>
+                            <td>2</td>
+                            <td><code>employees</code>, <code>unified-employees</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>hubstaff</code></td>
+                            <td>3</td>
+                            <td><code>clients</code>, <code>projects</code>, <code>tasks</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/hubstaff/7ba8c3c4-a643-4986-990a-58c179b1c512/auth"
+                                    >7ba8c3c4-a643-4986-990a-58c179b1c512</a
+                                >
+                            </td>
+                            <td>401 `invalid_token` on all three changed endpoints.</td>
+                        </tr>
+                        <tr>
+                            <td><code>instantly</code></td>
+                            <td>2</td>
+                            <td><code>custom-tags</code>, <code>webhooks</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/instantly/0ecdcd1a-50c0-4ead-81dc-b019da18c0fd/auth"
+                                    >0ecdcd1a-50c0-4ead-81dc-b019da18c0fd</a
+                                >
+                            </td>
+                            <td>402 Payment Required for the changed endpoints.</td>
+                        </tr>
+                        <tr>
+                            <td><code>intercom</code></td>
+                            <td>6</td>
+                            <td>
+                                <code>admins</code>, <code>articles</code>, <code>companies</code>, <code>help-center-collections</code>, <code>segments</code>,
+                                <code>tags</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/intercom/56f22489-50cb-4e87-8f21-2519d6d512e4/auth"
+                                    >56f22489-50cb-4e87-8f21-2519d6d512e4</a
+                                >
+                            </td>
+                            <td>401: the Intercom access token is invalid.</td>
+                        </tr>
+                        <tr>
+                            <td><code>mailchimp</code></td>
+                            <td>3</td>
+                            <td><code>audiences</code>, <code>automations</code>, <code>stores</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/mailchimp/263b8d18-1729-4eaf-84c7-392aaabbbd88/auth"
+                                    >263b8d18-1729-4eaf-84c7-392aaabbbd88</a
+                                >
+                            </td>
+                            <td>400 `base_url_override_not_allowed` in proxy configuration.</td>
+                        </tr>
+                        <tr>
+                            <td><code>make</code></td>
+                            <td>3</td>
+                            <td><code>hooks</code>, <code>incomplete-executions</code>, <code>scenarios</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/make/fd1f21f1-ffcc-4c9a-8726-2189752fcf2d/auth"
+                                    >fd1f21f1-ffcc-4c9a-8726-2189752fcf2d</a
+                                >
+                            </td>
+                            <td>401: required provider scopes are missing.</td>
+                        </tr>
+                        <tr>
+                            <td><code>microsoft-teams</code></td>
+                            <td>5</td>
+                            <td>
+                                <code>channel-message-replies</code>, <code>chat-members</code>, <code>chats</code>, <code>joined-teams</code>,
+                                <code>team-members</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/microsoft-teams/a0918aff-f7d6-4ddb-8260-632135ed52d9/auth"
+                                    >a0918aff-f7d6-4ddb-8260-632135ed52d9</a
+                                >
+                            </td>
+                            <td>Four changed endpoints returned 401 because no valid Teams license is present.</td>
+                        </tr>
+                        <tr>
+                            <td><code>ninety-io</code></td>
+                            <td>2</td>
+                            <td><code>rocks</code>, <code>todos</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/ninety-io/8c5b0dc2-d809-438d-bd9d-2933eb90b101/auth"
+                                    >8c5b0dc2-d809-438d-bd9d-2933eb90b101</a
+                                >
+                            </td>
+                            <td>429 tier rate limit on both syncs, including cooldown retry.</td>
+                        </tr>
+                        <tr>
+                            <td><code>okta</code></td>
+                            <td>8</td>
+                            <td>
+                                <code>application-users</code>, <code>applications</code>, <code>authorization-servers</code>, <code>factors</code>,
+                                <code>group-memberships</code>, <code>policies</code>, <code>role-assignments</code>, <code>schemas</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/okta-cc/fd93445d-26b6-4cb8-9dd0-c85f78e3a7b5/auth"
+                                    >fd93445d-26b6-4cb8-9dd0-c85f78e3a7b5</a
+                                >
+                            </td>
+                            <td>`policies` returned 400 because `ENTITY_RISK_POLICY` is unavailable; seven syncs passed.</td>
+                        </tr>
+                        <tr>
+                            <td><code>pipelinecrm</code></td>
+                            <td>2</td>
+                            <td><code>teams</code>, <code>users</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/pipelinecrm/31ff6c41-73e4-433a-b477-c6ec1c4a04e0/auth"
+                                    >31ff6c41-73e4-433a-b477-c6ec1c4a04e0</a
+                                >
+                            </td>
+                            <td>403: the provider account is cancelled.</td>
+                        </tr>
+                        <tr>
+                            <td><code>ring-central</code></td>
+                            <td>2</td>
+                            <td><code>contacts</code>, <code>users</code></td>
+                            <td><span class="warn">Not configured</span></td>
+                            <td>No connection configured.</td>
+                        </tr>
+                        <tr>
+                            <td><code>tiktok-ads</code></td>
+                            <td>4</td>
+                            <td><code>ad-groups</code>, <code>automated-rules</code>, <code>catalogs</code>, <code>pixels</code></td>
+                            <td><a href="https://app.nango.dev/dev/connections/tiktok-accounts/nango-sandbox/auth">nango-sandbox</a></td>
+                            <td>`pixels` returned a payload without the required `data`; three syncs passed.</td>
+                        </tr>
+                        <tr>
+                            <td><code>tiktok-personal</code></td>
+                            <td>1</td>
+                            <td><code>videos</code></td>
+                            <td><a href="https://app.nango.dev/dev/connections/tiktok-accounts/nango-sandbox-temp/auth">nango-sandbox-temp</a></td>
+                            <td>`videos` returned 404 from `/v2/video/list/`.</td>
+                        </tr>
+                        <tr>
+                            <td><code>woocommerce</code></td>
+                            <td>5</td>
+                            <td>
+                                <code>customers</code>, <code>product-categories</code>, <code>product-reviews</code>, <code>product-tags</code>,
+                                <code>product-variations</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/woocommerce/60a533b5-fe26-4637-985f-26d3e5d68c5a/auth"
+                                    >60a533b5-fe26-4637-985f-26d3e5d68c5a</a
+                                >
+                            </td>
+                            <td>Connection ID was not found in dev.</td>
+                        </tr>
+                        <tr>
+                            <td><code>workday</code></td>
+                            <td>6</td>
+                            <td>
+                                <code>employees</code>, <code>groups</code>, <code>job-profiles</code>, <code>locations</code>, <code>organizations</code>,
+                                <code>positions</code>
+                            </td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/workday/f835d3ab-41ca-4aca-bb65-ee9c82a1a5e0/auth"
+                                    >f835d3ab-41ca-4aca-bb65-ee9c82a1a5e0</a
+                                >
+                            </td>
+                            <td>Connection ID was not found in dev.</td>
+                        </tr>
+                        <tr>
+                            <td><code>zoho-people</code></td>
+                            <td>3</td>
+                            <td><code>departments</code>, <code>designations</code>, <code>holidays</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/zoho-people/718f044d-f6f2-4ebf-94d7-d92865f88531/auth"
+                                    >718f044d-f6f2-4ebf-94d7-d92865f88531</a
+                                >
+                            </td>
+                            <td>403: these APIs are unavailable on the connected pricing plan.</td>
+                        </tr>
+                        <tr>
+                            <td><code>zoom</code></td>
+                            <td>1</td>
+                            <td><code>webinars</code></td>
+                            <td>
+                                <a href="https://app.nango.dev/dev/connections/zoom/7252ea99-4476-410e-a830-3f45f80ebeac/auth"
+                                    >7252ea99-4476-410e-a830-3f45f80ebeac</a
+                                >
+                            </td>
+                            <td>400: Webinar plan is not enabled for the connected user.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2>No-checkpoint exception: <code>figma/projects</code></h2>
+            <p>
+                The <a href="https://developers.figma.com/docs/rest-api/projects-endpoints/#get-team-projects">official Figma documentation</a> defines
+                <code>GET /v1/teams/:team_id/projects</code>. Supported parameters: path <code>team_id</code>; query parameters <strong>none</strong>; body
+                parameters <strong>none</strong>. It returns one response, so the branch removes fake cursor/page-size pagination instead of adding a no-op
+                checkpoint. Figma now deprecates this endpoint in favor of v2 folders, and the available connection returned 404.
+            </p>
+            <h2>Artifacts</h2>
+            <ul>
+                <li>Snapshot JSON changed or manually edited: <strong>0</strong>.</li>
+                <li>Generated TypeScript test changes: <strong>3</strong> (Figma and Intercom harness adjustments).</li>
+                <li>Verified subset: <a href="https://github.com/NangoHQ/integration-templates/pull/649">PR #649</a>, 21 integrations / 68 syncs.</li>
+            </ul>
+            <p>
+                During the final rebase, <code>cal-com-v2/event-types</code> and <code>cal-com-v2/events</code> were removed from this PR because newer
+                implementations landed independently on <code>main</code> in PR #643. The counts above cover only changes still introduced by this branch.
+            </p>
+            <h2>Additional source-audit correction</h2>
+            <p>
+                The final checkpoint lifecycle audit found that <code>microsoft-teams/chats</code> and <code>microsoft-teams/team-members</code> read their
+                checkpoints without awaiting the asynchronous call. Both reads now use <code>await nango.getCheckpoint()</code>. They remain speculative because
+                the available Microsoft Teams connection does not have a valid Teams license.
+            </p>
+        </main>
+    </body>
+</html>

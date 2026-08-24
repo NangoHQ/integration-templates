@@ -1,4 +1,4 @@
-import { createSync, ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const DepartmentSchema = z.object({
@@ -16,6 +16,18 @@ const RawDepartmentFields = z.record(z.string(), z.unknown());
 
 const RawDepartmentItem = z.record(z.string(), z.array(RawDepartmentFields).min(1));
 
+const ResponseEnvelopeSchema = z.object({
+    response: z.object({
+        result: z.array(z.unknown()).optional(),
+        message: z.string().optional(),
+        status: z.number()
+    })
+});
+
+const CheckpointSchema = z.object({
+    sIndex: z.number()
+});
+
 const sync = createSync({
     description: 'Sync all departments',
     frequency: 'every hour',
@@ -28,34 +40,50 @@ const sync = createSync({
             path: '/syncs/departments'
         }
     ],
+    checkpoint: CheckpointSchema,
     exec: async (nango) => {
         // https://www.zoho.com/people/api/overview.html
-        const config: ProxyConfiguration = {
-            // https://www.zoho.com/people/api/overview.html
-            endpoint: '/people/api/forms/department/getRecords',
-            params: {
-                sIndex: 1,
-                limit: 200
-            },
-            retries: 3,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'sIndex',
-                limit_name_in_request: 'limit',
-                offset_start_value: 1,
-                offset_calculation_method: 'by-response-size',
-                response_path: 'response.result',
-                limit: 200
+        const checkpoint = await nango.getCheckpoint();
+        let validCheckpoint: z.infer<typeof CheckpointSchema> | undefined;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
             }
-        };
+            validCheckpoint = parsedCheckpoint.data;
+        }
 
-        let departments = [];
+        const limit = 200;
+        let sIndex = validCheckpoint?.sIndex ?? 1;
+        let hasMore = true;
 
         await nango.trackDeletesStart('Department');
 
-        const paginator: AsyncGenerator<unknown[], undefined, void> = nango.paginate(config);
-        for await (const batch of paginator) {
-            for (const item of batch) {
+        while (hasMore) {
+            // https://www.zoho.com/people/api/overview.html
+            const response = await nango.get({
+                endpoint: '/people/api/forms/department/getRecords',
+                params: {
+                    sIndex: String(sIndex),
+                    limit: String(limit)
+                },
+                retries: 3
+            });
+
+            const envelope = ResponseEnvelopeSchema.safeParse(response.data);
+            if (!envelope.success) {
+                throw new Error(`Invalid response envelope from Zoho People department API: ${envelope.error.message}`);
+            }
+
+            const { response: resp } = envelope.data;
+            if (resp.status !== 0) {
+                throw new Error(`Zoho People API error: ${resp.message ?? 'Unknown error'}`);
+            }
+
+            const result = resp.result ?? [];
+            const departments: Array<z.infer<typeof DepartmentSchema>> = [];
+
+            for (const item of result) {
                 const parsed = RawDepartmentItem.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Invalid department item: ${parsed.error.message}`);
@@ -103,16 +131,19 @@ const sync = createSync({
 
             if (departments.length > 0) {
                 await nango.batchSave(departments, 'Department');
-                departments = [];
+            }
+
+            hasMore = result.length === limit;
+            if (hasMore) {
+                sIndex += limit;
+                await nango.saveCheckpoint({ sIndex });
             }
         }
 
-        if (departments.length > 0) {
-            await nango.batchSave(departments, 'Department');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Department');
     }
 });
 
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
