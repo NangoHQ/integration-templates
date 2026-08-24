@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().describe('Judge.me internal product id. Example: 2117026531')
+        id: z.number().int().describe('Judge.me internal product id. Example: 2117026531')
     })
     .describe('Input for fetching a single Judge.me product by its internal id');
 
@@ -21,7 +21,7 @@ const ProviderProductSchema = z.object({
     tags: z.array(z.string()),
     mpns: z.string().nullable(),
     barcodes: z.string().nullable(),
-    skus: z.string().nullable(),
+    skus: z.array(z.string()).nullable(),
     lowest_price: z.string().nullable(),
     highest_price: z.string().nullable(),
     image_url: z.string().nullable(),
@@ -44,7 +44,7 @@ const OutputSchema = z
         tags: z.array(z.string()).describe('Product tags'),
         mpns: z.string().optional().describe('Manufacturer part numbers'),
         barcodes: z.string().optional().describe('Product barcodes'),
-        skus: z.string().optional().describe('Product SKUs'),
+        skus: z.array(z.string()).optional().describe('Product SKUs'),
         lowest_price: z.string().optional().describe('Lowest product price'),
         highest_price: z.string().optional().describe('Highest product price'),
         image_url: z.string().optional().describe('Full-size product image URL'),

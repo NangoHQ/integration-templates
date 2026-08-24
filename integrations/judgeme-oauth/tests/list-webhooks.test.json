@@ -3,7 +3,20 @@
   "output": {
     "shop_id": 3525270,
     "shop_domain": "fngeneration.myshopify.com",
-    "webhooks": []
+    "webhooks": [
+      {
+        "id": 18283043,
+        "key": "review/created",
+        "url": "https://example.com/webhooks/judgeme",
+        "failure_count": 22
+      },
+      {
+        "id": 18283044,
+        "key": "review/created",
+        "url": "https://example.com/webhooks/judgeme-save",
+        "failure_count": 22
+      }
+    ]
   },
   "nango": {},
   "api": {
@@ -12,7 +25,24 @@
         "response": {
           "shop_id": 3525270,
           "shop_domain": "fngeneration.myshopify.com",
-          "webhooks": []
+          "webhooks": [
+            {
+              "id": 18283043,
+              "key": "review/created",
+              "url": "https://example.com/webhooks/judgeme",
+              "failure_count": 22,
+              "last_error_uuid": null,
+              "app_id": 47803
+            },
+            {
+              "id": 18283044,
+              "key": "review/created",
+              "url": "https://example.com/webhooks/judgeme-save",
+              "failure_count": 22,
+              "last_error_uuid": null,
+              "app_id": 47803
+            }
+          ]
         },
         "status": 200,
         "headers": {

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        review_id: z.number().describe('The Judge.me review id to fetch. Example: 1306610400')
+        review_id: z.number().int().describe('The Judge.me review id to fetch. Example: 1306610400')
     })
     .describe('Input for fetching a single Judge.me review by its id.');
 
@@ -17,8 +17,8 @@ const ProviderReviewSchema = z.object({
             name: z.string().nullable().optional(),
             email: z.string().nullable().optional()
         })
-        .optional(),
-    product_external_id: z.number().optional(),
+        .nullish(),
+    product_external_id: z.number().nullish(),
     product_title: z.string().nullable().optional(),
     product_handle: z.string().nullable().optional(),
     created_at: z.string(),

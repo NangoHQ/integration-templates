@@ -47,7 +47,8 @@ const ListReviewsOutput = z
     .object({
         current_page: z.number().int().describe('Current page number in the paginated result set'),
         per_page: z.number().int().describe('Number of reviews returned per page'),
-        reviews: z.array(ReviewOutput).describe('List of reviews for the current page')
+        reviews: z.array(ReviewOutput).describe('List of reviews for the current page'),
+        next_page: z.number().int().optional().describe('Page number to fetch next. Omitted when there are no more pages.')
     })
     .describe('Paginated list of reviews for the shop');
 
@@ -162,7 +163,8 @@ const action = createAction({
         return {
             current_page: providerResponse.current_page,
             per_page: providerResponse.per_page,
-            reviews
+            reviews,
+            ...(reviews.length === providerResponse.per_page && { next_page: providerResponse.current_page + 1 })
         };
     }
 });

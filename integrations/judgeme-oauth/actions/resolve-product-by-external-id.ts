@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        external_id: z.number().describe('The external platform product ID to resolve. Example: 10291926270247')
+        external_id: z.number().int().describe('The external platform product ID to resolve. Example: 10291926270247')
     })
     .describe('Input for resolving a product by its external platform ID.');
 
@@ -21,12 +21,12 @@ const ProviderProductSchema = z.object({
     tags: z.array(z.string()).optional(),
     mpns: z.string().nullable().optional(),
     barcodes: z.string().nullable().optional(),
-    skus: z.string().nullable().optional(),
+    skus: z.array(z.string()).nullable().optional(),
     lowest_price: z.string().optional(),
     highest_price: z.string().optional(),
-    image_url: z.string().optional(),
-    medium_image_url: z.string().optional(),
-    small_image_url: z.string().optional()
+    image_url: z.string().nullable().optional(),
+    medium_image_url: z.string().nullable().optional(),
+    small_image_url: z.string().nullable().optional()
 });
 
 const OutputSchema = z

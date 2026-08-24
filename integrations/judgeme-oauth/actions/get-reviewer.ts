@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().describe('Judge.me internal ID of the reviewer.')
+        id: z.number().int().describe('Judge.me internal ID of the reviewer.')
     })
     .describe('Input for fetching a single reviewer profile by id.');
 

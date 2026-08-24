@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Page number from the previous response. Omit for the first page.'),
-        per_page: z.number().optional().describe('Number of items per page (max 100, default 10).')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of items per page (max 100, default 10).')
     })
     .describe('Input for listing Judge.me products.');
 
@@ -70,8 +70,8 @@ const action = createAction({
     scopes: ['read_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
+        const page = input.cursor ? Number(input.cursor) : 1;
+        if (!Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a positive integer string.'

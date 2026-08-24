@@ -4,18 +4,26 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        start_date: z.string().optional().describe('Start of the date range to filter orders. Example: "2024-01-01T00:00:00Z".'),
-        end_date: z.string().optional().describe('End of the date range to filter orders. Example: "2024-01-31T23:59:59Z".'),
+        start_date: z
+            .string()
+            .regex(/^\d{2}\/\d{2}\/\d{4}$/, 'start_date must be in dd/mm/yyyy format.')
+            .optional()
+            .describe('Start of the date range to filter orders, in dd/mm/yyyy format. Example: "01/01/2024".'),
+        end_date: z
+            .string()
+            .regex(/^\d{2}\/\d{2}\/\d{4}$/, 'end_date must be in dd/mm/yyyy format.')
+            .optional()
+            .describe('End of the date range to filter orders, in dd/mm/yyyy format. Example: "31/01/2024".'),
         cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-        per_page: z.number().optional().describe('Number of orders per page. Maximum 100, default 10.')
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of orders per page. Maximum 100, default 10.')
     })
     .describe('Input for listing orders from Judge.me.');
 
 const OrderSchema = z
     .object({
         id: z.number().describe('Order ID.'),
-        name: z.string().describe('Order name.'),
-        external_id: z.union([z.string(), z.number()]).optional().describe('External order ID from the shop platform.'),
+        name: z.string().nullable().optional().describe('Order name.'),
+        external_id: z.union([z.string(), z.number()]).nullable().optional().describe('External order ID from the shop platform.'),
         fulfilled_at: z.string().nullable().optional().describe('Date when the order was fulfilled.'),
         fulfillment_status: z.string().nullable().optional().describe('Fulfillment status of the order.'),
         cancelled_at: z.string().nullable().optional().describe('Date when the order was cancelled.'),
@@ -59,6 +67,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor !== undefined ? Number(input.cursor) : 1;
+        if (!Number.isInteger(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a positive integer string.'
+            });
+        }
 
         const config: ProxyConfiguration = {
             // https://judge.me/api/docs

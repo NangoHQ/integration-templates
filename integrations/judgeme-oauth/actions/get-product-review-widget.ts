@@ -5,7 +5,8 @@ const InputSchema = z
     .object({
         external_ids: z
             .array(z.string().describe('External product ID, typically the Shopify product ID. Example: "10291926270247"'))
-            .describe('One or more external product IDs to fetch review widgets for.')
+            .max(100)
+            .describe('One or more external product IDs to fetch review widgets for (maximum 100 per call, to stay within the action output size limit).')
     })
     .describe('Input for fetching product review widgets.');
 

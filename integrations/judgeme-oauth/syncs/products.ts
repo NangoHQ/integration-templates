@@ -11,7 +11,7 @@ const JudgeMeProductSchema = z
         product_type: z.string().nullish(),
         description: z.string().nullish(),
         vendor: z.string().nullish(),
-        excluded: z.boolean().optional(),
+        excluded: z.boolean().nullish(),
         tags: z.array(z.string()).nullish(),
         lowest_price: z.union([z.string(), z.number()]).nullish(),
         highest_price: z.union([z.string(), z.number()]).nullish(),
@@ -57,7 +57,13 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         let currentPage: number = checkpoint?.page ?? 1;
 
-        await nango.trackDeletesStart('Product');
+        // Delete tracking is only safe on a full run starting from page 1: a resumed
+        // run would only touch its remaining pages, so trackDeletesEnd would incorrectly
+        // delete products from pages already saved before the previous execution stopped.
+        const isFullRun = currentPage === 1;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Product');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://judge.me/api/docs
@@ -140,7 +146,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Product');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Product');
+        }
     }
 });
 

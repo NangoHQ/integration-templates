@@ -8,7 +8,7 @@ const InputSchema = z
         shopify_product_id: z.string().optional().describe('Shopify product external ID. Provide this or product_handle.'),
         product_handle: z.string().optional().describe('Product handle slug. Provide this or shopify_product_id.'),
         fulfilled_at: z.string().describe('Order fulfillment date in dd/mm/yyyy format.'),
-        quantity: z.string().optional().describe('Quantity of the purchased product. Defaults to 1.'),
+        quantity: z.number().int().positive().optional().describe('Quantity of the purchased product. Defaults to 1.'),
         processed_at: z
             .string()
             .optional()
@@ -62,7 +62,10 @@ const action = createAction({
                 ...(input.order_id !== undefined && { order_id: input.order_id }),
                 ...(input.order_number !== undefined && { order_number: input.order_number })
             },
-            retries: 10
+            // No idempotency key on this endpoint and the side effect (queuing a real
+            // email) cannot be undone, so retries are kept at the repo-enforced minimum
+            // instead of the original 10 to limit duplicate-email risk on a timeout.
+            retries: 1
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);

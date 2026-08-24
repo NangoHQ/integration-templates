@@ -43,13 +43,13 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Blocker: GET api/v1/orders ignores explicit start_date/end_date params and always
-        // returns a rolling ~30-day window. There is no confirmed changed-since filter or
-        // deleted-record endpoint, so full refresh with trackDeletes is required.
-        await nango.getCheckpoint();
-        // Hard rule: syncs using trackDeletesStart/trackDeletesEnd must start from page 1.
-        let page: number | undefined = 1;
-
-        await nango.trackDeletesStart('Order');
+        // returns a rolling ~30-day window (confirmed against the live API: passing a 2020
+        // date range still returns the current ~30-day window). There is no confirmed
+        // changed-since filter or deleted-record endpoint, so orders outside that window
+        // cannot be re-enumerated and deletion tracking cannot be used here without
+        // incorrectly deleting older orders on every run.
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = checkpoint?.page ?? 1;
 
         const proxyConfig: ProxyConfiguration = {
             // https://judge.me/api/docs
@@ -99,7 +99,6 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Order');
     }
 });
 

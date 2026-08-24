@@ -4,8 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z.object({}).describe('No input required.');
 
 const WebhookSchema = z.object({
+    id: z.number().describe('Judge.me internal ID of the webhook subscription.'),
     key: z.string().describe('Event type key, for example review/created or review/updated.'),
-    target_url: z.string().describe('URL where the provider delivers event payloads.')
+    url: z.string().describe('URL where the provider delivers event payloads.'),
+    failure_count: z.number().describe('Number of consecutive failed delivery attempts.')
 });
 
 const OutputSchema = z

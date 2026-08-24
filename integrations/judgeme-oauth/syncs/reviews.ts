@@ -21,7 +21,7 @@ const ReviewSchema = z
         source: z.string().optional().describe('Source channel where the review was submitted.'),
         published: z.boolean().optional().describe('Whether the review is published and visible.'),
         hidden: z.boolean().optional().describe('Whether the review is hidden from public display.'),
-        verified: z.boolean().optional().describe('Whether the review is from a verified purchase.'),
+        verified: z.string().optional().describe('Verification status of the buyer, e.g. "buyer", "nothing", or "not_verified".'),
         created_at: z.string().optional().describe('ISO 8601 timestamp when the review was created.'),
         updated_at: z.string().optional().describe('ISO 8601 timestamp when the review was last updated.'),
         published_at: z.string().optional().describe('ISO 8601 timestamp when the review was published.'),
@@ -30,12 +30,16 @@ const ReviewSchema = z
     })
     .describe('A product or shop review left by a customer.');
 
+const ProviderPictureSchema = z.object({
+    urls: z.record(z.string(), z.string()).nullish()
+});
+
 const ProviderReviewerSchema = z.object({
     id: z.number(),
     email: z.string().nullish(),
     name: z.string().nullish(),
     phone: z.string().nullish(),
-    tags: z.array(z.string()).nullish(),
+    tags: z.union([z.string(), z.array(z.string())]).nullish(),
     accepts_marketing: z.union([z.boolean(), z.string()]).nullish(),
     unsubscribed_at: z.string().nullish(),
     external_id: z.union([z.number(), z.string()]).nullish()
@@ -59,7 +63,7 @@ const ProviderReviewSchema = z.object({
     hidden: z.union([z.boolean(), z.string()]).nullish(),
     published: z.union([z.boolean(), z.string()]).nullish(),
     ip_address: z.string().nullish(),
-    pictures: z.array(z.string()).nullish()
+    pictures: z.array(ProviderPictureSchema).nullish()
 });
 
 const sync = createSync({
@@ -84,11 +88,15 @@ const sync = createSync({
         // Params like updated_at_min/created_at_min/since_id are silently accepted but could not
         // be proven to actually filter server-side against a store with zero reviews.
         // Default to full refresh with trackDeletesStart()/trackDeletesEnd().
-        let currentPage = 1;
+        let currentPage = parsedCheckpoint.data.page;
 
-        // Safe to call every execution: trackDeletesStart() will not overwrite the
-        // start of a delete-tracking window this refresh already opened.
-        await nango.trackDeletesStart('Review');
+        // Delete tracking is only safe on a full run starting from page 1: a resumed
+        // run would only touch its remaining pages, so trackDeletesEnd would incorrectly
+        // delete reviews from pages already saved before the previous execution stopped.
+        const isFullRun = currentPage === 1;
+        if (isFullRun) {
+            await nango.trackDeletesStart('Review');
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://judge.me/api/docs
@@ -159,12 +167,22 @@ const sync = createSync({
                     source: data.source ?? undefined,
                     published: toBoolean(data.published),
                     hidden: toBoolean(data.hidden),
-                    verified: toBoolean(data.verified),
+                    verified: data.verified != null ? String(data.verified) : undefined,
                     created_at: data.created_at ?? undefined,
                     updated_at: data.updated_at ?? undefined,
                     published_at: data.published_at ?? undefined,
                     ip_address: data.ip_address ?? undefined,
-                    pictures: data.pictures ?? undefined
+                    pictures: data.pictures
+                        ? data.pictures
+                              .map((picture) => {
+                                  const urls = picture.urls;
+                                  if (!urls) {
+                                      return undefined;
+                                  }
+                                  return urls['original'] ?? Object.values(urls)[0];
+                              })
+                              .filter((url): url is string => url != null)
+                        : undefined
                 });
             }
 
@@ -181,7 +199,9 @@ const sync = createSync({
         // Clear the checkpoint only after the last page has been saved, then close the
         // delete-tracking window opened by trackDeletesStart().
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Review');
+        if (isFullRun) {
+            await nango.trackDeletesEnd('Review');
+        }
     }
 });
 

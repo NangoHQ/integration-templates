@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        review_id: z.number().describe('Judge.me internal review ID to publish. Example: 1306611514')
+        review_id: z.number().int().describe('Judge.me internal review ID to publish. Example: 1306611514')
     })
     .describe('Input for publishing a previously hidden review.');
 
@@ -56,6 +56,15 @@ const action = createAction({
                 type: 'invalid_request',
                 message: parsed.success ? parsed.data.error : 'Invalid request',
                 review_id: input.review_id
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Judge.me API error',
+                review_id: input.review_id,
+                status: response.status
             });
         }
 

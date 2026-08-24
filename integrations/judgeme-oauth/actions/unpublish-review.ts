@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().describe('Judge.me internal review ID. Example: 1306611514')
+        id: z.number().int().describe('Judge.me internal review ID. Example: 1306611514')
     })
     .describe('Input for hiding a published review from the storefront.');
 
@@ -35,14 +35,39 @@ const action = createAction({
             retries: 3
         });
 
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Review not found',
+                review_id: input.id
+            });
+        }
+
+        if (response.status === 422) {
+            const parsed = z.object({ error: z.string() }).safeParse(response.data);
+            throw new nango.ActionError({
+                type: 'invalid_request',
+                message: parsed.success ? parsed.data.error : 'Invalid request',
+                review_id: input.id
+            });
+        }
+
         const providerResponse = z
             .object({
                 message: z.string()
             })
-            .parse(response.data);
+            .safeParse(response.data);
+
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Unexpected response from Judge.me',
+                review_id: input.id
+            });
+        }
 
         return {
-            message: providerResponse.message
+            message: providerResponse.data.message
         };
     }
 });

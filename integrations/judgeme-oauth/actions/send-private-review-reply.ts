@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const PrivateReplyInputSchema = z.object({
     email_body: z.string().describe('Body content of the private reply email sent to the reviewer.'),
     email_subject: z.string().describe('Subject line of the private reply email sent to the reviewer.'),
-    review_id: z.number().describe('Judge.me internal ID of the review to reply to.'),
+    review_id: z.number().int().describe('Judge.me internal ID of the review to reply to.'),
     send_private_email: z.boolean().optional().describe('Whether to send the reply as an email to the reviewer. Defaults to true.')
 });
 
@@ -14,6 +14,7 @@ const PrivateReplyOutputSchema = z.object({
 });
 
 const ProviderResponseSchema = z.union([z.string(), z.object({ message: z.string().optional() }).passthrough(), z.object({}).passthrough()]);
+const ProviderErrorSchema = z.object({ error: z.string() });
 
 /**
  * @tags: [write, destructive]
@@ -25,7 +26,7 @@ const action = createAction({
     version: '1.0.0',
     input: PrivateReplyInputSchema,
     output: PrivateReplyOutputSchema,
-    scopes: ['write_reviews'],
+    scopes: ['write_private_replies'],
 
     exec: async (nango, input): Promise<z.infer<typeof PrivateReplyOutputSchema>> => {
         const response = await nango.post({
@@ -41,6 +42,24 @@ const action = createAction({
             },
             retries: 1
         });
+
+        if (response.status === 422) {
+            const parsed = ProviderErrorSchema.safeParse(response.data);
+            throw new nango.ActionError({
+                type: 'invalid_request',
+                message: parsed.success ? parsed.data.error : 'Invalid request',
+                review_id: input.review_id
+            });
+        }
+
+        if (response.status >= 400) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: 'Judge.me API error',
+                review_id: input.review_id,
+                status: response.status
+            });
+        }
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 

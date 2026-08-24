@@ -51,12 +51,12 @@
           "data": {
             "shop_domain": "fngeneration.myshopify.com",
             "platform": "shopify",
-            "reviewer_name": "Test Reviewer",
+            "name": "Test Reviewer",
             "email": "test@example.com",
             "rating": 5,
             "title": "Great product",
             "body": "Really enjoyed this gift card",
-            "external_id": "10291926270247"
+            "id": "10291926270247"
           }
         }
       }

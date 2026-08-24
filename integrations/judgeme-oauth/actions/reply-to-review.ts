@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        review_id: z.number().describe('Judge.me internal ID of the review to reply to. Example: 111'),
+        review_id: z.number().int().positive().describe('Judge.me internal ID of the review to reply to. Example: 111'),
         content: z.string().describe('The public reply body text shown on the storefront widget. Example: "Thanks for the review!"'),
         send_reply_email: z.boolean().optional().describe('Whether to send an email notification to the reviewer. Defaults to true.')
     })
@@ -44,6 +44,23 @@ const action = createAction({
             },
             retries: 3
         });
+
+        if (response.status === 404) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Review not found',
+                review_id: input.review_id
+            });
+        }
+
+        if (response.status >= 400) {
+            const parsedError = z.object({ error: z.string() }).safeParse(response.data);
+            throw new nango.ActionError({
+                type: response.status === 422 ? 'invalid_request' : 'provider_error',
+                message: parsedError.success ? parsedError.data.error : 'Judge.me API error',
+                review_id: input.review_id
+            });
+        }
 
         const parsed = ProviderResponseSchema.parse(response.data);
 

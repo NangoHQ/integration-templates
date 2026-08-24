@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().describe('The Judge.me internal identifier of the webhook subscription to remove. Example: 12345')
+        id: z.number().int().describe('The Judge.me internal identifier of the webhook subscription to remove. Example: 12345')
     })
     .describe('Input to remove a webhook subscription by its Judge.me id.');
 
