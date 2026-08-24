@@ -1,0 +1,336 @@
+{
+  "input": {
+    "lengthInMinutes": 30,
+    "title": "Test Event Type",
+    "slug": "test-event-type-1787223676-b"
+  },
+  "output": {
+    "id": 6744802,
+    "lengthInMinutes": 30,
+    "title": "Test Event Type",
+    "slug": "test-event-type-1787223676-b",
+    "description": "",
+    "locations": [
+      {
+        "type": "integration",
+        "integration": "cal-video"
+      }
+    ],
+    "bookingFields": [
+      {
+        "isDefault": true,
+        "type": "name",
+        "slug": "name",
+        "required": true,
+        "label": "your_name",
+        "disableOnPrefill": false
+      },
+      {
+        "isDefault": true,
+        "type": "email",
+        "slug": "email",
+        "required": true,
+        "disableOnPrefill": false,
+        "hidden": false
+      },
+      {
+        "isDefault": true,
+        "type": "radioInput",
+        "slug": "location",
+        "required": false,
+        "hidden": false
+      },
+      {
+        "isDefault": true,
+        "type": "text",
+        "slug": "title",
+        "required": true,
+        "disableOnPrefill": false,
+        "hidden": true
+      },
+      {
+        "isDefault": true,
+        "type": "textarea",
+        "slug": "notes",
+        "required": false,
+        "disableOnPrefill": false,
+        "hidden": false
+      },
+      {
+        "isDefault": true,
+        "type": "multiemail",
+        "slug": "guests",
+        "required": false,
+        "disableOnPrefill": false,
+        "hidden": false
+      },
+      {
+        "isDefault": true,
+        "type": "textarea",
+        "slug": "rescheduleReason",
+        "required": false,
+        "disableOnPrefill": false,
+        "hidden": false
+      }
+    ],
+    "disableGuests": false,
+    "minimumBookingNotice": 120,
+    "beforeEventBuffer": 0,
+    "afterEventBuffer": 0,
+    "metadata": {},
+    "price": 0,
+    "currency": "usd",
+    "lockTimeZoneToggleOnBookingPage": false,
+    "forwardParamsSuccessRedirect": true,
+    "isInstantEvent": false,
+    "bookerActiveBookingsLimit": {
+      "disabled": true
+    },
+    "onlyShowFirstAvailableSlot": false,
+    "bookingWindow": [
+      {
+        "disabled": true
+      }
+    ],
+    "confirmationPolicy": {
+      "disabled": true
+    },
+    "requiresBookerEmailVerification": false,
+    "skipAttendeeEmailDeliverabilityCheck": false,
+    "hideCalendarNotes": false,
+    "seats": {
+      "disabled": true
+    },
+    "offsetStart": 0,
+    "useDestinationCalendarEmail": false,
+    "hideCalendarEventDetails": false,
+    "hideOrganizerEmail": false,
+    "calVideoSettings": {
+      "sendTranscriptionEmails": true
+    },
+    "hidden": false,
+    "bookingRequiresAuthentication": false,
+    "disableCancelling": {
+      "disabled": false
+    },
+    "disableRescheduling": {
+      "disabled": false
+    },
+    "allowReschedulingPastBookings": false,
+    "allowReschedulingCancelledBookings": false,
+    "showOptimizedSlots": false,
+    "privateNoteEnabled": false,
+    "ownerId": 3140613,
+    "users": [
+      {
+        "id": 3140613,
+        "name": "Nango Developer",
+        "username": "nango-developer-4putea",
+        "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+        "weekStart": "Sunday",
+        "brandColor": null,
+        "darkBrandColor": null,
+        "metadata": {
+          "stripeCustomerId": "cus_V6O2Hv9PfzoGv6"
+        }
+      }
+    ],
+    "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787223676-b"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/event-types": {
+        "response": {
+          "status": "success",
+          "data": {
+            "id": 6744802,
+            "lengthInMinutes": 30,
+            "title": "Test Event Type",
+            "slug": "test-event-type-1787223676-b",
+            "description": "",
+            "locations": [
+              {
+                "type": "integration",
+                "integration": "cal-video"
+              }
+            ],
+            "bookingFields": [
+              {
+                "isDefault": true,
+                "type": "name",
+                "slug": "name",
+                "required": true,
+                "label": "your_name",
+                "disableOnPrefill": false
+              },
+              {
+                "isDefault": true,
+                "type": "email",
+                "slug": "email",
+                "required": true,
+                "disableOnPrefill": false,
+                "hidden": false
+              },
+              {
+                "isDefault": true,
+                "type": "radioInput",
+                "slug": "location",
+                "required": false,
+                "hidden": false
+              },
+              {
+                "isDefault": true,
+                "type": "text",
+                "slug": "title",
+                "required": true,
+                "disableOnPrefill": false,
+                "hidden": true
+              },
+              {
+                "isDefault": true,
+                "type": "textarea",
+                "slug": "notes",
+                "required": false,
+                "disableOnPrefill": false,
+                "hidden": false
+              },
+              {
+                "isDefault": true,
+                "type": "multiemail",
+                "slug": "guests",
+                "required": false,
+                "disableOnPrefill": false,
+                "hidden": false
+              },
+              {
+                "isDefault": true,
+                "type": "textarea",
+                "slug": "rescheduleReason",
+                "required": false,
+                "disableOnPrefill": false,
+                "hidden": false
+              }
+            ],
+            "disableGuests": false,
+            "slotInterval": null,
+            "minimumBookingNotice": 120,
+            "beforeEventBuffer": 0,
+            "afterEventBuffer": 0,
+            "recurrence": null,
+            "metadata": {},
+            "price": 0,
+            "currency": "usd",
+            "lockTimeZoneToggleOnBookingPage": false,
+            "forwardParamsSuccessRedirect": true,
+            "successRedirectUrl": null,
+            "isInstantEvent": false,
+            "scheduleId": null,
+            "bookerActiveBookingsLimit": {
+              "disabled": true
+            },
+            "onlyShowFirstAvailableSlot": false,
+            "bookingWindow": {
+              "disabled": true
+            },
+            "confirmationPolicy": {
+              "disabled": true
+            },
+            "requiresBookerEmailVerification": false,
+            "skipAttendeeEmailDeliverabilityCheck": false,
+            "hideCalendarNotes": false,
+            "seats": {
+              "disabled": true
+            },
+            "offsetStart": 0,
+            "useDestinationCalendarEmail": false,
+            "hideCalendarEventDetails": false,
+            "hideOrganizerEmail": false,
+            "calVideoSettings": {
+              "sendTranscriptionEmails": true
+            },
+            "hidden": false,
+            "bookingRequiresAuthentication": false,
+            "disableCancelling": {
+              "disabled": false
+            },
+            "disableRescheduling": {
+              "disabled": false
+            },
+            "interfaceLanguage": null,
+            "allowReschedulingPastBookings": false,
+            "allowReschedulingCancelledBookings": false,
+            "showOptimizedSlots": false,
+            "privateNoteEnabled": false,
+            "privateNoteMode": null,
+            "privateNoteTemplate": null,
+            "ownerId": 3140613,
+            "users": [
+              {
+                "id": 3140613,
+                "name": "Nango Developer",
+                "username": "nango-developer-4putea",
+                "avatarUrl": "https://lh3.googleusercontent.com/a/ACg8ocK6hPtnyJxrsAu6MwEP8pz0LKBFnAUIwqK_cH0sM6svMmUwkA=s96-c",
+                "weekStart": "Sunday",
+                "brandColor": null,
+                "darkBrandColor": null,
+                "metadata": {
+                  "stripeCustomerId": "cus_V6O2Hv9PfzoGv6"
+                }
+              }
+            ],
+            "bookingUrl": "https://cal.com/nango-developer-4putea/test-event-type-1787223676-b"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 20 Aug 2026 11:02:50 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2495",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1787223827",
+          "cf-ray": "a2e0e8721c24afe8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"9bf-Z4ocL7GxkjqQi3u9dHg1/vczQuE\"",
+          "server": "cloudflare",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::72vjv-1787223769948-af27c914df37",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::72vjv-1787223769948-af27c914df37",
+          "set-cookie": "__cf_bm=nNV6d8v.X8RzxAZFobGzxszqHbUweipehbjJ4sKpr7A-1787223769.9334416-1.0.1.1-GBfW56yy3bzXJ1Slb33tVVMNcXu2EinWojV1riSMNmUpndxhroZPYlU5L6ZsOKP9fRGlteqnebFNLy5Rmr422J4aiqzMWB1b7XlN2q2VoPFvFOZCTo5WAE4F.qvbY0vv; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Thu, 20 Aug 2026 11:32:50 GMT"
+        },
+        "hash": "7cc61c8ec2b35a91fc665a200b065cd7368a332a",
+        "request": {
+          "headers": {
+            "cal-api-version": "2024-06-14"
+          },
+          "data": {
+            "lengthInMinutes": 30,
+            "title": "Test Event Type",
+            "slug": "test-event-type-1787223676-b"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,2142 @@
+{
+  "nango": {
+    "batchSave": {
+      "ContactField": [
+        {
+          "id": "158007545004",
+          "name": "test_field_save",
+          "label": "Test Field Save",
+          "position": 1,
+          "type": "custom_text",
+          "default": false,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Test Field Save",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-19T23:50:41Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007545003",
+          "name": "test_field",
+          "label": "Test Field",
+          "position": 2,
+          "type": "custom_text",
+          "default": false,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Test Field",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-19T23:50:27Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539537",
+          "name": "name",
+          "label": "Full name",
+          "position": 3,
+          "type": "default_name",
+          "default": true,
+          "editable_in_signup": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": true,
+          "unique": false,
+          "customers_can_edit": true,
+          "label_for_customers": "Full name",
+          "required_for_customers": true,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539522",
+          "name": "job_title",
+          "label": "Title",
+          "position": 4,
+          "type": "default_job_title",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": true,
+          "label_for_customers": "Title",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539523",
+          "name": "email",
+          "label": "Email",
+          "position": 5,
+          "type": "default_email",
+          "default": true,
+          "editable_in_signup": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": true,
+          "customers_can_edit": false,
+          "label_for_customers": "Email",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539525",
+          "name": "mobile",
+          "label": "Mobile phone",
+          "position": 6,
+          "type": "default_mobile",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": true,
+          "customers_can_edit": true,
+          "label_for_customers": "Mobile phone",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539524",
+          "name": "phone",
+          "label": "Work phone",
+          "position": 7,
+          "type": "default_phone",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": true,
+          "label_for_customers": "Work phone",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539526",
+          "name": "other_phone_numbers",
+          "label": "Other phone numbers",
+          "position": 8,
+          "type": "default_other_phone_numbers",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Other phone numbers",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539528",
+          "name": "company_name",
+          "label": "Company",
+          "position": 10,
+          "type": "default_company_name",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": true,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Company",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539529",
+          "name": "address",
+          "label": "Address",
+          "position": 11,
+          "type": "default_address",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Address",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539530",
+          "name": "time_zone",
+          "label": "Time zone",
+          "position": 12,
+          "type": "default_time_zone",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": true,
+          "label_for_customers": "Time zone",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "choices": [
+            {
+              "id": 0,
+              "label": "(GMT-12:00) International Date Line West",
+              "value": "International Date Line West",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "(GMT-11:00) American Samoa",
+              "value": "American Samoa",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "(GMT-11:00) Midway Island",
+              "value": "Midway Island",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "(GMT-10:00) Hawaii",
+              "value": "Hawaii",
+              "position": 3
+            },
+            {
+              "id": 4,
+              "label": "(GMT-09:00) Alaska",
+              "value": "Alaska",
+              "position": 4
+            },
+            {
+              "id": 5,
+              "label": "(GMT-08:00) Pacific Time (US & Canada)",
+              "value": "Pacific Time (US & Canada)",
+              "position": 5
+            },
+            {
+              "id": 6,
+              "label": "(GMT-08:00) Tijuana",
+              "value": "Tijuana",
+              "position": 6
+            },
+            {
+              "id": 7,
+              "label": "(GMT-07:00) Arizona",
+              "value": "Arizona",
+              "position": 7
+            },
+            {
+              "id": 8,
+              "label": "(GMT-07:00) Mazatlan",
+              "value": "Mazatlan",
+              "position": 8
+            },
+            {
+              "id": 9,
+              "label": "(GMT-07:00) Mountain Time (US & Canada)",
+              "value": "Mountain Time (US & Canada)",
+              "position": 9
+            },
+            {
+              "id": 10,
+              "label": "(GMT-06:00) Central America",
+              "value": "Central America",
+              "position": 10
+            },
+            {
+              "id": 11,
+              "label": "(GMT-06:00) Central Time (US & Canada)",
+              "value": "Central Time (US & Canada)",
+              "position": 11
+            },
+            {
+              "id": 12,
+              "label": "(GMT-06:00) Chihuahua",
+              "value": "Chihuahua",
+              "position": 12
+            },
+            {
+              "id": 13,
+              "label": "(GMT-06:00) Guadalajara",
+              "value": "Guadalajara",
+              "position": 13
+            },
+            {
+              "id": 14,
+              "label": "(GMT-06:00) Mexico City",
+              "value": "Mexico City",
+              "position": 14
+            },
+            {
+              "id": 15,
+              "label": "(GMT-06:00) Monterrey",
+              "value": "Monterrey",
+              "position": 15
+            },
+            {
+              "id": 16,
+              "label": "(GMT-06:00) Saskatchewan",
+              "value": "Saskatchewan",
+              "position": 16
+            },
+            {
+              "id": 17,
+              "label": "(GMT-05:00) Bogota",
+              "value": "Bogota",
+              "position": 17
+            },
+            {
+              "id": 18,
+              "label": "(GMT-05:00) Eastern Time (US & Canada)",
+              "value": "Eastern Time (US & Canada)",
+              "position": 18
+            },
+            {
+              "id": 19,
+              "label": "(GMT-05:00) Indiana (East)",
+              "value": "Indiana (East)",
+              "position": 19
+            },
+            {
+              "id": 20,
+              "label": "(GMT-05:00) Lima",
+              "value": "Lima",
+              "position": 20
+            },
+            {
+              "id": 21,
+              "label": "(GMT-05:00) Quito",
+              "value": "Quito",
+              "position": 21
+            },
+            {
+              "id": 22,
+              "label": "(GMT-04:00) Atlantic Time (Canada)",
+              "value": "Atlantic Time (Canada)",
+              "position": 22
+            },
+            {
+              "id": 23,
+              "label": "(GMT-04:00) Caracas",
+              "value": "Caracas",
+              "position": 23
+            },
+            {
+              "id": 24,
+              "label": "(GMT-04:00) Georgetown",
+              "value": "Georgetown",
+              "position": 24
+            },
+            {
+              "id": 25,
+              "label": "(GMT-04:00) La Paz",
+              "value": "La Paz",
+              "position": 25
+            },
+            {
+              "id": 26,
+              "label": "(GMT-04:00) Puerto Rico",
+              "value": "Puerto Rico",
+              "position": 26
+            },
+            {
+              "id": 27,
+              "label": "(GMT-04:00) Santiago",
+              "value": "Santiago",
+              "position": 27
+            },
+            {
+              "id": 28,
+              "label": "(GMT-03:30) Newfoundland",
+              "value": "Newfoundland",
+              "position": 28
+            },
+            {
+              "id": 29,
+              "label": "(GMT-03:00) Brasilia",
+              "value": "Brasilia",
+              "position": 29
+            },
+            {
+              "id": 30,
+              "label": "(GMT-03:00) Buenos Aires",
+              "value": "Buenos Aires",
+              "position": 30
+            },
+            {
+              "id": 31,
+              "label": "(GMT-03:00) Montevideo",
+              "value": "Montevideo",
+              "position": 31
+            },
+            {
+              "id": 32,
+              "label": "(GMT-02:00) Greenland",
+              "value": "Greenland",
+              "position": 32
+            },
+            {
+              "id": 33,
+              "label": "(GMT-02:00) Mid-Atlantic",
+              "value": "Mid-Atlantic",
+              "position": 33
+            },
+            {
+              "id": 34,
+              "label": "(GMT-01:00) Azores",
+              "value": "Azores",
+              "position": 34
+            },
+            {
+              "id": 35,
+              "label": "(GMT-01:00) Cape Verde Is.",
+              "value": "Cape Verde Is.",
+              "position": 35
+            },
+            {
+              "id": 36,
+              "label": "(GMT+00:00) Edinburgh",
+              "value": "Edinburgh",
+              "position": 36
+            },
+            {
+              "id": 37,
+              "label": "(GMT+00:00) Lisbon",
+              "value": "Lisbon",
+              "position": 37
+            },
+            {
+              "id": 38,
+              "label": "(GMT+00:00) London",
+              "value": "London",
+              "position": 38
+            },
+            {
+              "id": 39,
+              "label": "(GMT+00:00) Monrovia",
+              "value": "Monrovia",
+              "position": 39
+            },
+            {
+              "id": 40,
+              "label": "(GMT+00:00) UTC",
+              "value": "UTC",
+              "position": 40
+            },
+            {
+              "id": 41,
+              "label": "(GMT+01:00) Amsterdam",
+              "value": "Amsterdam",
+              "position": 41
+            },
+            {
+              "id": 42,
+              "label": "(GMT+01:00) Belgrade",
+              "value": "Belgrade",
+              "position": 42
+            },
+            {
+              "id": 43,
+              "label": "(GMT+01:00) Berlin",
+              "value": "Berlin",
+              "position": 43
+            },
+            {
+              "id": 44,
+              "label": "(GMT+01:00) Bern",
+              "value": "Bern",
+              "position": 44
+            },
+            {
+              "id": 45,
+              "label": "(GMT+01:00) Bratislava",
+              "value": "Bratislava",
+              "position": 45
+            },
+            {
+              "id": 46,
+              "label": "(GMT+01:00) Brussels",
+              "value": "Brussels",
+              "position": 46
+            },
+            {
+              "id": 47,
+              "label": "(GMT+01:00) Budapest",
+              "value": "Budapest",
+              "position": 47
+            },
+            {
+              "id": 48,
+              "label": "(GMT+01:00) Casablanca",
+              "value": "Casablanca",
+              "position": 48
+            },
+            {
+              "id": 49,
+              "label": "(GMT+01:00) Copenhagen",
+              "value": "Copenhagen",
+              "position": 49
+            },
+            {
+              "id": 50,
+              "label": "(GMT+01:00) Dublin",
+              "value": "Dublin",
+              "position": 50
+            },
+            {
+              "id": 51,
+              "label": "(GMT+01:00) Ljubljana",
+              "value": "Ljubljana",
+              "position": 51
+            },
+            {
+              "id": 52,
+              "label": "(GMT+01:00) Madrid",
+              "value": "Madrid",
+              "position": 52
+            },
+            {
+              "id": 53,
+              "label": "(GMT+01:00) Paris",
+              "value": "Paris",
+              "position": 53
+            },
+            {
+              "id": 54,
+              "label": "(GMT+01:00) Prague",
+              "value": "Prague",
+              "position": 54
+            },
+            {
+              "id": 55,
+              "label": "(GMT+01:00) Rome",
+              "value": "Rome",
+              "position": 55
+            },
+            {
+              "id": 56,
+              "label": "(GMT+01:00) Sarajevo",
+              "value": "Sarajevo",
+              "position": 56
+            },
+            {
+              "id": 57,
+              "label": "(GMT+01:00) Skopje",
+              "value": "Skopje",
+              "position": 57
+            },
+            {
+              "id": 58,
+              "label": "(GMT+01:00) Stockholm",
+              "value": "Stockholm",
+              "position": 58
+            },
+            {
+              "id": 59,
+              "label": "(GMT+01:00) Vienna",
+              "value": "Vienna",
+              "position": 59
+            },
+            {
+              "id": 60,
+              "label": "(GMT+01:00) Warsaw",
+              "value": "Warsaw",
+              "position": 60
+            },
+            {
+              "id": 61,
+              "label": "(GMT+01:00) West Central Africa",
+              "value": "West Central Africa",
+              "position": 61
+            },
+            {
+              "id": 62,
+              "label": "(GMT+01:00) Zagreb",
+              "value": "Zagreb",
+              "position": 62
+            },
+            {
+              "id": 63,
+              "label": "(GMT+01:00) Zurich",
+              "value": "Zurich",
+              "position": 63
+            },
+            {
+              "id": 64,
+              "label": "(GMT+02:00) Athens",
+              "value": "Athens",
+              "position": 64
+            },
+            {
+              "id": 65,
+              "label": "(GMT+02:00) Bucharest",
+              "value": "Bucharest",
+              "position": 65
+            },
+            {
+              "id": 66,
+              "label": "(GMT+02:00) Cairo",
+              "value": "Cairo",
+              "position": 66
+            },
+            {
+              "id": 67,
+              "label": "(GMT+02:00) Harare",
+              "value": "Harare",
+              "position": 67
+            },
+            {
+              "id": 68,
+              "label": "(GMT+02:00) Helsinki",
+              "value": "Helsinki",
+              "position": 68
+            },
+            {
+              "id": 69,
+              "label": "(GMT+02:00) Jerusalem",
+              "value": "Jerusalem",
+              "position": 69
+            },
+            {
+              "id": 70,
+              "label": "(GMT+02:00) Kaliningrad",
+              "value": "Kaliningrad",
+              "position": 70
+            },
+            {
+              "id": 71,
+              "label": "(GMT+02:00) Kyiv",
+              "value": "Kyiv",
+              "position": 71
+            },
+            {
+              "id": 72,
+              "label": "(GMT+02:00) Pretoria",
+              "value": "Pretoria",
+              "position": 72
+            },
+            {
+              "id": 73,
+              "label": "(GMT+02:00) Riga",
+              "value": "Riga",
+              "position": 73
+            },
+            {
+              "id": 74,
+              "label": "(GMT+02:00) Sofia",
+              "value": "Sofia",
+              "position": 74
+            },
+            {
+              "id": 75,
+              "label": "(GMT+02:00) Tallinn",
+              "value": "Tallinn",
+              "position": 75
+            },
+            {
+              "id": 76,
+              "label": "(GMT+02:00) Vilnius",
+              "value": "Vilnius",
+              "position": 76
+            },
+            {
+              "id": 77,
+              "label": "(GMT+03:00) Baghdad",
+              "value": "Baghdad",
+              "position": 77
+            },
+            {
+              "id": 78,
+              "label": "(GMT+03:00) Istanbul",
+              "value": "Istanbul",
+              "position": 78
+            },
+            {
+              "id": 79,
+              "label": "(GMT+03:00) Kuwait",
+              "value": "Kuwait",
+              "position": 79
+            },
+            {
+              "id": 80,
+              "label": "(GMT+03:00) Minsk",
+              "value": "Minsk",
+              "position": 80
+            },
+            {
+              "id": 81,
+              "label": "(GMT+03:00) Moscow",
+              "value": "Moscow",
+              "position": 81
+            },
+            {
+              "id": 82,
+              "label": "(GMT+03:00) Nairobi",
+              "value": "Nairobi",
+              "position": 82
+            },
+            {
+              "id": 83,
+              "label": "(GMT+03:00) Riyadh",
+              "value": "Riyadh",
+              "position": 83
+            },
+            {
+              "id": 84,
+              "label": "(GMT+03:00) St. Petersburg",
+              "value": "St. Petersburg",
+              "position": 84
+            },
+            {
+              "id": 85,
+              "label": "(GMT+03:00) Volgograd",
+              "value": "Volgograd",
+              "position": 85
+            },
+            {
+              "id": 86,
+              "label": "(GMT+03:30) Tehran",
+              "value": "Tehran",
+              "position": 86
+            },
+            {
+              "id": 87,
+              "label": "(GMT+04:00) Abu Dhabi",
+              "value": "Abu Dhabi",
+              "position": 87
+            },
+            {
+              "id": 88,
+              "label": "(GMT+04:00) Baku",
+              "value": "Baku",
+              "position": 88
+            },
+            {
+              "id": 89,
+              "label": "(GMT+04:00) Muscat",
+              "value": "Muscat",
+              "position": 89
+            },
+            {
+              "id": 90,
+              "label": "(GMT+04:00) Samara",
+              "value": "Samara",
+              "position": 90
+            },
+            {
+              "id": 91,
+              "label": "(GMT+04:00) Tbilisi",
+              "value": "Tbilisi",
+              "position": 91
+            },
+            {
+              "id": 92,
+              "label": "(GMT+04:00) Yerevan",
+              "value": "Yerevan",
+              "position": 92
+            },
+            {
+              "id": 93,
+              "label": "(GMT+04:30) Kabul",
+              "value": "Kabul",
+              "position": 93
+            },
+            {
+              "id": 94,
+              "label": "(GMT+05:00) Almaty",
+              "value": "Almaty",
+              "position": 94
+            },
+            {
+              "id": 95,
+              "label": "(GMT+05:00) Ekaterinburg",
+              "value": "Ekaterinburg",
+              "position": 95
+            },
+            {
+              "id": 96,
+              "label": "(GMT+05:00) Islamabad",
+              "value": "Islamabad",
+              "position": 96
+            },
+            {
+              "id": 97,
+              "label": "(GMT+05:00) Karachi",
+              "value": "Karachi",
+              "position": 97
+            },
+            {
+              "id": 98,
+              "label": "(GMT+05:00) Tashkent",
+              "value": "Tashkent",
+              "position": 98
+            },
+            {
+              "id": 99,
+              "label": "(GMT+05:30) Chennai",
+              "value": "Chennai",
+              "position": 99
+            },
+            {
+              "id": 100,
+              "label": "(GMT+05:30) Kolkata",
+              "value": "Kolkata",
+              "position": 100
+            },
+            {
+              "id": 101,
+              "label": "(GMT+05:30) Mumbai",
+              "value": "Mumbai",
+              "position": 101
+            },
+            {
+              "id": 102,
+              "label": "(GMT+05:30) New Delhi",
+              "value": "New Delhi",
+              "position": 102
+            },
+            {
+              "id": 103,
+              "label": "(GMT+05:30) Sri Jayawardenepura",
+              "value": "Sri Jayawardenepura",
+              "position": 103
+            },
+            {
+              "id": 104,
+              "label": "(GMT+05:45) Kathmandu",
+              "value": "Kathmandu",
+              "position": 104
+            },
+            {
+              "id": 105,
+              "label": "(GMT+06:00) Astana",
+              "value": "Astana",
+              "position": 105
+            },
+            {
+              "id": 106,
+              "label": "(GMT+06:00) Dhaka",
+              "value": "Dhaka",
+              "position": 106
+            },
+            {
+              "id": 107,
+              "label": "(GMT+06:00) Urumqi",
+              "value": "Urumqi",
+              "position": 107
+            },
+            {
+              "id": 108,
+              "label": "(GMT+06:30) Rangoon",
+              "value": "Rangoon",
+              "position": 108
+            },
+            {
+              "id": 109,
+              "label": "(GMT+07:00) Bangkok",
+              "value": "Bangkok",
+              "position": 109
+            },
+            {
+              "id": 110,
+              "label": "(GMT+07:00) Hanoi",
+              "value": "Hanoi",
+              "position": 110
+            },
+            {
+              "id": 111,
+              "label": "(GMT+07:00) Jakarta",
+              "value": "Jakarta",
+              "position": 111
+            },
+            {
+              "id": 112,
+              "label": "(GMT+07:00) Krasnoyarsk",
+              "value": "Krasnoyarsk",
+              "position": 112
+            },
+            {
+              "id": 113,
+              "label": "(GMT+07:00) Novosibirsk",
+              "value": "Novosibirsk",
+              "position": 113
+            },
+            {
+              "id": 114,
+              "label": "(GMT+08:00) Beijing",
+              "value": "Beijing",
+              "position": 114
+            },
+            {
+              "id": 115,
+              "label": "(GMT+08:00) Chongqing",
+              "value": "Chongqing",
+              "position": 115
+            },
+            {
+              "id": 116,
+              "label": "(GMT+08:00) Hong Kong",
+              "value": "Hong Kong",
+              "position": 116
+            },
+            {
+              "id": 117,
+              "label": "(GMT+08:00) Irkutsk",
+              "value": "Irkutsk",
+              "position": 117
+            },
+            {
+              "id": 118,
+              "label": "(GMT+08:00) Kuala Lumpur",
+              "value": "Kuala Lumpur",
+              "position": 118
+            },
+            {
+              "id": 119,
+              "label": "(GMT+08:00) Perth",
+              "value": "Perth",
+              "position": 119
+            },
+            {
+              "id": 120,
+              "label": "(GMT+08:00) Singapore",
+              "value": "Singapore",
+              "position": 120
+            },
+            {
+              "id": 121,
+              "label": "(GMT+08:00) Taipei",
+              "value": "Taipei",
+              "position": 121
+            },
+            {
+              "id": 122,
+              "label": "(GMT+08:00) Ulaanbaatar",
+              "value": "Ulaanbaatar",
+              "position": 122
+            },
+            {
+              "id": 123,
+              "label": "(GMT+09:00) Osaka",
+              "value": "Osaka",
+              "position": 123
+            },
+            {
+              "id": 124,
+              "label": "(GMT+09:00) Sapporo",
+              "value": "Sapporo",
+              "position": 124
+            },
+            {
+              "id": 125,
+              "label": "(GMT+09:00) Seoul",
+              "value": "Seoul",
+              "position": 125
+            },
+            {
+              "id": 126,
+              "label": "(GMT+09:00) Tokyo",
+              "value": "Tokyo",
+              "position": 126
+            },
+            {
+              "id": 127,
+              "label": "(GMT+09:00) Yakutsk",
+              "value": "Yakutsk",
+              "position": 127
+            },
+            {
+              "id": 128,
+              "label": "(GMT+09:30) Adelaide",
+              "value": "Adelaide",
+              "position": 128
+            },
+            {
+              "id": 129,
+              "label": "(GMT+09:30) Darwin",
+              "value": "Darwin",
+              "position": 129
+            },
+            {
+              "id": 130,
+              "label": "(GMT+10:00) Brisbane",
+              "value": "Brisbane",
+              "position": 130
+            },
+            {
+              "id": 131,
+              "label": "(GMT+10:00) Canberra",
+              "value": "Canberra",
+              "position": 131
+            },
+            {
+              "id": 132,
+              "label": "(GMT+10:00) Guam",
+              "value": "Guam",
+              "position": 132
+            },
+            {
+              "id": 133,
+              "label": "(GMT+10:00) Hobart",
+              "value": "Hobart",
+              "position": 133
+            },
+            {
+              "id": 134,
+              "label": "(GMT+10:00) Melbourne",
+              "value": "Melbourne",
+              "position": 134
+            },
+            {
+              "id": 135,
+              "label": "(GMT+10:00) Port Moresby",
+              "value": "Port Moresby",
+              "position": 135
+            },
+            {
+              "id": 136,
+              "label": "(GMT+10:00) Sydney",
+              "value": "Sydney",
+              "position": 136
+            },
+            {
+              "id": 137,
+              "label": "(GMT+10:00) Vladivostok",
+              "value": "Vladivostok",
+              "position": 137
+            },
+            {
+              "id": 138,
+              "label": "(GMT+11:00) Magadan",
+              "value": "Magadan",
+              "position": 138
+            },
+            {
+              "id": 139,
+              "label": "(GMT+11:00) New Caledonia",
+              "value": "New Caledonia",
+              "position": 139
+            },
+            {
+              "id": 140,
+              "label": "(GMT+11:00) Solomon Is.",
+              "value": "Solomon Is.",
+              "position": 140
+            },
+            {
+              "id": 141,
+              "label": "(GMT+11:00) Srednekolymsk",
+              "value": "Srednekolymsk",
+              "position": 141
+            },
+            {
+              "id": 142,
+              "label": "(GMT+12:00) Auckland",
+              "value": "Auckland",
+              "position": 142
+            },
+            {
+              "id": 143,
+              "label": "(GMT+12:00) Fiji",
+              "value": "Fiji",
+              "position": 143
+            },
+            {
+              "id": 144,
+              "label": "(GMT+12:00) Kamchatka",
+              "value": "Kamchatka",
+              "position": 144
+            },
+            {
+              "id": 145,
+              "label": "(GMT+12:00) Marshall Is.",
+              "value": "Marshall Is.",
+              "position": 145
+            },
+            {
+              "id": 146,
+              "label": "(GMT+12:00) Wellington",
+              "value": "Wellington",
+              "position": 146
+            },
+            {
+              "id": 147,
+              "label": "(GMT+12:45) Chatham Is.",
+              "value": "Chatham Is.",
+              "position": 147
+            },
+            {
+              "id": 148,
+              "label": "(GMT+13:00) Nuku'alofa",
+              "value": "Nuku'alofa",
+              "position": 148
+            },
+            {
+              "id": 149,
+              "label": "(GMT+13:00) Samoa",
+              "value": "Samoa",
+              "position": 149
+            },
+            {
+              "id": 150,
+              "label": "(GMT+13:00) Tokelau Is.",
+              "value": "Tokelau Is.",
+              "position": 150
+            }
+          ],
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539531",
+          "name": "language",
+          "label": "Language",
+          "position": 13,
+          "type": "default_language",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": true,
+          "label_for_customers": "Language",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "choices": [
+            {
+              "id": 0,
+              "label": "Arabic",
+              "value": "ar",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "Bosnian",
+              "value": "bs",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "Bulgarian",
+              "value": "bg",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "Catalan",
+              "value": "ca",
+              "position": 3
+            },
+            {
+              "id": 4,
+              "label": "Chinese",
+              "value": "zh-CN",
+              "position": 4
+            },
+            {
+              "id": 5,
+              "label": "Chinese (Traditional)",
+              "value": "zh-TW",
+              "position": 5
+            },
+            {
+              "id": 6,
+              "label": "Croatian",
+              "value": "hr",
+              "position": 6
+            },
+            {
+              "id": 7,
+              "label": "Czech",
+              "value": "cs",
+              "position": 7
+            },
+            {
+              "id": 8,
+              "label": "Danish",
+              "value": "da",
+              "position": 8
+            },
+            {
+              "id": 9,
+              "label": "Dutch",
+              "value": "nl",
+              "position": 9
+            },
+            {
+              "id": 10,
+              "label": "English",
+              "value": "en",
+              "position": 10
+            },
+            {
+              "id": 11,
+              "label": "English (UK)",
+              "value": "en-GB",
+              "position": 11
+            },
+            {
+              "id": 12,
+              "label": "Estonian",
+              "value": "et",
+              "position": 12
+            },
+            {
+              "id": 13,
+              "label": "Filipino",
+              "value": "fil",
+              "position": 13
+            },
+            {
+              "id": 14,
+              "label": "Finnish",
+              "value": "fi",
+              "position": 14
+            },
+            {
+              "id": 15,
+              "label": "French",
+              "value": "fr",
+              "position": 15
+            },
+            {
+              "id": 16,
+              "label": "German",
+              "value": "de",
+              "position": 16
+            },
+            {
+              "id": 17,
+              "label": "Greek",
+              "value": "el",
+              "position": 17
+            },
+            {
+              "id": 18,
+              "label": "Hebrew",
+              "value": "he",
+              "position": 18
+            },
+            {
+              "id": 19,
+              "label": "Hindi",
+              "value": "hi",
+              "position": 19
+            },
+            {
+              "id": 20,
+              "label": "Hungarian",
+              "value": "hu",
+              "position": 20
+            },
+            {
+              "id": 21,
+              "label": "Icelandic",
+              "value": "is",
+              "position": 21
+            },
+            {
+              "id": 22,
+              "label": "Indonesian",
+              "value": "id",
+              "position": 22
+            },
+            {
+              "id": 23,
+              "label": "Italian",
+              "value": "it",
+              "position": 23
+            },
+            {
+              "id": 24,
+              "label": "Japanese",
+              "value": "ja-JP",
+              "position": 24
+            },
+            {
+              "id": 25,
+              "label": "Korean",
+              "value": "ko",
+              "position": 25
+            },
+            {
+              "id": 26,
+              "label": "Latvian",
+              "value": "lv-LV",
+              "position": 26
+            },
+            {
+              "id": 27,
+              "label": "Lithuanian",
+              "value": "lt",
+              "position": 27
+            },
+            {
+              "id": 28,
+              "label": "Malay",
+              "value": "ms",
+              "position": 28
+            },
+            {
+              "id": 29,
+              "label": "Norwegian",
+              "value": "nb-NO",
+              "position": 29
+            },
+            {
+              "id": 30,
+              "label": "Polish",
+              "value": "pl",
+              "position": 30
+            },
+            {
+              "id": 31,
+              "label": "Portuguese (BR)",
+              "value": "pt-BR",
+              "position": 31
+            },
+            {
+              "id": 32,
+              "label": "Portuguese/Portugal",
+              "value": "pt-PT",
+              "position": 32
+            },
+            {
+              "id": 33,
+              "label": "Romanian",
+              "value": "ro",
+              "position": 33
+            },
+            {
+              "id": 34,
+              "label": "Russian",
+              "value": "ru-RU",
+              "position": 34
+            },
+            {
+              "id": 35,
+              "label": "Serbian",
+              "value": "sr",
+              "position": 35
+            },
+            {
+              "id": 36,
+              "label": "Slovak",
+              "value": "sk",
+              "position": 36
+            },
+            {
+              "id": 37,
+              "label": "Slovenian",
+              "value": "sl",
+              "position": 37
+            },
+            {
+              "id": 38,
+              "label": "Spanish",
+              "value": "es",
+              "position": 38
+            },
+            {
+              "id": 39,
+              "label": "Spanish (Latin America)",
+              "value": "es-LA",
+              "position": 39
+            },
+            {
+              "id": 40,
+              "label": "Swedish",
+              "value": "sv-SE",
+              "position": 40
+            },
+            {
+              "id": 41,
+              "label": "Thai",
+              "value": "th",
+              "position": 41
+            },
+            {
+              "id": 42,
+              "label": "Turkish",
+              "value": "tr",
+              "position": 42
+            },
+            {
+              "id": 43,
+              "label": "Ukrainian",
+              "value": "uk",
+              "position": 43
+            },
+            {
+              "id": 44,
+              "label": "Vietnamese",
+              "value": "vi",
+              "position": 44
+            }
+          ],
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539532",
+          "name": "tag_names",
+          "label": "Tags",
+          "position": 14,
+          "type": "default_tag_names",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Tags",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539533",
+          "name": "description",
+          "label": "About",
+          "position": 15,
+          "type": "default_description",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "About",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539534",
+          "name": "unique_external_id",
+          "label": "Unique external ID",
+          "position": 17,
+          "type": "default_unique_external_id",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": true,
+          "customers_can_edit": false,
+          "label_for_customers": "Unique external ID",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539539",
+          "name": "social_handler",
+          "label": "Social handle",
+          "position": 47,
+          "type": "default_social_handler",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": true,
+          "customers_can_edit": true,
+          "label_for_customers": "Social handle",
+          "required_for_customers": false,
+          "displayed_for_customers": true,
+          "choices": [
+            {
+              "id": 0,
+              "label": "whatsapp",
+              "value": "whatsapp",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "facebook",
+              "value": "facebook",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "instagram",
+              "value": "instagram",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "x",
+              "value": "x",
+              "position": 3
+            }
+          ],
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        },
+        {
+          "id": "158007539540",
+          "name": "list_ids",
+          "label": "Contact lists",
+          "position": 60,
+          "type": "default_lists",
+          "default": true,
+          "editable_in_signup": false,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "customers_can_edit": false,
+          "label_for_customers": "Contact lists",
+          "required_for_customers": false,
+          "displayed_for_customers": false,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:41Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "ContactField": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/contact_fields": {
+        "response": [
+          {
+            "editable_in_signup": false,
+            "id": 158007545004,
+            "name": "test_field_save",
+            "label": "Test Field Save",
+            "position": 1,
+            "required_for_agents": false,
+            "type": "custom_text",
+            "default": false,
+            "customers_can_edit": false,
+            "label_for_customers": "Test Field Save",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-19T23:50:41Z",
+            "updated_at": "2026-08-19T23:50:41Z"
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007545003,
+            "name": "test_field",
+            "label": "Test Field",
+            "position": 2,
+            "required_for_agents": false,
+            "type": "custom_text",
+            "default": false,
+            "customers_can_edit": false,
+            "label_for_customers": "Test Field",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-19T23:50:27Z",
+            "updated_at": "2026-08-19T23:50:41Z"
+          },
+          {
+            "editable_in_signup": true,
+            "id": 158007539537,
+            "name": "name",
+            "label": "Full name",
+            "position": 3,
+            "required_for_agents": false,
+            "type": "default_name",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Full name",
+            "required_for_customers": true,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": true,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539522,
+            "name": "job_title",
+            "label": "Title",
+            "position": 4,
+            "required_for_agents": false,
+            "type": "default_job_title",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Title",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": true,
+            "id": 158007539523,
+            "name": "email",
+            "label": "Email",
+            "position": 5,
+            "required_for_agents": false,
+            "type": "default_email",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Email",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": true
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539525,
+            "name": "mobile",
+            "label": "Mobile phone",
+            "position": 6,
+            "required_for_agents": false,
+            "type": "default_mobile",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Mobile phone",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": true
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539524,
+            "name": "phone",
+            "label": "Work phone",
+            "position": 7,
+            "required_for_agents": false,
+            "type": "default_phone",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Work phone",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539526,
+            "name": "other_phone_numbers",
+            "label": "Other phone numbers",
+            "position": 8,
+            "required_for_agents": false,
+            "type": "default_other_phone_numbers",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Other phone numbers",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539528,
+            "name": "company_name",
+            "label": "Company",
+            "position": 10,
+            "required_for_agents": false,
+            "type": "default_company_name",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Company",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": true,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539529,
+            "name": "address",
+            "label": "Address",
+            "position": 11,
+            "required_for_agents": false,
+            "type": "default_address",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Address",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539530,
+            "name": "time_zone",
+            "label": "Time zone",
+            "position": 12,
+            "required_for_agents": false,
+            "type": "default_time_zone",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Time zone",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "choices": {
+              "International Date Line West": "(GMT-12:00) International Date Line West",
+              "American Samoa": "(GMT-11:00) American Samoa",
+              "Midway Island": "(GMT-11:00) Midway Island",
+              "Hawaii": "(GMT-10:00) Hawaii",
+              "Alaska": "(GMT-09:00) Alaska",
+              "Pacific Time (US & Canada)": "(GMT-08:00) Pacific Time (US & Canada)",
+              "Tijuana": "(GMT-08:00) Tijuana",
+              "Arizona": "(GMT-07:00) Arizona",
+              "Mazatlan": "(GMT-07:00) Mazatlan",
+              "Mountain Time (US & Canada)": "(GMT-07:00) Mountain Time (US & Canada)",
+              "Central America": "(GMT-06:00) Central America",
+              "Central Time (US & Canada)": "(GMT-06:00) Central Time (US & Canada)",
+              "Chihuahua": "(GMT-06:00) Chihuahua",
+              "Guadalajara": "(GMT-06:00) Guadalajara",
+              "Mexico City": "(GMT-06:00) Mexico City",
+              "Monterrey": "(GMT-06:00) Monterrey",
+              "Saskatchewan": "(GMT-06:00) Saskatchewan",
+              "Bogota": "(GMT-05:00) Bogota",
+              "Eastern Time (US & Canada)": "(GMT-05:00) Eastern Time (US & Canada)",
+              "Indiana (East)": "(GMT-05:00) Indiana (East)",
+              "Lima": "(GMT-05:00) Lima",
+              "Quito": "(GMT-05:00) Quito",
+              "Atlantic Time (Canada)": "(GMT-04:00) Atlantic Time (Canada)",
+              "Caracas": "(GMT-04:00) Caracas",
+              "Georgetown": "(GMT-04:00) Georgetown",
+              "La Paz": "(GMT-04:00) La Paz",
+              "Puerto Rico": "(GMT-04:00) Puerto Rico",
+              "Santiago": "(GMT-04:00) Santiago",
+              "Newfoundland": "(GMT-03:30) Newfoundland",
+              "Brasilia": "(GMT-03:00) Brasilia",
+              "Buenos Aires": "(GMT-03:00) Buenos Aires",
+              "Montevideo": "(GMT-03:00) Montevideo",
+              "Greenland": "(GMT-02:00) Greenland",
+              "Mid-Atlantic": "(GMT-02:00) Mid-Atlantic",
+              "Azores": "(GMT-01:00) Azores",
+              "Cape Verde Is.": "(GMT-01:00) Cape Verde Is.",
+              "Edinburgh": "(GMT+00:00) Edinburgh",
+              "Lisbon": "(GMT+00:00) Lisbon",
+              "London": "(GMT+00:00) London",
+              "Monrovia": "(GMT+00:00) Monrovia",
+              "UTC": "(GMT+00:00) UTC",
+              "Amsterdam": "(GMT+01:00) Amsterdam",
+              "Belgrade": "(GMT+01:00) Belgrade",
+              "Berlin": "(GMT+01:00) Berlin",
+              "Bern": "(GMT+01:00) Bern",
+              "Bratislava": "(GMT+01:00) Bratislava",
+              "Brussels": "(GMT+01:00) Brussels",
+              "Budapest": "(GMT+01:00) Budapest",
+              "Casablanca": "(GMT+01:00) Casablanca",
+              "Copenhagen": "(GMT+01:00) Copenhagen",
+              "Dublin": "(GMT+01:00) Dublin",
+              "Ljubljana": "(GMT+01:00) Ljubljana",
+              "Madrid": "(GMT+01:00) Madrid",
+              "Paris": "(GMT+01:00) Paris",
+              "Prague": "(GMT+01:00) Prague",
+              "Rome": "(GMT+01:00) Rome",
+              "Sarajevo": "(GMT+01:00) Sarajevo",
+              "Skopje": "(GMT+01:00) Skopje",
+              "Stockholm": "(GMT+01:00) Stockholm",
+              "Vienna": "(GMT+01:00) Vienna",
+              "Warsaw": "(GMT+01:00) Warsaw",
+              "West Central Africa": "(GMT+01:00) West Central Africa",
+              "Zagreb": "(GMT+01:00) Zagreb",
+              "Zurich": "(GMT+01:00) Zurich",
+              "Athens": "(GMT+02:00) Athens",
+              "Bucharest": "(GMT+02:00) Bucharest",
+              "Cairo": "(GMT+02:00) Cairo",
+              "Harare": "(GMT+02:00) Harare",
+              "Helsinki": "(GMT+02:00) Helsinki",
+              "Jerusalem": "(GMT+02:00) Jerusalem",
+              "Kaliningrad": "(GMT+02:00) Kaliningrad",
+              "Kyiv": "(GMT+02:00) Kyiv",
+              "Pretoria": "(GMT+02:00) Pretoria",
+              "Riga": "(GMT+02:00) Riga",
+              "Sofia": "(GMT+02:00) Sofia",
+              "Tallinn": "(GMT+02:00) Tallinn",
+              "Vilnius": "(GMT+02:00) Vilnius",
+              "Baghdad": "(GMT+03:00) Baghdad",
+              "Istanbul": "(GMT+03:00) Istanbul",
+              "Kuwait": "(GMT+03:00) Kuwait",
+              "Minsk": "(GMT+03:00) Minsk",
+              "Moscow": "(GMT+03:00) Moscow",
+              "Nairobi": "(GMT+03:00) Nairobi",
+              "Riyadh": "(GMT+03:00) Riyadh",
+              "St. Petersburg": "(GMT+03:00) St. Petersburg",
+              "Volgograd": "(GMT+03:00) Volgograd",
+              "Tehran": "(GMT+03:30) Tehran",
+              "Abu Dhabi": "(GMT+04:00) Abu Dhabi",
+              "Baku": "(GMT+04:00) Baku",
+              "Muscat": "(GMT+04:00) Muscat",
+              "Samara": "(GMT+04:00) Samara",
+              "Tbilisi": "(GMT+04:00) Tbilisi",
+              "Yerevan": "(GMT+04:00) Yerevan",
+              "Kabul": "(GMT+04:30) Kabul",
+              "Almaty": "(GMT+05:00) Almaty",
+              "Ekaterinburg": "(GMT+05:00) Ekaterinburg",
+              "Islamabad": "(GMT+05:00) Islamabad",
+              "Karachi": "(GMT+05:00) Karachi",
+              "Tashkent": "(GMT+05:00) Tashkent",
+              "Chennai": "(GMT+05:30) Chennai",
+              "Kolkata": "(GMT+05:30) Kolkata",
+              "Mumbai": "(GMT+05:30) Mumbai",
+              "New Delhi": "(GMT+05:30) New Delhi",
+              "Sri Jayawardenepura": "(GMT+05:30) Sri Jayawardenepura",
+              "Kathmandu": "(GMT+05:45) Kathmandu",
+              "Astana": "(GMT+06:00) Astana",
+              "Dhaka": "(GMT+06:00) Dhaka",
+              "Urumqi": "(GMT+06:00) Urumqi",
+              "Rangoon": "(GMT+06:30) Rangoon",
+              "Bangkok": "(GMT+07:00) Bangkok",
+              "Hanoi": "(GMT+07:00) Hanoi",
+              "Jakarta": "(GMT+07:00) Jakarta",
+              "Krasnoyarsk": "(GMT+07:00) Krasnoyarsk",
+              "Novosibirsk": "(GMT+07:00) Novosibirsk",
+              "Beijing": "(GMT+08:00) Beijing",
+              "Chongqing": "(GMT+08:00) Chongqing",
+              "Hong Kong": "(GMT+08:00) Hong Kong",
+              "Irkutsk": "(GMT+08:00) Irkutsk",
+              "Kuala Lumpur": "(GMT+08:00) Kuala Lumpur",
+              "Perth": "(GMT+08:00) Perth",
+              "Singapore": "(GMT+08:00) Singapore",
+              "Taipei": "(GMT+08:00) Taipei",
+              "Ulaanbaatar": "(GMT+08:00) Ulaanbaatar",
+              "Osaka": "(GMT+09:00) Osaka",
+              "Sapporo": "(GMT+09:00) Sapporo",
+              "Seoul": "(GMT+09:00) Seoul",
+              "Tokyo": "(GMT+09:00) Tokyo",
+              "Yakutsk": "(GMT+09:00) Yakutsk",
+              "Adelaide": "(GMT+09:30) Adelaide",
+              "Darwin": "(GMT+09:30) Darwin",
+              "Brisbane": "(GMT+10:00) Brisbane",
+              "Canberra": "(GMT+10:00) Canberra",
+              "Guam": "(GMT+10:00) Guam",
+              "Hobart": "(GMT+10:00) Hobart",
+              "Melbourne": "(GMT+10:00) Melbourne",
+              "Port Moresby": "(GMT+10:00) Port Moresby",
+              "Sydney": "(GMT+10:00) Sydney",
+              "Vladivostok": "(GMT+10:00) Vladivostok",
+              "Magadan": "(GMT+11:00) Magadan",
+              "New Caledonia": "(GMT+11:00) New Caledonia",
+              "Solomon Is.": "(GMT+11:00) Solomon Is.",
+              "Srednekolymsk": "(GMT+11:00) Srednekolymsk",
+              "Auckland": "(GMT+12:00) Auckland",
+              "Fiji": "(GMT+12:00) Fiji",
+              "Kamchatka": "(GMT+12:00) Kamchatka",
+              "Marshall Is.": "(GMT+12:00) Marshall Is.",
+              "Wellington": "(GMT+12:00) Wellington",
+              "Chatham Is.": "(GMT+12:45) Chatham Is.",
+              "Nuku'alofa": "(GMT+13:00) Nuku'alofa",
+              "Samoa": "(GMT+13:00) Samoa",
+              "Tokelau Is.": "(GMT+13:00) Tokelau Is."
+            },
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539531,
+            "name": "language",
+            "label": "Language",
+            "position": 13,
+            "required_for_agents": false,
+            "type": "default_language",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Language",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "choices": {
+              "ar": "Arabic",
+              "bs": "Bosnian",
+              "bg": "Bulgarian",
+              "ca": "Catalan",
+              "zh-CN": "Chinese",
+              "zh-TW": "Chinese (Traditional)",
+              "hr": "Croatian",
+              "cs": "Czech",
+              "da": "Danish",
+              "nl": "Dutch",
+              "en": "English",
+              "en-GB": "English (UK)",
+              "et": "Estonian",
+              "fil": "Filipino",
+              "fi": "Finnish",
+              "fr": "French",
+              "de": "German",
+              "el": "Greek",
+              "he": "Hebrew",
+              "hi": "Hindi",
+              "hu": "Hungarian",
+              "is": "Icelandic",
+              "id": "Indonesian",
+              "it": "Italian",
+              "ja-JP": "Japanese",
+              "ko": "Korean",
+              "lv-LV": "Latvian",
+              "lt": "Lithuanian",
+              "ms": "Malay",
+              "nb-NO": "Norwegian",
+              "pl": "Polish",
+              "pt-BR": "Portuguese (BR)",
+              "pt-PT": "Portuguese/Portugal",
+              "ro": "Romanian",
+              "ru-RU": "Russian",
+              "sr": "Serbian",
+              "sk": "Slovak",
+              "sl": "Slovenian",
+              "es": "Spanish",
+              "es-LA": "Spanish (Latin America)",
+              "sv-SE": "Swedish",
+              "th": "Thai",
+              "tr": "Turkish",
+              "uk": "Ukrainian",
+              "vi": "Vietnamese"
+            },
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539532,
+            "name": "tag_names",
+            "label": "Tags",
+            "position": 14,
+            "required_for_agents": false,
+            "type": "default_tag_names",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Tags",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539533,
+            "name": "description",
+            "label": "About",
+            "position": 15,
+            "required_for_agents": false,
+            "type": "default_description",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "About",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539534,
+            "name": "unique_external_id",
+            "label": "Unique external ID",
+            "position": 17,
+            "required_for_agents": false,
+            "type": "default_unique_external_id",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Unique external ID",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": true
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539539,
+            "name": "social_handler",
+            "label": "Social handle",
+            "position": 47,
+            "required_for_agents": false,
+            "type": "default_social_handler",
+            "default": true,
+            "customers_can_edit": true,
+            "label_for_customers": "Social handle",
+            "required_for_customers": false,
+            "displayed_for_customers": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "choices": [
+              "whatsapp",
+              "facebook",
+              "instagram",
+              "x"
+            ],
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": true
+          },
+          {
+            "editable_in_signup": false,
+            "id": 158007539540,
+            "name": "list_ids",
+            "label": "Contact lists",
+            "position": 60,
+            "required_for_agents": false,
+            "type": "default_lists",
+            "default": true,
+            "customers_can_edit": false,
+            "label_for_customers": "Contact lists",
+            "required_for_customers": false,
+            "displayed_for_customers": false,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:41Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 23:52:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "48.0",
+          "x-ratelimit-reset": "1787183554",
+          "status": "200 OK",
+          "pragma": "no-cache",
+          "x-request-id": "ee0bc330-6b5a-9a39-bf21-f032e7a77b99",
+          "x-freshdesk-api-version": "latest=v2; requested=v2",
+          "content-security-policy": "default-src 'self'; connect-src 'self' *.freshconnect.io/ *.freshsales.io/ *.freshworks.com/ *.freshdesk.com/ *.freshworksapi.com/ *.qualtrics.com/ *.freshdeskusercontent.com/ *.freshdeskusercontent-euc.com/ *.freshdeskusercontent-in.com/ *.freshdeskusercontent-aus.com/ *.fconstage.io/ analytics.inlinemanual.com/__profile analytics.inlinemanual.com/__ptm backend.getbeamer.com/ heapanalytics.com/ d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/assets/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2lz1e868xzctj.cloudfront.net/ rum.haystack.es/freshdesk/analytics rum.haystack.es/freshworks-rts/_logs fonts.googleapis.com/ fonts.gstatic.com/ sentry.io/api/ wss://*.freshworksapi.com/ wss://*.freshdesk.com/ fg8vvsvnieiv3ej16jby.litix.io/ distillery.wistia.com/ pipedream.wistia.com/ freshworks.asknice.ly/ embedwistia-a.akamaihd.net/ embed-fastly.wistia.com/ maps.googleapis.com/ graph.microsoft.com/v1.0/ freshcaller-attachments.s3.amazonaws.com/production/ euc-freshcaller-attachments.s3.eu-central-1.amazonaws.com/production/ mec-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ eun-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ au-freshcaller-attachments.s3-ap-southeast-2.amazonaws.com/production/ in-freshcaller-attachments.s3.ap-south-1.amazonaws.com/production/ pubsub.rtschannel.com/ api.fdcollab.com/ wss://pubsub.rtschannel.com/ cloudflareinsights.com/ data: blob: api.appcues.net/ wss://api.appcues.net/ fast.appcues.com/ cdn.jsdelivr.net/npm/@freshworks/crayons-icon@next/dist/ translate.googleapis.com/translate_a/t translate.googleapis.com/element/log fast.wistia.net/ fast.wistia.com/ embed-cloudfront.wistia.com/deliveries/ app.inlinemanual.com/ client-api.auryc.com/ *.surveyserv.com *.freshsurvey.com *.freddybot.com *.freshreports.com rum.haystack.es/freshreports/analytics dsv27oefxtf0.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ *.userpilot.io/ wss://*.userpilot.io/ www.youtube.com/oembed vimeo.com/api/ www.loom.com/v1/ api.vidyard.com/dashboard/; font-src 'self' *.freshdesk.com/ fonts.gstatic.com/ fonts.googleapis.com/ cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/ fast.wistia.net/ fast.wistia.com/ *.freddybot.com cdn.inlinemanual.com/inm/author/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ data:; frame-src 'self' https:; img-src 'self' https: data: blob:; media-src 'self' https: blob:; object-src 'none'; script-src 'self' *.freshworksapi.com/ *.freshworks.com/ *.myfreshworks.com/ *.freshdesk.com/ *.freshchat.com/ *.freshcaller.com/ *.freshconnect.io/ *.freshcloud.io/ *.fconstage.io/ accounts.freshworks.com/ wchat.freshchat.com/js/ wchat.freshchat.com/widget/js/ *.siteintercept.qualtrics.com/SIE/ *.qualtrics.com assets.calendly.com/assets/external/widget.js d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ app.getbeamer.com/js/beamer-embed.js analytics.inlinemanual.com/ cdn.inlinemanual.com/embed/ cdn.heapanalytics.com/ s3.amazonaws.com/assets.freshdesk.com/ cdnjs.cloudflare.com/ ajax.cloudflare.com/ static.cloudflareinsights.com/ js.chargebee.com/v1/chargebee.js js.braintreegateway.com/v1/braintree.js static.freshdev.io/ fast.wistia.net/ fast.wistia.com/ static.getbeamer.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js js-agent.newrelic.com/ www.googletagmanager.com/gtag/js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.js www.dropbox.com/static/api/2/dropins.js js.live.net/v7.2/OneDrive.js apis.google.com/ asknice.ly bam.nr-data.net/ www.google-analytics.com/analytics.js maps.googleapis.com/ unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.esm.js unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.js s3.amazonaws.com/freshcaller-widget-loader/ in-freshcaller-widget-loader.s3.ap-south-1.amazonaws.com/ s3.eu-central-1.amazonaws.com/euc-freshcaller-widget-loader/ mec-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ eun-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ au-freshcaller-widget-loader.s3-ap-southeast-2.amazonaws.com/ www.dropbox.com/static/api/1/dropbox.js fast.appcues.com/ translate.google.com/translate_a/element.js translate.googleapis.com/_/translate_http/_/js/ translate-pa.googleapis.com/v1/supportedLanguages cdn.surveyserv.com/widget.min.js cdn.freshdev.io/assets/marketplace-heap.js cdn.freshcloud.io/assets/marketplace-heap.js cdn.freshdev.io/assets/marketplace-analytics.js cdn.inlinemanual.com/inm/author/ app.inlinemanual.com/ *.surveyserv.com *.freshsurvey.com www.google.com/recaptcha/ www.gstatic.com/recaptcha/ *.freddybot.com d3el5jsqgryo0a.cloudfront.net d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ accounts.google.com/ js.userpilot.io/ 'unsafe-inline' 'unsafe-eval'; style-src 'self' *.freshworks.com *.myfreshworks.com/ *.freshchat.com/ d3h0owdjgzys62.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ fonts.googleapis.com/ app.getbeamer.com/styles/beamer-embed.css s3.amazonaws.com/assets.freshdesk.com/ *.freshdesk.com/ wchat.freshchat.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.css fast.appcues.com/ asknice.ly *.surveyserv.com *.freshsurvey.com *.freddybot.com cdn.inlinemanual.com/inm/author/ 'unsafe-inline'; worker-src 'self' blob:",
+          "cache-control": "no-store",
+          "expires": "Wed, 13 Oct 2010 00:00:00 UTC",
+          "x-envoy-upstream-service-time": "89",
+          "x-trace-id": "00-6a8641af000000000abd69de99fdc960-1223dc3bf725a679-01",
+          "nel": "{ \"report_to\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true}",
+          "report-to": "{ \"group\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true, \"endpoints\": [{\"url\": \"https://nel.us-east-1.freshedge.net/nelreports/freshdesk\"}]}",
+          "x-server-processing-time-ms": "93",
+          "x-fw-ratelimiting-managed": "true",
+          "x-ratelimit-total": "50.0",
+          "x-ratelimit-used-currentrequest": "1",
+          "server": "cloudflare",
+          "set-cookie": "_x_w=47_1; path=/; HttpOnly; secure, _x_m=x_c; path=/; HttpOnly; secure, __cf_bm=YTTXZitLkJgy3rUBmedMPS62eBZL9bw.gBavexPw4FQ-1787183556.6452787-1.0.1.1-83aeKKhAYUn_gTwjaYjrmr_.u2rHfjUvil5r2RCKyPud60ImgBMhQXGELPRmwgkN2Tdw60One3rN4VaXaP2BYv4R_V_sbrjhh7rp7erZ7m68uhf_oH13WBBAgP7A.Mp_; HttpOnly; SameSite=None; Secure; Path=/; Domain=freshdesk.com; Expires=Thu, 20 Aug 2026 00:22:36 GMT",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a2dd12ad0a3e28b9-PDX"
+        },
+        "hash": "dd78f8a2475b8164d8743e06eba287e8b32022d7",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

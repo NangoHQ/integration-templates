@@ -1,0 +1,817 @@
+{
+  "nango": {
+    "batchSave": {
+      "CompanyField": [
+        {
+          "id": "158004125395",
+          "name": "nango_test_cf_001",
+          "label": "Nango Test CF 001 Updated",
+          "type": "custom_text",
+          "default": false,
+          "required_for_agents": false,
+          "position": 1,
+          "created_at": "2026-08-19T23:39:36Z",
+          "updated_at": "2026-08-19T23:51:37Z"
+        },
+        {
+          "id": "158004125394",
+          "name": "nango_test_cf",
+          "label": "Nango Test CF",
+          "type": "custom_text",
+          "default": false,
+          "required_for_agents": false,
+          "position": 2,
+          "created_at": "2026-08-19T23:38:16Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123048",
+          "name": "name",
+          "label": "Company Name",
+          "type": "default_name",
+          "default": true,
+          "required_for_agents": true,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": true,
+          "position": 3,
+          "created_at": "2026-08-14T05:51:04Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123049",
+          "name": "description",
+          "label": "Description",
+          "type": "default_description",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 4,
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123050",
+          "name": "note",
+          "label": "Notes",
+          "type": "default_note",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 5,
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123051",
+          "name": "domains",
+          "label": "Domains for this company",
+          "type": "default_domains",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 6,
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123052",
+          "name": "health_score",
+          "label": "Health score",
+          "type": "default_health_score",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 7,
+          "choices": [
+            {
+              "id": 0,
+              "label": "At risk",
+              "value": "At risk",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "Doing okay",
+              "value": "Doing okay",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "Happy",
+              "value": "Happy",
+              "position": 2
+            }
+          ],
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123053",
+          "name": "account_tier",
+          "label": "Account tier",
+          "type": "default_account_tier",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 8,
+          "choices": [
+            {
+              "id": 0,
+              "label": "Basic",
+              "value": "Basic",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "Premium",
+              "value": "Premium",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "Enterprise",
+              "value": "Enterprise",
+              "position": 2
+            }
+          ],
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123054",
+          "name": "renewal_date",
+          "label": "Renewal date",
+          "type": "default_renewal_date",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 9,
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        },
+        {
+          "id": "158004123055",
+          "name": "industry",
+          "label": "Industry",
+          "type": "default_industry",
+          "default": true,
+          "required_for_agents": false,
+          "agents_can_edit": true,
+          "displayed_for_agents": true,
+          "quick_add_for_agent": false,
+          "unique": false,
+          "position": 10,
+          "choices": [
+            {
+              "id": 0,
+              "label": "Automotive",
+              "value": "Automotive",
+              "position": 0
+            },
+            {
+              "id": 1,
+              "label": "Consumer Durables and Apparel",
+              "value": "Consumer Durables and Apparel",
+              "position": 1
+            },
+            {
+              "id": 2,
+              "label": "Diversified Consumer Services",
+              "value": "Diversified Consumer Services",
+              "position": 2
+            },
+            {
+              "id": 3,
+              "label": "Hotels, Restaurants and Leisure",
+              "value": "Hotels, Restaurants and Leisure",
+              "position": 3
+            },
+            {
+              "id": 4,
+              "label": "Consumer Goods",
+              "value": "Consumer Goods",
+              "position": 4
+            },
+            {
+              "id": 5,
+              "label": "Household Durables",
+              "value": "Household Durables",
+              "position": 5
+            },
+            {
+              "id": 6,
+              "label": "Leisure Products",
+              "value": "Leisure Products",
+              "position": 6
+            },
+            {
+              "id": 7,
+              "label": "Textiles, Apparel and Luxury Goods",
+              "value": "Textiles, Apparel and Luxury Goods",
+              "position": 7
+            },
+            {
+              "id": 8,
+              "label": "Education Services",
+              "value": "Education Services",
+              "position": 8
+            },
+            {
+              "id": 9,
+              "label": "Family Services",
+              "value": "Family Services",
+              "position": 9
+            },
+            {
+              "id": 10,
+              "label": "Specialized Consumer Services",
+              "value": "Specialized Consumer Services",
+              "position": 10
+            },
+            {
+              "id": 11,
+              "label": "Media",
+              "value": "Media",
+              "position": 11
+            },
+            {
+              "id": 12,
+              "label": "Distributors",
+              "value": "Distributors",
+              "position": 12
+            },
+            {
+              "id": 13,
+              "label": "Specialty Retail",
+              "value": "Specialty Retail",
+              "position": 13
+            },
+            {
+              "id": 14,
+              "label": "Beverages",
+              "value": "Beverages",
+              "position": 14
+            },
+            {
+              "id": 15,
+              "label": "Food Products",
+              "value": "Food Products",
+              "position": 15
+            },
+            {
+              "id": 16,
+              "label": "Food and Staples Retailing",
+              "value": "Food and Staples Retailing",
+              "position": 16
+            },
+            {
+              "id": 17,
+              "label": "Personal Products",
+              "value": "Personal Products",
+              "position": 17
+            },
+            {
+              "id": 18,
+              "label": "Tobacco",
+              "value": "Tobacco",
+              "position": 18
+            },
+            {
+              "id": 19,
+              "label": "Gas Utilities",
+              "value": "Gas Utilities",
+              "position": 19
+            },
+            {
+              "id": 20,
+              "label": "Banks",
+              "value": "Banks",
+              "position": 20
+            },
+            {
+              "id": 21,
+              "label": "Capital Markets",
+              "value": "Capital Markets",
+              "position": 21
+            },
+            {
+              "id": 22,
+              "label": "Diversified Financial Services",
+              "value": "Diversified Financial Services",
+              "position": 22
+            },
+            {
+              "id": 23,
+              "label": "Insurance",
+              "value": "Insurance",
+              "position": 23
+            },
+            {
+              "id": 24,
+              "label": "Real Estate",
+              "value": "Real Estate",
+              "position": 24
+            },
+            {
+              "id": 25,
+              "label": "Health Care Equipment and Supplies",
+              "value": "Health Care Equipment and Supplies",
+              "position": 25
+            },
+            {
+              "id": 26,
+              "label": "Health Care Providers and Services",
+              "value": "Health Care Providers and Services",
+              "position": 26
+            },
+            {
+              "id": 27,
+              "label": "Biotechnology",
+              "value": "Biotechnology",
+              "position": 27
+            },
+            {
+              "id": 28,
+              "label": "Pharmaceuticals",
+              "value": "Pharmaceuticals",
+              "position": 28
+            },
+            {
+              "id": 29,
+              "label": "Professional Services",
+              "value": "Professional Services",
+              "position": 29
+            },
+            {
+              "id": 30,
+              "label": "Aerospace and Defense",
+              "value": "Aerospace and Defense",
+              "position": 30
+            },
+            {
+              "id": 31,
+              "label": "Air Freight and Logistics",
+              "value": "Air Freight and Logistics",
+              "position": 31
+            },
+            {
+              "id": 32,
+              "label": "Airlines",
+              "value": "Airlines",
+              "position": 32
+            },
+            {
+              "id": 33,
+              "label": "Commercial Services and Supplies",
+              "value": "Commercial Services and Supplies",
+              "position": 33
+            },
+            {
+              "id": 34,
+              "label": "Construction and Engineering",
+              "value": "Construction and Engineering",
+              "position": 34
+            },
+            {
+              "id": 35,
+              "label": "Electrical Equipment",
+              "value": "Electrical Equipment",
+              "position": 35
+            },
+            {
+              "id": 36,
+              "label": "Industrial Conglomerates",
+              "value": "Industrial Conglomerates",
+              "position": 36
+            },
+            {
+              "id": 37,
+              "label": "Machinery",
+              "value": "Machinery",
+              "position": 37
+            },
+            {
+              "id": 38,
+              "label": "Marine",
+              "value": "Marine",
+              "position": 38
+            },
+            {
+              "id": 39,
+              "label": "Road and Rail",
+              "value": "Road and Rail",
+              "position": 39
+            },
+            {
+              "id": 40,
+              "label": "Trading Companies and Distributors",
+              "value": "Trading Companies and Distributors",
+              "position": 40
+            },
+            {
+              "id": 41,
+              "label": "Transportation",
+              "value": "Transportation",
+              "position": 41
+            },
+            {
+              "id": 42,
+              "label": "Internet Software and Services",
+              "value": "Internet Software and Services",
+              "position": 42
+            },
+            {
+              "id": 43,
+              "label": "IT Services",
+              "value": "IT Services",
+              "position": 43
+            },
+            {
+              "id": 44,
+              "label": "Software",
+              "value": "Software",
+              "position": 44
+            },
+            {
+              "id": 45,
+              "label": "Communications Equipment",
+              "value": "Communications Equipment",
+              "position": 45
+            },
+            {
+              "id": 46,
+              "label": "Electronic Equipment, Instruments and Components",
+              "value": "Electronic Equipment, Instruments and Components",
+              "position": 46
+            },
+            {
+              "id": 47,
+              "label": "Technology Hardware, Storage and Peripherals",
+              "value": "Technology Hardware, Storage and Peripherals",
+              "position": 47
+            },
+            {
+              "id": 48,
+              "label": "Building Materials",
+              "value": "Building Materials",
+              "position": 48
+            },
+            {
+              "id": 49,
+              "label": "Chemicals",
+              "value": "Chemicals",
+              "position": 49
+            },
+            {
+              "id": 50,
+              "label": "Containers and Packaging",
+              "value": "Containers and Packaging",
+              "position": 50
+            },
+            {
+              "id": 51,
+              "label": "Metals and Mining",
+              "value": "Metals and Mining",
+              "position": 51
+            },
+            {
+              "id": 52,
+              "label": "Paper and Forest Products",
+              "value": "Paper and Forest Products",
+              "position": 52
+            },
+            {
+              "id": 53,
+              "label": "Diversified Telecommunication Services",
+              "value": "Diversified Telecommunication Services",
+              "position": 53
+            },
+            {
+              "id": 54,
+              "label": "Wireless Telecommunication Services",
+              "value": "Wireless Telecommunication Services",
+              "position": 54
+            },
+            {
+              "id": 55,
+              "label": "Renewable Electricity",
+              "value": "Renewable Electricity",
+              "position": 55
+            },
+            {
+              "id": 56,
+              "label": "Electric Utilities",
+              "value": "Electric Utilities",
+              "position": 56
+            },
+            {
+              "id": 57,
+              "label": "Utilities",
+              "value": "Utilities",
+              "position": 57
+            },
+            {
+              "id": 58,
+              "label": "Other",
+              "value": "Other",
+              "position": 58
+            }
+          ],
+          "created_at": "2026-08-14T05:51:05Z",
+          "updated_at": "2026-08-19T23:50:23Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CompanyField": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/v2/company_fields": {
+        "response": [
+          {
+            "id": 158004125395,
+            "name": "nango_test_cf_001",
+            "label": "Nango Test CF 001 Updated",
+            "position": 1,
+            "required_for_agents": false,
+            "type": "custom_text",
+            "default": false,
+            "created_at": "2026-08-19T23:39:36Z",
+            "updated_at": "2026-08-19T23:51:37Z"
+          },
+          {
+            "id": 158004125394,
+            "name": "nango_test_cf",
+            "label": "Nango Test CF",
+            "position": 2,
+            "required_for_agents": false,
+            "type": "custom_text",
+            "default": false,
+            "created_at": "2026-08-19T23:38:16Z",
+            "updated_at": "2026-08-19T23:50:23Z"
+          },
+          {
+            "id": 158004123048,
+            "name": "name",
+            "label": "Company Name",
+            "position": 3,
+            "required_for_agents": true,
+            "type": "default_name",
+            "default": true,
+            "created_at": "2026-08-14T05:51:04Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": true
+          },
+          {
+            "id": 158004123049,
+            "name": "description",
+            "label": "Description",
+            "position": 4,
+            "required_for_agents": false,
+            "type": "default_description",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123050,
+            "name": "note",
+            "label": "Notes",
+            "position": 5,
+            "required_for_agents": false,
+            "type": "default_note",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123051,
+            "name": "domains",
+            "label": "Domains for this company",
+            "position": 6,
+            "required_for_agents": false,
+            "type": "default_domains",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123052,
+            "name": "health_score",
+            "label": "Health score",
+            "position": 7,
+            "required_for_agents": false,
+            "type": "default_health_score",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "choices": [
+              "At risk",
+              "Doing okay",
+              "Happy"
+            ],
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123053,
+            "name": "account_tier",
+            "label": "Account tier",
+            "position": 8,
+            "required_for_agents": false,
+            "type": "default_account_tier",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "choices": [
+              "Basic",
+              "Premium",
+              "Enterprise"
+            ],
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123054,
+            "name": "renewal_date",
+            "label": "Renewal date",
+            "position": 9,
+            "required_for_agents": false,
+            "type": "default_renewal_date",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          },
+          {
+            "id": 158004123055,
+            "name": "industry",
+            "label": "Industry",
+            "position": 10,
+            "required_for_agents": false,
+            "type": "default_industry",
+            "default": true,
+            "created_at": "2026-08-14T05:51:05Z",
+            "updated_at": "2026-08-19T23:50:23Z",
+            "choices": [
+              "Automotive",
+              "Consumer Durables and Apparel",
+              "Diversified Consumer Services",
+              "Hotels, Restaurants and Leisure",
+              "Consumer Goods",
+              "Household Durables",
+              "Leisure Products",
+              "Textiles, Apparel and Luxury Goods",
+              "Education Services",
+              "Family Services",
+              "Specialized Consumer Services",
+              "Media",
+              "Distributors",
+              "Specialty Retail",
+              "Beverages",
+              "Food Products",
+              "Food and Staples Retailing",
+              "Personal Products",
+              "Tobacco",
+              "Gas Utilities",
+              "Banks",
+              "Capital Markets",
+              "Diversified Financial Services",
+              "Insurance",
+              "Real Estate",
+              "Health Care Equipment and Supplies",
+              "Health Care Providers and Services",
+              "Biotechnology",
+              "Pharmaceuticals",
+              "Professional Services",
+              "Aerospace and Defense",
+              "Air Freight and Logistics",
+              "Airlines",
+              "Commercial Services and Supplies",
+              "Construction and Engineering",
+              "Electrical Equipment",
+              "Industrial Conglomerates",
+              "Machinery",
+              "Marine",
+              "Road and Rail",
+              "Trading Companies and Distributors",
+              "Transportation",
+              "Internet Software and Services",
+              "IT Services",
+              "Software",
+              "Communications Equipment",
+              "Electronic Equipment, Instruments and Components",
+              "Technology Hardware, Storage and Peripherals",
+              "Building Materials",
+              "Chemicals",
+              "Containers and Packaging",
+              "Metals and Mining",
+              "Paper and Forest Products",
+              "Diversified Telecommunication Services",
+              "Wireless Telecommunication Services",
+              "Renewable Electricity",
+              "Electric Utilities",
+              "Utilities",
+              "Other"
+            ],
+            "agents_can_edit": true,
+            "displayed_for_agents": true,
+            "quick_add_for_agent": false,
+            "unique": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 23:58:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "48.0",
+          "x-ratelimit-reset": "1787183944",
+          "status": "200 OK",
+          "pragma": "no-cache",
+          "x-request-id": "988867b4-a12d-9dfd-a454-f0c96e783c50",
+          "x-freshdesk-api-version": "latest=v2; requested=v2",
+          "content-security-policy": "default-src 'self'; connect-src 'self' *.freshconnect.io/ *.freshsales.io/ *.freshworks.com/ *.freshdesk.com/ *.freshworksapi.com/ *.qualtrics.com/ *.freshdeskusercontent.com/ *.freshdeskusercontent-euc.com/ *.freshdeskusercontent-in.com/ *.freshdeskusercontent-aus.com/ *.fconstage.io/ analytics.inlinemanual.com/__profile analytics.inlinemanual.com/__ptm backend.getbeamer.com/ heapanalytics.com/ d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/assets/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2lz1e868xzctj.cloudfront.net/ rum.haystack.es/freshdesk/analytics rum.haystack.es/freshworks-rts/_logs fonts.googleapis.com/ fonts.gstatic.com/ sentry.io/api/ wss://*.freshworksapi.com/ wss://*.freshdesk.com/ fg8vvsvnieiv3ej16jby.litix.io/ distillery.wistia.com/ pipedream.wistia.com/ freshworks.asknice.ly/ embedwistia-a.akamaihd.net/ embed-fastly.wistia.com/ maps.googleapis.com/ graph.microsoft.com/v1.0/ freshcaller-attachments.s3.amazonaws.com/production/ euc-freshcaller-attachments.s3.eu-central-1.amazonaws.com/production/ mec-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ eun-freshcaller-attachments.s3.me-central-1.amazonaws.com/production/ au-freshcaller-attachments.s3-ap-southeast-2.amazonaws.com/production/ in-freshcaller-attachments.s3.ap-south-1.amazonaws.com/production/ pubsub.rtschannel.com/ api.fdcollab.com/ wss://pubsub.rtschannel.com/ cloudflareinsights.com/ data: blob: api.appcues.net/ wss://api.appcues.net/ fast.appcues.com/ cdn.jsdelivr.net/npm/@freshworks/crayons-icon@next/dist/ translate.googleapis.com/translate_a/t translate.googleapis.com/element/log fast.wistia.net/ fast.wistia.com/ embed-cloudfront.wistia.com/deliveries/ app.inlinemanual.com/ client-api.auryc.com/ *.surveyserv.com *.freshsurvey.com *.freddybot.com *.freshreports.com rum.haystack.es/freshreports/analytics dsv27oefxtf0.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ *.userpilot.io/ wss://*.userpilot.io/ www.youtube.com/oembed vimeo.com/api/ www.loom.com/v1/ api.vidyard.com/dashboard/; font-src 'self' *.freshdesk.com/ fonts.gstatic.com/ fonts.googleapis.com/ cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/ fast.wistia.net/ fast.wistia.com/ *.freddybot.com cdn.inlinemanual.com/inm/author/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ data:; frame-src 'self' https:; img-src 'self' https: data: blob:; media-src 'self' https: blob:; object-src 'none'; script-src 'self' *.freshworksapi.com/ *.freshworks.com/ *.myfreshworks.com/ *.freshdesk.com/ *.freshchat.com/ *.freshcaller.com/ *.freshconnect.io/ *.freshcloud.io/ *.fconstage.io/ accounts.freshworks.com/ wchat.freshchat.com/js/ wchat.freshchat.com/widget/js/ *.siteintercept.qualtrics.com/SIE/ *.qualtrics.com assets.calendly.com/assets/external/widget.js d3h0owdjgzys62.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ app.getbeamer.com/js/beamer-embed.js analytics.inlinemanual.com/ cdn.inlinemanual.com/embed/ cdn.heapanalytics.com/ s3.amazonaws.com/assets.freshdesk.com/ cdnjs.cloudflare.com/ ajax.cloudflare.com/ static.cloudflareinsights.com/ js.chargebee.com/v1/chargebee.js js.braintreegateway.com/v1/braintree.js static.freshdev.io/ fast.wistia.net/ fast.wistia.com/ static.getbeamer.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js js-agent.newrelic.com/ www.googletagmanager.com/gtag/js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.js www.dropbox.com/static/api/2/dropins.js js.live.net/v7.2/OneDrive.js apis.google.com/ asknice.ly bam.nr-data.net/ www.google-analytics.com/analytics.js maps.googleapis.com/ unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.esm.js unpkg.com/@freshworks/crayons@v3/dist/crayons/crayons.js s3.amazonaws.com/freshcaller-widget-loader/ in-freshcaller-widget-loader.s3.ap-south-1.amazonaws.com/ s3.eu-central-1.amazonaws.com/euc-freshcaller-widget-loader/ mec-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ eun-freshcaller-widget-loader.s3.me-central-1.amazonaws.com/ au-freshcaller-widget-loader.s3-ap-southeast-2.amazonaws.com/ www.dropbox.com/static/api/1/dropbox.js fast.appcues.com/ translate.google.com/translate_a/element.js translate.googleapis.com/_/translate_http/_/js/ translate-pa.googleapis.com/v1/supportedLanguages cdn.surveyserv.com/widget.min.js cdn.freshdev.io/assets/marketplace-heap.js cdn.freshcloud.io/assets/marketplace-heap.js cdn.freshdev.io/assets/marketplace-analytics.js cdn.inlinemanual.com/inm/author/ app.inlinemanual.com/ *.surveyserv.com *.freshsurvey.com www.google.com/recaptcha/ www.gstatic.com/recaptcha/ *.freddybot.com d3el5jsqgryo0a.cloudfront.net d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ accounts.google.com/ js.userpilot.io/ 'unsafe-inline' 'unsafe-eval'; style-src 'self' *.freshworks.com *.myfreshworks.com/ *.freshchat.com/ d3h0owdjgzys62.cloudfront.net/ dcdu85ocrj5q6.cloudfront.net/ dtdafz6i4gvv1.cloudfront.net/ d3r4aewxkdubw4.cloudfront.net/ d2uy6ubiilaqku.cloudfront.net/ d259946rb8u125.cloudfront.net/ d26h8g5t9na1ph.cloudfront.net/ d3k2px406bziu5.cloudfront.net/ d3vemg63yfopge.cloudfront.net/ d18u0ykezz20xl.cloudfront.net/ d38bgnd74qpt7g.cloudfront.net/ fonts.googleapis.com/ app.getbeamer.com/styles/beamer-embed.css s3.amazonaws.com/assets.freshdesk.com/ *.freshdesk.com/ wchat.freshchat.com/ calendly.com/ unpkg.com/@webcomponents/webcomponentsjs@2.4.3/custom-elements-es5-adapter.js unpkg.com/@webcomponents/webcomponentsjs@2.4.3/webcomponents-loader.js static.asknice.ly/dist/standalone/asknicely-in-app-conversation.css fast.appcues.com/ asknice.ly *.surveyserv.com *.freshsurvey.com *.freddybot.com cdn.inlinemanual.com/inm/author/ 'unsafe-inline'; worker-src 'self' blob:",
+          "cache-control": "no-store",
+          "expires": "Wed, 13 Oct 2010 00:00:00 UTC",
+          "x-envoy-upstream-service-time": "50",
+          "x-trace-id": "00-6a864319000000007de8715ca430a085-c22f80fe3e771218-01",
+          "nel": "{ \"report_to\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true}",
+          "report-to": "{ \"group\": \"nel-endpoint-freshdesk\", \"max_age\": 2592000, \"include_subdomains\": true, \"endpoints\": [{\"url\": \"https://nel.us-east-1.freshedge.net/nelreports/freshdesk\"}]}",
+          "x-server-processing-time-ms": "54",
+          "x-fw-ratelimiting-managed": "true",
+          "x-ratelimit-total": "50.0",
+          "x-ratelimit-used-currentrequest": "1",
+          "server": "cloudflare",
+          "set-cookie": "_x_w=47_1; path=/; HttpOnly; secure, _x_m=x_c; path=/; HttpOnly; secure, __cf_bm=WXD96kIA08Uza9QyjyQknNi6eiXBglCjuwhdulolJOw-1787183897.2503767-1.0.1.1-19XTxHvOT80nggXPrfvthVxM7WbZfkdn0WC3O4spdCnG4JPbN7NgGU_b6OFElL1Z1YTDlzBWKCJVsVTO5YJfRbQRN14XneCoW1n1jqaOgya5LpTmT00Qn0RbneFn23eQ; HttpOnly; SameSite=None; Secure; Path=/; Domain=freshdesk.com; Expires=Thu, 20 Aug 2026 00:28:17 GMT",
+          "vary": "accept-encoding",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a2dd1afdc9440d10-PDX"
+        },
+        "hash": "7138b3b27702ffbadb60bebc6078e7f035fcdcc3",
+        "request": {
+          "params": {
+            "page": "1",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,211 @@
+{
+  "nango": {
+    "batchSave": {
+      "Webhook": [
+        {
+          "id": "1ae1920d-9c85-4f94-b5bc-6a3dd6cc317c",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook-1787174457",
+          "active": true,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        },
+        {
+          "id": "47b45dd4-d40e-4ba9-a047-8a87d75026d3",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook-1787174395",
+          "active": true,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        },
+        {
+          "id": "6f96558d-bfb1-436c-b987-3e01fb9d14fc",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook-1787174522",
+          "active": true,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        },
+        {
+          "id": "73ad1018-3934-4e78-b3d2-991a0e912d84",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook-1787174428",
+          "active": true,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        },
+        {
+          "id": "bc692dca-69b2-48cd-9ee0-f55ebb45bb9a",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook",
+          "active": false,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        },
+        {
+          "id": "e2dcf4ff-5a54-417f-906d-ff8bf6f0c5e9",
+          "userId": 3140613,
+          "subscriberUrl": "https://example.com/webhook-1787174445",
+          "active": true,
+          "triggers": [
+            "BOOKING_CREATED"
+          ],
+          "version": "2021-10-20"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Webhook": []
+    }
+  },
+  "api": {
+    "get": {
+      "/webhooks": {
+        "response": {
+          "status": "success",
+          "data": [
+            {
+              "id": "1ae1920d-9c85-4f94-b5bc-6a3dd6cc317c",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook-1787174457",
+              "active": true,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            },
+            {
+              "id": "47b45dd4-d40e-4ba9-a047-8a87d75026d3",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook-1787174395",
+              "active": true,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            },
+            {
+              "id": "6f96558d-bfb1-436c-b987-3e01fb9d14fc",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook-1787174522",
+              "active": true,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            },
+            {
+              "id": "73ad1018-3934-4e78-b3d2-991a0e912d84",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook-1787174428",
+              "active": true,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            },
+            {
+              "id": "bc692dca-69b2-48cd-9ee0-f55ebb45bb9a",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook",
+              "active": false,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            },
+            {
+              "id": "e2dcf4ff-5a54-417f-906d-ff8bf6f0c5e9",
+              "payloadTemplate": null,
+              "triggers": [
+                "BOOKING_CREATED"
+              ],
+              "subscriberUrl": "https://example.com/webhook-1787174445",
+              "active": true,
+              "secret": null,
+              "time": null,
+              "timeUnit": null,
+              "version": "2021-10-20",
+              "userId": 3140613
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 22:22:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1787178188",
+          "cf-ray": "a2dc8e3eab1b11c8-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"601-xXM7ldWQBzilRjJHczc1SWLFDSM\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "118",
+          "x-ratelimit-reset-default": "59",
+          "x-request-id": "pdx1::dm6qz-1787178132275-8f91a124ebbe",
+          "x-vercel-cache": "BYPASS",
+          "x-vercel-id": "pdx1::cle1::dm6qz-1787178132275-8f91a124ebbe",
+          "set-cookie": "__cf_bm=KT4nSECsMzpgmpRKHSunQr_i4D412iF3pT1XiL3FSuY-1787178132.262043-1.0.1.1-fAOcAqRC1zzVHalIRy2Z_jyxT2RUXz.n2445rmQ53CS1IH82hHcDvqNLY0uwtZVIYoi_.kJfFF6d1.tHnecyy3p3OLYKRHVnWVpvGavBJ_Tx.eKDvEi_TEtTj_C5DOP0; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 19 Aug 2026 22:52:12 GMT"
+        },
+        "hash": "d80ead52fd7d4b56c72d99d77c8a86865cbf382a",
+        "request": {
+          "params": {
+            "skip": "0",
+            "take": "100"
+          }
+        }
+      }
+    }
+  }
+}
