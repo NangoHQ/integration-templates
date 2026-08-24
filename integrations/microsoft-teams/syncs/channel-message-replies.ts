@@ -116,14 +116,13 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
             return;
         }
 
-        // Read and validate the checkpoint before constructing the first provider request
-        const checkpointRaw = await nango.getCheckpoint();
-        const checkpointParsed = CheckpointSchema.safeParse(checkpointRaw);
-        const checkpoint = checkpointParsed.success ? checkpointParsed.data : { parentIndex: -1, nextLink: '' };
-
+        // Reset pagination so a resumed run always scans all parent messages from
+        // the start — skipping earlier messages would cause trackDeletesEnd to
+        // falsely delete their replies.
+        await nango.saveCheckpoint({ parentIndex: -1, nextLink: '' });
         await nango.trackDeletesStart('ChannelMessageReply');
 
-        for (let parentIndex = checkpoint.parentIndex >= 0 ? checkpoint.parentIndex : 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
+        for (let parentIndex = 0; parentIndex < parentMessagesParsed.length; parentIndex += 1) {
             const parent = parentMessagesParsed[parentIndex];
 
             if (!parent) {
@@ -132,7 +131,7 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
 
             await nango.log(`Fetching replies for message ${parent.messageId} in channel ${parent.channelId} (team ${parent.teamId})`);
 
-            let nextLink: string | undefined = parentIndex === checkpoint.parentIndex && checkpoint.nextLink ? checkpoint.nextLink : undefined;
+            let nextLink: string | undefined;
 
             do {
                 // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies
@@ -174,18 +173,8 @@ const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema 
                 }
 
                 nextLink = parsed['@odata.nextLink'];
-
-                // Save the state for the next request so a resumed run does not restart
-                // completed outer or inner work.
-                if (nextLink) {
-                    await nango.saveCheckpoint({ parentIndex, nextLink });
-                } else {
-                    await nango.saveCheckpoint({ parentIndex: parentIndex + 1, nextLink: '' });
-                }
             } while (nextLink);
         }
-
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ChannelMessageReply');
     }
 });

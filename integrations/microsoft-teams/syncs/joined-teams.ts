@@ -45,13 +45,12 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        // https://learn.microsoft.com/graph/api/user-list-joinedteams
-        const checkpointResult = await nango.getCheckpoint();
-        const validated = CheckpointSchema.safeParse(checkpointResult);
-        const checkpoint = validated.success ? validated.data : { nextLink: '' };
-        let nextLink: string | undefined = checkpoint.nextLink || '/v1.0/me/joinedTeams';
-
+        // Reset pagination so a resumed run always scans from page 1 — skipping
+        // earlier pages would cause trackDeletesEnd to falsely delete those records.
+        await nango.saveCheckpoint({ nextLink: '' });
         await nango.trackDeletesStart('JoinedTeam');
+
+        let nextLink: string | undefined = '/v1.0/me/joinedTeams';
 
         while (nextLink) {
             // https://learn.microsoft.com/graph/api/user-list-joinedteams
@@ -87,13 +86,7 @@ const sync = createSync({
             }
 
             nextLink = parsed['@odata.nextLink'];
-
-            if (nextLink) {
-                await nango.saveCheckpoint({ nextLink });
-            }
         }
-
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('JoinedTeam');
     }
 });

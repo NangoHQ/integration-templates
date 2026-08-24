@@ -21,17 +21,12 @@ const AutomatedRuleSchema = z
     })
     .passthrough();
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
-
 const sync = createSync({
     description: 'Sync automated budget and bid management rules from TikTok Ads',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'GET',
@@ -43,19 +38,6 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        let page: number | undefined = 1;
-
-        if (rawCheckpoint) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
-            if (!parsedCheckpoint.success) {
-                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
-            }
-            page = parsedCheckpoint.data.page;
-        }
-
-        const startPage = page ?? 1;
-
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
 
         if (!metadata?.advertiser_id) {
@@ -72,22 +54,19 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: startPage,
+                offset_start_value: 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page_size',
                 limit: 100,
-                response_path: 'data.list',
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                response_path: 'data.list'
             },
             retries: 3
         };
 
-        await nango.trackDeletesStart('AutomatedRule');
+        let deleteTrackingStarted = false;
 
-        for await (const pageResults of nango.paginate<unknown>(proxyConfig)) {
-            const rules = pageResults.map((item) => {
+        for await (const page of nango.paginate<unknown>(proxyConfig)) {
+            const rules = page.map((item) => {
                 const raw = z.object({ rule_id: z.string() }).passthrough().parse(item);
 
                 return {
@@ -96,17 +75,19 @@ const sync = createSync({
                 };
             });
 
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('AutomatedRule');
+                deleteTrackingStarted = true;
+            }
+
             if (rules.length > 0) {
                 await nango.batchSave(rules, 'AutomatedRule');
             }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
-            }
         }
 
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('AutomatedRule');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('AutomatedRule');
+        }
     }
 });
 

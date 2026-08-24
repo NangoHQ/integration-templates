@@ -43,17 +43,12 @@ const SchemaSchema = z.object({
     definitions: z.record(z.string(), z.unknown()).optional()
 });
 
-const CheckpointSchema = z.object({
-    nextIndex: z.number()
-});
-
 const sync = createSync({
     description: 'Sync user schemas/types.',
     version: '1.0.0',
     frequency: 'every day',
     autoStart: true,
     scopes: ['okta.schemas.read', 'okta.userTypes.read'],
-    checkpoint: CheckpointSchema,
     models: {
         Schema: SchemaSchema
     },
@@ -63,8 +58,6 @@ const sync = createSync({
         // deleted-record endpoints, cursors, or page tokens on /api/v1/meta/types/user
         // or /api/v1/meta/schemas/user/{schemaId}. These endpoints always return the
         // complete current state, so a full snapshot with delete tracking is required.
-
-        const checkpoint = await nango.getCheckpoint();
 
         // https://developer.okta.com/docs/api/openapi/okta-management/management/tags/usertype/other/listusertypes
         const userTypesResponse = await nango.get({
@@ -78,18 +71,11 @@ const sync = createSync({
         }
 
         const userTypes = parsedUserTypes.data;
+        const schemas: z.infer<typeof SchemaSchema>[] = [];
 
-        // Safe to call every execution: trackDeletesStart() will not overwrite the
-        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Schema');
 
-        const startIndex = checkpoint?.nextIndex ?? 0;
-
-        for (let i = startIndex; i < userTypes.length; i++) {
-            const userType = userTypes[i];
-            if (!userType) {
-                throw new Error(`User type at index ${i} is undefined`);
-            }
+        for (const userType of userTypes) {
             const schemaHref = userType._links.schema.href;
             const schemaId = schemaHref.split('/').pop();
             if (!schemaId) {
@@ -109,7 +95,7 @@ const sync = createSync({
 
             const schemaData = parsedSchema.data;
 
-            const schema: z.infer<typeof SchemaSchema> = {
+            schemas.push({
                 id: schemaData.id,
                 name: userType.name,
                 displayName: userType.displayName,
@@ -120,17 +106,13 @@ const sync = createSync({
                 schemaVersion: schemaData.$schema,
                 title: schemaData.title,
                 definitions: schemaData.definitions
-            };
-
-            await nango.batchSave([schema], 'Schema');
-
-            // Save progress after each type so a resumed run skips completed work.
-            await nango.saveCheckpoint({ nextIndex: i + 1 });
+            });
         }
 
-        // Clear the checkpoint only after the last page has been saved, then close the
-        // delete-tracking window opened by trackDeletesStart().
-        await nango.clearCheckpoint();
+        if (schemas.length > 0) {
+            await nango.batchSave(schemas, 'Schema');
+        }
+
         await nango.trackDeletesEnd('Schema');
     }
 });

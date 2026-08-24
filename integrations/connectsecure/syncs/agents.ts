@@ -63,33 +63,17 @@ const AgentSchema = z.object({
     unique_id: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    offset: z.number().int().min(0)
-});
-
 const sync = createSync({
     description: 'Sync monitoring agents installed across assets in this account.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Agent: AgentSchema
     },
 
     exec: async (nango) => {
         // Blocker: ConnectSecure's /r/company/agents has no incremental/modifiedAfter-style filter parameter.
-        const checkpoint = await nango.getCheckpoint();
-        let offset: number | undefined = 0;
-
-        if (checkpoint != null) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
-            if (!parsedCheckpoint.success) {
-                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
-            }
-            offset = parsedCheckpoint.data.offset;
-        }
-
         const connection = await nango.getConnection();
         let tenant = connection.connection_config?.['tenant'];
         if (!tenant) {
@@ -129,13 +113,10 @@ const sync = createSync({
                 type: 'offset',
                 offset_name_in_request: 'skip',
                 offset_calculation_method: 'per-page',
-                offset_start_value: offset,
+                offset_start_value: 0,
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'data',
-                on_page: async ({ nextPageParam }) => {
-                    offset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                response_path: 'data'
             },
             retries: 3
         };
@@ -171,13 +152,8 @@ const sync = createSync({
             if (agents.length > 0) {
                 await nango.batchSave(agents, 'Agent');
             }
-
-            if (offset !== undefined) {
-                await nango.saveCheckpoint({ offset });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Agent');
     }
 });
