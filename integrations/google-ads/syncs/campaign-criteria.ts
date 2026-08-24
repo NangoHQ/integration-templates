@@ -1,4 +1,5 @@
 import { createSync, type ProxyConfiguration } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -217,9 +218,8 @@ const sync = createSync({
             throw new Error('customerIds is required in metadata');
         }
 
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
-        if (!developerToken || typeof developerToken !== 'string') {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
             throw new Error('developer_token is required in connection config');
         }
 

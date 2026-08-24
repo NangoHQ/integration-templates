@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
@@ -216,9 +217,8 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
-        if (!developerToken || typeof developerToken !== 'string') {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
             throw new Error('developer_token is required in connection config');
         }
 
@@ -238,7 +238,7 @@ const sync = createSync({
         );
         const now = formatDate(new Date());
 
-        async function searchStream(customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> {
+        const searchStream = async (customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> => {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
                 endpoint: `/v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
@@ -252,7 +252,7 @@ const sync = createSync({
                 retries: 3
             });
             return extractSearchStreamRows(response.data);
-        }
+        };
 
         function parseCampaignRows(rows: unknown[]): Array<z.infer<typeof CampaignSchema>> {
             const campaigns: Array<z.infer<typeof CampaignSchema>> = [];

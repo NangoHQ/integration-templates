@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     resource_name: z.string().describe('Ad group criterion resource name. Example: customers/1781900691/adGroupCriteria/197714341345~2491223357239'),
@@ -32,9 +33,8 @@ const action = createAction({
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
-        if (!developerToken || typeof developerToken !== 'string') {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
             throw new nango.ActionError({
                 type: 'missing_config',
                 message: 'developer_token is required in connection config'

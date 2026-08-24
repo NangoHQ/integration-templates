@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
@@ -71,8 +72,7 @@ const action = createAction({
             loginCustomerId = loginCustomerId ?? metadata?.loginCustomerId;
         }
 
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
+        const developerToken = await getDeveloperToken(nango);
 
         if (!loginCustomerId || !developerToken) {
             throw new nango.ActionError({

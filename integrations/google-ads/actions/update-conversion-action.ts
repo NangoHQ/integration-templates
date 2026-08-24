@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const MetadataSchema = z.object({
     loginCustomerId: z.string().optional()
@@ -49,10 +50,9 @@ const action = createAction({
             loginCustomerId = loginCustomerId ?? metadata.loginCustomerId;
         }
 
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
+        const developerToken = await getDeveloperToken(nango);
 
-        if (!developerToken || typeof developerToken !== 'string') {
+        if (!developerToken) {
             throw new nango.ActionError({
                 type: 'missing_config',
                 message: 'developer_token is required in connection config'

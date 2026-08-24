@@ -1,4 +1,5 @@
 import { createSync } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const CustomerSchema = z.object({
@@ -73,9 +74,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const connection = await nango.getConnection();
-        const developerToken = connection.connection_config?.['developer_token'];
-        if (!developerToken || typeof developerToken !== 'string') {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
             throw new Error('developer_token is required in connection config');
         }
 
