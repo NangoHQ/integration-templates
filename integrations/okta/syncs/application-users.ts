@@ -38,31 +38,15 @@ const AppUserSchema = z.object({
         .optional()
 });
 
-const CheckpointSchema = z.object({
-    app_id: z.string(),
-    next_link: z.string()
-});
-
-const StoredCheckpointSchema = z.object({
-    app_id: z.string().optional(),
-    next_link: z.string().optional()
-});
-
 const sync = createSync({
     description: 'Sync application assignments',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         ApplicationUser: ApplicationUserSchema
     },
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = StoredCheckpointSchema.parse(rawCheckpoint ?? {});
-        const resumeAppId = checkpoint.app_id;
-        const resumeNextLink = checkpoint.next_link;
-
         const appsConfig: ProxyConfiguration = {
             // https://developer.okta.com/docs/api/openapi/okta-management/management/tags/application/other/listapplications.md
             endpoint: '/api/v1/apps',
@@ -90,51 +74,20 @@ const sync = createSync({
             }
         }
 
-        let startIndex = 0;
-        if (resumeAppId) {
-            const idx = apps.findIndex((app) => app.id === resumeAppId);
-            if (idx !== -1) {
-                startIndex = idx;
-            }
-        }
-
         await nango.trackDeletesStart('ApplicationUser');
 
-        for (let i = startIndex; i < apps.length; i++) {
-            const app = apps[i];
-            if (!app) {
-                continue;
-            }
-
-            let nextLink: string | undefined;
-            const isResuming = i === startIndex && resumeNextLink != null;
-
-            let usersEndpoint: string;
-            if (isResuming) {
-                const url = new URL(resumeNextLink!);
-                usersEndpoint = url.pathname + url.search;
-            } else {
-                usersEndpoint = `/api/v1/apps/${encodeURIComponent(app.id)}/users`;
-            }
-
+        for (const app of apps) {
             const usersConfig: ProxyConfiguration = {
                 // https://developer.okta.com/docs/api/openapi/okta-management/management/tags/applicationusers/other/listapplicationusers
-                endpoint: usersEndpoint,
-                ...(isResuming
-                    ? {}
-                    : {
-                          params: {
-                              limit: 500
-                          }
-                      }),
+                endpoint: `/api/v1/apps/${encodeURIComponent(app.id)}/users`,
+                params: {
+                    limit: 500
+                },
                 paginate: {
                     type: 'link',
                     link_rel_in_response_header: 'next',
                     limit_name_in_request: 'limit',
-                    limit: 500,
-                    on_page: async ({ nextPageParam }) => {
-                        nextLink = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                    }
+                    limit: 500
                 },
                 retries: 3
             };
@@ -166,19 +119,9 @@ const sync = createSync({
                 if (appUsers.length > 0) {
                     await nango.batchSave(appUsers, 'ApplicationUser');
                 }
-
-                if (nextLink !== undefined) {
-                    await nango.saveCheckpoint({ app_id: app.id, next_link: nextLink });
-                }
-            }
-
-            const nextApp = apps[i + 1];
-            if (nextApp) {
-                await nango.saveCheckpoint({ app_id: nextApp.id, next_link: '' });
             }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ApplicationUser');
     }
 });

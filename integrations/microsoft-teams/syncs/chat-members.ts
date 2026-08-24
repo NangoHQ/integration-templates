@@ -74,10 +74,9 @@ const sync = createSync({
         // change notifications, modified_since, or a deleted-record endpoint.
         // Membership rosters must be fully enumerated as snapshots.
 
-        const checkpointResult = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResult);
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' };
-
+        // Reset pagination so a resumed run always scans from the first chat/page —
+        // skipping earlier chats would cause trackDeletesEnd to falsely delete them.
+        await nango.saveCheckpoint({ chatsPageEndpoint: '', chatIndex: -1, membersNextLink: '' });
         await nango.trackDeletesStart('ChatMember');
 
         const batch: z.infer<typeof ChatMemberRecordSchema>[] = [];
@@ -90,13 +89,11 @@ const sync = createSync({
             }
         };
 
-        let currentChatsPageEndpoint = checkpoint.chatsPageEndpoint || '/v1.0/me/chats';
-        let resumeChatIndex = checkpoint.chatIndex >= 0 ? checkpoint.chatIndex : 0;
-        let resumeMembersNextLink = checkpoint.membersNextLink || '';
+        let chatsPageEndpoint = '/v1.0/me/chats';
 
-        while (currentChatsPageEndpoint) {
+        while (chatsPageEndpoint) {
             // https://learn.microsoft.com/graph/api/chat-list
-            const chatsRequest = buildGraphRequest(currentChatsPageEndpoint, currentChatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
+            const chatsRequest = buildGraphRequest(chatsPageEndpoint, chatsPageEndpoint === '/v1.0/me/chats' ? { $top: '50' } : undefined);
             const chatResponse = await nango.get({
                 ...chatsRequest,
                 retries: 3
@@ -105,11 +102,9 @@ const sync = createSync({
             const chatData = ChatListResponseSchema.parse(chatResponse.data);
             const chats = chatData.value;
 
-            const startChatIndex = resumeChatIndex >= 0 && resumeChatIndex < chats.length ? resumeChatIndex : 0;
-
-            for (let chatIndex = startChatIndex; chatIndex < chats.length; chatIndex += 1) {
+            for (let chatIndex = 0; chatIndex < chats.length; chatIndex += 1) {
                 const chat = chats[chatIndex]!;
-                let membersNextLink: string | undefined = chatIndex === startChatIndex && resumeMembersNextLink ? resumeMembersNextLink : undefined;
+                let membersNextLink: string | undefined;
 
                 do {
                     // https://learn.microsoft.com/graph/api/chat-list-members
@@ -138,44 +133,13 @@ const sync = createSync({
                     }
 
                     membersNextLink = memberData['@odata.nextLink'];
-                    await flushBatch();
-
-                    if (membersNextLink) {
-                        await nango.saveCheckpoint({
-                            chatsPageEndpoint: currentChatsPageEndpoint,
-                            chatIndex,
-                            membersNextLink
-                        });
-                    }
                 } while (membersNextLink);
-
-                await nango.saveCheckpoint({
-                    chatsPageEndpoint: currentChatsPageEndpoint,
-                    chatIndex: chatIndex + 1,
-                    membersNextLink: ''
-                });
-
-                // Clear resume state after the first chat in a resumed page
-                resumeMembersNextLink = '';
             }
 
-            const nextChatsPage = chatData['@odata.nextLink'];
-            if (nextChatsPage) {
-                await nango.saveCheckpoint({
-                    chatsPageEndpoint: nextChatsPage,
-                    chatIndex: 0,
-                    membersNextLink: ''
-                });
-                currentChatsPageEndpoint = nextChatsPage;
-                resumeChatIndex = 0;
-                resumeMembersNextLink = '';
-            } else {
-                currentChatsPageEndpoint = '';
-            }
+            chatsPageEndpoint = chatData['@odata.nextLink'] || '';
         }
 
         await flushBatch();
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ChatMember');
     }
 });

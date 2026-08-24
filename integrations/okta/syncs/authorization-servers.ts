@@ -24,35 +24,21 @@ const AuthorizationServerSchema = z.object({
     lastUpdated: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    next_page_url: z.string()
-});
-
-const StoredCheckpointSchema = z.object({
-    next_page_url: z.string().optional()
-});
-
 const sync = createSync({
     description: 'Sync authorization servers.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         AuthorizationServer: AuthorizationServerSchema
     },
 
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = StoredCheckpointSchema.parse(rawCheckpoint ?? {});
-
         // The Okta Authorization Servers API does not support changed-since filters,
         // deleted-record endpoints, or resumable cursors for change tracking, so we
         // perform a full snapshot and use trackDeletesStart/trackDeletesEnd.
 
         await nango.trackDeletesStart('AuthorizationServer');
-
-        let nextPageUrl: string | undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.okta.com/docs/reference/api/authorization-servers/#list-authorization-servers
@@ -64,20 +50,10 @@ const sync = createSync({
                 type: 'link',
                 link_rel_in_response_header: 'next',
                 limit_name_in_request: 'limit',
-                limit: 200,
-                on_page: async ({ nextPageParam }) => {
-                    nextPageUrl = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
+                limit: 200
             },
             retries: 3
         };
-
-        if (checkpoint?.next_page_url) {
-            const url = new URL(checkpoint.next_page_url);
-            proxyConfig.endpoint = url.pathname + url.search;
-            proxyConfig.baseUrlOverride = url.origin;
-            delete proxyConfig.params;
-        }
 
         for await (const page of nango.paginate(proxyConfig)) {
             const servers = page.map((record: unknown) => {
@@ -101,13 +77,8 @@ const sync = createSync({
             if (servers.length > 0) {
                 await nango.batchSave(servers, 'AuthorizationServer');
             }
-
-            if (nextPageUrl) {
-                await nango.saveCheckpoint({ next_page_url: nextPageUrl });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('AuthorizationServer');
     }
 });

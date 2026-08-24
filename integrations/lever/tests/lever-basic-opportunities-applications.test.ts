@@ -1,15 +1,15 @@
 import { afterEach, vi, expect, it, describe } from 'vitest';
 
-import createSync from '../syncs/brand-templates.js';
+import createSync from '../syncs/opportunities-applications.js';
 
-describe('canva brand-templates tests', () => {
-  const models = 'BrandTemplate'.split(',');
+describe('lever-basic opportunities-applications tests', () => {
+  const models = 'LeverOpportunityApplication'.split(',');
 
   const createTestContext = () => {
     const nangoMock = new global.vitest.NangoSyncMock({
       dirname: __dirname,
-      name: "brand-templates",
-      Model: "BrandTemplate"
+      name: "opportunities-applications",
+      Model: "LeverOpportunityApplication"
     });
 
     return {

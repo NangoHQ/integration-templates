@@ -76,34 +76,27 @@ const MilestoneSchema = z.object({
     updatedAt: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    nextPageIndex: z.number().int().nonnegative()
-});
-
 const sync = createSync({
     description: 'Sync rocks (quarterly goals), including their nested milestones',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Rock: RockSchema,
         Milestone: MilestoneSchema
     },
 
     exec: async (nango) => {
-        // POST /v1/rocks/query requires pageIndex/pageSize but has been observed
-        // to return the full per-team result set regardless of page. We still
-        // checkpoint the next page index and use in-run deduplication so an
-        // interrupted run can resume without re-processing already-seen records.
-        const checkpoint = await nango.getCheckpoint();
-        let hasCheckpoint = checkpoint != null;
-
         await nango.trackDeletesStart('Rock');
         await nango.trackDeletesStart('Milestone');
 
+        // Not checkpointed: /v1/rocks/query has been observed to ignore pageIndex/pageSize
+        // and always return the full per-team result set, so there is nothing meaningful
+        // to resume from, and persisting a cross-invocation checkpoint here would only add
+        // risk (a long-stalled resume could race Nango's seen-record retention window)
+        // for no benefit.
         const pageSize = 100;
-        let pageIndex = checkpoint?.['nextPageIndex'] ?? 0;
+        let pageIndex = 0;
         let hasMore = true;
         const seenRockIds = new Set<string>();
         const seenMilestoneIds = new Set<string>();
@@ -226,15 +219,8 @@ const sync = createSync({
             if (rocks.length === 0 && milestones.length === 0) {
                 hasMore = false;
             } else {
-                const nextPageIndex = pageIndex + 1;
-                await nango.saveCheckpoint({ nextPageIndex });
-                hasCheckpoint = true;
-                pageIndex = nextPageIndex;
+                pageIndex = pageIndex + 1;
             }
-        }
-
-        if (hasCheckpoint) {
-            await nango.clearCheckpoint();
         }
 
         await nango.trackDeletesEnd('Milestone');

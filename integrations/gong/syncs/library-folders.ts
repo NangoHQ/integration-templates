@@ -33,16 +33,11 @@ function isUnavailableError(error: unknown): boolean {
     return false;
 }
 
-const CheckpointSchema = z.object({
-    cursor: z.string().describe('Pagination cursor for resuming a full refresh')
-});
-
 const sync = createSync({
     description: 'Sync Gong library folders',
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         LibraryFolder: LibraryFolderSchema
     },
@@ -56,37 +51,18 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/library/folders with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Run as full refresh.
-        const rawCheckpoint = await nango.getCheckpoint();
-        let checkpointData: z.infer<typeof CheckpointSchema>;
-        if (rawCheckpoint != null && typeof rawCheckpoint === 'object' && !Array.isArray(rawCheckpoint) && Object.keys(rawCheckpoint).length > 0) {
-            const parsed = CheckpointSchema.safeParse(rawCheckpoint);
-            if (!parsed.success) {
-                throw new Error(`Invalid checkpoint: ${parsed.error.message}`);
-            }
-            checkpointData = parsed.data;
-        } else {
-            checkpointData = { cursor: '' };
-        }
-        let cursor = checkpointData.cursor || undefined;
-
         await nango.trackDeletesStart('LibraryFolder');
 
         const proxyConfig: ProxyConfiguration = {
             // https://help.gong.io/docs/what-the-gong-api-provides
             endpoint: '/v2/library/folders',
-            params: {
-                ...(cursor && { cursor })
-            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'records.cursor',
                 response_path: 'folders',
                 limit_name_in_request: 'limit',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             retries: 3
         };
@@ -115,13 +91,8 @@ const sync = createSync({
                 if (folders.length > 0) {
                     await nango.batchSave(folders, 'LibraryFolder');
                 }
-
-                if (cursor !== undefined) {
-                    await nango.saveCheckpoint({ cursor });
-                }
             }
-
-            await nango.clearCheckpoint();
+            // Only mark deletes complete after a full successful enumeration
             await nango.trackDeletesEnd('LibraryFolder');
         } catch (error) {
             if (!isUnavailableError(error)) {

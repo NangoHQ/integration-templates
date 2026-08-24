@@ -64,17 +64,7 @@ const RepositorySchema = z.object({
     disabled: z.boolean().optional()
 });
 
-const CheckpointSchema = z.object({
-    page: z.number().int().positive()
-});
-
-const sync = createSync<
-    {
-        Repository: typeof RepositorySchema;
-    },
-    undefined,
-    typeof CheckpointSchema
->({
+const sync = createSync({
     description: 'Sync repositories visible to the authenticated GitHub user or installation.',
     version: '1.0.1',
     frequency: 'every hour',
@@ -85,7 +75,6 @@ const sync = createSync<
             method: 'POST'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         Repository: RepositorySchema
     },
@@ -93,76 +82,66 @@ const sync = createSync<
     exec: async (nango) => {
         // Blocker: GitHub's list repositories endpoint does not support modified_since
         // filtering. We must fetch all repositories and use delete tracking.
-        const checkpoint = await nango.getCheckpoint();
-        const startPage = checkpoint?.page ?? 1;
-        let nextPage: number | undefined = startPage;
-
         await nango.trackDeletesStart('Repository');
 
-        // https://docs.github.com/en/rest/repos/repos#list-repositories-for-the-authenticated-user
-        for await (const pageResults of nango.paginate({
-            endpoint: '/user/repos',
-            params: {
-                sort: 'updated',
-                direction: 'desc'
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: startPage,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        })) {
-            const repos = pageResults.map((repo) => {
-                const parsed = ProviderRepositorySchema.safeParse(repo);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse repository: ${parsed.error.message}`);
-                }
-                const data = parsed.data;
-                return {
-                    id: data.id.toString(),
-                    name: data.name,
-                    full_name: data.full_name,
-                    owner_login: data.owner.login,
-                    owner_id: data.owner.id.toString(),
-                    owner_type: data.owner.type,
-                    private: data.private,
-                    visibility: data.visibility,
-                    html_url: data.html_url,
-                    description: data.description ?? undefined,
-                    fork: data.fork,
-                    default_branch: data.default_branch,
-                    created_at: data.created_at ?? undefined,
-                    updated_at: data.updated_at ?? undefined,
-                    pushed_at: data.pushed_at ?? undefined,
-                    homepage: data.homepage ?? undefined,
-                    language: data.language ?? undefined,
-                    size: data.size,
-                    forks_count: data.forks_count,
-                    stargazers_count: data.stargazers_count,
-                    open_issues_count: data.open_issues_count,
-                    archived: data.archived,
-                    disabled: data.disabled
-                };
-            });
+        try {
+            // https://docs.github.com/en/rest/repos/repos#list-repositories-for-the-authenticated-user
+            for await (const pageResults of nango.paginate({
+                endpoint: '/user/repos',
+                params: {
+                    sort: 'updated',
+                    direction: 'desc'
+                },
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'page',
+                    offset_start_value: 1,
+                    offset_calculation_method: 'per-page',
+                    limit_name_in_request: 'per_page',
+                    limit: 100
+                },
+                retries: 3
+            })) {
+                const repos = pageResults.map((repo) => {
+                    const parsed = ProviderRepositorySchema.safeParse(repo);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse repository: ${parsed.error.message}`);
+                    }
+                    const data = parsed.data;
+                    return {
+                        id: data.id.toString(),
+                        name: data.name,
+                        full_name: data.full_name,
+                        owner_login: data.owner.login,
+                        owner_id: data.owner.id.toString(),
+                        owner_type: data.owner.type,
+                        private: data.private,
+                        visibility: data.visibility,
+                        html_url: data.html_url,
+                        description: data.description ?? undefined,
+                        fork: data.fork,
+                        default_branch: data.default_branch,
+                        created_at: data.created_at ?? undefined,
+                        updated_at: data.updated_at ?? undefined,
+                        pushed_at: data.pushed_at ?? undefined,
+                        homepage: data.homepage ?? undefined,
+                        language: data.language ?? undefined,
+                        size: data.size,
+                        forks_count: data.forks_count,
+                        stargazers_count: data.stargazers_count,
+                        open_issues_count: data.open_issues_count,
+                        archived: data.archived,
+                        disabled: data.disabled
+                    };
+                });
 
-            if (repos.length > 0) {
-                await nango.batchSave(repos, 'Repository');
+                if (repos.length > 0) {
+                    await nango.batchSave(repos, 'Repository');
+                }
             }
-
-            if (nextPage !== undefined) {
-                await nango.saveCheckpoint({ page: nextPage });
-            }
+        } finally {
+            await nango.trackDeletesEnd('Repository');
         }
-
-        await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Repository');
     }
 });
 
