@@ -78,13 +78,11 @@ const sync = createSync({
         // changed-since filter for delegated permissions. It returns
         // the full chat inventory, so we use full refresh with deletion
         // detection.
-
-        // Reset pagination so a resumed run always scans from page 1 — skipping
-        // earlier pages would cause trackDeletesEnd to falsely delete those records.
-        await nango.saveCheckpoint({ nextLink: '' });
+        const checkpointResult = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpointResult);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { nextLink: '' };
+        let endpoint: string | undefined = checkpoint.nextLink || '/v1.0/me/chats?$top=50&$expand=members';
         await nango.trackDeletesStart('Chat');
-
-        let endpoint: string | undefined = '/v1.0/me/chats?$top=50&$expand=members';
 
         while (endpoint) {
             const currentEndpoint = endpoint;
@@ -121,7 +119,12 @@ const sync = createSync({
             }
 
             endpoint = parsed['@odata.nextLink'];
+            if (endpoint) {
+                await nango.saveCheckpoint({ nextLink: endpoint });
+            }
         }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Chat');
     }
 });

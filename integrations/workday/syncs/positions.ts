@@ -37,6 +37,10 @@ const PositionSchema = z.object({
     compensation_frequency: z.string().optional().describe('Compensation frequency')
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 async function getSoapClient(type: 'Human_Resources' | 'Staffing', connection: any) {
     const { credentials, connection_config } = connection;
 
@@ -69,6 +73,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/positions' }],
+    checkpoint: CheckpointSchema,
     models: {
         Position: PositionSchema
     },
@@ -78,9 +83,12 @@ const sync = createSync({
         const client = await getSoapClient('Staffing', connection);
 
         // Blocker: Workday Staffing API Get_Positions does not support changed-since filtering.
-        let page = 1;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { page: 1 };
+        let page = checkpoint.page;
         let hasMoreData = true;
-        let trackingStarted = false;
+
+        await nango.trackDeletesStart('Position');
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -95,17 +103,12 @@ const sync = createSync({
                 })
             );
 
-            if (!trackingStarted) {
-                if (!res?.Response_Results) {
-                    throw new Error('Unexpected Workday response: missing Response_Results');
-                }
-                await nango.trackDeletesStart('Position');
-                trackingStarted = true;
+            if (!res?.Response_Results) {
+                throw new Error('Unexpected Workday response: missing Response_Results');
             }
 
             const totalPages = res.Response_Results?.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
-            page += 1;
 
             const rawPositions = res.Response_Data?.Position;
             const positions = Array.isArray(rawPositions) ? rawPositions : rawPositions ? [rawPositions] : [];
@@ -145,8 +148,14 @@ const sync = createSync({
             if (mapped.length > 0) {
                 await nango.batchSave(mapped, 'Position');
             }
+
+            if (hasMoreData) {
+                page += 1;
+                await nango.saveCheckpoint({ page });
+            }
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Position');
     }
 });

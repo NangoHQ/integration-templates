@@ -28,6 +28,10 @@ const LocationSchema = z.object({
     last_updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const findId = (ids: any, type: string): string | undefined => (Array.isArray(ids) ? ids : [ids]).find((r: any) => r?.attributes?.['wd:type'] === type)?.$value;
 
 async function getSoapClient(type: 'Human_Resources' | 'Staffing', connection: any) {
@@ -58,18 +62,22 @@ const sync = createSync({
             path: '/syncs/locations'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         Location: LocationSchema
     },
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+
         const connection = await nango.getConnection();
         // getSoapClient throws on invalid credentials — do this before trackDeletesStart
         const client = await getSoapClient('Human_Resources', connection);
 
         await nango.trackDeletesStart('Location');
 
-        let page = 1;
+        let page = checkpoint?.page ?? 1;
         let hasMoreData = true;
 
         do {
@@ -90,7 +98,6 @@ const sync = createSync({
             }
             const totalPages = res.Response_Results.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
-            page += 1;
 
             const rawLocations = res.Response_Data?.Location;
             const locationList = Array.isArray(rawLocations) ? rawLocations : rawLocations ? [rawLocations] : [];
@@ -116,8 +123,14 @@ const sync = createSync({
             if (locations.length > 0) {
                 await nango.batchSave(locations, 'Location');
             }
+
+            if (hasMoreData) {
+                page += 1;
+                await nango.saveCheckpoint({ page });
+            }
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Location');
     }
 });

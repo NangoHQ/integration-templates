@@ -1,9 +1,13 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const ProjectSchema = z.object({
     id: z.string(),
     name: z.string()
+});
+
+const ProjectsResponseSchema = z.object({
+    projects: z.array(ProjectSchema)
 });
 
 const MetadataSchema = z.object({
@@ -34,30 +38,17 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Project');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.figma.com/developers/api#get-team-projects-endpoint
+        // This endpoint returns every project in one response and documents no
+        // pagination parameters or cursor. A checkpoint would therefore have no
+        // meaningful resume position.
+        const response = await nango.get({
             endpoint: `/v1/teams/${encodeURIComponent(metadata.team_id)}/projects`,
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'cursor',
-                response_path: 'projects',
-                limit_name_in_request: 'page_size',
-                limit: 100
-            },
             retries: 3
-        };
+        });
+        const { projects } = ProjectsResponseSchema.parse(response.data);
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProjectSchema).parse(page);
-            const projects = parsed.map((project) => ({
-                id: project.id,
-                name: project.name
-            }));
-
-            if (projects.length > 0) {
-                await nango.batchSave(projects, 'Project');
-            }
+        if (projects.length > 0) {
+            await nango.batchSave(projects, 'Project');
         }
 
         await nango.trackDeletesEnd('Project');

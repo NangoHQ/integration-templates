@@ -9,30 +9,41 @@ const DesignationSchema = z.object({
     modified_time: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    sIndex: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync all designations (job titles)',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Designation: DesignationSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/designations',
-            method: 'GET'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: the v1 form-based getRecords endpoint does not support incremental
         // filtering (no modified_since, updated_after, or cursor). It returns the
         // full list on every call, so we perform a full refresh with delete tracking.
-        await nango.trackDeletesStart('Designation');
+        const checkpoint = await nango.getCheckpoint();
+        let validCheckpoint: z.infer<typeof CheckpointSchema> | undefined;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            validCheckpoint = parsedCheckpoint.data;
+        }
 
         const limit = 200;
-        let sIndex = 1;
+        let sIndex = validCheckpoint?.sIndex ?? 1;
         let hasMore = true;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Designation');
 
         while (hasMore) {
             // https://www.zoho.com/people/api/overview.html
@@ -119,9 +130,13 @@ const sync = createSync({
             }
 
             hasMore = result.length === limit;
-            sIndex += limit;
+            if (hasMore) {
+                sIndex += limit;
+                await nango.saveCheckpoint({ sIndex });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Designation');
     }
 });

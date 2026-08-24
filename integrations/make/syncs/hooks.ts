@@ -41,16 +41,29 @@ const HookSchema = z.object({
     url: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    teamId: z.number().int(),
+    offset: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync webhooks/mailhooks for a team',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Hook: HookSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { teamId: -1, offset: 0 });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+        const checkpoint = checkpointResult.data;
+
         const OrgSchema = z.object({
             id: z.number().int(),
             name: z.string().optional(),
@@ -115,9 +128,26 @@ const sync = createSync({
             throw new Error('No teams found');
         }
 
+        if (checkpoint.teamId !== -1 && !teams.some((t) => t.id === checkpoint.teamId)) {
+            throw new Error(`Checkpoint references team ${checkpoint.teamId} which no longer exists`);
+        }
+
         await nango.trackDeletesStart('Hook');
 
+        let started = checkpoint.teamId === -1;
+
         for (const team of teams) {
+            if (!started) {
+                if (team.id === checkpoint.teamId) {
+                    started = true;
+                } else {
+                    continue;
+                }
+            }
+
+            const startOffset = team.id === checkpoint.teamId ? checkpoint.offset : 0;
+            let nextOffset = startOffset;
+
             const proxyConfig: ProxyConfiguration = {
                 // https://developers.make.com/api-documentation/
                 endpoint: '/hooks',
@@ -129,15 +159,19 @@ const sync = createSync({
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'pg[offset]',
+                    offset_start_value: startOffset,
                     offset_calculation_method: 'by-response-size',
                     limit_name_in_request: 'pg[limit]',
                     limit: 50,
-                    response_path: 'hooks'
+                    response_path: 'hooks',
+                    on_page: async ({ nextPageParam }) => {
+                        nextOffset = typeof nextPageParam === 'number' ? nextPageParam : nextOffset;
+                    }
                 },
                 retries: 3
             };
 
-            for await (const page of nango.paginate(proxyConfig)) {
+            for await (const page of nango.paginate<unknown>(proxyConfig)) {
                 if (!Array.isArray(page)) {
                     throw new Error('Expected page to be an array');
                 }
@@ -172,9 +206,22 @@ const sync = createSync({
                 if (hooks.length > 0) {
                     await nango.batchSave(hooks, 'Hook');
                 }
+
+                await nango.saveCheckpoint({ teamId: team.id, offset: nextOffset });
+            }
+
+            const currentTeamIndex = teams.findIndex((t) => t.id === team.id);
+            if (currentTeamIndex === -1) {
+                throw new Error(`Team ${team.id} not found in discovered teams`);
+            }
+            const nextTeamIndex = currentTeamIndex + 1;
+            const nextTeam = teams[nextTeamIndex];
+            if (nextTeam) {
+                await nango.saveCheckpoint({ teamId: nextTeam.id, offset: 0 });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Hook');
     }
 });

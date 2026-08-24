@@ -62,12 +62,17 @@ const sync = createSync({
         // modified_since filtering, delta endpoints, or change tracking. The only
         // way to get current membership state is to list all members per team.
 
-        // Reset pagination so a resumed run always scans from the first team/page —
-        // skipping earlier teams would cause trackDeletesEnd to falsely delete them.
-        await nango.saveCheckpoint({ teamsPageEndpoint: '', teamIndex: -1, membersNextLink: '' });
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(
+            rawCheckpoint && typeof rawCheckpoint === 'object' && !Array.isArray(rawCheckpoint) ? rawCheckpoint : {}
+        );
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { teamsPageEndpoint: '', teamIndex: -1, membersNextLink: '' };
+
         await nango.trackDeletesStart('TeamMember');
 
-        let teamsPageEndpoint = '/v1.0/me/joinedTeams';
+        let teamsPageEndpoint = checkpoint.teamsPageEndpoint || '/v1.0/me/joinedTeams';
+        let startTeamIndex = checkpoint.teamIndex >= 0 ? checkpoint.teamIndex : 0;
+        let resumeMembersNextLink = checkpoint.membersNextLink || undefined;
 
         while (teamsPageEndpoint) {
             // https://learn.microsoft.com/en-us/graph/api/user-list-joinedteams
@@ -79,9 +84,10 @@ const sync = createSync({
             const parsedTeams = TeamsResponseSchema.parse(teamsResponse.data);
             const teams = parsedTeams.value;
 
-            for (let teamIndex = 0; teamIndex < teams.length; teamIndex += 1) {
+            for (let teamIndex = startTeamIndex; teamIndex < teams.length; teamIndex += 1) {
                 const team = teams[teamIndex]!;
-                let membersNextLink: string | undefined;
+                let membersNextLink: string | undefined = resumeMembersNextLink;
+                resumeMembersNextLink = undefined;
 
                 do {
                     // https://learn.microsoft.com/en-us/graph/api/team-list-members
@@ -107,11 +113,34 @@ const sync = createSync({
                     }
 
                     membersNextLink = parsedMembers['@odata.nextLink'];
+
+                    if (membersNextLink) {
+                        await nango.saveCheckpoint({
+                            teamsPageEndpoint,
+                            teamIndex,
+                            membersNextLink
+                        });
+                    } else if (teamIndex + 1 < teams.length) {
+                        await nango.saveCheckpoint({
+                            teamsPageEndpoint,
+                            teamIndex: teamIndex + 1,
+                            membersNextLink: ''
+                        });
+                    } else if (parsedTeams['@odata.nextLink']) {
+                        await nango.saveCheckpoint({
+                            teamsPageEndpoint: parsedTeams['@odata.nextLink'],
+                            teamIndex: 0,
+                            membersNextLink: ''
+                        });
+                    }
                 } while (membersNextLink);
             }
 
             teamsPageEndpoint = parsedTeams['@odata.nextLink'] || '';
+            startTeamIndex = 0;
         }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('TeamMember');
     }
 });

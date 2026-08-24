@@ -36,12 +36,17 @@ const ProviderProductCategorySchema = z.object({
     count: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync product categories from WooCommerce.',
     version: '1.0.0',
     endpoints: [{ method: 'GET', path: '/syncs/product-categories' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ProductCategory: ProductCategorySchema
     },
@@ -50,6 +55,16 @@ const sync = createSync({
         // Blocker: The WooCommerce product categories API does not expose change timestamps,
         // modification filters, or resumable cursors. The endpoint only supports basic
         // page/offset pagination with no incremental filtering.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let nextPage = 1;
+        if (rawCheckpoint != null) {
+            const parsed = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsed.success) {
+                throw new Error(`Invalid checkpoint: ${parsed.error.message}`);
+            }
+            nextPage = parsed.data.page;
+        }
+
         await nango.trackDeletesStart('ProductCategory');
 
         const proxyConfig: ProxyConfiguration = {
@@ -58,7 +73,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: nextPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100
@@ -90,8 +105,12 @@ const sync = createSync({
             if (categories.length > 0) {
                 await nango.batchSave(categories, 'ProductCategory');
             }
+
+            nextPage++;
+            await nango.saveCheckpoint({ page: nextPage });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProductCategory');
     }
 });

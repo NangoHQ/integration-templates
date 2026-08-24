@@ -27,6 +27,23 @@ const OrganizationSchema = z.object({
     last_updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
+const ResponseResultsSchema = z.object({
+    Total_Pages: z.number().optional()
+});
+
+const SoapResponseSchema = z.object({
+    Response_Results: ResponseResultsSchema,
+    Response_Data: z
+        .object({
+            Organization: z.any().optional()
+        })
+        .optional()
+});
+
 async function getSoapClient(type: 'Human_Resources' | 'Staffing', connection: any) {
     const { credentials, connection_config } = connection;
 
@@ -60,6 +77,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/organizations' }],
+    checkpoint: CheckpointSchema,
     models: {
         Organization: OrganizationSchema
     },
@@ -68,12 +86,16 @@ const sync = createSync({
         const connection = await nango.getConnection();
         const client = await getSoapClient('Human_Resources', connection);
 
-        // Blocker: Workday Get_Organizations does not support modified_since filtering.
-        // Must do a full scan; checkpointing would cause pages 1..N-1 to never be seen
-        // on resume, triggering false deletions via trackDeletesEnd.
-        let page = 1;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { page: 1 };
+        let page = checkpoint.page;
+
+        // Workday Get_Organizations does not support modified_since filtering.
+        // Full refresh with page checkpointing so execution window timeouts resume
+        // instead of restarting from page 1.
+        await nango.trackDeletesStart('Organization');
+
         let hasMoreData = true;
-        let trackingStarted = false;
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -88,19 +110,11 @@ const sync = createSync({
                 })
             );
 
-            if (!trackingStarted) {
-                if (!res?.Response_Results) {
-                    throw new Error('Unexpected Workday response: missing Response_Results');
-                }
-                await nango.trackDeletesStart('Organization');
-                trackingStarted = true;
-            }
-
-            const totalPages = res.Response_Results?.Total_Pages ?? 1;
+            const parsedRes = SoapResponseSchema.parse(res);
+            const totalPages = parsedRes.Response_Results.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
-            page += 1;
 
-            const rawOrganizations = res.Response_Data?.Organization;
+            const rawOrganizations = parsedRes.Response_Data?.Organization;
             const organizations = Array.isArray(rawOrganizations) ? rawOrganizations : rawOrganizations ? [rawOrganizations] : [];
             const mapped: z.infer<typeof OrganizationSchema>[] = [];
 
@@ -123,8 +137,15 @@ const sync = createSync({
             if (mapped.length > 0) {
                 await nango.batchSave(mapped, 'Organization');
             }
+
+            if (hasMoreData) {
+                await nango.saveCheckpoint({ page: page + 1 });
+            }
+
+            page += 1;
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Organization');
     }
 });

@@ -60,11 +60,16 @@ const JobProfileSchema = z.object({
     last_updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync job profiles from Workday.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         JobProfile: JobProfileSchema
     },
@@ -77,10 +82,12 @@ const sync = createSync({
         const client = await getSoapClient('Human_Resources', connection);
 
         // Blocker: Get_Job_Profiles has no incremental filter; full refresh required.
-        await nango.trackDeletesStart('JobProfile');
-
-        let page = 1;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsed = CheckpointSchema.safeParse(rawCheckpoint ?? { page: 1 });
+        let page = parsed.success ? parsed.data.page : 1;
         let hasMoreData = true;
+
+        await nango.trackDeletesStart('JobProfile');
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -130,8 +137,13 @@ const sync = createSync({
             if (mapped.length > 0) {
                 await nango.batchSave(mapped, 'JobProfile');
             }
+
+            if (hasMoreData) {
+                await nango.saveCheckpoint({ page });
+            }
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('JobProfile');
     }
 });

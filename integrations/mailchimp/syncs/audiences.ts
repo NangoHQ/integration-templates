@@ -41,11 +41,16 @@ const AudienceSchema = z.object({
     stats: z.record(z.string(), z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync audiences from Mailchimp.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Audience: AudienceSchema
     },
@@ -62,7 +67,19 @@ const sync = createSync({
         // list modifications (name changes, settings updates, etc.). There is no
         // updated_since or equivalent changed-since filter, so full refresh is
         // required to keep audience data consistent.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let startOffset = 0;
+        if (rawCheckpoint !== null && rawCheckpoint !== undefined) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            startOffset = parsedCheckpoint.data.offset;
+        }
+
         await nango.trackDeletesStart('Audience');
+
+        let nextOffset: number | undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://mailchimp.com/developer/marketing/api/lists/get-lists-info/
@@ -70,11 +87,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: startOffset,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'count',
                 limit: 100,
-                response_path: 'lists'
+                response_path: 'lists',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -107,8 +127,13 @@ const sync = createSync({
             if (audiences.length > 0) {
                 await nango.batchSave(audiences, 'Audience');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Audience');
     }
 });

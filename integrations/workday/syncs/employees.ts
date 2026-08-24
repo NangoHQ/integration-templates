@@ -37,6 +37,10 @@ const EmployeeSchema = z.object({
     last_updated: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const findId = (ids: any, type: string): string | undefined => (Array.isArray(ids) ? ids : [ids]).find((r: any) => r?.attributes?.['wd:type'] === type)?.$value;
 
 async function getSoapClient(connection: any) {
@@ -62,6 +66,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/employees' }],
+    checkpoint: CheckpointSchema,
     models: {
         Employee: EmployeeSchema
     },
@@ -70,10 +75,12 @@ const sync = createSync({
         const connection = await nango.getConnection();
         const client = await getSoapClient(connection);
 
-        await nango.trackDeletesStart('Employee');
-
-        let page = 1;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint == null ? null : CheckpointSchema.parse(rawCheckpoint);
+        let page = checkpoint?.page ?? 1;
         let hasMoreData = true;
+
+        await nango.trackDeletesStart('Employee');
 
         do {
             await nango.log(`Fetching page ${page}`);
@@ -99,7 +106,6 @@ const sync = createSync({
             }
             const totalPages = res.Response_Results.Total_Pages ?? 1;
             hasMoreData = page < totalPages;
-            page += 1;
 
             const employees: z.infer<typeof EmployeeSchema>[] = [];
 
@@ -159,8 +165,14 @@ const sync = createSync({
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
             }
+
+            if (hasMoreData) {
+                page += 1;
+                await nango.saveCheckpoint({ page });
+            }
         } while (hasMoreData);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Employee');
     }
 });

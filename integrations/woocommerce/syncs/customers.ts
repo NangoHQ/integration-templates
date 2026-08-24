@@ -99,17 +99,25 @@ const CustomerSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync customers from WooCommerce.',
     version: '2.0.0',
-    endpoints: [{ method: 'GET', path: '/syncs/customers' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
+    endpoints: [{ method: 'GET', path: '/syncs/customers' }],
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let page: number | undefined = typeof checkpoint?.['page'] === 'number' ? checkpoint['page'] : 1;
+
         // The WooCommerce customers API does not support modified_after filtering,
         // so a full sync with delete tracking is required.
         await nango.trackDeletesStart('Customer');
@@ -124,16 +132,19 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page ?? 1,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: LIMIT
+                limit: LIMIT,
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsedRecords = page.map((item) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const parsedRecords = pageResults.map((item) => {
                 const parsed = ProviderCustomerSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse customer: ${parsed.error.message}`);
@@ -188,8 +199,13 @@ const sync = createSync({
             if (customers.length > 0) {
                 await nango.batchSave(customers, 'Customer');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Customer');
     }
 });

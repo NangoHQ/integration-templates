@@ -20,16 +20,47 @@ const OktaErrorSchema = z
 
 const MISSING_FEATURE_FLAG_MARKER = 'Missing Required Feature Flag';
 
+const CheckpointSchema = z.object({
+    type_index: z.number().int().min(0),
+    after: z.string()
+});
+
+const StoredCheckpointSchema = z.object({
+    type_index: z.number().int().min(0).optional(),
+    after: z.string().optional()
+});
+
+function extractNextAfter(linkHeader: unknown): string | undefined {
+    if (typeof linkHeader !== 'string') {
+        return undefined;
+    }
+    const match = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
+    if (!match || match[1] === undefined) {
+        return undefined;
+    }
+    try {
+        const url = new URL(match[1]);
+        return url.searchParams.get('after') || undefined;
+    } catch {
+        return undefined;
+    }
+}
+
 const sync = createSync({
     description: 'Sync policies.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Policy: PolicySchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = StoredCheckpointSchema.safeParse(rawCheckpoint ?? {});
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : {};
+
         // Full documented policy type list (see Okta's PolicyType enum). Some types are
         // gated behind org-specific feature flags/plan tiers (e.g. DEVICE_SIGNAL_COLLECTION,
         // ENTITY_RISK) and return a 400 "Missing Required Feature Flag" error for orgs that
@@ -50,35 +81,46 @@ const sync = createSync({
             'IDENTITY_CLAIM_SOURCING'
         ];
 
+        let typeIndex = checkpoint.type_index ?? 0;
+        let after = checkpoint.after;
+
         await nango.trackDeletesStart('Policy');
 
-        for (const policyType of policyTypes) {
-            const proxyConfig: ProxyConfiguration = {
-                // https://developer.okta.com/docs/reference/api/policy/
-                endpoint: '/api/v1/policies',
-                params: {
-                    type: policyType,
-                    limit: 200
-                },
-                paginate: {
-                    type: 'link',
-                    link_rel_in_response_header: 'next',
-                    limit_name_in_request: 'limit',
-                    limit: 200
-                },
-                retries: 3
-            };
+        while (typeIndex < policyTypes.length) {
+            const policyType = policyTypes[typeIndex];
+            if (!policyType) {
+                throw new Error(`Unexpected missing policy type at index ${typeIndex}`);
+            }
+            let hasMorePages = true;
+            let currentAfter = typeIndex === (checkpoint.type_index ?? 0) ? after : undefined;
 
             try {
-                for await (const page of nango.paginate(proxyConfig)) {
-                    if (!Array.isArray(page)) {
-                        const parsedError = OktaErrorSchema.safeParse(page);
+                while (hasMorePages) {
+                    const params: Record<string, string | number> = {
+                        type: policyType,
+                        limit: 200
+                    };
+                    if (typeof currentAfter === 'string' && currentAfter.length > 0) {
+                        params['after'] = currentAfter;
+                    }
+
+                    const proxyConfig: ProxyConfiguration = {
+                        // https://developer.okta.com/docs/reference/api/policy/
+                        endpoint: '/api/v1/policies',
+                        params,
+                        retries: 3
+                    };
+
+                    const response = await nango.get(proxyConfig);
+
+                    if (!Array.isArray(response.data)) {
+                        const parsedError = OktaErrorSchema.safeParse(response.data);
                         const errorSummary = parsedError.success ? parsedError.data.errorSummary : undefined;
-                        throw new Error(errorSummary ?? `Expected array from policies endpoint, got ${typeof page}`);
+                        throw new Error(errorSummary ?? `Expected array from policies endpoint, got ${typeof response.data}`);
                     }
 
                     const policies = [];
-                    for (const item of page) {
+                    for (const item of response.data) {
                         const parsed = PolicySchema.safeParse(item);
                         if (!parsed.success) {
                             throw new Error(`Failed to parse policy of type ${policyType}: ${parsed.error.message}`);
@@ -88,6 +130,17 @@ const sync = createSync({
 
                     if (policies.length > 0) {
                         await nango.batchSave(policies, 'Policy');
+                    }
+
+                    const nextAfter = extractNextAfter(response.headers['link']);
+                    if (nextAfter !== undefined) {
+                        currentAfter = nextAfter;
+                        await nango.saveCheckpoint({
+                            type_index: typeIndex,
+                            after: nextAfter
+                        });
+                    } else {
+                        hasMorePages = false;
                     }
                 }
             } catch (err) {
@@ -100,8 +153,19 @@ const sync = createSync({
                 }
                 await nango.log(`Skipping policy type ${policyType}: ${message}`, { level: 'warn' });
             }
+
+            typeIndex += 1;
+            after = undefined;
+
+            if (typeIndex < policyTypes.length) {
+                await nango.saveCheckpoint({
+                    type_index: typeIndex,
+                    after: ''
+                });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Policy');
     }
 });

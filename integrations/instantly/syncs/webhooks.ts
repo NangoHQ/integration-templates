@@ -29,11 +29,16 @@ const WebhookSchema = z.object({
     timestamp_error: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    starting_after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync webhook subscription configurations',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     // https://developer.instantly.ai/api-reference/groups/webhook
     endpoints: [
         {
@@ -46,21 +51,30 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // Blocker: the provider only exposes a list endpoint with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor for incremental changes.
-        // Webhook counts are typically very small, so full snapshot is appropriate.
+        const checkpoint = await nango.getCheckpoint();
+        let nextCursor: string | undefined = checkpoint?.starting_after;
+
+        // Blocker: the provider only exposes a list endpoint with no changed-since filter
+        // and no deleted-record endpoint, so full snapshot is required. The cursor is
+        // used to resume pagination across execution windows, not for incremental changes.
         await nango.trackDeletesStart('Webhook');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.instantly.ai/api-reference/groups/webhook
             endpoint: '/v2/webhooks',
+            params: {
+                ...(nextCursor && { starting_after: nextCursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'starting_after',
                 cursor_path_in_response: 'next_starting_after',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }: { nextPageParam?: string | number | undefined }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -96,8 +110,13 @@ const sync = createSync({
             if (webhooks.length > 0) {
                 await nango.batchSave(webhooks, 'Webhook');
             }
+
+            if (nextCursor !== undefined) {
+                await nango.saveCheckpoint({ starting_after: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Webhook');
     }
 });

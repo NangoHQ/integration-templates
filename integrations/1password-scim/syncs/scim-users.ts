@@ -53,11 +53,16 @@ const ScimUserSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    startIndex: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync SCIM users from 1Password SCIM.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ScimUser: ScimUserSchema
     },
@@ -69,6 +74,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint ?? { startIndex: 1 });
+        const startIndex = checkpointParse.success ? checkpointParse.data.startIndex : 1;
+
         await nango.trackDeletesStart('ScimUser');
 
         const proxyConfig: ProxyConfiguration = {
@@ -77,7 +86,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'startIndex',
-                offset_start_value: 1,
+                offset_start_value: startIndex,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
@@ -85,6 +94,8 @@ const sync = createSync({
             },
             retries: 3
         };
+
+        let processedCount = 0;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const parseResult = z.array(ScimUserResponseSchema).safeParse(page);
@@ -124,13 +135,16 @@ const sync = createSync({
                 users.push(user);
             }
 
-            if (users.length === 0) {
-                continue;
+            if (users.length > 0) {
+                await nango.batchSave(users, 'ScimUser');
             }
 
-            await nango.batchSave(users, 'ScimUser');
+            processedCount += records.length;
+            const nextStartIndex = startIndex + processedCount;
+            await nango.saveCheckpoint({ startIndex: nextStartIndex });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ScimUser');
     }
 });
