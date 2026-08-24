@@ -33,6 +33,10 @@ const ProviderResponseSchema = z.object({
     total: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number()
+});
+
 const AuthorizeResponseSchema = z
     .object({
         access_token: z.string().optional(),
@@ -57,6 +61,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ProblemGroup: ProblemGroupSchema
     },
@@ -86,9 +91,11 @@ const sync = createSync({
         }
         const authData = authParsed.data;
 
+        const checkpoint = await nango.getCheckpoint();
+        let skip = checkpoint?.skip ?? 0;
+
         await nango.trackDeletesStart('ProblemGroup');
 
-        let skip = 0;
         const limit = 5000;
 
         // nango.paginate() is avoided here on purpose: its offset mode extracts `response_path`
@@ -138,12 +145,15 @@ const sync = createSync({
                 await nango.batchSave(problemGroups, 'ProblemGroup');
             }
 
+            skip += parsedResponse.data.length;
+            await nango.saveCheckpoint({ skip });
+
             if (parsedResponse.data.length < limit) {
                 break;
             }
-            skip += parsedResponse.data.length;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProblemGroup');
     }
 });

@@ -65,11 +65,20 @@ const DriveItemSchema = z.object({
     '@microsoft.graph.downloadUrl': z.string().optional()
 });
 
+/**
+ * Checkpoint schema for resumable full refresh over picked files.
+ * index is the next file offset in metadata.pickedFiles to resume from.
+ */
+const CheckpointSchema = z.object({
+    index: z.number()
+});
+
 const sync = createSync({
     description: 'Sync selected OneDrive files from metadata',
     version: '2.0.0',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     models: {
         SelectedUserFile: UserFileSchema
     },
@@ -104,27 +113,19 @@ const sync = createSync({
             }
         }
 
+        const checkpoint = await nango.getCheckpoint();
+        const startIndex = typeof checkpoint?.['index'] === 'number' ? checkpoint['index'] : 0;
+
         // Track deletes to remove files that are no longer selected
         await nango.trackDeletesStart('SelectedUserFile');
         let fetchErrorCount = 0;
 
-        const files: Array<{
-            id: string;
-            driveId: string;
-            driveItemId: string;
-            name?: string;
-            webUrl?: string;
-            downloadUrl?: string;
-            size?: number;
-            createdDateTime?: string;
-            lastModifiedDateTime?: string;
-            mimeType?: string;
-            parentReferenceId?: string;
-            parentReferenceName?: string;
-            parentReferencePath?: string;
-        }> = [];
+        for (let i = startIndex; i < metadata.pickedFiles.length; i++) {
+            const pickedFile = metadata.pickedFiles[i];
+            if (!pickedFile) {
+                continue;
+            }
 
-        for (const pickedFile of metadata.pickedFiles) {
             // @allowTryCatch Continue processing other files if one fails
             // Individual file failures should not block the entire sync
             try {
@@ -193,8 +194,9 @@ const sync = createSync({
                     fileRecord.parentReferencePath = item.parentReference.path;
                 }
 
-                files.push(fileRecord);
+                await nango.batchSave([fileRecord], 'SelectedUserFile');
                 await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
+                await nango.saveCheckpoint({ index: i + 1 });
             } catch (error) {
                 fetchErrorCount++;
                 await nango.log(
@@ -203,18 +205,15 @@ const sync = createSync({
             }
         }
 
-        // Guard: if every file fetch failed, abort rather than calling trackDeletesEnd with
-        // no saves, which would mass-delete all previously synced records.
-        if (fetchErrorCount === metadata.pickedFiles.length) {
+        // Guard: if every file fetch from this execution failed, abort rather than calling trackDeletesEnd
+        // with no saves, which would mass-delete all previously synced records.
+        const filesProcessedInThisRun = metadata.pickedFiles.length - startIndex;
+        if (fetchErrorCount === filesProcessedInThisRun && filesProcessedInThisRun > 0) {
             throw new Error('All file fetches failed; aborting sync to prevent accidental data loss from delete tracking');
         }
 
-        // Save all files
-        if (files.length > 0) {
-            await nango.batchSave(files, 'SelectedUserFile');
-        }
-
-        // End delete tracking - files no longer in selection will be deleted
+        // Clear checkpoint and end delete tracking - files no longer in selection will be deleted
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SelectedUserFile');
     }
 });

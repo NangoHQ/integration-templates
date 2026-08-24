@@ -34,11 +34,16 @@ const ProviderTeamSchema = z.object({
     attributes: ProviderTeamAttributesSchema
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync teams in this organization.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema
     },
@@ -46,6 +51,17 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET v2/team does not support a changed-since filter,
         // a deleted-record endpoint, or a resumable cursor.
+        // Full refresh with offset pagination checkpoint.
+        const rawCheckpoint = await nango.getCheckpoint();
+        let page: number | undefined = 0;
+        if (rawCheckpoint !== null && rawCheckpoint !== undefined) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+            }
+            page = checkpointResult.data.page;
+        }
+
         await nango.trackDeletesStart('Team');
 
         const proxyConfig: ProxyConfiguration = {
@@ -54,21 +70,24 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page[number]',
-                offset_start_value: 0,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'page[size]',
                 limit: 100,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(pageResults)) {
                 throw new Error('Expected paginated page to be an array');
             }
 
-            const teams = page.map((item) => {
+            const teams = pageResults.map((item) => {
                 const parsed = ProviderTeamSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse team: ${parsed.error.message}`);
@@ -92,8 +111,13 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'Team');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Team');
     }
 });

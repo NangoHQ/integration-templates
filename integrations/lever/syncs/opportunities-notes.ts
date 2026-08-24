@@ -35,12 +35,17 @@ const LeverOpportunityNoteSchema = z.object({
     deletedAt: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    opportunityOffset: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of all notes for every single opportunity',
     version: '3.0.0',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['notes:read:admin'],
+    checkpoint: CheckpointSchema,
     models: {
         LeverOpportunityNote: LeverOpportunityNoteSchema
     },
@@ -51,15 +56,16 @@ const sync = createSync({
         // delta filtering. Notes must be fetched by enumerating all opportunities and
         // listing notes for each opportunity, so the only way to ensure completeness is a
         // full refresh.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
         let totalRecords = 0;
 
-        // Fetch and validate only the first page before opening the delete-tracking window, so a
-        // failure here never leaves LeverOpportunityNote's tracking started without a matching
-        // end. Subsequent pages are streamed and processed immediately to keep memory bounded on
-        // large accounts.
-        const firstPage = await fetchOpportunityPage(nango, undefined);
-
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('LeverOpportunityNote');
+
+        let offset = checkpoint?.opportunityOffset;
 
         const processOpportunities = async (opportunities: z.infer<typeof LeverOpportunityResponseSchema>[]) => {
             for (const opportunity of opportunities) {
@@ -86,14 +92,20 @@ const sync = createSync({
             }
         };
 
-        await processOpportunities(firstPage.data);
-        let cursor = firstPage.next;
-        while (cursor) {
-            const page = await fetchOpportunityPage(nango, cursor);
+        while (true) {
+            const page = await fetchOpportunityPage(nango, offset);
             await processOpportunities(page.data);
-            cursor = page.next;
+
+            offset = page.next;
+
+            if (!offset) {
+                break;
+            }
+
+            await nango.saveCheckpoint({ opportunityOffset: offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LeverOpportunityNote');
     }
 });

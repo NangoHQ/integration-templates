@@ -64,39 +64,62 @@ const SearchStreamResultSchema = z.object({
 
 const SearchStreamResponseSchema = z.array(z.union([SearchStreamResultSchema, SearchStreamErrorSchema]));
 
+const CheckpointSchema = z.object({
+    resourceNames: z.string(),
+    nextIndex: z.number().int().nonnegative(),
+    anyAccountSkipped: z.boolean()
+});
+
 const sync = createSync({
     description: 'Sync directly accessible Google Ads customer accounts',
     version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
 
     exec: async (nango) => {
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
+
         const developerToken = await getDeveloperToken(nango);
         if (!developerToken) {
             throw new Error('developer_token is required in connection config');
         }
 
-        // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
-        const listResponse = await nango.get({
-            endpoint: 'v25/customers:listAccessibleCustomers',
-            headers: {
-                'developer-token': developerToken
-            },
-            retries: 3
-        });
+        let resourceNames: string[];
+        let nextIndex: number;
+        let anyAccountSkipped: boolean;
 
-        const listData = ListAccessibleCustomersResponseSchema.parse(listResponse.data);
-        const resourceNames = listData.resourceNames;
+        if (checkpoint) {
+            resourceNames = checkpoint.resourceNames.split(',').filter(Boolean);
+            nextIndex = checkpoint.nextIndex;
+            anyAccountSkipped = checkpoint.anyAccountSkipped;
+        } else {
+            // https://developers.google.com/google-ads/api/docs/account-management/listing-accounts
+            const listResponse = await nango.get({
+                endpoint: 'v25/customers:listAccessibleCustomers',
+                headers: {
+                    'developer-token': developerToken
+                },
+                retries: 3
+            });
+
+            const listData = ListAccessibleCustomersResponseSchema.parse(listResponse.data);
+            resourceNames = listData.resourceNames;
+            nextIndex = 0;
+            anyAccountSkipped = false;
+        }
 
         await nango.trackDeletesStart('Customer');
 
-        const customers = [];
-        let anyAccountSkipped = false;
-
-        for (const resourceName of resourceNames) {
+        for (let i = nextIndex; i < resourceNames.length; i++) {
+            const resourceName = resourceNames[i];
+            if (!resourceName) {
+                continue;
+            }
             const customerId = resourceName.replace('customers/', '');
 
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
@@ -127,12 +150,14 @@ const sync = createSync({
                     JSON.stringify(err.response.data).includes('DEVELOPER_TOKEN_NOT_APPROVED');
                 if (isDeveloperTokenError) {
                     anyAccountSkipped = true;
+                    await nango.saveCheckpoint({ resourceNames: resourceNames.join(','), nextIndex: i + 1, anyAccountSkipped });
                     continue;
                 }
                 throw err;
             }
 
             const searchData = SearchStreamResponseSchema.parse(searchResponse.data);
+            const customers = [];
 
             for (const streamResult of searchData) {
                 if ('error' in streamResult) {
@@ -154,11 +179,15 @@ const sync = createSync({
                     ...(customerRow.status !== undefined && { status: customerRow.status })
                 });
             }
+
+            if (customers.length > 0) {
+                await nango.batchSave(customers, 'Customer');
+            }
+
+            await nango.saveCheckpoint({ resourceNames: resourceNames.join(','), nextIndex: i + 1, anyAccountSkipped });
         }
 
-        if (customers.length > 0) {
-            await nango.batchSave(customers, 'Customer');
-        }
+        await nango.clearCheckpoint();
 
         // If any account was skipped (test-only developer token cannot access it), this run only
         // observed a partial view of accessible customers. Finalizing deletion tracking here would

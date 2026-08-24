@@ -45,16 +45,26 @@ const EmployeeSchema = z.object({
     companyId: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync employees.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Employee: EmployeeSchema
     },
 
     exec: async (nango) => {
+        // Blocker: provider only exposes /v2/employee with no changed-since filter,
+        // no deleted-record endpoint, and no resumable cursor.
+        const checkpoint = await nango.getCheckpoint();
+        let from = checkpoint?.from ?? 0;
+
         await nango.trackDeletesStart('Employee');
 
         const proxyConfig: ProxyConfiguration = {
@@ -63,7 +73,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: from,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
@@ -72,8 +82,11 @@ const sync = createSync({
             retries: 3
         };
 
-        const paginator: AsyncIterableIterator<unknown[]> = nango.paginate(proxyConfig);
-        for await (const page of paginator) {
+        for await (const page of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(page)) {
+                throw new Error('Expected page to be an array');
+            }
+
             const employees = [];
             for (const record of page) {
                 const parsed = ProviderEmployeeSchema.parse(record);
@@ -103,8 +116,12 @@ const sync = createSync({
             if (employees.length > 0) {
                 await nango.batchSave(employees, 'Employee');
             }
+
+            from += page.length;
+            await nango.saveCheckpoint({ from });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Employee');
     }
 });

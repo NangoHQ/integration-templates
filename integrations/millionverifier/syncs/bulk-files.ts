@@ -57,18 +57,26 @@ const ConnectionSchema = z
     })
     .passthrough();
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync uploaded bulk verification file records (job history).',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         BulkFile: BulkFileSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
         const connection = ConnectionSchema.parse(await nango.getConnection());
         const apiKey = connection.credentials.apiKey;
+
+        let offset: number | undefined = checkpoint?.['offset'] ?? 0;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.millionverifier.com/#operation/bulk-filelist
@@ -80,10 +88,13 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: offset,
                 limit_name_in_request: 'limit',
                 limit: 50,
-                response_path: 'files'
+                response_path: 'files',
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -118,13 +129,16 @@ const sync = createSync({
                 ...(record.error !== undefined && { error: record.error })
             }));
 
-            if (files.length === 0) {
-                continue;
+            if (files.length > 0) {
+                await nango.batchSave(files, 'BulkFile');
             }
 
-            await nango.batchSave(files, 'BulkFile');
+            if (offset !== undefined) {
+                await nango.saveCheckpoint({ offset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BulkFile');
     }
 });
