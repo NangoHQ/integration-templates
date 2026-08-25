@@ -34,7 +34,9 @@ const LabelsResponseSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    accountIndex: z.number().int().nonnegative()
+    accountIndex: z.number().int().nonnegative(),
+    accountId: z.string(),
+    accountsFingerprint: z.string()
 });
 
 const sync = createSync({
@@ -82,7 +84,17 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Label');
 
-        const startIndex = checkpoint?.accountIndex ?? 0;
+        const accountIds = accounts.map(({ accountId }) => accountId);
+        const accountsFingerprint = JSON.stringify(accountIds);
+        let startIndex = 0;
+        if (checkpoint && checkpoint.accountsFingerprint === accountsFingerprint) {
+            if (checkpoint.accountId !== '') {
+                const resolvedIndex = accountIds.indexOf(checkpoint.accountId);
+                startIndex = resolvedIndex >= 0 ? resolvedIndex : 0;
+            } else if (checkpoint.accountIndex <= accounts.length) {
+                startIndex = checkpoint.accountIndex;
+            }
+        }
 
         for (let i = startIndex; i < accounts.length; i++) {
             const account = accounts[i];
@@ -126,7 +138,12 @@ const sync = createSync({
                 await nango.batchSave(labels, 'Label');
             }
 
-            await nango.saveCheckpoint({ accountIndex: i + 1 });
+            const nextAccount = accounts[i + 1];
+            await nango.saveCheckpoint({
+                accountIndex: i + 1,
+                accountId: nextAccount?.accountId ?? '',
+                accountsFingerprint
+            });
         }
 
         await nango.clearCheckpoint();

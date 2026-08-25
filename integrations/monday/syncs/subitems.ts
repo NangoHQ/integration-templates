@@ -63,7 +63,6 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const boardPage = checkpoint?.['board_page'] ?? 1;
         let resumeBoardId = checkpoint?.['board_id'] || undefined;
         let resumeItemCursor = checkpoint?.['item_cursor'] || undefined;
 
@@ -73,6 +72,7 @@ const sync = createSync({
         if (resumeItemCursor === '') {
             resumeItemCursor = undefined;
         }
+        const boardPage = resumeBoardId === undefined ? (checkpoint?.['board_page'] ?? 1) : 1;
 
         await nango.trackDeletesStart('Subitem');
 
@@ -209,11 +209,18 @@ const sync = createSync({
             }
 
             currentBoardPage += 1;
-            await nango.saveCheckpoint({
-                board_page: currentBoardPage,
-                board_id: '',
-                item_cursor: ''
-            });
+            if (resumeBoardId === undefined) {
+                await nango.saveCheckpoint({
+                    board_page: currentBoardPage,
+                    board_id: '',
+                    item_cursor: ''
+                });
+            }
+        }
+
+        if (resumeBoardId !== undefined) {
+            await nango.saveCheckpoint({ board_page: 1, board_id: '', item_cursor: '' });
+            throw new Error(`Checkpointed board ${resumeBoardId} is no longer accessible; restarting board enumeration`);
         }
 
         await nango.clearCheckpoint();

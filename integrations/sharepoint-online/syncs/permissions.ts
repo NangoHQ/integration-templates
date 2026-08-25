@@ -47,6 +47,14 @@ const CheckpointSchema = z.object({
     state_json: z.string()
 });
 
+const CheckpointStateSchema = z.object({
+    driveIndex: z.number().int().nonnegative(),
+    driveSiteId: z.string().optional(),
+    driveId: z.string().optional(),
+    nextLink: z.string().optional(),
+    drivesFingerprint: z.string().optional()
+});
+
 const sync = createSync({
     description: 'Sync permission grants on drive items for configured site drives.',
     version: '1.0.0',
@@ -76,20 +84,28 @@ const sync = createSync({
         if (drives.length === 0) {
             throw new Error('No drives configured in metadata.');
         }
+        const drivesFingerprint = JSON.stringify(drives.map(({ siteId, driveId }) => ({ siteId, driveId })));
 
         const checkpoint = await nango.getCheckpoint();
         const checkpointResult = CheckpointSchema.safeParse(checkpoint);
         let driveIndex = 0;
         let nextLink: string | undefined;
         if (checkpointResult.success && checkpointResult.data.state_json) {
-            const parsed = JSON.parse(checkpointResult.data.state_json);
-            if (parsed !== null && typeof parsed === 'object' && !Array.isArray(parsed)) {
-                if (typeof parsed.driveIndex === 'number' && Number.isInteger(parsed.driveIndex) && parsed.driveIndex >= 0) {
-                    driveIndex = parsed.driveIndex;
-                }
-                if (typeof parsed.nextLink === 'string') {
-                    nextLink = parsed.nextLink;
-                }
+            const parsedState = CheckpointStateSchema.safeParse(JSON.parse(checkpointResult.data.state_json));
+            if (!parsedState.success) {
+                throw new Error(`Invalid checkpoint state: ${parsedState.error.message}`);
+            }
+
+            const state = parsedState.data;
+            const metadataMatches = state.drivesFingerprint === undefined || state.drivesFingerprint === drivesFingerprint;
+            const hasStableDrive = state.driveSiteId !== undefined && state.driveId !== undefined;
+            const resolvedDriveIndex = hasStableDrive
+                ? drives.findIndex(({ siteId, driveId }) => siteId === state.driveSiteId && driveId === state.driveId)
+                : state.driveIndex;
+
+            if (metadataMatches && resolvedDriveIndex >= 0 && resolvedDriveIndex < drives.length) {
+                driveIndex = resolvedDriveIndex;
+                nextLink = state.nextLink;
             }
         }
 
@@ -211,14 +227,30 @@ const sync = createSync({
                 // Save pagination progress after every page so a run that exceeds the
                 // execution window resumes from the next delta page instead of restarting.
                 if (nextDeltaLink !== undefined) {
-                    await nango.saveCheckpoint({ state_json: JSON.stringify({ driveIndex: driveIdx, nextLink: nextDeltaLink }) });
+                    await nango.saveCheckpoint({
+                        state_json: JSON.stringify({
+                            driveIndex: driveIdx,
+                            driveSiteId: siteId,
+                            driveId,
+                            nextLink: nextDeltaLink,
+                            drivesFingerprint
+                        })
+                    });
                 }
             }
 
             // Drive complete. If there are more drives, save checkpoint to start the next
             // drive from scratch on a resumed execution.
             if (driveIdx < drives.length - 1) {
-                await nango.saveCheckpoint({ state_json: JSON.stringify({ driveIndex: driveIdx + 1 }) });
+                const nextDrive = drives[driveIdx + 1]!;
+                await nango.saveCheckpoint({
+                    state_json: JSON.stringify({
+                        driveIndex: driveIdx + 1,
+                        driveSiteId: nextDrive.siteId,
+                        driveId: nextDrive.driveId,
+                        drivesFingerprint
+                    })
+                });
             }
         }
 

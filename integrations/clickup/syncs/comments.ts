@@ -120,6 +120,10 @@ const sync = createSync({
 
         const teamsData = TeamsResponseSchema.parse(teamsResponse.data);
         const teams = teamsData.teams ?? [];
+        const hasConfiguredTeam = teams.some((team) => String(TeamItemSchema.parse(team).id) === config.team_id);
+        if (!hasConfiguredTeam) {
+            throw new Error(`Configured team ${config.team_id} is no longer accessible`);
+        }
 
         for (const team of teams) {
             const teamId = String(TeamItemSchema.parse(team).id);
@@ -136,6 +140,11 @@ const sync = createSync({
 
             const spacesData = SpacesResponseSchema.parse(spacesResponse.data);
             const spaces = spacesData.spaces ?? [];
+
+            if (checkpoint.space_id !== '' && !spaces.some((space) => String(SpaceItemSchema.parse(space).id) === checkpoint.space_id)) {
+                await nango.saveCheckpoint(DEFAULT_CHECKPOINT);
+                throw new Error(`Checkpointed space ${checkpoint.space_id} is no longer accessible; restarting hierarchy enumeration`);
+            }
 
             let skipSpace = checkpoint.space_id !== '';
 
@@ -163,6 +172,14 @@ const sync = createSync({
                 const folders = foldersData.folders ?? [];
 
                 const isResumedSpace = checkpoint.space_id !== '' && spaceId === checkpoint.space_id;
+                if (
+                    isResumedSpace &&
+                    checkpoint.folder_id !== '' &&
+                    !folders.some((folder) => String(FolderItemSchema.parse(folder).id) === checkpoint.folder_id)
+                ) {
+                    await nango.saveCheckpoint({ ...DEFAULT_CHECKPOINT, space_id: spaceId });
+                    throw new Error(`Checkpointed folder ${checkpoint.folder_id} is no longer accessible; restarting space enumeration`);
+                }
                 let skipFolder = isResumedSpace && checkpoint.folder_id !== '';
 
                 for (let folderIdx = 0; folderIdx < folders.length; folderIdx++) {
@@ -189,6 +206,10 @@ const sync = createSync({
                     const lists = listsData.lists ?? [];
 
                     const isResumedFolder = isResumedSpace && checkpoint.folder_id !== '' && folderId === checkpoint.folder_id;
+                    if (isResumedFolder && checkpoint.list_id !== '' && !lists.some((list) => String(ListItemSchema.parse(list).id) === checkpoint.list_id)) {
+                        await nango.saveCheckpoint({ ...DEFAULT_CHECKPOINT, space_id: spaceId, folder_id: folderId });
+                        throw new Error(`Checkpointed list ${checkpoint.list_id} is no longer accessible; restarting folder enumeration`);
+                    }
                     let skipList = isResumedFolder && checkpoint.list_id !== '';
 
                     for (let listIdx = 0; listIdx < lists.length; listIdx++) {
@@ -270,7 +291,19 @@ const sync = createSync({
                             const tasks = tasksData.tasks ?? [];
                             const lastPage = tasksData.last_page ?? false;
 
-                            let skipTask = isResumedList && checkpoint.task_id !== '';
+                            const isCheckpointTaskPage = isResumedList && taskPage === checkpoint.task_page && checkpoint.task_id !== '';
+                            if (isCheckpointTaskPage && !tasks.some((task) => String(TaskItemSchema.parse(task).id) === checkpoint.task_id)) {
+                                await nango.saveCheckpoint({
+                                    ...DEFAULT_CHECKPOINT,
+                                    space_id: spaceId,
+                                    folder_id: folderId,
+                                    list_id: listId,
+                                    task_page: 0
+                                });
+                                throw new Error(`Checkpointed task ${checkpoint.task_id} is no longer accessible; restarting task enumeration`);
+                            }
+
+                            let skipTask = isCheckpointTaskPage;
 
                             for (let taskIdx = 0; taskIdx < tasks.length; taskIdx++) {
                                 const task = tasks[taskIdx];

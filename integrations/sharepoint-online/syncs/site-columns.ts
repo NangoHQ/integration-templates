@@ -9,6 +9,13 @@ const CheckpointSchema = z.object({
     state_json: z.string()
 });
 
+const CheckpointStateSchema = z.object({
+    siteIndex: z.number().int().nonnegative(),
+    siteId: z.string().optional(),
+    nextLink: z.string().optional(),
+    siteIdsFingerprint: z.string().optional()
+});
+
 const ProviderColumnSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -95,24 +102,30 @@ const sync = createSync({
             throw new Error('siteIds are required in metadata');
         }
 
+        const siteIds = parsedMetadata.data.siteIds;
+        const siteIdsFingerprint = JSON.stringify(siteIds);
         const checkpoint = await nango.getCheckpoint();
         const state: { siteIndex: number; nextLink?: string } = { siteIndex: 0 };
         if (checkpoint != null) {
-            const raw = JSON.parse(checkpoint.state_json);
-            if (raw !== null && typeof raw === 'object' && !Array.isArray(raw)) {
-                if (typeof raw.siteIndex === 'number') {
-                    state.siteIndex = raw.siteIndex;
-                }
-                if (typeof raw.nextLink === 'string') {
-                    state.nextLink = raw.nextLink;
+            const parsedState = CheckpointStateSchema.safeParse(JSON.parse(checkpoint.state_json));
+            if (!parsedState.success) {
+                throw new Error(`Invalid checkpoint state: ${parsedState.error.message}`);
+            }
+
+            const savedState = parsedState.data;
+            const metadataMatches = savedState.siteIdsFingerprint === undefined || savedState.siteIdsFingerprint === siteIdsFingerprint;
+            const resolvedSiteIndex = savedState.siteId === undefined ? savedState.siteIndex : siteIds.indexOf(savedState.siteId);
+
+            if (metadataMatches && resolvedSiteIndex >= 0 && resolvedSiteIndex <= siteIds.length) {
+                state.siteIndex = resolvedSiteIndex;
+                if (savedState.nextLink !== undefined) {
+                    state.nextLink = savedState.nextLink;
                 }
             }
         }
         const startSiteIndex = state.siteIndex;
 
         await nango.trackDeletesStart('SiteColumn');
-
-        const siteIds = parsedMetadata.data.siteIds;
 
         for (let i = startSiteIndex; i < siteIds.length; i++) {
             const siteId = siteIds[i];
@@ -198,10 +211,15 @@ const sync = createSync({
                     await nango.batchSave(columns, 'SiteColumn');
                 }
 
-                await nango.saveCheckpoint({ state_json: JSON.stringify({ siteIndex: i, ...(nextLink && { nextLink }) }) });
+                await nango.saveCheckpoint({
+                    state_json: JSON.stringify({ siteIndex: i, siteId, siteIdsFingerprint, ...(nextLink && { nextLink }) })
+                });
             }
 
-            await nango.saveCheckpoint({ state_json: JSON.stringify({ siteIndex: i + 1 }) });
+            const nextSiteId = siteIds[i + 1];
+            await nango.saveCheckpoint({
+                state_json: JSON.stringify({ siteIndex: i + 1, ...(nextSiteId && { siteId: nextSiteId }), siteIdsFingerprint })
+            });
         }
 
         await nango.clearCheckpoint();

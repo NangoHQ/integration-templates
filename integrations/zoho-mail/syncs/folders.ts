@@ -41,7 +41,9 @@ const FoldersResponseSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    next_account_index: z.number().int().nonnegative()
+    next_account_index: z.number().int().nonnegative(),
+    next_account_id: z.string(),
+    accounts_fingerprint: z.string()
 });
 
 function isInvalidOAuthScopeResponse(data: unknown): boolean {
@@ -106,7 +108,16 @@ const sync = createSync({
         }
 
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
-        const startAccountIndex = checkpoint.success ? checkpoint.data.next_account_index : 0;
+        const accountsFingerprint = JSON.stringify(accountIds);
+        let startAccountIndex = 0;
+        if (checkpoint.success && checkpoint.data.accounts_fingerprint === accountsFingerprint) {
+            if (checkpoint.data.next_account_id !== '') {
+                const resolvedIndex = accountIds.indexOf(checkpoint.data.next_account_id);
+                startAccountIndex = resolvedIndex >= 0 ? resolvedIndex : 0;
+            } else if (checkpoint.data.next_account_index < accountIds.length) {
+                startAccountIndex = checkpoint.data.next_account_index;
+            }
+        }
 
         await nango.trackDeletesStart('Folder');
 
@@ -154,7 +165,11 @@ const sync = createSync({
 
             const nextAccountIndex = accountIndex + 1;
             if (nextAccountIndex < accountIds.length) {
-                await nango.saveCheckpoint({ next_account_index: nextAccountIndex });
+                await nango.saveCheckpoint({
+                    next_account_index: nextAccountIndex,
+                    next_account_id: accountIds[nextAccountIndex]!,
+                    accounts_fingerprint: accountsFingerprint
+                });
             }
         }
 

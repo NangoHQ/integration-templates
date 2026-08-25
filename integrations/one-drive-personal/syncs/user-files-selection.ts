@@ -39,15 +39,9 @@ const DriveItemSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    offset: z.number().int().nonnegative()
+    offset: z.number().int().nonnegative(),
+    pickedFilesFingerprint: z.string()
 });
-
-const StoredCheckpointSchema = z.union([
-    CheckpointSchema,
-    z.object({
-        offset: z.number().int().nonnegative().optional()
-    })
-]);
 
 const sync = createSync({
     description: 'Sync selected OneDrive files from metadata',
@@ -60,8 +54,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = StoredCheckpointSchema.nullish().parse(await nango.getCheckpoint());
-        const offset = checkpoint?.offset ?? 0;
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
 
         // Fetch and validate metadata
         const rawMetadata = await nango.getMetadata();
@@ -72,6 +66,8 @@ const sync = createSync({
         const metadata = metadataParse.data;
 
         const pickedFiles = metadata.pickedFiles ?? [];
+        const pickedFilesFingerprint = JSON.stringify(pickedFiles.map(({ fileId }) => fileId));
+        const offset = checkpoint?.pickedFilesFingerprint === pickedFilesFingerprint ? checkpoint.offset : 0;
 
         // Safe to call every execution: trackDeletesStart() will not overwrite the
         // start of a delete-tracking window this refresh already opened.
@@ -114,7 +110,7 @@ const sync = createSync({
             };
 
             await nango.batchSave([record], 'UserFileSelection');
-            await nango.saveCheckpoint({ offset: i + 1 });
+            await nango.saveCheckpoint({ offset: i + 1, pickedFilesFingerprint });
         }
 
         // Clear the checkpoint only after the last file has been saved, then close the

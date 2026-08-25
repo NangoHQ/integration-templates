@@ -94,16 +94,18 @@ const sync = createSync({
         await nango.trackDeletesStart('Team');
 
         const limit = 100;
+        let resumeOrgPending = effectiveResumeOrgId !== undefined;
         let resumeOffsetConsumed = false;
 
         for (const [i, org] of organizations.entries()) {
-            if (effectiveResumeOrgId !== undefined) {
+            if (resumeOrgPending) {
                 if (org.id !== effectiveResumeOrgId) {
                     continue;
                 }
+                resumeOrgPending = false;
             }
 
-            const offset = !resumeOffsetConsumed && resumeTeamOffset !== undefined ? resumeTeamOffset : 0;
+            const offset = !resumeOffsetConsumed && hasValidResumeOrg && resumeTeamOffset !== undefined ? resumeTeamOffset : 0;
             resumeOffsetConsumed = true;
             let hasMore = true;
             let currentOffset = offset;

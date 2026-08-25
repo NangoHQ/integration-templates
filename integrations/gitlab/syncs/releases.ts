@@ -37,7 +37,7 @@ const ReleaseSchema = z.object({
 
 const CheckpointSchema = z.object({
     project_page: z.number().int().positive(),
-    project_id: z.number(),
+    project_id: z.number().int().nonnegative(),
     release_page: z.number().int().positive(),
     project_done: z.boolean()
 });
@@ -61,9 +61,9 @@ const sync = createSync({
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
 
-        let currentProjectPage: number = checkpoint?.project_page ?? 1;
+        const resumeProjectId = checkpoint?.project_id ? checkpoint.project_id : undefined;
+        let currentProjectPage: number = resumeProjectId === undefined ? (checkpoint?.project_page ?? 1) : 1;
         let nextProjectPage: number | undefined = currentProjectPage;
-        const resumeProjectId = checkpoint?.project_id;
         const resumeReleasePage = checkpoint?.release_page ?? 1;
         const resumeProjectDone = checkpoint?.project_done ?? false;
         let projectResumed = resumeProjectId === undefined;
@@ -168,6 +168,11 @@ const sync = createSync({
             if (typeof nextProjectPage === 'number') {
                 currentProjectPage = nextProjectPage;
             }
+        }
+
+        if (!projectResumed) {
+            await nango.saveCheckpoint({ project_page: 1, project_id: 0, release_page: 1, project_done: false });
+            throw new Error(`Checkpointed project ${resumeProjectId} is no longer accessible; restarting project enumeration`);
         }
 
         await nango.clearCheckpoint();

@@ -23,7 +23,7 @@ const SubsiteSchema = z.object({
 });
 
 const SitesResponseSchema = z.object({
-    value: z.array(z.unknown()).optional(),
+    value: z.array(z.unknown()),
     '@odata.nextLink': z.string().optional()
 });
 

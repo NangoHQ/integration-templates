@@ -143,6 +143,9 @@ const sync = createSync({
                     }
 
                     const nextCursor = parsed.data.next;
+                    if (batch.length > 0) {
+                        await nango.batchSave(batch.splice(0, batch.length), 'Referral');
+                    }
                     await nango.saveCheckpoint({
                         opportunityOffset: opportunityOffset ?? '',
                         opportunityId: opportunity.id,

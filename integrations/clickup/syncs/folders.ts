@@ -23,7 +23,9 @@ const MetadataSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    spaceIndex: z.number()
+    spaceIndex: z.number().int().nonnegative(),
+    spaceId: z.string(),
+    spacesFingerprint: z.string()
 });
 
 const sync = createSync({
@@ -54,9 +56,8 @@ const sync = createSync({
         // support. Full refresh with deletion detection is required.
         await nango.trackDeletesStart('Folder');
 
-        const checkpoint = await nango.getCheckpoint();
-        const rawSpaceIndex = checkpoint?.['spaceIndex'];
-        const startIndex = typeof rawSpaceIndex === 'number' ? rawSpaceIndex : 0;
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const checkpoint = checkpointResult.success ? checkpointResult.data : undefined;
 
         // Get all spaces in the workspace
         // https://developer.clickup.com/reference/getspaces
@@ -79,6 +80,17 @@ const sync = createSync({
             }
             return { id: space.id };
         });
+
+        const spacesFingerprint = JSON.stringify(spaces.map(({ id }) => id));
+        let startIndex = 0;
+        if (checkpoint && checkpoint.spacesFingerprint === spacesFingerprint) {
+            if (checkpoint.spaceId !== '') {
+                const resolvedIndex = spaces.findIndex(({ id }) => id === checkpoint.spaceId);
+                startIndex = resolvedIndex >= 0 ? resolvedIndex : 0;
+            } else if (checkpoint.spaceIndex <= spaces.length) {
+                startIndex = checkpoint.spaceIndex;
+            }
+        }
 
         for (let i = startIndex; i < spaces.length; i++) {
             const space = spaces[i];
@@ -128,7 +140,12 @@ const sync = createSync({
             }
 
             // Persist forward progress even when a valid page is empty.
-            await nango.saveCheckpoint({ spaceIndex: i + 1 });
+            const nextSpace = spaces[i + 1];
+            await nango.saveCheckpoint({
+                spaceIndex: i + 1,
+                spaceId: nextSpace?.id ?? '',
+                spacesFingerprint
+            });
         }
 
         await nango.clearCheckpoint();

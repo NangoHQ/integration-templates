@@ -34,7 +34,7 @@ const SiteSchema = z.object({
 });
 
 const CheckpointStateSchema = z.object({
-    phase: z.string(),
+    phase: z.enum(['siteIds', 'sitePaths', 'searchTerms']),
     siteIdIndex: z.number().optional(),
     sitePathIndex: z.number().optional(),
     searchTermIndex: z.number().optional(),

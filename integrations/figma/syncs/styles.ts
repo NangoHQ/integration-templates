@@ -94,7 +94,7 @@ const sync = createSync({
                 limit_name_in_request: 'page_size',
                 limit: 30,
                 on_page: async ({ nextPageParam }) => {
-                    after = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                    after = typeof nextPageParam === 'string' || typeof nextPageParam === 'number' ? String(nextPageParam) : undefined;
                 }
             },
             retries: 3

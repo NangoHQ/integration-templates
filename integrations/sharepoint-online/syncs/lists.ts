@@ -116,12 +116,10 @@ const sync = createSync({
             for (const siteId of metadata.site_ids) {
                 siteIds.push(siteId);
             }
-        } else if (cp.siteIdsJson !== '[]') {
-            siteIds = parseSiteIdsJson(cp.siteIdsJson);
-        } else {
+        } else if (cp.siteNextLink || cp.siteIdsJson === '[]') {
             // https://learn.microsoft.com/graph/api/site-search
             let siteNextLink = cp.siteNextLink;
-            const discoveredSiteIds: string[] = [];
+            const discoveredSiteIds = parseSiteIdsJson(cp.siteIdsJson);
             let nextEndpoint = siteNextLink || '/v1.0/sites';
             let hasMoreSites = true;
 
@@ -169,6 +167,8 @@ const sync = createSync({
                 siteIndex: 0,
                 listNextLink: ''
             });
+        } else {
+            siteIds = parseSiteIdsJson(cp.siteIdsJson);
         }
 
         if (siteIds.length === 0) {

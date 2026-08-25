@@ -87,6 +87,7 @@ const sync = createSync({
         const resumeProjectPage = typeof checkpoint?.['project_page'] === 'number' ? checkpoint['project_page'] : 1;
         const resumeProjectId = typeof checkpoint?.['project_id'] === 'string' && checkpoint['project_id'] !== '' ? checkpoint['project_id'] : undefined;
         const resumeBranchPage = typeof checkpoint?.['branch_page'] === 'number' ? checkpoint['branch_page'] : 1;
+        const projectStartPage = resumeProjectId === undefined ? resumeProjectPage : 1;
 
         await nango.trackDeletesStart('Branch');
 
@@ -99,7 +100,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: resumeProjectPage,
+                offset_start_value: projectStartPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 10
@@ -107,7 +108,7 @@ const sync = createSync({
             retries: 3
         };
 
-        let currentProjectPage: number = resumeProjectPage;
+        let currentProjectPage: number = projectStartPage;
         let resumeProjectIdLocal: string | undefined = resumeProjectId;
         let resumeBranchPageLocal: number = resumeBranchPage;
 
@@ -200,11 +201,18 @@ const sync = createSync({
             }
 
             currentProjectPage += 1;
-            await nango.saveCheckpoint({
-                project_page: currentProjectPage,
-                project_id: '',
-                branch_page: 1
-            });
+            if (resumeProjectIdLocal === undefined) {
+                await nango.saveCheckpoint({
+                    project_page: currentProjectPage,
+                    project_id: '',
+                    branch_page: 1
+                });
+            }
+        }
+
+        if (resumeProjectIdLocal !== undefined) {
+            await nango.saveCheckpoint({ project_page: 1, project_id: '', branch_page: 1 });
+            throw new Error(`Checkpointed project ${resumeProjectIdLocal} is no longer accessible; restarting project enumeration`);
         }
 
         await nango.clearCheckpoint();
