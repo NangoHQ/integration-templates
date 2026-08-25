@@ -1,7 +1,54 @@
 {
   "nango": {
     "batchSave": {
-      "SharedItem": []
+      "SharedItem": [
+        {
+          "id": "01ABC123",
+          "name": "Shared Document.docx",
+          "webUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/Documents/Shared%20Document.docx",
+          "createdDateTime": "2026-05-01T10:00:00Z",
+          "lastModifiedDateTime": "2026-05-02T12:00:00Z",
+          "size": 2048,
+          "remoteItem": {
+            "id": "01XYZ789",
+            "name": "Shared Document.docx",
+            "webUrl": "https://contoso-my.sharepoint.com/personal/owner_contoso_com/Documents/Shared%20Document.docx",
+            "createdDateTime": "2026-04-15T09:00:00Z",
+            "lastModifiedDateTime": "2026-05-02T12:00:00Z",
+            "size": 2048,
+            "parentReference": {
+              "driveType": "business",
+              "driveId": "b!abc123driveId",
+              "id": "01PARENT123",
+              "path": "/drives/b!abc123driveId/root:/Documents"
+            },
+            "shared": {
+              "sharedDateTime": "2026-05-01T10:05:00Z"
+            }
+          }
+        },
+        {
+          "id": "01FOLDER456",
+          "name": "Shared Folder",
+          "webUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/Documents/Shared%20Folder",
+          "createdDateTime": "2026-05-03T08:00:00Z",
+          "lastModifiedDateTime": "2026-05-03T09:00:00Z",
+          "isFolder": true,
+          "remoteItem": {
+            "id": "01REMOTEFOLDER",
+            "name": "Shared Folder",
+            "webUrl": "https://contoso-my.sharepoint.com/personal/owner_contoso_com/Documents/Shared%20Folder",
+            "createdDateTime": "2026-05-02T07:00:00Z",
+            "lastModifiedDateTime": "2026-05-03T09:00:00Z",
+            "folder": {
+              "childCount": 3
+            },
+            "shared": {
+              "sharedDateTime": "2026-05-03T08:05:00Z"
+            }
+          }
+        }
+      ]
     },
     "batchDelete": {
       "SharedItem": []
@@ -12,7 +59,56 @@
       "/v1.0/me/drive/sharedWithMe": {
         "response": {
           "@odata.context": "https://graph.microsoft.com/v1.0/$metadata#Collection(microsoft.graph.driveItem)",
-          "value": []
+          "value": [
+            {
+              "id": "01ABC123",
+              "name": "Shared Document.docx",
+              "webUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/Documents/Shared%20Document.docx",
+              "createdDateTime": "2026-05-01T10:00:00Z",
+              "lastModifiedDateTime": "2026-05-02T12:00:00Z",
+              "size": 2048,
+              "remoteItem": {
+                "id": "01XYZ789",
+                "name": "Shared Document.docx",
+                "webUrl": "https://contoso-my.sharepoint.com/personal/owner_contoso_com/Documents/Shared%20Document.docx",
+                "createdDateTime": "2026-04-15T09:00:00Z",
+                "lastModifiedDateTime": "2026-05-02T12:00:00Z",
+                "size": 2048,
+                "parentReference": {
+                  "driveType": "business",
+                  "driveId": "b!abc123driveId",
+                  "id": "01PARENT123",
+                  "path": "/drives/b!abc123driveId/root:/Documents"
+                },
+                "shared": {
+                  "sharedDateTime": "2026-05-01T10:05:00Z"
+                }
+              }
+            },
+            {
+              "id": "01FOLDER456",
+              "name": "Shared Folder",
+              "webUrl": "https://contoso-my.sharepoint.com/personal/user_contoso_com/Documents/Shared%20Folder",
+              "createdDateTime": "2026-05-03T08:00:00Z",
+              "lastModifiedDateTime": "2026-05-03T09:00:00Z",
+              "folder": {
+                "childCount": 3
+              },
+              "remoteItem": {
+                "id": "01REMOTEFOLDER",
+                "name": "Shared Folder",
+                "webUrl": "https://contoso-my.sharepoint.com/personal/owner_contoso_com/Documents/Shared%20Folder",
+                "createdDateTime": "2026-05-02T07:00:00Z",
+                "lastModifiedDateTime": "2026-05-03T09:00:00Z",
+                "folder": {
+                  "childCount": 3
+                },
+                "shared": {
+                  "sharedDateTime": "2026-05-03T08:05:00Z"
+                }
+              }
+            }
+          ]
         },
         "status": 200,
         "headers": {
