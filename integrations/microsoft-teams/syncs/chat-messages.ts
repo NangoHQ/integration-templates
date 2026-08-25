@@ -115,7 +115,7 @@ function mapMessages(rawMessages: unknown[], fallbackChatId?: string): z.infer<t
 
 const sync = createSync({
     description: 'Sync chat messages across user chats.',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every 5 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -249,15 +249,25 @@ async function runFallback(nango: NangoSyncLocal) {
                     retries: 3
                 };
 
-                for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
-                    if (!Array.isArray(rawMessages)) {
-                        continue;
-                    }
+                // @allowTryCatch Some chats (e.g. certain meeting chats) fail Teams' backend
+                // roster ACL check with 403 even with valid delegated permissions. Skip just
+                // that chat instead of aborting the whole sync.
+                try {
+                    for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
+                        if (!Array.isArray(rawMessages)) {
+                            continue;
+                        }
 
-                    const messages = mapMessages(rawMessages, chatId);
-                    if (messages.length > 0) {
-                        await nango.batchSave(messages, 'ChatMessage');
+                        const messages = mapMessages(rawMessages, chatId);
+                        if (messages.length > 0) {
+                            await nango.batchSave(messages, 'ChatMessage');
+                        }
                     }
+                } catch (error) {
+                    if (!isPermissionError(error)) {
+                        throw error;
+                    }
+                    await nango.log(`Skipping chat ${chatId}: insufficient privileges to list messages`, { level: 'warn' });
                 }
             }
         }
