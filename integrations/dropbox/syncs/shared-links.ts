@@ -32,11 +32,16 @@ const SharedLinkSchema = z.object({
     expires: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync Dropbox shared links for the current user or configured path scopes.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         SharedLink: SharedLinkSchema
     },
@@ -56,52 +61,63 @@ const sync = createSync({
         const metadata = rawConnection.metadata ?? rawConnection.data?.metadata ?? {};
         const pathFilter = typeof metadata.path === 'string' && metadata.path.trim() ? metadata.path.trim() : undefined;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        let cursor: string | undefined;
+        if (rawCheckpoint != null) {
+            const checkpoint = CheckpointSchema.parse(rawCheckpoint);
+            cursor = checkpoint.cursor;
+        }
+
         await nango.trackDeletesStart('SharedLink');
 
-        let cursor: string | undefined = undefined;
-        let hasMore = true;
+        while (true) {
+            // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_shared_links
+            const response = await nango.post({
+                endpoint: '/2/sharing/list_shared_links',
+                data: {
+                    ...(pathFilter && { path: pathFilter }),
+                    ...(cursor && { cursor })
+                },
+                retries: 3
+            });
 
-        try {
-            while (hasMore) {
-                // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_shared_links
-                const response = await nango.post({
-                    endpoint: '/2/sharing/list_shared_links',
-                    data: {
-                        ...(pathFilter && { path: pathFilter }),
-                        ...(cursor && { cursor })
-                    },
-                    retries: 3
-                });
+            const parsed = ListSharedLinksResponseSchema.safeParse(response.data);
 
-                const parsed = ListSharedLinksResponseSchema.safeParse(response.data);
-
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse shared links response: ${parsed.error.message}`);
-                }
-
-                const { links, has_more: responseHasMore, cursor: nextCursor } = parsed.data;
-
-                const sharedLinks = links.map((link) => ({
-                    id: link.id,
-                    url: link.url,
-                    name: link.name,
-                    ...(link.path_lower !== undefined && { path_lower: link.path_lower }),
-                    ...(link['.tag'] !== undefined && { type: link['.tag'] }),
-                    ...(link.client_modified !== undefined && { client_modified: link.client_modified }),
-                    ...(link.server_modified !== undefined && { server_modified: link.server_modified }),
-                    ...(link.expires !== undefined && { expires: link.expires })
-                }));
-
-                if (sharedLinks.length > 0) {
-                    await nango.batchSave(sharedLinks, 'SharedLink');
-                }
-
-                hasMore = (responseHasMore ?? false) && nextCursor !== undefined;
-                cursor = nextCursor;
+            if (!parsed.success) {
+                throw new Error(`Failed to parse shared links response: ${parsed.error.message}`);
             }
-        } finally {
-            await nango.trackDeletesEnd('SharedLink');
+
+            const { links, has_more: responseHasMore, cursor: nextCursor } = parsed.data;
+
+            const sharedLinks = links.map((link) => ({
+                id: link.id,
+                url: link.url,
+                name: link.name,
+                ...(link.path_lower !== undefined && { path_lower: link.path_lower }),
+                ...(link['.tag'] !== undefined && { type: link['.tag'] }),
+                ...(link.client_modified !== undefined && { client_modified: link.client_modified }),
+                ...(link.server_modified !== undefined && { server_modified: link.server_modified }),
+                ...(link.expires !== undefined && { expires: link.expires })
+            }));
+
+            if (sharedLinks.length > 0) {
+                await nango.batchSave(sharedLinks, 'SharedLink');
+            }
+
+            if (!(responseHasMore ?? false)) {
+                break;
+            }
+
+            if (nextCursor === undefined) {
+                throw new Error('Provider returned has_more without a cursor');
+            }
+
+            await nango.saveCheckpoint({ cursor: nextCursor });
+            cursor = nextCursor;
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('SharedLink');
     }
 });
 

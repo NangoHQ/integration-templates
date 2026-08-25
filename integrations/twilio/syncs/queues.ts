@@ -35,11 +35,20 @@ const MetadataSchema = z.object({
     account_sid: z.string().optional()
 });
 
+const PaginationResponseSchema = z.object({
+    next_page_uri: z.string().nullable().optional()
+});
+
+const CheckpointSchema = z.object({
+    page_token: z.string()
+});
+
 const sync = createSync({
     description: 'Sync call queues from Twilio',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Queue: QueueSchema
     },
@@ -52,6 +61,12 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
+
         const connection = await nango.getConnection();
         const credentials = BasicCredentialsSchema.safeParse(connection.credentials);
         let accountSid: string | undefined;
@@ -70,23 +85,36 @@ const sync = createSync({
             throw new Error('Account SID not found in connection credentials or metadata');
         }
 
+        let pageToken = checkpoint?.data.page_token || undefined;
+
         // Blocker: Twilio Queues API does not support updated_since, modified_since, or any
         // changed-records filter. The list endpoint always returns the full set, so full refresh
         // with deletion detection is required.
         await nango.trackDeletesStart('Queue');
 
+        const params: Record<string, string | number> = {
+            PageSize: 50
+        };
+        if (pageToken) {
+            params['PageToken'] = pageToken;
+        }
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.twilio.com/docs/voice/api/queue-resource#retrieve-a-list-of-queues
             endpoint: `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Queues.json`,
-            params: {
-                PageSize: 50
-            },
+            params,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'next_page_uri',
                 response_path: 'queues',
                 limit_name_in_request: 'PageSize',
-                limit: 50
+                limit: 50,
+                on_page: async ({ response }) => {
+                    const parsed = PaginationResponseSchema.parse(response.data);
+                    pageToken = parsed.next_page_uri
+                        ? (new URL(parsed.next_page_uri, 'https://api.twilio.com').searchParams.get('PageToken') ?? undefined)
+                        : undefined;
+                }
             },
             retries: 3
         };
@@ -113,8 +141,13 @@ const sync = createSync({
             if (queues.length > 0) {
                 await nango.batchSave(queues, 'Queue');
             }
+
+            if (pageToken) {
+                await nango.saveCheckpoint({ page_token: pageToken });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Queue');
     }
 });

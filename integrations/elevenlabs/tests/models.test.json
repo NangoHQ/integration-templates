@@ -844,33 +844,6 @@
           "concurrency_group": "standard_eleven_english_sts_v2"
         },
         {
-          "id": "eleven_monolingual_v1",
-          "name": "Eleven English v1",
-          "can_be_finetuned": false,
-          "can_do_text_to_speech": true,
-          "can_do_voice_conversion": false,
-          "can_use_style": false,
-          "can_use_speaker_boost": false,
-          "serves_pro_voices": false,
-          "token_cost_factor": 1,
-          "description": "Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-          "requires_alpha_access": false,
-          "max_characters_request_free_user": 10000,
-          "max_characters_request_subscribed_user": 10000,
-          "maximum_text_length_per_request": 10000,
-          "languages": [
-            {
-              "language_id": "en",
-              "name": "English"
-            }
-          ],
-          "model_rates": {
-            "character_cost_multiplier": 1,
-            "cost_discount_multiplier": 1
-          },
-          "concurrency_group": "standard"
-        },
-        {
           "id": "eleven_multilingual_sts_v2",
           "name": "Eleven Multilingual v2",
           "can_be_finetuned": true,
@@ -1008,65 +981,6 @@
             "cost_discount_multiplier": 1
           },
           "concurrency_group": "standard_eleven_multilingual_sts_v2"
-        },
-        {
-          "id": "eleven_multilingual_v1",
-          "name": "Eleven Multilingual v1",
-          "can_be_finetuned": false,
-          "can_do_text_to_speech": true,
-          "can_do_voice_conversion": false,
-          "can_use_style": false,
-          "can_use_speaker_boost": false,
-          "serves_pro_voices": false,
-          "token_cost_factor": 1,
-          "description": "Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-          "requires_alpha_access": false,
-          "max_characters_request_free_user": 10000,
-          "max_characters_request_subscribed_user": 10000,
-          "maximum_text_length_per_request": 10000,
-          "languages": [
-            {
-              "language_id": "en",
-              "name": "English"
-            },
-            {
-              "language_id": "de",
-              "name": "German"
-            },
-            {
-              "language_id": "pl",
-              "name": "Polish"
-            },
-            {
-              "language_id": "es",
-              "name": "Spanish"
-            },
-            {
-              "language_id": "it",
-              "name": "Italian"
-            },
-            {
-              "language_id": "fr",
-              "name": "French"
-            },
-            {
-              "language_id": "pt",
-              "name": "Portuguese"
-            },
-            {
-              "language_id": "hi",
-              "name": "Hindi"
-            },
-            {
-              "language_id": "ar",
-              "name": "Arabic"
-            }
-          ],
-          "model_rates": {
-            "character_cost_multiplier": 1,
-            "cost_discount_multiplier": 1
-          },
-          "concurrency_group": "standard"
         }
       ]
     },
@@ -1920,33 +1834,6 @@
             "concurrency_group": "standard_eleven_english_sts_v2"
           },
           {
-            "model_id": "eleven_monolingual_v1",
-            "name": "Eleven English v1",
-            "can_be_finetuned": false,
-            "can_do_text_to_speech": true,
-            "can_do_voice_conversion": false,
-            "can_use_style": false,
-            "can_use_speaker_boost": false,
-            "serves_pro_voices": false,
-            "token_cost_factor": 1,
-            "description": "Our first ever text to speech model. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-            "requires_alpha_access": false,
-            "max_characters_request_free_user": 10000,
-            "max_characters_request_subscribed_user": 10000,
-            "maximum_text_length_per_request": 10000,
-            "languages": [
-              {
-                "language_id": "en",
-                "name": "English"
-              }
-            ],
-            "model_rates": {
-              "character_cost_multiplier": 1,
-              "cost_discount_multiplier": 1
-            },
-            "concurrency_group": "standard"
-          },
-          {
             "model_id": "eleven_multilingual_sts_v2",
             "name": "Eleven Multilingual v2",
             "can_be_finetuned": true,
@@ -2084,70 +1971,11 @@
               "cost_discount_multiplier": 1
             },
             "concurrency_group": "standard_eleven_multilingual_sts_v2"
-          },
-          {
-            "model_id": "eleven_multilingual_v1",
-            "name": "Eleven Multilingual v1",
-            "can_be_finetuned": false,
-            "can_do_text_to_speech": true,
-            "can_do_voice_conversion": false,
-            "can_use_style": false,
-            "can_use_speaker_boost": false,
-            "serves_pro_voices": false,
-            "token_cost_factor": 1,
-            "description": "Our first Multilingual model, capability of generating speech in 10 languages. Now outclassed by Multilingual v2 (for content creation) and Turbo v2.5 (for low latency use cases).",
-            "requires_alpha_access": false,
-            "max_characters_request_free_user": 10000,
-            "max_characters_request_subscribed_user": 10000,
-            "maximum_text_length_per_request": 10000,
-            "languages": [
-              {
-                "language_id": "en",
-                "name": "English"
-              },
-              {
-                "language_id": "de",
-                "name": "German"
-              },
-              {
-                "language_id": "pl",
-                "name": "Polish"
-              },
-              {
-                "language_id": "es",
-                "name": "Spanish"
-              },
-              {
-                "language_id": "it",
-                "name": "Italian"
-              },
-              {
-                "language_id": "fr",
-                "name": "French"
-              },
-              {
-                "language_id": "pt",
-                "name": "Portuguese"
-              },
-              {
-                "language_id": "hi",
-                "name": "Hindi"
-              },
-              {
-                "language_id": "ar",
-                "name": "Arabic"
-              }
-            ],
-            "model_rates": {
-              "character_cost_multiplier": 1,
-              "cost_discount_multiplier": 1
-            },
-            "concurrency_group": "standard"
           }
         ],
         "status": 200,
         "headers": {
-          "date": "Wed, 24 Jun 2026 21:22:29 GMT",
+          "date": "Tue, 18 Aug 2026 08:59:21 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -2156,19 +1984,17 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=1800;",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4958",
-          "x-ratelimit-reset": "1782336195",
+          "x-ratelimit-remaining": "4959",
+          "x-ratelimit-reset": "1787043567",
           "server": "uvicorn",
           "vary": "Accept-Language, Accept-Encoding",
-          "access-control-allow-headers": "*",
-          "access-control-allow-methods": "POST, PATCH, OPTIONS, DELETE, GET, PUT",
-          "access-control-max-age": "600",
-          "x-trace-id": "080efc6d3d72a2d892cb0c867250f925",
+          "x-trace-id": "5fcc0c607498230a7c81d76d304293d0",
           "x-region": "us-central1",
           "via": "1.1 google",
           "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"

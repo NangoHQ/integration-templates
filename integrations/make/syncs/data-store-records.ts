@@ -29,16 +29,28 @@ const DataStoreRecordsResponseSchema = z.object({
     records: z.array(DataStoreRecordItemSchema)
 });
 
+const CheckpointSchema = z.object({
+    dataStoreId: z.number(),
+    offset: z.number()
+});
+
 const sync = createSync({
     description: 'Sync records inside each data store for a team.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         DataStoreRecord: DataStoreRecordSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const rawDataStoreId = checkpoint?.['dataStoreId'];
+        const rawOffset = checkpoint?.['offset'];
+        const checkpointDataStoreId = typeof rawDataStoreId === 'number' && Number.isFinite(rawDataStoreId) ? rawDataStoreId : undefined;
+        const checkpointOffset = typeof rawOffset === 'number' && Number.isFinite(rawOffset) && rawOffset >= 0 ? rawOffset : 0;
+
         const orgProxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/
             endpoint: '/organizations',
@@ -89,10 +101,8 @@ const sync = createSync({
             throw new Error('No teams found');
         }
 
-        await nango.trackDeletesStart('DataStoreRecord');
-
+        const allDataStores: Array<z.infer<typeof DataStoreSchema>> = [];
         for (const team of teams) {
-            const dataStores: Array<z.infer<typeof DataStoreSchema>> = [];
             const dataStoreProxyConfig: ProxyConfiguration = {
                 // https://developers.make.com/api-documentation/
                 endpoint: '/data-stores',
@@ -111,46 +121,89 @@ const sync = createSync({
             };
 
             for await (const dataStorePage of nango.paginate<unknown>(dataStoreProxyConfig)) {
-                dataStores.push(...z.array(DataStoreSchema).parse(dataStorePage));
+                allDataStores.push(...z.array(DataStoreSchema).parse(dataStorePage));
+            }
+        }
+
+        let checkpointId = checkpointDataStoreId;
+        let checkpointPageOffset = checkpointOffset;
+        if (checkpointId !== undefined) {
+            const checkpointValid = allDataStores.some((ds) => ds.id === checkpointId);
+            if (!checkpointValid) {
+                checkpointId = undefined;
+                checkpointPageOffset = 0;
+            }
+        }
+
+        await nango.trackDeletesStart('DataStoreRecord');
+
+        let foundCheckpoint = checkpointId === undefined;
+
+        for (let i = 0; i < allDataStores.length; i++) {
+            const dataStore = allDataStores[i];
+            if (!dataStore) {
+                continue;
             }
 
-            for (const dataStore of dataStores) {
-                const limit = 10;
-                let offset = 0;
-                let hasMore = true;
+            if (!foundCheckpoint) {
+                if (dataStore.id === checkpointId) {
+                    foundCheckpoint = true;
+                } else {
+                    continue;
+                }
+            }
 
-                while (hasMore) {
-                    // https://developers.make.com/api-documentation/
-                    const recordsResponse = await nango.get({
-                        endpoint: `/data-stores/${encodeURIComponent(String(dataStore.id))}/data`,
-                        params: {
-                            'pg[limit]': limit,
-                            'pg[offset]': offset
-                        },
-                        retries: 3
-                    });
+            const limit = 10;
+            let offset = dataStore.id === checkpointId ? checkpointPageOffset : 0;
 
-                    const recordsData = DataStoreRecordsResponseSchema.parse(recordsResponse.data);
-                    const mappedRecords = recordsData.records.map((record) => ({
-                        id: `${dataStore.id}:${record.key}`,
-                        dataStoreId: dataStore.id,
-                        key: record.key,
-                        ...(record.data !== undefined && { data: record.data })
-                    }));
+            while (true) {
+                // https://developers.make.com/api-documentation/
+                const recordsResponse = await nango.get({
+                    endpoint: `/data-stores/${encodeURIComponent(String(dataStore.id))}/data`,
+                    params: {
+                        'pg[limit]': limit,
+                        'pg[offset]': offset
+                    },
+                    retries: 3
+                });
 
-                    if (mappedRecords.length > 0) {
-                        await nango.batchSave(mappedRecords, 'DataStoreRecord');
-                    }
+                const recordsData = DataStoreRecordsResponseSchema.parse(recordsResponse.data);
+                const mappedRecords = recordsData.records.map((record) => ({
+                    id: `${dataStore.id}:${record.key}`,
+                    dataStoreId: dataStore.id,
+                    key: record.key,
+                    ...(record.data !== undefined && { data: record.data })
+                }));
 
-                    if (recordsData.records.length < limit) {
-                        hasMore = false;
+                if (mappedRecords.length > 0) {
+                    await nango.batchSave(mappedRecords, 'DataStoreRecord');
+                }
+
+                if (recordsData.records.length < limit) {
+                    const nextDataStore = i + 1 < allDataStores.length ? allDataStores[i + 1] : undefined;
+                    if (nextDataStore) {
+                        await nango.saveCheckpoint({
+                            dataStoreId: nextDataStore.id,
+                            offset: 0
+                        });
                     } else {
-                        offset += limit;
+                        await nango.saveCheckpoint({
+                            dataStoreId: dataStore.id,
+                            offset: offset + limit
+                        });
                     }
+                    break;
+                } else {
+                    offset += limit;
+                    await nango.saveCheckpoint({
+                        dataStoreId: dataStore.id,
+                        offset
+                    });
                 }
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('DataStoreRecord');
     }
 });

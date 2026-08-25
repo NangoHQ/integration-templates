@@ -8,9 +8,7 @@
           "displayName": "Trello Workspace",
           "desc": "",
           "url": "https://trello.com/w/userworkspace80557740",
-          "products": [
-            110
-          ]
+          "products": []
         }
       ]
     },
@@ -43,10 +41,9 @@
             },
             "domainName": "nango.dev",
             "idBoards": [
-              "6a26f30e145a84816d3dc356",
+              "6a26f5df57bb1f09efa8b942",
               "6a26f2eb894c0b76184bdb73",
               "6a26f5e70cfb23f42c3ef4ea",
-              "6a26f5df57bb1f09efa8b942",
               "6a26ebb3cd5f60a53a585978"
             ],
             "idEnterprise": null,
@@ -62,9 +59,10 @@
                   "warnAt": 3200
                 },
                 "freeBoardsPerOrg": {
-                  "status": "ok",
+                  "status": "warn",
                   "disableAt": 10,
-                  "warnAt": 3
+                  "warnAt": 3,
+                  "count": 4
                 },
                 "usersPerFreeOrg": {
                   "status": "ok",
@@ -98,71 +96,36 @@
               "attachmentRestrictions": null,
               "newLicenseInviteRestrict": null,
               "newLicenseInviteRestrictUrl": null,
-              "atlassianIntelligenceEnabled": true,
+              "atlassianIntelligenceEnabled": false,
               "archiveCleanupCutOff": null
             },
-            "powerUps": [
-              110
-            ],
-            "offering": "trello.business_class",
-            "products": [
-              110
-            ],
+            "powerUps": [],
+            "offering": "trello.free",
+            "products": [],
             "billableMemberCount": 1,
             "billableCollaboratorCount": 0,
             "url": "https://trello.com/w/userworkspace80557740",
             "website": null,
             "logoHash": null,
             "logoUrl": null,
-            "aiEligible": true,
+            "iconEmoji": null,
+            "iconEmojiBackground": null,
+            "aiEligible": false,
+            "eligibleForTrial": false,
             "premiumFeatures": [
-              "activity",
               "additionalBoardBackgrounds",
               "additionalStickers",
-              "advancedChecklists",
-              "aiBoardBuilder",
-              "aiQuickCapture",
-              "atlassianIntelligence",
-              "boardExport",
-              "butlerBC",
-              "butlerPremium",
-              "collapsibleLists",
-              "csvExport",
               "customBoardBackgrounds",
               "customEmoji",
               "customStickers",
-              "deactivated",
-              "export",
-              "goldMembers",
-              "inviteBoard",
-              "inviteOrg",
-              "isBc",
-              "isPremium",
-              "largeAttachments",
-              "listColors",
-              "multiBoardGuests",
-              "observers",
-              "paidCorePlugins",
-              "plugins",
-              "premiumMirrorCards",
-              "privateTemplates",
-              "readSecrets",
-              "removal",
-              "restrictVis",
-              "savedSearches",
-              "shortExportHistory",
-              "starCounts",
-              "superAdmins",
-              "tags",
-              "views",
-              "workspaceViews"
+              "plugins"
             ],
             "promotions": [],
             "enterpriseJoinRequest": {},
             "standardVariation": null,
             "availableLicenseCount": null,
             "maximumLicenseCount": null,
-            "ixUpdate": "13",
+            "ixUpdate": "17",
             "teamType": null,
             "dateLastActivity": "2026-06-08T16:20:03.448Z",
             "jwmLink": null,
@@ -171,7 +134,7 @@
             "boardCounts": [
               {
                 "idMember": "6a26eb9ccef85b4074044ea5",
-                "boardCount": 5
+                "boardCount": 4
               }
             ],
             "type": null,
@@ -189,26 +152,63 @@
         ],
         "status": 200,
         "headers": {
-          "date": "Mon, 08 Jun 2026 17:04:30 GMT",
+          "date": "Wed, 19 Aug 2026 11:58:27 GMT",
           "content-type": "application/json; charset=utf-8",
-          "content-length": "2778",
+          "content-length": "2319",
           "connection": "keep-alive",
-          "x-xss-protection": "0",
+          "x-xss-protection": "1; mode=block",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
+          "x-frame-options": "DENY",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=63072000; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4893",
-          "x-ratelimit-reset": "1780938303",
-          "etag": "W/\"ada-bUeiXMlmK4b2Uzvp4XyA4EU4WMQ\""
+          "x-ratelimit-remaining": "4672",
+          "x-ratelimit-reset": "1787140731",
+          "x-permitted-cross-domain-policies": "none",
+          "surrogate-control": "no-store",
+          "cache-control": "max-age=0, must-revalidate, no-cache, no-store",
+          "expires": "Thu, 01 Jan 1970 00:00:00",
+          "x-trello-version": "1.482719.0",
+          "x-trello-environment": "Production",
+          "set-cookie": "dsc=d545e9abca49634f1a23853f35618200ff9dccd24e00fd5c60a3f76a68f72c54; Path=/; Expires=Fri, 18 Sep 2026 11:58:27 GMT; Secure; SameSite=None",
+          "x-rate-limit-api-token-interval-ms": "10000",
+          "x-rate-limit-api-token-max": "100",
+          "x-rate-limit-api-token-remaining": "98",
+          "x-rate-limit-db-query-time-interval-ms": "600000",
+          "x-rate-limit-db-query-time-max": "7200000",
+          "x-rate-limit-db-query-time-remaining": "7199990",
+          "x-rate-limit-api-key-interval-ms": "10000",
+          "x-rate-limit-api-key-max": "300",
+          "x-rate-limit-api-key-remaining": "298",
+          "x-rate-limit-member-interval-ms": "10000",
+          "x-rate-limit-member-max": "375",
+          "x-rate-limit-member-remaining": "373",
+          "x-server-time": "1787140707349",
+          "server": "AtlassianEdge",
+          "atl-traceid": "6449683a532a460fa1c60365f4874c28",
+          "atl-request-id": "6449683a-532a-460f-a1c6-0365f4874c28",
+          "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
+          "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 626ad4a6bf529166d2aad94a2957694c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P1",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "x-amz-cf-id": "bdhAAlzz9FN7GKK6XG9TUknr3hGhPOongrWurwWD2w2u0vYibBs3iQ==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=293,atl-edge;dur=286,atl-edge-internal;dur=6,atl-edge-upstream;dur=281,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P1\",cdn-rid;desc=\"bdhAAlzz9FN7GKK6XG9TUknr3hGhPOongrWurwWD2w2u0vYibBs3iQ==\",cdn-downstream-fbl;dur=296",
+          "etag": "W/\"90f-vaIT3LZz/zMKt4lnsy4d0x5eCH8\""
         },
-        "hash": "ebb9133733aa494ced784b1c601838a7f5fd32a9",
-        "request": {}
+        "hash": "bf4bdb1454110f0f588f6d8a90c96582b15de975",
+        "request": {
+          "params": {
+            "limit": "100",
+            "page": "0"
+          }
+        }
       }
     }
   }

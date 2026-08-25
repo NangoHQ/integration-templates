@@ -31,11 +31,16 @@ const ProviderUserSchema = z.object({
     utc_hours_diff: z.number().nullable()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync users from monday.com.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
@@ -52,6 +57,14 @@ const sync = createSync({
         // filters, cursors, or any resumable change-tracking. It only offers
         // limit/page offset pagination with no incremental filtering, so a full
         // refresh is required.
+        const checkpoint = await nango.getCheckpoint();
+        const validated = CheckpointSchema.safeParse(checkpoint);
+        let nextPage = validated.success ? validated.data.page : 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('User');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.monday.com/api-reference/reference/users
             endpoint: '/v2',
@@ -69,27 +82,26 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'variables.page',
-                offset_start_value: 1,
+                offset_start_value: nextPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'variables.limit',
                 limit: 100,
-                response_path: 'data.users'
+                response_path: 'data.users',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'number') {
+                        nextPage = nextPageParam + 1;
+                    }
+                }
             },
             retries: 3
         };
 
-        let trackingStarted = false;
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(pageResults)) {
                 throw new Error('Expected users page to be an array');
             }
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('User');
-                trackingStarted = true;
-            }
-
-            const users = page.map((user) => {
+            const users = pageResults.map((user) => {
                 const parsed = ProviderUserSchema.parse(user);
                 return {
                     id: String(parsed.id),
@@ -110,11 +122,17 @@ const sync = createSync({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            await nango.saveCheckpoint({ page: nextPage });
         }
 
-        if (trackingStarted) {
-            await nango.trackDeletesEnd('User');
-        }
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('User');
     }
 });
 

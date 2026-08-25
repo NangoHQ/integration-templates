@@ -70,26 +70,41 @@ const ProviderPurchaseRequestSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync purchase requests.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         PurchaseRequest: PurchaseRequestSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint ? checkpoint['cursor'] : undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getpurchaserequests
             endpoint: '/api/external/v2/purchase_requests',
+            params: {
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 50
+                limit: 50,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -132,8 +147,13 @@ const sync = createSync({
             if (mapped.length > 0) {
                 await nango.batchSave(mapped, 'PurchaseRequest');
             }
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('PurchaseRequest');
     }
 });
