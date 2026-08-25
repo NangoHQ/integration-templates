@@ -5,6 +5,17 @@ const MetadataSchema = z.object({
     siteIds: z.array(z.string())
 });
 
+const CheckpointSchema = z.object({
+    state_json: z.string()
+});
+
+const CheckpointStateSchema = z.object({
+    siteIndex: z.number().int().nonnegative(),
+    siteId: z.string().optional(),
+    nextLink: z.string().optional(),
+    siteIdsFingerprint: z.string().optional()
+});
+
 const ProviderColumnSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -69,10 +80,11 @@ const SiteColumnSchema = z.object({
 
 const sync = createSync({
     description: 'Sync site-level column definitions for configured sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             path: '/syncs/site-columns',
@@ -90,18 +102,63 @@ const sync = createSync({
             throw new Error('siteIds are required in metadata');
         }
 
+        const siteIds = parsedMetadata.data.siteIds;
+        const siteIdsFingerprint = JSON.stringify(siteIds);
+        const checkpoint = await nango.getCheckpoint();
+        const state: { siteIndex: number; nextLink?: string } = { siteIndex: 0 };
+        if (checkpoint != null) {
+            const parsedState = CheckpointStateSchema.safeParse(JSON.parse(checkpoint.state_json));
+            if (!parsedState.success) {
+                throw new Error(`Invalid checkpoint state: ${parsedState.error.message}`);
+            }
+
+            const savedState = parsedState.data;
+            const metadataMatches = savedState.siteIdsFingerprint === undefined || savedState.siteIdsFingerprint === siteIdsFingerprint;
+            const resolvedSiteIndex = savedState.siteId === undefined ? savedState.siteIndex : siteIds.indexOf(savedState.siteId);
+
+            if (metadataMatches && resolvedSiteIndex >= 0 && resolvedSiteIndex <= siteIds.length) {
+                state.siteIndex = resolvedSiteIndex;
+                if (savedState.nextLink !== undefined) {
+                    state.nextLink = savedState.nextLink;
+                }
+            }
+        }
+        const startSiteIndex = state.siteIndex;
+
         await nango.trackDeletesStart('SiteColumn');
 
-        for (const siteId of parsedMetadata.data.siteIds) {
+        for (let i = startSiteIndex; i < siteIds.length; i++) {
+            const siteId = siteIds[i];
+            if (typeof siteId !== 'string') {
+                continue;
+            }
+            let nextLink: string | undefined;
+
+            let endpoint: string;
+            let baseUrlOverride: string | undefined;
+
+            if (i === state.siteIndex && state.nextLink) {
+                const url = new URL(state.nextLink);
+                baseUrlOverride = url.origin;
+                endpoint = url.pathname + url.search;
+            } else {
+                endpoint = `/v1.0/sites/${encodeURIComponent(siteId)}/columns`;
+            }
+
             const proxyConfig: ProxyConfiguration = {
                 // https://learn.microsoft.com/graph/api/site-list-columns
-                endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/columns`,
+                endpoint,
+                baseUrlOverride,
                 paginate: {
                     type: 'link',
                     link_path_in_response_body: '@odata.nextLink',
                     response_path: 'value',
                     limit: 100,
-                    limit_name_in_request: '$top'
+                    limit_name_in_request: '$top',
+                    on_page: async ({ response }) => {
+                        const parsed = z.object({ '@odata.nextLink': z.string().optional() }).parse(response.data);
+                        nextLink = parsed['@odata.nextLink'];
+                    }
                 },
                 retries: 3
             };
@@ -153,9 +210,19 @@ const sync = createSync({
                 if (columns.length > 0) {
                     await nango.batchSave(columns, 'SiteColumn');
                 }
+
+                await nango.saveCheckpoint({
+                    state_json: JSON.stringify({ siteIndex: i, siteId, siteIdsFingerprint, ...(nextLink && { nextLink }) })
+                });
             }
+
+            const nextSiteId = siteIds[i + 1];
+            await nango.saveCheckpoint({
+                state_json: JSON.stringify({ siteIndex: i + 1, ...(nextSiteId && { siteId: nextSiteId }), siteIdsFingerprint })
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SiteColumn');
     }
 });

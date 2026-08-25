@@ -43,12 +43,54 @@ const ListSchema = z.object({
     hidden: z.boolean().optional()
 });
 
+const SitesResponseSchema = z.object({
+    value: z.array(z.unknown()),
+    '@odata.nextLink': z.string().optional()
+});
+
+const ListsResponseSchema = z.object({
+    value: z.array(z.unknown()),
+    '@odata.nextLink': z.string().optional()
+});
+
+const CheckpointSchema = z.object({
+    siteNextLink: z.string(),
+    siteIdsJson: z.string(),
+    siteIndex: z.number().int().nonnegative(),
+    listNextLink: z.string()
+});
+
+function toRelativeUrl(url: string): string {
+    if (!url.startsWith('http')) {
+        return url;
+    }
+
+    const parsed = new URL(url);
+    return parsed.pathname + parsed.search;
+}
+
+function parseSiteIdsJson(input: string): string[] | undefined {
+    // @allowTryCatch JSON.parse may throw on malformed checkpoint data;
+    //                 undefined tells the caller to restart site discovery.
+    try {
+        const parsed = JSON.parse(input);
+        const result = z.array(z.string()).safeParse(parsed);
+        if (result.success) {
+            return result.data;
+        }
+    } catch {
+        // ignore
+    }
+    return undefined;
+}
+
 const sync = createSync({
     description: 'Sync SharePoint lists for selected sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         List: ListSchema
     },
@@ -60,36 +102,74 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint ?? {});
+        const cp = parsedCheckpoint.success ? parsedCheckpoint.data : { siteNextLink: '', siteIdsJson: '[]', siteIndex: 0, listNextLink: '' };
+
         const metadata = await nango.getMetadata();
-        const siteIds: string[] = [];
+
+        let siteIds: string[] = [];
+        let siteIndex = cp.siteIndex;
+        let listNextLink = cp.listNextLink;
+        const checkpointSiteIds = parseSiteIdsJson(cp.siteIdsJson);
 
         if (metadata?.site_ids !== undefined && metadata.site_ids.length > 0) {
             for (const siteId of metadata.site_ids) {
                 siteIds.push(siteId);
             }
-        } else {
+        } else if (cp.siteNextLink || cp.siteIdsJson === '[]' || checkpointSiteIds === undefined) {
             // https://learn.microsoft.com/graph/api/site-search
-            for await (const sitesPage of nango.paginate({
-                endpoint: '/v1.0/sites',
-                params: {
-                    search: '*'
-                },
-                paginate: {
-                    type: 'link',
-                    response_path: 'value',
-                    limit_name_in_request: '$top',
-                    limit: 100,
-                    link_path_in_response_body: '@odata.nextLink'
-                },
-                retries: 3
-            })) {
-                for (const site of sitesPage) {
-                    const parsed = SiteSchema.safeParse(site);
-                    if (parsed.success) {
-                        siteIds.push(parsed.data.id);
+            let siteNextLink = checkpointSiteIds === undefined ? '' : cp.siteNextLink;
+            const discoveredSiteIds = checkpointSiteIds ?? [];
+            let nextEndpoint = siteNextLink || '/v1.0/sites';
+            let hasMoreSites = true;
+
+            while (hasMoreSites) {
+                const response = await nango.get({
+                    // https://learn.microsoft.com/graph/api/site-search
+                    endpoint: nextEndpoint,
+                    ...(siteNextLink ? {} : { params: { search: '*', $top: '100' } }),
+                    retries: 3
+                });
+
+                const parsed = SitesResponseSchema.safeParse(response.data);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse sites response: ${parsed.error.message}`);
+                }
+
+                for (const rawSite of parsed.data.value) {
+                    const siteResult = SiteSchema.safeParse(rawSite);
+                    if (siteResult.success) {
+                        discoveredSiteIds.push(siteResult.data.id);
                     }
                 }
+
+                if (parsed.data['@odata.nextLink']) {
+                    siteNextLink = toRelativeUrl(parsed.data['@odata.nextLink']);
+                    await nango.saveCheckpoint({
+                        siteNextLink,
+                        siteIdsJson: JSON.stringify(discoveredSiteIds),
+                        siteIndex: 0,
+                        listNextLink: ''
+                    });
+                    nextEndpoint = siteNextLink;
+                } else {
+                    hasMoreSites = false;
+                }
             }
+
+            siteIds = discoveredSiteIds;
+            siteIndex = 0;
+            listNextLink = '';
+
+            await nango.saveCheckpoint({
+                siteNextLink: '',
+                siteIdsJson: JSON.stringify(siteIds),
+                siteIndex: 0,
+                listNextLink: ''
+            });
+        } else {
+            siteIds = checkpointSiteIds ?? [];
         }
 
         if (siteIds.length === 0) {
@@ -98,28 +178,38 @@ const sync = createSync({
 
         await nango.trackDeletesStart('List');
 
-        for (const siteId of siteIds) {
-            // https://learn.microsoft.com/graph/api/lists-list
-            for await (const listsPage of nango.paginate({
-                endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/lists`,
-                paginate: {
-                    type: 'link',
-                    response_path: 'value',
-                    limit_name_in_request: '$top',
-                    limit: 100,
-                    link_path_in_response_body: '@odata.nextLink'
-                },
-                retries: 3
-            })) {
+        for (let i = siteIndex; i < siteIds.length; i++) {
+            const siteId = siteIds[i];
+            if (!siteId) {
+                continue;
+            }
+            let nextListEndpoint = listNextLink || `/v1.0/sites/${encodeURIComponent(siteId)}/lists`;
+            let isFirstPageForSite = listNextLink === '';
+            let hasMoreLists = true;
+
+            while (hasMoreLists) {
+                const response = await nango.get({
+                    // https://learn.microsoft.com/graph/api/lists-list
+                    endpoint: nextListEndpoint,
+                    ...(isFirstPageForSite ? { params: { $top: '100' } } : {}),
+                    retries: 3
+                });
+                isFirstPageForSite = false;
+
+                const parsed = ListsResponseSchema.safeParse(response.data);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse lists response: ${parsed.error.message}`);
+                }
+
                 const lists: z.infer<typeof ListSchema>[] = [];
 
-                for (const item of listsPage) {
-                    const parsed = ProviderListSchema.safeParse(item);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse list: ${parsed.error.message}`);
+                for (const item of parsed.data.value) {
+                    const parsedItem = ProviderListSchema.safeParse(item);
+                    if (!parsedItem.success) {
+                        throw new Error(`Failed to parse list: ${parsedItem.error.message}`);
                     }
 
-                    const list = parsed.data;
+                    const list = parsedItem.data;
                     const parentSiteId = list.parentReference.siteId;
 
                     lists.push({
@@ -140,9 +230,33 @@ const sync = createSync({
                 if (lists.length > 0) {
                     await nango.batchSave(lists, 'List');
                 }
+
+                if (parsed.data['@odata.nextLink']) {
+                    listNextLink = toRelativeUrl(parsed.data['@odata.nextLink']);
+                    await nango.saveCheckpoint({
+                        siteNextLink: '',
+                        siteIdsJson: JSON.stringify(siteIds),
+                        siteIndex: i,
+                        listNextLink
+                    });
+                    nextListEndpoint = listNextLink;
+                } else {
+                    listNextLink = '';
+                    const nextSiteIndex = i + 1;
+                    if (nextSiteIndex < siteIds.length) {
+                        await nango.saveCheckpoint({
+                            siteNextLink: '',
+                            siteIdsJson: JSON.stringify(siteIds),
+                            siteIndex: nextSiteIndex,
+                            listNextLink: ''
+                        });
+                    }
+                    hasMoreLists = false;
+                }
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('List');
     }
 });

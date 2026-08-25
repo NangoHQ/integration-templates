@@ -43,9 +43,21 @@ const PermissionSchema = z.object({
     inheritedFrom: z.record(z.string(), z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    state_json: z.string()
+});
+
+const CheckpointStateSchema = z.object({
+    driveIndex: z.number().int().nonnegative(),
+    driveSiteId: z.string().optional(),
+    driveId: z.string().optional(),
+    nextLink: z.string().optional(),
+    drivesFingerprint: z.string().optional()
+});
+
 const sync = createSync({
     description: 'Sync permission grants on drive items for configured site drives.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [
@@ -59,6 +71,7 @@ const sync = createSync({
         Permission: PermissionSchema
     },
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -71,24 +84,86 @@ const sync = createSync({
         if (drives.length === 0) {
             throw new Error('No drives configured in metadata.');
         }
+        const drivesFingerprint = JSON.stringify(drives.map(({ siteId, driveId }) => ({ siteId, driveId })));
 
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpoint);
+        let driveIndex = 0;
+        let nextLink: string | undefined;
+        if (checkpointResult.success && checkpointResult.data.state_json) {
+            const parsedState = CheckpointStateSchema.safeParse(JSON.parse(checkpointResult.data.state_json));
+            if (!parsedState.success) {
+                throw new Error(`Invalid checkpoint state: ${parsedState.error.message}`);
+            }
+
+            const state = parsedState.data;
+            const metadataMatches = state.drivesFingerprint === undefined || state.drivesFingerprint === drivesFingerprint;
+            const hasStableDrive = state.driveSiteId !== undefined && state.driveId !== undefined;
+            const resolvedDriveIndex = hasStableDrive
+                ? drives.findIndex(({ siteId, driveId }) => siteId === state.driveSiteId && driveId === state.driveId)
+                : state.driveIndex;
+
+            if (metadataMatches && resolvedDriveIndex >= 0 && resolvedDriveIndex < drives.length) {
+                driveIndex = resolvedDriveIndex;
+                nextLink = state.nextLink;
+            }
+        }
+
+        // Blocker: the permissions endpoint does not support a changed-since filter,
+        // deleted-record endpoint, or resumable cursor. Permission grants are not
+        // independently observable; we must enumerate drive items and query
+        // permissions per item. We therefore checkpoint delta pagination progress
+        // so a full refresh can resume across execution windows.
         await nango.trackDeletesStart('Permission');
 
-        for (const drive of drives) {
+        for (let driveIdx = driveIndex; driveIdx < drives.length; driveIdx++) {
+            const drive = drives[driveIdx];
+            if (!drive) {
+                throw new Error(`Drive index ${driveIdx} out of bounds.`);
+            }
+
             const { siteId, driveId } = drive;
 
-            const deltaConfig: ProxyConfiguration = {
-                // https://learn.microsoft.com/en-us/graph/api/driveitem-delta?view=graph-rest-1.0&tabs=http
-                endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/drives/${encodeURIComponent(driveId)}/root/delta`,
-                paginate: {
-                    type: 'link',
-                    limit_name_in_request: '$top',
-                    response_path: 'value',
-                    link_path_in_response_body: '@odata.nextLink',
-                    limit: 100
-                },
-                retries: 3
-            };
+            let nextDeltaLink: string | undefined;
+
+            const savedNextLink = driveIdx === driveIndex ? nextLink : undefined;
+
+            let deltaConfig: ProxyConfiguration;
+            if (savedNextLink) {
+                const url = new URL(savedNextLink);
+                deltaConfig = {
+                    // https://learn.microsoft.com/en-us/graph/api/driveitem-delta?view=graph-rest-1.0&tabs=http
+                    endpoint: url.pathname + url.search,
+                    baseUrlOverride: url.origin,
+                    paginate: {
+                        type: 'link',
+                        limit_name_in_request: '$top',
+                        response_path: 'value',
+                        link_path_in_response_body: '@odata.nextLink',
+                        limit: 100,
+                        on_page: async ({ nextPageParam }) => {
+                            nextDeltaLink = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                        }
+                    },
+                    retries: 3
+                };
+            } else {
+                deltaConfig = {
+                    // https://learn.microsoft.com/en-us/graph/api/driveitem-delta?view=graph-rest-1.0&tabs=http
+                    endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/drives/${encodeURIComponent(driveId)}/root/delta`,
+                    paginate: {
+                        type: 'link',
+                        limit_name_in_request: '$top',
+                        response_path: 'value',
+                        link_path_in_response_body: '@odata.nextLink',
+                        limit: 100,
+                        on_page: async ({ nextPageParam }) => {
+                            nextDeltaLink = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                        }
+                    },
+                    retries: 3
+                };
+            }
 
             for await (const items of nango.paginate(deltaConfig)) {
                 const records: z.infer<typeof PermissionSchema>[] = [];
@@ -148,9 +223,38 @@ const sync = createSync({
                 if (records.length > 0) {
                     await nango.batchSave(records, 'Permission');
                 }
+
+                // Save pagination progress after every page so a run that exceeds the
+                // execution window resumes from the next delta page instead of restarting.
+                if (nextDeltaLink !== undefined) {
+                    await nango.saveCheckpoint({
+                        state_json: JSON.stringify({
+                            driveIndex: driveIdx,
+                            driveSiteId: siteId,
+                            driveId,
+                            nextLink: nextDeltaLink,
+                            drivesFingerprint
+                        })
+                    });
+                }
+            }
+
+            // Drive complete. If there are more drives, save checkpoint to start the next
+            // drive from scratch on a resumed execution.
+            if (driveIdx < drives.length - 1) {
+                const nextDrive = drives[driveIdx + 1]!;
+                await nango.saveCheckpoint({
+                    state_json: JSON.stringify({
+                        driveIndex: driveIdx + 1,
+                        driveSiteId: nextDrive.siteId,
+                        driveId: nextDrive.driveId,
+                        drivesFingerprint
+                    })
+                });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Permission');
     }
 });

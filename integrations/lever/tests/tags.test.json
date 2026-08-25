@@ -65,7 +65,7 @@
         {
           "id": "Engineering",
           "text": "Engineering",
-          "count": 61
+          "count": 64
         },
         {
           "id": "Finance",
@@ -90,7 +90,7 @@
         {
           "id": "Full-time",
           "text": "Full-time",
-          "count": 9
+          "count": 12
         },
         {
           "id": "Full-Time",
@@ -150,7 +150,7 @@
         {
           "id": "Nango Seed Posting 1 - Updated",
           "text": "Nango Seed Posting 1 - Updated",
-          "count": 5
+          "count": 8
         },
         {
           "id": "nango-test-tag",
@@ -195,7 +195,7 @@
         {
           "id": "Research & Development",
           "text": "Research & Development",
-          "count": 142
+          "count": 145
         },
         {
           "id": "Resume",
@@ -225,7 +225,7 @@
         {
           "id": "San Francisco, CA",
           "text": "San Francisco, CA",
-          "count": 6
+          "count": 9
         },
         {
           "id": "Security",
@@ -251,6 +251,11 @@
           "id": "Talent Pool",
           "text": "Talent Pool",
           "count": 1
+        },
+        {
+          "id": "Test",
+          "text": "Test",
+          "count": 3
         },
         {
           "id": "Test job",
@@ -327,7 +332,7 @@
               "text": "Design"
             },
             {
-              "count": 61,
+              "count": 64,
               "text": "Engineering"
             },
             {
@@ -347,7 +352,7 @@
               "text": "Front-end Developer"
             },
             {
-              "count": 9,
+              "count": 12,
               "text": "Full-time"
             },
             {
@@ -395,7 +400,7 @@
               "text": "Nango Seed"
             },
             {
-              "count": 5,
+              "count": 8,
               "text": "Nango Seed Posting 1 - Updated"
             },
             {
@@ -431,7 +436,7 @@
               "text": "Recruiting"
             },
             {
-              "count": 142,
+              "count": 145,
               "text": "Research & Development"
             },
             {
@@ -455,7 +460,7 @@
               "text": "San Francisco"
             },
             {
-              "count": 6,
+              "count": 9,
               "text": "San Francisco, CA"
             },
             {
@@ -479,6 +484,10 @@
               "text": "Talent Pool"
             },
             {
+              "count": 3,
+              "text": "Test"
+            },
+            {
               "count": 6,
               "text": "Test job"
             },
@@ -495,7 +504,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 02 Jul 2026 06:47:00 GMT",
+          "date": "Wed, 19 Aug 2026 11:53:32 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -504,13 +513,14 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4700",
-          "x-ratelimit-reset": "1782974844",
+          "x-ratelimit-remaining": "4688",
+          "x-ratelimit-reset": "1787140429",
           "x-lever-region": "global",
           "server": "lever-data-api",
           "x-stream-path": "dapi"

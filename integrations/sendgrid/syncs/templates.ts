@@ -23,44 +23,60 @@ const TemplateSchema = z.object({
     versions: z.array(TemplateVersionSchema).optional()
 });
 
+const CheckpointSchema = z.object({
+    page_token: z.string()
+});
+
 const sync = createSync({
     description: 'Sync dynamic templates and their versions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Template: TemplateSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        const pageToken = parsedCheckpoint.success ? parsedCheckpoint.data.page_token : undefined;
+
+        let nextPageToken: string | undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.twilio.com/docs/sendgrid/api-reference/templates#get-all-templates
             endpoint: '/v3/templates',
             params: {
                 generations: 'dynamic',
-                page_size: 10
+                page_size: 10,
+                ...(pageToken && { page_token: pageToken })
             },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: '_metadata.next',
                 response_path: 'result',
                 limit_name_in_request: 'page_size',
-                limit: 10
+                limit: 10,
+                on_page: async ({ nextPageParam }) => {
+                    const parsed = z.string().url().optional().safeParse(nextPageParam);
+                    if (parsed.success && parsed.data) {
+                        const url = new URL(parsed.data);
+                        nextPageToken = url.searchParams.get('page_token') ?? undefined;
+                    } else {
+                        nextPageToken = undefined;
+                    }
+                }
             },
             retries: 3
         };
 
-        let deleteTrackingStarted = false;
+        await nango.trackDeletesStart('Template');
 
         for await (const templates of nango.paginate(proxyConfig)) {
             const listItems = z.array(z.object({ id: z.string() })).safeParse(templates);
             if (!listItems.success) {
                 throw new Error(`Failed to parse template list: ${listItems.error.message}`);
-            }
-
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('Template');
-                deleteTrackingStarted = true;
             }
 
             const details = [];
@@ -83,8 +99,13 @@ const sync = createSync({
             if (details.length > 0) {
                 await nango.batchSave(details, 'Template');
             }
+
+            if (nextPageToken) {
+                await nango.saveCheckpoint({ page_token: nextPageToken });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Template');
     }
 });

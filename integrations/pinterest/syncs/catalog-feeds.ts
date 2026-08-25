@@ -31,11 +31,16 @@ const CatalogFeedSchema = z.object({
     status: z.enum(['ACTIVE', 'INACTIVE']).optional()
 });
 
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync catalog data feeds.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CatalogFeed: CatalogFeedSchema
     },
@@ -43,21 +48,34 @@ const sync = createSync({
     exec: async (nango) => {
         // Catalog feeds can be hard-deleted and the endpoint exposes no incremental filter.
         // Run a full crawl on every successful sync so delete tracking remains accurate.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint ?? { bookmark: '' });
+        if (!parsedCheckpoint.success) {
+            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+        let nextBookmark: string | undefined = parsedCheckpoint.data.bookmark !== '' ? parsedCheckpoint.data.bookmark : undefined;
+
+        await nango.trackDeletesStart('CatalogFeed');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/feeds/list
             endpoint: '/v5/catalogs/feeds',
+            params: {
+                ...(nextBookmark && { bookmark: nextBookmark })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'bookmark',
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 25
+                limit: 25,
+                on_page: async ({ nextPageParam }) => {
+                    nextBookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('CatalogFeed');
 
         for await (const page of nango.paginate(proxyConfig)) {
             const feeds = page.map((feed) => {
@@ -71,8 +89,13 @@ const sync = createSync({
             if (feeds.length > 0) {
                 await nango.batchSave(feeds, 'CatalogFeed');
             }
+
+            if (nextBookmark !== undefined) {
+                await nango.saveCheckpoint({ bookmark: nextBookmark });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CatalogFeed');
     }
 });

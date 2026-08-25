@@ -59,12 +59,17 @@ const ComponentSchema = z.object({
     containing_frame: FrameInfoSchema.optional()
 });
 
+const CheckpointSchema = z.object({
+    after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync components from Figma.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             method: 'GET',
@@ -83,21 +88,34 @@ const sync = createSync({
         }
         const metadata = metadataResult.data;
 
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(checkpointRaw ?? { after: '' });
+        let afterCursor = checkpoint.after || undefined;
+
         // Blocker: GET /v1/teams/{team_id}/components does not support updated_after,
         // modified_since, or any changed-since filter. It only supports page_size and
         // after/before cursor pagination, so we must walk the full dataset each run.
         await nango.trackDeletesStart('Component');
 
+        const params: Record<string, string> = {};
+        if (afterCursor) {
+            params['after'] = afterCursor;
+        }
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.figma.com/developers/api#get-team-components-endpoint
             endpoint: `/v1/teams/${encodeURIComponent(metadata.team_id)}/components`,
+            params,
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'after',
                 cursor_path_in_response: 'meta.cursor.after',
                 response_path: 'meta.components',
                 limit_name_in_request: 'page_size',
-                limit: 100
+                limit: 100,
+                on_page: async (pageInfo) => {
+                    afterCursor = typeof pageInfo.nextPageParam === 'string' ? pageInfo.nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -131,8 +149,17 @@ const sync = createSync({
             if (components.length > 0) {
                 await nango.batchSave(components, 'Component');
             }
+
+            // Save pagination progress after every page so a run that exceeds the
+            // execution window resumes where it left off instead of restarting from page 1.
+            if (afterCursor !== undefined) {
+                await nango.saveCheckpoint({ after: afterCursor });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Component');
     }
 });

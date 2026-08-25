@@ -27,8 +27,6 @@ const OpportunitySchema = z.object({
     id: z.string()
 });
 
-type Opportunity = z.infer<typeof OpportunitySchema>;
-
 const OpportunityPageSchema = z.object({
     data: z.array(OpportunitySchema),
     next: z.string().optional()
@@ -51,29 +49,36 @@ interface PanelResponse {
     interviews?: unknown[] | null;
 }
 
+const CheckpointSchema = z.object({
+    opportunityOffset: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of all interview scheduling panels for every single opportunity',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LeverOpportunityPanel: LeverOpportunityPanel
     },
     metadata: z.object({}),
     scopes: ['panels:read:admin'],
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
         let totalRecords = 0;
+        let offset = checkpoint?.opportunityOffset;
 
-        // Fetch and validate only the first page before opening the delete-tracking window, so a
-        // failure here never leaves LeverOpportunityPanel's tracking started without a matching
-        // end. Subsequent pages are streamed and processed immediately to keep memory bounded on
-        // large accounts.
-        const firstPage = await fetchOpportunityPage(nango, undefined);
-
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('LeverOpportunityPanel');
 
-        const processOpportunities = async (opportunities: Opportunity[]) => {
-            for (const opportunity of opportunities) {
+        while (true) {
+            const page = await fetchOpportunityPage(nango, offset);
+
+            for (const opportunity of page.data) {
                 const config: ProxyConfiguration = {
                     // https://hire.lever.co/developer/documentation
                     endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/panels`,
@@ -95,16 +100,18 @@ const sync = createSync({
                     await nango.batchSave(mappedPanels, 'LeverOpportunityPanel');
                 }
             }
-        };
 
-        await processOpportunities(firstPage.data);
-        let cursor = firstPage.next;
-        while (cursor) {
-            const page = await fetchOpportunityPage(nango, cursor);
-            await processOpportunities(page.data);
-            cursor = page.next;
+            offset = page.next;
+            if (!offset) {
+                break;
+            }
+
+            await nango.saveCheckpoint({ opportunityOffset: offset });
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LeverOpportunityPanel');
     }
 });

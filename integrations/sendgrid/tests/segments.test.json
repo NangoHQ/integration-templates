@@ -3,13 +3,78 @@
     "batchSave": {
       "Segment": [
         {
+          "id": "a151114d-e3fc-497c-91f2-3dbe97cd3512",
+          "name": "Nango Update Segment Test Final",
+          "contacts_count": 6,
+          "created_at": "2026-07-15T16:08:46Z",
+          "updated_at": "2026-07-15T16:20:04Z",
+          "sample_updated_at": "2026-08-17T15:20:01Z",
+          "next_sample_update": "2026-08-18T15:20:01Z",
+          "query_version": "2",
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        {
+          "id": "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d",
+          "name": "Nango Test Segment Get",
+          "contacts_count": 1,
+          "created_at": "2026-07-15T16:08:40Z",
+          "updated_at": "2026-07-15T16:08:40Z",
+          "sample_updated_at": "2026-08-17T15:21:09Z",
+          "next_sample_update": "2026-08-18T15:21:09Z",
+          "query_version": "2",
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        {
+          "id": "1166b00e-a7e0-4867-a64b-1f92887c5d33",
+          "name": "Nango Test Segment v3",
+          "contacts_count": 6,
+          "created_at": "2026-07-15T16:07:03Z",
+          "updated_at": "2026-07-15T16:07:03Z",
+          "sample_updated_at": "2026-08-17T15:21:04Z",
+          "next_sample_update": "2026-08-18T15:21:04Z",
+          "query_version": "2",
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        {
+          "id": "24763b0e-490f-40d9-aa64-109fd7f21b6e",
+          "name": "Nango Test Segment v2",
+          "contacts_count": 6,
+          "created_at": "2026-07-15T16:06:24Z",
+          "updated_at": "2026-07-15T16:06:24Z",
+          "sample_updated_at": "2026-08-17T15:21:11Z",
+          "next_sample_update": "2026-08-18T15:21:11Z",
+          "query_version": "2",
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        {
+          "id": "603337ee-6dd9-44c8-b590-7f9a19d81ddc",
+          "name": "Nango Test Segment",
+          "contacts_count": 6,
+          "created_at": "2026-07-15T16:05:55Z",
+          "updated_at": "2026-07-15T16:05:55Z",
+          "sample_updated_at": "2026-08-17T15:19:59Z",
+          "next_sample_update": "2026-08-18T15:19:59Z",
+          "query_version": "2",
+          "status": {
+            "query_validation": "VALID"
+          }
+        },
+        {
           "id": "69c75950-882e-426a-b615-865af8194206",
           "name": "Nango List Segments Test 2026-07-15",
-          "contacts_count": 3,
+          "contacts_count": 6,
           "created_at": "2026-07-15T16:04:29Z",
           "updated_at": "2026-07-15T16:04:29Z",
-          "sample_updated_at": "2026-07-15T16:04:33Z",
-          "next_sample_update": "2026-07-15T17:04:33Z",
+          "sample_updated_at": "2026-08-17T15:20:09Z",
+          "next_sample_update": "2026-08-18T15:20:09Z",
           "query_version": "2",
           "status": {
             "query_validation": "VALID"
@@ -27,12 +92,82 @@
         "response": {
           "results": [
             {
+              "id": "a151114d-e3fc-497c-91f2-3dbe97cd3512",
+              "name": "Nango Update Segment Test Final",
+              "query_version": "2",
+              "contacts_count": 6,
+              "sample_updated_at": "2026-08-17T15:20:01Z",
+              "next_sample_update": "2026-08-18T15:20:01Z",
+              "created_at": "2026-07-15T16:08:46Z",
+              "updated_at": "2026-07-15T16:20:04Z",
+              "parent_list_ids": null,
+              "status": {
+                "query_validation": "VALID"
+              }
+            },
+            {
+              "id": "01192f73-2ec6-48e3-ad0b-42dbb5bddf4d",
+              "name": "Nango Test Segment Get",
+              "query_version": "2",
+              "contacts_count": 1,
+              "sample_updated_at": "2026-08-17T15:21:09Z",
+              "next_sample_update": "2026-08-18T15:21:09Z",
+              "created_at": "2026-07-15T16:08:40Z",
+              "updated_at": "2026-07-15T16:08:40Z",
+              "parent_list_ids": null,
+              "status": {
+                "query_validation": "VALID"
+              }
+            },
+            {
+              "id": "1166b00e-a7e0-4867-a64b-1f92887c5d33",
+              "name": "Nango Test Segment v3",
+              "query_version": "2",
+              "contacts_count": 6,
+              "sample_updated_at": "2026-08-17T15:21:04Z",
+              "next_sample_update": "2026-08-18T15:21:04Z",
+              "created_at": "2026-07-15T16:07:03Z",
+              "updated_at": "2026-07-15T16:07:03Z",
+              "parent_list_ids": null,
+              "status": {
+                "query_validation": "VALID"
+              }
+            },
+            {
+              "id": "24763b0e-490f-40d9-aa64-109fd7f21b6e",
+              "name": "Nango Test Segment v2",
+              "query_version": "2",
+              "contacts_count": 6,
+              "sample_updated_at": "2026-08-17T15:21:11Z",
+              "next_sample_update": "2026-08-18T15:21:11Z",
+              "created_at": "2026-07-15T16:06:24Z",
+              "updated_at": "2026-07-15T16:06:24Z",
+              "parent_list_ids": null,
+              "status": {
+                "query_validation": "VALID"
+              }
+            },
+            {
+              "id": "603337ee-6dd9-44c8-b590-7f9a19d81ddc",
+              "name": "Nango Test Segment",
+              "query_version": "2",
+              "contacts_count": 6,
+              "sample_updated_at": "2026-08-17T15:19:59Z",
+              "next_sample_update": "2026-08-18T15:19:59Z",
+              "created_at": "2026-07-15T16:05:55Z",
+              "updated_at": "2026-07-15T16:05:55Z",
+              "parent_list_ids": null,
+              "status": {
+                "query_validation": "VALID"
+              }
+            },
+            {
               "id": "69c75950-882e-426a-b615-865af8194206",
               "name": "Nango List Segments Test 2026-07-15",
               "query_version": "2",
-              "contacts_count": 3,
-              "sample_updated_at": "2026-07-15T16:04:33Z",
-              "next_sample_update": "2026-07-15T17:04:33Z",
+              "contacts_count": 6,
+              "sample_updated_at": "2026-08-17T15:20:09Z",
+              "next_sample_update": "2026-08-18T15:20:09Z",
               "created_at": "2026-07-15T16:04:29Z",
               "updated_at": "2026-07-15T16:04:29Z",
               "parent_list_ids": null,
@@ -44,23 +179,36 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 15 Jul 2026 16:05:10 GMT",
+          "date": "Tue, 18 Aug 2026 09:24:19 GMT",
           "content-type": "application/json",
-          "content-length": "364",
+          "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4968",
-          "x-ratelimit-reset": "1784131533",
-          "etag": "W/\"16c-DeqR9E8a+gCPNkoKGXV5Jkm0r4M\""
+          "x-ratelimit-limit": "600",
+          "x-ratelimit-remaining": "598",
+          "x-ratelimit-reset": "42",
+          "server": "nginx",
+          "x-amzn-requestid": "a95d04be-96e3-4a67-9025-d5da3b91412b",
+          "x-amzn-remapped-x-amzn-requestid": "d023265d-0136-4a37-b608-6673c49f1592",
+          "x-amzn-remapped-content-length": "2052",
+          "x-sendgrid-pod-id": "1",
+          "x-amz-apigw-id": "CSquiEZpvHcEZ9w=",
+          "x-amzn-trace-id": "Root=1-6a8424c2-5109b8070ce2e817267d1cf8;Sampled=0;Lineage=1:4d3e36ec:0",
+          "x-amzn-remapped-date": "Tue, 18 Aug 2026 09:24:18 GMT",
+          "x-sendgrid-podrouter-region": "us-west-2",
+          "x-envoy-upstream-service-time": "162",
+          "content-security-policy": "frame-ancestors 'none'",
+          "cache-control": "no-store",
+          "powered-by": "SGGateway"
         },
         "hash": "ea7359185c89f304945729c40ecf2298465bbaed",
         "request": {}
