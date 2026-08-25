@@ -88,7 +88,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments from Figma',
-    version: '1.1.0',
+    version: '1.2.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -122,10 +122,16 @@ const sync = createSync({
         const foldersData = GetTeamFoldersResponseSchema.parse(foldersResponse.data);
         const allComments: z.infer<typeof CommentSchema>[] = [];
 
-        for (const folder of foldersData.folders) {
+        // Team-folders only returns top-level folders; subfolders must be walked
+        // explicitly via GET /v2/folders/:folder_id/folders or their files are missed.
+        const folderQueue: string[] = foldersData.folders.map((folder) => folder.id);
+
+        while (folderQueue.length > 0) {
+            const folderId = folderQueue.shift()!;
+
             // https://developers.figma.com/docs/rest-api/folders-endpoints/#get-folder-files-endpoint
             const filesResponse = await nango.get({
-                endpoint: `/v2/folders/${encodeURIComponent(folder.id)}/files`,
+                endpoint: `/v2/folders/${encodeURIComponent(folderId)}/files`,
                 retries: 3
             });
 
@@ -159,6 +165,17 @@ const sync = createSync({
                     };
                     allComments.push(normalized);
                 }
+            }
+
+            // https://developers.figma.com/docs/rest-api/folders-endpoints/#get-folder-folders-endpoint
+            const subfoldersResponse = await nango.get({
+                endpoint: `/v2/folders/${encodeURIComponent(folderId)}/folders`,
+                retries: 3
+            });
+
+            const subfoldersData = GetTeamFoldersResponseSchema.parse(subfoldersResponse.data);
+            for (const subfolder of subfoldersData.folders) {
+                folderQueue.push(subfolder.id);
             }
         }
 
