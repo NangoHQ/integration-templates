@@ -759,6 +759,25 @@
           "untranslatedName": "Team"
         },
         {
+          "id": "customfield_10201",
+          "name": "Agent Sessions",
+          "custom": true,
+          "key": "customfield_10201",
+          "clauseNames": [
+            "AgentSessions",
+            "cf[10201]"
+          ],
+          "orderable": true,
+          "navigable": true,
+          "searchable": true,
+          "schema": {
+            "type": "array",
+            "custom": "com.atlassian.jira.plugin.system.customfieldtypes:agent-sessions",
+            "customId": 10201
+          },
+          "untranslatedName": "AgentSessions"
+        },
+        {
           "id": "environment",
           "name": "Environment",
           "custom": false,
@@ -1627,6 +1646,26 @@
             }
           },
           {
+            "id": "customfield_10201",
+            "key": "customfield_10201",
+            "name": "Agent Sessions",
+            "untranslatedName": "AgentSessions",
+            "custom": true,
+            "orderable": true,
+            "navigable": true,
+            "searchable": true,
+            "clauseNames": [
+              "AgentSessions",
+              "cf[10201]"
+            ],
+            "schema": {
+              "type": "array",
+              "items": "admin.customfield.type.agent.sessions.name",
+              "custom": "com.atlassian.jira.plugin.system.customfieldtypes:agent-sessions",
+              "customId": 10201
+            }
+          },
+          {
             "id": "environment",
             "key": "environment",
             "name": "Environment",
@@ -1725,7 +1764,7 @@
         ],
         "status": 200,
         "headers": {
-          "date": "Tue, 28 Apr 2026 11:55:06 GMT",
+          "date": "Tue, 18 Aug 2026 09:01:29 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -1734,30 +1773,33 @@
           "x-download-options": "noopen",
           "x-frame-options": "SameOrigin",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=63072000; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "350",
           "x-ratelimit-remaining": "349",
-          "x-ratelimit-reset": "1777377342",
+          "x-ratelimit-reset": "1787043747",
           "server": "AtlassianEdge",
           "timing-allow-origin": "*",
-          "x-arequestid": "5d8f8e1d376e4280bd1ac11903b273c6",
-          "set-cookie": "atlassian.xsrf.token=5688836e2a3691ca9b594421aa4c77351b3e755f_lin; Path=/; SameSite=None; Secure",
+          "x-arequestid": "c660e518065ea03948f795285f9eb710",
+          "ratelimit-policy": "\"global-app-quota\";q=65000;w=3600, \"jira-burst-based\";q=100;w=1",
+          "ratelimit": "\"global-app-quota\";t=3510, \"jira-burst-based\";r=349;t=1",
+          "set-cookie": "atlassian.xsrf.token=74efafa60176183ae7d857b9f882ac09344f7d26_lin; Path=/; SameSite=None; Secure",
           "x-aaccountid": "712020%3A7bf45758-6986-4e0e-aefc-a3000196d8d2",
           "cache-control": "no-cache, no-store, no-transform",
           "vary": "Accept-Encoding",
-          "x-trace-id": "da94be2b56cf4955883b0ad69c3eb4b5",
-          "atl-traceid": "da94be2b56cf4955883b0ad69c3eb4b5",
-          "atl-request-id": "da94be2b-56cf-4955-883b-0ad69c3eb4b5",
+          "x-trace-id": "034fafba1c264b81a9325b57e61f2bd9",
+          "atl-traceid": "034fafba1c264b81a9325b57e61f2bd9",
+          "atl-request-id": "034fafba-1c26-4b81-a932-5b57e61f2bd9",
           "report-to": "{\"endpoints\": [{\"url\": \"https://dz8aopenkvv6s.cloudfront.net\"}], \"group\": \"endpoint-1\", \"include_subdomains\": true, \"max_age\": 600}",
           "nel": "{\"failure_fraction\": 0.01, \"include_subdomains\": true, \"max_age\": 600, \"report_to\": \"endpoint-1\"}",
           "x-cache": "Miss from cloudfront",
-          "via": "1.1 bc4e0a32a1893d7693b91555def3133e.cloudfront.net (CloudFront)",
-          "x-amz-cf-pop": "HIO52-P4",
-          "x-amz-cf-id": "LFu99FZF_bqcBXekTNLN6rPat0ru9wguz2OFjrT5qLsd2javY-kFYA==",
-          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=375,atl-edge;dur=368,atl-edge-internal;dur=4,atl-edge-upstream;dur=365,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P4\",cdn-rid;desc=\"LFu99FZF_bqcBXekTNLN6rPat0ru9wguz2OFjrT5qLsd2javY-kFYA==\",cdn-downstream-fbl;dur=380"
+          "via": "1.1 fc36d22b58a363b02ecdd852a2e51610.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P2",
+          "x-amz-cf-id": "4SrmRas-UPdOeWvy3rYZrbIXnrDSjNWiMM-yxFAXjA1j-cnMoBAzKg==",
+          "server-timing": "cdn-upstream-layer;desc=\"EDGE\",cdn-upstream-dns;dur=0,cdn-upstream-connect;dur=0,cdn-upstream-fbl;dur=385,atl-edge;dur=377,atl-edge-internal;dur=4,atl-edge-upstream;dur=374,atl-edge-pop;desc=\"aws-us-west-2\",cdn-cache-miss,cdn-pop;desc=\"HIO52-P2\",cdn-rid;desc=\"4SrmRas-UPdOeWvy3rYZrbIXnrDSjNWiMM-yxFAXjA1j-cnMoBAzKg==\",cdn-downstream-fbl;dur=391"
         },
         "hash": "7e3b88a60ada8e4caf2d30ccc9b31ec932d2b290",
         "request": {

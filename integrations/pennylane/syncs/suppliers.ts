@@ -59,13 +59,18 @@ function toSupplier(supplier: z.infer<typeof ProviderSupplierSchema>): z.infer<t
     };
 }
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of suppliers from pennylane',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['suppliers:readonly', 'suppliers:all'],
     metadata: z.object({}),
+    checkpoint: CheckpointSchema,
 
     models: {
         PennylaneSupplier: PennylaneSupplierSchema
@@ -74,19 +79,27 @@ const sync = createSync({
     exec: async (nango) => {
         // The v2 suppliers list endpoint does not support updated_at filtering,
         // so we perform a full refresh with trackDeletes to keep the local cache accurate.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint ? checkpoint['cursor'] : undefined;
+
         await nango.trackDeletesStart('PennylaneSupplier');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getsuppliers.md
             endpoint: '/api/external/v2/suppliers',
             retries: 3,
+            ...(cursor ? { params: { cursor } } : {}),
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -102,8 +115,13 @@ const sync = createSync({
 
             const suppliers = parsed.data.map(toSupplier);
             await nango.batchSave(suppliers, 'PennylaneSupplier');
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('PennylaneSupplier');
     }
 });

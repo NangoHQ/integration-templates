@@ -3,25 +3,108 @@
     "batchSave": {
       "JobPosting": [
         {
-          "id": "00000000-0000-0000-0000-000000000001",
-          "title": "Founding Developer Growth Lead",
-          "jobId": "00000000-0000-0000-0000-000000000002",
+          "id": "0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+          "title": "Founder's Associate",
+          "jobId": "6075ff40-c06f-44e4-a2c3-2481829c8bd5",
           "departmentName": "Nango",
           "teamName": "Nango",
           "locationName": "San Francisco",
           "locationIds": {
-            "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+            "primaryLocationId": "1eedfc09-3f54-42e0-a77c-386d266293be",
             "secondaryLocationIds": []
           },
           "workplaceType": "OnSite",
           "employmentType": "FullTime",
           "isListed": true,
-          "publishedDate": "+10000000001",
+          "publishedDate": "2026-07-23",
+          "externalLink": "https://jobs.ashbyhq.com/Nango/0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+          "applyLink": "https://jobs.ashbyhq.com/Nango/0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+          "compensationTierSummary": "$140K – $180K • Offers Equity",
+          "shouldDisplayCompensationOnJobBoard": true,
+          "updatedAt": "2026-07-23T14:04:32.376Z"
+        },
+        {
+          "id": "95526e19-b9c4-468f-b420-41348f1688ae",
+          "title": "Founding Developer Relations",
+          "jobId": "2f2faacb-3bbc-4c2d-9315-205e3e27bda8",
+          "departmentName": "Nango",
+          "teamName": "Nango",
+          "locationName": "San Francisco",
+          "locationIds": {
+            "primaryLocationId": "1eedfc09-3f54-42e0-a77c-386d266293be",
+            "secondaryLocationIds": []
+          },
+          "workplaceType": "OnSite",
+          "employmentType": "FullTime",
+          "isListed": true,
+          "publishedDate": "2026-03-24",
           "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
           "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
-          "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+          "compensationTierSummary": "$150K – $200K • Offers Equity",
           "shouldDisplayCompensationOnJobBoard": true,
-          "updatedAt": "2026-04-28T11:55:08.267Z"
+          "updatedAt": "2026-07-23T13:47:20.772Z"
+        },
+        {
+          "id": "8f6da27a-07e1-4071-8310-0a4f432e34ea",
+          "title": "Staff Backend Engineer",
+          "jobId": "dca509f5-e273-4f7e-baf7-39efff1b8c15",
+          "departmentName": "Nango",
+          "teamName": "Nango",
+          "locationName": "USA",
+          "locationIds": {
+            "primaryLocationId": "e0151ced-b69a-4f28-9bdf-bade6e11d8eb",
+            "secondaryLocationIds": [
+              "1e38c051-1f49-4f9c-bc39-a302b191d9df",
+              "2d3efe6a-8f72-40b2-9fee-5860daf7c281",
+              "6e3c1684-5bb6-4a16-aee2-01b986c92d88",
+              "740d5498-88fc-48f9-af8a-ee5c0e708e6c",
+              "a7cfacf2-a562-4079-8c37-9b3d56c2efe1",
+              "ae8506fb-82df-41a3-8590-5e122fc9888d",
+              "e1b887bb-a3f3-4b84-b734-05147c67593f",
+              "ecd4cde5-4a9c-4976-b899-3972a9f839d6",
+              "fae49b50-8d7b-46aa-b6a1-a336a5633926"
+            ]
+          },
+          "workplaceType": "Remote",
+          "employmentType": "FullTime",
+          "isListed": true,
+          "publishedDate": "2026-06-04",
+          "externalLink": "https://jobs.ashbyhq.com/Nango/8f6da27a-07e1-4071-8310-0a4f432e34ea",
+          "applyLink": "https://jobs.ashbyhq.com/Nango/8f6da27a-07e1-4071-8310-0a4f432e34ea",
+          "compensationTierSummary": "$140K – $220K • Offers Equity",
+          "shouldDisplayCompensationOnJobBoard": true,
+          "updatedAt": "2026-07-23T14:06:49.381Z"
+        },
+        {
+          "id": "748e3ffc-10bf-4189-8585-21d21ede74bb",
+          "title": "Technical Content Engineer",
+          "jobId": "91ddfba7-f4aa-468f-aa57-de50875168b2",
+          "departmentName": "Nango",
+          "teamName": "Nango",
+          "locationName": "USA",
+          "locationIds": {
+            "primaryLocationId": "e0151ced-b69a-4f28-9bdf-bade6e11d8eb",
+            "secondaryLocationIds": [
+              "1e38c051-1f49-4f9c-bc39-a302b191d9df",
+              "2d3efe6a-8f72-40b2-9fee-5860daf7c281",
+              "6e3c1684-5bb6-4a16-aee2-01b986c92d88",
+              "740d5498-88fc-48f9-af8a-ee5c0e708e6c",
+              "a7cfacf2-a562-4079-8c37-9b3d56c2efe1",
+              "ae8506fb-82df-41a3-8590-5e122fc9888d",
+              "e1b887bb-a3f3-4b84-b734-05147c67593f",
+              "ecd4cde5-4a9c-4976-b899-3972a9f839d6",
+              "fae49b50-8d7b-46aa-b6a1-a336a5633926"
+            ]
+          },
+          "workplaceType": "Remote",
+          "employmentType": "FullTime",
+          "isListed": true,
+          "publishedDate": "2026-08-12",
+          "externalLink": "https://jobs.ashbyhq.com/Nango/748e3ffc-10bf-4189-8585-21d21ede74bb",
+          "applyLink": "https://jobs.ashbyhq.com/Nango/748e3ffc-10bf-4189-8585-21d21ede74bb",
+          "compensationTierSummary": "$30 – $150 per hour",
+          "shouldDisplayCompensationOnJobBoard": true,
+          "updatedAt": "2026-08-12T15:23:15.832Z"
         }
       ]
     },
@@ -36,9 +119,10 @@
           "success": true,
           "results": [
             {
-              "id": "00000000-0000-0000-0000-000000000001",
-              "title": "Founding Developer Growth Lead",
-              "jobId": "00000000-0000-0000-0000-000000000002",
+              "id": "0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+              "title": "Founder's Associate",
+              "jobId": "6075ff40-c06f-44e4-a2c3-2481829c8bd5",
+              "status": "Published",
               "departmentName": "Nango",
               "teamName": "Nango",
               "locationName": "San Francisco",
@@ -46,23 +130,115 @@
               "workplaceType": "OnSite",
               "employmentType": "FullTime",
               "isListed": true,
-              "publishedDate": "+10000000001",
+              "publishedDate": "2026-07-23",
+              "applicationDeadline": null,
+              "externalLink": "https://jobs.ashbyhq.com/Nango/0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+              "applyLink": "https://jobs.ashbyhq.com/Nango/0fd15188-123b-4afe-9f5b-52eaa5be63c3",
+              "locationIds": {
+                "primaryLocationId": "1eedfc09-3f54-42e0-a77c-386d266293be",
+                "secondaryLocationIds": []
+              },
+              "compensationTierSummary": "$140K – $180K • Offers Equity",
+              "shouldDisplayCompensationOnJobBoard": true,
+              "updatedAt": "2026-07-23T14:04:32.376Z"
+            },
+            {
+              "id": "95526e19-b9c4-468f-b420-41348f1688ae",
+              "title": "Founding Developer Relations",
+              "jobId": "2f2faacb-3bbc-4c2d-9315-205e3e27bda8",
+              "status": "Published",
+              "departmentName": "Nango",
+              "teamName": "Nango",
+              "locationName": "San Francisco",
+              "locationExternalName": "San Francisco",
+              "workplaceType": "OnSite",
+              "employmentType": "FullTime",
+              "isListed": true,
+              "publishedDate": "2026-03-24",
               "applicationDeadline": null,
               "externalLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
               "applyLink": "https://jobs.ashbyhq.com/Nango/95526e19-b9c4-468f-b420-41348f1688ae",
               "locationIds": {
-                "primaryLocationId": "00000000-0000-0000-0000-000000000003",
+                "primaryLocationId": "1eedfc09-3f54-42e0-a77c-386d266293be",
                 "secondaryLocationIds": []
               },
-              "compensationTierSummary": "$150K – $200K • 0.25% – 1%",
+              "compensationTierSummary": "$150K – $200K • Offers Equity",
               "shouldDisplayCompensationOnJobBoard": true,
-              "updatedAt": "2026-04-28T11:55:08.267Z"
+              "updatedAt": "2026-07-23T13:47:20.772Z"
+            },
+            {
+              "id": "8f6da27a-07e1-4071-8310-0a4f432e34ea",
+              "title": "Staff Backend Engineer",
+              "jobId": "dca509f5-e273-4f7e-baf7-39efff1b8c15",
+              "status": "Published",
+              "departmentName": "Nango",
+              "teamName": "Nango",
+              "locationName": "USA",
+              "locationExternalName": null,
+              "workplaceType": "Remote",
+              "employmentType": "FullTime",
+              "isListed": true,
+              "publishedDate": "2026-06-04",
+              "applicationDeadline": null,
+              "externalLink": "https://jobs.ashbyhq.com/Nango/8f6da27a-07e1-4071-8310-0a4f432e34ea",
+              "applyLink": "https://jobs.ashbyhq.com/Nango/8f6da27a-07e1-4071-8310-0a4f432e34ea",
+              "locationIds": {
+                "primaryLocationId": "e0151ced-b69a-4f28-9bdf-bade6e11d8eb",
+                "secondaryLocationIds": [
+                  "1e38c051-1f49-4f9c-bc39-a302b191d9df",
+                  "2d3efe6a-8f72-40b2-9fee-5860daf7c281",
+                  "6e3c1684-5bb6-4a16-aee2-01b986c92d88",
+                  "740d5498-88fc-48f9-af8a-ee5c0e708e6c",
+                  "a7cfacf2-a562-4079-8c37-9b3d56c2efe1",
+                  "ae8506fb-82df-41a3-8590-5e122fc9888d",
+                  "e1b887bb-a3f3-4b84-b734-05147c67593f",
+                  "ecd4cde5-4a9c-4976-b899-3972a9f839d6",
+                  "fae49b50-8d7b-46aa-b6a1-a336a5633926"
+                ]
+              },
+              "compensationTierSummary": "$140K – $220K • Offers Equity",
+              "shouldDisplayCompensationOnJobBoard": true,
+              "updatedAt": "2026-07-23T14:06:49.381Z"
+            },
+            {
+              "id": "748e3ffc-10bf-4189-8585-21d21ede74bb",
+              "title": "Technical Content Engineer",
+              "jobId": "91ddfba7-f4aa-468f-aa57-de50875168b2",
+              "status": "Published",
+              "departmentName": "Nango",
+              "teamName": "Nango",
+              "locationName": "USA",
+              "locationExternalName": null,
+              "workplaceType": "Remote",
+              "employmentType": "FullTime",
+              "isListed": true,
+              "publishedDate": "2026-08-12",
+              "applicationDeadline": null,
+              "externalLink": "https://jobs.ashbyhq.com/Nango/748e3ffc-10bf-4189-8585-21d21ede74bb",
+              "applyLink": "https://jobs.ashbyhq.com/Nango/748e3ffc-10bf-4189-8585-21d21ede74bb",
+              "locationIds": {
+                "primaryLocationId": "e0151ced-b69a-4f28-9bdf-bade6e11d8eb",
+                "secondaryLocationIds": [
+                  "1e38c051-1f49-4f9c-bc39-a302b191d9df",
+                  "2d3efe6a-8f72-40b2-9fee-5860daf7c281",
+                  "6e3c1684-5bb6-4a16-aee2-01b986c92d88",
+                  "740d5498-88fc-48f9-af8a-ee5c0e708e6c",
+                  "a7cfacf2-a562-4079-8c37-9b3d56c2efe1",
+                  "ae8506fb-82df-41a3-8590-5e122fc9888d",
+                  "e1b887bb-a3f3-4b84-b734-05147c67593f",
+                  "ecd4cde5-4a9c-4976-b899-3972a9f839d6",
+                  "fae49b50-8d7b-46aa-b6a1-a336a5633926"
+                ]
+              },
+              "compensationTierSummary": "$30 – $150 per hour",
+              "shouldDisplayCompensationOnJobBoard": true,
+              "updatedAt": "2026-08-12T15:23:15.832Z"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 28 May 2026 21:09:18 GMT",
+          "date": "Tue, 18 Aug 2026 08:48:33 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -71,20 +247,19 @@
           "x-download-options": "noopen",
           "x-frame-options": "DENY",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "same-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "1000",
-          "x-ratelimit-remaining": "980",
-          "x-ratelimit-reset": "+10000000002",
-          "x-ashby-request-id": "01KSR6Q43EFJTPHWFR8VH26EAG",
-          "referrer-policy": "same-origin",
-          "ashby-session-expiry-alert-level": "",
+          "x-ratelimit-remaining": "999",
+          "x-ratelimit-reset": "1787042974",
+          "x-ashby-request-id": "01M0A0XQFE3Q3G0ES530K2B58V",
           "vary": "Origin",
           "cf-cache-status": "DYNAMIC",
           "server": "cloudflare",
-          "cf-ray": "a0303d537e9de5c0-PDX",
+          "cf-ray": "a2cfa902ce9ca60a-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "hash": "d3165044121dd6c0cace951e518903e0a644cf1a",

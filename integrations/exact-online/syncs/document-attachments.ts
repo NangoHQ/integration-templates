@@ -9,6 +9,10 @@ const DocumentAttachmentSchema = z.object({
     url: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number().int().min(0)
+});
+
 const MeResponseSchema = z.object({
     d: z
         .object({
@@ -37,9 +41,10 @@ const DocumentAttachmentPageSchema = z.array(
 
 const sync = createSync({
     description: 'Sync document attachment metadata as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         DocumentAttachment: DocumentAttachmentSchema
     },
@@ -52,6 +57,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParsed = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointParsed.success ? checkpointParsed.data : { skip: 0 };
+
         // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemUsers
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
@@ -68,6 +77,8 @@ const sync = createSync({
             throw new Error('CurrentDivision not found in Me response');
         }
 
+        let skip = checkpoint.skip;
+
         await nango.trackDeletesStart('DocumentAttachment');
 
         // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=DocumentsDocumentAttachments
@@ -76,9 +87,11 @@ const sync = createSync({
             endpoint: `/api/v1/${encodeURIComponent(String(currentDivision))}/documents/DocumentAttachments`,
             paginate: {
                 type: 'offset',
-                limit: 100,
-                limit_name_in_request: '$top',
                 offset_name_in_request: '$skip',
+                offset_start_value: skip,
+                offset_calculation_method: 'by-response-size',
+                limit_name_in_request: '$top',
+                limit: 100,
                 response_path: 'd.results'
             },
             retries: 3
@@ -101,8 +114,12 @@ const sync = createSync({
             if (attachments.length > 0) {
                 await nango.batchSave(attachments, 'DocumentAttachment');
             }
+
+            skip += page.length;
+            await nango.saveCheckpoint({ skip });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('DocumentAttachment');
     }
 });

@@ -10,7 +10,7 @@
           "id": "b97b86fd-ca82-47d7-8435-f11555c52d0e",
           "name": "Draft",
           "type": "draft",
-          "itemCount": "2",
+          "itemCount": "0",
           "subFolderCount": "0"
         },
         {
@@ -24,14 +24,14 @@
           "id": "8a304694-3e67-479b-8800-f7f349d821ea",
           "name": "Deleted Items",
           "type": "recyclebin",
-          "itemCount": "1",
+          "itemCount": "0",
           "subFolderCount": "0"
         },
         {
           "id": "4ea31575-4882-414e-886e-34720703cc6f",
           "name": "Sent Items",
           "type": "sentitems",
-          "itemCount": "4",
+          "itemCount": "0",
           "subFolderCount": "0"
         }
       ]
@@ -59,7 +59,7 @@
               },
               "folderId": "b97b86fd-ca82-47d7-8435-f11555c52d0e",
               "uri": "/folders/b97b86fd-ca82-47d7-8435-f11555c52d0e",
-              "itemCount": "2",
+              "itemCount": "0",
               "subFolderCount": "0",
               "hasSubFolders": "false"
             },
@@ -87,7 +87,7 @@
               },
               "folderId": "8a304694-3e67-479b-8800-f7f349d821ea",
               "uri": "/folders/8a304694-3e67-479b-8800-f7f349d821ea",
-              "itemCount": "1",
+              "itemCount": "0",
               "subFolderCount": "0",
               "hasSubFolders": "false"
             },
@@ -101,7 +101,7 @@
               },
               "folderId": "4ea31575-4882-414e-886e-34720703cc6f",
               "uri": "/folders/4ea31575-4882-414e-886e-34720703cc6f",
-              "itemCount": "4",
+              "itemCount": "0",
               "subFolderCount": "0",
               "hasSubFolders": "false"
             }
@@ -109,7 +109,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 24 Jun 2026 12:45:51 GMT",
+          "date": "Tue, 18 Aug 2026 09:11:10 GMT",
           "content-type": "application/json; charset=utf-8",
           "content-length": "1344",
           "connection": "keep-alive",
@@ -118,14 +118,21 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4990",
-          "x-ratelimit-reset": "1782305200",
-          "etag": "W/\"540-kN4TXKP2phR6AYDmQSCgF14bdcc\""
+          "x-ratelimit-limit": "3000",
+          "x-ratelimit-remaining": "2992",
+          "x-ratelimit-reset": "1787047200",
+          "cache-control": "no-cache",
+          "vary": "Origin",
+          "x-burstlimit-remaining": "199",
+          "x-burstlimit-limit": "200",
+          "x-docusign-tracetoken": "6ba2bc83-ac69-40a7-b6b6-99d21bd0567e",
+          "x-docusign-node": "W3ESE1DFE18D02",
+          "etag": "W/\"540-6X6OuGIj9mzMgAFgPqCT/lQJ+3w\""
         },
         "hash": "10bf146a9e40089241e7a6c53ac8f624cb74b581",
         "request": {

@@ -43,11 +43,16 @@ const ContactSchema = z.object({
     phone_numbers: z.array(AircallPhoneNumberSchema).optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync contacts from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
     },
@@ -59,17 +64,33 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+        const checkpoint = checkpointParse?.data ?? null;
+        let currentPage: number = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('Contact');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.aircall.io/api-references/#list-all-contacts
             endpoint: '/v1/contacts',
+            params: {
+                per_page: 50
+            },
             paginate: {
-                type: 'link',
-                link_path_in_response_body: 'meta.next_page_link',
-                response_path: 'contacts',
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: currentPage,
+                offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 50
+                limit: 50,
+                response_path: 'contacts',
+                on_page: async () => {
+                    currentPage += 1;
+                }
             },
             retries: 3
         };
@@ -95,8 +116,11 @@ const sync = createSync({
             if (contacts.length > 0) {
                 await nango.batchSave(contacts, 'Contact');
             }
+
+            await nango.saveCheckpoint({ page: currentPage });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Contact');
     }
 });

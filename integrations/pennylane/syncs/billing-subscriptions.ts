@@ -100,30 +100,46 @@ const BillingSubscriptionSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync billing subscriptions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         BillingSubscription: BillingSubscriptionSchema
     },
 
     exec: async (nango) => {
-        // Blocker: provider only exposes /billing_subscriptions with no changed-since filter,
-        // no deleted-record endpoint, and no resumable cursor.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor: string | undefined = checkpoint?.cursor;
+
+        // Blocker: provider only exposes /billing_subscriptions with no changed-since filter
+        // and no deleted-record endpoint.
         await nango.trackDeletesStart('BillingSubscription');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getbillingsubscriptions.md
             endpoint: '/api/external/v2/billing_subscriptions',
+            params: {
+                limit: 100,
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -157,8 +173,13 @@ const sync = createSync({
             if (subscriptions.length > 0) {
                 await nango.batchSave(subscriptions, 'BillingSubscription');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BillingSubscription');
     }
 });

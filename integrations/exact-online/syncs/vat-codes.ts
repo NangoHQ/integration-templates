@@ -8,6 +8,10 @@ const VatCodeSchema = z.object({
     modified: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const MeResultSchema = z.object({
     CurrentDivision: z.number().optional()
 });
@@ -27,29 +31,25 @@ const VatCodeItemSchema = z.object({
     Modified: z.string().nullish()
 });
 
-const PaginatePageSchema = z.union([
-    z.array(z.unknown()),
-    z
-        .object({
-            d: z
-                .union([
-                    z.array(z.unknown()),
-                    z
-                        .object({
-                            results: z.array(z.unknown()).optional()
-                        })
-                        .optional()
-                ])
-                .optional()
-        })
-        .optional()
-]);
+const VatCodesArrayResponseSchema = z.object({
+    d: z.array(z.unknown())
+});
+
+const VatCodesObjectResponseSchema = z.object({
+    d: z.object({
+        results: z.array(z.unknown()).optional(),
+        __next: z.string().optional()
+    })
+});
+
+const VatCodesResponseSchema = z.union([VatCodesArrayResponseSchema, VatCodesObjectResponseSchema]);
 
 const sync = createSync({
     description: 'Sync VAT/tax codes as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         VatCode: VatCodeSchema
     },
@@ -71,39 +71,44 @@ const sync = createSync({
             throw new Error('CurrentDivision not found in Me response');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointParse.success ? checkpointParse.data : { cursor: '' };
+
         await nango.trackDeletesStart('VatCode');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://start.exactonline.nl/docs/HlpRestAPIResources.aspx?SourceAction=10
-            endpoint: `/api/v1/${encodeURIComponent(String(currentDivision))}/vat/VATCodes`,
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'd.__next',
-                limit_name_in_request: '$top',
-                limit: 100
-            },
-            retries: 3
-        };
+        const limit = 100;
+        let hasMore = true;
+        let cursor: string | undefined = checkpoint.cursor || undefined;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsedPage = PaginatePageSchema.safeParse(page);
-            if (!parsedPage.success) {
-                throw new Error(`Failed to parse paginate page: ${parsedPage.error.message}`);
-            }
+        while (hasMore) {
+            const isNumericCursor = cursor !== undefined && !Number.isNaN(Number(cursor));
+            const skip = isNumericCursor ? Number(cursor) : undefined;
+            const skipToken = !isNumericCursor && cursor ? cursor : undefined;
+
+            const proxyConfig: ProxyConfiguration = {
+                // https://start.exactonline.nl/docs/HlpRestAPIResources.aspx?SourceAction=10
+                endpoint: `/api/v1/${encodeURIComponent(String(currentDivision))}/vat/VATCodes`,
+                params: {
+                    $top: limit.toString(),
+                    ...(skip !== undefined && { $skip: skip.toString() }),
+                    ...(skipToken !== undefined && { $skiptoken: skipToken })
+                },
+                retries: 3
+            };
+
+            const vatResponse = await nango.get(proxyConfig);
+            const vatData = VatCodesResponseSchema.parse(vatResponse.data);
 
             let records: unknown[];
-            if (Array.isArray(parsedPage.data)) {
-                records = parsedPage.data;
-            } else if (parsedPage.data && parsedPage.data.d) {
-                if (Array.isArray(parsedPage.data.d)) {
-                    records = parsedPage.data.d;
-                } else if (parsedPage.data.d.results) {
-                    records = parsedPage.data.d.results;
-                } else {
-                    records = [];
-                }
+            let nextLink: string | undefined;
+
+            if (Array.isArray(vatData.d)) {
+                records = vatData.d;
+                nextLink = undefined;
             } else {
-                records = [];
+                records = vatData.d.results ?? [];
+                nextLink = vatData.d.__next;
             }
 
             const vatCodes = [];
@@ -123,8 +128,21 @@ const sync = createSync({
             if (vatCodes.length > 0) {
                 await nango.batchSave(vatCodes, 'VatCode');
             }
+
+            if (nextLink) {
+                const nextUrl = new URL(nextLink);
+                const nextCursor = nextUrl.searchParams.get('$skiptoken') ?? nextUrl.searchParams.get('$skip') ?? undefined;
+                if (!nextCursor) {
+                    throw new Error(`Failed to extract pagination cursor from __next URL: ${nextLink}`);
+                }
+                await nango.saveCheckpoint({ cursor: nextCursor });
+                cursor = nextCursor;
+            } else {
+                hasMore = false;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('VatCode');
     }
 });

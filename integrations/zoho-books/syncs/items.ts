@@ -5,6 +5,10 @@ const MetadataSchema = z.object({
     organization_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const ZohoItemSchema = z.object({
     item_id: z.string(),
     name: z.string().optional(),
@@ -59,10 +63,11 @@ const ItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync items from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Item: ItemSchema
     },
@@ -76,10 +81,14 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { page: 1 };
 
         // Blocker: the Zoho Books items API does not expose a changed-since filter,
         // a deleted-record endpoint, or a cursor for incremental syncs.
         await nango.trackDeletesStart('Item');
+
+        let page: number | undefined = checkpoint.page;
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.zoho.com/books/api/v3/items/#list-items
@@ -90,17 +99,20 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'items'
+                response_path: 'items',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const parsedItems = page.map((item: unknown) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const parsedItems = pageResults.map((item: unknown) => {
                 const parsed = ZohoItemSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse item: ${parsed.error.message}`);
@@ -137,8 +149,13 @@ const sync = createSync({
             if (mappedItems.length > 0) {
                 await nango.batchSave(mappedItems, 'Item');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Item');
     }
 });

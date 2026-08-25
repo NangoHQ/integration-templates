@@ -13,6 +13,42 @@
         {
           "id": "1248",
           "name": "TestCategory2026b"
+        },
+        {
+          "id": "1249",
+          "name": "TestCategoryProbe"
+        },
+        {
+          "id": "1250",
+          "name": "Test Category 1781611211"
+        },
+        {
+          "id": "1251",
+          "name": "TestCategory20260616"
+        },
+        {
+          "id": "1252",
+          "name": "TestCategory20260616b"
+        },
+        {
+          "id": "1253",
+          "name": "TestCategory20260616c"
+        },
+        {
+          "id": "1254",
+          "name": "TestCategory20260616d"
+        },
+        {
+          "id": "1256",
+          "name": "UpdatedCategoryName"
+        },
+        {
+          "id": "1257",
+          "name": "TestCategorySave20260616"
+        },
+        {
+          "id": "1258",
+          "name": "TestCategoryFinal20260616"
         }
       ]
     },
@@ -36,12 +72,48 @@
             {
               "id": 1248,
               "category": "TestCategory2026b"
+            },
+            {
+              "id": 1249,
+              "category": "TestCategoryProbe"
+            },
+            {
+              "id": 1250,
+              "category": "Test Category 1781611211"
+            },
+            {
+              "id": 1251,
+              "category": "TestCategory20260616"
+            },
+            {
+              "id": 1252,
+              "category": "TestCategory20260616b"
+            },
+            {
+              "id": 1253,
+              "category": "TestCategory20260616c"
+            },
+            {
+              "id": 1254,
+              "category": "TestCategory20260616d"
+            },
+            {
+              "id": 1256,
+              "category": "UpdatedCategoryName"
+            },
+            {
+              "id": 1257,
+              "category": "TestCategorySave20260616"
+            },
+            {
+              "id": 1258,
+              "category": "TestCategoryFinal20260616"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 16 Jun 2026 11:56:35 GMT",
+          "date": "Tue, 18 Aug 2026 08:45:26 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -50,16 +122,17 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4918",
-          "x-ratelimit-reset": "1781611032",
-          "etag": "W/\"0fcfb4ab2b1e8a91c2c820d2e087b968c0baf773\"",
-          "server-timing": "dash;dur=38.7",
-          "x-amzn-trace-id": "Root=1-6a3139f3-35cb26d85d63e8cc45c4e979",
+          "x-ratelimit-remaining": "4956",
+          "x-ratelimit-reset": "1787042732",
+          "etag": "W/\"4fd10e7dee9f208bd27dfac131608bcf7407b8da\"",
+          "server-timing": "dash;dur=47.5",
+          "x-amzn-trace-id": "Root=1-6a841ba6-434d785b3a1b8209121745f1",
           "cache-control": "no-cache, no-store, must-revalidate",
           "pragma": "no-cache",
           "expires": "0",

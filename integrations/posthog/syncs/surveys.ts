@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const SurveySchema = z.object({
@@ -27,16 +27,28 @@ const SurveySchema = z.object({
     base_language: z.string().optional().nullable()
 });
 
+const ProviderResponseSchema = z.object({
+    count: z.number().optional(),
+    next: z.string().nullable().optional(),
+    previous: z.string().nullable().optional(),
+    results: z.array(z.unknown())
+});
+
+const CheckpointSchema = z.object({
+    offset: z.number()
+});
+
 const MetadataSchema = z.object({
     project_id: z.string()
 });
 
 const sync = createSync({
     description: 'Sync surveys from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Survey: SurveySchema
     },
@@ -54,25 +66,34 @@ const sync = createSync({
             throw new Error('project_id is required in metadata');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+
         await nango.trackDeletesStart('Survey');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://posthog.com/docs/api/surveys#list-all-surveys
-            endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/surveys/`,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'offset',
-                offset_start_value: 0,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                response_path: 'results'
-            },
-            retries: 3
-        };
+        const limit = 100;
+        let offset = checkpoint.offset;
 
-        for await (const page of nango.paginate<z.infer<typeof SurveySchema>>(proxyConfig)) {
-            const surveys = page.map((record) => ({
+        // https://posthog.com/docs/api/surveys#list-all-surveys
+        while (true) {
+            const response = await nango.get({
+                endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/surveys/`,
+                params: {
+                    limit,
+                    offset
+                },
+                retries: 3
+            });
+
+            const providerResponse = ProviderResponseSchema.parse(response.data);
+
+            const parseResult = z.array(SurveySchema).safeParse(providerResponse.results);
+            if (!parseResult.success) {
+                throw new Error(`Failed to parse surveys: ${parseResult.error.message}`);
+            }
+
+            const surveys = parseResult.data.map((record) => ({
                 id: record.id,
                 ...(record.name !== undefined && { name: record.name }),
                 ...(record.description !== undefined && { description: record.description }),
@@ -105,8 +126,22 @@ const sync = createSync({
             if (surveys.length > 0) {
                 await nango.batchSave(surveys, 'Survey');
             }
+
+            if (!providerResponse.next) {
+                break;
+            }
+
+            const nextOffsetMatch = providerResponse.next.match(/[?&]offset=([^&]+)/);
+            if (nextOffsetMatch && nextOffsetMatch[1]) {
+                offset = parseInt(nextOffsetMatch[1], 10);
+            } else {
+                offset += limit;
+            }
+
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Survey');
     }
 });
