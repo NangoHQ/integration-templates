@@ -286,9 +286,20 @@ const sync = createSync({
         let windowFloor = checkpoint.updatedAfter;
         let windowFloorId = checkpoint.updatedAfterId || '';
         let after = checkpoint.after;
+        let resultsInWindow = checkpoint.windowCount;
+
+        if (!windowFloorId && after) {
+            // Resuming a checkpoint saved before the composite cursor existed: its `after` offset
+            // was computed against a narrower GT-only result set. Widening the floor to GTE below
+            // inserts boundary-timestamp rows ahead of that offset, so reusing it verbatim would
+            // silently skip exactly the records the widening is meant to recover. Restart this
+            // window's pagination from the beginning instead; batchSave upserts the repeat fetch.
+            after = '';
+            resultsInWindow = 0;
+        }
+
         let latestUpdatedAt = windowFloor;
         let latestId = windowFloorId;
-        let resultsInWindow = checkpoint.windowCount;
         let hasMore = true;
 
         while (hasMore) {
