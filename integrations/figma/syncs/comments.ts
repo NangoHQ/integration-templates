@@ -43,14 +43,14 @@ const GetCommentsResponseSchema = z.object({
     comments: z.array(ProviderCommentSchema)
 });
 
-const ProjectSchema = z.object({
+const FolderSchema = z.object({
     id: z.string(),
     name: z.string()
 });
 
-const GetTeamProjectsResponseSchema = z.object({
+const GetTeamFoldersResponseSchema = z.object({
     name: z.string(),
-    projects: z.array(ProjectSchema)
+    folders: z.array(FolderSchema)
 });
 
 const FileSchema = z.object({
@@ -60,7 +60,7 @@ const FileSchema = z.object({
     last_modified: z.string().optional()
 });
 
-const GetProjectFilesResponseSchema = z.object({
+const GetFolderFilesResponseSchema = z.object({
     name: z.string(),
     files: z.array(FileSchema)
 });
@@ -88,7 +88,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments from Figma',
-    version: '1.0.0',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -113,23 +113,23 @@ const sync = createSync({
         // cursors, or pagination parameters. We must perform a full refresh.
         await nango.trackDeletesStart('Comment');
 
-        // https://www.figma.com/developers/api#get-team-projects-endpoint
-        const projectsResponse = await nango.get({
-            endpoint: `/v1/teams/${encodeURIComponent(metadata.team_id)}/projects`,
+        // https://developers.figma.com/docs/rest-api/folders-endpoints/#get-team-folders-endpoint
+        const foldersResponse = await nango.get({
+            endpoint: `/v2/teams/${encodeURIComponent(metadata.team_id)}/folders`,
             retries: 3
         });
 
-        const projectsData = GetTeamProjectsResponseSchema.parse(projectsResponse.data);
+        const foldersData = GetTeamFoldersResponseSchema.parse(foldersResponse.data);
         const allComments: z.infer<typeof CommentSchema>[] = [];
 
-        for (const project of projectsData.projects) {
-            // https://www.figma.com/developers/api#get-project-files-endpoint
+        for (const folder of foldersData.folders) {
+            // https://developers.figma.com/docs/rest-api/folders-endpoints/#get-folder-files-endpoint
             const filesResponse = await nango.get({
-                endpoint: `/v1/projects/${encodeURIComponent(project.id)}/files`,
+                endpoint: `/v2/folders/${encodeURIComponent(folder.id)}/files`,
                 retries: 3
             });
 
-            const filesData = GetProjectFilesResponseSchema.parse(filesResponse.data);
+            const filesData = GetFolderFilesResponseSchema.parse(filesResponse.data);
 
             for (const file of filesData.files) {
                 // https://www.figma.com/developers/api#get-comments-endpoint
