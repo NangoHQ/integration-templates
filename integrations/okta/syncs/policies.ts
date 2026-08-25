@@ -28,12 +28,15 @@ function isMissingFeatureFlagError(err: unknown): boolean {
     if (response === null || typeof response !== 'object' || !('status' in response) || response.status !== 400) {
         return false;
     }
-    return 'data' in response && JSON.stringify(response.data).includes(MISSING_FEATURE_FLAG_MARKER);
+    if (!('data' in response) || response.data === null || response.data === undefined) {
+        return false;
+    }
+    return JSON.stringify(response.data).includes(MISSING_FEATURE_FLAG_MARKER);
 }
 
 const sync = createSync({
     description: 'Sync policies.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
