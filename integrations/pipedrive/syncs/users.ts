@@ -36,11 +36,17 @@ const UserSchema = z.object({
     active_flag: z.boolean().optional()
 });
 
+// Checkpoint schema - fields must be ZodString, ZodNumber, or ZodBoolean (not wrapped in optional)
+const CheckpointSchema = z.object({
+    start: z.number()
+});
+
 const sync = createSync({
     description: 'Sync users from Pipedrive.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
@@ -56,6 +62,15 @@ const sync = createSync({
         // Blocker: Pipedrive Users API does not support timestamp-based filtering
         // or change tracking. It only provides offset/limit pagination without
         // any incremental sync capabilities.
+        const checkpoint = await nango.getCheckpoint();
+        if (checkpoint != null && 'start' in checkpoint) {
+            const validated = CheckpointSchema.safeParse(checkpoint);
+            if (!validated.success) {
+                throw new Error(`Invalid checkpoint: ${validated.error.message}`);
+            }
+        }
+        let start: number | undefined = checkpoint?.start ?? 0;
+
         await nango.trackDeletesStart('User');
 
         // https://developers.pipedrive.com/docs/api/v1/Users#getUsers
@@ -65,10 +80,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'start',
+                offset_start_value: start,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    start = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -77,11 +96,7 @@ const sync = createSync({
             const providerUsers = z.array(PipedriveUserSchema).safeParse(page);
 
             if (!providerUsers.success) {
-                await nango.log({
-                    type: 'warn',
-                    message: `Failed to parse users page: ${providerUsers.error.message}`
-                });
-                continue;
+                throw new Error(`Failed to parse users page: ${providerUsers.error.message}`);
             }
 
             const users = providerUsers.data.map((user) => ({
@@ -103,8 +118,13 @@ const sync = createSync({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (start !== undefined) {
+                await nango.saveCheckpoint({ start });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

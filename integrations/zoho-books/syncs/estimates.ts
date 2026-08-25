@@ -74,12 +74,17 @@ const MetadataSchema = z.object({
     organization_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync estimates from Zoho Books',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Estimate: EstimateSchema
     },
@@ -92,14 +97,19 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
-        let page = 1;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : { page: 1 };
+        let page = checkpoint.page;
         let hasMorePage = true;
-
-        let deleteTrackingStarted = false;
 
         // Blocker: the estimates list endpoint documents page-based pagination,
         // filters, and sorting, but no changed-since cursor or last_modified_time
         // query parameter for incremental syncs.
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Estimate');
+
         while (hasMorePage) {
             // https://www.zoho.com/books/api/v3/estimates/#list-estimates
             const response = await nango.get({
@@ -117,15 +127,6 @@ const sync = createSync({
             const validated = ListEstimatesResponseSchema.parse(response.data);
             const estimates = validated.estimates;
             const pageContext = validated.page_context;
-
-            if (!deleteTrackingStarted) {
-                await nango.trackDeletesStart('Estimate');
-                deleteTrackingStarted = true;
-            }
-
-            if (estimates.length === 0) {
-                break;
-            }
 
             const mapped = estimates.map((record) => ({
                 id: String(record.estimate_id),
@@ -160,9 +161,11 @@ const sync = createSync({
             hasMorePage = pageContext?.has_more_page ?? false;
             if (hasMorePage) {
                 page = page + 1;
+                await nango.saveCheckpoint({ page });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Estimate');
     }
 });

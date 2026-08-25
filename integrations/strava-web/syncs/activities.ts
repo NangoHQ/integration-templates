@@ -99,11 +99,16 @@ const ActivitySchema = z.object({
     map_summary_polyline: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
 const sync = createSync({
     description: 'Sync activities.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Activity: ActivitySchema
     },
@@ -115,7 +120,11 @@ const sync = createSync({
     // activities and would never detect deletions. A full snapshot is the only approach that
     // matches what this endpoint can actually express.
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let page = checkpoint?.page ?? 1;
         const limit = 30;
+
+        await nango.trackDeletesStart('Activity');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.strava.com/docs/reference/#api-Activities-getLoggedInAthleteActivities
@@ -123,7 +132,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit
@@ -131,10 +140,8 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('Activity');
-
-        for await (const page of nango.paginate<z.infer<typeof SummaryActivitySchema>>(proxyConfig)) {
-            const activities = page.map((record) => {
+        for await (const pageResults of nango.paginate<z.infer<typeof SummaryActivitySchema>>(proxyConfig)) {
+            const activities = pageResults.map((record) => {
                 const parsed = SummaryActivitySchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse activity: ${parsed.error.message}`);
@@ -180,8 +187,12 @@ const sync = createSync({
             if (activities.length > 0) {
                 await nango.batchSave(activities, 'Activity');
             }
+
+            page = page + 1;
+            await nango.saveCheckpoint({ page });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Activity');
     }
 });

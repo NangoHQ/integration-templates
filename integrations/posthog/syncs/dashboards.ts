@@ -49,12 +49,17 @@ const DashboardSchema = z.object({
     team_id: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync dashboards from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Dashboard: DashboardSchema
     },
@@ -76,6 +81,12 @@ const sync = createSync({
 
         const projectId = metadata.project_id;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        let nextOffset: number | undefined = parsedCheckpoint.success ? parsedCheckpoint.data.offset : undefined;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Dashboard');
 
         const proxyConfig: ProxyConfiguration = {
@@ -84,11 +95,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: nextOffset ?? 0,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -131,8 +145,18 @@ const sync = createSync({
             if (dashboards.length > 0) {
                 await nango.batchSave(dashboards, 'Dashboard');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Dashboard');
     }
 });

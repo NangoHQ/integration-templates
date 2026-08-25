@@ -7,6 +7,265 @@
     "batchSave": {
       "FeatureFlag": [
         {
+          "id": "700588",
+          "key": "nango-test-eaf-integration-1780488790",
+          "name": "Feature Flag for Early Access Feature Nango Test EAF Integration 1780488790",
+          "active": true,
+          "deleted": false,
+          "created_at": "2026-06-03T12:13:15.722657Z",
+          "updated_at": "2026-06-03T12:13:15.991457Z",
+          "filters": {
+            "groups": [
+              {
+                "variant": null,
+                "properties": [],
+                "rollout_percentage": 0,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "surveys": [],
+          "features": [
+            {
+              "id": "019e8d66-f7bd-0000-e620-38c1c3bd6623",
+              "name": "Nango Test EAF Integration 1780488790",
+              "description": "",
+              "stage": "draft",
+              "documentationUrl": "",
+              "flagKey": "nango-test-eaf-integration-1780488790",
+              "payload": {},
+              "assignee": null
+            }
+          ],
+          "usage_dashboard": 1663542,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
+          "id": "700586",
+          "key": "nango-test-eaf-integration",
+          "name": "Feature Flag for Early Access Feature Nango Test EAF Integration",
+          "active": true,
+          "deleted": false,
+          "created_at": "2026-06-03T12:12:20.475501Z",
+          "updated_at": "2026-06-03T12:12:21.302083Z",
+          "filters": {
+            "groups": [
+              {
+                "variant": null,
+                "properties": [],
+                "rollout_percentage": 0,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "surveys": [],
+          "features": [
+            {
+              "id": "019e8d66-2206-0000-7993-f8eede82b525",
+              "name": "Nango Test EAF Integration",
+              "description": "",
+              "stage": "draft",
+              "documentationUrl": "",
+              "flagKey": "nango-test-eaf-integration",
+              "payload": {},
+              "assignee": null
+            }
+          ],
+          "usage_dashboard": 1663538,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
+          "id": "700579",
+          "key": "nango-test-delete-eaf-2",
+          "name": "Feature Flag for Early Access Feature nango-test-delete-eaf-2",
+          "active": true,
+          "deleted": false,
+          "created_at": "2026-06-03T12:07:55.967347Z",
+          "updated_at": "2026-06-03T12:08:09.632174Z",
+          "filters": {
+            "groups": [
+              {
+                "variant": null,
+                "properties": [],
+                "rollout_percentage": 0,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "feature_enrollment": null,
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "surveys": [],
+          "features": [],
+          "usage_dashboard": 1663517,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
+          "id": "700578",
+          "key": "nango-test-flag-a",
+          "name": "Feature Flag for Experiment Nango Test Experiment",
+          "active": false,
+          "deleted": false,
+          "created_at": "2026-06-03T12:07:54.236767Z",
+          "updated_at": "2026-06-03T12:07:55.204813Z",
+          "filters": {
+            "groups": [
+              {
+                "properties": [],
+                "rollout_percentage": 100,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "holdout": null,
+            "multivariate": {
+              "variants": [
+                {
+                  "key": "control",
+                  "name": "Control Group",
+                  "rollout_percentage": 50
+                },
+                {
+                  "key": "test",
+                  "name": "Test Variant",
+                  "rollout_percentage": 50
+                }
+              ]
+            },
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [
+            374855,
+            374854,
+            374853,
+            374852
+          ],
+          "surveys": [],
+          "features": [],
+          "usage_dashboard": 1663516,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
+          "id": "700576",
+          "key": "nango-test-delete-eaf",
+          "name": "Feature Flag for Early Access Feature nango-test-delete-eaf",
+          "active": true,
+          "deleted": false,
+          "created_at": "2026-06-03T12:07:25.836720Z",
+          "updated_at": "2026-06-03T12:07:48.437820Z",
+          "filters": {
+            "groups": [
+              {
+                "variant": null,
+                "properties": [],
+                "rollout_percentage": 0,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "feature_enrollment": null,
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "surveys": [],
+          "features": [],
+          "usage_dashboard": 1663512,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
+          "id": "700574",
+          "key": "nango-test-early-access-feature",
+          "name": "Feature Flag for Early Access Feature Nango Test Early Access Feature",
+          "active": true,
+          "deleted": false,
+          "created_at": "2026-06-03T12:06:43.467623Z",
+          "updated_at": "2026-06-03T12:06:43.831740Z",
+          "filters": {
+            "groups": [
+              {
+                "variant": null,
+                "properties": [],
+                "rollout_percentage": 0,
+                "aggregation_group_type_index": null
+              }
+            ],
+            "feature_enrollment": true,
+            "aggregation_group_type_index": null
+          },
+          "version": 1,
+          "tags": [],
+          "ensure_experience_continuity": false,
+          "experiment_set": [],
+          "surveys": [],
+          "features": [
+            {
+              "id": "019e8d60-fbc1-0000-d729-cb62a5d65a45",
+              "name": "Nango Test Early Access Feature",
+              "description": "Created for testing the get early access feature action",
+              "stage": "beta",
+              "documentationUrl": "",
+              "flagKey": "nango-test-early-access-feature",
+              "payload": {},
+              "assignee": null
+            }
+          ],
+          "usage_dashboard": 1663503,
+          "analytics_dashboards": [],
+          "has_enriched_analytics": false,
+          "is_remote_configuration": false,
+          "evaluation_runtime": "all",
+          "bucketing_identifier": "distinct_id",
+          "status": "ACTIVE",
+          "user_access_level": "manager"
+        },
+        {
           "id": "700489",
           "key": "nango-test-created-1780481776282091620",
           "name": "Nango Test Flag",
@@ -29,7 +288,7 @@
           "is_remote_configuration": false,
           "evaluation_runtime": "all",
           "bucketing_identifier": "distinct_id",
-          "status": "ACTIVE",
+          "status": "STALE",
           "user_access_level": "manager"
         },
         {
@@ -55,7 +314,7 @@
           "is_remote_configuration": false,
           "evaluation_runtime": "all",
           "bucketing_identifier": "distinct_id",
-          "status": "ACTIVE",
+          "status": "STALE",
           "user_access_level": "manager"
         },
         {
@@ -81,7 +340,7 @@
           "is_remote_configuration": false,
           "evaluation_runtime": "all",
           "bucketing_identifier": "distinct_id",
-          "status": "ACTIVE",
+          "status": "STALE",
           "user_access_level": "manager"
         },
         {
@@ -114,33 +373,7 @@
           "is_remote_configuration": false,
           "evaluation_runtime": "all",
           "bucketing_identifier": "distinct_id",
-          "status": "ACTIVE",
-          "user_access_level": "manager"
-        },
-        {
-          "id": "700472",
-          "key": "nango-test-flag-b",
-          "name": "Nango Test Flag B",
-          "active": false,
-          "deleted": false,
-          "created_at": "2026-06-03T09:53:07.614973Z",
-          "updated_at": "2026-06-03T09:53:08.757543Z",
-          "filters": {
-            "groups": []
-          },
-          "version": 1,
-          "tags": [],
-          "ensure_experience_continuity": false,
-          "experiment_set": [],
-          "surveys": [],
-          "features": [],
-          "usage_dashboard": 1663106,
-          "analytics_dashboards": [],
-          "has_enriched_analytics": false,
-          "is_remote_configuration": false,
-          "evaluation_runtime": "all",
-          "bucketing_identifier": "distinct_id",
-          "status": "ACTIVE",
+          "status": "STALE",
           "user_access_level": "manager"
         }
       ]
@@ -153,10 +386,470 @@
     "get": {
       "/api/projects/309484/feature_flags/": {
         "response": {
-          "count": 5,
+          "count": 10,
           "next": null,
           "previous": null,
           "results": [
+            {
+              "id": 700588,
+              "name": "Feature Flag for Early Access Feature Nango Test EAF Integration 1780488790",
+              "key": "nango-test-eaf-integration-1780488790",
+              "filters": {
+                "groups": [
+                  {
+                    "variant": null,
+                    "properties": [],
+                    "rollout_percentage": 0,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": true,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:13:15.722657Z",
+              "updated_at": "2026-06-03T12:13:15.991457Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [],
+              "experiment_set_metadata": [],
+              "surveys": [],
+              "features": [
+                {
+                  "id": "019e8d66-f7bd-0000-e620-38c1c3bd6623",
+                  "name": "Nango Test EAF Integration 1780488790",
+                  "description": "",
+                  "stage": "draft",
+                  "documentationUrl": "",
+                  "flagKey": "nango-test-eaf-integration-1780488790",
+                  "payload": {},
+                  "assignee": null
+                }
+              ],
+              "can_edit": true,
+              "usage_dashboard": 1663542,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
+              "evaluation_contexts": [],
+              "tags": []
+            },
+            {
+              "id": 700586,
+              "name": "Feature Flag for Early Access Feature Nango Test EAF Integration",
+              "key": "nango-test-eaf-integration",
+              "filters": {
+                "groups": [
+                  {
+                    "variant": null,
+                    "properties": [],
+                    "rollout_percentage": 0,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": true,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:12:20.475501Z",
+              "updated_at": "2026-06-03T12:12:21.302083Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [],
+              "experiment_set_metadata": [],
+              "surveys": [],
+              "features": [
+                {
+                  "id": "019e8d66-2206-0000-7993-f8eede82b525",
+                  "name": "Nango Test EAF Integration",
+                  "description": "",
+                  "stage": "draft",
+                  "documentationUrl": "",
+                  "flagKey": "nango-test-eaf-integration",
+                  "payload": {},
+                  "assignee": null
+                }
+              ],
+              "can_edit": true,
+              "usage_dashboard": 1663538,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
+              "evaluation_contexts": [],
+              "tags": []
+            },
+            {
+              "id": 700579,
+              "name": "Feature Flag for Early Access Feature nango-test-delete-eaf-2",
+              "key": "nango-test-delete-eaf-2",
+              "filters": {
+                "groups": [
+                  {
+                    "variant": null,
+                    "properties": [],
+                    "rollout_percentage": 0,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "feature_enrollment": null,
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": true,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:07:55.967347Z",
+              "updated_at": "2026-06-03T12:08:09.632174Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [],
+              "experiment_set_metadata": [],
+              "surveys": [],
+              "features": [],
+              "can_edit": true,
+              "usage_dashboard": 1663517,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
+              "evaluation_contexts": [],
+              "tags": []
+            },
+            {
+              "id": 700578,
+              "name": "Feature Flag for Experiment Nango Test Experiment",
+              "key": "nango-test-flag-a",
+              "filters": {
+                "groups": [
+                  {
+                    "properties": [],
+                    "rollout_percentage": 100,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "holdout": null,
+                "multivariate": {
+                  "variants": [
+                    {
+                      "key": "control",
+                      "name": "Control Group",
+                      "rollout_percentage": 50
+                    },
+                    {
+                      "key": "test",
+                      "name": "Test Variant",
+                      "rollout_percentage": 50
+                    }
+                  ]
+                },
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": false,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:07:54.236767Z",
+              "updated_at": "2026-06-03T12:07:55.204813Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [
+                374855,
+                374854,
+                374853,
+                374852
+              ],
+              "experiment_set_metadata": [
+                {
+                  "id": 374855,
+                  "name": "Nango Create Experiment Test",
+                  "is_running": false
+                },
+                {
+                  "id": 374854,
+                  "name": "Nango Create Experiment Test",
+                  "is_running": false
+                },
+                {
+                  "id": 374853,
+                  "name": "Nango Create Experiment Test",
+                  "is_running": false
+                },
+                {
+                  "id": 374852,
+                  "name": "Nango Test Experiment Updated",
+                  "is_running": false
+                }
+              ],
+              "surveys": [],
+              "features": [],
+              "can_edit": true,
+              "usage_dashboard": 1663516,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": true,
+              "evaluation_contexts": [],
+              "tags": []
+            },
+            {
+              "id": 700576,
+              "name": "Feature Flag for Early Access Feature nango-test-delete-eaf",
+              "key": "nango-test-delete-eaf",
+              "filters": {
+                "groups": [
+                  {
+                    "variant": null,
+                    "properties": [],
+                    "rollout_percentage": 0,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "feature_enrollment": null,
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": true,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:07:25.836720Z",
+              "updated_at": "2026-06-03T12:07:48.437820Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [],
+              "experiment_set_metadata": [],
+              "surveys": [],
+              "features": [],
+              "can_edit": true,
+              "usage_dashboard": 1663512,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
+              "evaluation_contexts": [],
+              "tags": []
+            },
+            {
+              "id": 700574,
+              "name": "Feature Flag for Early Access Feature Nango Test Early Access Feature",
+              "key": "nango-test-early-access-feature",
+              "filters": {
+                "groups": [
+                  {
+                    "variant": null,
+                    "properties": [],
+                    "rollout_percentage": 0,
+                    "aggregation_group_type_index": null
+                  }
+                ],
+                "feature_enrollment": true,
+                "aggregation_group_type_index": null
+              },
+              "deleted": false,
+              "active": true,
+              "archived": false,
+              "created_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "created_at": "2026-06-03T12:06:43.467623Z",
+              "updated_at": "2026-06-03T12:06:43.831740Z",
+              "version": 1,
+              "last_modified_by": {
+                "id": 411781,
+                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
+                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
+                "first_name": "Nango Developer",
+                "last_name": "",
+                "email": "api@nango.dev",
+                "is_email_verified": true,
+                "hedgehog_config": null,
+                "role_at_organization": ""
+              },
+              "ensure_experience_continuity": false,
+              "experiment_set": [],
+              "experiment_set_metadata": [],
+              "surveys": [],
+              "features": [
+                {
+                  "id": "019e8d60-fbc1-0000-d729-cb62a5d65a45",
+                  "name": "Nango Test Early Access Feature",
+                  "description": "Created for testing the get early access feature action",
+                  "stage": "beta",
+                  "documentationUrl": "",
+                  "flagKey": "nango-test-early-access-feature",
+                  "payload": {},
+                  "assignee": null
+                }
+              ],
+              "can_edit": true,
+              "usage_dashboard": 1663503,
+              "analytics_dashboards": [],
+              "has_enriched_analytics": false,
+              "user_access_level": "manager",
+              "is_remote_configuration": false,
+              "has_encrypted_payloads": false,
+              "status": "ACTIVE",
+              "evaluation_runtime": "all",
+              "bucketing_identifier": "distinct_id",
+              "last_called_at": null,
+              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
+              "evaluation_contexts": [],
+              "tags": []
+            },
             {
               "id": 700489,
               "name": "Nango Test Flag",
@@ -166,6 +859,7 @@
               },
               "deleted": false,
               "active": true,
+              "archived": false,
               "created_by": {
                 "id": 411781,
                 "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
@@ -196,8 +890,6 @@
               "experiment_set_metadata": [],
               "surveys": [],
               "features": [],
-              "rollback_conditions": null,
-              "performed_rollback": null,
               "can_edit": true,
               "usage_dashboard": 1663171,
               "analytics_dashboards": [],
@@ -205,11 +897,12 @@
               "user_access_level": "manager",
               "is_remote_configuration": false,
               "has_encrypted_payloads": false,
-              "status": "ACTIVE",
+              "status": "STALE",
               "evaluation_runtime": "all",
               "bucketing_identifier": "distinct_id",
               "last_called_at": null,
               "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
               "evaluation_contexts": [],
               "tags": []
             },
@@ -222,6 +915,7 @@
               },
               "deleted": false,
               "active": true,
+              "archived": false,
               "created_by": {
                 "id": 411781,
                 "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
@@ -252,8 +946,6 @@
               "experiment_set_metadata": [],
               "surveys": [],
               "features": [],
-              "rollback_conditions": null,
-              "performed_rollback": null,
               "can_edit": true,
               "usage_dashboard": 1663166,
               "analytics_dashboards": [],
@@ -261,11 +953,12 @@
               "user_access_level": "manager",
               "is_remote_configuration": false,
               "has_encrypted_payloads": false,
-              "status": "ACTIVE",
+              "status": "STALE",
               "evaluation_runtime": "all",
               "bucketing_identifier": "distinct_id",
               "last_called_at": null,
               "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
               "evaluation_contexts": [],
               "tags": []
             },
@@ -278,6 +971,7 @@
               },
               "deleted": false,
               "active": true,
+              "archived": false,
               "created_by": {
                 "id": 411781,
                 "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
@@ -308,8 +1002,6 @@
               "experiment_set_metadata": [],
               "surveys": [],
               "features": [],
-              "rollback_conditions": null,
-              "performed_rollback": null,
               "can_edit": true,
               "usage_dashboard": 1663158,
               "analytics_dashboards": [],
@@ -317,11 +1009,12 @@
               "user_access_level": "manager",
               "is_remote_configuration": false,
               "has_encrypted_payloads": false,
-              "status": "ACTIVE",
+              "status": "STALE",
               "evaluation_runtime": "all",
               "bucketing_identifier": "distinct_id",
               "last_called_at": null,
               "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
               "evaluation_contexts": [],
               "tags": []
             },
@@ -341,6 +1034,7 @@
               },
               "deleted": false,
               "active": true,
+              "archived": false,
               "created_by": {
                 "id": 411781,
                 "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
@@ -371,8 +1065,6 @@
               "experiment_set_metadata": [],
               "surveys": [],
               "features": [],
-              "rollback_conditions": null,
-              "performed_rollback": null,
               "can_edit": true,
               "usage_dashboard": 1663154,
               "analytics_dashboards": [],
@@ -380,67 +1072,12 @@
               "user_access_level": "manager",
               "is_remote_configuration": false,
               "has_encrypted_payloads": false,
-              "status": "ACTIVE",
+              "status": "STALE",
               "evaluation_runtime": "all",
               "bucketing_identifier": "distinct_id",
               "last_called_at": null,
               "is_used_in_replay_settings": false,
-              "evaluation_contexts": [],
-              "tags": []
-            },
-            {
-              "id": 700472,
-              "name": "Nango Test Flag B",
-              "key": "nango-test-flag-b",
-              "filters": {
-                "groups": []
-              },
-              "deleted": false,
-              "active": false,
-              "created_by": {
-                "id": 411781,
-                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
-                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
-                "first_name": "Nango Developer",
-                "last_name": "",
-                "email": "api@nango.dev",
-                "is_email_verified": true,
-                "hedgehog_config": null,
-                "role_at_organization": ""
-              },
-              "created_at": "2026-06-03T09:53:07.614973Z",
-              "updated_at": "2026-06-03T09:53:08.757543Z",
-              "version": 1,
-              "last_modified_by": {
-                "id": 411781,
-                "uuid": "019c439e-fd4f-0000-dc37-5baa50dfcff6",
-                "distinct_id": "xQi0eQjuEyQ8RFio14FSc5gE3wC5wOKUM7lm3FFRMyR",
-                "first_name": "Nango Developer",
-                "last_name": "",
-                "email": "api@nango.dev",
-                "is_email_verified": true,
-                "hedgehog_config": null,
-                "role_at_organization": ""
-              },
-              "ensure_experience_continuity": false,
-              "experiment_set": [],
-              "experiment_set_metadata": [],
-              "surveys": [],
-              "features": [],
-              "rollback_conditions": null,
-              "performed_rollback": null,
-              "can_edit": true,
-              "usage_dashboard": 1663106,
-              "analytics_dashboards": [],
-              "has_enriched_analytics": false,
-              "user_access_level": "manager",
-              "is_remote_configuration": false,
-              "has_encrypted_payloads": false,
-              "status": "ACTIVE",
-              "evaluation_runtime": "all",
-              "bucketing_identifier": "distinct_id",
-              "last_called_at": null,
-              "is_used_in_replay_settings": false,
+              "is_eligible_for_experiment": false,
               "evaluation_contexts": [],
               "tags": []
             }
@@ -448,7 +1085,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 03 Jun 2026 10:18:22 GMT",
+          "date": "Tue, 18 Aug 2026 09:27:35 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -457,20 +1094,20 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4974",
-          "x-ratelimit-reset": "1780481936",
+          "x-ratelimit-remaining": "4991",
+          "x-ratelimit-reset": "1787045310",
           "allow": "GET, POST, HEAD, OPTIONS",
           "content-security-policy": "default-src 'none'",
           "vary": "origin, Cookie, Accept-Encoding",
-          "referrer-policy": "strict-origin-when-cross-origin",
           "cross-origin-opener-policy": "same-origin",
           "server": "envoy",
-          "x-envoy-upstream-service-time": "95"
+          "x-envoy-upstream-service-time": "82"
         },
         "hash": "c3734ee972e04ce40d071aed9bc091ab1662f05c",
         "request": {

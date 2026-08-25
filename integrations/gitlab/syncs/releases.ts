@@ -35,12 +35,20 @@ const ReleaseSchema = z.object({
     commit_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    project_page: z.number().int().positive(),
+    project_id: z.number().int().nonnegative(),
+    release_page: z.number().int().positive(),
+    project_done: z.boolean()
+});
+
 const sync = createSync({
     description: 'Sync releases from GitLab.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/releases', group: 'Releases' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Release: ReleaseSchema
     },
@@ -50,6 +58,16 @@ const sync = createSync({
         // modified_since, or any changed-since filter, nor does it expose a
         // cursor or resumable page token for incremental sync. It only supports
         // standard offset pagination (page/per_page) with no change filtering.
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+
+        const resumeProjectId = checkpoint?.project_id ? checkpoint.project_id : undefined;
+        let currentProjectPage: number = resumeProjectId === undefined ? (checkpoint?.project_page ?? 1) : 1;
+        let nextProjectPage: number | undefined = currentProjectPage;
+        const resumeReleasePage = checkpoint?.release_page ?? 1;
+        const resumeProjectDone = checkpoint?.project_done ?? false;
+        let projectResumed = resumeProjectId === undefined;
+
         await nango.trackDeletesStart('Release');
 
         const projectsConfig: ProxyConfiguration = {
@@ -61,10 +79,13 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: currentProjectPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextProjectPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -73,16 +94,34 @@ const sync = createSync({
             for (const rawProject of projectBatch) {
                 const project = GitLabProjectSchema.parse(rawProject);
 
+                if (!projectResumed) {
+                    if (project.id !== resumeProjectId) {
+                        continue;
+                    }
+
+                    if (resumeProjectDone) {
+                        projectResumed = true;
+                        continue;
+                    }
+
+                    projectResumed = true;
+                }
+
+                let nextReleasePage: number | undefined = project.id === resumeProjectId && !resumeProjectDone ? resumeReleasePage : 1;
+
                 const releasesConfig: ProxyConfiguration = {
                     // https://docs.gitlab.com/api/releases/#list-releases
                     endpoint: `/api/v4/projects/${encodeURIComponent(String(project.id))}/releases`,
                     paginate: {
                         type: 'offset',
                         offset_name_in_request: 'page',
-                        offset_start_value: 1,
+                        offset_start_value: nextReleasePage ?? 1,
                         offset_calculation_method: 'per-page',
                         limit_name_in_request: 'per_page',
-                        limit: 100
+                        limit: 100,
+                        on_page: async ({ nextPageParam }) => {
+                            nextReleasePage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                        }
                     },
                     retries: 3
                 };
@@ -107,10 +146,36 @@ const sync = createSync({
                     if (mappedReleases.length > 0) {
                         await nango.batchSave(mappedReleases, 'Release');
                     }
+
+                    if (nextReleasePage !== undefined) {
+                        await nango.saveCheckpoint({
+                            project_page: currentProjectPage,
+                            project_id: project.id,
+                            release_page: nextReleasePage,
+                            project_done: false
+                        });
+                    }
                 }
+
+                await nango.saveCheckpoint({
+                    project_page: currentProjectPage,
+                    project_id: project.id,
+                    release_page: 1,
+                    project_done: true
+                });
+            }
+
+            if (typeof nextProjectPage === 'number') {
+                currentProjectPage = nextProjectPage;
             }
         }
 
+        if (!projectResumed) {
+            await nango.saveCheckpoint({ project_page: 1, project_id: 0, release_page: 1, project_done: false });
+            throw new Error(`Checkpointed project ${resumeProjectId} is no longer accessible; restarting project enumeration`);
+        }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Release');
     }
 });

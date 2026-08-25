@@ -7,11 +7,27 @@ const SourceSchema = z.object({
     count: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
+const ProviderSourceSchema = z.object({
+    text: z.string(),
+    count: z.number().optional()
+});
+
+const ProviderResponseSchema = z.object({
+    data: z.array(ProviderSourceSchema),
+    hasNext: z.boolean().optional(),
+    next: z.string().optional()
+});
+
 const sync = createSync({
     description: 'Fetches all candidate sources configured on the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Source: SourceSchema
     },
@@ -20,37 +36,38 @@ const sync = createSync({
         // Blocker: GET /v1/sources returns a flat list of all sources with no
         // changed-since filter, no deleted-record endpoint, and no resumable cursor.
         // Each item only has text and count.
+        const rawCheckpoint = await nango.getCheckpoint();
+
+        let offset: string | undefined;
+        if (rawCheckpoint != null) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Failed to parse checkpoint: ${checkpointResult.error.message}`);
+            }
+            offset = checkpointResult.data.offset;
+        }
+
         await nango.trackDeletesStart('Source');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://hire.lever.co/developer/documentation
-            endpoint: '/v1/sources',
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'offset',
-                cursor_path_in_response: 'next',
-                response_path: 'data',
-                limit_name_in_request: 'limit',
-                limit: 100
-            },
-            retries: 3
-        };
+        while (true) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://hire.lever.co/developer/documentation
+                endpoint: '/v1/sources',
+                params: {
+                    limit: 100,
+                    ...(offset && { offset })
+                },
+                retries: 3
+            };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const validated = z
-                .array(
-                    z.object({
-                        text: z.string(),
-                        count: z.number().optional()
-                    })
-                )
-                .safeParse(page);
+            const response = await nango.get(proxyConfig);
 
-            if (!validated.success) {
-                throw new Error(`Failed to parse sources response: ${validated.error.message}`);
+            const parsed = ProviderResponseSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse sources response: ${parsed.error.message}`);
             }
 
-            const sources = validated.data.map((source) => ({
+            const sources = parsed.data.data.map((source) => ({
                 id: source.text,
                 text: source.text,
                 count: source.count
@@ -59,8 +76,17 @@ const sync = createSync({
             if (sources.length > 0) {
                 await nango.batchSave(sources, 'Source');
             }
+
+            if (parsed.data.hasNext === true && typeof parsed.data.next === 'string') {
+                offset = parsed.data.next;
+                await nango.saveCheckpoint({ offset });
+                continue;
+            }
+
+            break;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Source');
     }
 });

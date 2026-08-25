@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const AircallUserSchema = z.object({
@@ -33,36 +33,61 @@ const UserSchema = z.object({
     default_number_id: z.number().optional()
 });
 
+const ProviderUsersPageSchema = z.object({
+    users: z.array(AircallUserSchema),
+    meta: z
+        .object({
+            next_page_link: z.string().nullable().optional()
+        })
+        .passthrough()
+});
+
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync users from Aircall.',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/users' }],
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+
+        const checkpoint = checkpointParse?.data;
+        const perPage = 50;
+        let currentPage = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('User');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developer.aircall.io/api-references/#list-all-users-v2
-            endpoint: '/v2/users',
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'meta.next_page_link',
-                limit_name_in_request: 'per_page',
-                limit: 50,
-                response_path: 'users'
-            },
-            retries: 3
-        };
+        while (true) {
+            const response = await nango.get<z.infer<typeof ProviderUsersPageSchema>>({
+                // https://developer.aircall.io/api-references/#list-all-users-v2
+                endpoint: '/v2/users',
+                params: {
+                    per_page: perPage,
+                    page: currentPage
+                },
+                retries: 3
+            });
 
-        for await (const batch of nango.paginate(proxyConfig)) {
-            const rawUsers = z.array(AircallUserSchema).parse(batch);
-            const users = rawUsers.map((user) => ({
+            const pageParse = ProviderUsersPageSchema.safeParse(response.data);
+            if (!pageParse.success) {
+                throw new Error(`Failed to parse users page: ${pageParse.error.message}`);
+            }
+
+            const users = pageParse.data.users.map((user) => ({
                 id: String(user.id),
                 direct_link: user.direct_link,
                 name: user.name,
@@ -81,8 +106,16 @@ const sync = createSync({
             if (users.length > 0) {
                 await nango.batchSave(users, 'User');
             }
+
+            if (pageParse.data.meta.next_page_link == null) {
+                break;
+            }
+
+            currentPage += 1;
+            await nango.saveCheckpoint({ page: currentPage });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('User');
     }
 });

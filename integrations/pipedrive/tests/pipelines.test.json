@@ -3,6 +3,12 @@
     "batchSave": {
       "Pipeline": [
         {
+          "id": "1",
+          "name": "Pipeline",
+          "update_time": "2026-05-15 05:52:25",
+          "add_time": "2026-05-15 05:52:25"
+        },
+        {
           "id": "2",
           "name": "Test Sales Pipeline",
           "update_time": "2026-05-15 09:57:48",
@@ -134,11 +140,14 @@
               "limit": 500,
               "more_items_in_collection": false
             }
+          },
+          "deprecation_warning": {
+            "#": "Warning! This endpoint will be removed soon. Please check API documentation at developers.pipedrive.com."
           }
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 15 May 2026 11:19:29 GMT",
+          "date": "Tue, 18 Aug 2026 09:25:29 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -147,31 +156,33 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
-          "access-control-expose-headers": "X-RateLimit-Remaining, X-RateLimit-Limit, X-RateLimit-Reset, X-Daily-RateLimit-Token-Limit, X-Daily-RateLimit-Token-Remaining",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "80",
-          "x-ratelimit-remaining": "73",
+          "x-ratelimit-remaining": "79",
           "x-ratelimit-reset": "2",
-          "cf-ray": "9fc1bf76ae228e12-PDX",
+          "cf-ray": "a2cfdf18daa4503f-PDX",
           "cf-cache-status": "DYNAMIC",
           "cache-control": "no-cache",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "badi": "Routing: lon-2=>lon-2; Version: 7cc8; Host: 7bdc7f4564-8m8zm;",
-          "x-correlation-id": "690ea2ae-caa2-40c5-97b0-0843d635406b",
+          "badi": "Routing: lon-2=>lon-2; Version: 4e4c; Host: 5f4b5f6595-gnprb;",
+          "x-correlation-id": "68f390a6-200d-48e7-b365-04282dcbb935",
           "x-daily-ratelimit-token-limit": "150000",
-          "x-daily-ratelimit-token-remaining": "145238",
-          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Sat, 16 May 2026 11:19:29 GMT;secure, __cf_bm=Kabv69UTJ9fQt0KnkEidqXWtSaNZ17nGbzgOiP7jxN8-1778843969.0668113-1.0.1.1-kBGNYETl_5u.zHPD9oZ.jzhvaNkctPsLOrYo8BT36mW6PI5Fdrk5QperPMl0UFarX.bOGgcXtDMBE8m_TPeI3PwM_rtUsxMjrILv8NMd7cZGgNU5vSy0LR9wov74TfY.; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Fri, 15 May 2026 11:49:29 GMT",
+          "x-daily-ratelimit-token-remaining": "149880",
+          "set-cookie": "pipedrive-cdl=lon-2;path=/;expires=Wed, 19 Aug 2026 09:25:29 GMT;secure, __cf_bm=gGUu6fWiYfRlw5X5BC4OPcrH_TNQaxxA6QFSu4LIqug-1787045129.100804-1.0.1.1-55Ol2PC.mFOQZAouAhJ0Tge3LsBDRz0ao8EgOzKuEtQcHSL27k1YCcHgPbUji8yBco0Q3L8emsY5_EAyG6ADhX7ElTYXGCPa1MXQZyM67X_mCgIL8jrOIM3xqoXvMmvE; HttpOnly; SameSite=None; Secure; Path=/; Domain=pipedrive.com; Expires=Tue, 18 Aug 2026 09:55:29 GMT",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "92f27431f27b87cc8721690366566f87ca9b6990",
+        "hash": "c4dec0bd4fd071c6e74d5bfd332969599422e7fc",
         "request": {
           "params": {
             "limit": "500",
             "sort_by": "update_time",
-            "sort_direction": "asc"
+            "sort_direction": "asc",
+            "start": "0"
           }
         }
       }
