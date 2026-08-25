@@ -41,7 +41,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync all labels for each account from Zoho Mail',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

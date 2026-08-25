@@ -55,7 +55,7 @@ function getAllowSigningGroups(data: unknown): string | undefined {
 
 const sync = createSync({
     description: 'Sync signing groups (shared signature pools) with full-refresh delete tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -31,7 +31,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync groups from monday.com',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [
         // https://developer.monday.com/api-reference/reference/groups
         { method: 'GET', path: '/syncs/groups' }

@@ -24,7 +24,7 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all candidate sources configured on the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

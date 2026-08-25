@@ -53,7 +53,7 @@ const CheckpointSchema = z.object({
 // items-page cursor level so a timeout does not restart from board 1.
 const sync = createSync({
     description: 'Sync subitems from monday.com',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

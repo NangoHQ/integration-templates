@@ -62,7 +62,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync fine-tuning jobs from OpenAI',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

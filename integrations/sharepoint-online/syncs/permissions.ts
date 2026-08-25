@@ -57,7 +57,7 @@ const CheckpointStateSchema = z.object({
 
 const sync = createSync({
     description: 'Sync permission grants on drive items for configured site drives.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [

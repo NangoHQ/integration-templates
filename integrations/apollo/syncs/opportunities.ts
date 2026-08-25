@@ -15,7 +15,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync opportunities from Apollo',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

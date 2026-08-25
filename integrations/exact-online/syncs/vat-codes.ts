@@ -46,7 +46,7 @@ const VatCodesResponseSchema = z.union([VatCodesArrayResponseSchema, VatCodesObj
 
 const sync = createSync({
     description: 'Sync VAT/tax codes as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -50,7 +50,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync mandates eligible for Pro Account migration.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -176,7 +176,7 @@ async function getProjectKeys(nango: Parameters<Parameters<typeof createSync>[0]
 
 const sync = createSync({
     description: 'Sync Jira project components for projects in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -57,7 +57,7 @@ function isNoProAccountError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync Pro Account payment mandates',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['customer_mandates:readonly'],

@@ -66,7 +66,7 @@ function parseTwilioPageUrl(url: string): { endpoint: string; params: Record<str
 
 const sync = createSync({
     description: 'Sync participants across all conferences from Twilio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,

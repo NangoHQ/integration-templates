@@ -109,7 +109,7 @@ function mapTwilioParticipant(p: z.infer<typeof TwilioParticipantSchema>): z.inf
 
 const sync = createSync({
     description: 'Sync participants across all conversations from Twilio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

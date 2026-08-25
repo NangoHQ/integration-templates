@@ -48,7 +48,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Aircall.',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/users' }],
     frequency: 'every hour',
     autoStart: true,

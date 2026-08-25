@@ -44,7 +44,7 @@ const DocumentContentSchema = z.object({
 
 const sync = createSync({
     description: 'Sync full document structure and content for document IDs supplied in connection metadata',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

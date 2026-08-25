@@ -56,7 +56,7 @@ const ListsResponseSchema = z.object({
 const CheckpointSchema = z.object({
     siteNextLink: z.string(),
     siteIdsJson: z.string(),
-    siteIndex: z.number(),
+    siteIndex: z.number().int().nonnegative(),
     listNextLink: z.string()
 });
 
@@ -69,9 +69,9 @@ function toRelativeUrl(url: string): string {
     return parsed.pathname + parsed.search;
 }
 
-function parseSiteIdsJson(input: string): string[] {
+function parseSiteIdsJson(input: string): string[] | undefined {
     // @allowTryCatch JSON.parse may throw on malformed checkpoint data;
-    //                 falling back to an empty array avoids a hard sync failure.
+    //                 undefined tells the caller to restart site discovery.
     try {
         const parsed = JSON.parse(input);
         const result = z.array(z.string()).safeParse(parsed);
@@ -81,12 +81,12 @@ function parseSiteIdsJson(input: string): string[] {
     } catch {
         // ignore
     }
-    return [];
+    return undefined;
 }
 
 const sync = createSync({
     description: 'Sync SharePoint lists for selected sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -111,15 +111,16 @@ const sync = createSync({
         let siteIds: string[] = [];
         let siteIndex = cp.siteIndex;
         let listNextLink = cp.listNextLink;
+        const checkpointSiteIds = parseSiteIdsJson(cp.siteIdsJson);
 
         if (metadata?.site_ids !== undefined && metadata.site_ids.length > 0) {
             for (const siteId of metadata.site_ids) {
                 siteIds.push(siteId);
             }
-        } else if (cp.siteNextLink || cp.siteIdsJson === '[]') {
+        } else if (cp.siteNextLink || cp.siteIdsJson === '[]' || checkpointSiteIds === undefined) {
             // https://learn.microsoft.com/graph/api/site-search
-            let siteNextLink = cp.siteNextLink;
-            const discoveredSiteIds = parseSiteIdsJson(cp.siteIdsJson);
+            let siteNextLink = checkpointSiteIds === undefined ? '' : cp.siteNextLink;
+            const discoveredSiteIds = checkpointSiteIds ?? [];
             let nextEndpoint = siteNextLink || '/v1.0/sites';
             let hasMoreSites = true;
 
@@ -168,7 +169,7 @@ const sync = createSync({
                 listNextLink: ''
             });
         } else {
-            siteIds = parseSiteIdsJson(cp.siteIdsJson);
+            siteIds = checkpointSiteIds ?? [];
         }
 
         if (siteIds.length === 0) {

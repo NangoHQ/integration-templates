@@ -43,7 +43,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Pipedrive.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

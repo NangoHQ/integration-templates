@@ -53,7 +53,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync phone numbers from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     // https://developer.aircall.io/api-references/#number

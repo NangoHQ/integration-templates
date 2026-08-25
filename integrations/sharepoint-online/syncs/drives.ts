@@ -93,7 +93,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync document libraries for selected sites',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

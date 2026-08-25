@@ -51,7 +51,7 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const sync = createSync({
     description: 'Sync experiments from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,

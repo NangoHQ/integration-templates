@@ -37,7 +37,7 @@ type ProviderBase = z.infer<typeof ProviderBaseSchema>;
 
 const sync = createSync({
     description: 'Sync Airtable views for bases and tables in scope.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

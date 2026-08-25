@@ -30,7 +30,7 @@ const JournalItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync financial journals as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

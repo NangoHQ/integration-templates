@@ -61,7 +61,7 @@ function isInvalidOAuthScopeResponse(data: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync all folders for each account from Zoho Mail',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

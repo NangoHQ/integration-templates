@@ -116,7 +116,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync content type definitions for configured sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

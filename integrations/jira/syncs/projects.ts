@@ -65,7 +65,7 @@ const StoredCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Jira projects accessible to the authenticated user.',
-    version: '2.0.1',
+    version: '2.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/projects' }],
     frequency: 'every hour',
     autoStart: true,

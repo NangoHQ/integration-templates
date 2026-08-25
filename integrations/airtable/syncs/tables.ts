@@ -64,7 +64,7 @@ type ProviderBase = {
 
 const sync = createSync({
     description: 'Sync Airtable table schemas across bases in scope.',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every day',
     autoStart: true,
     checkpoint: CheckpointSchema,

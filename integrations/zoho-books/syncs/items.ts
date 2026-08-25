@@ -63,7 +63,7 @@ const ItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync items from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

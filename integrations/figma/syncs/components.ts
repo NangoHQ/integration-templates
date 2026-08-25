@@ -65,7 +65,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync components from Figma.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

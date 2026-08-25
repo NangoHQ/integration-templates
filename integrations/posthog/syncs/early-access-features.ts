@@ -66,7 +66,7 @@ function extractOffsetFromUrl(url: unknown): string | undefined {
 
 const sync = createSync({
     description: 'Sync early access features from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     // https://posthog.com/docs/api/early-access-feature
     endpoints: [{ method: 'GET', path: '/syncs/early-access-features' }],
     frequency: 'every hour',

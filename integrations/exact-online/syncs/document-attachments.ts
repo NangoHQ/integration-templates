@@ -41,7 +41,7 @@ const DocumentAttachmentPageSchema = z.array(
 
 const sync = createSync({
     description: 'Sync document attachment metadata as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

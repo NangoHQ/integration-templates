@@ -55,7 +55,7 @@ const ProviderCreditNoteSchema = z
 
 const sync = createSync({
     description: 'Sync credit notes from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,

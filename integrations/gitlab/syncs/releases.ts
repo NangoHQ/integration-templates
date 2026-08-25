@@ -44,7 +44,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync releases from GitLab.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/releases', group: 'Releases' }],
     frequency: 'every hour',
     autoStart: true,

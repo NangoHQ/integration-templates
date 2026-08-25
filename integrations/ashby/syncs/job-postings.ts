@@ -55,7 +55,7 @@ type ProviderJobPosting = z.infer<typeof ProviderJobPostingSchema>;
 
 const sync = createSync({
     description: 'Sync job postings from Ashby.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/job-postings' }],

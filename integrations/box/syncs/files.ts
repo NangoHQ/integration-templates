@@ -60,7 +60,7 @@ const FileMetadataSchema = z.object({
 
 const sync = createSync<typeof ModelsSchema, typeof MetadataSchema, typeof CheckpointSchema>({
     description: 'Sync the metadata of specified files or folder paths from Box. A file or folder ID can be provided.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every day',
     autoStart: false,
     endpoints: [

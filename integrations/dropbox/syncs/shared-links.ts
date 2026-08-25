@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Dropbox shared links for the current user or configured path scopes.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

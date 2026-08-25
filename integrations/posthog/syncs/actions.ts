@@ -94,7 +94,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync actions (saved event patterns) from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     // https://posthog.com/docs/api/actions
     endpoints: [{ method: 'GET', path: '/syncs/actions' }],
     frequency: 'every hour',

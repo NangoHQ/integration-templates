@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync, ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
@@ -41,12 +42,13 @@ const TeamsResponseSchema = z.object({
 
 const CheckpointSchema = z.object({
     orgId: z.number(),
-    teamOffset: z.number().min(0)
+    organizationsFingerprint: z.string().length(64),
+    teamOffset: z.number().int().nonnegative()
 });
 
 const sync = createSync({
     description: 'Sync teams across accessible organizations.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -58,6 +60,7 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
         const resumeOrgId = parsedCheckpoint.success ? parsedCheckpoint.data.orgId : undefined;
+        const resumeOrganizationsFingerprint = parsedCheckpoint.success ? parsedCheckpoint.data.organizationsFingerprint : undefined;
         const resumeTeamOffset = parsedCheckpoint.success ? parsedCheckpoint.data.teamOffset : undefined;
 
         const orgProxyConfig: ProxyConfiguration = {
@@ -85,12 +88,15 @@ const sync = createSync({
             }
         }
 
-        const hasValidResumeOrg = resumeOrgId !== undefined && organizations.some((o) => o.id === resumeOrgId);
+        const organizationsFingerprint = createHash('sha256')
+            .update(organizations.map((organization) => String(organization.id)).join('\n'))
+            .digest('hex');
+        const hasValidResumeOrg =
+            resumeOrganizationsFingerprint === organizationsFingerprint && resumeOrgId !== undefined && organizations.some((o) => o.id === resumeOrgId);
         const effectiveResumeOrgId = hasValidResumeOrg ? resumeOrgId : undefined;
 
-        // Only open delete tracking once every organization has been enumerated and
-        // validated, so a failed run never leaves tracking started without a matching
-        // trackDeletesEnd.
+        // Enumerating the parent inventory is a prerequisite. A matching fingerprint
+        // prevents a checkpoint from skipping organizations after that inventory changes.
         await nango.trackDeletesStart('Team');
 
         const limit = 100;
@@ -142,15 +148,17 @@ const sync = createSync({
                     await nango.batchSave(teams, 'Team');
                 }
 
-                if (teams.length < limit) {
+                const responseLimit = parsedResponse.pg.limit;
+                const responseOffset = parsedResponse.pg.offset;
+                if (teams.length === 0 || teams.length < responseLimit) {
                     hasMore = false;
                     const nextOrg = organizations[i + 1];
                     if (nextOrg) {
-                        await nango.saveCheckpoint({ orgId: nextOrg.id, teamOffset: 0 });
+                        await nango.saveCheckpoint({ orgId: nextOrg.id, organizationsFingerprint, teamOffset: 0 });
                     }
                 } else {
-                    currentOffset += limit;
-                    await nango.saveCheckpoint({ orgId: org.id, teamOffset: currentOffset });
+                    currentOffset = responseOffset + teams.length;
+                    await nango.saveCheckpoint({ orgId: org.id, organizationsFingerprint, teamOffset: currentOffset });
                     hasMore = true;
                 }
             }

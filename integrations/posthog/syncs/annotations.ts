@@ -54,7 +54,7 @@ function getOffsetFromNextUrl(nextPageParam: unknown): number | undefined {
 
 const sync = createSync({
     description: 'Sync annotations from PostHog',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

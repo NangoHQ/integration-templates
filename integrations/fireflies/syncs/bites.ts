@@ -33,7 +33,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Full-refresh sync of soundbite clips.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/bites' }],
     frequency: 'every hour',
     autoStart: true,

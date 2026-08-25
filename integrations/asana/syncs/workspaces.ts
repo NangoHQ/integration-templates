@@ -28,7 +28,7 @@ const LoadedCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspaces visible to the authenticated Asana user.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',

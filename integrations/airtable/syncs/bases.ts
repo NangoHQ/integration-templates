@@ -20,7 +20,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Airtable bases visible to the authenticated user.',
-    version: '2.0.1',
+    version: '2.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/bases' }],
     frequency: 'every hour',
     autoStart: true,

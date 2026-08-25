@@ -47,7 +47,7 @@ const EMPTY_CHECKPOINT = {
 
 const sync = createSync({
     description: 'Sync subsites under selected parent sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

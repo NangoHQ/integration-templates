@@ -35,9 +35,9 @@ const SiteSchema = z.object({
 
 const CheckpointStateSchema = z.object({
     phase: z.enum(['siteIds', 'sitePaths', 'searchTerms']),
-    siteIdIndex: z.number().optional(),
-    sitePathIndex: z.number().optional(),
-    searchTermIndex: z.number().optional(),
+    siteIdIndex: z.number().int().nonnegative().optional(),
+    sitePathIndex: z.number().int().nonnegative().optional(),
+    searchTermIndex: z.number().int().nonnegative().optional(),
     searchNextLink: z.string().optional()
 });
 
@@ -65,7 +65,7 @@ function parseCheckpointState(input: string | undefined): z.infer<typeof Checkpo
 
 const sync = createSync({
     description: 'Sync targeted SharePoint sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

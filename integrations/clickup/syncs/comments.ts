@@ -88,7 +88,7 @@ const TaskCommentsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments from ClickUp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
@@ -110,8 +110,6 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? DEFAULT_CHECKPOINT);
 
-        await nango.trackDeletesStart('Comment');
-
         // https://developer.clickup.com/reference/getauthorizedteams
         const teamsResponse = await nango.get({
             endpoint: '/api/v2/team',
@@ -124,6 +122,8 @@ const sync = createSync({
         if (!hasConfiguredTeam) {
             throw new Error(`Configured team ${config.team_id} is no longer accessible`);
         }
+
+        await nango.trackDeletesStart('Comment');
 
         for (const team of teams) {
             const teamId = String(TeamItemSchema.parse(team).id);

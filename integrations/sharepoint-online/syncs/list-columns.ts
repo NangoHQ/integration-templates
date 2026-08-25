@@ -114,7 +114,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync SharePoint list schemas.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

@@ -55,7 +55,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all interview scheduling panels for every single opportunity',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,

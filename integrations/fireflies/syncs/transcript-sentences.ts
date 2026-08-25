@@ -58,7 +58,7 @@ const LooseCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Full-refresh sync of all transcript sentences, fetched per transcript.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

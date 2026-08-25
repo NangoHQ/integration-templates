@@ -51,7 +51,7 @@ function toProduct(product: unknown) {
 
 const sync = createSync({
     description: 'Fetches a list products from pennylane',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['products:readonly'],

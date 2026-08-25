@@ -42,7 +42,7 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync all workspace users including deactivated accounts with email and profile fields',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/users', group: 'Users' }],
     frequency: 'every hour',
     autoStart: true,
