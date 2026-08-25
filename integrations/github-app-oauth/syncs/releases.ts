@@ -106,7 +106,9 @@ const sync = createSync({
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
 
-        let repoPage = checkpoint != null ? checkpoint['repo_page'] : 1;
+        // repo_index addresses the complete repository list, so always rebuild that list
+        // from page 1 before applying the saved index.
+        let repoPage = 1;
         const repos: Array<{ name: string; owner: { login: string } }> = [];
         while (true) {
             const repoResponse = await nango.get({

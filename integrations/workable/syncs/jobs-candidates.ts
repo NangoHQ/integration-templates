@@ -97,6 +97,13 @@ const sync = createSync({
                 jobs.push(parsed.data);
             }
 
+            if (resumeJobShortcode && !jobs.some((job) => job.shortcode === resumeJobShortcode)) {
+                await nango.saveCheckpoint({ job_page_url: '', job_shortcode: '', candidate_page_url: '' });
+                throw new Error(
+                    `Checkpointed job ${resumeJobShortcode} was not found on its saved jobs page; the next execution will restart job discovery from the first page`
+                );
+            }
+
             if (jobs.length === 0) {
                 if (nextJobPageUrl) {
                     await nango.saveCheckpoint({ job_page_url: nextJobPageUrl, job_shortcode: '', candidate_page_url: '' });

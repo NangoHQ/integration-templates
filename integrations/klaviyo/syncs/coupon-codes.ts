@@ -67,18 +67,24 @@ const CheckpointStateSchema = z.object({
 });
 
 function extractCursor(nextLink: string | null | undefined): string | undefined {
-    if (!nextLink) {
+    if (nextLink == null) {
         return undefined;
     }
-    // @allowTryCatch
-    // URL parsing may throw on malformed links from the provider; returning undefined gracefully stops pagination.
+
+    let url: URL;
+    // @allowTryCatch Convert a malformed provider pagination link into an explicit sync failure.
     try {
-        const url = new URL(nextLink, 'https://a.klaviyo.com');
-        const cursor = url.searchParams.get('page[cursor]');
-        return cursor ?? undefined;
-    } catch {
-        return undefined;
+        url = new URL(nextLink, 'https://a.klaviyo.com');
+    } catch (error) {
+        throw new Error(`Invalid Klaviyo pagination link: ${error instanceof Error ? error.message : String(error)}`);
     }
+
+    const cursor = url.searchParams.get('page[cursor]');
+    if (!cursor) {
+        throw new Error('Klaviyo pagination link is missing page[cursor]');
+    }
+
+    return cursor;
 }
 
 const sync = createSync({
