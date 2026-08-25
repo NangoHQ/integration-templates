@@ -3555,6 +3555,15 @@ import './mandrill/actions/update-template.js';
 import './mandrill/actions/update-webhook.js';
 import './mandrill/actions/verify-sender-domain.js';
 
+// -- Integration: meilisearch
+import './meilisearch/actions/add-documents.js';
+import './meilisearch/actions/delete-documents.js';
+import './meilisearch/actions/generate-tenant-token.js';
+import './meilisearch/actions/get-documents.js';
+import './meilisearch/actions/get-task.js';
+import './meilisearch/actions/search-documents.js';
+import './meilisearch/actions/update-documents.js';
+
 // -- Integration: metabase
 import './metabase/syncs/users.js';
 import './metabase/actions/create-user.js';
@@ -6368,6 +6377,25 @@ import './workday/actions/list-locations.js';
 import './workday/actions/list-organizations.js';
 import './workday/actions/list-positions.js';
 import './workday/actions/list-workers.js';
+
+// -- Integration: workday-refresh-token
+import './workday-refresh-token/syncs/organizations.js';
+import './workday-refresh-token/syncs/workers.js';
+import './workday-refresh-token/actions/execute-wql-query.js';
+import './workday-refresh-token/actions/get-custom-object-definition.js';
+import './workday-refresh-token/actions/get-job-requisition.js';
+import './workday-refresh-token/actions/get-organization.js';
+import './workday-refresh-token/actions/get-supervisory-organization.js';
+import './workday-refresh-token/actions/get-time-off-detail.js';
+import './workday-refresh-token/actions/get-worker-compensation.js';
+import './workday-refresh-token/actions/get-worker.js';
+import './workday-refresh-token/actions/list-job-requisitions.js';
+import './workday-refresh-token/actions/list-organizations.js';
+import './workday-refresh-token/actions/list-supervisory-organizations.js';
+import './workday-refresh-token/actions/list-worker-absence-balances.js';
+import './workday-refresh-token/actions/list-worker-time-off.js';
+import './workday-refresh-token/actions/list-workers.js';
+import './workday-refresh-token/actions/submit-time-off-request.js';
 
 // -- Integration: xero
 import './xero/syncs/accounts.js';

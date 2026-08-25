@@ -1,0 +1,1663 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "2d76b324c36510012c2e765c9e0b0000",
+        "title": "Director, Recruiting Services",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Director--Recruiting-Services_R-00776",
+        "startDate": "2026-07-30",
+        "primaryLocation": {
+          "id": "06d46ee5c1f701e40b978be4d418bc06",
+          "descriptor": "Apple Houston",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Texas",
+            "code": "TX"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "e02485f863ec48d39a082bb95cc4abe4",
+          "descriptor": "Human Resources"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00776 Director, Recruiting Services (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Overall responsibility for creating &amp; executing holistic recruitment strategy that maximizes quality of new hires &amp; speed they are hired. Responsible for managing recruitment team &amp; for devising &amp; implementing strategies for minimizing recruitment costs.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-21<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "a5f55d09ded6430face634ba93fd671f",
+            "descriptor": "Human Resources"
+          }
+        ]
+      },
+      {
+        "id": "557c80a5d1e2100195fa7dc5eb550000",
+        "title": "Software Engineer II",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Bangalore/Software-Engineer-II_R-00513",
+        "startDate": "2026-07-25",
+        "primaryLocation": {
+          "id": "4d4ec8ccd07101cadb2ca8f61f0ecd06",
+          "descriptor": "Bangalore",
+          "country": {
+            "descriptor": "India",
+            "alpha3Code": "IND"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "442514f36126101a9b88b019cb340000",
+          "descriptor": "WLI Technology"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00513 Software Engineer II (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-01-09<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Bangalore<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "2d76b324c36510015a7eb0a7c3170000",
+        "title": "IT Engineer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Home-Office-USA/IT-Engineer_R-00777",
+        "startDate": "2026-07-23",
+        "primaryLocation": {
+          "id": "b4b13a01c70b4ee883f7e9c2fd67c773",
+          "descriptor": "Home Office (USA)",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "California",
+            "code": "CA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+          "descriptor": "Global Modern Services"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00777 IT Engineer (Fill Date: 07/24/2026)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-22<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Home Office (USA)<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "d282847d45c210017528459d18ad0000",
+        "title": "Staff HR Representative",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Oahu/Staff-HR-Representative_R-00779",
+        "startDate": "2026-07-22",
+        "primaryLocation": {
+          "id": "d282847d45c210015e1157e07e0c0000",
+          "descriptor": "O'ahu",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Hawaii",
+            "code": "HI"
+          }
+        },
+        "additionalLocations": [
+          {
+            "id": "06d46ee5c1f701e40b978be4d418bc06",
+            "descriptor": "Apple Houston",
+            "country": {
+              "descriptor": "United States of America",
+              "alpha3Code": "USA"
+            },
+            "region": {
+              "descriptor": "Texas",
+              "code": "TX"
+            }
+          },
+          {
+            "id": "d951e85593ad4daf88dc1bfabf069732",
+            "descriptor": "New York",
+            "country": {
+              "descriptor": "United States of America",
+              "alpha3Code": "USA"
+            },
+            "region": {
+              "descriptor": "New York",
+              "code": "NY"
+            }
+          }
+        ],
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "e02485f863ec48d39a082bb95cc4abe4",
+          "descriptor": "Human Resources"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00779 Staff HR Representative (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Provides Corporate Human Resources &amp; Payroll Department administrative support from the field office locations.  Responsibile for maintaining employee information in HCM system and personnel files, coordinating the new hire process (new hire orientation).  Respond to general HR inquiries and provides interpretation when necessary.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-22<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>3<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Honolulu Building 1<p></p><p><b>Education Required</b></p>B.A.: Human Resources Management (Required)<p></p><p><b>Experience</b></p>General HR Experience<p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "a5f55d09ded6430face634ba93fd671f",
+            "descriptor": "Human Resources"
+          }
+        ]
+      },
+      {
+        "id": "a5ffc244c7411001d07e7f5bf2550000",
+        "title": "Senior Backend Engineer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/HR-Mohakhali-DOHS/Senior-Backend-Engineer_R-00764",
+        "startDate": "2026-07-17",
+        "endDate": "2026-08-31",
+        "primaryLocation": {
+          "id": "b3dc45a69248102400e5b333babc0000",
+          "descriptor": "HR Mohakhali DOHS",
+          "country": {
+            "descriptor": "Bangladesh",
+            "alpha3Code": "BGD"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "cefa6ba30e651000cdabb530a59c0000",
+          "descriptor": "Telenor Executive Group"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00764 Senior Backend Engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>We are seeking a Senior Backend Engineer to design and scale the core services behind our hiring platform, working with Python, PostgreSQL, Redis, and distributed systems.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-17<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>HR Mohakhali DOHS<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "92439fa52cd44e81a37f147548a9af53",
+            "descriptor": "Information Technology"
+          }
+        ]
+      },
+      {
+        "id": "a5ffc244c7411000cd4606c47ab50000",
+        "title": "Staff HR Representative",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/New-York/Staff-HR-Representative_R-00769",
+        "startDate": "2026-07-13",
+        "primaryLocation": {
+          "id": "d951e85593ad4daf88dc1bfabf069732",
+          "descriptor": "New York",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "New York",
+            "code": "NY"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "071bfafccec949059ae07d9992658714",
+          "descriptor": "IT Operations"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00769 Staff HR Representative (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Provides Corporate Human Resources &amp; Payroll Department administrative support from the field office locations.  Responsibile for maintaining employee information in HCM system and personnel files, coordinating the new hire process (new hire orientation).  Respond to general HR inquiries and provides interpretation when necessary.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-13<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>New York<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p>General HR Experience<p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "a5f55d09ded6430face634ba93fd671f",
+            "descriptor": "Human Resources"
+          }
+        ]
+      },
+      {
+        "id": "b647f08b8df910016c25f8ebea460000",
+        "title": "Customer Service Advocate",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Mexico-City/Customer-Service-Advocate_R-00732",
+        "startDate": "2026-06-03",
+        "primaryLocation": {
+          "id": "aaf1d21b5df44ebd97d289cf10ef4da2",
+          "descriptor": "Mexico City",
+          "country": {
+            "descriptor": "Mexico",
+            "alpha3Code": "MEX"
+          },
+          "region": {
+            "descriptor": "Distrito Federal",
+            "code": "DIF"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "e3036aad35ed4a48b7b0aa03bb055440",
+          "descriptor": "Global Support - LATAM"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00732 Customer Service Advocate (Evergreen) (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Responsible for receiving, responding to and resolving customer telephone-inquires in a high-volume call center.  Maintain departmental quality and productivity standards.  Where appropriate, cross-reference a variety other products and services available for customers to consider.  Engage in outbound calls to current customers to survey satisfaction with current products.  Perform other work-related duties, as assigned - including (but not limited to) customer e-mail and correspondence.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-06-03<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Mexico City<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "29fe37cf54b74c388049f2c74ce430cd",
+            "descriptor": "Customer Services"
+          }
+        ]
+      },
+      {
+        "id": "22d8f0abb30a1000b4ae68ccd4ed0000",
+        "title": "SR. Recruiting Consultant",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/New-Jersey/SR-Recruiting-Consultant_R-00529-1",
+        "startDate": "2026-05-18",
+        "primaryLocation": {
+          "id": "4d4ec8ccd071018d93e3c369db0d6105",
+          "descriptor": "New Jersey",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "New Jersey",
+            "code": "NJ"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "69f6599a46fe1000bc06f32eedba0000",
+          "descriptor": "Stack One R&D"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00529 SR. Recruiting Consultant (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>The HRIS manages HR data, including employee records, payroll, and time off. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p><span>The HR</span><span><span><span>IS</span></span></span><span><span>\u00a0</span></span><b>manages HR data, including employee records, payroll, and time off</b><span>. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p><span>The HR</span><span><span><span>IS</span></span></span><span><span>\u00a0</span></span><b>manages HR data, including employee records, payroll, and time off</b><span>. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-01-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>198<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>New Jersey<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "442514f36126101b370bbf1f37d10000",
+            "descriptor": "WLI Human Resources"
+          }
+        ]
+      },
+      {
+        "id": "7b41233a81881001092f01bc5a180000",
+        "title": "Software Engineer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Amsterdam/Software-Engineer_R-00276",
+        "startDate": "2026-05-14",
+        "primaryLocation": {
+          "id": "2a49aa1ae0dc4dccb9d3c46cd71ee635",
+          "descriptor": "Amsterdam",
+          "country": {
+            "descriptor": "Netherlands",
+            "alpha3Code": "NLD"
+          },
+          "region": {
+            "descriptor": "North Holland",
+            "code": "NH"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "47b3bee850a6100199cb06f50a570000",
+          "descriptor": "ModernLoop R&D"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00276 Software Engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2024-07-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>70<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Amsterdam<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "d33b92bd94ac1000d40d816622d30000",
+        "title": "Senior Consultant",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Senior-Consultant_R-00025",
+        "startDate": "2026-04-13",
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "66889e1c22c943449e924fccfb2f9f57",
+          "descriptor": "Consulting Services - LATAM"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00025 Senior Consultant (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Responsible for identifying business requirements, functional design, prototyping, process design (including scenario design, flow mapping), testing, training, defining support procedures and supporting implementations.  Ability to provide leadership and guidance to engagement team.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-04-13<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "7e3429d967e447f283c2b45861c19301",
+            "descriptor": "Services"
+          }
+        ]
+      },
+      {
+        "id": "bca85fda365410008f02c6c2c9e50000",
+        "title": "Chief Executive Officer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Chief-Executive-Officer_R-00718",
+        "startDate": "2026-03-15",
+        "primaryLocation": {
+          "id": "06d46ee5c1f701e40b978be4d418bc06",
+          "descriptor": "Apple Houston",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Texas",
+            "code": "TX"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+          "descriptor": "Global Modern Services"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00718 Chief Executive Officer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>The CEO is the highest-ranking corporate executive officer in charge of total management of the corporation. CEOs manage the overall operations of a company. Manages and directs the company toward its primary goals and objectives.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p>The CEO is the highest-ranking corporate executive officer in charge of total management of the corporation. CEOs manage the overall operations of a company. Manages and directs the company toward its primary goals and objectives<span>.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-03-15<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p>B.A.: Economics, B.S.: Economics, MBA: Business Administration<p></p><p><b>Experience</b></p>Managed Groups of, Management Experience<p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "2b246290e43244bca234bb6066bf5d0e",
+            "descriptor": "Executive"
+          }
+        ]
+      },
+      {
+        "id": "3fd50c6106f210017b3b78cadc2c0000",
+        "title": "DCS Workday Analyst",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/DCS-Workday-Analyst_R-00715",
+        "startDate": "2026-03-11",
+        "primaryLocation": {
+          "id": "06d46ee5c1f701e40b978be4d418bc06",
+          "descriptor": "Apple Houston",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Texas",
+            "code": "TX"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "3fd50c6106f210015efded0399880000",
+          "descriptor": "Talkpush Dev"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00715 DCS Workday Analyst (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>testing<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-03-11<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>5<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p>B.S.: Computer and Information Science (Required)<p></p><p><b>Experience</b></p>Customer Service Experience<p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "c86527e1b0f4100105d8aabd51100000",
+        "title": "VSM AI Lead",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Melbourne/VSM-AI-Lead_R-00672",
+        "startDate": "2025-12-30",
+        "primaryLocation": {
+          "id": "8f13f1edaa894370b5fe6b405a656749",
+          "descriptor": "Melbourne",
+          "country": {
+            "descriptor": "Australia",
+            "alpha3Code": "AUS"
+          },
+          "region": {
+            "descriptor": "Victoria",
+            "code": "VIC"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "f19bda77c410479a816a008e0c74b240",
+          "descriptor": "Contractor"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00672 VSM AI Lead (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-30<p></p><p><b>Employee Type</b></p>Contingent Worker<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Contractor<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Melbourne<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "204a7cbec3271000d372d004d7de0000",
+        "title": "AI Lead Developer 4",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Vancouver/AI-Lead-Developer-4_R-00670",
+        "startDate": "2025-12-29",
+        "primaryLocation": {
+          "id": "be63426899d149f4bb20d2b96512b2c0",
+          "descriptor": "Vancouver",
+          "country": {
+            "descriptor": "Canada",
+            "alpha3Code": "CAN"
+          },
+          "region": {
+            "descriptor": "British Columbia",
+            "code": "BC"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "f19bda77c410479a816a008e0c74b240",
+          "descriptor": "Contractor"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00670 AI Lead Developer 4 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-29<p></p><p><b>Employee Type</b></p>Contingent Worker<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Contractor<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>2<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Vancouver<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "0bd580e9660d1000fd91f0bc925f0000",
+        "title": "Airline flight engineer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Airline-flight-engineer_R-00665",
+        "startDate": "2025-12-23",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00665 Airline flight engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>A Business Analyst's responsibility is to help drive projects and bring value through operations. To do this, they identify, distinguish and analyze multiple components of a problem and then make conclusions using high-level quantitative skills. Common responsibilities include strategic operations analysis, identifying performance trends, scanning business/industry trends, reviewing  sales/financial analysis and interpreting data. Individuals in this position work with a variety of people across the company to perform their job; and therefore, successful Business Analysts have strong skills in communication.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "b1e2748cd94c48568186ac5229b0951b",
+            "descriptor": "Finance"
+          }
+        ]
+      },
+      {
+        "id": "0bd580e9660d1000f796dc972d690000",
+        "title": "Macroeconomist",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Macroeconomist_R-00664",
+        "startDate": "2025-12-23",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00664 Macroeconomist (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "0bd580e9660d1000f56906133ede0000",
+        "title": "VG Advertising sales agent",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/VG-Advertising-sales-agent_R-00663",
+        "startDate": "2025-12-23",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00663 VG Advertising sales agent (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>"
+      },
+      {
+        "id": "f5037c9e8e621000f023b5fa50bd0000",
+        "title": "ML expert level 2",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/ML-expert-level-2_R-00662",
+        "startDate": "2025-12-16",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00662 ML expert level 2 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>jd summary<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-16<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "92439fa52cd44e81a37f147548a9af53",
+            "descriptor": "Information Technology"
+          }
+        ]
+      },
+      {
+        "id": "04308a3ac4fd10015ea9b0063f350000",
+        "title": "Lead AI Developer",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Lead-AI-Developer_R-00654",
+        "startDate": "2025-12-10",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00654 Lead AI Developer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-10<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "92439fa52cd44e81a37f147548a9af53",
+            "descriptor": "Information Technology"
+          }
+        ]
+      },
+      {
+        "id": "04308a3ac4fd10013ab6974b39b50000",
+        "title": "Software Lead Level 1",
+        "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Software-Lead-Level-1_R-00653",
+        "startDate": "2025-12-09",
+        "primaryLocation": {
+          "id": "cc237600165744559cea44608b969271",
+          "descriptor": "Atlanta",
+          "country": {
+            "descriptor": "United States of America",
+            "alpha3Code": "USA"
+          },
+          "region": {
+            "descriptor": "Georgia",
+            "code": "GA"
+          }
+        },
+        "jobSite": {
+          "id": "1c6e9d0681aa1008753716e6ccae0000",
+          "descriptor": "ZKTeco External"
+        },
+        "jobType": {
+          "id": "9459f5e6f1084433b767c7901ec04416",
+          "descriptor": "Regular"
+        },
+        "timeType": {
+          "id": "900fa8d9ae6f45a0a788545a85878f40",
+          "descriptor": "Full time"
+        },
+        "company": {
+          "id": "827db9d515f6100169b2701b93890000",
+          "descriptor": "Cobalt Dev Team"
+        },
+        "spotlightJob": false,
+        "jobDescription": "R-00653 Software Lead Level 1 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-09<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+        "categories": [
+          {
+            "id": "92439fa52cd44e81a37f147548a9af53",
+            "descriptor": "Information Technology"
+          }
+        ]
+      }
+    ],
+    "nextCursor": "20",
+    "total": 113
+  },
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "tenant": "zktechnology_pt1",
+        "tokenDomain": "wd2-impl-services1.workday.com"
+      }
+    },
+    "getMetadata": {
+      "tenant": "zktechnology_pt1",
+      "metadata": {
+        "tenant": "zktechnology_pt1"
+      }
+    }
+  },
+  "api": {
+    "get": {
+      "/recruiting/v4/zktechnology_pt1/jobPostings": {
+        "response": {
+          "total": 113,
+          "data": [
+            {
+              "id": "2d76b324c36510012c2e765c9e0b0000",
+              "categories": [
+                {
+                  "id": "a5f55d09ded6430face634ba93fd671f",
+                  "descriptor": "Human Resources"
+                }
+              ],
+              "company": {
+                "id": "e02485f863ec48d39a082bb95cc4abe4",
+                "descriptor": "Human Resources"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Director--Recruiting-Services_R-00776",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "06d46ee5c1f701e40b978be4d418bc06",
+                "descriptor": "Apple Houston",
+                "region": {
+                  "descriptor": "Texas",
+                  "code": "TX"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2026-07-30",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00776 Director, Recruiting Services (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Overall responsibility for creating &amp; executing holistic recruitment strategy that maximizes quality of new hires &amp; speed they are hired. Responsible for managing recruitment team &amp; for devising &amp; implementing strategies for minimizing recruitment costs.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-21<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Director, Recruiting Services"
+            },
+            {
+              "id": "557c80a5d1e2100195fa7dc5eb550000",
+              "company": {
+                "id": "442514f36126101a9b88b019cb340000",
+                "descriptor": "WLI Technology"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Bangalore/Software-Engineer-II_R-00513",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "4d4ec8ccd07101cadb2ca8f61f0ecd06",
+                "descriptor": "Bangalore",
+                "country": {
+                  "descriptor": "India",
+                  "alpha3Code": "IND"
+                }
+              },
+              "startDate": "2026-07-25",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00513 Software Engineer II (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-01-09<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Bangalore<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Software Engineer II"
+            },
+            {
+              "id": "2d76b324c36510015a7eb0a7c3170000",
+              "company": {
+                "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+                "descriptor": "Global Modern Services"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Home-Office-USA/IT-Engineer_R-00777",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "b4b13a01c70b4ee883f7e9c2fd67c773",
+                "descriptor": "Home Office (USA)",
+                "region": {
+                  "descriptor": "California",
+                  "code": "CA"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2026-07-23",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00777 IT Engineer (Fill Date: 07/24/2026)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-22<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Home Office (USA)<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "IT Engineer"
+            },
+            {
+              "id": "d282847d45c210017528459d18ad0000",
+              "categories": [
+                {
+                  "id": "a5f55d09ded6430face634ba93fd671f",
+                  "descriptor": "Human Resources"
+                }
+              ],
+              "additionalLocations": [
+                {
+                  "id": "06d46ee5c1f701e40b978be4d418bc06",
+                  "descriptor": "Apple Houston",
+                  "region": {
+                    "descriptor": "Texas",
+                    "code": "TX"
+                  },
+                  "country": {
+                    "descriptor": "United States of America",
+                    "alpha3Code": "USA"
+                  }
+                },
+                {
+                  "id": "d951e85593ad4daf88dc1bfabf069732",
+                  "descriptor": "New York",
+                  "region": {
+                    "descriptor": "New York",
+                    "code": "NY"
+                  },
+                  "country": {
+                    "descriptor": "United States of America",
+                    "alpha3Code": "USA"
+                  }
+                }
+              ],
+              "company": {
+                "id": "e02485f863ec48d39a082bb95cc4abe4",
+                "descriptor": "Human Resources"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Oahu/Staff-HR-Representative_R-00779",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "d282847d45c210015e1157e07e0c0000",
+                "descriptor": "O'ahu",
+                "region": {
+                  "descriptor": "Hawaii",
+                  "code": "HI"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2026-07-22",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00779 Staff HR Representative (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Provides Corporate Human Resources &amp; Payroll Department administrative support from the field office locations.  Responsibile for maintaining employee information in HCM system and personnel files, coordinating the new hire process (new hire orientation).  Respond to general HR inquiries and provides interpretation when necessary.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-22<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>3<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Honolulu Building 1<p></p><p><b>Education Required</b></p>B.A.: Human Resources Management (Required)<p></p><p><b>Experience</b></p>General HR Experience<p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Staff HR Representative"
+            },
+            {
+              "id": "a5ffc244c7411001d07e7f5bf2550000",
+              "categories": [
+                {
+                  "id": "92439fa52cd44e81a37f147548a9af53",
+                  "descriptor": "Information Technology"
+                }
+              ],
+              "endDate": "2026-08-31",
+              "company": {
+                "id": "cefa6ba30e651000cdabb530a59c0000",
+                "descriptor": "Telenor Executive Group"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/HR-Mohakhali-DOHS/Senior-Backend-Engineer_R-00764",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "b3dc45a69248102400e5b333babc0000",
+                "descriptor": "HR Mohakhali DOHS",
+                "country": {
+                  "descriptor": "Bangladesh",
+                  "alpha3Code": "BGD"
+                }
+              },
+              "startDate": "2026-07-17",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00764 Senior Backend Engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>We are seeking a Senior Backend Engineer to design and scale the core services behind our hiring platform, working with Python, PostgreSQL, Redis, and distributed systems.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-17<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>HR Mohakhali DOHS<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Senior Backend Engineer"
+            },
+            {
+              "id": "a5ffc244c7411000cd4606c47ab50000",
+              "categories": [
+                {
+                  "id": "a5f55d09ded6430face634ba93fd671f",
+                  "descriptor": "Human Resources"
+                }
+              ],
+              "company": {
+                "id": "071bfafccec949059ae07d9992658714",
+                "descriptor": "IT Operations"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/New-York/Staff-HR-Representative_R-00769",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "d951e85593ad4daf88dc1bfabf069732",
+                "descriptor": "New York",
+                "region": {
+                  "descriptor": "New York",
+                  "code": "NY"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2026-07-13",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00769 Staff HR Representative (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Provides Corporate Human Resources &amp; Payroll Department administrative support from the field office locations.  Responsibile for maintaining employee information in HCM system and personnel files, coordinating the new hire process (new hire orientation).  Respond to general HR inquiries and provides interpretation when necessary.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-13<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>New York<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p>General HR Experience<p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Staff HR Representative"
+            },
+            {
+              "id": "b647f08b8df910016c25f8ebea460000",
+              "categories": [
+                {
+                  "id": "29fe37cf54b74c388049f2c74ce430cd",
+                  "descriptor": "Customer Services"
+                }
+              ],
+              "company": {
+                "id": "e3036aad35ed4a48b7b0aa03bb055440",
+                "descriptor": "Global Support - LATAM"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Mexico-City/Customer-Service-Advocate_R-00732",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "aaf1d21b5df44ebd97d289cf10ef4da2",
+                "descriptor": "Mexico City",
+                "region": {
+                  "descriptor": "Distrito Federal",
+                  "code": "DIF"
+                },
+                "country": {
+                  "descriptor": "Mexico",
+                  "alpha3Code": "MEX"
+                }
+              },
+              "startDate": "2026-06-03",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00732 Customer Service Advocate (Evergreen) (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Responsible for receiving, responding to and resolving customer telephone-inquires in a high-volume call center.  Maintain departmental quality and productivity standards.  Where appropriate, cross-reference a variety other products and services available for customers to consider.  Engage in outbound calls to current customers to survey satisfaction with current products.  Perform other work-related duties, as assigned - including (but not limited to) customer e-mail and correspondence.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-06-03<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Mexico City<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Customer Service Advocate"
+            },
+            {
+              "id": "22d8f0abb30a1000b4ae68ccd4ed0000",
+              "categories": [
+                {
+                  "id": "442514f36126101b370bbf1f37d10000",
+                  "descriptor": "WLI Human Resources"
+                }
+              ],
+              "company": {
+                "id": "69f6599a46fe1000bc06f32eedba0000",
+                "descriptor": "Stack One R&D"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/New-Jersey/SR-Recruiting-Consultant_R-00529-1",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "4d4ec8ccd071018d93e3c369db0d6105",
+                "descriptor": "New Jersey",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "New Jersey",
+                  "code": "NJ"
+                }
+              },
+              "startDate": "2026-05-18",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00529 SR. Recruiting Consultant (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>The HRIS manages HR data, including employee records, payroll, and time off. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p><span>The HR</span><span><span><span>IS</span></span></span><span><span>\u00a0</span></span><b>manages HR data, including employee records, payroll, and time off</b><span>. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p><span>The HR</span><span><span><span>IS</span></span></span><span><span>\u00a0</span></span><b>manages HR data, including employee records, payroll, and time off</b><span>. The HRIS analyst is in charge of maintaining the system, implementing (process) improvements, ensuring data quality, and analyzing and reporting on the data in the HRIS.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-01-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>198<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>New Jersey<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "SR. Recruiting Consultant"
+            },
+            {
+              "id": "7b41233a81881001092f01bc5a180000",
+              "company": {
+                "id": "47b3bee850a6100199cb06f50a570000",
+                "descriptor": "ModernLoop R&D"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Amsterdam/Software-Engineer_R-00276",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "2a49aa1ae0dc4dccb9d3c46cd71ee635",
+                "descriptor": "Amsterdam",
+                "country": {
+                  "descriptor": "Netherlands",
+                  "alpha3Code": "NLD"
+                },
+                "region": {
+                  "descriptor": "North Holland",
+                  "code": "NH"
+                }
+              },
+              "startDate": "2026-05-14",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00276 Software Engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Development Engineer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2024-07-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>70<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Amsterdam<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Software Engineer"
+            },
+            {
+              "id": "d33b92bd94ac1000d40d816622d30000",
+              "categories": [
+                {
+                  "id": "7e3429d967e447f283c2b45861c19301",
+                  "descriptor": "Services"
+                }
+              ],
+              "company": {
+                "id": "66889e1c22c943449e924fccfb2f9f57",
+                "descriptor": "Consulting Services - LATAM"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Senior-Consultant_R-00025",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "startDate": "2026-04-13",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00025 Senior Consultant (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Responsible for identifying business requirements, functional design, prototyping, process design (including scenario design, flow mapping), testing, training, defining support procedures and supporting implementations.  Ability to provide leadership and guidance to engagement team.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-04-13<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Senior Consultant"
+            },
+            {
+              "id": "bca85fda365410008f02c6c2c9e50000",
+              "categories": [
+                {
+                  "id": "2b246290e43244bca234bb6066bf5d0e",
+                  "descriptor": "Executive"
+                }
+              ],
+              "company": {
+                "id": "ef7a0ad4065e47bf83cb076399fc1dcc",
+                "descriptor": "Global Modern Services"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Chief-Executive-Officer_R-00718",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "06d46ee5c1f701e40b978be4d418bc06",
+                "descriptor": "Apple Houston",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "Texas",
+                  "code": "TX"
+                }
+              },
+              "startDate": "2026-03-15",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00718 Chief Executive Officer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>The CEO is the highest-ranking corporate executive officer in charge of total management of the corporation. CEOs manage the overall operations of a company. Manages and directs the company toward its primary goals and objectives.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p>The CEO is the highest-ranking corporate executive officer in charge of total management of the corporation. CEOs manage the overall operations of a company. Manages and directs the company toward its primary goals and objectives<span>.</span></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-03-15<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p>B.A.: Economics, B.S.: Economics, MBA: Business Administration<p></p><p><b>Experience</b></p>Managed Groups of, Management Experience<p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Chief Executive Officer"
+            },
+            {
+              "id": "3fd50c6106f210017b3b78cadc2c0000",
+              "company": {
+                "id": "3fd50c6106f210015efded0399880000",
+                "descriptor": "Talkpush Dev"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/DCS-Workday-Analyst_R-00715",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "06d46ee5c1f701e40b978be4d418bc06",
+                "descriptor": "Apple Houston",
+                "region": {
+                  "descriptor": "Texas",
+                  "code": "TX"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2026-03-11",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00715 DCS Workday Analyst (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>testing<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-03-11<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>5<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p>B.S.: Computer and Information Science (Required)<p></p><p><b>Experience</b></p>Customer Service Experience<p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "DCS Workday Analyst"
+            },
+            {
+              "id": "c86527e1b0f4100105d8aabd51100000",
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Melbourne/VSM-AI-Lead_R-00672",
+              "jobType": {
+                "id": "f19bda77c410479a816a008e0c74b240",
+                "descriptor": "Contractor"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "8f13f1edaa894370b5fe6b405a656749",
+                "descriptor": "Melbourne",
+                "country": {
+                  "descriptor": "Australia",
+                  "alpha3Code": "AUS"
+                },
+                "region": {
+                  "descriptor": "Victoria",
+                  "code": "VIC"
+                }
+              },
+              "startDate": "2025-12-30",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00672 VSM AI Lead (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-30<p></p><p><b>Employee Type</b></p>Contingent Worker<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Contractor<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Melbourne<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "VSM AI Lead"
+            },
+            {
+              "id": "204a7cbec3271000d372d004d7de0000",
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Vancouver/AI-Lead-Developer-4_R-00670",
+              "jobType": {
+                "id": "f19bda77c410479a816a008e0c74b240",
+                "descriptor": "Contractor"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "be63426899d149f4bb20d2b96512b2c0",
+                "descriptor": "Vancouver",
+                "region": {
+                  "descriptor": "British Columbia",
+                  "code": "BC"
+                },
+                "country": {
+                  "descriptor": "Canada",
+                  "alpha3Code": "CAN"
+                }
+              },
+              "startDate": "2025-12-29",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00670 AI Lead Developer 4 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Software Developer<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-29<p></p><p><b>Employee Type</b></p>Contingent Worker<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Contractor<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>2<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Vancouver<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "AI Lead Developer 4"
+            },
+            {
+              "id": "0bd580e9660d1000fd91f0bc925f0000",
+              "categories": [
+                {
+                  "id": "b1e2748cd94c48568186ac5229b0951b",
+                  "descriptor": "Finance"
+                }
+              ],
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Airline-flight-engineer_R-00665",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                }
+              },
+              "startDate": "2025-12-23",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00665 Airline flight engineer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>A Business Analyst's responsibility is to help drive projects and bring value through operations. To do this, they identify, distinguish and analyze multiple components of a problem and then make conclusions using high-level quantitative skills. Common responsibilities include strategic operations analysis, identifying performance trends, scanning business/industry trends, reviewing  sales/financial analysis and interpreting data. Individuals in this position work with a variety of people across the company to perform their job; and therefore, successful Business Analysts have strong skills in communication.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Airline flight engineer"
+            },
+            {
+              "id": "0bd580e9660d1000f796dc972d690000",
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Macroeconomist_R-00664",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                }
+              },
+              "startDate": "2025-12-23",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00664 Macroeconomist (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Macroeconomist"
+            },
+            {
+              "id": "0bd580e9660d1000f56906133ede0000",
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/VG-Advertising-sales-agent_R-00663",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                }
+              },
+              "startDate": "2025-12-23",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00663 VG Advertising sales agent (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p>Sales-Business Development<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-23<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "VG Advertising sales agent"
+            },
+            {
+              "id": "f5037c9e8e621000f023b5fa50bd0000",
+              "categories": [
+                {
+                  "id": "92439fa52cd44e81a37f147548a9af53",
+                  "descriptor": "Information Technology"
+                }
+              ],
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/ML-expert-level-2_R-00662",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                },
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                }
+              },
+              "startDate": "2025-12-16",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00662 ML expert level 2 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>jd summary<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-16<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "ML expert level 2"
+            },
+            {
+              "id": "04308a3ac4fd10015ea9b0063f350000",
+              "categories": [
+                {
+                  "id": "92439fa52cd44e81a37f147548a9af53",
+                  "descriptor": "Information Technology"
+                }
+              ],
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Lead-AI-Developer_R-00654",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2025-12-10",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00654 Lead AI Developer (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-10<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Lead AI Developer"
+            },
+            {
+              "id": "04308a3ac4fd10013ab6974b39b50000",
+              "categories": [
+                {
+                  "id": "92439fa52cd44e81a37f147548a9af53",
+                  "descriptor": "Information Technology"
+                }
+              ],
+              "company": {
+                "id": "827db9d515f6100169b2701b93890000",
+                "descriptor": "Cobalt Dev Team"
+              },
+              "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Atlanta/Software-Lead-Level-1_R-00653",
+              "jobType": {
+                "id": "9459f5e6f1084433b767c7901ec04416",
+                "descriptor": "Regular"
+              },
+              "spotlightJob": false,
+              "primaryLocation": {
+                "id": "cc237600165744559cea44608b969271",
+                "descriptor": "Atlanta",
+                "region": {
+                  "descriptor": "Georgia",
+                  "code": "GA"
+                },
+                "country": {
+                  "descriptor": "United States of America",
+                  "alpha3Code": "USA"
+                }
+              },
+              "startDate": "2025-12-09",
+              "timeType": {
+                "id": "900fa8d9ae6f45a0a788545a85878f40",
+                "descriptor": "Full time"
+              },
+              "jobDescription": "R-00653 Software Lead Level 1 (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2025-12-09<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>1<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>Atlanta<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+              "jobSite": {
+                "id": "1c6e9d0681aa1008753716e6ccae0000",
+                "descriptor": "ZKTeco External"
+              },
+              "title": "Software Lead Level 1"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:48:13 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1911",
+          "x-ratelimit-reset": "1787172493",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "60a3173a-deb3-47fa-91eb-f51975aba0bb",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "d5afdc418f3fa0eef357d3bb694a1efd9b27d7a1",
+        "request": {
+          "params": {
+            "limit": "20",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

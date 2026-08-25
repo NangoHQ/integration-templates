@@ -3,16 +3,21 @@
     "customerId": "1781900691",
     "loginCustomerId": "3608201627",
     "campaign": "customers/1781900691/campaigns/24027360183",
-    "geoTargetConstant": "geoTargetConstants/2840",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "geoTargetConstant": "geoTargetConstants/2840"
   },
   "output": {
     "resourceName": "customers/1781900691/campaignCriteria/24027360183~2840"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/customers/1781900691/campaignCriteria:mutate": {
+      "/v25/customers/1781900691/campaignCriteria:mutate": {
         "response": {
           "results": [
             {

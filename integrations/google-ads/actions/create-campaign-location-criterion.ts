@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Customer ID. Example: "1781900691"'),
@@ -8,8 +9,7 @@ const InputSchema = z.object({
         .optional()
         .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
     campaign: z.string().describe('Campaign resource name. Example: "customers/1781900691/campaigns/24027360183"'),
-    geoTargetConstant: z.string().describe('Geo target constant resource name. Example: "geoTargetConstants/21167"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    geoTargetConstant: z.string().describe('Geo target constant resource name. Example: "geoTargetConstants/21167"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -23,17 +23,25 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add geographic location targeting to a campaign using a geo target constant.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/rest/reference/rest/v21/customers/campaignCriteria/mutate
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
+            // https://developers.google.com/google-ads/api/rest/reference/rest/v25/customers/campaignCriteria/mutate
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
-                'developer-token': input.developerToken,
+                'developer-token': developerToken,
                 ...(input.loginCustomerId && { 'login-customer-id': input.loginCustomerId })
             },
             data: {

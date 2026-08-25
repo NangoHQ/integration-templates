@@ -1,0 +1,206 @@
+{
+  "input": {
+    "workerId": "fa1a4057915f1010adcb915e0b120000"
+  },
+  "output": {
+    "balances": [
+      {
+        "id": "cebc8f97e080103d7b540fe2af5b0000",
+        "planId": "cebc8f97e080103d7b540fe2af5b0000",
+        "planName": "Company > ABC",
+        "category": "Leave of Absence Type",
+        "balance": 15,
+        "unit": "Hours",
+        "effectiveDate": "2026-08-19"
+      },
+      {
+        "id": "61276d2a22c31000863c9568eb1f0000",
+        "planId": "61276d2a22c31000863c9568eb1f0000",
+        "planName": "Mango FMLA - Military leave",
+        "category": "Leave of Absence Type",
+        "balance": 130,
+        "unit": "Days",
+        "effectiveDate": "2026-08-19"
+      },
+      {
+        "id": "a98881ce589b1001dc21009cf4170000",
+        "planId": "a98881ce589b1001dc21009cf4170000",
+        "planName": "Mango Time Off Plan",
+        "category": "Time Off Plan",
+        "balance": 100,
+        "unit": "Hours",
+        "effectiveDate": "2026-08-19"
+      },
+      {
+        "id": "04ab2d251adf1001a3f9ebc01bdf0000",
+        "planId": "04ab2d251adf1001a3f9ebc01bdf0000",
+        "planName": "VG Vacation",
+        "category": "Time Off Plan",
+        "balance": 60,
+        "unit": "Days",
+        "effectiveDate": "2026-08-19"
+      },
+      {
+        "id": "89f6cc87899c1018af5c503d4c490000",
+        "planId": "89f6cc87899c1018af5c503d4c490000",
+        "planName": "ZKTeco TimeOff Day",
+        "category": "Time Off Plan",
+        "balance": 18.5,
+        "unit": "Days",
+        "effectiveDate": "2026-08-19"
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "zktechnology_pt1",
+      "metadata": {
+        "tenant": "zktechnology_pt1"
+      }
+    }
+  },
+  "api": {
+    "get": {
+      "/absenceManagement/v4/zktechnology_pt1/balances": {
+        "response": {
+          "total": 5,
+          "data": [
+            {
+              "absencePlan": {
+                "id": "cebc8f97e080103d7b540fe2af5b0000",
+                "descriptor": "Company > ABC"
+              },
+              "unit": {
+                "descriptor": "Hours",
+                "id": "c4dacbd56bca4a9a8950e8d3ed21bbdb"
+              },
+              "category": {
+                "descriptor": "Leave of Absence Type",
+                "id": "8cdc5bb544941000186a946b6d41006b"
+              },
+              "worker": {
+                "descriptor": "27373",
+                "id": "fa1a4057915f1010adcb915e0b120000"
+              },
+              "effectiveDate": "2026-08-19",
+              "quantity": "15"
+            },
+            {
+              "absencePlan": {
+                "id": "61276d2a22c31000863c9568eb1f0000",
+                "descriptor": "Mango FMLA - Military leave"
+              },
+              "unit": {
+                "descriptor": "Days",
+                "id": "4d9c0a4936614375aa5e97b6223625f2"
+              },
+              "category": {
+                "descriptor": "Leave of Absence Type",
+                "id": "8cdc5bb544941000186a946b6d41006b"
+              },
+              "worker": {
+                "descriptor": "27373",
+                "id": "fa1a4057915f1010adcb915e0b120000"
+              },
+              "effectiveDate": "2026-08-19",
+              "quantity": "130"
+            },
+            {
+              "absencePlan": {
+                "id": "a98881ce589b1001dc21009cf4170000",
+                "descriptor": "Mango Time Off Plan"
+              },
+              "unit": {
+                "descriptor": "Hours",
+                "id": "c4dacbd56bca4a9a8950e8d3ed21bbdb"
+              },
+              "category": {
+                "descriptor": "Time Off Plan",
+                "id": "8cdc5bb54494100018789cabb3df006d"
+              },
+              "worker": {
+                "descriptor": "27373",
+                "id": "fa1a4057915f1010adcb915e0b120000"
+              },
+              "effectiveDate": "2026-08-19",
+              "quantity": "100"
+            },
+            {
+              "absencePlan": {
+                "id": "04ab2d251adf1001a3f9ebc01bdf0000",
+                "descriptor": "VG Vacation",
+                "timeoffs": "(Annual Leave (Days))"
+              },
+              "unit": {
+                "descriptor": "Days",
+                "id": "4d9c0a4936614375aa5e97b6223625f2"
+              },
+              "category": {
+                "descriptor": "Time Off Plan",
+                "id": "8cdc5bb54494100018789cabb3df006d"
+              },
+              "worker": {
+                "descriptor": "27373",
+                "id": "fa1a4057915f1010adcb915e0b120000"
+              },
+              "effectiveDate": "2026-08-19",
+              "quantity": "60"
+            },
+            {
+              "absencePlan": {
+                "timeoffs": "(Mango Vacation Type Day)",
+                "id": "89f6cc87899c1018af5c503d4c490000",
+                "descriptor": "ZKTeco TimeOff Day"
+              },
+              "unit": {
+                "descriptor": "Days",
+                "id": "4d9c0a4936614375aa5e97b6223625f2"
+              },
+              "category": {
+                "descriptor": "Time Off Plan",
+                "id": "8cdc5bb54494100018789cabb3df006d"
+              },
+              "worker": {
+                "descriptor": "27373",
+                "id": "fa1a4057915f1010adcb915e0b120000"
+              },
+              "effectiveDate": "2026-08-19",
+              "quantity": "18.5"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:51:03 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1856",
+          "x-ratelimit-reset": "1787172679",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "3317b4e8-ce00-4ba5-ad98-d3ef7dd9699e",
+          "set-cookie": "TS012df9cf=010914a00cab01dcb7759a8945bdaa215b03db7cba1bb7fd44b4d21afda5b6ae09804a433f3ed219b8fd3d7652a1cf9e66b7d6c850; Path=/; HttpOnly"
+        },
+        "hash": "0300a75dad94d6019f9899bd69ccdeeb84d964ed",
+        "request": {
+          "params": {
+            "worker": "fa1a4057915f1010adcb915e0b120000"
+          }
+        }
+      }
+    }
+  }
+}

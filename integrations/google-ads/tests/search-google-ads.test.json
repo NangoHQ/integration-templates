@@ -2,8 +2,7 @@
   "input": {
     "customerId": "1781900691",
     "query": "SELECT campaign.id, campaign.name FROM campaign LIMIT 1",
-    "loginCustomerId": "3608201627",
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    "loginCustomerId": "3608201627"
   },
   "output": {
     "results": [
@@ -16,10 +15,16 @@
       }
     ]
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/customers/1781900691/googleAds:search": {
+      "/v25/customers/1781900691/googleAds:search": {
         "response": {
           "results": [
             {

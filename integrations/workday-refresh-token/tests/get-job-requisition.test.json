@@ -1,0 +1,130 @@
+{
+  "input": {
+    "id": "2d76b324c36510012c2e765c9e0b0000"
+  },
+  "output": {
+    "id": "2d76b324c36510012c2e765c9e0b0000",
+    "title": "Director, Recruiting Services",
+    "jobDescription": "R-00776 Director, Recruiting Services (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Overall responsibility for creating &amp; executing holistic recruitment strategy that maximizes quality of new hires &amp; speed they are hired. Responsible for managing recruitment team &amp; for devising &amp; implementing strategies for minimizing recruitment costs.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-21<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+    "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Director--Recruiting-Services_R-00776",
+    "startDate": "2026-07-30",
+    "spotlightJob": false,
+    "timeType": {
+      "id": "900fa8d9ae6f45a0a788545a85878f40",
+      "descriptor": "Full time"
+    },
+    "jobType": {
+      "id": "9459f5e6f1084433b767c7901ec04416",
+      "descriptor": "Regular"
+    },
+    "primaryLocation": {
+      "id": "06d46ee5c1f701e40b978be4d418bc06",
+      "descriptor": "Apple Houston",
+      "country": {
+        "descriptor": "United States of America",
+        "alpha3Code": "USA"
+      },
+      "region": {
+        "descriptor": "Texas",
+        "code": "TX"
+      }
+    },
+    "categories": [
+      {
+        "id": "a5f55d09ded6430face634ba93fd671f",
+        "descriptor": "Human Resources"
+      }
+    ],
+    "jobSite": {
+      "id": "1c6e9d0681aa1008753716e6ccae0000",
+      "descriptor": "ZKTeco External"
+    },
+    "company": {
+      "id": "e02485f863ec48d39a082bb95cc4abe4",
+      "descriptor": "Human Resources"
+    }
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "zktechnology_pt1",
+      "metadata": {
+        "tenant": "zktechnology_pt1"
+      }
+    }
+  },
+  "api": {
+    "get": {
+      "/recruiting/v1/zktechnology_pt1/jobPostings/2d76b324c36510012c2e765c9e0b0000": {
+        "response": {
+          "id": "2d76b324c36510012c2e765c9e0b0000",
+          "categories": [
+            {
+              "id": "a5f55d09ded6430face634ba93fd671f",
+              "descriptor": "Human Resources"
+            }
+          ],
+          "title": "Director, Recruiting Services",
+          "startDate": "2026-07-30",
+          "url": "https://zktechnology-pt1.wd2.myworkdayjobs-impl.com/ZKTeco_External/job/Apple-Houston/Director--Recruiting-Services_R-00776",
+          "company": {
+            "id": "e02485f863ec48d39a082bb95cc4abe4",
+            "descriptor": "Human Resources"
+          },
+          "jobSite": {
+            "id": "1c6e9d0681aa1008753716e6ccae0000",
+            "descriptor": "ZKTeco External"
+          },
+          "timeType": {
+            "id": "900fa8d9ae6f45a0a788545a85878f40",
+            "descriptor": "Full time"
+          },
+          "spotlightJob": false,
+          "jobDescription": "R-00776 Director, Recruiting Services (Open)<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Job Expectations </span></b></p></div></div></div>Overall responsibility for creating &amp; executing holistic recruitment strategy that maximizes quality of new hires &amp; speed they are hired. Responsible for managing recruitment team &amp; for devising &amp; implementing strategies for minimizing recruitment costs.<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Roles and Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Additional Responsibility</b></p><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Expected Hire Date</b></p>2026-07-21<p></p><p><b>Employee Type</b></p>Employee<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Worker Sub type</b></p>Regular<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Time Type</span></b></p></div></div></div>Full time<div><div><div><p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b><span>Number of Openings </span></b></p></div></div></div>0<p style=\"text-align:inherit\"></p><p style=\"text-align:left\"><b>Location</b></p><p style=\"text-align:inherit\"></p>San Francisco<p></p><p><b>Education Required</b></p><p></p><p><b>Experience</b></p><p></p><p><b>Skills</b></p>",
+          "jobType": {
+            "id": "9459f5e6f1084433b767c7901ec04416",
+            "descriptor": "Regular"
+          },
+          "primaryLocation": {
+            "id": "06d46ee5c1f701e40b978be4d418bc06",
+            "descriptor": "Apple Houston",
+            "country": {
+              "descriptor": "United States of America",
+              "alpha3Code": "USA"
+            },
+            "region": {
+              "descriptor": "Texas",
+              "code": "TX"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:49:56 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1787172615",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "6d8191bc-bc8c-4345-b1fc-67fade2285cb",
+          "set-cookie": "TS012df9cf=010914a00cbe59bbfc7671ccff031ae14a5ff42fc2f418bb70bd37bd938754625176e3afd1fb4d48431b5e8b91af62975ca5bfc514; Path=/; HttpOnly"
+        },
+        "hash": "ac74d127237ae515d9f243c40468685b87439f2e",
+        "request": {}
+      }
+    }
+  }
+}

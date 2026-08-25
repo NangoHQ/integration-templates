@@ -6,8 +6,7 @@
       "names": [
         "New York"
       ]
-    },
-    "developerToken": "YOUR_DEVELOPER_TOKEN"
+    }
   },
   "output": {
     "geoTargetConstantSuggestions": [
@@ -317,10 +316,16 @@
       }
     ]
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {
+      "connection_config": {
+        "developer_token": "YOUR_DEVELOPER_TOKEN"
+      }
+    }
+  },
   "api": {
     "post": {
-      "/v21/geoTargetConstants:suggest": {
+      "/v25/geoTargetConstants:suggest": {
         "response": {
           "geoTargetConstantSuggestions": [
             {

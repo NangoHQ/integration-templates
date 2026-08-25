@@ -1,0 +1,83 @@
+{
+  "input": {
+    "worker_id": "fa1a4057915f1010adcb915e0b120000"
+  },
+  "output": {
+    "id": "fa1a4057915f1010adcb915e0b120000",
+    "descriptor": "27373",
+    "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000",
+    "businessTitle": "Manager, IT Operations",
+    "primaryWorkPhone": "+91 (73264) 16007",
+    "primaryWorkAddressText": "Bangalore, Bangalore- 560076",
+    "yearsOfService": "2",
+    "isManager": false,
+    "location": {
+      "id": "4d4ec8ccd07101cadb2ca8f61f0ecd06",
+      "descriptor": "Bangalore"
+    },
+    "primarySupervisoryOrganization": {
+      "id": "87b6d8b120cc01c9f23e727a970e2f07",
+      "descriptor": "Mango LLC (William Christopher)",
+      "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+    },
+    "supervisoryOrganizationsManaged": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000/supervisoryOrganizationsManaged"
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {
+      "tenant": "zktechnology_pt1"
+    }
+  },
+  "api": {
+    "get": {
+      "/common/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000": {
+        "response": {
+          "id": "fa1a4057915f1010adcb915e0b120000",
+          "descriptor": "27373",
+          "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000",
+          "yearsOfService": "2",
+          "businessTitle": "Manager, IT Operations",
+          "supervisoryOrganizationsManaged": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/workers/fa1a4057915f1010adcb915e0b120000/supervisoryOrganizationsManaged",
+          "isManager": false,
+          "primaryWorkAddressText": "Bangalore, Bangalore- 560076",
+          "primarySupervisoryOrganization": {
+            "descriptor": "Mango LLC (William Christopher)",
+            "id": "87b6d8b120cc01c9f23e727a970e2f07",
+            "href": "https://wd2-impl-services1.workday.com/api/api/v1/zktechnology_pt1/supervisoryOrganizations/87b6d8b120cc01c9f23e727a970e2f07"
+          },
+          "location": {
+            "descriptor": "Bangalore",
+            "id": "4d4ec8ccd07101cadb2ca8f61f0ecd06"
+          },
+          "primaryWorkPhone": "+91 (73264) 16007"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 19 Aug 2026 20:46:34 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1936",
+          "x-ratelimit-reset": "1787172429",
+          "cache-control": "no-cache",
+          "wd-ratelimit-tokens-remaining": "7199",
+          "wd-stat-request-id": "33ad150e-d2c3-431f-8439-0db7d903eae3",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "e820d71c7043217cf6fe0847f6cbd3a997588e49",
+        "request": {}
+      }
+    }
+  }
+}
