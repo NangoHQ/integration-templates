@@ -175,10 +175,10 @@ const sync = createSync({
         // Determine starting phase from checkpoint or default to ids
         let phase = checkpoint?.phase ?? 'ids';
         if (phase === 'ids' && !shouldFetchIds) {
-            phase = 'handles';
+            phase = shouldFetchHandles ? 'handles' : shouldFetchMine ? 'mine' : 'done';
         }
         if (phase === 'handles' && !shouldFetchHandles) {
-            phase = 'mine';
+            phase = shouldFetchMine ? 'mine' : 'done';
         }
         if (phase === 'mine' && !shouldFetchMine) {
             phase = 'done';
@@ -238,7 +238,7 @@ const sync = createSync({
                 checkpointSaved = true;
             }
 
-            phase = 'handles';
+            phase = shouldFetchHandles ? 'handles' : shouldFetchMine ? 'mine' : 'done';
         }
 
         // Fetch channels by handle with pagination resume
@@ -298,7 +298,7 @@ const sync = createSync({
                 }
             }
 
-            phase = 'mine';
+            phase = shouldFetchMine ? 'mine' : 'done';
         }
 
         // Fetch the authenticated user's channel(s) with pagination resume

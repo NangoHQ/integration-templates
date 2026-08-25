@@ -54,7 +54,9 @@ const sync = createSync({
         const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
 
         // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
-        let repoPage = checkpoint != null ? checkpoint['repo_page'] : 1;
+        // repo_index addresses the complete repository list, so always rebuild that list
+        // from page 1 before applying the saved index.
+        let repoPage = 1;
         const repositories: Array<{ owner: string; name: string }> = [];
         while (true) {
             const repoResponse = await nango.get({

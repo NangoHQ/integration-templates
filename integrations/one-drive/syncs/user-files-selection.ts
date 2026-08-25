@@ -118,7 +118,6 @@ const sync = createSync({
 
         // Track deletes to remove files that are no longer selected
         await nango.trackDeletesStart('SelectedUserFile');
-        let fetchErrorCount = 0;
 
         for (let i = startIndex; i < metadata.pickedFiles.length; i++) {
             const pickedFile = metadata.pickedFiles[i];
@@ -126,8 +125,8 @@ const sync = createSync({
                 continue;
             }
 
-            // @allowTryCatch Continue processing other files if one fails
-            // Individual file failures should not block the entire sync
+            // @allowTryCatch Log the file identity before aborting so the same file is retried
+            // from the existing checkpoint on the next execution.
             try {
                 // https://learn.microsoft.com/graph/api/driveitem-get
                 const response = await nango.get({
@@ -198,18 +197,12 @@ const sync = createSync({
                 await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
                 await nango.saveCheckpoint({ index: i + 1 });
             } catch (error) {
-                fetchErrorCount++;
                 await nango.log(
-                    `Warning: Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`
+                    `Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`,
+                    { level: 'error' }
                 );
+                throw error;
             }
-        }
-
-        // Guard: if every file fetch from this execution failed, abort rather than calling trackDeletesEnd
-        // with no saves, which would mass-delete all previously synced records.
-        const filesProcessedInThisRun = metadata.pickedFiles.length - startIndex;
-        if (fetchErrorCount === filesProcessedInThisRun && filesProcessedInThisRun > 0) {
-            throw new Error('All file fetches failed; aborting sync to prevent accidental data loss from delete tracking');
         }
 
         // Clear checkpoint and end delete tracking - files no longer in selection will be deleted
