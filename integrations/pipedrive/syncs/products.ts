@@ -55,11 +55,16 @@ const ProductSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    start: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync products from Pipedrive.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
@@ -72,7 +77,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
-        // Delete tracking requires full enumeration — always start from offset 0
+        const checkpoint = await nango.getCheckpoint();
+        const validatedCheckpoint = checkpoint != null ? CheckpointSchema.parse(checkpoint) : null;
+        let nextStart: number | undefined = validatedCheckpoint?.start ?? 0;
+
         await nango.trackDeletesStart('Product');
 
         const proxyConfig: ProxyConfiguration = {
@@ -85,11 +93,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'start',
-                offset_start_value: 0,
+                offset_start_value: nextStart,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'data'
+                response_path: 'data',
+                on_page: async ({ nextPageParam }) => {
+                    nextStart = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -98,11 +109,7 @@ const sync = createSync({
             const products: z.infer<typeof ProductSchema>[] = [];
 
             for (const record of page) {
-                const parsed = PipedriveProductSchema.safeParse(record);
-                if (!parsed.success) {
-                    continue;
-                }
-                const product = parsed.data;
+                const product = PipedriveProductSchema.parse(record);
                 const ownerId = typeof product.owner_id === 'number' ? product.owner_id : product.owner_id?.id;
                 const visibleTo = typeof product.visible_to === 'string' ? Number(product.visible_to) : product.visible_to;
 
@@ -133,8 +140,13 @@ const sync = createSync({
             if (products.length > 0) {
                 await nango.batchSave(products, 'Product');
             }
+
+            if (nextStart !== undefined) {
+                await nango.saveCheckpoint({ start: nextStart });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Product');
     }
 });

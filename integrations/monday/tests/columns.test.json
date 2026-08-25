@@ -3,6 +3,62 @@
     "batchSave": {
       "Column": [
         {
+          "id": "5096998873_name",
+          "board_id": "5096998873",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998873_person",
+          "board_id": "5096998873",
+          "column_id": "person",
+          "title": "Owner",
+          "type": "people",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998873_status",
+          "board_id": "5096998873",
+          "column_id": "status",
+          "title": "Status",
+          "type": "status",
+          "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+        },
+        {
+          "id": "5096998873_date0",
+          "board_id": "5096998873",
+          "column_id": "date0",
+          "title": "Date",
+          "type": "date",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998717_name",
+          "board_id": "5096998717",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998627_name",
+          "board_id": "5096998627",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096998620_name",
+          "board_id": "5096998620",
+          "column_id": "name",
+          "title": "Name",
+          "type": "name",
+          "settings_str": "{}"
+        },
+        {
           "id": "5096998570_name",
           "board_id": "5096998570",
           "column_id": "name",
@@ -491,10 +547,50 @@
           "settings_str": "{}"
         },
         {
-          "id": "5096980653_text_mm3kmqah",
+          "id": "5096980653_text_mm3k4qb1",
           "board_id": "5096980653",
-          "column_id": "text_mm3kmqah",
-          "title": "Temp Delete Column",
+          "column_id": "text_mm3k4qb1",
+          "title": "Test Column Dryrun",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_text_mm3kpt0e",
+          "board_id": "5096980653",
+          "column_id": "text_mm3kpt0e",
+          "title": "Test Column Dryrun",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_text_mm3knpsn",
+          "board_id": "5096980653",
+          "column_id": "text_mm3knpsn",
+          "title": "Test Column Dryrun",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_text_mm3knbh2",
+          "board_id": "5096980653",
+          "column_id": "text_mm3knbh2",
+          "title": "Test Column Dryrun 2",
+          "type": "text",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_file_mm3ke3ht",
+          "board_id": "5096980653",
+          "column_id": "file_mm3ke3ht",
+          "title": "Attachments",
+          "type": "file",
+          "settings_str": "{}"
+        },
+        {
+          "id": "5096980653_text_mm3k7081",
+          "board_id": "5096980653",
+          "column_id": "text_mm3k7081",
+          "title": "Test Column Dryrun 2",
           "type": "text",
           "settings_str": "{}"
         },
@@ -577,6 +673,14 @@
           "title": "Epic ID",
           "type": "item_id",
           "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"ENAN\",\"counterId\":\"ce91c485-b9b2-4f5b-89ed-e84b27d62843\"},\"displayType\":\"customKey\"}"
+        },
+        {
+          "id": "5096980652_subtasks_mm3ks0ew",
+          "board_id": "5096980652",
+          "column_id": "subtasks_mm3ks0ew",
+          "title": "Subitems",
+          "type": "subtasks",
+          "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998873]}"
         },
         {
           "id": "5096980651_name",
@@ -886,6 +990,68 @@
         "response": {
           "data": {
             "boards": [
+              {
+                "id": "5096998873",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "person",
+                    "title": "Owner",
+                    "type": "people",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "status",
+                    "title": "Status",
+                    "type": "status",
+                    "settings_str": "{\"done_colors\":[1],\"hide_footer\":true,\"labels\":{\"0\":\"Working on it\",\"1\":\"Done\",\"2\":\"Stuck\"},\"labels_positions_v2\":{\"0\":1,\"1\":2,\"2\":0,\"3\":3,\"4\":4,\"5\":9,\"6\":5,\"8\":6,\"9\":7,\"10\":8},\"labels_colors\":{\"0\":{\"color\":\"#fdab3d\",\"border\":\"#e99729\",\"var_name\":\"orange\"},\"1\":{\"color\":\"#00c875\",\"border\":\"#00b461\",\"var_name\":\"green-shadow\"},\"2\":{\"color\":\"#df2f4a\",\"border\":\"#ce3048\",\"var_name\":\"red-shadow\"}}}"
+                  },
+                  {
+                    "id": "date0",
+                    "title": "Date",
+                    "type": "date",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998717",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998627",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
+              {
+                "id": "5096998620",
+                "columns": [
+                  {
+                    "id": "name",
+                    "title": "Name",
+                    "type": "name",
+                    "settings_str": "{}"
+                  }
+                ]
+              },
               {
                 "id": "5096998570",
                 "columns": [
@@ -1281,8 +1447,38 @@
                     "settings_str": "{}"
                   },
                   {
-                    "id": "text_mm3kmqah",
-                    "title": "Temp Delete Column",
+                    "id": "text_mm3k4qb1",
+                    "title": "Test Column Dryrun",
+                    "type": "text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "text_mm3kpt0e",
+                    "title": "Test Column Dryrun",
+                    "type": "text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "text_mm3knpsn",
+                    "title": "Test Column Dryrun",
+                    "type": "text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "text_mm3knbh2",
+                    "title": "Test Column Dryrun 2",
+                    "type": "text",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "file_mm3ke3ht",
+                    "title": "Attachments",
+                    "type": "file",
+                    "settings_str": "{}"
+                  },
+                  {
+                    "id": "text_mm3k7081",
+                    "title": "Test Column Dryrun 2",
                     "type": "text",
                     "settings_str": "{}"
                   }
@@ -1350,6 +1546,12 @@
                     "title": "Epic ID",
                     "type": "item_id",
                     "settings_str": "{\"customKeySettings\":{\"padding\":2,\"prefix\":\"ENAN\",\"counterId\":\"ce91c485-b9b2-4f5b-89ed-e84b27d62843\"},\"displayType\":\"customKey\"}"
+                  },
+                  {
+                    "id": "subtasks_mm3ks0ew",
+                    "title": "Subitems",
+                    "type": "subtasks",
+                    "settings_str": "{\"displayType\":\"BOARD_INLINE\",\"itemTypeName\":\"column.subtasks.title\",\"allowMultipleItems\":true,\"boardIds\":[5096998873]}"
                   }
                 ]
               },
@@ -1603,13 +1805,13 @@
             ]
           },
           "extensions": {
-            "request_id": "8d0250ee-2543-9795-b407-59698b3a14e3"
+            "request_id": "095a2e94-a4e3-9e65-a8dd-c4c8c8ac5991"
           }
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 22 May 2026 05:47:47 GMT",
-          "content-type": "application/json",
+          "date": "Tue, 18 Aug 2026 09:28:24 GMT",
+          "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "x-xss-protection": "0",
@@ -1617,30 +1819,36 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
           "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4912",
-          "x-ratelimit-reset": "1779428867",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1787045310",
           "api-version": "2026-04",
-          "vary": "origin, Accept-Encoding",
+          "ratelimit": "\"minuteRate\";r=1333, \"concurrency\";r=79, \"complexityMinute\";r=4999404;t=53",
+          "ratelimit-policy": "\"minuteRate\";q=1335;w=60, \"concurrency\";q=80;qu=\"concurrent-requests\", \"complexityMinute\";q=5000000;w=60;qu=\"content-bytes\"",
+          "vary": "Accept-Encoding",
           "x-api-gateway": "true",
-          "x-api-router": "true",
-          "x-request-id": "8d0250ee-2543-9795-b407-59698b3a14e3",
-          "x-envoy-upstream-service-time": "794",
+          "x-powered-by": "Cosmo-Router",
+          "x-request-id": "095a2e94-a4e3-9e65-a8dd-c4c8c8ac5991",
+          "x-envoy-upstream-service-time": "368",
           "content-security-policy": ";",
-          "x-monday-rgn": "euc1, use1",
+          "x-monday-rgn": "euc1, euc1, use1",
           "server": "cloudflare",
-          "x-routed-from": "use1",
-          "x-routed-to": "euc1",
-          "set-cookie": "__cf_bm=xuFycRNQHcng_kaTrMbC0H76HLwHGYAbK6Vd6HeCR4g-1779428866.6393614-1.0.1.1-mCkVra9jV7PKHSrAco7aRsVw_mBNSSLdY7it19qOUAXtp1K1VmVh.CCFzoDwxoZRkloVAaSyp5Z5OYrG2k1L3bbsQiV.QCp2CGw.LBqyxfwK03vsp6EHm5Vi5Kqxa2d25DG43r7z33XAT.vOTiDElA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:17:47 GMT, _cfuvid=q_DRbpXo.JtURkFWngHLT25tN6d3g9lCuMh68SlE4M4-1779428866.6393614-1.0.1.1-zPcPM_UQkb_GlvaY2mc81.rKWvuNfaHDp3KoYrdyxuo; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "x-routed-from": "cells-router, use1",
+          "x-routed-to": "p-euc1-m-platform-01-fra, euc1",
+          "set-cookie": "__cf_bm=0jcDbb0rxlDBWx1tivyj8vjREaO2rVK8fjOQwwlZNLQ-1787045303.7563922-1.0.1.1-3kONiVC5qWJLtDk_ydo012D96mlfpboUJEeQwp3X7RiCqAipT3K57CnM_K0zMdMlagJTsM7sx9wfUHqai1FHzzsGIWTdCCpVXBTMZ2ZxrQkItnCVDJ_aeXOb0.wA00MOy1W.utuVP3rA8WnNMw23hg; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Tue, 18 Aug 2026 09:58:24 GMT",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9ff987307cc11fb9-PDX"
+          "cf-ray": "a2cfe35c7b55816e-PDX"
         },
         "hash": "b6d854dd03621de17b0c274dba022354d4f37b61",
         "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
           "data": {
             "query": "query ($limit: Int!, $page: Int!) {\n                    boards(limit: $limit, page: $page) {\n                        id\n                        columns {\n                            id\n                            title\n                            type\n                            settings_str\n                        }\n                    }\n                }",
             "variables": {

@@ -41,27 +41,38 @@ const ProviderBankAccountSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync bank accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         BankAccount: BankAccountSchema
     },
     scopes: ['bank_accounts:readonly'],
 
     exec: async (nango) => {
-        // Blocker: the bank_accounts list endpoint does not expose a changed-since filter,
-        // a deleted-record endpoint, or a resumable cursor across runs. We perform a full
-        // crawl with cursor pagination and track deletions only after a complete successful run.
+        // The bank_accounts list endpoint does not expose a changed-since filter or a
+        // deleted-record endpoint, so we perform a full crawl with cursor pagination,
+        // checkpoint the next-page cursor after each page, and track deletions only
+        // after a complete successful run.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint?.cursor;
+
         await nango.trackDeletesStart('BankAccount');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getbankaccounts
             endpoint: '/api/external/v2/bank_accounts',
             params: {
-                limit: 5
+                limit: 5,
+                ...(cursor && { cursor })
             },
             paginate: {
                 type: 'cursor',
@@ -69,7 +80,10 @@ const sync = createSync({
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 5
+                limit: 5,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -96,11 +110,14 @@ const sync = createSync({
                 });
             }
 
-            if (bankAccounts.length > 0) {
-                await nango.batchSave(bankAccounts, 'BankAccount');
+            await nango.batchSave(bankAccounts, 'BankAccount');
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BankAccount');
     }
 });

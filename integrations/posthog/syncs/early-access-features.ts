@@ -43,14 +43,36 @@ const MetadataSchema = z.object({
     project_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
+function extractOffsetFromUrl(url: unknown): string | undefined {
+    if (typeof url !== 'string') {
+        return undefined;
+    }
+    // @allowTryCatch new URL() throws on malformed URLs; we want to gracefully return undefined instead of crashing the sync.
+    try {
+        const parsed = new URL(url);
+        const offset = parsed.searchParams.get('offset');
+        if (offset !== null) {
+            return offset;
+        }
+        return undefined;
+    } catch {
+        return undefined;
+    }
+}
+
 const sync = createSync({
     description: 'Sync early access features from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     // https://posthog.com/docs/api/early-access-feature
     endpoints: [{ method: 'GET', path: '/syncs/early-access-features' }],
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     scopes: ['early_access_feature:read'],
     models: {
         EarlyAccessFeature: EarlyAccessFeatureSchema
@@ -62,17 +84,29 @@ const sync = createSync({
         }
         const projectId = metadata.project_id;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: '' };
+        let nextOffset: string | undefined = checkpoint.offset || undefined;
+
         await nango.trackDeletesStart('EarlyAccessFeature');
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/early-access-feature
             endpoint: `/api/projects/${encodeURIComponent(projectId)}/early_access_feature/`,
+            params: {
+                limit: 100,
+                ...(nextOffset && { offset: nextOffset })
+            },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'next',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = extractOffsetFromUrl(nextPageParam);
+                }
             },
             retries: 3
         };
@@ -96,8 +130,13 @@ const sync = createSync({
             if (features.length > 0) {
                 await nango.batchSave(features, 'EarlyAccessFeature');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('EarlyAccessFeature');
     }
 });

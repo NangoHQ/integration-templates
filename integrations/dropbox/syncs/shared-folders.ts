@@ -48,75 +48,81 @@ const SharedFolderOutputSchema = z.object({
     aclUpdatePolicy: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync shared folder metadata visible to the current Dropbox user.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
-    endpoints: [
-        {
-            method: 'GET',
-            path: '/syncs/shared-folders'
-        }
-    ],
+    checkpoint: CheckpointSchema,
     models: {
         SharedFolder: SharedFolderOutputSchema
     },
 
     exec: async (nango) => {
-        let cursor: string | undefined = undefined;
+        const checkpoint = await nango.getCheckpoint();
+        let cursor: string | undefined = checkpoint?.['cursor'];
+        let isFirstRequest = cursor === undefined;
         let hasMore = true;
 
         await nango.trackDeletesStart('SharedFolder');
 
-        try {
-            while (hasMore) {
-                const response = cursor
-                    ? await nango.post({
-                          // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders-continue
-                          endpoint: '/2/sharing/list_folders/continue',
-                          data: {
-                              cursor
-                          },
-                          retries: 3
-                      })
-                    : await nango.post({
-                          // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders
-                          endpoint: '/2/sharing/list_folders',
-                          data: {
-                              limit: 1000
-                          },
-                          retries: 3
-                      });
+        while (hasMore) {
+            const response = isFirstRequest
+                ? await nango.post({
+                      // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders
+                      endpoint: '/2/sharing/list_folders',
+                      data: {
+                          limit: 1000
+                      },
+                      retries: 3
+                  })
+                : await nango.post({
+                      // https://www.dropbox.com/developers/documentation/http/documentation#sharing-list_folders-continue
+                      endpoint: '/2/sharing/list_folders/continue',
+                      data: {
+                          cursor
+                      },
+                      retries: 3
+                  });
 
-                const parsed = ListFoldersResponseSchema.parse(response.data);
+            isFirstRequest = false;
 
-                if (parsed.entries.length > 0) {
-                    const folders = parsed.entries.map((folder) => ({
-                        id: folder.shared_folder_id,
-                        sharedFolderId: folder.shared_folder_id,
-                        ...(folder.shared_folder_name !== undefined && {
-                            sharedFolderName: folder.shared_folder_name
-                        }),
-                        isTeamFolder: folder.is_team_folder,
-                        parentSharedFolderId: folder.parent_shared_folder_id,
-                        sharedFolderPathLower: folder.shared_folder_path_lower,
-                        sharedFolderPreviewPath: folder.shared_folder_preview_path,
-                        accessType: folder.access_type?.['.tag'],
-                        isInsideTeamFolder: folder.is_inside_team_folder,
-                        isMountManaged: folder.is_mount_managed,
-                        aclUpdatePolicy: folder.acl_update_policy?.['.tag']
-                    }));
+            const parsed = ListFoldersResponseSchema.parse(response.data);
 
-                    await nango.batchSave(folders, 'SharedFolder');
-                }
+            const folders = parsed.entries.map((folder) => ({
+                id: folder.shared_folder_id,
+                sharedFolderId: folder.shared_folder_id,
+                ...(folder.shared_folder_name !== undefined && {
+                    sharedFolderName: folder.shared_folder_name
+                }),
+                isTeamFolder: folder.is_team_folder,
+                parentSharedFolderId: folder.parent_shared_folder_id,
+                sharedFolderPathLower: folder.shared_folder_path_lower,
+                sharedFolderPreviewPath: folder.shared_folder_preview_path,
+                accessType: folder.access_type?.['.tag'],
+                isInsideTeamFolder: folder.is_inside_team_folder,
+                isMountManaged: folder.is_mount_managed,
+                aclUpdatePolicy: folder.acl_update_policy?.['.tag']
+            }));
 
-                cursor = parsed.cursor;
-                hasMore = (parsed.has_more ?? false) && cursor !== undefined;
+            if (folders.length > 0) {
+                await nango.batchSave(folders, 'SharedFolder');
             }
-        } finally {
-            await nango.trackDeletesEnd('SharedFolder');
+
+            cursor = parsed.cursor;
+            hasMore = (parsed.has_more ?? false) && cursor !== undefined;
+
+            if (hasMore && cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('SharedFolder');
     }
 });
 

@@ -52,12 +52,17 @@ const TaskSchema = z.object({
     folder_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync tasks from Apollo.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/tasks' }],
+    checkpoint: CheckpointSchema,
     models: {
         Task: TaskSchema
     },
@@ -65,7 +70,13 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: Apollo Tasks Search API does not support filtering by updated_at or modified_since.
         // The endpoint only supports sort_by_field (task_due_at, task_priority) and basic pagination.
-        // Without a changed-since filter, we must start from page 1 each run before ending deletion tracking.
+        // We checkpoint the current page so a resumed execution does not restart from page 1.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let page: number | undefined = checkpoint?.page ?? 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Task');
 
         const proxyConfig: ProxyConfiguration = {
@@ -78,16 +89,21 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'tasks'
+                response_path: 'tasks',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const tasks of nango.paginate<z.infer<typeof _ApolloTaskSchema>>(proxyConfig)) {
+        for await (const rawTasks of nango.paginate(proxyConfig)) {
+            const tasks = z.array(_ApolloTaskSchema).parse(rawTasks);
+
             const validTasks = tasks.map((task) => ({
                 id: task.id,
                 ...(task.type != null && { type: task.type }),
@@ -123,8 +139,18 @@ const sync = createSync({
             if (validTasks.length > 0) {
                 await nango.batchSave(validTasks, 'Task');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Task');
     }
 });

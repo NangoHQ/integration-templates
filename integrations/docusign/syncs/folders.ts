@@ -29,12 +29,17 @@ const ProviderFolderSchema = z.object({
     parentFolderUri: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    start_position: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync envelope folder structure with full-refresh delete tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Folder: FolderSchema
     },
@@ -49,10 +54,19 @@ const sync = createSync({
         }
         const accountId = parsedMetadata.data.accountId;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        let offset = 0;
+        if (rawCheckpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            offset = parsedCheckpoint.data.start_position;
+        }
+
         await nango.trackDeletesStart('Folder');
 
         const limit = 50;
-        let offset = 0;
         const hasMore = true;
         while (hasMore) {
             // https://developers.docusign.com/docs/esign-rest-api/reference/folders/folderslist/
@@ -75,9 +89,6 @@ const sync = createSync({
             }
 
             const folders = parsedResponse.data.folders ?? [];
-            if (folders.length === 0) {
-                break;
-            }
 
             const records = folders.map((folder) => ({
                 id: folder.folderId,
@@ -91,15 +102,19 @@ const sync = createSync({
                 ...(folder.parentFolderUri !== undefined && { parentFolderUri: folder.parentFolderUri })
             }));
 
-            await nango.batchSave(records, 'Folder');
+            if (records.length > 0) {
+                await nango.batchSave(records, 'Folder');
+            }
+
+            offset += folders.length;
+            await nango.saveCheckpoint({ start_position: offset });
 
             if (folders.length < limit) {
                 break;
             }
-
-            offset += folders.length;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Folder');
     }
 });
