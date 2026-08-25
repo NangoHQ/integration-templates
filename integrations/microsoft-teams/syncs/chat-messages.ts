@@ -82,6 +82,15 @@ function isPermissionError(err: unknown): boolean {
     return status === 403 || status === 412;
 }
 
+// Narrower than isPermissionError: only 403 is confirmed (via live testing against
+// Microsoft Graph) to be returned for the per-chat roster ACL failure. 412 is a
+// conditional-request/precondition status unrelated to that failure mode, so treating
+// it as skippable here risks silently swallowing a real, possibly transient error.
+function isRosterAclError(err: unknown): boolean {
+    const parsed = ErrorResponseSchema.safeParse(err);
+    return parsed.success && parsed.data.response.status === 403;
+}
+
 function mapMessages(rawMessages: unknown[], fallbackChatId?: string): z.infer<typeof ChatMessageSchema>[] {
     const messages: z.infer<typeof ChatMessageSchema>[] = [];
     for (const raw of rawMessages) {
@@ -115,7 +124,7 @@ function mapMessages(rawMessages: unknown[], fallbackChatId?: string): z.infer<t
 
 const sync = createSync({
     description: 'Sync chat messages across user chats.',
-    version: '1.1.0',
+    version: '1.2.0',
     frequency: 'every 5 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -208,72 +217,81 @@ const sync = createSync({
 async function runFallback(nango: NangoSyncLocal) {
     await nango.trackDeletesStart('ChatMessage');
 
-    try {
-        const chatProxyConfig: ProxyConfiguration = {
-            // https://learn.microsoft.com/graph/api/chat-list
-            endpoint: '/v1.0/me/chats',
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: '@odata.nextLink',
-                response_path: 'value',
-                limit_name_in_request: '$top',
-                limit: 50
-            },
-            retries: 3
-        };
+    let anyChatSkipped = false;
 
-        for await (const rawChats of nango.paginate<unknown>(chatProxyConfig)) {
-            if (!Array.isArray(rawChats)) {
+    const chatProxyConfig: ProxyConfiguration = {
+        // https://learn.microsoft.com/graph/api/chat-list
+        endpoint: '/v1.0/me/chats',
+        paginate: {
+            type: 'link',
+            link_path_in_response_body: '@odata.nextLink',
+            response_path: 'value',
+            limit_name_in_request: '$top',
+            limit: 50
+        },
+        retries: 3
+    };
+
+    for await (const rawChats of nango.paginate<unknown>(chatProxyConfig)) {
+        if (!Array.isArray(rawChats)) {
+            continue;
+        }
+
+        for (const rawChat of rawChats) {
+            const parsedChat = ChatSchema.safeParse(rawChat);
+            if (!parsedChat.success) {
+                await nango.log('Failed to parse chat', { level: 'warn' });
                 continue;
             }
 
-            for (const rawChat of rawChats) {
-                const parsedChat = ChatSchema.safeParse(rawChat);
-                if (!parsedChat.success) {
-                    await nango.log('Failed to parse chat', { level: 'warn' });
-                    continue;
-                }
+            const chatId = parsedChat.data.id;
 
-                const chatId = parsedChat.data.id;
+            const messageProxyConfig: ProxyConfiguration = {
+                // https://learn.microsoft.com/graph/api/chat-list-messages
+                endpoint: `/v1.0/chats/${chatId}/messages`,
+                paginate: {
+                    type: 'link',
+                    link_path_in_response_body: '@odata.nextLink',
+                    response_path: 'value',
+                    limit_name_in_request: '$top',
+                    limit: 50
+                },
+                retries: 3
+            };
 
-                const messageProxyConfig: ProxyConfiguration = {
-                    // https://learn.microsoft.com/graph/api/chat-list-messages
-                    endpoint: `/v1.0/chats/${chatId}/messages`,
-                    paginate: {
-                        type: 'link',
-                        link_path_in_response_body: '@odata.nextLink',
-                        response_path: 'value',
-                        limit_name_in_request: '$top',
-                        limit: 50
-                    },
-                    retries: 3
-                };
-
-                // @allowTryCatch Some chats (e.g. certain meeting chats) fail Teams' backend
-                // roster ACL check with 403 even with valid delegated permissions. Skip just
-                // that chat instead of aborting the whole sync.
-                try {
-                    for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
-                        if (!Array.isArray(rawMessages)) {
-                            continue;
-                        }
-
-                        const messages = mapMessages(rawMessages, chatId);
-                        if (messages.length > 0) {
-                            await nango.batchSave(messages, 'ChatMessage');
-                        }
+            // @allowTryCatch Some chats (e.g. certain meeting chats) fail Teams' backend
+            // roster ACL check with 403 even with valid delegated permissions. Skip just
+            // that chat instead of aborting the whole sync.
+            try {
+                for await (const rawMessages of nango.paginate<unknown>(messageProxyConfig)) {
+                    if (!Array.isArray(rawMessages)) {
+                        continue;
                     }
-                } catch (error) {
-                    if (!isPermissionError(error)) {
-                        throw error;
+
+                    const messages = mapMessages(rawMessages, chatId);
+                    if (messages.length > 0) {
+                        await nango.batchSave(messages, 'ChatMessage');
                     }
-                    await nango.log(`Skipping chat ${chatId}: insufficient privileges to list messages`, { level: 'warn' });
                 }
+            } catch (error) {
+                if (!isRosterAclError(error)) {
+                    throw error;
+                }
+                anyChatSkipped = true;
+                await nango.log(`Skipping chat ${chatId}: insufficient privileges to list messages`, { level: 'warn' });
             }
         }
-    } finally {
-        await nango.trackDeletesEnd('ChatMessage');
     }
+
+    if (anyChatSkipped) {
+        // At least one chat's messages could not be re-enumerated this run, so its
+        // existing records would look deleted to a full-refresh diff. Leave delete
+        // tracking open rather than finalize on an incomplete enumeration.
+        await nango.log('Not finalizing ChatMessage delete tracking: one or more chats were skipped this run', { level: 'warn' });
+        return;
+    }
+
+    await nango.trackDeletesEnd('ChatMessage');
 }
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];

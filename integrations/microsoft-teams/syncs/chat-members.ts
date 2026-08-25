@@ -42,13 +42,13 @@ const ErrorResponseSchema = z.object({
     })
 });
 
-function isPermissionError(err: unknown): boolean {
+// Only 403 is confirmed (via live testing against Microsoft Graph) to be returned for
+// the per-chat roster ACL failure. 412 is a conditional-request/precondition status
+// unrelated to that failure mode, so treating it as skippable here risks silently
+// swallowing a real, possibly transient error.
+function isRosterAclError(err: unknown): boolean {
     const parsed = ErrorResponseSchema.safeParse(err);
-    if (!parsed.success) {
-        return false;
-    }
-    const status = parsed.data.response.status;
-    return status === 403 || status === 412;
+    return parsed.success && parsed.data.response.status === 403;
 }
 
 function buildGraphRequest(endpointOrUrl: string, defaultParams?: Record<string, string>) {
@@ -70,7 +70,7 @@ function buildGraphRequest(endpointOrUrl: string, defaultParams?: Record<string,
 
 const sync = createSync({
     description: 'Sync member rosters for chats',
-    version: '1.1.0',
+    version: '1.2.0',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -96,6 +96,7 @@ const sync = createSync({
 
         const batch: z.infer<typeof ChatMemberRecordSchema>[] = [];
         const batchSize = 100;
+        let anyChatSkipped = false;
 
         const flushBatch = async () => {
             if (batch.length > 0) {
@@ -154,9 +155,10 @@ const sync = createSync({
                         membersNextLink = memberData['@odata.nextLink'];
                     } while (membersNextLink);
                 } catch (error) {
-                    if (!isPermissionError(error)) {
+                    if (!isRosterAclError(error)) {
                         throw error;
                     }
+                    anyChatSkipped = true;
                     await nango.log(`Skipping chat ${chat.id}: insufficient privileges to list members`, { level: 'warn' });
                 }
             }
@@ -165,6 +167,15 @@ const sync = createSync({
         }
 
         await flushBatch();
+
+        if (anyChatSkipped) {
+            // At least one chat's roster could not be re-enumerated this run, so its
+            // existing records would look deleted to a full-refresh diff. Leave delete
+            // tracking open rather than finalize on an incomplete enumeration.
+            await nango.log('Not finalizing ChatMember delete tracking: one or more chats were skipped this run', { level: 'warn' });
+            return;
+        }
+
         await nango.trackDeletesEnd('ChatMember');
     }
 });
