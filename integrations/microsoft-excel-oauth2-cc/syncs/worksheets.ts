@@ -31,7 +31,7 @@ const WorksheetsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the worksheets within a specific workbook.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -70,12 +71,13 @@ const DriveItemSchema = z.object({
  * index is the next file offset in metadata.pickedFiles to resume from.
  */
 const CheckpointSchema = z.object({
-    index: z.number()
+    index: z.number().int().nonnegative(),
+    selection_fingerprint: z.string()
 });
 
 const sync = createSync({
     description: 'Sync selected OneDrive files from metadata',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
@@ -113,8 +115,22 @@ const sync = createSync({
             }
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const startIndex = typeof checkpoint?.['index'] === 'number' ? checkpoint['index'] : 0;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : undefined;
+        const selectionFingerprint = createHash('sha256')
+            .update(JSON.stringify(metadata.pickedFiles.map(({ driveId, id }) => ({ driveId, id }))))
+            .digest('hex');
+        const checkpoint =
+            parsedCheckpoint?.success &&
+            parsedCheckpoint.data.selection_fingerprint === selectionFingerprint &&
+            parsedCheckpoint.data.index <= metadata.pickedFiles.length
+                ? parsedCheckpoint.data
+                : undefined;
+        const startIndex = checkpoint?.index ?? 0;
+
+        if (rawCheckpoint != null && checkpoint == null) {
+            await nango.log('The selected file set changed or the checkpoint is obsolete; restarting from the first selected file.', { level: 'warn' });
+        }
 
         // Track deletes to remove files that are no longer selected
         await nango.trackDeletesStart('SelectedUserFile');
@@ -195,7 +211,7 @@ const sync = createSync({
 
                 await nango.batchSave([fileRecord], 'SelectedUserFile');
                 await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
-                await nango.saveCheckpoint({ index: i + 1 });
+                await nango.saveCheckpoint({ index: i + 1, selection_fingerprint: selectionFingerprint });
             } catch (error) {
                 await nango.log(
                     `Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`,

@@ -46,7 +46,7 @@ function extractPageCursor(nextLink: string | number | null | undefined): string
 
 const sync = createSync({
     description: 'Sync lists.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

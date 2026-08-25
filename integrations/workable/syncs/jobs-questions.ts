@@ -73,7 +73,7 @@ const parseUrlForProxy = (url: string): { endpoint: string; params: Record<strin
 
 const sync = createSync({
     description: 'Sync application questions for each job.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -34,7 +34,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync mailbox calendars and basic calendar metadata',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
@@ -34,14 +35,14 @@ const BranchSchema = z
     .describe('A git branch in a GitHub repository.');
 
 const CheckpointSchema = z.object({
-    repo_page: z.number().int().positive(),
     repo_index: z.number().int().nonnegative(),
+    repositories_fingerprint: z.string(),
     branch_page: z.number().int().positive()
 });
 
 const sync = createSync({
     description: 'Sync branches for a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -51,7 +52,8 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
-        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+        const parsedCheckpoint = checkpointRaw != null ? CheckpointSchema.safeParse(checkpointRaw) : undefined;
+        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
 
         // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
         // repo_index addresses the complete repository list, so always rebuild that list
@@ -95,9 +97,17 @@ const sync = createSync({
             return;
         }
 
+        const repositoriesFingerprint = createHash('sha256').update(JSON.stringify(repositories)).digest('hex');
+        const resumeCheckpoint =
+            checkpoint?.repositories_fingerprint === repositoriesFingerprint && checkpoint.repo_index <= repositories.length ? checkpoint : undefined;
+
+        if (checkpointRaw != null && resumeCheckpoint == null) {
+            await nango.log('The accessible repository set changed or the checkpoint is obsolete; restarting repository enumeration.', { level: 'warn' });
+        }
+
         await nango.trackDeletesStart('Branch');
 
-        const startIndex = checkpoint != null ? checkpoint['repo_index'] : 0;
+        const startIndex = resumeCheckpoint?.repo_index ?? 0;
 
         for (let i = startIndex; i < repositories.length; i++) {
             const repo = repositories[i];
@@ -113,7 +123,7 @@ const sync = createSync({
                 endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/branches`,
                 params: {
                     per_page: 100,
-                    ...(checkpoint != null && checkpoint['branch_page'] > 1 && i === startIndex ? { page: checkpoint['branch_page'] } : {})
+                    ...(resumeCheckpoint != null && resumeCheckpoint.branch_page > 1 && i === startIndex ? { page: resumeCheckpoint.branch_page } : {})
                 },
                 paginate: {
                     type: 'link',
@@ -161,14 +171,14 @@ const sync = createSync({
 
                 if (nextBranchPage !== undefined) {
                     await nango.saveCheckpoint({
-                        repo_page: repoPage,
                         repo_index: i,
+                        repositories_fingerprint: repositoriesFingerprint,
                         branch_page: nextBranchPage
                     });
                 }
             }
 
-            await nango.saveCheckpoint({ repo_page: repoPage, repo_index: i + 1, branch_page: 1 });
+            await nango.saveCheckpoint({ repo_index: i + 1, repositories_fingerprint: repositoriesFingerprint, branch_page: 1 });
         }
 
         await nango.clearCheckpoint();

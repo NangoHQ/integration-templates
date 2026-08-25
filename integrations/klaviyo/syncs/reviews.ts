@@ -99,7 +99,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync product reviews',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     checkpoint: CheckpointSchema,
     models: {

@@ -81,7 +81,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all applications for a candidate in Lever',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',

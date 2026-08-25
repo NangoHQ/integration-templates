@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
@@ -87,14 +88,14 @@ const ProviderReleaseSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    repo_page: z.number().int().positive(),
     repo_index: z.number().int().nonnegative(),
+    repositories_fingerprint: z.string(),
     release_page: z.number().int().positive()
 });
 
 const sync = createSync({
     description: 'Sync releases for a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -104,7 +105,8 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
-        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+        const parsedCheckpoint = checkpointRaw != null ? CheckpointSchema.safeParse(checkpointRaw) : undefined;
+        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
 
         // repo_index addresses the complete repository list, so always rebuild that list
         // from page 1 before applying the saved index.
@@ -153,9 +155,17 @@ const sync = createSync({
             return;
         }
 
+        const repositoriesFingerprint = createHash('sha256').update(JSON.stringify(repos)).digest('hex');
+        const resumeCheckpoint =
+            checkpoint?.repositories_fingerprint === repositoriesFingerprint && checkpoint.repo_index <= repos.length ? checkpoint : undefined;
+
+        if (checkpointRaw != null && resumeCheckpoint == null) {
+            await nango.log('The accessible repository set changed or the checkpoint is obsolete; restarting repository enumeration.', { level: 'warn' });
+        }
+
         await nango.trackDeletesStart('Release');
 
-        const startIndex = checkpoint != null ? checkpoint['repo_index'] : 0;
+        const startIndex = resumeCheckpoint?.repo_index ?? 0;
 
         for (let i = startIndex; i < repos.length; i++) {
             const repo = repos[i];
@@ -171,7 +181,7 @@ const sync = createSync({
                 endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/releases`,
                 params: {
                     per_page: 100,
-                    ...(checkpoint != null && checkpoint['release_page'] > 1 && i === startIndex ? { page: checkpoint['release_page'] } : {})
+                    ...(resumeCheckpoint != null && resumeCheckpoint.release_page > 1 && i === startIndex ? { page: resumeCheckpoint.release_page } : {})
                 },
                 paginate: {
                     type: 'link',
@@ -242,14 +252,14 @@ const sync = createSync({
 
                 if (nextReleasePage !== undefined) {
                     await nango.saveCheckpoint({
-                        repo_page: repoPage,
                         repo_index: i,
+                        repositories_fingerprint: repositoriesFingerprint,
                         release_page: nextReleasePage
                     });
                 }
             }
 
-            await nango.saveCheckpoint({ repo_page: repoPage, repo_index: i + 1, release_page: 1 });
+            await nango.saveCheckpoint({ repo_index: i + 1, repositories_fingerprint: repositoriesFingerprint, release_page: 1 });
         }
 
         await nango.clearCheckpoint();
