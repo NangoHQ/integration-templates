@@ -55,18 +55,28 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/library/folders with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Run as full refresh.
-        await nango.trackDeletesStart('LibraryFolder');
-
-        // https://help.gong.io/docs/what-the-gong-api-provides
-        const workspacesResponse = await nango.get({
-            endpoint: '/v2/workspaces',
-            retries: 3
-        });
-        const { workspaces } = WorkspacesResponseSchema.parse(workspacesResponse.data);
 
         // @allowTryCatch 401/404 from plan-gated or scope-missing endpoint is a valid empty result
         try {
-            for (const workspace of workspaces ?? []) {
+            // https://help.gong.io/docs/what-the-gong-api-provides
+            const workspacesResponse = await nango.get({
+                endpoint: '/v2/workspaces',
+                retries: 3
+            });
+            const { workspaces } = WorkspacesResponseSchema.parse(workspacesResponse.data);
+
+            if (!workspaces || workspaces.length === 0) {
+                // Can't tell "this account genuinely has zero workspaces" apart from a
+                // malformed/empty response, and /v2/library/folders 400s without a
+                // workspaceId, so we have no evidence either way about folder state.
+                // Leave delete tracking untouched rather than risk wiping every
+                // previously synced record.
+                return;
+            }
+
+            await nango.trackDeletesStart('LibraryFolder');
+
+            for (const workspace of workspaces) {
                 const proxyConfig: ProxyConfiguration = {
                     // https://help.gong.io/docs/what-the-gong-api-provides
                     // workspaceId is required: the endpoint returns 400 Bad Request without it.
