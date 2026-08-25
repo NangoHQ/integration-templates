@@ -1,0 +1,55 @@
+{
+  "input": {
+    "review_id": 1306615301,
+    "email_body": "Test body",
+    "email_subject": "Test subject",
+    "send_private_email": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/v1/private_replies": {
+        "response": {
+          "error": "You don't have access to the resource"
+        },
+        "status": 403,
+        "headers": {
+          "date": "Mon, 24 Aug 2026 07:57:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "49",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31556952; includeSubDomains",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1999",
+          "x-ratelimit-reset": "1787558296",
+          "x-permitted-cross-domain-policies": "none",
+          "x-robots-tag": "noindex, nofollow",
+          "vary": "Accept-Encoding",
+          "cache-control": "no-cache",
+          "x-request-id": "7b0c03a8-476e-4fe3-a8bb-9b46ba1baa0b",
+          "x-runtime": "0.012643",
+          "etag": "W/\"31-qckFt7AY8MsClKlTP6Cso/cAW28\""
+        },
+        "hash": "0000000000000000000000000000000000000000",
+        "request": {
+          "data": {
+            "review_id": 1306615301,
+            "send_private_email": false,
+            "private_reply": {
+              "email_body": "Test body",
+              "email_subject": "Test subject"
+            }
+          }
+        }
+      }
+    }
+  }
+}

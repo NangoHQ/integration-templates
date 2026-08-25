@@ -1,0 +1,66 @@
+{
+  "input": {
+    "setting_keys": [
+      "admin_email",
+      "autopublish",
+      "widget_star_color",
+      "enable_review_pictures"
+    ]
+  },
+  "output": {
+    "settings": {
+      "admin_email": "api@nango.dev",
+      "autopublish": true,
+      "widget_star_color": "",
+      "enable_review_pictures": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/settings": {
+        "response": {
+          "settings": {
+            "admin_email": "api@nango.dev",
+            "autopublish": true,
+            "widget_star_color": "",
+            "enable_review_pictures": true
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sun, 23 Aug 2026 23:29:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "116",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31556952; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1787527803",
+          "x-permitted-cross-domain-policies": "none",
+          "x-robots-tag": "noindex, nofollow",
+          "vary": "Accept-Encoding",
+          "etag": "W/\"e51e31f26d7c85f4d63042f0ea42a4c7\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "df23c894-ce8d-4dee-a4b1-370b9fb38742",
+          "x-runtime": "0.014601"
+        },
+        "hash": "af0d5516962f7e15d8850b9968a501377905d8cf",
+        "request": {
+          "params": {
+            "setting_keys[]": "enable_review_pictures"
+          }
+        }
+      }
+    }
+  }
+}
