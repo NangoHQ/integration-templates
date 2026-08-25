@@ -113,8 +113,30 @@ function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undef
 // guarantee progress once more records than fit in a search window share the same timestamp: GT
 // permanently skips unseen ties, and GTE re-issues an identical query forever if the tied group
 // itself exceeds the window. The timestamp+id composite key strictly increases every page.
+//
+// Without a tie-breaker id (the very first window after the initial list phase, or a checkpoint
+// saved before `updatedAfterId` existed) there is no safe way to express the composite key, so
+// this falls back to GTE: it may re-fetch already-saved boundary records (harmless, batchSave
+// upserts them), but never drops ones a prior GTE-based run had not gotten to yet. That window
+// is bounded by the caller's result-count cap, and the very first cap-driven window advance
+// captures a real tie-breaker id, after which the composite filter below takes over and
+// guarantees progress on every subsequent window.
 function buildIncrementalFilterGroups(floor: string, floorId: string): Record<string, unknown>[] {
-    const filterGroups: Record<string, unknown>[] = [
+    if (!floorId) {
+        return [
+            {
+                filters: [
+                    {
+                        propertyName: 'hs_lastmodifieddate',
+                        operator: 'GTE',
+                        value: floor
+                    }
+                ]
+            }
+        ];
+    }
+
+    return [
         {
             filters: [
                 {
@@ -123,11 +145,8 @@ function buildIncrementalFilterGroups(floor: string, floorId: string): Record<st
                     value: floor
                 }
             ]
-        }
-    ];
-
-    if (floorId) {
-        filterGroups.push({
+        },
+        {
             filters: [
                 {
                     propertyName: 'hs_lastmodifieddate',
@@ -140,10 +159,8 @@ function buildIncrementalFilterGroups(floor: string, floorId: string): Record<st
                     value: floorId
                 }
             ]
-        });
-    }
-
-    return filterGroups;
+        }
+    ];
 }
 
 function updateLatestUpdatedAt(current: string | undefined, candidate: string | null | undefined): string | undefined {
