@@ -37,7 +37,7 @@ const VulnerabilitySchema = z.object({
 
 const sync = createSync({
     description: 'Sync distinct vulnerabilities (CVEs) detected across assets in this account',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -45,33 +45,21 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const metadata = await nango.getMetadata();
-
-        const baseUrl =
-            typeof metadata === 'object' && metadata !== null && 'base_url' in metadata && typeof metadata['base_url'] === 'string'
-                ? metadata['base_url']
-                : undefined;
-        const tenant =
-            typeof metadata === 'object' && metadata !== null && 'tenant' in metadata && typeof metadata['tenant'] === 'string'
-                ? metadata['tenant']
-                : undefined;
-
-        let userId: string | undefined;
-        if (typeof metadata === 'object' && metadata !== null && 'connection_config' in metadata) {
-            const metadataConnectionConfig = metadata['connection_config'];
-            if (
-                typeof metadataConnectionConfig === 'object' &&
-                metadataConnectionConfig !== null &&
-                'user_id' in metadataConnectionConfig &&
-                typeof metadataConnectionConfig['user_id'] === 'string'
-            ) {
-                userId = metadataConnectionConfig['user_id'];
-            }
+        const connection = await nango.getConnection();
+        let tenant = connection.connection_config?.['tenant'];
+        if (typeof tenant !== 'string') {
+            const metadata = await nango.getMetadata();
+            tenant =
+                typeof metadata === 'object' && metadata !== null && 'tenant' in metadata && typeof metadata['tenant'] === 'string'
+                    ? metadata['tenant']
+                    : undefined;
         }
 
-        if (!baseUrl || !tenant) {
-            throw new Error('Metadata must include base_url and tenant');
+        if (typeof tenant !== 'string') {
+            throw new Error('Connection config must include tenant.');
         }
+
+        const userId: string | undefined = typeof connection.connection_config?.['user_id'] === 'string' ? connection.connection_config['user_id'] : undefined;
 
         // https://nango.dev/docs/api-integrations/connectsecure
         const authResponse = await nango.post({
