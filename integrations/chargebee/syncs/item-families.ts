@@ -35,7 +35,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync item families as a full refresh (Product Catalog 2.0). Dataset is small and static.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

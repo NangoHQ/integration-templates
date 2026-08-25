@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -98,12 +99,13 @@ type ChannelItem = z.infer<typeof ChannelItemSchema>;
 const CheckpointSchema = z.object({
     phase: z.string(),
     page_token: z.string(),
-    handle_index: z.number().int().nonnegative()
+    handle_index: z.number().int().nonnegative(),
+    source_fingerprint: z.string()
 });
 
 const sync = createSync({
     description: 'Sync one or more YouTube channels in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -166,7 +168,14 @@ const sync = createSync({
         // Read and validate checkpoint before constructing the first provider request
         const rawCheckpoint = await nango.getCheckpoint();
         const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
-        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : null;
+        const sourceFingerprint = createHash('sha256')
+            .update(JSON.stringify({ channelIds: channelIds ?? [], handles: handles ?? [], mine }))
+            .digest('hex');
+        const checkpoint = parsedCheckpoint?.success && parsedCheckpoint.data.source_fingerprint === sourceFingerprint ? parsedCheckpoint.data : null;
+
+        if (rawCheckpoint != null && checkpoint == null) {
+            await nango.log('The configured channel sources changed or the checkpoint is obsolete; restarting from the first source.', { level: 'warn' });
+        }
 
         const shouldFetchIds = channelIds && channelIds.length > 0;
         const shouldFetchHandles = handles && handles.length > 0;
@@ -187,7 +196,7 @@ const sync = createSync({
         // Start delete tracking for full refresh
         await nango.trackDeletesStart('Channel');
         let checkpointSaved = false;
-        const hadExistingCheckpoint = checkpoint !== null;
+        const hadExistingCheckpoint = rawCheckpoint != null;
 
         // Fetch channels by ID with pagination resume
         if (phase === 'ids' && shouldFetchIds) {
@@ -220,7 +229,7 @@ const sync = createSync({
 
                 const nextPageToken = parsedIdResponse.data.nextPageToken;
                 if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
-                    await nango.saveCheckpoint({ phase: 'ids', page_token: nextPageToken, handle_index: 0 });
+                    await nango.saveCheckpoint({ phase: 'ids', page_token: nextPageToken, handle_index: 0, source_fingerprint: sourceFingerprint });
                     checkpointSaved = true;
                     pageToken = nextPageToken;
                     continue;
@@ -231,10 +240,10 @@ const sync = createSync({
 
             // Save checkpoint for the next phase so completed work is not repeated
             if (shouldFetchHandles) {
-                await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: 0 });
+                await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
                 checkpointSaved = true;
             } else if (shouldFetchMine) {
-                await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0 });
+                await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
                 checkpointSaved = true;
             }
 
@@ -279,7 +288,12 @@ const sync = createSync({
 
                     const nextPageToken = parsedHandleResponse.data.nextPageToken;
                     if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
-                        await nango.saveCheckpoint({ phase: 'handles', handle_index: i, page_token: nextPageToken });
+                        await nango.saveCheckpoint({
+                            phase: 'handles',
+                            handle_index: i,
+                            page_token: nextPageToken,
+                            source_fingerprint: sourceFingerprint
+                        });
                         checkpointSaved = true;
                         pageToken = nextPageToken;
                         continue;
@@ -290,10 +304,10 @@ const sync = createSync({
 
                 // Save checkpoint for the next handle or the next phase
                 if (i + 1 < handles.length) {
-                    await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: i + 1 });
+                    await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: i + 1, source_fingerprint: sourceFingerprint });
                     checkpointSaved = true;
                 } else if (shouldFetchMine) {
-                    await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0 });
+                    await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
                     checkpointSaved = true;
                 }
             }
@@ -332,7 +346,7 @@ const sync = createSync({
 
                 const nextPageToken = parsedMineResponse.data.nextPageToken;
                 if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
-                    await nango.saveCheckpoint({ phase: 'mine', page_token: nextPageToken, handle_index: 0 });
+                    await nango.saveCheckpoint({ phase: 'mine', page_token: nextPageToken, handle_index: 0, source_fingerprint: sourceFingerprint });
                     checkpointSaved = true;
                     pageToken = nextPageToken;
                     continue;

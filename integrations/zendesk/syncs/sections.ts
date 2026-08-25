@@ -42,7 +42,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Zendesk Help Center sections',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -71,7 +71,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync deployments for a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

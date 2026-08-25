@@ -35,7 +35,7 @@ function extractCursor(nextUrl: string): string | undefined {
 
 const sync = createSync({
     description: 'Sync catalog categories.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -57,7 +57,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all feedback forms for a candidate for every single opportunity',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['feedback:read:admin'],

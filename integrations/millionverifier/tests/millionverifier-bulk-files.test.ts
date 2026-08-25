@@ -46,7 +46,7 @@ describe('millionverifier bulk-files tests', () => {
       });
 
       // Normalize spy-captured args into plain JSON so they compare cleanly
-      // with fixture data loaded from `*.test.json`. 
+      // with fixture data loaded from `*.test.json`.
       // Removes things like prototypes, undefined values and other non-serializable data.
       const spied = JSON.parse(JSON.stringify(spiedData));
 

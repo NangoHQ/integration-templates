@@ -73,7 +73,7 @@ const CheckpointSchema = z.object({
 // https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_fields/
 const sync = createSync({
     description: 'Sync ticket field definitions from Zendesk',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

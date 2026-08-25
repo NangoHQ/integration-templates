@@ -41,7 +41,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all notes for every single opportunity',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['notes:read:admin'],

@@ -89,7 +89,7 @@ function extractCursor(nextLink: string | null | undefined): string | undefined 
 
 const sync = createSync({
     description: 'Sync coupon codes.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -44,7 +44,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync support groups from Zendesk.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/groups', group: 'Groups' }],
     frequency: 'every hour',
     autoStart: true,

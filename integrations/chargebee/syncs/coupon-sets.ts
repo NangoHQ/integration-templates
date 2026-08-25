@@ -29,7 +29,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync coupon sets as a full refresh (Product Catalog 2.0). PC2 replacement for legacy /coupons.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

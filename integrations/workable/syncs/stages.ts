@@ -22,7 +22,7 @@ const StageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync account-level recruitment pipeline stages.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['r_jobs'],

@@ -33,7 +33,7 @@ const DEFAULT_CHECKPOINT = {
 
 const sync = createSync({
     description: 'Sync contacts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
