@@ -30,16 +30,26 @@ const PromotionSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    ad_account_id: z.string(),
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync Shopping ad promotions',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Promotion: PromotionSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { ad_account_id: '', bookmark: '' });
+        const checkpoint = checkpointResult.success ? checkpointResult.data : { ad_account_id: '', bookmark: '' };
+
         const adAccounts: Array<{ id: string }> = [];
         const adAccountProxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/ad_accounts/list
@@ -57,26 +67,59 @@ const sync = createSync({
 
         for await (const page of nango.paginate(adAccountProxyConfig)) {
             for (const item of page) {
-                const parsed = AdAccountSchema.parse(item);
-                adAccounts.push(parsed);
+                const parsed = AdAccountSchema.safeParse(item);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse ad account: ${parsed.error.message}`);
+                }
+                adAccounts.push(parsed.data);
             }
         }
 
-        // Promotions can be hard-deleted, so each successful run must recrawl from page 1
-        // for delete tracking to stay correct.
+        // Blocker: Pinterest promotions endpoint does not expose an updated_after
+        // filter, a changed-records feed, or a deleted-record endpoint. It only
+        // supports cursor pagination per ad account, so a checkpointed full refresh
+        // is required for resumability.
         await nango.trackDeletesStart('Promotion');
 
-        for (const adAccount of adAccounts) {
+        // Sort by a stable key so checkpoint resume position is consistent even if the
+        // provider returns ad accounts in a different order across runs.
+        adAccounts.sort((a, b) => a.id.localeCompare(b.id));
+
+        let startIndex = 0;
+        let resumeBookmark: string | undefined;
+        if (checkpoint.ad_account_id !== '') {
+            const foundIndex = adAccounts.findIndex((a) => a.id === checkpoint.ad_account_id);
+            if (foundIndex !== -1) {
+                startIndex = foundIndex;
+                resumeBookmark = checkpoint.bookmark !== '' ? checkpoint.bookmark : undefined;
+            }
+        }
+
+        for (let i = startIndex; i < adAccounts.length; i++) {
+            const adAccount = adAccounts[i];
+            if (!adAccount) {
+                break;
+            }
+
+            let nextBookmark: string | undefined = resumeBookmark;
+            resumeBookmark = undefined;
+
             const promotionProxyConfig: ProxyConfiguration = {
                 // https://developers.pinterest.com/docs/api/v5/#operation/promotions/list
                 endpoint: `/v5/ad_accounts/${encodeURIComponent(adAccount.id)}/promotions`,
+                params: {
+                    ...(nextBookmark && { bookmark: nextBookmark })
+                },
                 paginate: {
                     type: 'cursor',
                     cursor_name_in_request: 'bookmark',
                     cursor_path_in_response: 'bookmark',
                     response_path: 'items',
                     limit_name_in_request: 'page_size',
-                    limit: 100
+                    limit: 100,
+                    on_page: async ({ nextPageParam }) => {
+                        nextBookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                    }
                 },
                 retries: 3
             };
@@ -84,30 +127,49 @@ const sync = createSync({
             for await (const page of nango.paginate(promotionProxyConfig)) {
                 const promotions = [];
                 for (const item of page) {
-                    const parsed = PromotionSchema.parse(item);
+                    const parsed = PromotionSchema.safeParse(item);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse promotion: ${parsed.error.message}`);
+                    }
                     promotions.push({
-                        id: parsed.id,
-                        ad_account_id: parsed.ad_account_id,
-                        discount_status: parsed.discount_status,
-                        end_time: parsed.end_time,
-                        external_id: parsed.external_id,
-                        platform_type: parsed.platform_type,
-                        promotion_code: parsed.promotion_code,
-                        promotion_custom_id: parsed.promotion_custom_id,
-                        promotion_title: parsed.promotion_title,
-                        promotion_type: parsed.promotion_type,
-                        start_time: parsed.start_time,
-                        status: parsed.status,
-                        template_values: parsed.template_values
+                        id: parsed.data.id,
+                        ad_account_id: parsed.data.ad_account_id,
+                        discount_status: parsed.data.discount_status,
+                        end_time: parsed.data.end_time,
+                        external_id: parsed.data.external_id,
+                        platform_type: parsed.data.platform_type,
+                        promotion_code: parsed.data.promotion_code,
+                        promotion_custom_id: parsed.data.promotion_custom_id,
+                        promotion_title: parsed.data.promotion_title,
+                        promotion_type: parsed.data.promotion_type,
+                        start_time: parsed.data.start_time,
+                        status: parsed.data.status,
+                        template_values: parsed.data.template_values
                     });
                 }
 
                 if (promotions.length > 0) {
                     await nango.batchSave(promotions, 'Promotion');
                 }
+
+                if (nextBookmark !== undefined) {
+                    await nango.saveCheckpoint({
+                        ad_account_id: adAccount.id,
+                        bookmark: nextBookmark
+                    });
+                }
+            }
+
+            const nextAdAccount = adAccounts[i + 1];
+            if (nextAdAccount) {
+                await nango.saveCheckpoint({
+                    ad_account_id: nextAdAccount.id,
+                    bookmark: ''
+                });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Promotion');
     }
 });

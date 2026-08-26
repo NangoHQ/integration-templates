@@ -33,9 +33,15 @@ const LabelsResponseSchema = z.object({
     data: z.array(z.unknown())
 });
 
+const CheckpointSchema = z.object({
+    accountIndex: z.number().int().nonnegative(),
+    accountId: z.string(),
+    accountsFingerprint: z.string()
+});
+
 const sync = createSync({
     description: 'Sync all labels for each account from Zoho Mail',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -44,11 +50,19 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         Label: LabelSchema
     },
 
     exec: async (nango) => {
+        // Blocker: /api/accounts/{accountId}/labels returns all labels in a single
+        // response with no changed-since filter, no deleted-record endpoint, and no
+        // resumable cursor. We checkpoint progress through the accounts outer loop.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointParse.success ? checkpointParse.data : undefined;
+
         // https://www.zoho.com/mail/help/api/get-all-users-accounts.html
         const accountsResponse = await nango.get({
             endpoint: '/api/accounts',
@@ -70,7 +84,23 @@ const sync = createSync({
 
         await nango.trackDeletesStart('Label');
 
-        for (const account of accounts) {
+        const accountIds = accounts.map(({ accountId }) => accountId);
+        const accountsFingerprint = JSON.stringify(accountIds);
+        let startIndex = 0;
+        if (checkpoint && checkpoint.accountsFingerprint === accountsFingerprint) {
+            if (checkpoint.accountId !== '') {
+                const resolvedIndex = accountIds.indexOf(checkpoint.accountId);
+                startIndex = resolvedIndex >= 0 ? resolvedIndex : 0;
+            } else if (checkpoint.accountIndex <= accounts.length) {
+                startIndex = checkpoint.accountIndex;
+            }
+        }
+
+        for (let i = startIndex; i < accounts.length; i++) {
+            const account = accounts[i];
+            if (!account) {
+                continue;
+            }
             const accountId = account.accountId;
 
             // https://www.zoho.com/mail/help/api/get-all-label-details.html
@@ -107,8 +137,16 @@ const sync = createSync({
             if (labels.length > 0) {
                 await nango.batchSave(labels, 'Label');
             }
+
+            const nextAccount = accounts[i + 1];
+            await nango.saveCheckpoint({
+                accountIndex: i + 1,
+                accountId: nextAccount?.accountId ?? '',
+                accountsFingerprint
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Label');
     }
 });

@@ -27,11 +27,16 @@ const LedgerAccountSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync ledger accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LedgerAccount: LedgerAccountSchema
     },
@@ -39,18 +44,29 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes GET /ledger_accounts with no changed-since filter,
         // no deleted-record endpoint, and no time-based filtering. Full refresh is required.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { cursor: '' };
+        let cursor = checkpoint.cursor || undefined;
+
         await nango.trackDeletesStart('LedgerAccount');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getledgeraccounts
             endpoint: '/api/external/v2/ledger_accounts',
+            params: {
+                limit: 100,
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -100,11 +116,14 @@ const sync = createSync({
                 return account;
             });
 
-            if (accounts.length > 0) {
-                await nango.batchSave(accounts, 'LedgerAccount');
+            await nango.batchSave(accounts, 'LedgerAccount');
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('LedgerAccount');
     }
 });

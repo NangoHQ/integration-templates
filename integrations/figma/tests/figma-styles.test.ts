@@ -11,6 +11,10 @@ describe('figma styles tests', () => {
             name: 'styles',
             Model: 'Style'
         });
+        // The test mock derives the provider key from the directory name,
+        // but our integration ID (figma) differs from the provider
+        // name (figma). Override so pagination fixtures resolve correctly.
+        (nangoMock as any).providerConfigKey = 'figma';
 
         return {
             nangoMock,

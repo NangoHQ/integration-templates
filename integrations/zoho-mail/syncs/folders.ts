@@ -40,6 +40,12 @@ const FoldersResponseSchema = z.object({
     data: z.array(z.unknown())
 });
 
+const CheckpointSchema = z.object({
+    next_account_index: z.number().int().nonnegative(),
+    next_account_id: z.string(),
+    accounts_fingerprint: z.string()
+});
+
 function isInvalidOAuthScopeResponse(data: unknown): boolean {
     if (Array.isArray(data) && data.length > 1 && typeof data[1] === 'object' && data[1] !== null) {
         const details = data[1];
@@ -55,9 +61,10 @@ function isInvalidOAuthScopeResponse(data: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync all folders for each account from Zoho Mail',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Folder: FolderSchema
     },
@@ -100,11 +107,25 @@ const sync = createSync({
             }
         }
 
+        const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const accountsFingerprint = JSON.stringify(accountIds);
+        let startAccountIndex = 0;
+        if (checkpoint.success && checkpoint.data.accounts_fingerprint === accountsFingerprint) {
+            if (checkpoint.data.next_account_id !== '') {
+                const resolvedIndex = accountIds.indexOf(checkpoint.data.next_account_id);
+                startAccountIndex = resolvedIndex >= 0 ? resolvedIndex : 0;
+            } else if (checkpoint.data.next_account_index < accountIds.length) {
+                startAccountIndex = checkpoint.data.next_account_index;
+            }
+        }
+
         await nango.trackDeletesStart('Folder');
 
-        const folders: Array<z.infer<typeof FolderSchema>> = [];
-
-        for (const accountId of accountIds) {
+        for (let accountIndex = startAccountIndex; accountIndex < accountIds.length; accountIndex++) {
+            const accountId = accountIds[accountIndex];
+            if (!accountId) {
+                throw new Error(`Missing account ID at index ${accountIndex}`);
+            }
             // https://www.zoho.com/mail/help/api/get-all-folder-details.html
             const foldersResponse = await nango.get({
                 endpoint: `/api/accounts/${encodeURIComponent(accountId)}/folders`,
@@ -116,6 +137,7 @@ const sync = createSync({
                 throw new Error('Failed to parse folders response: ' + foldersParsed.error.message);
             }
 
+            const folders: Array<z.infer<typeof FolderSchema>> = [];
             for (const folder of foldersParsed.data.data) {
                 const folderParsed = ProviderFolderSchema.safeParse(folder);
                 if (!folderParsed.success) {
@@ -136,12 +158,22 @@ const sync = createSync({
                     ...(folderData.URI !== undefined && { URI: folderData.URI })
                 });
             }
+
+            if (folders.length > 0) {
+                await nango.batchSave(folders, 'Folder');
+            }
+
+            const nextAccountIndex = accountIndex + 1;
+            if (nextAccountIndex < accountIds.length) {
+                await nango.saveCheckpoint({
+                    next_account_index: nextAccountIndex,
+                    next_account_id: accountIds[nextAccountIndex]!,
+                    accounts_fingerprint: accountsFingerprint
+                });
+            }
         }
 
-        if (folders.length > 0) {
-            await nango.batchSave(folders, 'Folder');
-        }
-
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Folder');
     }
 });

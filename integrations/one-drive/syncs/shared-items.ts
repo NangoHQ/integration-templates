@@ -3,10 +3,22 @@ import * as z from 'zod';
 
 // Provider schema matching Microsoft Graph driveItem from sharedWithMe
 // https://learn.microsoft.com/graph/api/resources/driveitem
+// driveId lives on parentReference (an itemReference), not directly on remoteItem,
+// and per https://learn.microsoft.com/graph/api/resources/itemreference it's only
+// returned when the item is located in a drive, so it must be optional.
+const ItemReferenceSchema = z
+    .object({
+        driveId: z.string().optional(),
+        driveType: z.string().optional(),
+        id: z.string().optional(),
+        name: z.string().optional(),
+        path: z.string().optional()
+    })
+    .passthrough();
+
 const RemoteItemSchema = z
     .object({
         id: z.string(),
-        driveId: z.string(),
         name: z.string().optional(),
         webUrl: z.string().optional(),
         createdDateTime: z.string().optional(),
@@ -14,7 +26,7 @@ const RemoteItemSchema = z
         size: z.number().optional(),
         file: z.object({}).passthrough().optional(),
         folder: z.object({}).passthrough().optional(),
-        parentReference: z.object({}).passthrough().optional(),
+        parentReference: ItemReferenceSchema.optional(),
         shared: z.object({}).passthrough().optional()
     })
     .passthrough();
@@ -64,7 +76,7 @@ function normalizeGraphEndpoint(link: string | undefined): string {
 
 const sync = createSync({
     description: 'Sync items shared with the user',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',

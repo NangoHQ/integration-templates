@@ -17,31 +17,48 @@ const JournalSchema = z.object({
     type: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync journals.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Journal: JournalSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextCursor: string | undefined = checkpoint ? checkpoint['cursor'] : undefined;
+
         // Blocker: provider only exposes GET /journals with no changed-since filter,
         // no deleted-record endpoint, and no durable resumable cursor suitable for
         // incremental sync. Cursors are temporary position markers, not state tokens.
+        // We checkpoint pagination progress so a long full refresh can resume within
+        // the same crawl instead of restarting from page 1.
         await nango.trackDeletesStart('Journal');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getjournals
             endpoint: '/api/external/v2/journals',
+            params: {
+                ...(nextCursor && { cursor: nextCursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -64,8 +81,13 @@ const sync = createSync({
             if (journals.length > 0) {
                 await nango.batchSave(journals, 'Journal');
             }
+
+            if (nextCursor !== undefined) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Journal');
     }
 });

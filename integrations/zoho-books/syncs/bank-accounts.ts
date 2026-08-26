@@ -65,21 +65,20 @@ const BankAccountItemSchema = z.object({
     is_show_warning_for_feeds_refresh: z.boolean().optional().nullable()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync bank accounts from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         BankAccount: BankAccountSchema
     },
-    endpoints: [
-        {
-            method: 'POST',
-            path: '/syncs/bank-accounts'
-        }
-    ],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
@@ -87,6 +86,14 @@ const sync = createSync({
         if (!metadata?.organization_id) {
             throw new Error('organization_id is required in metadata');
         }
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : null;
+        if (parsedCheckpoint != null && !parsedCheckpoint.success) {
+            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+        const checkpoint = parsedCheckpoint?.data ?? { page: 1 };
+        let page: number | undefined = checkpoint.page;
 
         // Blocker: the Zoho Books /bankaccounts list endpoint only supports page/per_page
         // pagination and does not expose changed-since filters, cursors, or a deleted-record
@@ -102,23 +109,20 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'bankaccounts'
+                response_path: 'bankaccounts',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const items = page;
-
-            if (items.length === 0) {
-                continue;
-            }
-
-            const records = items.map((item: unknown) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const records = pageResults.map((item: unknown) => {
                 const parsedItem = BankAccountItemSchema.safeParse(item);
                 if (!parsedItem.success) {
                     throw new Error(`Failed to parse bank account item: ${parsedItem.error.message}`);
@@ -159,8 +163,13 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'BankAccount');
             }
+
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BankAccount');
     }
 });

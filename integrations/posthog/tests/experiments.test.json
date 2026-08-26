@@ -52,13 +52,25 @@
             "evaluation_contexts": []
           },
           "holdout": null,
-          "holdout_id": null,
           "exposure_cohort": null,
-          "parameters": null,
-          "secondary_metrics": [],
-          "saved_metrics": [],
-          "saved_metrics_ids": null,
-          "filters": {},
+          "parameters": {
+            "feature_flag_variants": [
+              {
+                "key": "control",
+                "name": "Control Group",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              },
+              {
+                "key": "test",
+                "name": "Test Variant",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              }
+            ],
+            "rollout_percentage": 100,
+            "ensure_experience_continuity": false
+          },
           "archived": false,
           "deleted": false,
           "created_by": {
@@ -75,20 +87,8 @@
           "created_at": "2026-06-03T12:11:34.662574Z",
           "updated_at": "2026-06-03T12:11:34.662925Z",
           "type": "product",
-          "exposure_criteria": {
-            "filterTestAccounts": true
-          },
-          "metrics": [],
-          "metrics_secondary": [],
-          "stats_config": {
-            "method": "bayesian"
-          },
-          "scheduling_config": null,
           "conclusion": null,
           "conclusion_comment": null,
-          "primary_metrics_ordered_uuids": null,
-          "secondary_metrics_ordered_uuids": null,
-          "only_count_matured_users": false,
           "status": "draft",
           "user_access_level": "manager"
         },
@@ -138,13 +138,25 @@
             "evaluation_contexts": []
           },
           "holdout": null,
-          "holdout_id": null,
           "exposure_cohort": null,
-          "parameters": null,
-          "secondary_metrics": [],
-          "saved_metrics": [],
-          "saved_metrics_ids": null,
-          "filters": {},
+          "parameters": {
+            "feature_flag_variants": [
+              {
+                "key": "control",
+                "name": "Control Group",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              },
+              {
+                "key": "test",
+                "name": "Test Variant",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              }
+            ],
+            "rollout_percentage": 100,
+            "ensure_experience_continuity": false
+          },
           "archived": false,
           "deleted": false,
           "created_by": {
@@ -161,20 +173,8 @@
           "created_at": "2026-06-03T12:10:57.943301Z",
           "updated_at": "2026-06-03T12:10:57.943794Z",
           "type": "product",
-          "exposure_criteria": {
-            "filterTestAccounts": true
-          },
-          "metrics": [],
-          "metrics_secondary": [],
-          "stats_config": {
-            "method": "bayesian"
-          },
-          "scheduling_config": null,
           "conclusion": null,
           "conclusion_comment": null,
-          "primary_metrics_ordered_uuids": null,
-          "secondary_metrics_ordered_uuids": null,
-          "only_count_matured_users": false,
           "status": "draft",
           "user_access_level": "manager"
         },
@@ -224,13 +224,25 @@
             "evaluation_contexts": []
           },
           "holdout": null,
-          "holdout_id": null,
           "exposure_cohort": null,
-          "parameters": null,
-          "secondary_metrics": [],
-          "saved_metrics": [],
-          "saved_metrics_ids": null,
-          "filters": {},
+          "parameters": {
+            "feature_flag_variants": [
+              {
+                "key": "control",
+                "name": "Control Group",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              },
+              {
+                "key": "test",
+                "name": "Test Variant",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              }
+            ],
+            "rollout_percentage": 100,
+            "ensure_experience_continuity": false
+          },
           "archived": false,
           "deleted": false,
           "created_by": {
@@ -247,20 +259,8 @@
           "created_at": "2026-06-03T12:10:02.915411Z",
           "updated_at": "2026-06-03T12:10:02.915743Z",
           "type": "product",
-          "exposure_criteria": {
-            "filterTestAccounts": true
-          },
-          "metrics": [],
-          "metrics_secondary": [],
-          "stats_config": {
-            "method": "bayesian"
-          },
-          "scheduling_config": null,
           "conclusion": null,
           "conclusion_comment": null,
-          "primary_metrics_ordered_uuids": null,
-          "secondary_metrics_ordered_uuids": null,
-          "only_count_matured_users": false,
           "status": "draft",
           "user_access_level": "manager"
         },
@@ -310,13 +310,25 @@
             "evaluation_contexts": []
           },
           "holdout": null,
-          "holdout_id": null,
           "exposure_cohort": null,
-          "parameters": null,
-          "secondary_metrics": [],
-          "saved_metrics": [],
-          "saved_metrics_ids": null,
-          "filters": {},
+          "parameters": {
+            "feature_flag_variants": [
+              {
+                "key": "control",
+                "name": "Control Group",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              },
+              {
+                "key": "test",
+                "name": "Test Variant",
+                "rollout_percentage": 50,
+                "split_percent": 50
+              }
+            ],
+            "rollout_percentage": 100,
+            "ensure_experience_continuity": false
+          },
           "archived": false,
           "deleted": false,
           "created_by": {
@@ -333,20 +345,8 @@
           "created_at": "2026-06-03T12:07:55.222890Z",
           "updated_at": "2026-06-03T12:08:59.629466Z",
           "type": "product",
-          "exposure_criteria": {
-            "filterTestAccounts": true
-          },
-          "metrics": [],
-          "metrics_secondary": [],
-          "stats_config": {
-            "method": "bayesian"
-          },
-          "scheduling_config": null,
           "conclusion": null,
           "conclusion_comment": null,
-          "primary_metrics_ordered_uuids": null,
-          "secondary_metrics_ordered_uuids": null,
-          "only_count_matured_users": false,
           "status": "draft",
           "user_access_level": "manager"
         }
@@ -410,13 +410,27 @@
                 "evaluation_contexts": []
               },
               "holdout": null,
-              "holdout_id": null,
               "exposure_cohort": null,
-              "parameters": null,
-              "secondary_metrics": [],
-              "saved_metrics": [],
-              "saved_metrics_ids": null,
-              "filters": {},
+              "parameters": {
+                "feature_flag_variants": [
+                  {
+                    "key": "control",
+                    "name": "Control Group",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  },
+                  {
+                    "key": "test",
+                    "name": "Test Variant",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  }
+                ],
+                "rollout_percentage": 100,
+                "ensure_experience_continuity": false
+              },
+              "running_time_calculation": {},
+              "excluded_variants": null,
               "archived": false,
               "deleted": false,
               "created_by": {
@@ -433,21 +447,10 @@
               "created_at": "2026-06-03T12:11:34.662574Z",
               "updated_at": "2026-06-03T12:11:34.662925Z",
               "type": "product",
-              "exposure_criteria": {
-                "filterTestAccounts": true
-              },
-              "metrics": [],
-              "metrics_secondary": [],
-              "stats_config": {
-                "method": "bayesian"
-              },
-              "scheduling_config": null,
               "conclusion": null,
               "conclusion_comment": null,
-              "primary_metrics_ordered_uuids": null,
-              "secondary_metrics_ordered_uuids": null,
-              "only_count_matured_users": false,
               "status": "draft",
+              "is_legacy": false,
               "user_access_level": "manager"
             },
             {
@@ -496,13 +499,27 @@
                 "evaluation_contexts": []
               },
               "holdout": null,
-              "holdout_id": null,
               "exposure_cohort": null,
-              "parameters": null,
-              "secondary_metrics": [],
-              "saved_metrics": [],
-              "saved_metrics_ids": null,
-              "filters": {},
+              "parameters": {
+                "feature_flag_variants": [
+                  {
+                    "key": "control",
+                    "name": "Control Group",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  },
+                  {
+                    "key": "test",
+                    "name": "Test Variant",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  }
+                ],
+                "rollout_percentage": 100,
+                "ensure_experience_continuity": false
+              },
+              "running_time_calculation": {},
+              "excluded_variants": null,
               "archived": false,
               "deleted": false,
               "created_by": {
@@ -519,21 +536,10 @@
               "created_at": "2026-06-03T12:10:57.943301Z",
               "updated_at": "2026-06-03T12:10:57.943794Z",
               "type": "product",
-              "exposure_criteria": {
-                "filterTestAccounts": true
-              },
-              "metrics": [],
-              "metrics_secondary": [],
-              "stats_config": {
-                "method": "bayesian"
-              },
-              "scheduling_config": null,
               "conclusion": null,
               "conclusion_comment": null,
-              "primary_metrics_ordered_uuids": null,
-              "secondary_metrics_ordered_uuids": null,
-              "only_count_matured_users": false,
               "status": "draft",
+              "is_legacy": false,
               "user_access_level": "manager"
             },
             {
@@ -582,13 +588,27 @@
                 "evaluation_contexts": []
               },
               "holdout": null,
-              "holdout_id": null,
               "exposure_cohort": null,
-              "parameters": null,
-              "secondary_metrics": [],
-              "saved_metrics": [],
-              "saved_metrics_ids": null,
-              "filters": {},
+              "parameters": {
+                "feature_flag_variants": [
+                  {
+                    "key": "control",
+                    "name": "Control Group",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  },
+                  {
+                    "key": "test",
+                    "name": "Test Variant",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  }
+                ],
+                "rollout_percentage": 100,
+                "ensure_experience_continuity": false
+              },
+              "running_time_calculation": {},
+              "excluded_variants": null,
               "archived": false,
               "deleted": false,
               "created_by": {
@@ -605,21 +625,10 @@
               "created_at": "2026-06-03T12:10:02.915411Z",
               "updated_at": "2026-06-03T12:10:02.915743Z",
               "type": "product",
-              "exposure_criteria": {
-                "filterTestAccounts": true
-              },
-              "metrics": [],
-              "metrics_secondary": [],
-              "stats_config": {
-                "method": "bayesian"
-              },
-              "scheduling_config": null,
               "conclusion": null,
               "conclusion_comment": null,
-              "primary_metrics_ordered_uuids": null,
-              "secondary_metrics_ordered_uuids": null,
-              "only_count_matured_users": false,
               "status": "draft",
+              "is_legacy": false,
               "user_access_level": "manager"
             },
             {
@@ -668,13 +677,27 @@
                 "evaluation_contexts": []
               },
               "holdout": null,
-              "holdout_id": null,
               "exposure_cohort": null,
-              "parameters": null,
-              "secondary_metrics": [],
-              "saved_metrics": [],
-              "saved_metrics_ids": null,
-              "filters": {},
+              "parameters": {
+                "feature_flag_variants": [
+                  {
+                    "key": "control",
+                    "name": "Control Group",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  },
+                  {
+                    "key": "test",
+                    "name": "Test Variant",
+                    "rollout_percentage": 50,
+                    "split_percent": 50
+                  }
+                ],
+                "rollout_percentage": 100,
+                "ensure_experience_continuity": false
+              },
+              "running_time_calculation": {},
+              "excluded_variants": null,
               "archived": false,
               "deleted": false,
               "created_by": {
@@ -691,28 +714,17 @@
               "created_at": "2026-06-03T12:07:55.222890Z",
               "updated_at": "2026-06-03T12:08:59.629466Z",
               "type": "product",
-              "exposure_criteria": {
-                "filterTestAccounts": true
-              },
-              "metrics": [],
-              "metrics_secondary": [],
-              "stats_config": {
-                "method": "bayesian"
-              },
-              "scheduling_config": null,
               "conclusion": null,
               "conclusion_comment": null,
-              "primary_metrics_ordered_uuids": null,
-              "secondary_metrics_ordered_uuids": null,
-              "only_count_matured_users": false,
               "status": "draft",
+              "is_legacy": false,
               "user_access_level": "manager"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 03 Jun 2026 14:45:20 GMT",
+          "date": "Tue, 18 Aug 2026 09:28:27 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -721,20 +733,20 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4974",
-          "x-ratelimit-reset": "1780497947",
+          "x-ratelimit-remaining": "4958",
+          "x-ratelimit-reset": "1787045310",
           "allow": "GET, POST, HEAD, OPTIONS",
           "content-security-policy": "default-src 'none'",
           "vary": "origin, Cookie, Accept-Encoding",
-          "referrer-policy": "strict-origin-when-cross-origin",
           "cross-origin-opener-policy": "same-origin",
           "server": "envoy",
-          "x-envoy-upstream-service-time": "94"
+          "x-envoy-upstream-service-time": "73"
         },
         "hash": "bcb0fa8e74c2696eecd5bb1650408236146a589d",
         "request": {

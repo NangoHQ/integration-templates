@@ -25,12 +25,28 @@ const MetadataSchema = z.object({
     project_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
+function getNextCursor(nextPageParam: unknown): string | undefined {
+    if (typeof nextPageParam !== 'string' || nextPageParam.length === 0) {
+        return undefined;
+    }
+
+    const nextUrl = new URL(nextPageParam, 'https://example.com');
+    const cursor = nextUrl.searchParams.get('cursor');
+
+    return cursor && cursor.length > 0 ? cursor : undefined;
+}
+
 const sync = createSync({
     description: 'Sync persons from PostHog',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             path: '/syncs/persons',
@@ -51,17 +67,28 @@ const sync = createSync({
             throw new Error('project_id is required in metadata');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { cursor: '' };
+        let nextCursor: string | undefined = checkpoint.cursor || undefined;
+
         await nango.trackDeletesStart('Person');
 
         const proxyConfig: ProxyConfiguration = {
             // https://posthog.com/docs/api/persons
             endpoint: `/api/projects/${encodeURIComponent(metadata.project_id)}/persons/`,
+            params: {
+                ...(nextCursor && { cursor: nextCursor })
+            },
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'next',
                 response_path: 'results',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam, response }) => {
+                    nextCursor = getNextCursor(nextPageParam) ?? getNextCursor(response.data?.['next']);
+                }
             },
             retries: 3
         };
@@ -89,8 +116,15 @@ const sync = createSync({
             if (persons.length > 0) {
                 await nango.batchSave(persons, 'Person');
             }
+
+            // Persist pagination progress after every page so a timed-out run
+            // resumes from the next cursor instead of restarting from page 1.
+            if (nextCursor) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Person');
     }
 });
