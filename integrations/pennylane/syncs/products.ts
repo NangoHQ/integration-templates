@@ -28,6 +28,10 @@ const PennylaneProduct = z.object({
     substance: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 function toProduct(product: unknown) {
     const parsed = ProviderProductSchema.parse(product);
     return {
@@ -47,28 +51,39 @@ function toProduct(product: unknown) {
 
 const sync = createSync({
     description: 'Fetches a list products from pennylane',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     scopes: ['products:readonly'],
+    checkpoint: CheckpointSchema,
     models: {
         PennylaneProduct: PennylaneProduct
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint ? checkpoint.cursor : undefined;
+
         await nango.trackDeletesStart('PennylaneProduct');
 
         const config: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getproducts
             endpoint: '/api/external/v2/products',
             retries: 3,
+            params: {
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -77,8 +92,13 @@ const sync = createSync({
             if (products.length > 0) {
                 await nango.batchSave(products, 'PennylaneProduct');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('PennylaneProduct');
     }
 });

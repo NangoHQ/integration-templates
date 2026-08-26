@@ -5,6 +5,10 @@ const MetadataSchema = z.object({
     project_id: z.string().describe('PostHog project ID')
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number()
+});
+
 const ExperimentSchema = z.object({
     id: z.string(),
     name: z.string().nullable().optional(),
@@ -47,9 +51,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const sync = createSync({
     description: 'Sync experiments from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     scopes: ['experiment:read'],
     models: {
@@ -74,6 +79,11 @@ const sync = createSync({
         // filters like status/search, but does not expose an updated_after,
         // modified_since, since_id, or delta feed that can safely drive an
         // incremental sync.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { offset: 0 };
+        let nextOffset: number | undefined = checkpoint.offset;
+
         await nango.trackDeletesStart('Experiment');
 
         const proxyConfig: ProxyConfiguration = {
@@ -85,10 +95,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                ...(checkpoint.offset !== 0 && { offset_start_value: checkpoint.offset }),
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -119,8 +133,16 @@ const sync = createSync({
             if (syncedExperiments.length > 0) {
                 await nango.batchSave(syncedExperiments, 'Experiment');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from offset 0 next time instead
+            // of resuming where it left off.
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Experiment');
     }
 });

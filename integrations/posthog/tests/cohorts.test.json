@@ -39,7 +39,7 @@
           "name": "Nango Test Cohort B",
           "description": "",
           "created_at": "2026-06-03T09:53:12.307762Z",
-          "last_calculation": "2026-06-03T09:53:15.783114Z",
+          "last_calculation": "2026-08-18T08:56:31.640414Z",
           "deleted": false,
           "is_static": false,
           "cohort_type": "realtime",
@@ -95,6 +95,7 @@
               "count": 0,
               "is_static": true,
               "cohort_type": null,
+              "condition_type": null,
               "experiment_set": []
             },
             {
@@ -129,6 +130,7 @@
               "count": 0,
               "is_static": true,
               "cohort_type": null,
+              "condition_type": null,
               "experiment_set": []
             },
             {
@@ -175,8 +177,8 @@
                 }
               },
               "query": null,
-              "version": 1,
-              "pending_version": 1,
+              "version": 91,
+              "pending_version": 91,
               "is_calculating": false,
               "created_by": {
                 "id": 411781,
@@ -190,36 +192,44 @@
                 "role_at_organization": ""
               },
               "created_at": "2026-06-03T09:53:12.307762Z",
-              "last_calculation": "2026-06-03T09:53:15.783114Z",
+              "last_calculation": "2026-08-18T08:56:31.640414Z",
               "last_backfill_person_properties_at": null,
               "errors_calculating": 0,
               "last_error_message": null,
               "count": 0,
               "is_static": false,
               "cohort_type": "realtime",
+              "condition_type": null,
               "experiment_set": []
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 03 Jun 2026 10:13:57 GMT",
+          "date": "Tue, 18 Aug 2026 09:17:20 GMT",
           "content-type": "application/json",
-          "content-length": "2453",
+          "content-length": "2521",
           "connection": "keep-alive",
           "x-xss-protection": "0",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4983",
-          "x-ratelimit-reset": "1780481690",
-          "etag": "W/\"995-/u25lI9AZLGPV9crkz1PQBELO+I\""
+          "x-ratelimit-remaining": "4997",
+          "x-ratelimit-reset": "1787044699",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "content-security-policy": "default-src 'none'",
+          "vary": "origin, Cookie, Accept-Encoding",
+          "cross-origin-opener-policy": "same-origin",
+          "server": "envoy",
+          "x-envoy-upstream-service-time": "52",
+          "etag": "W/\"9d9-SYx0NnA5AHZysb8ml6Lljohlxho\""
         },
         "hash": "335e0815749e51c4e92ea7a7057b8ade62ed768a",
         "request": {

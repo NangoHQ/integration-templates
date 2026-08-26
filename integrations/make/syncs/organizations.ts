@@ -42,11 +42,16 @@ const ProviderOrganizationSchema = z.object({
     tfaEnforced: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: "Sync organizations the API token's user belongs to.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Organization: OrganizationSchema
     },
@@ -54,12 +59,25 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /organizations does not support updated_since, modified_after,
         // or any resumable cursor. It returns a full snapshot with no incremental filters.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint ?? { offset: 0 });
+        if (!checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+
+        let offset = checkpointParse.data.offset;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Organization');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developers.make.com/api-documentation/api-reference/organizations.md
             endpoint: '/organizations',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'pg[offset]',
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'pg[limit]',
                 limit: 1000,
@@ -67,17 +85,6 @@ const sync = createSync({
             },
             retries: 3
         };
-
-        const pageIterator = nango.paginate<unknown>(proxyConfig)[Symbol.asyncIterator]();
-        const firstResult = await pageIterator.next();
-        const firstParsed = firstResult.done ? undefined : z.array(ProviderOrganizationSchema).safeParse(firstResult.value);
-        if (firstParsed && !firstParsed.success) {
-            throw new Error(`Failed to parse organizations page: ${firstParsed.error.message}`);
-        }
-
-        // Only open delete tracking once the first page is confirmed valid, so a failed
-        // run never leaves tracking started without a matching trackDeletesEnd.
-        await nango.trackDeletesStart('Organization');
 
         const mapOrganizations = (parsed: z.infer<typeof ProviderOrganizationSchema>[]) =>
             parsed.map((org) => ({
@@ -100,15 +107,8 @@ const sync = createSync({
                 ...(org.tfaEnforced !== undefined && { tfaEnforced: org.tfaEnforced })
             }));
 
-        if (firstParsed && firstParsed.success) {
-            const organizations = mapOrganizations(firstParsed.data);
-            if (organizations.length > 0) {
-                await nango.batchSave(organizations, 'Organization');
-            }
-        }
-
-        for (let result = await pageIterator.next(); !result.done; result = await pageIterator.next()) {
-            const parsed = z.array(ProviderOrganizationSchema).safeParse(result.value);
+        for await (const pageResults of nango.paginate<unknown>(proxyConfig)) {
+            const parsed = z.array(ProviderOrganizationSchema).safeParse(pageResults);
             if (!parsed.success) {
                 throw new Error(`Failed to parse organizations page: ${parsed.error.message}`);
             }
@@ -117,8 +117,12 @@ const sync = createSync({
             if (organizations.length > 0) {
                 await nango.batchSave(organizations, 'Organization');
             }
+
+            offset += pageResults.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Organization');
     }
 });

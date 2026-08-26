@@ -1,7 +1,24 @@
 {
   "nango": {
     "batchSave": {
-      "FineTuningJob": []
+      "FineTuningJob": [
+        {
+          "id": "ftjob-5RKxasEwxKsPMoVllUOv01eE",
+          "object": "fine_tuning.job",
+          "model": "gpt-4o-mini-2024-07-18",
+          "created_at": 1779276016,
+          "organization_id": "org-RDBrKBVjXQsscdfZBUcrk5iV",
+          "status": "cancelled",
+          "training_file": "file-GRTmR9ARqajcz79DWZLQVL",
+          "result_files": [],
+          "hyperparameters": {
+            "n_epochs": "auto",
+            "batch_size": "auto",
+            "learning_rate_multiplier": "auto"
+          },
+          "error": {}
+        }
+      ]
     },
     "batchDelete": {
       "FineTuningJob": []
@@ -12,12 +29,55 @@
       "/v1/fine_tuning/jobs": {
         "response": {
           "object": "list",
-          "data": [],
+          "data": [
+            {
+              "object": "fine_tuning.job",
+              "id": "ftjob-5RKxasEwxKsPMoVllUOv01eE",
+              "model": "gpt-4o-mini-2024-07-18",
+              "created_at": 1779276016,
+              "finished_at": null,
+              "fine_tuned_model": null,
+              "organization_id": "org-RDBrKBVjXQsscdfZBUcrk5iV",
+              "result_files": [],
+              "status": "cancelled",
+              "validation_file": null,
+              "training_file": "file-GRTmR9ARqajcz79DWZLQVL",
+              "hyperparameters": {
+                "n_epochs": "auto",
+                "batch_size": "auto",
+                "learning_rate_multiplier": "auto"
+              },
+              "trained_tokens": null,
+              "error": {},
+              "user_provided_suffix": null,
+              "seed": 1766749783,
+              "estimated_finish": null,
+              "integrations": [],
+              "metadata": null,
+              "usage_metrics": null,
+              "shared_with_openai": false,
+              "eval_id": null,
+              "internal_worker_backend": null,
+              "internal_peashooter_execution": null,
+              "train_experiment_id": null,
+              "eval_experiment_id": null,
+              "method": {
+                "type": "supervised",
+                "supervised": {
+                  "hyperparameters": {
+                    "n_epochs": "auto",
+                    "batch_size": "auto",
+                    "learning_rate_multiplier": "auto"
+                  }
+                }
+              }
+            }
+          ],
           "has_more": false
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 19 May 2026 20:06:38 GMT",
+          "date": "Tue, 18 Aug 2026 09:17:34 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -26,23 +86,24 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
-          "access-control-expose-headers": "CF-Ray",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4982",
-          "x-ratelimit-reset": "1779221229",
+          "x-ratelimit-remaining": "4957",
+          "x-ratelimit-reset": "1787044699",
           "server": "cloudflare",
           "openai-version": "2020-10-01",
           "openai-organization": "nangodev",
           "openai-project": "proj_bkqat9iXXSSrc8Kx228QbGL9",
-          "x-request-id": "req_45048168b7a74ed59512166df37c73da",
-          "openai-processing-ms": "67",
+          "x-request-id": "req_0b72868c37594aa3a31f7ec102c37ec1",
+          "openai-processing-ms": "71",
           "x-openai-proxy-wasm": "v0.1",
           "cf-cache-status": "DYNAMIC",
-          "set-cookie": "__cf_bm=lz4dOL83Fo1gEOwtaTNZiJcDYZSs81fthCX1jO0luRE-1779221198.5773795-1.0.1.1-Q87jS_4XXiZl4PiG_aCgxZDuX3A3vJQRh8Erns4jQUDFrvevIqzrCt2hcxecM3M3jcsq4eCholfOJzOliRcotKSqD712o0lCpJHWfPsiaGg8fRBYBqrxshTSf3OcUXgT; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Tue, 19 May 2026 20:36:38 GMT",
-          "cf-ray": "9fe5b92b1cdd5eea-PDX",
+          "set-cookie": "__cf_bm=sJZpnAW1V.1GuyEdBs1peu57ixARRAFc9evDn7uThYg-1787044654.3658564-1.0.1.1-LRSIR9z2N0kFx76L1rOYK66jaNDb2L44Qbf7zRFhmRjFOMLRjN4xrwiHiGx8452F2CxtDzMiMYGL1dje3LupKvHejgLqkG7qq9cmIpNK1_fuXcld7Ep7RGk3dUxsZCAf; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Tue, 18 Aug 2026 09:47:34 GMT",
+          "cf-ray": "a2cfd381cbb15ef5-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
         "hash": "3bca2e4c24fea006b513d60040604ebd8cf3d50d",

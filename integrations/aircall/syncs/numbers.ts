@@ -47,9 +47,13 @@ const NumberSchema = z.object({
     messages: ProviderMessagesSchema.optional().describe("URL to Number's music & messages files")
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync phone numbers from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     // https://developer.aircall.io/api-references/#number
@@ -59,6 +63,7 @@ const sync = createSync({
             path: '/syncs/numbers'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         Number: NumberSchema
     },
@@ -67,27 +72,40 @@ const sync = createSync({
         // Blocker: GET /v1/numbers does not support an updated_after or changed-since filter,
         // and there is no deleted-record endpoint or resumable cursor for numbers.
         // Full refresh with trackDeletesStart/trackDeletesEnd is required.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+
+        const checkpoint = checkpointParse?.data;
+        let page: number | undefined = checkpoint?.page ?? 1;
+
         await nango.trackDeletesStart('Number');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.aircall.io/api-references/#list-all-numbers
             endpoint: '/v1/numbers',
             params: {
-                page: 1,
                 per_page: 50
             },
             paginate: {
-                type: 'link',
-                link_path_in_response_body: 'meta.next_page_link',
-                response_path: 'numbers',
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: page,
+                offset_calculation_method: 'per-page',
+                limit_name_in_request: 'per_page',
                 limit: 50,
-                limit_name_in_request: 'per_page'
+                response_path: 'numbers',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const numbers = page.map((record: unknown) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const numbers = pageResults.map((record: unknown) => {
                 const parsed = ProviderNumberSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse number: ${parsed.error.message}`);
@@ -114,8 +132,18 @@ const sync = createSync({
             if (numbers.length > 0) {
                 await nango.batchSave(numbers, 'Number');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Number');
     }
 });

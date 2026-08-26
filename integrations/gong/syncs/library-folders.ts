@@ -17,6 +17,10 @@ const LibraryFolderProviderSchema = z.object({
     updated: z.string().nullish()
 });
 
+const WorkspacesResponseSchema = z.object({
+    workspaces: z.array(z.object({ id: z.string() })).nullish()
+});
+
 function isUnavailableError(error: unknown): boolean {
     if (error === null || typeof error !== 'object') {
         return false;
@@ -35,7 +39,7 @@ function isUnavailableError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync Gong library folders',
-    version: '1.0.1',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -51,45 +55,68 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /v2/library/folders with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Run as full refresh.
-        await nango.trackDeletesStart('LibraryFolder');
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://help.gong.io/docs/what-the-gong-api-provides
-            endpoint: '/v2/library/folders',
-            paginate: {
-                type: 'cursor',
-                cursor_name_in_request: 'cursor',
-                cursor_path_in_response: 'records.cursor',
-                response_path: 'folders',
-                limit_name_in_request: 'limit',
-                limit: 100
-            },
-            retries: 3
-        };
 
         // @allowTryCatch 401/404 from plan-gated or scope-missing endpoint is a valid empty result
         try {
-            for await (const page of nango.paginate(proxyConfig)) {
-                const folders = [];
-                for (const item of page) {
-                    const parsed = LibraryFolderProviderSchema.safeParse(item);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse library folder: ${parsed.error.message}`);
+            // https://help.gong.io/docs/what-the-gong-api-provides
+            const workspacesResponse = await nango.get({
+                endpoint: '/v2/workspaces',
+                retries: 3
+            });
+            const { workspaces } = WorkspacesResponseSchema.parse(workspacesResponse.data);
+
+            if (!workspaces || workspaces.length === 0) {
+                // Can't tell "this account genuinely has zero workspaces" apart from a
+                // malformed/empty response, and /v2/library/folders 400s without a
+                // workspaceId, so we have no evidence either way about folder state.
+                // Leave delete tracking untouched rather than risk wiping every
+                // previously synced record.
+                return;
+            }
+
+            await nango.trackDeletesStart('LibraryFolder');
+
+            for (const workspace of workspaces) {
+                const proxyConfig: ProxyConfiguration = {
+                    // https://help.gong.io/docs/what-the-gong-api-provides
+                    // workspaceId is required: the endpoint returns 400 Bad Request without it.
+                    endpoint: '/v2/library/folders',
+                    params: {
+                        workspaceId: workspace.id
+                    },
+                    paginate: {
+                        type: 'cursor',
+                        cursor_name_in_request: 'cursor',
+                        cursor_path_in_response: 'records.cursor',
+                        response_path: 'folders',
+                        limit_name_in_request: 'limit',
+                        limit: 100
+                    },
+                    retries: 3
+                };
+
+                for await (const page of nango.paginate(proxyConfig)) {
+                    const folders = [];
+                    for (const item of page) {
+                        const parsed = LibraryFolderProviderSchema.safeParse(item);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse library folder: ${parsed.error.message}`);
+                        }
+                        const folder = parsed.data;
+                        if (!folder.id) {
+                            throw new Error('Library folder id is missing');
+                        }
+                        folders.push({
+                            id: folder.id,
+                            ...(folder.name != null && { name: folder.name }),
+                            ...(folder.parentFolderId != null && { parentFolderId: folder.parentFolderId }),
+                            ...(folder.createdBy != null && { createdBy: folder.createdBy }),
+                            ...(folder.updated != null && { updated: folder.updated })
+                        });
                     }
-                    const folder = parsed.data;
-                    if (!folder.id) {
-                        throw new Error('Library folder id is missing');
+                    if (folders.length > 0) {
+                        await nango.batchSave(folders, 'LibraryFolder');
                     }
-                    folders.push({
-                        id: folder.id,
-                        ...(folder.name != null && { name: folder.name }),
-                        ...(folder.parentFolderId != null && { parentFolderId: folder.parentFolderId }),
-                        ...(folder.createdBy != null && { createdBy: folder.createdBy }),
-                        ...(folder.updated != null && { updated: folder.updated })
-                    });
-                }
-                if (folders.length > 0) {
-                    await nango.batchSave(folders, 'LibraryFolder');
                 }
             }
             // Only mark deletes complete after a full successful enumeration
