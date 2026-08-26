@@ -1,0 +1,682 @@
+{
+  "nango": {
+    "batchSave": {
+      "Message": []
+    },
+    "batchDelete": {
+      "Message": []
+    }
+  },
+  "api": {
+    "get": {
+      "/projects.json": {
+        "response": [
+          {
+            "id": 48644363,
+            "status": "active",
+            "created_at": "2026-08-26T04:37:02.510Z",
+            "updated_at": "2026-08-26T04:37:02.887Z",
+            "name": "Test Project Create Action 2",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQzNjM_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--ee7182a74fa502220f5c77506446a1f80ea214ce.json",
+            "star_url": "https://3.basecampapi.com/6267157/buckets/48644363/stars.json",
+            "url": "https://3.basecampapi.com/6267157/projects/48644363.json",
+            "app_url": "https://app.basecamp.com/6267157/projects/48644363",
+            "dock": [
+              {
+                "id": 10239443864,
+                "title": "Message Board",
+                "name": "message_board",
+                "enabled": true,
+                "position": 1,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/message_boards/10239443864.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/message_boards/10239443864"
+              },
+              {
+                "id": 10239443866,
+                "title": "To-dos",
+                "name": "todoset",
+                "enabled": true,
+                "position": 2,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/todosets/10239443866.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/todosets/10239443866"
+              },
+              {
+                "id": 10239443867,
+                "title": "Docs & Files",
+                "name": "vault",
+                "enabled": true,
+                "position": 3,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/vaults/10239443867.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/vaults/10239443867"
+              },
+              {
+                "id": 10239443868,
+                "title": "Calendar",
+                "name": "schedule",
+                "enabled": true,
+                "position": 4,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/schedules/10239443868.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/schedules/10239443868"
+              },
+              {
+                "id": 10239443869,
+                "title": "Chat",
+                "name": "chat",
+                "enabled": true,
+                "position": 5,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/chats/10239443869.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/chats/10239443869"
+              },
+              {
+                "id": 10239443870,
+                "title": "Card Table",
+                "name": "kanban_board",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/10239443870.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/10239443870"
+              },
+              {
+                "id": 10239443876,
+                "title": "Automatic Check-ins",
+                "name": "questionnaire",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/questionnaires/10239443876.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/questionnaires/10239443876"
+              },
+              {
+                "id": 10239443877,
+                "title": "Email Forwards",
+                "name": "inbox",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644363/inboxes/10239443877.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644363/inboxes/10239443877"
+              }
+            ],
+            "people": {
+              "team": {
+                "count": 1,
+                "sample": [
+                  {
+                    "id": 53024646,
+                    "name": "Nango Developer",
+                    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                  }
+                ]
+              }
+            },
+            "all_access": false,
+            "bookmarked": false
+          },
+          {
+            "id": 48644361,
+            "status": "active",
+            "created_at": "2026-08-26T04:36:54.244Z",
+            "updated_at": "2026-08-26T04:36:54.646Z",
+            "name": "Test Project Create Action 2",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQzNjE_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--6ceb8a81ab42785a85f08c5f9cf353be2d5bbcfe.json",
+            "star_url": "https://3.basecampapi.com/6267157/buckets/48644361/stars.json",
+            "url": "https://3.basecampapi.com/6267157/projects/48644361.json",
+            "app_url": "https://app.basecamp.com/6267157/projects/48644361",
+            "dock": [
+              {
+                "id": 10239443732,
+                "title": "Message Board",
+                "name": "message_board",
+                "enabled": true,
+                "position": 1,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/message_boards/10239443732.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/message_boards/10239443732"
+              },
+              {
+                "id": 10239443733,
+                "title": "To-dos",
+                "name": "todoset",
+                "enabled": true,
+                "position": 2,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/todosets/10239443733.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/todosets/10239443733"
+              },
+              {
+                "id": 10239443735,
+                "title": "Docs & Files",
+                "name": "vault",
+                "enabled": true,
+                "position": 3,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/vaults/10239443735.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/vaults/10239443735"
+              },
+              {
+                "id": 10239443737,
+                "title": "Calendar",
+                "name": "schedule",
+                "enabled": true,
+                "position": 4,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/schedules/10239443737.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/schedules/10239443737"
+              },
+              {
+                "id": 10239443738,
+                "title": "Chat",
+                "name": "chat",
+                "enabled": true,
+                "position": 5,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/chats/10239443738.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/chats/10239443738"
+              },
+              {
+                "id": 10239443741,
+                "title": "Card Table",
+                "name": "kanban_board",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/card_tables/10239443741.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/card_tables/10239443741"
+              },
+              {
+                "id": 10239443750,
+                "title": "Automatic Check-ins",
+                "name": "questionnaire",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/questionnaires/10239443750.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/questionnaires/10239443750"
+              },
+              {
+                "id": 10239443751,
+                "title": "Email Forwards",
+                "name": "inbox",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644361/inboxes/10239443751.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644361/inboxes/10239443751"
+              }
+            ],
+            "people": {
+              "team": {
+                "count": 1,
+                "sample": [
+                  {
+                    "id": 53024646,
+                    "name": "Nango Developer",
+                    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                  }
+                ]
+              }
+            },
+            "all_access": false,
+            "bookmarked": false
+          },
+          {
+            "id": 48644360,
+            "status": "active",
+            "created_at": "2026-08-26T04:36:32.481Z",
+            "updated_at": "2026-08-26T04:36:32.855Z",
+            "name": "Test Project Create Action",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQzNjA_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--baa0e977a604a40d7edc9d56edbda4083f223036.json",
+            "star_url": "https://3.basecampapi.com/6267157/buckets/48644360/stars.json",
+            "url": "https://3.basecampapi.com/6267157/projects/48644360.json",
+            "app_url": "https://app.basecamp.com/6267157/projects/48644360",
+            "dock": [
+              {
+                "id": 10239443267,
+                "title": "Message Board",
+                "name": "message_board",
+                "enabled": true,
+                "position": 1,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/message_boards/10239443267.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/message_boards/10239443267"
+              },
+              {
+                "id": 10239443268,
+                "title": "To-dos",
+                "name": "todoset",
+                "enabled": true,
+                "position": 2,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/todosets/10239443268.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/todosets/10239443268"
+              },
+              {
+                "id": 10239443270,
+                "title": "Docs & Files",
+                "name": "vault",
+                "enabled": true,
+                "position": 3,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/vaults/10239443270.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/vaults/10239443270"
+              },
+              {
+                "id": 10239443271,
+                "title": "Calendar",
+                "name": "schedule",
+                "enabled": true,
+                "position": 4,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/schedules/10239443271.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/schedules/10239443271"
+              },
+              {
+                "id": 10239443272,
+                "title": "Chat",
+                "name": "chat",
+                "enabled": true,
+                "position": 5,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/chats/10239443272.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/chats/10239443272"
+              },
+              {
+                "id": 10239443273,
+                "title": "Card Table",
+                "name": "kanban_board",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/card_tables/10239443273.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/card_tables/10239443273"
+              },
+              {
+                "id": 10239443279,
+                "title": "Automatic Check-ins",
+                "name": "questionnaire",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/questionnaires/10239443279.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/questionnaires/10239443279"
+              },
+              {
+                "id": 10239443280,
+                "title": "Email Forwards",
+                "name": "inbox",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644360/inboxes/10239443280.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644360/inboxes/10239443280"
+              }
+            ],
+            "people": {
+              "team": {
+                "count": 1,
+                "sample": [
+                  {
+                    "id": 53024646,
+                    "name": "Nango Developer",
+                    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                  }
+                ]
+              }
+            },
+            "all_access": false,
+            "bookmarked": false
+          },
+          {
+            "id": 48644358,
+            "status": "active",
+            "created_at": "2026-08-26T04:36:19.471Z",
+            "updated_at": "2026-08-26T04:36:19.889Z",
+            "name": "Test Project Create Action",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQzNTg_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--c8bf0e38730b61bdf2caa2f833d7dda89b1d3e3f.json",
+            "star_url": "https://3.basecampapi.com/6267157/buckets/48644358/stars.json",
+            "url": "https://3.basecampapi.com/6267157/projects/48644358.json",
+            "app_url": "https://app.basecamp.com/6267157/projects/48644358",
+            "dock": [
+              {
+                "id": 10239443017,
+                "title": "Message Board",
+                "name": "message_board",
+                "enabled": true,
+                "position": 1,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/message_boards/10239443017.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/message_boards/10239443017"
+              },
+              {
+                "id": 10239443021,
+                "title": "To-dos",
+                "name": "todoset",
+                "enabled": true,
+                "position": 2,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/todosets/10239443021.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/todosets/10239443021"
+              },
+              {
+                "id": 10239443023,
+                "title": "Docs & Files",
+                "name": "vault",
+                "enabled": true,
+                "position": 3,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/vaults/10239443023.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/vaults/10239443023"
+              },
+              {
+                "id": 10239443026,
+                "title": "Calendar",
+                "name": "schedule",
+                "enabled": true,
+                "position": 4,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/schedules/10239443026.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/schedules/10239443026"
+              },
+              {
+                "id": 10239443028,
+                "title": "Chat",
+                "name": "chat",
+                "enabled": true,
+                "position": 5,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/chats/10239443028.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/chats/10239443028"
+              },
+              {
+                "id": 10239443031,
+                "title": "Card Table",
+                "name": "kanban_board",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/card_tables/10239443031.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/card_tables/10239443031"
+              },
+              {
+                "id": 10239443037,
+                "title": "Automatic Check-ins",
+                "name": "questionnaire",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/questionnaires/10239443037.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/questionnaires/10239443037"
+              },
+              {
+                "id": 10239443039,
+                "title": "Email Forwards",
+                "name": "inbox",
+                "enabled": false,
+                "position": null,
+                "url": "https://3.basecampapi.com/6267157/buckets/48644358/inboxes/10239443039.json",
+                "app_url": "https://app.basecamp.com/6267157/buckets/48644358/inboxes/10239443039"
+              }
+            ],
+            "people": {
+              "team": {
+                "count": 1,
+                "sample": [
+                  {
+                    "id": 53024646,
+                    "name": "Nango Developer",
+                    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                  }
+                ]
+              }
+            },
+            "all_access": false,
+            "bookmarked": false
+          },
+          {
+            "id": 48644089,
+            "status": "active",
+            "created_at": "2026-08-26T03:31:40.617Z",
+            "updated_at": "2026-08-26T03:31:40.999Z",
+            "name": "My Project",
+            "description": null,
+            "purpose": "topic",
+            "clients_enabled": false,
+            "timesheet_enabled": false,
+            "color": null,
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQwODk_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--71339b5af73be52aafc48c1d51f6efc00a788c13.json",
+            "star_url": "https://3.basecampapi.com/6267157/buckets/48644089/stars.json",
+            "url": "https://3.basecampapi.com/6267157/projects/48644089.json",
+            "app_url": "https://app.basecamp.com/6267157/projects/48644089",
+            "dock": [],
+            "people": {
+              "team": {
+                "count": 1,
+                "sample": [
+                  {
+                    "id": 53024646,
+                    "name": "Nango Developer",
+                    "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                  }
+                ]
+              }
+            },
+            "all_access": false,
+            "bookmarked": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:41:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "13162",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1957",
+          "x-ratelimit-reset": "1787719303",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-8bbd75761201bbd13967cc90facb4e87627ae98d9fbca14744149b733dcd355d'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"0f8c6ddf993fed94e98a3df7a3acee07\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=ksuBpvZRc1IxT4Td9SOVPw%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:41:50Z\"}",
+          "x-request-id": "2bf871db-92a7-4e0d-8602-883dd111d854",
+          "x-robots-tag": "none",
+          "x-runtime": "0.026565",
+          "x-total-count": "5",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3102a669dbe9873-PDX"
+        },
+        "hash": "6778d7f227a03004a9d5e96a3c5139adb45a1f36",
+        "request": {
+          "params": {
+            "limit": "2"
+          }
+        }
+      },
+      "/buckets/48644363/message_boards/10239443864/messages.json": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:41:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1956",
+          "x-ratelimit-reset": "1787719303",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-a306e309af9fd647323b95c8a3a1a96731b82fcd1aa3ec39d493be7dcdd713b1'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=ZOqSSupXs9cpVJXS6rtvLQ%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:41:50Z\"}",
+          "x-request-id": "89fd4af1-22f0-40f4-87e0-9cfd7c98ad6e",
+          "x-robots-tag": "none",
+          "x-runtime": "0.019065",
+          "x-total-count": "0",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3102a680e46ef3f-PDX"
+        },
+        "hash": "d3f33cad08cc0442fd2e576ed8788621f529a66e",
+        "request": {
+          "params": {
+            "limit": "2"
+          }
+        }
+      },
+      "/buckets/48644361/message_boards/10239443732/messages.json": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:41:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1787719303",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-d5fc2aa541f3fcd41dba574ee5a0b29f6c2ebb9849fcda1c419ba1796ed15f35'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=CKaxiGw%2Ffk%2FdHYAk1C1SPw%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":48,\"until\":\"2026-08-26T04:41:50Z\"}",
+          "x-request-id": "cae298fa-beb8-4b70-8a68-ad36457d3dec",
+          "x-robots-tag": "none",
+          "x-runtime": "0.008884",
+          "x-total-count": "0",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3102a691aac9873-PDX"
+        },
+        "hash": "b72afc634bf65a301cd7e83c16a4b2667316b8a9",
+        "request": {
+          "params": {
+            "limit": "2"
+          }
+        }
+      },
+      "/buckets/48644360/message_boards/10239443267/messages.json": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:41:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1954",
+          "x-ratelimit-reset": "1787719303",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-4fce242c1d5e86d43d4a2ea2b7f19b871a55f68b16e68fca700c428df68b4668'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=tNJk5fYr5%2BcLuhk2LGcuug%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:41:50Z\"}",
+          "x-request-id": "775aa4da-37f1-440f-9879-e580735c7883",
+          "x-robots-tag": "none",
+          "x-runtime": "0.018620",
+          "x-total-count": "0",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3102a6a0c92b876-PDX"
+        },
+        "hash": "b7890b28d318b4333ca509b653159cb187066652",
+        "request": {
+          "params": {
+            "limit": "2"
+          }
+        }
+      },
+      "/buckets/48644358/message_boards/10239443017/messages.json": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:41:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1952",
+          "x-ratelimit-reset": "1787719303",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-c191c4511691e9edd5da43c9ef5e320ede4ac8d4091a49e82e340ead17d136e4'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"4f53cda18c2baa0c0354bb5f9a3ecbe5\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=PupTuLeLbN7MjkHChPHO8w%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:41:50Z\"}",
+          "x-request-id": "97a750b4-abe2-4cd1-9e7c-ae3c85046d82",
+          "x-robots-tag": "none",
+          "x-runtime": "0.011859",
+          "x-total-count": "0",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3102a6b1868884d-PDX"
+        },
+        "hash": "6c70313679045a6b6e3ea74b4b3d4e7ee44fc4aa",
+        "request": {
+          "params": {
+            "limit": "2"
+          }
+        }
+      }
+    }
+  }
+}

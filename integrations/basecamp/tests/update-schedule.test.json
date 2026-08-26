@@ -1,0 +1,133 @@
+{
+  "input": {
+    "projectId": 48644099,
+    "scheduleId": 10239340941,
+    "includeDueAssignments": false
+  },
+  "output": {
+    "id": 10239340941,
+    "status": "active",
+    "visible_to_clients": false,
+    "created_at": "2026-08-26T03:32:55.642Z",
+    "updated_at": "2026-08-26T04:30:42.487Z",
+    "title": "Calendar",
+    "inherits_status": true,
+    "type": "Schedule",
+    "url": "https://3.basecampapi.com/6267157/buckets/48644099/schedules/10239340941.json",
+    "app_url": "https://app.basecamp.com/6267157/buckets/48644099/schedules/10239340941",
+    "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiL2dpZDovL2JjMy9SZWNvcmRpbmcvMTAyMzkzNDA5NDE_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--a10aaad5dd1f0c17c2e13b3f05ad2de77fcec84c.json",
+    "position": 1,
+    "bucket": {
+      "id": 48644099,
+      "name": "Name the project",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 53024646,
+      "name": "Nango Developer",
+      "email_address": "api@nango.dev"
+    },
+    "include_due_assignments": false,
+    "entries_count": 0,
+    "entries_url": "https://3.basecampapi.com/6267157/schedules/10239340941/entries.json"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/buckets/48644099/schedules/10239340941.json": {
+        "response": {
+          "id": 10239340941,
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T03:32:55.642Z",
+          "updated_at": "2026-08-26T04:30:42.487Z",
+          "title": "Calendar",
+          "inherits_status": true,
+          "type": "Schedule",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644099/schedules/10239340941.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644099/schedules/10239340941",
+          "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiL2dpZDovL2JjMy9SZWNvcmRpbmcvMTAyMzkzNDA5NDE_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--a10aaad5dd1f0c17c2e13b3f05ad2de77fcec84c.json",
+          "position": 1,
+          "bucket": {
+            "id": 48644099,
+            "name": "Name the project",
+            "type": "Project"
+          },
+          "creator": {
+            "id": 53024646,
+            "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9QZXJzb24vNTMwMjQ2NDY_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSIPYXR0YWNoYWJsZQY7AFQ=--3858efa40d167b95db0b2b5f13cf31d9461fe8b4",
+            "name": "Nango Developer",
+            "personable_type": "User",
+            "title": null,
+            "tagline": null,
+            "location": null,
+            "created_at": "2026-08-26T03:31:40.436Z",
+            "updated_at": "2026-08-26T03:31:50.720Z",
+            "email_address": "api@nango.dev",
+            "bio": null,
+            "admin": true,
+            "owner": true,
+            "client": false,
+            "employee": true,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar",
+            "company": {
+              "id": 4237397,
+              "name": "Nango Inc"
+            },
+            "can_ping": true,
+            "can_manage_projects": true,
+            "can_manage_people": true,
+            "can_access_timesheet": false,
+            "can_access_hill_charts": true
+          },
+          "include_due_assignments": false,
+          "entries_count": 0,
+          "entries_url": "https://3.basecampapi.com/6267157/schedules/10239340941/entries.json"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:30:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1685",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1951",
+          "x-ratelimit-reset": "1787718685",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-1c1143713971be5723d44a994459a82a58d5f27fbf6a0cb864971ffe1f5e5802'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com; report-uri https://o33603.ingest.us.sentry.io/api/4508280687624192/security/?sentry_key=0ee4ee9190f5c1183633750d914b0ce2&sentry_environment=production&sentry_release=ee62cd",
+          "etag": "W/\"396caf7210bbcf945a014e0dfd8c30cb\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=Y6mp5i44pZiZahCeRnxieA%3D%3D; path=/; HttpOnly; SameSite=Lax; secure, force-primary-dc=true; Path=/; Version=1; Max-Age=1",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":48,\"until\":\"2026-08-26T04:30:50Z\"}, {\"name\":\"API_PATH\",\"period\":10,\"limit\":50,\"remaining\":48,\"until\":\"2026-08-26T04:30:50Z\"}",
+          "x-request-id": "ba604df8-3a24-4fa4-8f7d-0c86be68821b",
+          "x-robots-tag": "none",
+          "x-runtime": "0.032021",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a3101a71fabc9873-PDX"
+        },
+        "hash": "c5d7248fc5c49afdcd1a3ab4ee64f75c91ee9468",
+        "request": {
+          "data": {
+            "schedule": {
+              "include_due_assignments": false
+            }
+          }
+        }
+      }
+    }
+  }
+}
