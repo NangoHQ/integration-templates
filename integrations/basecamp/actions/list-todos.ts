@@ -2,11 +2,15 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+// The account-scoped Basecamp API host. Pagination cursors are only ever trusted when they resolve to this origin,
+// so a caller-supplied cursor cannot redirect the authenticated request to an arbitrary host.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
+
 const ProviderPersonSchema = z
     .object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string()
+        email_address: z.string().nullable()
     })
     .passthrough();
 
@@ -33,7 +37,7 @@ const ProviderTodoSchema = z
 const PersonSchema = z.object({
     id: z.number().describe('The unique ID of the person.'),
     name: z.string().describe('The full name of the person.'),
-    email_address: z.string().describe('The email address of the person.')
+    email_address: z.string().nullable().describe('The email address of the person, or null if they have none.')
 });
 
 const TodoSchema = z.object({
@@ -106,6 +110,12 @@ const action = createAction({
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor);
+            if (cursorUrl.origin !== BASECAMP_API_ORIGIN) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The cursor does not point to the Basecamp API host.'
+                });
+            }
             config.baseUrlOverride = cursorUrl.origin;
             config.endpoint = cursorUrl.pathname + cursorUrl.search;
         } else {

@@ -174,10 +174,22 @@ const sync = createSync({
         if (checkpoint && typeof checkpoint['pendingVaults'] === 'string') {
             queue = parseVaultQueue(checkpoint['pendingVaults']);
         }
+        // An empty queue is either a fresh run or a checkpoint restored from a prior execution
+        // that crashed right after persisting its final (empty) checkpoint but before
+        // trackDeletesEnd ran. Either way it is untrustworthy on its own, so (re)seed it from
+        // the freshly discovered projects rather than let it silently close out delete tracking.
         if (queue.length === 0) {
             for (const project of projects) {
                 queue.push({ projectId: project.id, vaultId: project.vaultId });
             }
+        }
+
+        // If there is still nothing to crawl (no projects with an enabled vault), skip delete
+        // tracking entirely instead of opening and immediately closing an empty window, which
+        // would delete every previously synced Document.
+        if (queue.length === 0) {
+            await nango.clearCheckpoint();
+            return;
         }
 
         await nango.trackDeletesStart('Document');
@@ -266,9 +278,11 @@ const sync = createSync({
                 }
             }
 
-            await nango.saveCheckpoint({
-                pendingVaults: JSON.stringify(queue)
-            });
+            if (queue.length > 0) {
+                await nango.saveCheckpoint({
+                    pendingVaults: JSON.stringify(queue)
+                });
+            }
         }
 
         await nango.clearCheckpoint();

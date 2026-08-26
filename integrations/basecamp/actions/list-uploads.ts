@@ -4,7 +4,8 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         projectId: z.number().describe('Project ID (bucket ID). Example: 48644099'),
-        vaultId: z.number().describe('Vault ID (dock tool ID). Example: 10239340939')
+        vaultId: z.number().describe('Vault ID (dock tool ID). Example: 10239340939'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input for listing uploads in a Basecamp vault.');
 
@@ -49,7 +50,7 @@ const UploadSchema = z
             .object({
                 id: z.number().describe('Creator person ID.'),
                 name: z.string().describe('Creator name.'),
-                email_address: z.string().describe('Creator email address.')
+                email_address: z.string().nullable().describe('Creator email address, or null if the creator has none.')
             })
             .passthrough()
             .describe('Creator information.'),
@@ -67,14 +68,15 @@ const UploadSchema = z
 
 const OutputSchema = z
     .object({
-        items: z.array(UploadSchema).describe('List of file uploads in the vault.')
+        items: z.array(UploadSchema).describe('File uploads in the vault, one page at a time.'),
+        next_cursor: z.string().optional().describe('Pagination cursor for the next page, if more results exist.')
     })
-    .describe('Output for listing uploads in a Basecamp vault.');
+    .describe('Output for listing a page of uploads in a Basecamp vault.');
 
 /**
  * @tags: [read]
  * @tagReason: Reads the list of file uploads from a Basecamp vault.
- * @pitfalls: Only active uploads are returned; trashed and archived uploads are excluded from results.
+ * @pitfalls: Only active uploads are returned; trashed and archived uploads are excluded from results. Returns one page at a time; pass the returned `next_cursor` to fetch more.
  */
 const action = createAction({
     description: 'List file uploads in a vault.',
@@ -84,30 +86,39 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const items: z.infer<typeof UploadSchema>[] = [];
-
         // https://github.com/basecamp/bc3-api/blob/master/sections/uploads.md
-        for await (const page of nango.paginate({
+        const response = await nango.get({
             endpoint: `/buckets/${encodeURIComponent(input.projectId)}/vaults/${encodeURIComponent(input.vaultId)}/uploads.json`,
-            retries: 3,
-            paginate: {
-                type: 'link',
-                link_rel_in_response_header: 'next'
+            params: {
+                ...(input.cursor !== undefined && { page: input.cursor })
+            },
+            retries: 3
+        });
+
+        const parsedPage = z.array(UploadSchema).safeParse(response.data);
+        if (!parsedPage.success) {
+            throw new nango.ActionError({
+                type: 'validation_error',
+                message: 'Failed to validate upload list response',
+                details: parsedPage.error.message
+            });
+        }
+
+        const linkHeader = response.headers?.['link'];
+        let next_cursor: string | undefined;
+        if (typeof linkHeader === 'string') {
+            const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
+            if (nextMatch && nextMatch[1]) {
+                const pageMatch = nextMatch[1].match(/[?&]page=([^&]+)/);
+                if (pageMatch && pageMatch[1]) {
+                    next_cursor = pageMatch[1];
+                }
             }
-        })) {
-            const parsedPage = z.array(UploadSchema).safeParse(page);
-            if (!parsedPage.success) {
-                throw new nango.ActionError({
-                    type: 'validation_error',
-                    message: 'Failed to validate upload list response',
-                    details: parsedPage.error.message
-                });
-            }
-            items.push(...parsedPage.data);
         }
 
         return {
-            items
+            items: parsedPage.data,
+            ...(next_cursor !== undefined && { next_cursor })
         };
     }
 });

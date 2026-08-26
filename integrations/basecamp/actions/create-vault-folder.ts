@@ -44,7 +44,7 @@ const ProviderVaultSchema = z
             .object({
                 id: z.number(),
                 name: z.string(),
-                email_address: z.string()
+                email_address: z.string().nullable()
             })
             .passthrough()
             .optional(),
@@ -92,7 +92,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('Person ID of the creator.'),
                 name: z.string().describe('Display name of the creator.'),
-                email_address: z.string().describe('Email address of the creator.')
+                email_address: z.string().nullable().describe('Email address of the creator.')
             })
             .optional()
             .describe('Person who created the vault.'),

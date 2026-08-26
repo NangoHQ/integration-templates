@@ -42,7 +42,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the person who created the column.'),
                 name: z.string().describe('The name of the creator.'),
-                email_address: z.string().describe('The email address of the creator.')
+                email_address: z.string().nullable().describe('The email address of the creator, or null for people without one (e.g. integration accounts).')
             })
             .passthrough()
             .describe('The person who created this column.'),
@@ -84,7 +84,7 @@ const ProviderColumnSchema = z.object({
         .object({
             id: z.number(),
             name: z.string(),
-            email_address: z.string()
+            email_address: z.string().nullable()
         })
         .passthrough(),
     description: z.string().nullable().optional(),

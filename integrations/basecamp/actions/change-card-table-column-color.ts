@@ -5,8 +5,8 @@ const ColorEnum = z.enum(['white', 'red', 'orange', 'yellow', 'green', 'blue', '
 
 const InputSchema = z
     .object({
-        projectId: z.string().describe('The ID of the Basecamp project (bucket) that contains the card table column.'),
-        columnId: z.string().describe('The ID of the card table column whose color should be changed.'),
+        projectId: z.number().describe('The ID of the Basecamp project (bucket) that contains the card table column.'),
+        columnId: z.number().describe('The ID of the card table column whose color should be changed.'),
         color: ColorEnum.describe('The new color for the column. Allowed values: white, red, orange, yellow, green, blue, aqua, purple, gray, pink, brown.')
     })
     .describe("Input for changing a card table column's color.");
@@ -39,7 +39,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
             // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/card_table_columns.md
-            endpoint: `/buckets/${encodeURIComponent(input.projectId)}/card_tables/columns/${encodeURIComponent(input.columnId)}/color.json`,
+            endpoint: `/buckets/${encodeURIComponent(String(input.projectId))}/card_tables/columns/${encodeURIComponent(String(input.columnId))}/color.json`,
             data: {
                 color: input.color
             },

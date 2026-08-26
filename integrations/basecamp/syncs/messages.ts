@@ -21,7 +21,11 @@ const ProviderMessageSchema = z.object({
     created_at: z.string(),
     updated_at: z.string(),
     title: z.string(),
-    subject: z.string(),
+    // The messages listing endpoint (GET .../messages.json) does not document or reliably return
+    // `subject` (it's documented only on the single-message endpoint), even though it has been
+    // observed present on some listing responses. Treat it as possibly absent so a page never
+    // fails to parse solely because of this field.
+    subject: z.string().optional(),
     content: z.string().optional(),
     url: z.string(),
     app_url: z.string(),
@@ -186,7 +190,8 @@ const sync = createSync({
                     created_at: msg.created_at,
                     updated_at: msg.updated_at,
                     title: msg.title,
-                    subject: msg.subject,
+                    // subject can be absent from the listing response; title always mirrors it, so fall back to title.
+                    subject: msg.subject ?? msg.title,
                     ...(msg.content !== undefined && { content: msg.content }),
                     url: msg.url,
                     app_url: msg.app_url,

@@ -11,7 +11,7 @@ const CompanySchema = z.object({
 const PersonSchema = z.object({
     id: z.number().describe('Person ID.'),
     name: z.string().describe('Full name.'),
-    email_address: z.string().describe('Email address. May be redacted for non-admins.'),
+    email_address: z.string().optional().describe('Email address. Absent when the person has no email address, or may be redacted for non-admins.'),
     title: z.string().optional().describe('Job title.'),
     tagline: z.string().optional().describe('Personal tagline or motto.'),
     location: z.string().optional().describe('Geographic location.'),
@@ -61,7 +61,7 @@ const action = createAction({
                 z.object({
                     id: z.number(),
                     name: z.string(),
-                    email_address: z.string(),
+                    email_address: z.string().nullable().optional(),
                     title: z.string().nullable(),
                     tagline: z.string().nullable(),
                     location: z.string().nullable(),
@@ -93,7 +93,7 @@ const action = createAction({
             people: providerPeople.map((person) => ({
                 id: person.id,
                 name: person.name,
-                email_address: person.email_address,
+                ...(person.email_address != null && { email_address: person.email_address }),
                 ...(person.title != null && { title: person.title }),
                 ...(person.tagline != null && { tagline: person.tagline }),
                 ...(person.location != null && { location: person.location }),

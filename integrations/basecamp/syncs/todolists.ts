@@ -88,12 +88,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let queue: Array<z.infer<typeof TodoSetRefSchema>>;
-
-        if (checkpoint != null && typeof checkpoint['pending_pairs'] === 'string') {
-            queue = parsePendingPairs(checkpoint['pending_pairs']);
-        } else {
+        async function discoverTodosets(): Promise<Array<z.infer<typeof TodoSetRefSchema>>> {
             const projectProxyConfig: ProxyConfiguration = {
                 // https://github.com/basecamp/bc3-api/blob/master/sections/projects.md#get-all-projects
                 endpoint: '/projects.json',
@@ -117,13 +112,39 @@ const sync = createSync({
                 }
             }
 
-            queue = [];
+            const todosets: Array<z.infer<typeof TodoSetRefSchema>> = [];
             for (const project of projects) {
                 const todoset = project.dock.find((tool) => tool.name === 'todoset');
                 if (todoset && todoset.enabled) {
-                    queue.push({ projectId: project.id, todosetId: todoset.id });
+                    todosets.push({ projectId: project.id, todosetId: todoset.id });
                 }
             }
+
+            return todosets;
+        }
+
+        const checkpoint = await nango.getCheckpoint();
+        let queue: Array<z.infer<typeof TodoSetRefSchema>>;
+
+        if (checkpoint != null && typeof checkpoint['pending_pairs'] === 'string') {
+            queue = parsePendingPairs(checkpoint['pending_pairs']);
+            // A checkpoint restored with an empty queue is indistinguishable from a prior
+            // execution that crashed right after persisting its final (empty) checkpoint but
+            // before trackDeletesEnd ran. Treat it as untrustworthy and rediscover from scratch
+            // rather than let an empty queue silently close out delete tracking below.
+            if (queue.length === 0) {
+                queue = await discoverTodosets();
+            }
+        } else {
+            queue = await discoverTodosets();
+        }
+
+        // If there is still nothing to crawl (no projects with an enabled to-do set), skip
+        // delete tracking entirely instead of opening and immediately closing an empty window,
+        // which would delete every previously synced Todolist.
+        if (queue.length === 0) {
+            await nango.clearCheckpoint();
+            return;
         }
 
         // Safe to call on every execution; trackDeletesStart will not overwrite the
@@ -183,7 +204,9 @@ const sync = createSync({
                 }
             }
 
-            await nango.saveCheckpoint({ pending_pairs: JSON.stringify(queue) });
+            if (queue.length > 0) {
+                await nango.saveCheckpoint({ pending_pairs: JSON.stringify(queue) });
+            }
         }
 
         await nango.clearCheckpoint();

@@ -18,17 +18,22 @@ const ProviderVersionSchema = z.object({
         .object({
             id: z.number(),
             name: z.string(),
-            email_address: z.string()
+            email_address: z.string().nullable()
         })
         .passthrough(),
-    upload: z.object({
-        content_type: z.string(),
-        byte_size: z.number(),
-        filename: z.string(),
-        download_url: z.string(),
-        app_download_url: z.string().optional(),
-        current: z.boolean()
-    })
+    // The whole `upload` object is omitted (not null) on a version whose file has since been removed
+    // from the account; the version event itself is still listed.
+    // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/uploads.md#get-upload-versions
+    upload: z
+        .object({
+            content_type: z.string(),
+            byte_size: z.number(),
+            filename: z.string(),
+            download_url: z.string(),
+            app_download_url: z.string().optional(),
+            current: z.boolean()
+        })
+        .optional()
 });
 
 const ProviderVersionsSchema = z.array(ProviderVersionSchema);
@@ -37,7 +42,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('The unique ID of the creator.'),
         name: z.string().describe('The name of the creator.'),
-        email_address: z.string().describe('The email address of the creator.')
+        email_address: z.string().nullable().describe('The email address of the creator, or null if the creator has none.')
     })
     .passthrough()
     .describe('The user who created this version.');
@@ -48,11 +53,17 @@ const VersionSchema = z.object({
     action: z.string().describe('The action that created this version, e.g. "created" or "updated".'),
     created_at: z.string().describe('The ISO 8601 timestamp when this version was created.'),
     creator: CreatorSchema,
-    content_type: z.string().describe('The MIME type of the file for this version.'),
-    byte_size: z.number().describe('The size of the file in bytes for this version.'),
-    filename: z.string().describe('The filename of this version.'),
-    download_url: z.string().describe('The signed URL to download this version of the file.'),
-    current: z.boolean().describe('Whether this is the current active version of the upload.')
+    content_type: z.string().optional().describe('The MIME type of the file for this version. Absent if the file has since been removed from the account.'),
+    byte_size: z.number().optional().describe('The size of the file in bytes for this version. Absent if the file has since been removed from the account.'),
+    filename: z.string().optional().describe('The filename of this version. Absent if the file has since been removed from the account.'),
+    download_url: z
+        .string()
+        .optional()
+        .describe('The signed URL to download this version of the file. Absent if the file has since been removed from the account.'),
+    current: z
+        .boolean()
+        .optional()
+        .describe('Whether this is the current active version of the upload. Absent if the file has since been removed from the account.')
 });
 
 const OutputSchema = z
@@ -88,11 +99,13 @@ const action = createAction({
                 action: version.action,
                 created_at: version.created_at,
                 creator: version.creator,
-                content_type: version.upload.content_type,
-                byte_size: version.upload.byte_size,
-                filename: version.upload.filename,
-                download_url: version.upload.download_url,
-                current: version.upload.current
+                ...(version.upload && {
+                    content_type: version.upload.content_type,
+                    byte_size: version.upload.byte_size,
+                    filename: version.upload.filename,
+                    download_url: version.upload.download_url,
+                    current: version.upload.current
+                })
             }))
         };
     }

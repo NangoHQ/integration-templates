@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
+// The account-scoped Basecamp API host. Pagination cursors are only ever trusted when they resolve to this origin,
+// so a caller-supplied cursor cannot redirect the authenticated request to an arbitrary host.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
+
 const InputSchema = z
     .object({
         projectId: z.number().describe('Project ID (bucket ID) containing the Campfire.'),
@@ -67,6 +71,12 @@ const action = createAction({
 
         if (input.cursor) {
             const url = new URL(input.cursor);
+            if (url.origin !== BASECAMP_API_ORIGIN) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The cursor does not point to the Basecamp API host.'
+                });
+            }
             baseUrlOverride = url.origin;
             endpoint = url.pathname;
             const searchEntries = Array.from(url.searchParams.entries());

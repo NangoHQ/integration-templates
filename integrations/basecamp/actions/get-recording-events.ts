@@ -11,7 +11,7 @@ const InputSchema = z
 const CreatorSchema = z.object({
     id: z.number().describe('Person ID'),
     name: z.string().describe('Full name'),
-    email_address: z.string().describe('Email address')
+    email_address: z.string().optional().describe('Email address, omitted for some integration-type people')
 });
 
 const EventSchema = z.object({

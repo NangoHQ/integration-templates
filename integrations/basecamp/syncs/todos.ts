@@ -36,7 +36,7 @@ const BasecampTodoSchema = z
 
 const CheckpointSchema = z.object({
     projectIndex: z.number().int(),
-    todolistIndex: z.number().int()
+    todolistId: z.string().describe('ID of the next to-do list to resume crawling to-dos for (resolved by identity rather than array position), empty if unset')
 });
 
 const BasecampTodoListResponseSchema = z.object({
@@ -89,7 +89,18 @@ const sync = createSync({
 
         const checkpoint = await nango.getCheckpoint();
         const startProjectIndex = checkpoint && typeof checkpoint['projectIndex'] === 'number' ? checkpoint['projectIndex'] : 0;
-        const startTodolistIndex = checkpoint && typeof checkpoint['todolistIndex'] === 'number' ? checkpoint['todolistIndex'] : 0;
+        const startTodolistId = checkpoint && typeof checkpoint['todolistId'] === 'string' ? checkpoint['todolistId'] : '';
+
+        // A checkpoint whose projectIndex is at or past the end of the (user-supplied,
+        // fixed-for-this-run) metadata projects list can only come from a prior execution that
+        // crashed right at the completion boundary, after its final checkpoint save but before
+        // trackDeletesEnd ran. Treat it as "nothing left to crawl this run" and skip delete
+        // tracking entirely rather than open and immediately close an empty window, which would
+        // delete every stored BasecampTodo.
+        if (startProjectIndex >= metadata['projects'].length) {
+            await nango.clearCheckpoint();
+            return;
+        }
 
         await nango.trackDeletesStart('BasecampTodo');
 
@@ -120,7 +131,17 @@ const sync = createSync({
                 allTodolists.push(...parsed.data);
             }
 
-            for (let tIdx = pIdx === startProjectIndex ? startTodolistIndex : 0; tIdx < allTodolists.length; tIdx++) {
+            // Resume by the identity of the checkpointed to-do list rather than its previous
+            // array position: the list is refetched fresh for every execution, so if a to-do
+            // list changes position between a checkpointed run and its retry, a positional index
+            // could resume at a different list entirely and skip the intended one.
+            let startTIdx = 0;
+            if (pIdx === startProjectIndex && startTodolistId !== '') {
+                const resumeIdx = allTodolists.findIndex((t) => String(t.id) === startTodolistId);
+                startTIdx = resumeIdx !== -1 ? resumeIdx : 0;
+            }
+
+            for (let tIdx = startTIdx; tIdx < allTodolists.length; tIdx++) {
                 const todolist = allTodolists[tIdx];
                 if (!todolist || typeof todolist.id !== 'number') {
                     throw new Error(`Invalid todolist at index ${tIdx}`);
@@ -180,10 +201,18 @@ const sync = createSync({
                     }
                 }
 
-                await nango.saveCheckpoint({
-                    projectIndex: pIdx,
-                    todolistIndex: tIdx + 1
-                });
+                const nextTodolist = allTodolists[tIdx + 1];
+                if (nextTodolist) {
+                    await nango.saveCheckpoint({
+                        projectIndex: pIdx,
+                        todolistId: String(nextTodolist.id)
+                    });
+                } else {
+                    await nango.saveCheckpoint({
+                        projectIndex: pIdx + 1,
+                        todolistId: ''
+                    });
+                }
             }
         }
 

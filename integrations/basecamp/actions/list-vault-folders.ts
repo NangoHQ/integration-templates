@@ -61,6 +61,9 @@ const OutputSchema = z
     })
     .describe('Output containing vault sub-folders and an optional pagination cursor.');
 
+// Basecamp's Link-header `next` cursors always point back at this same account-scoped API host.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
+
 /**
  * @tags: [read]
  * @tagReason: Reads sub-folders (vaults) from a parent vault.
@@ -78,6 +81,15 @@ const action = createAction({
 
         if (input.cursor) {
             const url = new URL(input.cursor);
+
+            // Reject cursors pointing outside Basecamp's API origin to prevent the authenticated
+            // request (and its access token) from being sent to an arbitrary, caller-supplied host.
+            if (url.origin !== BASECAMP_API_ORIGIN) {
+                throw new nango.ActionError({
+                    message: `Invalid cursor: expected a URL on ${BASECAMP_API_ORIGIN}.`
+                });
+            }
+
             baseUrlOverride = url.origin;
             endpoint = url.pathname + url.search;
         }

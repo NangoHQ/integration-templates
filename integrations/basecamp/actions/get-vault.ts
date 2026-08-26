@@ -21,7 +21,7 @@ const ProviderBucketSchema = z.object({
 const ProviderCreatorSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string(),
+    email_address: z.string().nullable(),
     personable_type: z.string()
 });
 
@@ -82,7 +82,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('Person ID of the vault creator.'),
                 name: z.string().describe('Name of the vault creator.'),
-                email_address: z.string().describe('Email address of the vault creator.'),
+                email_address: z.string().nullable().describe('Email address of the vault creator, or null if the creator has none.'),
                 personable_type: z.string().describe('Type of the creator, typically "User".')
             })
             .describe('The person who created this vault.'),

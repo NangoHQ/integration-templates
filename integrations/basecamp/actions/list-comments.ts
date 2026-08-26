@@ -1,10 +1,19 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+
+// The account-scoped Basecamp API host. The configured provider base URL already embeds the account ID
+// (e.g. https://3.basecampapi.com/12345), and so does the absolute `next` URL from the Link header
+// (e.g. https://3.basecampapi.com/12345/buckets/.../comments.json?page=2). Reusing the cursor's path
+// under the default base URL would double up the account ID and 404. Instead, once the cursor's origin
+// is confirmed to be this trusted host, the request is sent with baseUrlOverride set to that origin so
+// the full account-scoped path from the cursor is used as-is.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
 
 const CreatorSchema = z.object({
     id: z.number(),
     name: z.string().optional(),
-    email_address: z.string().optional()
+    email_address: z.string().nullable().optional()
 });
 
 const ParentSchema = z.object({
@@ -43,7 +52,7 @@ const CommentSchema = z.object({
         .object({
             id: z.number().describe('Creator person ID.'),
             name: z.string().optional().describe('Creator full name.'),
-            email_address: z.string().optional().describe('Creator email address.')
+            email_address: z.string().nullable().optional().describe('Creator email address, or null/absent if the creator has none.')
         })
         .optional()
         .describe('Person who created the comment.'),
@@ -87,8 +96,9 @@ function parseNextLink(linkHeader: string | undefined): string | undefined {
     }
     const match = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
     if (match && match[1]) {
-        const url = new URL(match[1]);
-        return url.pathname + url.search;
+        // Keep the full absolute URL (including its account-scoped path) so the next call can
+        // validate its origin and reuse the exact path via baseUrlOverride. See BASECAMP_API_ORIGIN above.
+        return match[1];
     }
     return undefined;
 }
@@ -105,11 +115,31 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
+        let endpoint: string;
+        let baseUrlOverride: string | undefined;
+
+        if (input.cursor) {
+            const url = new URL(input.cursor);
+            if (url.origin !== BASECAMP_API_ORIGIN) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The cursor does not point to the Basecamp API host.'
+                });
+            }
+            baseUrlOverride = url.origin;
+            endpoint = url.pathname + url.search;
+        } else {
+            endpoint = `/buckets/${encodeURIComponent(input.projectId)}/recordings/${encodeURIComponent(input.recordingId)}/comments.json`;
+        }
+
+        const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/comments.md#get-comments
-            endpoint: input.cursor || `/buckets/${encodeURIComponent(input.projectId)}/recordings/${encodeURIComponent(input.recordingId)}/comments.json`,
+            endpoint,
+            ...(baseUrlOverride && { baseUrlOverride }),
             retries: 3
-        });
+        };
+
+        const response = await nango.get(config);
 
         const rawComments = z.array(ProviderCommentSchema).parse(response.data);
 
@@ -124,7 +154,7 @@ const action = createAction({
                 creator: {
                     id: comment.creator.id,
                     ...(comment.creator.name !== undefined && { name: comment.creator.name }),
-                    ...(comment.creator.email_address !== undefined && { email_address: comment.creator.email_address })
+                    ...(comment.creator.email_address != null && { email_address: comment.creator.email_address })
                 }
             }),
             ...(comment.parent !== undefined && {

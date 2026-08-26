@@ -43,7 +43,7 @@ const InputSchema = z
 const ParticipantSchema = z.object({
     id: z.number().describe('Person ID.'),
     name: z.string().describe('Person name.'),
-    emailAddress: z.string().describe('Email address.')
+    emailAddress: z.string().nullable().optional().describe('Email address, if exposed by the provider.')
 });
 
 const ParentScheduleSchema = z.object({
@@ -82,7 +82,7 @@ const OutputSchema = z
 const ProviderParticipantSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string()
+    email_address: z.string().nullable().optional()
 });
 
 const ProviderParentSchema = z.object({

@@ -2,7 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const RecurrenceScheduleSchema = z.object({
-    frequency: z.string().describe('Recurrence frequency, e.g., "every_week", "every_month"'),
+    frequency: z
+        .enum(['every_day', 'every_weekday', 'every_week', 'every_other_week', 'every_month', 'every_day_of_month', 'every_year', 'custom_week', 'custom_month'])
+        .describe('Recurrence frequency'),
     days: z.array(z.number()).optional().describe('Days of the week or month for recurrence'),
     week_instance: z.number().optional().describe('Week of the month for recurrence, 1 to 4 or -1 for last week'),
     week_interval: z.number().optional().describe('Repeat every N weeks for custom_week frequency'),
@@ -12,7 +14,7 @@ const RecurrenceScheduleSchema = z.object({
 const ParticipantSchema = z.object({
     id: z.number().describe('Person ID'),
     name: z.string().describe('Person name'),
-    email_address: z.string().describe('Person email address')
+    email_address: z.string().nullable().describe('Person email address')
 });
 
 const ParentSchema = z.object({
@@ -32,7 +34,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('Creator person ID'),
     name: z.string().describe('Creator name'),
-    email_address: z.string().describe('Creator email address'),
+    email_address: z.string().nullable().describe('Creator email address'),
     avatar_url: z.string().optional().describe('Creator avatar URL')
 });
 
@@ -85,7 +87,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates a new schedule entry on a project's schedule via a POST mutation.
- * @pitfalls: Default status is published (active), unlike messages and documents which default to drafts. An invalid recurrence_schedule is silently discarded and the entry is created non-recurring. The input url field is returned as join_url; the top-level url is the API URL. starts_at and ends_at are normalized to UTC in the response even if sent with a non-UTC offset.
+ * @pitfalls: Default status is published (active), unlike messages and documents which default to drafts. recurrence_schedule.frequency is validated against Basecamp's documented enum before the request is sent; other invalid recurrence_schedule fields are still silently discarded by Basecamp and the entry is created non-recurring. The input url field is returned as join_url; the top-level url is the API URL. starts_at and ends_at are normalized to UTC in the response even if sent with a non-UTC offset.
  */
 const action = createAction({
     description: 'Create a schedule entry on a project schedule',

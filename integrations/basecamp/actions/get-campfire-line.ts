@@ -38,7 +38,7 @@ const CreatorSchema = z.object({
     location: z.union([z.string(), z.null()]).optional().describe('The location of the creator.'),
     created_at: z.string().optional().describe('When the creator was added.'),
     updated_at: z.string().optional().describe('When the creator was last updated.'),
-    email_address: z.string().describe('The email address of the creator.'),
+    email_address: z.string().optional().describe('The email address of the creator, omitted for some integration-type people.'),
     bio: z.union([z.string(), z.null()]).optional().describe('The bio of the creator.'),
     admin: z.boolean().optional().describe('Whether the creator is an admin.'),
     owner: z.boolean().optional().describe('Whether the creator is the account owner.'),
@@ -54,6 +54,15 @@ const CreatorSchema = z.object({
     can_access_hill_charts: z.boolean().optional().describe('Whether the creator can access hill charts.')
 });
 
+const AttachmentSchema = z.object({
+    title: z.string().describe('The file name of the attachment.'),
+    url: z.string().describe('The API URL of the attachment preview.'),
+    filename: z.string().describe('The original file name of the attachment.'),
+    content_type: z.string().describe('The MIME type of the attachment.'),
+    byte_size: z.number().describe('The size of the attachment in bytes.'),
+    download_url: z.string().describe('The direct download URL for the attachment.')
+});
+
 const OutputSchema = z
     .object({
         id: z.number().describe('The unique ID of the Campfire line.'),
@@ -63,7 +72,7 @@ const OutputSchema = z
         updated_at: z.string().describe('When the line was last updated.'),
         title: z.string().describe('The title of the line.'),
         inherits_status: z.boolean().describe('Whether the line inherits its parent status.'),
-        type: z.string().describe('The type of the line (e.g., Chat::Lines::RichText).'),
+        type: z.string().describe('The type of the line (e.g., Chat::Lines::RichText, Chat::Lines::Upload).'),
         url: z.string().describe('The API URL of the line.'),
         app_url: z.string().describe('The app URL of the line.'),
         bookmark_url: z.string().describe('The bookmark URL of the line.'),
@@ -72,7 +81,8 @@ const OutputSchema = z
         parent: ParentSchema.describe('The parent Campfire transcript.'),
         bucket: BucketSchema.describe('The project bucket containing the line.'),
         creator: CreatorSchema.describe('The person who created the line.'),
-        content: z.string().describe('The body content of the line.')
+        content: z.string().optional().describe('The body content of the line. Omitted for file-upload lines; see attachments instead.'),
+        attachments: z.array(AttachmentSchema).optional().describe('The uploaded files for a file-upload line. Only present when type is Chat::Lines::Upload.')
     })
     .describe('A single Campfire line retrieved from Basecamp.');
 

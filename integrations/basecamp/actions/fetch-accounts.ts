@@ -19,7 +19,7 @@ const AccountSchema = z
         product: z.string().describe('The 37signals product name (e.g., "bc3" for Basecamp 3).'),
         href: z.string().describe('The API base URL for this account.'),
         app_href: z.string().describe('The web application URL for this account.'),
-        hidden: z.boolean().describe('Whether the account is hidden from the account switcher.')
+        hidden: z.boolean().optional().describe('Whether the account is hidden from the account switcher, when reported.')
     })
     .describe('A 37signals account or product accessible with the token.');
 

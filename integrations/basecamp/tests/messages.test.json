@@ -1,7 +1,39 @@
 {
   "nango": {
     "batchSave": {
-      "Message": []
+      "Message": [
+        {
+          "id": "10240600001",
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T13:00:00.000Z",
+          "updated_at": "2026-08-26T13:00:00.000Z",
+          "title": "No Subject Field Message",
+          "subject": "No Subject Field Message",
+          "content": "<div>body</div>",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644363/messages/10240600001.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644363/messages/10240600001",
+          "comments_count": 0,
+          "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240600001/comments.json",
+          "parent": {
+            "id": "10239443864",
+            "title": "Message Board",
+            "type": "Message::Board",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644363/message_boards/10239443864.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644363/message_boards/10239443864"
+          },
+          "bucket": {
+            "id": "48644363",
+            "name": "Test Project Create Action 2",
+            "type": "Project"
+          },
+          "creator": {
+            "id": "53024646",
+            "name": "Nango Developer",
+            "email_address": "api@nango.dev"
+          }
+        }
+      ]
     },
     "batchDelete": {
       "Message": []
@@ -502,7 +534,38 @@
         }
       },
       "/buckets/48644363/message_boards/10239443864/messages.json": {
-        "response": [],
+        "response": [
+          {
+            "id": 10240600001,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T13:00:00.000Z",
+            "updated_at": "2026-08-26T13:00:00.000Z",
+            "title": "No Subject Field Message",
+            "content": "<div>body</div>",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644363/messages/10240600001.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644363/messages/10240600001",
+            "comments_count": 0,
+            "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240600001/comments.json",
+            "parent": {
+              "id": 10239443864,
+              "title": "Message Board",
+              "type": "Message::Board",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644363/message_boards/10239443864.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644363/message_boards/10239443864"
+            },
+            "bucket": {
+              "id": 48644363,
+              "name": "Test Project Create Action 2",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024646,
+              "name": "Nango Developer",
+              "email_address": "api@nango.dev"
+            }
+          }
+        ],
         "status": 200,
         "headers": {
           "date": "Wed, 26 Aug 2026 04:41:42 GMT",
@@ -538,7 +601,6 @@
           "server": "cloudflare",
           "cf-ray": "a3102a680e46ef3f-PDX"
         },
-        "hash": "d3f33cad08cc0442fd2e576ed8788621f529a66e",
         "request": {
           "params": {
             "limit": "2"

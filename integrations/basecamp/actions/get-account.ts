@@ -21,7 +21,7 @@ const accountOutputSchema = z
             .object({
                 short_name: z.string().describe('The short identifier for the subscription plan.'),
                 proper_name: z.string().describe('The human-readable name of the subscription plan.'),
-                project_limit: z.number().describe('The maximum number of projects allowed by this plan.')
+                project_limit: z.number().nullable().describe('The maximum number of projects allowed by this plan, or null if the plan is unlimited.')
             })
             .catchall(z.unknown())
             .describe('Details about the current subscription plan.'),

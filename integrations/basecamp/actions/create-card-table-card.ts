@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        projectId: z.string().describe('The Basecamp project (bucket) ID. Example: "48644099"'),
-        columnId: z.string().describe('The Card Table column ID where the card should be created. Example: "10239340944"'),
+        projectId: z.number().describe('The Basecamp project (bucket) ID. Example: 48644099'),
+        columnId: z.number().describe('The Card Table column ID where the card should be created. Example: 10239340944'),
         title: z.string().describe('The title of the card.'),
         content: z.string().optional().describe('Rich text content describing the card.'),
         due_on: z.string().optional().describe('Due date for the card in ISO 8601 format. Example: "2026-08-30"'),
@@ -119,7 +119,7 @@ const action = createAction({
 
         // https://github.com/basecamp/bc3-api/blob/master/sections/card_table_cards.md#create-a-card
         const response = await nango.post({
-            endpoint: `/buckets/${encodeURIComponent(input.projectId)}/card_tables/lists/${encodeURIComponent(input.columnId)}/cards.json`,
+            endpoint: `/buckets/${encodeURIComponent(String(input.projectId))}/card_tables/lists/${encodeURIComponent(String(input.columnId))}/cards.json`,
             data: body,
             retries: 3
         });

@@ -1,7 +1,7 @@
 {
   "input": {
     "filename": "test.txt",
-    "content": "Hello, Basecamp!",
+    "content": "SGVsbG8sIEJhc2VjYW1wIQ==",
     "contentType": "text/plain"
   },
   "output": {
@@ -56,7 +56,7 @@
           "headers": {
             "Content-Type": "text/plain"
           },
-          "data": "Hello, Basecamp!"
+          "data": "SGVsbG8sIEJhc2VjYW1wIQ=="
         }
       }
     }

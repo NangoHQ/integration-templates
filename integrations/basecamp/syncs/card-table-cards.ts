@@ -127,7 +127,7 @@ const ProviderCardSchema = z.object({
     }),
     creator: ProviderPersonSchema,
     description: z.string().optional(),
-    content: z.string().optional(),
+    content: z.string().nullable().optional(),
     completed: z.boolean(),
     due_on: z.string().nullable().optional(),
     assignees: z.array(ProviderPersonSchema).optional(),
@@ -146,12 +146,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let queue: Array<z.infer<typeof ColumnRefSchema>>;
-
-        if (checkpoint != null && typeof checkpoint['pendingColumns'] === 'string') {
-            queue = parsePendingColumns(checkpoint['pendingColumns']);
-        } else {
+        async function discoverColumns(): Promise<Array<z.infer<typeof ColumnRefSchema>>> {
             const projects: z.infer<typeof ProviderProjectSchema>[] = [];
 
             const projectsConfig: ProxyConfiguration = {
@@ -181,7 +176,7 @@ const sync = createSync({
                 }
             }
 
-            queue = [];
+            const columns: Array<z.infer<typeof ColumnRefSchema>> = [];
             for (const { projectId, cardTableId } of cardTables) {
                 // https://github.com/basecamp/bc3-api/blob/master/sections/card_tables.md#get-a-card-table
                 const cardTableResponse = await nango.get({
@@ -191,9 +186,35 @@ const sync = createSync({
 
                 const cardTable = ProviderCardTableSchema.parse(cardTableResponse.data);
                 for (const column of cardTable.lists ?? []) {
-                    queue.push({ projectId, columnId: column.id });
+                    columns.push({ projectId, columnId: column.id });
                 }
             }
+
+            return columns;
+        }
+
+        const checkpoint = await nango.getCheckpoint();
+        let queue: Array<z.infer<typeof ColumnRefSchema>>;
+
+        if (checkpoint != null && typeof checkpoint['pendingColumns'] === 'string') {
+            queue = parsePendingColumns(checkpoint['pendingColumns']);
+            // A checkpoint restored with an empty queue is indistinguishable from a prior
+            // execution that crashed right after persisting its final (empty) checkpoint but
+            // before trackDeletesEnd ran. Treat it as untrustworthy and rediscover from scratch
+            // rather than let an empty queue silently close out delete tracking below.
+            if (queue.length === 0) {
+                queue = await discoverColumns();
+            }
+        } else {
+            queue = await discoverColumns();
+        }
+
+        // If there is still nothing to crawl (no projects with an enabled Card Table), skip
+        // delete tracking entirely instead of opening and immediately closing an empty window,
+        // which would delete every previously synced CardTableCard.
+        if (queue.length === 0) {
+            await nango.clearCheckpoint();
+            return;
         }
 
         await nango.trackDeletesStart('CardTableCard');
@@ -269,7 +290,9 @@ const sync = createSync({
                 }
             }
 
-            await nango.saveCheckpoint({ pendingColumns: JSON.stringify(queue) });
+            if (queue.length > 0) {
+                await nango.saveCheckpoint({ pendingColumns: JSON.stringify(queue) });
+            }
         }
 
         await nango.clearCheckpoint();

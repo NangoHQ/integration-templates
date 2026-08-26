@@ -4,11 +4,7 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z
     .object({
         filename: z.string().describe('The filename to associate with the uploaded file. Example: "report.pdf"'),
-        content: z
-            .string()
-            .describe(
-                'The raw file content to upload as the request body. For text files, pass the text directly. For binary files, pass the bytes as a string.'
-            ),
+        content: z.string().describe('Base64-encoded file content to upload as raw binary data. Encode both text and binary files as base64.'),
         contentType: z.string().optional().describe('The MIME type of the file. Defaults to application/octet-stream when omitted.')
     })
     .describe('Input for staging a file attachment in Basecamp storage');
@@ -35,15 +31,18 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const buffer = Buffer.from(input.content, 'base64');
+
         const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/attachments.md
             endpoint: '/attachments.json',
             params: {
                 name: input.filename
             },
-            data: input.content,
+            data: buffer,
             headers: {
-                'Content-Type': input.contentType || 'application/octet-stream'
+                'Content-Type': input.contentType || 'application/octet-stream',
+                'Content-Length': String(buffer.length)
             },
             retries: 3
         };

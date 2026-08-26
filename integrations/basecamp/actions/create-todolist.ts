@@ -51,7 +51,7 @@ const ProviderTodolistSchema = z.object({
         location: z.string().nullable(),
         created_at: z.string(),
         updated_at: z.string(),
-        email_address: z.string(),
+        email_address: z.string().nullable(),
         bio: z.string().nullable(),
         admin: z.boolean(),
         owner: z.boolean(),
@@ -59,10 +59,12 @@ const ProviderTodolistSchema = z.object({
         employee: z.boolean(),
         time_zone: z.string(),
         avatar_url: z.string(),
-        company: z.object({
-            id: z.number(),
-            name: z.string()
-        }),
+        company: z
+            .object({
+                id: z.number(),
+                name: z.string()
+            })
+            .optional(),
         can_ping: z.boolean(),
         can_manage_projects: z.boolean(),
         can_manage_people: z.boolean(),
@@ -127,7 +129,7 @@ const OutputSchema = z
                 location: z.string().nullable().describe('The location of the creator.'),
                 created_at: z.string().describe('ISO 8601 timestamp when the creator account was created.'),
                 updated_at: z.string().describe('ISO 8601 timestamp when the creator was last updated.'),
-                email_address: z.string().describe('The email address of the creator.'),
+                email_address: z.string().nullable().describe('The email address of the creator.'),
                 bio: z.string().nullable().describe('The bio of the creator.'),
                 admin: z.boolean().describe('Whether the creator is an admin.'),
                 owner: z.boolean().describe('Whether the creator is an owner.'),
@@ -140,7 +142,8 @@ const OutputSchema = z
                         id: z.number().describe('The ID of the creator company.'),
                         name: z.string().describe('The name of the creator company.')
                     })
-                    .describe('The company of the creator.'),
+                    .optional()
+                    .describe('The company of the creator, if the person belongs to one.'),
                 can_ping: z.boolean().describe('Whether the creator can be pinged.'),
                 can_manage_projects: z.boolean().describe('Whether the creator can manage projects.'),
                 can_manage_people: z.boolean().describe('Whether the creator can manage people.'),

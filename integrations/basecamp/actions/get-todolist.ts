@@ -20,7 +20,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string(),
+    email_address: z.string().nullable(),
     avatar_url: z.string()
 });
 
@@ -52,7 +52,8 @@ const ProviderTodolistSchema = z.object({
     completed_ratio: z.string(),
     name: z.string(),
     color: z.string().nullable(),
-    groups_url: z.string(),
+    groups_url: z.string().optional(),
+    group_position_url: z.string().optional(),
     todos_url: z.string(),
     app_todos_url: z.string(),
     comments_app_url: z.string()
@@ -84,7 +85,11 @@ const OutputSchema = z
         color: z.string().nullable().describe('The color of the to-do list.'),
         comments_count: z.number().describe('The number of comments on the to-do list.'),
         comments_url: z.string().describe('The URL for comments on the to-do list.'),
-        groups_url: z.string().describe('The URL for groups in this to-do list.'),
+        groups_url: z.string().optional().describe('The URL for groups in this to-do list. Present only for a regular to-do list, not a to-do-list group.'),
+        group_position_url: z
+            .string()
+            .optional()
+            .describe('The URL to reposition this to-do-list group. Present only when this record is a to-do-list group, not a regular to-do list.'),
         todos_url: z.string().describe('The URL for to-dos in this to-do list.'),
         parent: z
             .object({
@@ -108,7 +113,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the creator.'),
                 name: z.string().describe('The name of the creator.'),
-                email_address: z.string().describe('The email address of the creator.'),
+                email_address: z.string().nullable().describe('The email address of the creator, or null if the creator has no email address.'),
                 avatar_url: z.string().describe('The avatar URL of the creator.')
             })
             .describe('The creator of the to-do list.')
@@ -162,7 +167,8 @@ const action = createAction({
             color: todolist.color,
             comments_count: todolist.comments_count,
             comments_url: todolist.comments_url,
-            groups_url: todolist.groups_url,
+            ...(todolist.groups_url !== undefined && { groups_url: todolist.groups_url }),
+            ...(todolist.group_position_url !== undefined && { group_position_url: todolist.group_position_url }),
             todos_url: todolist.todos_url,
             parent: todolist.parent,
             bucket: todolist.bucket,

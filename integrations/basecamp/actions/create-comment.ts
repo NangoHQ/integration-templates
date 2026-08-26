@@ -87,7 +87,7 @@ const ProviderCommentSchema = z.object({
         .object({
             id: z.number(),
             name: z.string(),
-            email_address: z.string().optional(),
+            email_address: z.string().nullable().optional(),
             title: z.string().nullable().optional(),
             avatar_url: z.string().optional()
         })

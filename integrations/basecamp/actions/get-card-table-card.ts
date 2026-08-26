@@ -10,7 +10,7 @@ const PersonSchema = z
     .object({
         id: z.number().describe('Person ID'),
         name: z.string().describe('Person name'),
-        email_address: z.string().describe('Email address'),
+        email_address: z.string().optional().describe('Email address, omitted for some integration-type people'),
         personable_type: z.string().describe('Person type'),
         title: z.string().nullable().describe('Job title'),
         tagline: z.string().nullable().describe('Tagline'),
@@ -29,7 +29,7 @@ const PersonSchema = z
         can_manage_people: z.boolean().describe('Whether the person can manage people'),
         can_access_timesheet: z.boolean().describe('Whether the person can access timesheets'),
         can_access_hill_charts: z.boolean().describe('Whether the person can access hill charts'),
-        company: CompanySchema.describe('Company information')
+        company: CompanySchema.optional().describe('Company information, omitted for people without an associated company')
     })
     .passthrough();
 

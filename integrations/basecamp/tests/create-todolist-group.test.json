@@ -1,7 +1,7 @@
 {
   "input": {
-    "projectId": "48644099",
-    "todoListId": "10239436831",
+    "projectId": 48644099,
+    "todoListId": 10239436831,
     "name": "Test Group"
   },
   "output": {

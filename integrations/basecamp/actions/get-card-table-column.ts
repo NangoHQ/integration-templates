@@ -34,6 +34,19 @@ const ProviderBucketSchema = z.object({
     type: z.string()
 });
 
+const ProviderOnHoldSchema = z
+    .object({
+        id: z.number(),
+        status: z.string(),
+        inherits_status: z.boolean(),
+        title: z.string(),
+        created_at: z.string(),
+        updated_at: z.string(),
+        cards_count: z.number(),
+        cards_url: z.string()
+    })
+    .passthrough();
+
 const ProviderColumnSchema = z.object({
     id: z.number(),
     status: z.string(),
@@ -56,7 +69,7 @@ const ProviderColumnSchema = z.object({
     cards_count: z.number(),
     comment_count: z.number(),
     cards_url: z.string(),
-    on_hold: z.boolean().optional()
+    on_hold: ProviderOnHoldSchema.optional()
 });
 
 const PersonSchema = z.object({
@@ -85,6 +98,17 @@ const BucketSchema = z.object({
     type: z.string().describe('The type of the bucket, typically "Project".')
 });
 
+const OnHoldSchema = z.object({
+    id: z.number().describe('The unique ID of the on-hold section.'),
+    status: z.string().describe('The status of the on-hold section.'),
+    inherits_status: z.boolean().describe('Whether the on-hold section inherits its parent status.'),
+    title: z.string().describe('The title of the on-hold section, typically "On hold".'),
+    created_at: z.string().describe('ISO 8601 timestamp when the on-hold section was created.'),
+    updated_at: z.string().describe('ISO 8601 timestamp when the on-hold section was last updated.'),
+    cards_count: z.number().describe('The number of cards in the on-hold section.'),
+    cards_url: z.string().describe('The API URL for the cards in the on-hold section.')
+});
+
 const OutputSchema = z
     .object({
         id: z.number().describe('The unique ID of the card table column.'),
@@ -108,7 +132,7 @@ const OutputSchema = z
         cards_count: z.number().describe('The number of cards in the column.'),
         comment_count: z.number().describe('The number of comments on the column.'),
         cards_url: z.string().describe('The API URL for the cards in this column.'),
-        on_hold: z.boolean().optional().describe('Whether the column has an on-hold section.')
+        on_hold: OnHoldSchema.optional().describe('The on-hold section for this column, if one has been created.')
     })
     .describe('A single card table column from the Basecamp API.');
 
@@ -186,7 +210,18 @@ const action = createAction({
             cards_count: providerColumn.cards_count,
             comment_count: providerColumn.comment_count,
             cards_url: providerColumn.cards_url,
-            ...(providerColumn.on_hold !== undefined && { on_hold: providerColumn.on_hold })
+            ...(providerColumn.on_hold !== undefined && {
+                on_hold: {
+                    id: providerColumn.on_hold.id,
+                    status: providerColumn.on_hold.status,
+                    inherits_status: providerColumn.on_hold.inherits_status,
+                    title: providerColumn.on_hold.title,
+                    created_at: providerColumn.on_hold.created_at,
+                    updated_at: providerColumn.on_hold.updated_at,
+                    cards_count: providerColumn.on_hold.cards_count,
+                    cards_url: providerColumn.on_hold.cards_url
+                }
+            })
         };
     }
 });

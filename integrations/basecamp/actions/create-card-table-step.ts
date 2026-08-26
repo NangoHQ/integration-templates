@@ -39,7 +39,7 @@ const ProviderStepSchema = z.object({
     creator: z.object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string()
+        email_address: z.string().nullable()
     }),
     completed: z.boolean(),
     due_on: z.string().nullable(),
@@ -47,7 +47,7 @@ const ProviderStepSchema = z.object({
         z.object({
             id: z.number(),
             name: z.string(),
-            email_address: z.string()
+            email_address: z.string().nullable()
         })
     ),
     completion_url: z.string()
@@ -84,7 +84,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the person who created the step.'),
                 name: z.string().describe('The full name of the creator.'),
-                email_address: z.string().describe('The email address of the creator.')
+                email_address: z.string().nullable().describe('The email address of the creator.')
             })
             .describe('The person who created the step.'),
         assignees: z
@@ -92,7 +92,7 @@ const OutputSchema = z
                 z.object({
                     id: z.number().describe('The ID of the assigned person.'),
                     name: z.string().describe('The full name of the assigned person.'),
-                    email_address: z.string().describe('The email address of the assigned person.')
+                    email_address: z.string().nullable().describe('The email address of the assigned person.')
                 })
             )
             .describe('The people assigned to this step.')

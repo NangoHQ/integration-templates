@@ -23,7 +23,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('The ID of the person who created the message.'),
     name: z.string().describe('The full name of the creator.'),
-    email_address: z.string().describe('The email address of the creator.'),
+    email_address: z.string().optional().describe('The email address of the creator, omitted for some integration-type people.'),
     avatar_url: z.string().describe("The URL of the creator's avatar image.")
 });
 
@@ -104,7 +104,7 @@ const action = createAction({
                 creator: z.object({
                     id: z.number(),
                     name: z.string(),
-                    email_address: z.string(),
+                    email_address: z.string().optional(),
                     avatar_url: z.string()
                 })
             })

@@ -18,7 +18,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('The ID of the creator.'),
     name: z.string().describe('The name of the creator.'),
-    email_address: z.string().describe('The email address of the creator.')
+    email_address: z.string().nullable().optional().describe('The email address of the creator, if exposed by the provider.')
 });
 
 const OutputSchema = z

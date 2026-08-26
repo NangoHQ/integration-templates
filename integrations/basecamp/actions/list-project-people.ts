@@ -15,7 +15,7 @@ const CompanySchema = z.object({
 const PersonSchema = z.object({
     id: z.number().describe('The unique ID of the person.'),
     name: z.string().describe('The display name of the person.'),
-    email_address: z.string().describe('The email address of the person. Redacted for non-admins.'),
+    email_address: z.string().nullable().describe('The email address of the person, or null if the person has none. Redacted for non-admins.'),
     title: z.string().nullable().describe('The job title of the person.'),
     tagline: z.string().nullable().describe('The personal tagline or motto of the person.'),
     location: z.string().nullable().describe('The geographic location of the person.'),

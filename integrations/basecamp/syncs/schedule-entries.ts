@@ -175,7 +175,23 @@ const sync = createSync({
             });
         }
 
+        // If there is nothing to crawl (no projects with an enabled schedule) or the checkpoint
+        // points past the end of the freshly discovered schedules (e.g. a corrupted checkpoint,
+        // or one saved right at the completion boundary by a prior execution that then crashed
+        // before trackDeletesEnd ran), skip delete tracking entirely instead of opening and
+        // immediately closing an empty window, which would delete every stored ScheduleEntry.
+        if (projectScheduleIndex >= projectSchedules.length) {
+            await nango.clearCheckpoint();
+            return;
+        }
+
         await nango.trackDeletesStart('ScheduleEntry');
+
+        // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/schedule_entries.md
+        // GET /schedules/:id/entries.json only returns active entries by default; archived and
+        // trashed entries must be requested explicitly via the status param, or they would be
+        // silently omitted from every crawl and then removed by trackDeletesEnd.
+        const entryStatuses = ['active', 'archived', 'trashed'];
 
         for (let i = projectScheduleIndex; i < projectSchedules.length; i++) {
             const ps = projectSchedules[i];
@@ -183,70 +199,73 @@ const sync = createSync({
                 continue;
             }
 
-            const entryProxyConfig: ProxyConfiguration = {
-                // https://github.com/basecamp/bc3-api/blob/master/sections/schedule_entries.md
-                endpoint: `/buckets/${encodeURIComponent(ps.projectId)}/schedules/${encodeURIComponent(ps.scheduleId)}/entries.json`,
-                paginate: {
-                    type: 'link',
-                    link_rel_in_response_header: 'next',
-                    limit_name_in_request: 'limit',
-                    limit: 100
-                },
-                retries: 3
-            };
+            for (const entryStatus of entryStatuses) {
+                const entryProxyConfig: ProxyConfiguration = {
+                    // https://github.com/basecamp/bc3-api/blob/master/sections/schedule_entries.md
+                    endpoint: `/buckets/${encodeURIComponent(ps.projectId)}/schedules/${encodeURIComponent(ps.scheduleId)}/entries.json`,
+                    ...(entryStatus !== 'active' && { params: { status: entryStatus } }),
+                    paginate: {
+                        type: 'link',
+                        link_rel_in_response_header: 'next',
+                        limit_name_in_request: 'limit',
+                        limit: 100
+                    },
+                    retries: 3
+                };
 
-            for await (const entryPageResults of nango.paginate(entryProxyConfig)) {
-                const entries = [];
-                for (const entry of entryPageResults) {
-                    const parsed = ProviderScheduleEntrySchema.safeParse(entry);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse schedule entry: ${parsed.error.message}`);
+                for await (const entryPageResults of nango.paginate(entryProxyConfig)) {
+                    const entries = [];
+                    for (const entry of entryPageResults) {
+                        const parsed = ProviderScheduleEntrySchema.safeParse(entry);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse schedule entry: ${parsed.error.message}`);
+                        }
+                        const data = parsed.data;
+
+                        entries.push({
+                            id: String(data.id),
+                            status: data.status,
+                            visible_to_clients: data.visible_to_clients,
+                            created_at: data.created_at,
+                            updated_at: data.updated_at,
+                            type: data.type,
+                            url: data.url,
+                            app_url: data.app_url,
+                            comments_count: data.comments_count,
+                            comments_url: data.comments_url,
+                            all_day: data.all_day,
+                            highlighted: data.highlighted,
+                            project_id: String(data.bucket.id),
+                            project_name: data.bucket.name,
+                            schedule_id: String(data.parent.id),
+                            schedule_title: data.parent.title,
+                            creator_id: String(data.creator.id),
+                            creator_name: data.creator.name,
+                            ...(data.title != null && { title: data.title }),
+                            ...(data.description != null && { description: data.description }),
+                            ...(data.summary != null && { summary: data.summary }),
+                            ...(data.starts_at != null && { starts_at: data.starts_at }),
+                            ...(data.ends_at != null && { ends_at: data.ends_at }),
+                            ...(data.join_url != null && { join_url: data.join_url }),
+                            participants: (data.participants ?? []).map((p) => ({
+                                id: String(p.id),
+                                name: p.name,
+                                ...(p.email_address != null && { email_address: p.email_address }),
+                                ...(p.personable_type != null && { personable_type: p.personable_type }),
+                                ...(p.title != null && { title: p.title }),
+                                ...(p.avatar_url != null && { avatar_url: p.avatar_url })
+                            }))
+                        });
                     }
-                    const data = parsed.data;
 
-                    entries.push({
-                        id: String(data.id),
-                        status: data.status,
-                        visible_to_clients: data.visible_to_clients,
-                        created_at: data.created_at,
-                        updated_at: data.updated_at,
-                        type: data.type,
-                        url: data.url,
-                        app_url: data.app_url,
-                        comments_count: data.comments_count,
-                        comments_url: data.comments_url,
-                        all_day: data.all_day,
-                        highlighted: data.highlighted,
-                        project_id: String(data.bucket.id),
-                        project_name: data.bucket.name,
-                        schedule_id: String(data.parent.id),
-                        schedule_title: data.parent.title,
-                        creator_id: String(data.creator.id),
-                        creator_name: data.creator.name,
-                        ...(data.title != null && { title: data.title }),
-                        ...(data.description != null && { description: data.description }),
-                        ...(data.summary != null && { summary: data.summary }),
-                        ...(data.starts_at != null && { starts_at: data.starts_at }),
-                        ...(data.ends_at != null && { ends_at: data.ends_at }),
-                        ...(data.join_url != null && { join_url: data.join_url }),
-                        participants: (data.participants ?? []).map((p) => ({
-                            id: String(p.id),
-                            name: p.name,
-                            ...(p.email_address != null && { email_address: p.email_address }),
-                            ...(p.personable_type != null && { personable_type: p.personable_type }),
-                            ...(p.title != null && { title: p.title }),
-                            ...(p.avatar_url != null && { avatar_url: p.avatar_url })
-                        }))
+                    if (entries.length > 0) {
+                        await nango.batchSave(entries, 'ScheduleEntry');
+                    }
+
+                    await nango.saveCheckpoint({
+                        projectScheduleIndex: i
                     });
                 }
-
-                if (entries.length > 0) {
-                    await nango.batchSave(entries, 'ScheduleEntry');
-                }
-
-                await nango.saveCheckpoint({
-                    projectScheduleIndex: i
-                });
             }
 
             await nango.saveCheckpoint({

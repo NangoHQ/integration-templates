@@ -3,9 +3,9 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        projectId: z.string().describe('The project (bucket) ID that contains the Campfire.'),
-        chatId: z.string().describe('The Campfire (chat) ID that contains the line.'),
-        lineId: z.string().describe('The Campfire line ID to permanently delete.')
+        projectId: z.number().describe('The project (bucket) ID that contains the Campfire.'),
+        chatId: z.number().describe('The Campfire (chat) ID that contains the line.'),
+        lineId: z.number().describe('The Campfire line ID to permanently delete.')
     })
     .describe('Parameters to permanently delete a Campfire line.');
 
@@ -24,7 +24,7 @@ const action = createAction({
     exec: async (nango, input): Promise<null> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/campfires.md
         await nango.delete({
-            endpoint: `/buckets/${encodeURIComponent(input.projectId)}/chats/${encodeURIComponent(input.chatId)}/lines/${encodeURIComponent(input.lineId)}.json`,
+            endpoint: `/buckets/${encodeURIComponent(String(input.projectId))}/chats/${encodeURIComponent(String(input.chatId))}/lines/${encodeURIComponent(String(input.lineId))}.json`,
             retries: 3
         });
         return null;

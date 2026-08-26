@@ -26,7 +26,7 @@ const CreatorSchema = z.object({
     location: z.string().nullable(),
     created_at: z.string(),
     updated_at: z.string(),
-    email_address: z.string(),
+    email_address: z.string().optional(),
     bio: z.string().nullable(),
     admin: z.boolean(),
     owner: z.boolean(),
@@ -34,10 +34,12 @@ const CreatorSchema = z.object({
     employee: z.boolean(),
     time_zone: z.string(),
     avatar_url: z.string(),
-    company: z.object({
-        id: z.number(),
-        name: z.string()
-    }),
+    company: z
+        .object({
+            id: z.number(),
+            name: z.string()
+        })
+        .optional(),
     can_ping: z.boolean(),
     can_manage_projects: z.boolean(),
     can_manage_people: z.boolean(),
@@ -97,7 +99,7 @@ const OutputSchema = z
                 location: z.string().nullable().describe("The creator's location."),
                 created_at: z.string().describe("ISO 8601 timestamp when the creator's account was created."),
                 updated_at: z.string().describe("ISO 8601 timestamp when the creator's account was last updated."),
-                email_address: z.string().describe("The creator's email address."),
+                email_address: z.string().optional().describe("The creator's email address, omitted for some integration-type people."),
                 bio: z.string().nullable().describe("The creator's biography."),
                 admin: z.boolean().describe('Whether the creator is an account admin.'),
                 owner: z.boolean().describe('Whether the creator is the account owner.'),
@@ -110,7 +112,8 @@ const OutputSchema = z
                         id: z.number().describe('The company ID.'),
                         name: z.string().describe('The company name.')
                     })
-                    .describe("The creator's company."),
+                    .optional()
+                    .describe("The creator's company, omitted for people without an associated company."),
                 can_ping: z.boolean().describe('Whether the creator can be pinged.'),
                 can_manage_projects: z.boolean().describe('Whether the creator can manage projects.'),
                 can_manage_people: z.boolean().describe('Whether the creator can manage people.'),
@@ -183,10 +186,12 @@ const action = createAction({
                 employee: messageBoard.creator.employee,
                 time_zone: messageBoard.creator.time_zone,
                 avatar_url: messageBoard.creator.avatar_url,
-                company: {
-                    id: messageBoard.creator.company.id,
-                    name: messageBoard.creator.company.name
-                },
+                ...(messageBoard.creator.company !== undefined && {
+                    company: {
+                        id: messageBoard.creator.company.id,
+                        name: messageBoard.creator.company.name
+                    }
+                }),
                 can_ping: messageBoard.creator.can_ping,
                 can_manage_projects: messageBoard.creator.can_manage_projects,
                 can_manage_people: messageBoard.creator.can_manage_people,

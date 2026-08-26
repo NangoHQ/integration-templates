@@ -1,0 +1,125 @@
+{
+  "input": {
+    "project_id": 48644363,
+    "todolist_id": 10240544962
+  },
+  "output": {
+    "id": 10240544962,
+    "status": "active",
+    "visible_to_clients": false,
+    "created_at": "2026-08-26T12:29:53.472Z",
+    "updated_at": "2026-08-26T12:29:53.480Z",
+    "title": "Test Group",
+    "type": "Todolist",
+    "url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544962.json",
+    "app_url": "https://app.basecamp.com/6267157/buckets/48644363/todolists/10240544962",
+    "position": 1,
+    "description": "",
+    "completed": false,
+    "completed_ratio": "0/0",
+    "name": "Test Group",
+    "color": null,
+    "comments_count": 0,
+    "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240544962/comments.json",
+    "group_position_url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/groups/10240544962/position.json",
+    "todos_url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544962/todos.json",
+    "parent": {
+      "id": 10240544481,
+      "title": "Test List For Groups",
+      "type": "Todolist",
+      "url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544481.json",
+      "app_url": "https://app.basecamp.com/6267157/buckets/48644363/todolists/10240544481"
+    },
+    "bucket": {
+      "id": 48644363,
+      "name": "Test Project Create Action 2",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 53024646,
+      "name": "Nango Developer",
+      "email_address": "api@nango.dev",
+      "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644363/todolists/10240544962.json": {
+        "response": {
+          "id": 10240544962,
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T12:29:53.472Z",
+          "updated_at": "2026-08-26T12:29:53.480Z",
+          "title": "Test Group",
+          "inherits_status": true,
+          "type": "Todolist",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544962.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644363/todolists/10240544962",
+          "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiL2dpZDovL2JjMy9SZWNvcmRpbmcvMTAyNDA1NDQ5NjI_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--90049f5c212120d0f6e36d1af6f3ad9bcd2e948c.json",
+          "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240544962/subscription.json",
+          "comments_count": 0,
+          "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240544962/comments.json",
+          "boosts_count": 0,
+          "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240544962/boosts.json",
+          "bubble_up_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240544962/bubble_up.json",
+          "position": 1,
+          "parent": {
+            "id": 10240544481,
+            "title": "Test List For Groups",
+            "type": "Todolist",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544481.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644363/todolists/10240544481"
+          },
+          "bucket": {
+            "id": 48644363,
+            "name": "Test Project Create Action 2",
+            "type": "Project"
+          },
+          "creator": {
+            "id": 53024646,
+            "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9QZXJzb24vNTMwMjQ2NDY_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSIPYXR0YWNoYWJsZQY7AFQ=--3858efa40d167b95db0b2b5f13cf31d9461fe8b4",
+            "name": "Nango Developer",
+            "personable_type": "User",
+            "title": null,
+            "tagline": null,
+            "location": null,
+            "created_at": "2026-08-26T03:31:40.436Z",
+            "updated_at": "2026-08-26T03:31:50.720Z",
+            "email_address": "api@nango.dev",
+            "bio": null,
+            "admin": true,
+            "owner": true,
+            "client": false,
+            "employee": true,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar",
+            "company": {
+              "id": 4237397,
+              "name": "Nango Inc"
+            },
+            "can_ping": true,
+            "can_manage_projects": true,
+            "can_manage_people": true,
+            "can_access_timesheet": false,
+            "can_access_hill_charts": true
+          },
+          "description": "",
+          "description_attachments": [],
+          "completed": false,
+          "completed_ratio": "0/0",
+          "name": "Test Group",
+          "color": null,
+          "group_position_url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/groups/10240544962/position.json",
+          "todos_url": "https://3.basecampapi.com/6267157/buckets/48644363/todolists/10240544962/todos.json",
+          "app_todos_url": "https://app.basecamp.com/6267157/buckets/48644363/todolists/10240544962/todos",
+          "comments_app_url": "https://app.basecamp.com/6267157/buckets/48644363/recordings/10240544962/comments"
+        },
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

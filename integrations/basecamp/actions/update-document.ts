@@ -44,7 +44,7 @@ const OutputSchema = z
             .object({
                 id: z.string().describe('Creator person ID.'),
                 name: z.string().describe('Creator name.'),
-                email_address: z.string().describe('Creator email address.')
+                email_address: z.string().nullable().optional().describe('Creator email address, if exposed by the provider.')
             })
             .describe('Person who created this document.')
     })
@@ -78,14 +78,14 @@ const ProviderDocumentSchema = z.object({
     creator: z.object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string()
+        email_address: z.string().nullable().optional()
     })
 });
 
 /**
  * @tags: [write]
  * @tagReason: Updates the title and/or content of an existing Basecamp document.
- * @pitfalls: This endpoint only updates title and content; a document's draft or active status cannot be changed here and must be managed separately.
+ * @pitfalls: This endpoint only updates title and content; a document's draft or active status cannot be changed here and must be managed separately. Basecamp replaces the whole document on PUT, so when either title or content is omitted from input the current document is first fetched to preserve the omitted field.
  */
 const action = createAction({
     description: 'Update a document title or content.',
@@ -95,13 +95,33 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const data: { title?: string; content?: string } = {};
-        if (input.title !== undefined) {
-            data.title = input.title;
+        let title = input.title;
+        let content = input.content;
+
+        if (title === undefined || content === undefined) {
+            // Basecamp's PUT replaces the entire document, clearing any field not sent in the
+            // request body (verified: omitting title resets it to "Untitled", omitting content
+            // clears it to an empty string). Fetch the current document to preserve the field(s)
+            // the caller didn't supply.
+            const current = await nango.get({
+                // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/documents.md
+                endpoint: `/buckets/${encodeURIComponent(input.projectId)}/documents/${encodeURIComponent(input.documentId)}.json`,
+                retries: 3
+            });
+
+            if (current.status === 404) {
+                throw new nango.ActionError({
+                    type: 'not_found',
+                    message: 'Document not found.'
+                });
+            }
+
+            const currentDoc = ProviderDocumentSchema.parse(current.data);
+            title = title ?? currentDoc.title;
+            content = content ?? currentDoc.content;
         }
-        if (input.content !== undefined) {
-            data.content = input.content;
-        }
+
+        const data = { title, content };
 
         const response = await nango.put({
             // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/documents.md

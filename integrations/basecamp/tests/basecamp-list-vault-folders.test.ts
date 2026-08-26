@@ -16,4 +16,21 @@ describe('basecamp list-vault-folders tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should reject a cursor pointing outside the Basecamp API origin', async () => {
+        nangoMock.ActionError = class ActionError extends Error {
+            constructor(public payload: Record<string, unknown>) {
+                super(payload.message as string);
+            }
+        };
+
+        const input = await nangoMock.getInput();
+
+        await expect(
+            createAction.exec(nangoMock, {
+                ...input,
+                cursor: 'https://evil.example.com/buckets/48644099/vaults/10239340939/vaults.json?page=2'
+            })
+        ).rejects.toThrow(/Invalid cursor/);
+    });
 });

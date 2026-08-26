@@ -24,7 +24,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('The ID of the user.'),
     name: z.string().describe('The name of the user.'),
-    email_address: z.string().describe('The email address of the user.')
+    email_address: z.string().nullable().describe('The email address of the user, or null for people without one (e.g. integration accounts).')
 });
 
 const CompletionSchema = z
@@ -69,7 +69,7 @@ const ProviderStepSchema = z.object({
             creator: z.object({
                 id: z.number(),
                 name: z.string(),
-                email_address: z.string()
+                email_address: z.string().nullable()
             })
         })
         .optional(),
@@ -91,7 +91,7 @@ const ProviderStepSchema = z.object({
     creator: z.object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string()
+        email_address: z.string().nullable()
     }),
     due_on: z.string().nullable().optional(),
     assignees: z.array(

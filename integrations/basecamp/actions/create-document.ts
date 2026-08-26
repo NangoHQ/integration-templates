@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        projectId: z.string().describe('The Basecamp project (bucket) ID. Example: "48644099"'),
-        vaultId: z.string().describe('The vault ID under which to create the document. Example: "10239340939"'),
+        projectId: z.number().describe('The Basecamp project (bucket) ID. Example: 48644099'),
+        vaultId: z.number().describe('The vault ID under which to create the document. Example: 10239340939'),
         title: z.string().describe('The title of the document.'),
         content: z.string().describe('The body of the document in rich-text HTML.'),
         status: z.enum(['active', 'drafted']).optional().describe('Set to "active" to publish immediately. Omit to create a draft.'),
@@ -65,7 +65,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://github.com/basecamp/bc3-api/blob/master/sections/documents.md#create-a-document
-            endpoint: `/buckets/${encodeURIComponent(input.projectId)}/vaults/${encodeURIComponent(input.vaultId)}/documents.json`,
+            endpoint: `/buckets/${encodeURIComponent(String(input.projectId))}/vaults/${encodeURIComponent(String(input.vaultId))}/documents.json`,
             data: {
                 title: input.title,
                 content: input.content,

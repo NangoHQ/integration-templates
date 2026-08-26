@@ -113,12 +113,7 @@ const sync = createSync({
         Upload: UploadSchema
     },
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let vaultQueue: Array<z.infer<typeof VaultRefSchema>>;
-
-        if (checkpoint != null && typeof checkpoint['pendingVaults'] === 'string') {
-            vaultQueue = parsePendingVaults(checkpoint['pendingVaults']);
-        } else {
+        async function discoverVaults(): Promise<Array<z.infer<typeof VaultRefSchema>>> {
             const projectVaults: Array<z.infer<typeof VaultRefSchema>> = [];
 
             // https://github.com/basecamp/bc3-api/blob/master/sections/projects.md#get-all-projects
@@ -138,7 +133,31 @@ const sync = createSync({
                 }
             }
 
-            vaultQueue = projectVaults;
+            return projectVaults;
+        }
+
+        const checkpoint = await nango.getCheckpoint();
+        let vaultQueue: Array<z.infer<typeof VaultRefSchema>>;
+
+        if (checkpoint != null && typeof checkpoint['pendingVaults'] === 'string') {
+            vaultQueue = parsePendingVaults(checkpoint['pendingVaults']);
+            // A checkpoint restored with an empty queue is indistinguishable from a prior
+            // execution that crashed right after persisting its final (empty) checkpoint but
+            // before trackDeletesEnd ran. Treat it as untrustworthy and rediscover from scratch
+            // rather than let an empty queue silently close out delete tracking below.
+            if (vaultQueue.length === 0) {
+                vaultQueue = await discoverVaults();
+            }
+        } else {
+            vaultQueue = await discoverVaults();
+        }
+
+        // If there is still nothing to crawl (no projects with an enabled vault), skip delete
+        // tracking entirely instead of opening and immediately closing an empty window, which
+        // would delete every previously synced Upload.
+        if (vaultQueue.length === 0) {
+            await nango.clearCheckpoint();
+            return;
         }
 
         const processedVaults = new Set<string>();
@@ -213,7 +232,9 @@ const sync = createSync({
                 }
             }
 
-            await nango.saveCheckpoint({ pendingVaults: JSON.stringify(vaultQueue) });
+            if (vaultQueue.length > 0) {
+                await nango.saveCheckpoint({ pendingVaults: JSON.stringify(vaultQueue) });
+            }
         }
 
         await nango.clearCheckpoint();

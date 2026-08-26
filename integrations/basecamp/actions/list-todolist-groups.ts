@@ -48,15 +48,21 @@ const action = createAction({
             params['status'] = input.status;
         }
 
-        const response = await nango.get({
-            // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/todolist_groups.md
+        const groups: z.infer<typeof GroupSchema>[] = [];
+
+        // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/todolist_groups.md
+        for await (const page of nango.paginate({
             endpoint: `/buckets/${encodeURIComponent(input.projectId)}/todolists/${encodeURIComponent(input.todoListId)}/groups.json`,
             params,
-            retries: 3
-        });
-
-        const parsed = z.array(z.unknown()).parse(response.data);
-        const groups = parsed.map((item) => GroupSchema.parse(item));
+            retries: 3,
+            paginate: {
+                type: 'link',
+                link_rel_in_response_header: 'next'
+            }
+        })) {
+            const parsed = z.array(z.unknown()).parse(page);
+            groups.push(...parsed.map((item) => GroupSchema.parse(item)));
+        }
 
         return {
             groups

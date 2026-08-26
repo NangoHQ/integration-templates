@@ -1,7 +1,7 @@
 {
   "input": {
-    "projectId": "48644099",
-    "vaultId": "10239340939",
+    "projectId": 48644099,
+    "vaultId": 10239340939,
     "title": "Test Document",
     "content": "<div><strong>Hello</strong></div>",
     "status": "active"

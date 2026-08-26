@@ -1,8 +1,8 @@
 {
   "input": {
-    "projectId": "48644099",
-    "chatId": "10239340942",
-    "lineId": "10239440328"
+    "projectId": 48644099,
+    "chatId": 10239340942,
+    "lineId": 10239440328
   },
   "output": null,
   "nango": {},

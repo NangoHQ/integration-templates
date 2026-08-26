@@ -30,7 +30,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('Creator person ID.'),
         name: z.string().describe('Creator name.'),
-        email_address: z.string().describe('Creator email address.'),
+        email_address: z.string().optional().describe('Creator email address, omitted for some integration-type people.'),
         avatar_url: z.string().optional().describe('Creator avatar URL.')
     })
     .describe('Person who created the entry.');
@@ -39,7 +39,7 @@ const ParticipantSchema = z
     .object({
         id: z.number().describe('Participant person ID.'),
         name: z.string().describe('Participant name.'),
-        email_address: z.string().describe('Participant email address.'),
+        email_address: z.string().optional().describe('Participant email address, omitted for some integration-type people.'),
         avatar_url: z.string().optional().describe('Participant avatar URL.')
     })
     .describe('Person participating in the schedule entry.');

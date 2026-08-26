@@ -16,4 +16,18 @@ describe('basecamp get-todolist tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should parse a to-do-list group, which has group_position_url instead of groups_url', async () => {
+        const groupMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'get-todolist-group',
+            Model: 'ActionOutput_basecamp_gettodolist'
+        });
+
+        const input = await groupMock.getInput();
+        const response = await createAction.exec(groupMock, input);
+        const output = await groupMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
 });

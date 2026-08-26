@@ -98,12 +98,7 @@ const sync = createSync({
         // Blocker: No resource in the Basecamp API exposes a modified-since or updated-after filter.
         // Every list endpoint accepts only status and sort/direction parameters, never a timestamp cursor.
         // Full-refresh is required with trackDeletesStart/trackDeletesEnd.
-        const checkpoint = await nango.getCheckpoint();
-        let queue: Array<z.infer<typeof ChatRefSchema>>;
-
-        if (checkpoint != null && typeof checkpoint['pendingChats'] === 'string') {
-            queue = parsePendingChats(checkpoint['pendingChats']);
-        } else {
+        async function discoverChats(): Promise<Array<z.infer<typeof ChatRefSchema>>> {
             const projects: Array<{ id: number }> = [];
 
             const projectsConfig: ProxyConfiguration = {
@@ -124,7 +119,7 @@ const sync = createSync({
                 }
             }
 
-            queue = [];
+            const chats: Array<z.infer<typeof ChatRefSchema>> = [];
             for (const project of projects) {
                 // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/projects.md
                 const projectResponse = await nango.get({
@@ -135,9 +130,35 @@ const sync = createSync({
                 const validatedProject = ProjectDetailSchema.parse(projectResponse.data);
                 const chatEntry = validatedProject.dock.find((entry) => entry.name === 'chat');
                 if (chatEntry) {
-                    queue.push({ projectId: String(project.id), chatId: String(chatEntry.id) });
+                    chats.push({ projectId: String(project.id), chatId: String(chatEntry.id) });
                 }
             }
+
+            return chats;
+        }
+
+        const checkpoint = await nango.getCheckpoint();
+        let queue: Array<z.infer<typeof ChatRefSchema>>;
+
+        if (checkpoint != null && typeof checkpoint['pendingChats'] === 'string') {
+            queue = parsePendingChats(checkpoint['pendingChats']);
+            // A checkpoint restored with an empty queue is indistinguishable from a prior
+            // execution that crashed right after persisting its final (empty) checkpoint but
+            // before trackDeletesEnd ran. Treat it as untrustworthy and rediscover from scratch
+            // rather than let an empty queue silently close out delete tracking below.
+            if (queue.length === 0) {
+                queue = await discoverChats();
+            }
+        } else {
+            queue = await discoverChats();
+        }
+
+        // If there is still nothing to crawl (no projects with an enabled Chat), skip delete
+        // tracking entirely instead of opening and immediately closing an empty window, which
+        // would delete every previously synced CampfireLine.
+        if (queue.length === 0) {
+            await nango.clearCheckpoint();
+            return;
         }
 
         await nango.trackDeletesStart('CampfireLine');
@@ -203,7 +224,9 @@ const sync = createSync({
                 }
             }
 
-            await nango.saveCheckpoint({ pendingChats: JSON.stringify(queue) });
+            if (queue.length > 0) {
+                await nango.saveCheckpoint({ pendingChats: JSON.stringify(queue) });
+            }
         }
 
         await nango.clearCheckpoint();

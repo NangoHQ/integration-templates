@@ -36,7 +36,12 @@ const ProjectSchema = z
 
 const CheckpointSchema = z
     .object({
-        nextStatusIndex: z.number().describe('Index of the next project status to fetch (0=active, 1=archived, 2=trashed).')
+        nextStatusIndex: z
+            .number()
+            .int()
+            .min(0)
+            .max(2)
+            .describe('Index of the next project status to fetch (0=active, 1=archived, 2=trashed).')
     })
     .describe('Checkpoint for resuming a full-refresh project crawl across status filters.');
 
@@ -108,7 +113,11 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const allStatuses = ['active', 'archived', 'trashed'];
-        const startIndex = checkpoint != null && typeof checkpoint['nextStatusIndex'] === 'number' ? checkpoint['nextStatusIndex'] : 0;
+        // Reject a checkpoint whose nextStatusIndex is missing, non-integer, or out of range
+        // rather than let slice() silently produce an empty statuses list, which would still
+        // close out delete tracking below and delete every stored Project.
+        const parsedCheckpoint = checkpoint != null ? CheckpointSchema.safeParse(checkpoint) : undefined;
+        const startIndex = parsedCheckpoint?.success ? parsedCheckpoint.data.nextStatusIndex : 0;
         const statuses = allStatuses.slice(startIndex);
 
         await nango.trackDeletesStart('Project');

@@ -16,4 +16,18 @@ describe('basecamp list-comments tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should follow an absolute next-page cursor without doubling the account ID in the URL', async () => {
+        const cursorMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'list-comments-cursor',
+            Model: 'ActionOutput_basecamp_listcomments'
+        });
+
+        const input = await cursorMock.getInput();
+        const response = await createAction.exec(cursorMock, input);
+        const output = await cursorMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
 });

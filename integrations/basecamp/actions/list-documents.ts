@@ -4,7 +4,8 @@ import { createAction, ProxyConfiguration } from 'nango';
 const InputSchema = z
     .object({
         projectId: z.number().describe('The ID of the Basecamp project (bucket).'),
-        vaultId: z.number().describe('The ID of the vault containing the documents.')
+        vaultId: z.number().describe('The ID of the vault containing the documents.'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input for listing documents in a Basecamp vault.');
 
@@ -56,9 +57,10 @@ const DocumentSchema = z
 
 const OutputSchema = z
     .object({
-        items: z.array(DocumentSchema).describe('List of documents in the vault.')
+        items: z.array(DocumentSchema).describe('Documents in the vault, one page at a time.'),
+        next_cursor: z.string().optional().describe('Pagination cursor for the next page, if more results exist.')
     })
-    .describe('Output containing a list of documents in a Basecamp vault.');
+    .describe('Output containing a page of documents in a Basecamp vault and an optional pagination cursor.');
 
 const ProviderCreatorSchema = z.object({
     id: z.number(),
@@ -101,7 +103,7 @@ const ProviderDocumentSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: This action only reads documents from the Basecamp API.
- * @pitfalls: Draft documents are not returned by this list; only published (active) documents appear.
+ * @pitfalls: Draft documents are not returned by this list; only published (active) documents appear. Returns one page at a time; pass the returned `next_cursor` to fetch more.
  */
 const action = createAction({
     description: 'List documents in a vault.',
@@ -111,56 +113,64 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const documents: z.infer<typeof DocumentSchema>[] = [];
-
         const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/documents.md#get-documents
             endpoint: `/buckets/${encodeURIComponent(input.projectId)}/vaults/${encodeURIComponent(input.vaultId)}/documents.json`,
-            retries: 3,
-            paginate: {
-                type: 'link',
-                link_rel_in_response_header: 'next'
-            }
+            params: {
+                ...(input.cursor !== undefined && { page: input.cursor })
+            },
+            retries: 3
         };
 
-        for await (const page of nango.paginate(config)) {
-            const pageData = z.array(ProviderDocumentSchema).parse(page);
-            const mapped = pageData.map((doc) => ({
-                id: doc.id,
-                status: doc.status,
-                visible_to_clients: doc.visible_to_clients,
-                created_at: doc.created_at,
-                updated_at: doc.updated_at,
-                title: doc.title,
-                type: doc.type,
-                url: doc.url,
-                app_url: doc.app_url,
-                comments_count: doc.comments_count,
-                comments_url: doc.comments_url,
-                position: doc.position,
-                parent: {
-                    id: doc.parent.id,
-                    ...(doc.parent.title != null && { title: doc.parent.title }),
-                    type: doc.parent.type
-                },
-                bucket: {
-                    id: doc.bucket.id,
-                    ...(doc.bucket.name != null && { name: doc.bucket.name }),
-                    type: doc.bucket.type
-                },
-                creator: {
-                    id: doc.creator.id,
-                    ...(doc.creator.name != null && { name: doc.creator.name }),
-                    ...(doc.creator.email_address != null && { email_address: doc.creator.email_address })
-                },
-                ...(doc.content != null && { content: doc.content }),
-                ...(doc.content_attachments != null && { content_attachments: doc.content_attachments })
-            }));
-            documents.push(...mapped);
+        const response = await nango.get(config);
+        const pageData = z.array(ProviderDocumentSchema).parse(response.data);
+        const documents = pageData.map((doc) => ({
+            id: doc.id,
+            status: doc.status,
+            visible_to_clients: doc.visible_to_clients,
+            created_at: doc.created_at,
+            updated_at: doc.updated_at,
+            title: doc.title,
+            type: doc.type,
+            url: doc.url,
+            app_url: doc.app_url,
+            comments_count: doc.comments_count,
+            comments_url: doc.comments_url,
+            position: doc.position,
+            parent: {
+                id: doc.parent.id,
+                ...(doc.parent.title != null && { title: doc.parent.title }),
+                type: doc.parent.type
+            },
+            bucket: {
+                id: doc.bucket.id,
+                ...(doc.bucket.name != null && { name: doc.bucket.name }),
+                type: doc.bucket.type
+            },
+            creator: {
+                id: doc.creator.id,
+                ...(doc.creator.name != null && { name: doc.creator.name }),
+                ...(doc.creator.email_address != null && { email_address: doc.creator.email_address })
+            },
+            ...(doc.content != null && { content: doc.content }),
+            ...(doc.content_attachments != null && { content_attachments: doc.content_attachments })
+        }));
+
+        const linkHeader = response.headers?.['link'];
+        let next_cursor: string | undefined;
+        if (typeof linkHeader === 'string') {
+            const nextMatch = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
+            if (nextMatch && nextMatch[1]) {
+                const pageMatch = nextMatch[1].match(/[?&]page=([^&]+)/);
+                if (pageMatch && pageMatch[1]) {
+                    next_cursor = pageMatch[1];
+                }
+            }
         }
 
         return {
-            items: documents
+            items: documents,
+            ...(next_cursor !== undefined && { next_cursor })
         };
     }
 });

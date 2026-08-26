@@ -3,7 +3,8 @@ import { z } from 'zod';
 
 const CheckpointSchema = z
     .object({
-        recording_index: z.number().int().describe('Index of the next recording to crawl comments for'),
+        recording_project_id: z.string().describe('Project ID of the next recording to crawl comments for, empty if unset'),
+        recording_id: z.string().describe('ID of the next recording to crawl comments for (resolved by identity rather than array position), empty if unset'),
         next_page_url: z.string().describe('URL of the next comments page to fetch for the current recording')
     })
     .describe('Resume state for the full-refresh comment crawl');
@@ -332,54 +333,77 @@ const sync = createSync({
         const checkpoint = await nango.getCheckpoint();
         const recordings = await fetchRecordingIds(nango);
 
+        // If discovery unexpectedly found no recordings at all, treat this as an untrustworthy
+        // or failed refresh rather than opening and immediately closing delete tracking, which
+        // would delete every previously synced Comment.
+        if (recordings.length === 0) {
+            await nango.clearCheckpoint();
+            return;
+        }
+
         await nango.trackDeletesStart('Comment');
 
-        if (recordings.length > 0) {
-            let recordingIndex = checkpoint?.recording_index ?? 0;
-            let nextPageUrl = checkpoint?.next_page_url ?? '';
-
-            if (recordingIndex >= recordings.length) {
-                recordingIndex = 0;
+        // Resume by the identity of the checkpointed recording rather than its previous array
+        // position: recordings are rediscovered fresh on every execution, so if the set or
+        // order changes between a checkpointed run and its retry, a positional index could
+        // resume at a different recording entirely and skip the intended one.
+        let startIndex = 0;
+        let nextPageUrl = checkpoint?.next_page_url ?? '';
+        if (checkpoint?.recording_project_id && checkpoint?.recording_id) {
+            const resumeIndex = recordings.findIndex(
+                (r) => r.projectId === checkpoint.recording_project_id && r.recordingId === checkpoint.recording_id
+            );
+            if (resumeIndex !== -1) {
+                startIndex = resumeIndex;
+            } else {
+                // The checkpointed recording no longer exists in the current discovery (e.g. it
+                // was deleted, or the crawl scope shifted). Restart from the beginning instead of
+                // resuming at a stale position that may now point at an unrelated recording.
                 nextPageUrl = '';
             }
+        }
 
-            for (let i = recordingIndex; i < recordings.length; i++) {
-                const recording = recordings[i];
-                if (!recording) {
-                    continue;
-                }
-                const { projectId, recordingId } = recording;
-                const { baseUrlOverride, endpoint } = parseCheckpointUrl(nextPageUrl);
-                const commentEndpoint = endpoint || `/buckets/${encodeURIComponent(projectId)}/recordings/${encodeURIComponent(recordingId)}/comments.json`;
-                let nextPageUrlForRecording: string | undefined = nextPageUrl || undefined;
-
-                // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/comments.md
-                for await (const page of nango.paginate<unknown>({
-                    ...(baseUrlOverride && { baseUrlOverride }),
-                    endpoint: commentEndpoint,
-                    paginate: {
-                        type: 'link',
-                        link_rel_in_response_header: 'next',
-                        limit_name_in_request: 'page',
-                        on_page: async ({ nextPageParam }) => {
-                            nextPageUrlForRecording = typeof nextPageParam === 'string' ? nextPageParam : undefined;
-                        }
-                    },
-                    retries: 3
-                })) {
-                    const comments = z.array(ProviderCommentSchema).parse(page).map(mapComment);
-                    if (comments.length > 0) {
-                        await nango.batchSave(comments, 'Comment');
-                    }
-
-                    if (nextPageUrlForRecording) {
-                        await nango.saveCheckpoint({ recording_index: i, next_page_url: nextPageUrlForRecording });
-                    }
-                }
-
-                nextPageUrl = '';
-                await nango.saveCheckpoint({ recording_index: i + 1, next_page_url: '' });
+        for (let i = startIndex; i < recordings.length; i++) {
+            const recording = recordings[i];
+            if (!recording) {
+                continue;
             }
+            const { projectId, recordingId } = recording;
+            const { baseUrlOverride, endpoint } = parseCheckpointUrl(nextPageUrl);
+            const commentEndpoint = endpoint || `/buckets/${encodeURIComponent(projectId)}/recordings/${encodeURIComponent(recordingId)}/comments.json`;
+            let nextPageUrlForRecording: string | undefined = nextPageUrl || undefined;
+
+            // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/comments.md
+            for await (const page of nango.paginate<unknown>({
+                ...(baseUrlOverride && { baseUrlOverride }),
+                endpoint: commentEndpoint,
+                paginate: {
+                    type: 'link',
+                    link_rel_in_response_header: 'next',
+                    limit_name_in_request: 'page',
+                    on_page: async ({ nextPageParam }) => {
+                        nextPageUrlForRecording = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                    }
+                },
+                retries: 3
+            })) {
+                const comments = z.array(ProviderCommentSchema).parse(page).map(mapComment);
+                if (comments.length > 0) {
+                    await nango.batchSave(comments, 'Comment');
+                }
+
+                if (nextPageUrlForRecording) {
+                    await nango.saveCheckpoint({ recording_project_id: projectId, recording_id: recordingId, next_page_url: nextPageUrlForRecording });
+                }
+            }
+
+            nextPageUrl = '';
+            const next = recordings[i + 1];
+            await nango.saveCheckpoint({
+                recording_project_id: next ? next.projectId : '',
+                recording_id: next ? next.recordingId : '',
+                next_page_url: ''
+            });
         }
 
         await nango.clearCheckpoint();

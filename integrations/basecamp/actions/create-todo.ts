@@ -78,32 +78,27 @@ const action = createAction({
         const completionSubscriberIds: number[] = input.completion_subscriber_ids ? [...input.completion_subscriber_ids] : [];
 
         if (input.assignee_emails?.length || input.completion_subscriber_emails?.length) {
-            // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people
-            const peopleResponse = await nango.get({
-                endpoint: '/people.json',
-                retries: 3
+            const PersonSchema = z.object({
+                id: z.number(),
+                email_address: z.string().nullable().optional()
             });
 
-            if (!Array.isArray(peopleResponse.data)) {
-                throw new nango.ActionError({
-                    type: 'invalid_response',
-                    message: 'Expected array of people from /people.json'
-                });
-            }
-
-            const people = z
-                .array(
-                    z.object({
-                        id: z.number(),
-                        email_address: z.string().nullable().optional()
-                    })
-                )
-                .parse(peopleResponse.data);
-
             const emailToId = new Map<string, number>();
-            for (const person of people) {
-                if (person.email_address) {
-                    emailToId.set(person.email_address, person.id);
+
+            // https://github.com/basecamp/bc3-api/blob/master/sections/people.md#get-all-people
+            for await (const page of nango.paginate<unknown>({
+                endpoint: '/people.json',
+                retries: 3,
+                paginate: {
+                    type: 'link',
+                    link_rel_in_response_header: 'next'
+                }
+            })) {
+                const people = z.array(PersonSchema).parse(page);
+                for (const person of people) {
+                    if (person.email_address) {
+                        emailToId.set(person.email_address, person.id);
+                    }
                 }
             }
 

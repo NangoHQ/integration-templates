@@ -21,7 +21,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('The person ID.'),
         name: z.string().describe("The person's full name."),
-        email_address: z.string().describe("The person's email address.")
+        email_address: z.string().nullable().optional().describe("The person's email address, if exposed by the provider.")
     })
     .describe('The person who created this schedule.');
 

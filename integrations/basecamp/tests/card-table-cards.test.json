@@ -1,7 +1,42 @@
 {
   "nango": {
     "batchSave": {
-      "CardTableCard": []
+      "CardTableCard": [
+        {
+          "id": "10240559440",
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T12:34:12.613Z",
+          "updated_at": "2026-08-26T12:34:12.622Z",
+          "title": "Test Card No Content",
+          "type": "Kanban::Card",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/cards/10240559440.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/cards/10240559440",
+          "position": 1,
+          "parent": {
+            "id": "10239443871",
+            "title": "Triage",
+            "type": "Kanban::Triage",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/columns/10239443871.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/columns/10239443871"
+          },
+          "bucket": {
+            "id": "48644363",
+            "name": "Test Project Create Action 2",
+            "type": "Project"
+          },
+          "creator": {
+            "id": "53024646",
+            "name": "Nango Developer",
+            "email_address": "api@nango.dev"
+          },
+          "description": "",
+          "completed": false,
+          "assignees": [],
+          "comment_count": 0,
+          "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240559440/comments.json"
+        }
+      ]
     },
     "batchDelete": {
       "CardTableCard": []
@@ -76,8 +111,8 @@
                 "id": 10239443870,
                 "title": "Card Table",
                 "name": "kanban_board",
-                "enabled": false,
-                "position": null,
+                "enabled": true,
+                "position": 6,
                 "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/10239443870.json",
                 "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/10239443870"
               },
@@ -495,6 +530,70 @@
           "cf-ray": "a3122bad9d1d28b9-PDX"
         },
         "hash": "f3ad5b2bd699147eb1cc073145c2035b7fe385ac",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/buckets/48644363/card_tables/10239443870.json": {
+        "response": {
+          "id": 10239443870,
+          "status": "active",
+          "lists": [
+            {
+              "id": 10239443871,
+              "title": "Triage",
+              "type": "Kanban::Triage",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/columns/10239443871.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/columns/10239443871"
+            }
+          ]
+        },
+        "status": 200
+      },
+      "/buckets/48644363/card_tables/lists/10239443871/cards.json": {
+        "response": [
+          {
+            "id": 10240559440,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T12:34:12.613Z",
+            "updated_at": "2026-08-26T12:34:12.622Z",
+            "title": "Test Card No Content",
+            "type": "Kanban::Card",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/cards/10240559440.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/cards/10240559440",
+            "position": 1,
+            "parent": {
+              "id": 10239443871,
+              "title": "Triage",
+              "type": "Kanban::Triage",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644363/card_tables/columns/10239443871.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644363/card_tables/columns/10239443871"
+            },
+            "bucket": {
+              "id": 48644363,
+              "name": "Test Project Create Action 2",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024646,
+              "name": "Nango Developer",
+              "email_address": "api@nango.dev",
+              "title": null
+            },
+            "description": "",
+            "content": null,
+            "completed": false,
+            "due_on": null,
+            "assignees": [],
+            "comment_count": 0,
+            "comments_count": 0,
+            "comments_url": "https://3.basecampapi.com/6267157/buckets/48644363/recordings/10240559440/comments.json"
+          }
+        ],
+        "status": 200,
         "request": {
           "params": {
             "limit": "100"

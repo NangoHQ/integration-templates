@@ -11,7 +11,7 @@ const InputSchema = z
 const ProviderPersonSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string()
+    email_address: z.string().optional()
 });
 
 const ProviderParentSchema = z.object({
@@ -86,7 +86,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('ID of the person who created the to-do.'),
                 name: z.string().describe('Name of the person who created the to-do.'),
-                email_address: z.string().describe('Email address of the person who created the to-do.')
+                email_address: z.string().optional().describe('Email address of the person who created the to-do, omitted for some integration-type people.')
             })
             .describe('The person who created the to-do.'),
         assignees: z
@@ -94,7 +94,7 @@ const OutputSchema = z
                 z.object({
                     id: z.number().describe('ID of the assigned person.'),
                     name: z.string().describe('Name of the assigned person.'),
-                    email_address: z.string().describe('Email address of the assigned person.')
+                    email_address: z.string().optional().describe('Email address of the assigned person, omitted for some integration-type people.')
                 })
             )
             .describe('People assigned to this to-do.'),

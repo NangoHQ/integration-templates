@@ -19,7 +19,7 @@ const InputSchema = z
 const CreatorSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string().optional()
+    email_address: z.string().nullable().optional()
 });
 
 const ParentSchema = z.object({
@@ -180,7 +180,7 @@ const action = createAction({
                 creator: {
                     id: providerUpload.creator.id,
                     name: providerUpload.creator.name,
-                    ...(providerUpload.creator.email_address !== undefined && { emailAddress: providerUpload.creator.email_address })
+                    ...(providerUpload.creator.email_address != null && { emailAddress: providerUpload.creator.email_address })
                 }
             })
         };

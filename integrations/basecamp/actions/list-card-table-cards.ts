@@ -1,5 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+
+// The account-scoped Basecamp API host. The configured provider base URL already embeds the account ID
+// (e.g. https://3.basecampapi.com/12345), and so does the absolute `next` URL from the Link header
+// (e.g. https://3.basecampapi.com/12345/buckets/.../cards.json?page=2). Reusing only the cursor's path
+// under the default base URL would double up the account ID and 404, so once the cursor's origin is
+// confirmed to be this trusted host, baseUrlOverride is set to that origin and the full account-scoped
+// path from the cursor is used as-is.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
 
 function parseLinkHeader(linkHeader: string | undefined): Record<string, string> {
     const result: Record<string, string> = {};
@@ -63,7 +72,7 @@ const CardSchema = z
             .object({
                 id: z.number().describe('ID of the creator.'),
                 name: z.string().describe('Name of the creator.'),
-                email_address: z.string().optional().describe('Email address of the creator.')
+                email_address: z.string().nullable().optional().describe('Email address of the creator, if any.')
             })
             .optional()
             .describe('The person who created this card.'),
@@ -77,7 +86,7 @@ const CardSchema = z
                 z.object({
                     id: z.number().describe('ID of the assignee.'),
                     name: z.string().describe('Name of the assignee.'),
-                    email_address: z.string().optional().describe('Email address of the assignee.')
+                    email_address: z.string().nullable().optional().describe('Email address of the assignee, if any.')
                 })
             )
             .optional()
@@ -129,9 +138,17 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let endpoint: string;
+        let baseUrlOverride: string | undefined;
         if (input.cursor) {
             if (input.cursor.startsWith('http')) {
                 const url = new URL(input.cursor);
+                if (url.origin !== BASECAMP_API_ORIGIN) {
+                    throw new nango.ActionError({
+                        type: 'invalid_cursor',
+                        message: 'The cursor does not point to the Basecamp API host.'
+                    });
+                }
+                baseUrlOverride = url.origin;
                 endpoint = url.pathname + url.search;
             } else {
                 endpoint = input.cursor;
@@ -140,11 +157,14 @@ const action = createAction({
             endpoint = `/buckets/${encodeURIComponent(input.projectId)}/card_tables/lists/${encodeURIComponent(input.columnId)}/cards.json`;
         }
 
-        const response = await nango.get({
+        const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/card_table_cards.md#get-cards-in-a-column
             endpoint,
+            ...(baseUrlOverride && { baseUrlOverride }),
             retries: 3
-        });
+        };
+
+        const response = await nango.get(config);
 
         const cards = z.array(z.unknown()).parse(response.data);
         const parsedCards = cards.map((card) => CardSchema.parse(card));

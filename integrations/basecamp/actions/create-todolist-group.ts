@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        projectId: z.string().describe('The ID of the project that contains the to-do list.'),
-        todoListId: z.string().describe('The ID of the to-do list to create the group within.'),
+        projectId: z.number().describe('The ID of the project that contains the to-do list.'),
+        todoListId: z.number().describe('The ID of the to-do list to create the group within.'),
         name: z.string().describe('The name of the to-do list group.'),
         color: z
             .enum(['white', 'red', 'orange', 'yellow', 'green', 'blue', 'aqua', 'purple', 'gray', 'pink', 'brown'])
@@ -35,7 +35,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('The ID of the creator.'),
         name: z.string().describe('The name of the creator.'),
-        email_address: z.string().optional().describe('The email address of the creator.'),
+        email_address: z.string().nullable().optional().describe('The email address of the creator.'),
         avatar_url: z.string().optional().describe('The avatar URL of the creator.')
     })
     .describe('Creator reference.');
@@ -108,7 +108,7 @@ const ProviderGroupSchema = z.object({
     creator: z.object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string().optional(),
+        email_address: z.string().nullable().optional(),
         avatar_url: z.string().optional()
     }),
     description: z.string(),
@@ -137,7 +137,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://github.com/basecamp/bc3-api/blob/master/sections/todolist_groups.md
-            endpoint: `/buckets/${encodeURIComponent(input.projectId)}/todolists/${encodeURIComponent(input.todoListId)}/groups.json`,
+            endpoint: `/buckets/${encodeURIComponent(String(input.projectId))}/todolists/${encodeURIComponent(String(input.todoListId))}/groups.json`,
             data: {
                 name: input.name,
                 ...(input.color !== undefined && { color: input.color })

@@ -5,7 +5,7 @@ const MessageCreatorSchema = z.object({
     id: z.number(),
     attachable_sgid: z.string(),
     name: z.string(),
-    email_address: z.string(),
+    email_address: z.string().nullable(),
     personable_type: z.string(),
     title: z.string().nullable(),
     bio: z.string().nullable(),
@@ -18,10 +18,12 @@ const MessageCreatorSchema = z.object({
     employee: z.boolean(),
     time_zone: z.string(),
     avatar_url: z.string(),
-    company: z.object({
-        id: z.number(),
-        name: z.string()
-    }),
+    company: z
+        .object({
+            id: z.number(),
+            name: z.string()
+        })
+        .optional(),
     can_ping: z.boolean(),
     can_manage: z.boolean().optional(),
     can_manage_people: z.boolean(),
@@ -87,7 +89,7 @@ const OutputSchema = z
                             .object({
                                 id: z.number().describe('Creator person ID'),
                                 name: z.string().describe('Creator display name'),
-                                email_address: z.string().describe('Creator email address')
+                                email_address: z.string().nullable().describe('Creator email address, or null if the creator has none')
                             })
                             .describe('The person who created the message')
                     })
