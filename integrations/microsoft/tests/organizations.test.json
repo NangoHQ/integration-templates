@@ -12,6 +12,16 @@
             {
               "capabilityStatus": "Enabled",
               "provisioningStatus": "Success",
+              "service": "exchange"
+            },
+            {
+              "capabilityStatus": "Enabled",
+              "provisioningStatus": "Success",
+              "service": "exchange"
+            },
+            {
+              "capabilityStatus": "Enabled",
+              "provisioningStatus": "Success",
               "service": "RMSOnline"
             },
             {
@@ -142,11 +152,35 @@
               ],
               "tenantType": "AAD",
               "directorySizeQuota": {
-                "used": 272,
+                "used": 344,
                 "total": 300000
               },
               "privacyProfile": null,
               "assignedPlans": [
+                {
+                  "assignedDateTime": "2026-07-12T17:08:58Z",
+                  "capabilityStatus": "Enabled",
+                  "service": "exchange",
+                  "servicePlanId": "d59d7297-56ae-462e-b1ed-ad5b5c08bda7"
+                },
+                {
+                  "assignedDateTime": "2026-07-12T17:08:58Z",
+                  "capabilityStatus": "Deleted",
+                  "service": "SCO",
+                  "servicePlanId": "882e1d05-acd1-4ccb-8708-6ee03664b117"
+                },
+                {
+                  "assignedDateTime": "2026-07-12T17:08:58Z",
+                  "capabilityStatus": "Enabled",
+                  "service": "exchange",
+                  "servicePlanId": "c6675fa4-68fe-415f-aec1-a44520f0c3a3"
+                },
+                {
+                  "assignedDateTime": "2026-07-03T12:39:42Z",
+                  "capabilityStatus": "Enabled",
+                  "service": "DynamicsNAV",
+                  "servicePlanId": "3f2afeed-6fb5-4bf9-998f-f2912133aead"
+                },
                 {
                   "assignedDateTime": "2026-05-14T16:11:22Z",
                   "capabilityStatus": "Enabled",
@@ -260,12 +294,6 @@
                   "capabilityStatus": "Enabled",
                   "service": "MixedRealityCollaborationServices",
                   "servicePlanId": "dcf9d2f4-772e-4434-b757-77a453cfbc02"
-                },
-                {
-                  "assignedDateTime": "2026-05-14T16:11:23Z",
-                  "capabilityStatus": "Deleted",
-                  "service": "SCO",
-                  "servicePlanId": "882e1d05-acd1-4ccb-8708-6ee03664b117"
                 },
                 {
                   "assignedDateTime": "2026-05-14T16:11:23Z",
@@ -429,6 +457,16 @@
                 {
                   "capabilityStatus": "Enabled",
                   "provisioningStatus": "Success",
+                  "service": "exchange"
+                },
+                {
+                  "capabilityStatus": "Enabled",
+                  "provisioningStatus": "Success",
+                  "service": "exchange"
+                },
+                {
+                  "capabilityStatus": "Enabled",
+                  "provisioningStatus": "Success",
                   "service": "RMSOnline"
                 },
                 {
@@ -518,7 +556,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Mon, 18 May 2026 22:08:28 GMT",
+          "date": "Tue, 18 Aug 2026 09:19:35 GMT",
           "content-type": "application/json;odata.metadata=minimal;odata.streaming=true;IEEE754Compatible=false;charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -527,18 +565,19 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4873",
-          "x-ratelimit-reset": "1779142114",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1787044821",
           "cache-control": "no-cache",
           "vary": "Accept-Encoding",
-          "request-id": "fae25f31-2a21-4246-8d03-51ab6dc05885",
-          "client-request-id": "fae25f31-2a21-4246-8d03-51ab6dc05885",
-          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF00011B92\"}}",
+          "request-id": "4e50d4eb-a607-4e4a-bf24-2dcec890ae46",
+          "client-request-id": "4e50d4eb-a607-4e4a-bf24-2dcec890ae46",
+          "x-ms-ags-diagnostic": "{\"ServerInfo\":{\"DataCenter\":\"West US 2\",\"Slice\":\"E\",\"Ring\":\"4\",\"ScaleUnit\":\"004\",\"RoleInstance\":\"MW2PEPF000126E0\"}}",
           "x-ms-resource-unit": "1",
           "odata-version": "4.0"
         },

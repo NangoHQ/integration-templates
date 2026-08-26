@@ -28,6 +28,10 @@ const ProAccountMandateSchema = z.object({
     customer_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 function isNoProAccountError(error: unknown): boolean {
     if (error instanceof Error) {
         if (error.message.includes('No Pro Account associated with the company')) {
@@ -53,10 +57,11 @@ function isNoProAccountError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync Pro Account payment mandates',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     scopes: ['customer_mandates:readonly'],
+    checkpoint: CheckpointSchema,
     models: {
         ProAccountMandate: ProAccountMandateSchema
     },
@@ -65,21 +70,31 @@ const sync = createSync({
         // Blocker: the Pro Account mandates endpoint does not expose a
         // changed-since filter, changelog feed, or deleted-record endpoint.
         // We therefore perform a full crawl with full-refresh delete tracking.
-        await nango.trackDeletesStart('ProAccountMandate');
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor = checkpoint ? checkpoint['cursor'] : undefined;
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getproaccountmandates
             endpoint: '/api/external/v2/pro_account/mandates',
             retries: 3,
+            ...(cursor ? { params: { cursor } } : {}),
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             }
         };
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('ProAccountMandate');
 
         // @allowTryCatch: A company without a configured Pro Account returns 404
         // "No Pro Account associated with the company". Treating this as a valid
@@ -115,6 +130,10 @@ const sync = createSync({
                 if (mandates.length > 0) {
                     await nango.batchSave(mandates, 'ProAccountMandate');
                 }
+
+                if (cursor) {
+                    await nango.saveCheckpoint({ cursor });
+                }
             }
         } catch (error) {
             if (!isNoProAccountError(error)) {
@@ -122,6 +141,7 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ProAccountMandate');
     }
 });

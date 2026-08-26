@@ -7,38 +7,38 @@
     "batchSave": {
       "ApiKey": [
         {
-          "id": "SK000000000000000000000000000001",
+          "id": "SK00000000000000000000000000000002",
           "date_created": "Wed, 10 Jun 2026 09:02:12 +0000",
           "date_updated": "Wed, 10 Jun 2026 09:02:12 +0000"
         },
         {
-          "id": "SK000000000000000000000000000002",
+          "id": "SK00000000000000000000000000000005",
           "date_created": "Wed, 10 Jun 2026 09:02:07 +0000",
           "date_updated": "Wed, 10 Jun 2026 09:02:07 +0000"
         },
         {
-          "id": "SK000000000000000000000000000003",
+          "id": "SK00000000000000000000000000000004",
           "date_created": "Wed, 10 Jun 2026 09:01:13 +0000",
           "date_updated": "Wed, 10 Jun 2026 09:01:13 +0000"
         },
         {
-          "id": "SK000000000000000000000000000004",
+          "id": "SK00000000000000000000000000000001",
           "date_created": "Wed, 10 Jun 2026 09:01:06 +0000",
           "date_updated": "Wed, 10 Jun 2026 09:01:06 +0000"
         },
         {
-          "id": "SK000000000000000000000000000005",
+          "id": "SK00000000000000000000000000000007",
           "date_created": "Wed, 10 Jun 2026 09:00:52 +0000",
           "date_updated": "Wed, 10 Jun 2026 09:00:52 +0000"
         },
         {
-          "id": "SK000000000000000000000000000006",
+          "id": "SK00000000000000000000000000000006",
           "friendly_name": "Updated Nango Test Key 2",
           "date_created": "Tue, 09 Jun 2026 10:47:35 +0000",
           "date_updated": "Wed, 10 Jun 2026 08:59:22 +0000"
         },
         {
-          "id": "SK000000000000000000000000000007",
+          "id": "SK00000000000000000000000000000003",
           "friendly_name": "Nango Test Key 1",
           "date_created": "Tue, 09 Jun 2026 10:47:34 +0000",
           "date_updated": "Tue, 09 Jun 2026 10:47:34 +0000"
@@ -60,43 +60,43 @@
               "date_created": "Wed, 10 Jun 2026 09:02:12 +0000",
               "date_updated": "Wed, 10 Jun 2026 09:02:12 +0000",
               "friendly_name": null,
-              "sid": "SK000000000000000000000000000001"
+              "sid": "SK00000000000000000000000000000002"
             },
             {
               "date_created": "Wed, 10 Jun 2026 09:02:07 +0000",
               "date_updated": "Wed, 10 Jun 2026 09:02:07 +0000",
               "friendly_name": null,
-              "sid": "SK000000000000000000000000000002"
+              "sid": "SK00000000000000000000000000000005"
             },
             {
               "date_created": "Wed, 10 Jun 2026 09:01:13 +0000",
               "date_updated": "Wed, 10 Jun 2026 09:01:13 +0000",
               "friendly_name": null,
-              "sid": "SK000000000000000000000000000003"
+              "sid": "SK00000000000000000000000000000004"
             },
             {
               "date_created": "Wed, 10 Jun 2026 09:01:06 +0000",
               "date_updated": "Wed, 10 Jun 2026 09:01:06 +0000",
               "friendly_name": null,
-              "sid": "SK000000000000000000000000000004"
+              "sid": "SK00000000000000000000000000000001"
             },
             {
               "date_created": "Wed, 10 Jun 2026 09:00:52 +0000",
               "date_updated": "Wed, 10 Jun 2026 09:00:52 +0000",
               "friendly_name": null,
-              "sid": "SK000000000000000000000000000005"
+              "sid": "SK00000000000000000000000000000007"
             },
             {
               "date_created": "Tue, 09 Jun 2026 10:47:35 +0000",
               "date_updated": "Wed, 10 Jun 2026 08:59:22 +0000",
               "friendly_name": "Updated Nango Test Key 2",
-              "sid": "SK000000000000000000000000000006"
+              "sid": "SK00000000000000000000000000000006"
             },
             {
               "date_created": "Tue, 09 Jun 2026 10:47:34 +0000",
               "date_updated": "Tue, 09 Jun 2026 10:47:34 +0000",
               "friendly_name": "Nango Test Key 1",
-              "sid": "SK000000000000000000000000000007"
+              "sid": "SK00000000000000000000000000000003"
             }
           ],
           "next_page_uri": null,
@@ -108,7 +108,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 10 Jun 2026 10:00:09 GMT",
+          "date": "Wed, 19 Aug 2026 12:07:50 GMT",
           "content-type": "application/json;charset=utf-8",
           "content-length": "1551",
           "connection": "keep-alive",
@@ -117,16 +117,29 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4989",
-          "x-ratelimit-reset": "1781085617",
+          "x-ratelimit-remaining": "4990",
+          "x-ratelimit-reset": "1787141309",
+          "twilio-concurrent-requests": "1",
+          "twilio-request-id": "RQ00000000000000000000000000000013",
+          "twilio-request-duration": "0.051",
+          "x-home-region": "us1",
+          "x-api-domain": "api.twilio.com",
+          "vary": "Accept-Encoding, Origin",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 13db0457431959c4a11b5f54c65b5688.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P3",
+          "x-amz-cf-id": "a-CAzPVDRRCmIGcZqa4LCbUWlc3YKIxMp0fYuLGcoH7eRrijaDy97Q==",
+          "x-powered-by": "AT-5000",
+          "x-shenanigans": "none",
           "etag": "W/\"60f-8KTUktI4UwmLtBnwDNEWg+BbWFk\""
         },
-        "hash": "181dda3bf93ccc5db22d1f798bcb5a87c73a34bb",
+        "hash": "240208835feb4faf3ed455444adf8ac981fc8163",
         "request": {
           "params": {
             "PageSize": "50"

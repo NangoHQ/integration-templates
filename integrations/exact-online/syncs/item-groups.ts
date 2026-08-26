@@ -36,11 +36,16 @@ const ItemGroupsResponseSchema = z.union([
     })
 ]);
 
+const CheckpointSchema = z.object({
+    skip: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync item groups as full snapshot (small static dataset).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ItemGroup: ItemGroupSchema
     },
@@ -67,11 +72,13 @@ const sync = createSync({
 
         // Blocker: Exact Online ItemGroups is a small static dataset.
         // Full refresh is used because the dataset is small and static.
-        await nango.trackDeletesStart('ItemGroup');
-
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { skip: 0 };
         const limit = 100;
-        let skip = 0;
+        let skip = checkpoint['skip'];
         let hasMore = true;
+
+        await nango.trackDeletesStart('ItemGroup');
 
         while (hasMore) {
             // https://start.exactonline.fr/docs/en_GB/rest/webservices/logistics/ItemGroups.xml
@@ -104,8 +111,13 @@ const sync = createSync({
             }
 
             skip += limit;
+
+            if (hasMore) {
+                await nango.saveCheckpoint({ skip });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ItemGroup');
     }
 });

@@ -35,6 +35,7 @@ const SYMLINKS: Record<string, string> = {
     'lever-basic': 'lever',
     'lever-basic-sandbox': 'lever',
     'lever-sandbox': 'lever',
+    'okta-cc': 'okta',
     'okta-preview': 'okta',
     'quickbooks-sandbox': 'quickbooks',
     'ramp-sandbox': 'ramp',

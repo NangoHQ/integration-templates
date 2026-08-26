@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const ProviderPaymentSchema = z.object({
@@ -60,12 +60,34 @@ const MetadataSchema = z.object({
     organization_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number()
+});
+
+const PageContextSchema = z.object({
+    page: z.number().optional(),
+    per_page: z.number().optional(),
+    has_more_page: z.boolean().optional(),
+    report_name: z.string().optional(),
+    applied_filter: z.string().optional(),
+    sort_column: z.string().optional(),
+    sort_order: z.string().optional()
+});
+
+const ProviderListResponseSchema = z.object({
+    code: z.number(),
+    message: z.string(),
+    customerpayments: z.array(z.unknown()).optional(),
+    page_context: PageContextSchema.optional()
+});
+
 const sync = createSync({
     description: 'Sync customer payments from Zoho Books',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Payment: PaymentSchema
     },
@@ -84,36 +106,43 @@ const sync = createSync({
         }
         const organizationId = parsedMetadata.data.organization_id;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        let page = parsedCheckpoint.success ? parsedCheckpoint.data.page : 1;
+
         // Blocker: List Customer Payments documents pagination and filters, but no
         // last_modified_time filter or equivalent incremental cursor.
         await nango.trackDeletesStart('Payment');
 
-        const proxyConfig: ProxyConfiguration = {
+        while (true) {
             // https://www.zoho.com/books/api/v3/customer-payments/#list-customer-payments
-            endpoint: '/books/v3/customerpayments',
-            params: {
-                organization_id: organizationId
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                response_path: 'customerpayments'
-            },
-            retries: 3
-        };
+            const response = await nango.get({
+                // https://www.zoho.com/books/api/v3/customer-payments/#list-customer-payments
+                endpoint: '/books/v3/customerpayments',
+                params: {
+                    organization_id: organizationId,
+                    page: String(page),
+                    per_page: '100'
+                },
+                retries: 3
+            });
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const rawPage = z.array(z.unknown()).safeParse(page);
-            if (!rawPage.success) {
-                throw new Error('Invalid page data from paginate');
+            const parsedResponse = ProviderListResponseSchema.safeParse(response.data);
+            if (!parsedResponse.success) {
+                throw new Error('Invalid customer payments list response');
             }
 
+            const providerResponse = parsedResponse.data;
+            if (providerResponse.code !== 0) {
+                throw new Error(`Provider error: ${providerResponse.message}`);
+            }
+
+            const rawPayments = providerResponse.customerpayments ?? [];
+            const pageContext = providerResponse.page_context;
+            const hasMorePage = pageContext?.has_more_page ?? false;
+
             const payments: Array<z.infer<typeof PaymentSchema>> = [];
-            for (const record of rawPage.data) {
+            for (const record of rawPayments) {
                 const parsedRecord = ProviderPaymentSchema.safeParse(record);
                 if (!parsedRecord.success) {
                     throw new Error('Invalid customer payment record');
@@ -149,13 +178,19 @@ const sync = createSync({
                 });
             }
 
-            if (payments.length === 0) {
-                continue;
+            if (payments.length > 0) {
+                await nango.batchSave(payments, 'Payment');
             }
 
-            await nango.batchSave(payments, 'Payment');
+            if (!hasMorePage) {
+                break;
+            }
+
+            page = page + 1;
+            await nango.saveCheckpoint({ page });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Payment');
     }
 });

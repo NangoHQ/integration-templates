@@ -32,11 +32,16 @@ const ProviderDivisionSchema = z.object({
     Email: z.string().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync divisions/administrations as full snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Division: DivisionSchema
     },
@@ -65,6 +70,10 @@ const sync = createSync({
         }
         const currentDivision = meResult.CurrentDivision;
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { offset: 0 });
+        let offset: number | undefined = checkpoint.offset;
+
         // Full-refresh is required by the sync design for a complete snapshot of divisions.
         await nango.trackDeletesStart('Division');
 
@@ -75,10 +84,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
+                offset_start_value: offset,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: '$top',
                 limit: 100,
-                response_path: 'd.results'
+                response_path: 'd',
+                on_page: async ({ nextPageParam }) => {
+                    offset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             }
         };
 
@@ -104,8 +117,13 @@ const sync = createSync({
             if (divisions.length > 0) {
                 await nango.batchSave(divisions, 'Division');
             }
+
+            if (offset !== undefined) {
+                await nango.saveCheckpoint({ offset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Division');
     }
 });

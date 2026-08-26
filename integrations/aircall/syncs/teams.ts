@@ -41,11 +41,16 @@ const TeamSchema = z.object({
         .optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync teams from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema
     },
@@ -58,25 +63,42 @@ const sync = createSync({
 
     exec: async (nango) => {
         // Full refresh: GET /v1/teams does not support updated_after, cursor, or since_id.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = rawCheckpoint == null ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        if (checkpointParse != null && !checkpointParse.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointParse.error.message}`);
+        }
+        const checkpoint = checkpointParse?.data;
+        let page: number | undefined = checkpoint?.page ?? 1;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Team');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.aircall.io/api-references/#list-all-teams
             endpoint: '/v1/teams',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: page,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 50,
-                response_path: 'teams'
+                response_path: 'teams',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'number') {
+                        page = nextPageParam;
+                    } else {
+                        page = undefined;
+                    }
+                }
             },
             retries: 3
         };
 
-        let trackingStarted = false;
-
-        for await (const page of nango.paginate(proxyConfig)) {
-            const teams = page.map((record: unknown) => {
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const teams = pageResults.map((record: unknown) => {
                 const parsed = ProviderTeamSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse team: ${parsed.error.message}`);
@@ -100,19 +122,22 @@ const sync = createSync({
                 };
             });
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('Team');
-                trackingStarted = true;
-            }
-
             if (teams.length > 0) {
                 await nango.batchSave(teams, 'Team');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
-        if (trackingStarted) {
-            await nango.trackDeletesEnd('Team');
-        }
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Team');
     }
 });
 

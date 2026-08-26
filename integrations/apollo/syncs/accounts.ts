@@ -73,11 +73,15 @@ const AccountRecordSchema = z.object({
     organization_id: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
 type Account = z.infer<typeof _AccountSchema>;
 
 const sync = createSync({
     description: 'Sync accounts from Apollo',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -86,6 +90,7 @@ const sync = createSync({
             path: '/syncs/accounts'
         }
     ],
+    checkpoint: CheckpointSchema,
     models: {
         Account: AccountRecordSchema
     },
@@ -93,6 +98,10 @@ const sync = createSync({
     exec: async (nango) => {
         // Apollo account search supports sorting and page-based pagination, but it does
         // not expose a changed-since filter we can rely on for incremental syncs.
+        const checkpoint = await nango.getCheckpoint();
+        const startPage = checkpoint != null && typeof checkpoint['page'] === 'number' ? checkpoint['page'] : 1;
+        let page: number | undefined = startPage;
+
         await nango.trackDeletesStart('Account');
 
         const proxyConfig: ProxyConfiguration = {
@@ -107,54 +116,67 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: startPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 100,
-                response_path: 'accounts'
+                response_path: 'accounts',
+                on_page: async ({ nextPageParam }) => {
+                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
         for await (const accountsBatch of nango.paginate<Account>(proxyConfig)) {
-            if (accountsBatch.length === 0) {
-                continue;
+            const records = accountsBatch.map((account) => {
+                const parsed = _AccountSchema.safeParse(account);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse account: ${parsed.error.message}`);
+                }
+                const a = parsed.data;
+                return {
+                    id: a.id,
+                    domain: a.domain ?? undefined,
+                    name: a.name,
+                    team_id: a.team_id,
+                    account_stage_id: a.account_stage_id,
+                    label_ids: a.label_ids,
+                    source: a.source,
+                    original_source: a.original_source,
+                    creator_id: a.creator_id ?? undefined,
+                    owner_id: a.owner_id,
+                    created_at: a.created_at,
+                    phone: a.phone ?? undefined,
+                    phone_status: a.phone_status,
+                    hubspot_id: a.hubspot_id ?? undefined,
+                    salesforce_id: a.salesforce_id ?? undefined,
+                    crm_owner_id: a.crm_owner_id ?? undefined,
+                    parent_account_id: a.parent_account_id ?? undefined,
+                    linkedin_url: a.linkedin_url ?? undefined,
+                    sanitized_phone: a.sanitized_phone ?? undefined,
+                    existence_level: a.existence_level,
+                    modality: a.modality,
+                    source_display_name: a.source_display_name,
+                    crm_record_url: a.crm_record_url ?? undefined,
+                    num_contacts: a.num_contacts,
+                    last_activity_date: a.last_activity_date ?? undefined,
+                    show_intent: a.show_intent,
+                    has_intent_signal_account: a.has_intent_signal_account,
+                    organization_id: a.organization_id ?? undefined
+                };
+            });
+
+            if (records.length > 0) {
+                await nango.batchSave(records, 'Account');
             }
 
-            const records = accountsBatch.map((account) => ({
-                id: account.id,
-                domain: account.domain ?? undefined,
-                name: account.name,
-                team_id: account.team_id,
-                account_stage_id: account.account_stage_id,
-                label_ids: account.label_ids,
-                source: account.source,
-                original_source: account.original_source,
-                creator_id: account.creator_id ?? undefined,
-                owner_id: account.owner_id,
-                created_at: account.created_at,
-                phone: account.phone ?? undefined,
-                phone_status: account.phone_status,
-                hubspot_id: account.hubspot_id ?? undefined,
-                salesforce_id: account.salesforce_id ?? undefined,
-                crm_owner_id: account.crm_owner_id ?? undefined,
-                parent_account_id: account.parent_account_id ?? undefined,
-                linkedin_url: account.linkedin_url ?? undefined,
-                sanitized_phone: account.sanitized_phone ?? undefined,
-                existence_level: account.existence_level,
-                modality: account.modality,
-                source_display_name: account.source_display_name,
-                crm_record_url: account.crm_record_url ?? undefined,
-                num_contacts: account.num_contacts,
-                last_activity_date: account.last_activity_date ?? undefined,
-                show_intent: account.show_intent,
-                has_intent_signal_account: account.has_intent_signal_account,
-                organization_id: account.organization_id ?? undefined
-            }));
-
-            await nango.batchSave(records, 'Account');
+            if (page !== undefined) {
+                await nango.saveCheckpoint({ page });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Account');
     }
 });
