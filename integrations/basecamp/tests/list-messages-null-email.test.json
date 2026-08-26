@@ -1,0 +1,92 @@
+{
+  "input": {
+    "projectId": "48644099",
+    "messageBoardId": "10239340927"
+  },
+  "output": {
+    "items": [
+      {
+        "id": 10239435720,
+        "status": "active",
+        "created_at": "2026-08-26T04:30:34.579Z",
+        "updated_at": "2026-08-26T04:30:34.582Z",
+        "title": "Test message from an integration",
+        "content": "<div dir=\"auto\">Hello world</div>",
+        "comments_count": 0,
+        "creator": {
+          "id": 53024699,
+          "name": "Zapier Integration"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/message_boards/10239340927/messages.json": {
+        "response": [
+          {
+            "id": 10239435720,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T04:30:34.579Z",
+            "updated_at": "2026-08-26T04:30:34.582Z",
+            "title": "Test message from an integration",
+            "inherits_status": true,
+            "type": "Message",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/messages/10239435720.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/messages/10239435720",
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/example.json",
+            "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239435720/subscription.json",
+            "comments_count": 0,
+            "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239435720/comments.json",
+            "boosts_count": 0,
+            "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239435720/boosts.json",
+            "parent": {
+              "id": 10239340927,
+              "title": "Message Board",
+              "type": "Message::Board",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/message_boards/10239340927.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/message_boards/10239340927"
+            },
+            "bucket": {
+              "id": 48644099,
+              "name": "Name the project",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024699,
+              "attachable_sgid": "gid-example",
+              "name": "Zapier Integration",
+              "personable_type": "Integration",
+              "title": null,
+              "tagline": null,
+              "location": null,
+              "bio": null,
+              "created_at": "2026-08-26T03:31:40.436Z",
+              "updated_at": "2026-08-26T03:31:50.720Z",
+              "email_address": null,
+              "admin": false,
+              "owner": false,
+              "client": false,
+              "employee": false,
+              "time_zone": "Europe/Moscow",
+              "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+              "can_ping": false,
+              "can_manage_projects": false,
+              "can_manage_people": false,
+              "can_access_timesheet": false,
+              "can_access_hill_charts": false
+            },
+            "content": "<div dir=\"auto\">Hello world</div>",
+            "content_attachments": [],
+            "subject": "Test message from an integration"
+          }
+        ],
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

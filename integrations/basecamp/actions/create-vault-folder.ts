@@ -92,7 +92,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('Person ID of the creator.'),
                 name: z.string().describe('Display name of the creator.'),
-                email_address: z.string().nullable().describe('Email address of the creator.')
+                email_address: z.string().optional().describe('Email address of the creator, omitted for some integration-type people.')
             })
             .optional()
             .describe('Person who created the vault.'),
@@ -166,7 +166,7 @@ const action = createAction({
                 creator: {
                     id: vault.creator.id,
                     name: vault.creator.name,
-                    email_address: vault.creator.email_address
+                    ...(vault.creator.email_address != null && { email_address: vault.creator.email_address })
                 }
             }),
             documents_count: vault.documents_count,

@@ -119,7 +119,16 @@ const action = createAction({
         let baseUrlOverride: string | undefined;
 
         if (input.cursor) {
-            const url = new URL(input.cursor);
+            let url: URL;
+            // @allowTryCatch A malformed cursor must surface as a structured ActionError instead of an unhandled TypeError from URL parsing.
+            try {
+                url = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'The cursor is not a valid URL.'
+                });
+            }
             if (url.origin !== BASECAMP_API_ORIGIN) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',

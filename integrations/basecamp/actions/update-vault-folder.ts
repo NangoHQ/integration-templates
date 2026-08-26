@@ -15,10 +15,16 @@ const BucketSchema = z.object({
     type: z.string().describe('The type of the bucket.')
 });
 
+const ProviderCreatorSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional()
+});
+
 const CreatorSchema = z.object({
     id: z.number().describe('The ID of the creator.'),
     name: z.string().describe('The name of the creator.'),
-    email_address: z.string().nullable().optional().describe('The email address of the creator, if exposed by the provider.')
+    email_address: z.string().optional().describe('The email address of the creator, if exposed by the provider.')
 });
 
 const OutputSchema = z
@@ -37,6 +43,21 @@ const OutputSchema = z
         uploads_count: z.number().describe('The number of uploads in the vault.')
     })
     .describe('Output of a renamed vault folder.');
+
+const ProviderVaultSchema = z.object({
+    id: z.number(),
+    status: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    type: z.string(),
+    url: z.string(),
+    app_url: z.string(),
+    title: z.string(),
+    bucket: BucketSchema,
+    creator: ProviderCreatorSchema,
+    documents_count: z.number(),
+    uploads_count: z.number()
+});
 
 /**
  * @tags: [write]
@@ -60,9 +81,26 @@ const action = createAction({
             retries: 3
         });
 
-        const vault = OutputSchema.parse(response.data);
+        const vault = ProviderVaultSchema.parse(response.data);
 
-        return vault;
+        return {
+            id: vault.id,
+            status: vault.status,
+            created_at: vault.created_at,
+            updated_at: vault.updated_at,
+            type: vault.type,
+            url: vault.url,
+            app_url: vault.app_url,
+            title: vault.title,
+            bucket: vault.bucket,
+            creator: {
+                id: vault.creator.id,
+                name: vault.creator.name,
+                ...(vault.creator.email_address != null && { email_address: vault.creator.email_address })
+            },
+            documents_count: vault.documents_count,
+            uploads_count: vault.uploads_count
+        };
     }
 });
 

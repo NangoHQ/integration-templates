@@ -89,7 +89,7 @@ const OutputSchema = z
                             .object({
                                 id: z.number().describe('Creator person ID'),
                                 name: z.string().describe('Creator display name'),
-                                email_address: z.string().nullable().describe('Creator email address, or null if the creator has none')
+                                email_address: z.string().optional().describe('Creator email address, omitted if the creator has none')
                             })
                             .describe('The person who created the message')
                     })
@@ -147,7 +147,7 @@ const action = createAction({
                 creator: {
                     id: message.creator.id,
                     name: message.creator.name,
-                    email_address: message.creator.email_address
+                    ...(message.creator.email_address != null && { email_address: message.creator.email_address })
                 }
             })),
             ...(nextCursor !== undefined && { next_cursor: nextCursor })

@@ -10,7 +10,7 @@ const ProviderPersonSchema = z
     .object({
         id: z.number(),
         name: z.string(),
-        email_address: z.string().nullable()
+        email_address: z.string().nullable().optional()
     })
     .passthrough();
 
@@ -37,8 +37,16 @@ const ProviderTodoSchema = z
 const PersonSchema = z.object({
     id: z.number().describe('The unique ID of the person.'),
     name: z.string().describe('The full name of the person.'),
-    email_address: z.string().nullable().describe('The email address of the person, or null if they have none.')
+    email_address: z.string().optional().describe('The email address of the person, omitted if they have none.')
 });
+
+function normalizePerson(person: z.infer<typeof ProviderPersonSchema>): z.infer<typeof PersonSchema> {
+    return {
+        id: person.id,
+        name: person.name,
+        ...(person.email_address != null && { email_address: person.email_address })
+    };
+}
 
 const TodoSchema = z.object({
     id: z.number().describe('The unique ID of the to-do.'),
@@ -143,21 +151,13 @@ const action = createAction({
                 updated_at: todo.updated_at,
                 due_on: todo.due_on,
                 starts_on: todo.starts_on,
-                assignees: todo.assignees.map((assignee) => ({
-                    id: assignee.id,
-                    name: assignee.name,
-                    email_address: assignee.email_address
-                })),
+                assignees: todo.assignees.map(normalizePerson),
                 description: todo.description,
                 position: todo.position,
                 url: todo.url,
                 app_url: todo.app_url,
                 comments_count: todo.comments_count,
-                creator: {
-                    id: todo.creator.id,
-                    name: todo.creator.name,
-                    email_address: todo.creator.email_address
-                }
+                creator: normalizePerson(todo.creator)
             })),
             ...(nextUrl && { next_cursor: nextUrl })
         };

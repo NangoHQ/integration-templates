@@ -16,4 +16,18 @@ describe('basecamp list-project-people tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should omit email_address/title/tagline/location/bio/company when the provider returns them as null', async () => {
+        const nullFieldsMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'list-project-people-null-fields',
+            Model: 'ActionOutput_basecamp_listprojectpeople'
+        });
+
+        const input = await nullFieldsMock.getInput();
+        const response = await createAction.exec(nullFieldsMock, input);
+        const output = await nullFieldsMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
 });

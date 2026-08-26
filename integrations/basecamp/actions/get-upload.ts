@@ -53,6 +53,14 @@ const CreatorSchema = z.object({
     can_access_hill_charts: z.boolean().describe('Whether the creator can access hill charts.')
 });
 
+// Provider-side variant of CreatorSchema. Unlike the output-facing `company` field (which is
+// stripped to omission when absent, see the mapping below), Basecamp can send an explicit
+// `company: null` for the creator (as sibling schemas in this integration also account for),
+// so the raw parse target must accept both `null` and omission.
+const ProviderCreatorSchema = CreatorSchema.extend({
+    company: CompanySchema.nullable().optional().describe('The company of the creator, if any. Absent when the creator has no email address.')
+});
+
 const OutputSchema = z
     .object({
         id: z.number().describe('The unique ID of the upload.'),
@@ -87,6 +95,12 @@ const OutputSchema = z
     })
     .describe('Metadata for a single upload file.');
 
+// Raw provider parse target: identical to OutputSchema except `creator` accepts the provider's
+// possible explicit `company: null`, which the mapping below strips to omission.
+const ProviderUploadSchema = OutputSchema.extend({
+    creator: ProviderCreatorSchema.describe('The person who created the upload.')
+});
+
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single upload's metadata from the Basecamp API.
@@ -114,8 +128,17 @@ const action = createAction({
             });
         }
 
-        const upload = OutputSchema.parse(response.data);
-        return upload;
+        const providerUpload = ProviderUploadSchema.parse(response.data);
+        const { creator, ...rest } = providerUpload;
+        const { company, ...creatorRest } = creator;
+
+        return {
+            ...rest,
+            creator: {
+                ...creatorRest,
+                ...(company != null && { company })
+            }
+        };
     }
 });
 

@@ -17,11 +17,17 @@ const BucketSchema = z
     })
     .describe('The project this schedule belongs to.');
 
+const ProviderCreatorSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional()
+});
+
 const CreatorSchema = z
     .object({
         id: z.number().describe('The person ID.'),
         name: z.string().describe("The person's full name."),
-        email_address: z.string().nullable().optional().describe("The person's email address, if exposed by the provider.")
+        email_address: z.string().optional().describe("The person's email address, if exposed by the provider.")
     })
     .describe('The person who created this schedule.');
 
@@ -47,6 +53,26 @@ const OutputSchema = z
     })
     .describe('The updated schedule resource.');
 
+const ProviderScheduleSchema = z.object({
+    id: z.number(),
+    status: z.string(),
+    visible_to_clients: z.boolean(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    title: z.string(),
+    inherits_status: z.boolean(),
+    type: z.string(),
+    url: z.string(),
+    app_url: z.string(),
+    bookmark_url: z.string(),
+    position: z.number(),
+    bucket: BucketSchema,
+    creator: ProviderCreatorSchema,
+    include_due_assignments: z.boolean(),
+    entries_count: z.number(),
+    entries_url: z.string()
+});
+
 /**
  * @tags: [write]
  * @tagReason: Mutates the schedule by updating its include_due_assignments flag.
@@ -71,8 +97,31 @@ const action = createAction({
             retries: 3
         });
 
-        const schedule = OutputSchema.parse(response.data);
-        return schedule;
+        const schedule = ProviderScheduleSchema.parse(response.data);
+
+        return {
+            id: schedule.id,
+            status: schedule.status,
+            visible_to_clients: schedule.visible_to_clients,
+            created_at: schedule.created_at,
+            updated_at: schedule.updated_at,
+            title: schedule.title,
+            inherits_status: schedule.inherits_status,
+            type: schedule.type,
+            url: schedule.url,
+            app_url: schedule.app_url,
+            bookmark_url: schedule.bookmark_url,
+            position: schedule.position,
+            bucket: schedule.bucket,
+            creator: {
+                id: schedule.creator.id,
+                name: schedule.creator.name,
+                ...(schedule.creator.email_address != null && { email_address: schedule.creator.email_address })
+            },
+            include_due_assignments: schedule.include_due_assignments,
+            entries_count: schedule.entries_count,
+            entries_url: schedule.entries_url
+        };
     }
 });
 

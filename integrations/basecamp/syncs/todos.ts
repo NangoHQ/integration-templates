@@ -36,6 +36,18 @@ const BasecampTodoSchema = z
 
 const CheckpointSchema = z.object({
     projectIndex: z.number().int(),
+    projectId: z
+        .number()
+        .int()
+        .describe(
+            'The Basecamp project ID (bucket ID) of the checkpointed project, used to resolve the resume position by identity rather than array position. -1 once every project has been processed.'
+        ),
+    todoSetId: z
+        .number()
+        .int()
+        .describe(
+            'The to-do set ID of the checkpointed project, paired with projectId to resolve the resume position by identity. -1 once every project has been processed.'
+        ),
     todolistId: z.string().describe('ID of the next to-do list to resume crawling to-dos for (resolved by identity rather than array position), empty if unset')
 });
 
@@ -88,7 +100,9 @@ const sync = createSync({
         }
 
         const checkpoint = await nango.getCheckpoint();
-        const startProjectIndex = checkpoint && typeof checkpoint['projectIndex'] === 'number' ? checkpoint['projectIndex'] : 0;
+        const checkpointProjectIndex = checkpoint && typeof checkpoint['projectIndex'] === 'number' ? checkpoint['projectIndex'] : 0;
+        const checkpointProjectId = checkpoint && typeof checkpoint['projectId'] === 'number' ? checkpoint['projectId'] : undefined;
+        const checkpointTodoSetId = checkpoint && typeof checkpoint['todoSetId'] === 'number' ? checkpoint['todoSetId'] : undefined;
         const startTodolistId = checkpoint && typeof checkpoint['todolistId'] === 'string' ? checkpoint['todolistId'] : '';
 
         // A checkpoint whose projectIndex is at or past the end of the (user-supplied,
@@ -97,12 +111,31 @@ const sync = createSync({
         // trackDeletesEnd ran. Treat it as "nothing left to crawl this run" and skip delete
         // tracking entirely rather than open and immediately close an empty window, which would
         // delete every stored BasecampTodo.
-        if (startProjectIndex >= metadata['projects'].length) {
+        if (checkpointProjectIndex >= metadata['projects'].length) {
             await nango.clearCheckpoint();
             return;
         }
 
         await nango.trackDeletesStart('BasecampTodo');
+
+        // Resume by the identity of the checkpointed project rather than its previous array
+        // position: metadata.projects is user-supplied and can be reordered or edited between
+        // retries, so a positional projectIndex could resume against the wrong project and skip
+        // the checkpointed one entirely. Fall back to a full restart (index 0) if the
+        // checkpointed project can no longer be found, rather than trusting a stale positional
+        // index that may now point at an unrelated project.
+        let startProjectIndex = checkpointProjectIndex;
+        if (checkpointProjectId !== undefined && checkpointTodoSetId !== undefined) {
+            const resumeIdx = metadata['projects'].findIndex(
+                (p) =>
+                    p &&
+                    typeof p['projectId'] === 'number' &&
+                    typeof p['todoSetId'] === 'number' &&
+                    p['projectId'] === checkpointProjectId &&
+                    p['todoSetId'] === checkpointTodoSetId
+            );
+            startProjectIndex = resumeIdx !== -1 ? resumeIdx : 0;
+        }
 
         for (let pIdx = startProjectIndex; pIdx < metadata['projects'].length; pIdx++) {
             const project = metadata['projects'][pIdx];
@@ -205,11 +238,20 @@ const sync = createSync({
                 if (nextTodolist) {
                     await nango.saveCheckpoint({
                         projectIndex: pIdx,
+                        projectId: project['projectId'],
+                        todoSetId: project['todoSetId'],
                         todolistId: String(nextTodolist.id)
                     });
                 } else {
+                    // No project identity to carry once every metadata project has been
+                    // processed; -1 is a sentinel that never matches a real Basecamp project ID.
+                    const nextProject = metadata['projects'][pIdx + 1];
+                    const nextProjectId = nextProject && typeof nextProject['projectId'] === 'number' ? nextProject['projectId'] : -1;
+                    const nextTodoSetId = nextProject && typeof nextProject['todoSetId'] === 'number' ? nextProject['todoSetId'] : -1;
                     await nango.saveCheckpoint({
                         projectIndex: pIdx + 1,
+                        projectId: nextProjectId,
+                        todoSetId: nextTodoSetId,
                         todolistId: ''
                     });
                 }

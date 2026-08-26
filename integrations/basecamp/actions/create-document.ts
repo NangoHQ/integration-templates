@@ -15,7 +15,13 @@ const InputSchema = z
 const CreatorSchema = z.object({
     id: z.number().describe('The unique ID of the creator.'),
     name: z.string().describe('The display name of the creator.'),
-    email_address: z.string().nullable().describe('The email address of the creator, or null.')
+    email_address: z.string().optional().describe('The email address of the creator, omitted for some integration-type people.')
+});
+
+const ProviderCreatorSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional()
 });
 
 const ParentSchema = z.object({
@@ -50,6 +56,22 @@ const OutputSchema = z
     })
     .describe('The created Basecamp document record.');
 
+const ProviderDocumentSchema = z.object({
+    id: z.number(),
+    status: z.string(),
+    visible_to_clients: z.boolean(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    title: z.string(),
+    content: z.string(),
+    type: z.string(),
+    url: z.string(),
+    app_url: z.string(),
+    parent: ParentSchema,
+    bucket: BucketSchema,
+    creator: ProviderCreatorSchema
+});
+
 /**
  * @tags: [write]
  * @tagReason: Creates a new document in a Basecamp vault.
@@ -82,8 +104,27 @@ const action = createAction({
             });
         }
 
-        const doc = OutputSchema.parse(response.data);
-        return doc;
+        const doc = ProviderDocumentSchema.parse(response.data);
+
+        return {
+            id: doc.id,
+            status: doc.status,
+            visible_to_clients: doc.visible_to_clients,
+            created_at: doc.created_at,
+            updated_at: doc.updated_at,
+            title: doc.title,
+            content: doc.content,
+            type: doc.type,
+            url: doc.url,
+            app_url: doc.app_url,
+            parent: doc.parent,
+            bucket: doc.bucket,
+            creator: {
+                id: doc.creator.id,
+                name: doc.creator.name,
+                ...(doc.creator.email_address != null && { email_address: doc.creator.email_address })
+            }
+        };
     }
 });
 

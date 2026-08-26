@@ -82,7 +82,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('Person ID of the vault creator.'),
                 name: z.string().describe('Name of the vault creator.'),
-                email_address: z.string().nullable().describe('Email address of the vault creator, or null if the creator has none.'),
+                email_address: z.string().optional().describe('Email address of the vault creator, omitted if the creator has none.'),
                 personable_type: z.string().describe('Type of the creator, typically "User".')
             })
             .describe('The person who created this vault.'),
@@ -139,7 +139,12 @@ const action = createAction({
             bookmark_url: providerVault.bookmark_url,
             position: providerVault.position,
             bucket: providerVault.bucket,
-            creator: providerVault.creator,
+            creator: {
+                id: providerVault.creator.id,
+                name: providerVault.creator.name,
+                ...(providerVault.creator.email_address != null && { email_address: providerVault.creator.email_address }),
+                personable_type: providerVault.creator.personable_type
+            },
             ...(providerVault.parent !== undefined && { parent: providerVault.parent }),
             documents_count: providerVault.documents_count,
             documents_url: providerVault.documents_url,

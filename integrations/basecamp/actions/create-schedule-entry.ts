@@ -24,7 +24,13 @@ const RecurrenceScheduleSchema = z.object({
 const ParticipantSchema = z.object({
     id: z.number().describe('Person ID'),
     name: z.string().describe('Person name'),
-    email_address: z.string().nullable().describe('Person email address')
+    email_address: z.string().optional().describe('Person email address, omitted for some integration-type people')
+});
+
+const ProviderParticipantSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional()
 });
 
 const ParentSchema = z.object({
@@ -44,8 +50,15 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('Creator person ID'),
     name: z.string().describe('Creator name'),
-    email_address: z.string().nullable().describe('Creator email address'),
+    email_address: z.string().optional().describe('Creator email address, omitted for some integration-type people'),
     avatar_url: z.string().optional().describe('Creator avatar URL')
+});
+
+const ProviderCreatorSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional(),
+    avatar_url: z.string().optional()
 });
 
 const InputSchema = z
@@ -93,6 +106,31 @@ const OutputSchema = z
         recurrence_schedule: RecurrenceScheduleSchema.optional().describe('Recurrence configuration if the entry repeats')
     })
     .describe('Output of a newly created Basecamp schedule entry');
+
+const ProviderScheduleEntrySchema = z.object({
+    id: z.number(),
+    status: z.string(),
+    visible_to_clients: z.boolean(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    title: z.string(),
+    inherits_status: z.boolean(),
+    type: z.string(),
+    url: z.string(),
+    app_url: z.string(),
+    summary: z.string(),
+    description: z.string().optional(),
+    all_day: z.boolean(),
+    highlighted: z.boolean(),
+    starts_at: z.string(),
+    ends_at: z.string(),
+    join_url: z.string().nullable(),
+    participants: z.array(ProviderParticipantSchema),
+    parent: ParentSchema,
+    bucket: BucketSchema,
+    creator: ProviderCreatorSchema,
+    recurrence_schedule: RecurrenceScheduleSchema.optional()
+});
 
 /**
  * @tags: [write]
@@ -148,8 +186,41 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = OutputSchema.parse(response.data);
-        return parsed;
+        const providerEntry = ProviderScheduleEntrySchema.parse(response.data);
+
+        return {
+            id: providerEntry.id,
+            status: providerEntry.status,
+            visible_to_clients: providerEntry.visible_to_clients,
+            created_at: providerEntry.created_at,
+            updated_at: providerEntry.updated_at,
+            title: providerEntry.title,
+            inherits_status: providerEntry.inherits_status,
+            type: providerEntry.type,
+            url: providerEntry.url,
+            app_url: providerEntry.app_url,
+            summary: providerEntry.summary,
+            ...(providerEntry.description !== undefined && { description: providerEntry.description }),
+            all_day: providerEntry.all_day,
+            highlighted: providerEntry.highlighted,
+            starts_at: providerEntry.starts_at,
+            ends_at: providerEntry.ends_at,
+            join_url: providerEntry.join_url,
+            participants: providerEntry.participants.map((participant) => ({
+                id: participant.id,
+                name: participant.name,
+                ...(participant.email_address != null && { email_address: participant.email_address })
+            })),
+            parent: providerEntry.parent,
+            bucket: providerEntry.bucket,
+            creator: {
+                id: providerEntry.creator.id,
+                name: providerEntry.creator.name,
+                ...(providerEntry.creator.email_address != null && { email_address: providerEntry.creator.email_address }),
+                ...(providerEntry.creator.avatar_url !== undefined && { avatar_url: providerEntry.creator.avatar_url })
+            },
+            ...(providerEntry.recurrence_schedule !== undefined && { recurrence_schedule: providerEntry.recurrence_schedule })
+        };
     }
 });
 

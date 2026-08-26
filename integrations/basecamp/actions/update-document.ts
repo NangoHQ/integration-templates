@@ -116,6 +116,14 @@ const action = createAction({
                 });
             }
 
+            if (current.status < 200 || current.status >= 300) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: `Unexpected response status ${current.status} from Basecamp.`,
+                    status: current.status
+                });
+            }
+
             const currentDoc = ProviderDocumentSchema.parse(current.data);
             title = title ?? currentDoc.title;
             content = content ?? currentDoc.content;

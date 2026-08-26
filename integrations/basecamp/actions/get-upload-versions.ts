@@ -42,7 +42,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('The unique ID of the creator.'),
         name: z.string().describe('The name of the creator.'),
-        email_address: z.string().nullable().describe('The email address of the creator, or null if the creator has none.')
+        email_address: z.string().optional().describe('The email address of the creator, omitted if the creator has none.')
     })
     .passthrough()
     .describe('The user who created this version.');
@@ -93,20 +93,26 @@ const action = createAction({
         const providerVersions = ProviderVersionsSchema.parse(response.data);
 
         return {
-            versions: providerVersions.map((version) => ({
-                id: version.id,
-                recording_id: version.recording_id,
-                action: version.action,
-                created_at: version.created_at,
-                creator: version.creator,
-                ...(version.upload && {
-                    content_type: version.upload.content_type,
-                    byte_size: version.upload.byte_size,
-                    filename: version.upload.filename,
-                    download_url: version.upload.download_url,
-                    current: version.upload.current
-                })
-            }))
+            versions: providerVersions.map((version) => {
+                const { email_address, ...creatorRest } = version.creator;
+                return {
+                    id: version.id,
+                    recording_id: version.recording_id,
+                    action: version.action,
+                    created_at: version.created_at,
+                    creator: {
+                        ...creatorRest,
+                        ...(email_address != null && { email_address })
+                    },
+                    ...(version.upload && {
+                        content_type: version.upload.content_type,
+                        byte_size: version.upload.byte_size,
+                        filename: version.upload.filename,
+                        download_url: version.upload.download_url,
+                        current: version.upload.current
+                    })
+                };
+            })
         };
     }
 });

@@ -115,7 +115,18 @@ const sync = createSync({
         const startIndex = parsedCheckpoint?.success ? parsedCheckpoint.data.nextStatusIndex : 0;
         const statuses = allStatuses.slice(startIndex);
 
-        await nango.trackDeletesStart('Project');
+        // Delete tracking must only bracket a run that fetches every status (a fresh crawl
+        // starting at index 0). A resumed run with startIndex > 0 only re-fetches a subset of
+        // statuses by design (the ones the prior, interrupted execution had not yet reached), so
+        // opening/closing the trackDeletes window around it would mark every Project from the
+        // statuses skipped this run (e.g. active, already saved by the prior execution) as
+        // deleted. Skipping the bracket here is safe: the next fresh run (startIndex === 0) will
+        // cover the full status range and catch up on any real deletions.
+        const isFullCrawl = startIndex === 0;
+
+        if (isFullCrawl) {
+            await nango.trackDeletesStart('Project');
+        }
 
         for (const status of statuses) {
             const params: Record<string, string> = {};
@@ -156,7 +167,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Project');
+        if (isFullCrawl) {
+            await nango.trackDeletesEnd('Project');
+        }
     }
 });
 

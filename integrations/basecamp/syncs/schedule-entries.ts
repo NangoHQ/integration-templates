@@ -115,7 +115,13 @@ const ScheduleEntrySchema = z
     .describe('A calendar event from a Basecamp project schedule');
 
 const CheckpointSchema = z.object({
-    projectScheduleIndex: z.number().int().nonnegative()
+    projectScheduleIndex: z.number().int().nonnegative(),
+    entryStatusIndex: z
+        .number()
+        .int()
+        .min(0)
+        .max(2)
+        .describe('Index into the entry status array (0=active, 1=archived, 2=trashed) to resume the current project-schedule from.')
 });
 
 const sync = createSync({
@@ -132,6 +138,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint !== undefined ? CheckpointSchema.safeParse(rawCheckpoint) : undefined;
         const projectScheduleIndex = checkpoint?.success ? (checkpoint.data.projectScheduleIndex ?? 0) : 0;
+        const startEntryStatusIndex = checkpoint?.success ? checkpoint.data.entryStatusIndex : 0;
 
         const projectProxyConfig: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/projects.md
@@ -199,7 +206,19 @@ const sync = createSync({
                 continue;
             }
 
-            for (const entryStatus of entryStatuses) {
+            // Resume the status loop for the checkpointed project-schedule at the status it was
+            // interrupted on instead of always restarting from 'active': the checkpoint only
+            // persists projectScheduleIndex until the whole status loop for a project-schedule
+            // completes, so without entryStatusIndex a resume would redundantly re-fetch and
+            // re-save already-processed statuses for that project-schedule.
+            const startStatusIndex = i === projectScheduleIndex ? startEntryStatusIndex : 0;
+
+            for (let statusIdx = startStatusIndex; statusIdx < entryStatuses.length; statusIdx++) {
+                const entryStatus = entryStatuses[statusIdx];
+                if (!entryStatus) {
+                    continue;
+                }
+
                 const entryProxyConfig: ProxyConfiguration = {
                     // https://github.com/basecamp/bc3-api/blob/master/sections/schedule_entries.md
                     endpoint: `/buckets/${encodeURIComponent(ps.projectId)}/schedules/${encodeURIComponent(ps.scheduleId)}/entries.json`,
@@ -263,13 +282,15 @@ const sync = createSync({
                     }
 
                     await nango.saveCheckpoint({
-                        projectScheduleIndex: i
+                        projectScheduleIndex: i,
+                        entryStatusIndex: statusIdx
                     });
                 }
             }
 
             await nango.saveCheckpoint({
-                projectScheduleIndex: i + 1
+                projectScheduleIndex: i + 1,
+                entryStatusIndex: 0
             });
         }
 

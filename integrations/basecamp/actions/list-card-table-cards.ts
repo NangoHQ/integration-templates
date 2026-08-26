@@ -33,7 +33,50 @@ const InputSchema = z
     })
     .describe('Input for listing cards in a Card Table column.');
 
-const CardSchema = z
+const ProviderCardCreatorSchema = z.object({
+    id: z.number().describe('ID of the creator.'),
+    name: z.string().describe('Name of the creator.'),
+    email_address: z.string().nullable().optional().describe('Email address of the creator, if any.')
+});
+
+const CardCreatorSchema = z.object({
+    id: z.number().describe('ID of the creator.'),
+    name: z.string().describe('Name of the creator.'),
+    email_address: z.string().optional().describe('Email address of the creator, if any.')
+});
+
+const ProviderCardAssigneeSchema = z.object({
+    id: z.number().describe('ID of the assignee.'),
+    name: z.string().describe('Name of the assignee.'),
+    email_address: z.string().nullable().optional().describe('Email address of the assignee, if any.')
+});
+
+const CardAssigneeSchema = z.object({
+    id: z.number().describe('ID of the assignee.'),
+    name: z.string().describe('Name of the assignee.'),
+    email_address: z.string().optional().describe('Email address of the assignee, if any.')
+});
+
+function normalizeCardCreator(creator: z.infer<typeof ProviderCardCreatorSchema>): z.infer<typeof CardCreatorSchema> {
+    return {
+        id: creator.id,
+        name: creator.name,
+        ...(creator.email_address != null && { email_address: creator.email_address })
+    };
+}
+
+function normalizeCardAssignee(assignee: z.infer<typeof ProviderCardAssigneeSchema>): z.infer<typeof CardAssigneeSchema> {
+    return {
+        id: assignee.id,
+        name: assignee.name,
+        ...(assignee.email_address != null && { email_address: assignee.email_address })
+    };
+}
+
+// Raw provider parse target: Basecamp can send an explicit `email_address: null` for the creator
+// and assignees (e.g. for integration-type people). The output-facing CardSchema below narrows
+// those fields to `.optional()` and the mapping strips `null` to omission.
+const ProviderCardSchema = z
     .object({
         id: z.number().describe('Unique identifier for the card.'),
         status: z.string().describe('Status of the card.'),
@@ -68,29 +111,13 @@ const CardSchema = z
             })
             .optional()
             .describe('The project this card belongs to.'),
-        creator: z
-            .object({
-                id: z.number().describe('ID of the creator.'),
-                name: z.string().describe('Name of the creator.'),
-                email_address: z.string().nullable().optional().describe('Email address of the creator, if any.')
-            })
-            .optional()
-            .describe('The person who created this card.'),
+        creator: ProviderCardCreatorSchema.optional().describe('The person who created this card.'),
         description: z.string().optional().describe('Description of the card.'),
         description_attachments: z.array(z.unknown()).optional().describe('Attachments in the description.'),
         completed: z.boolean().describe('Whether the card is completed.'),
         content: z.string().nullable().optional().describe('Content of the card.'),
         due_on: z.string().nullable().optional().describe('Due date of the card in ISO 8601 format.'),
-        assignees: z
-            .array(
-                z.object({
-                    id: z.number().describe('ID of the assignee.'),
-                    name: z.string().describe('Name of the assignee.'),
-                    email_address: z.string().nullable().optional().describe('Email address of the assignee, if any.')
-                })
-            )
-            .optional()
-            .describe('People assigned to the card.'),
+        assignees: z.array(ProviderCardAssigneeSchema).optional().describe('People assigned to the card.'),
         completion_subscribers: z.array(z.unknown()).optional().describe('People subscribed to completion updates.'),
         completion_url: z.string().optional().describe('URL to mark the card as complete.'),
         comment_count: z.number().optional().describe('Number of comments on the card.'),
@@ -116,6 +143,13 @@ const CardSchema = z
             .describe('Steps within the card.')
     })
     .passthrough();
+
+// Output-facing variant: narrows `creator`/`assignees[].email_address` to `.optional()` (no `null`).
+// The exec mapping below parses raw data with ProviderCardSchema and strips `null` to omission.
+const CardSchema = ProviderCardSchema.extend({
+    creator: CardCreatorSchema.optional().describe('The person who created this card.'),
+    assignees: z.array(CardAssigneeSchema).optional().describe('People assigned to the card.')
+});
 
 const OutputSchema = z
     .object({
@@ -167,7 +201,14 @@ const action = createAction({
         const response = await nango.get(config);
 
         const cards = z.array(z.unknown()).parse(response.data);
-        const parsedCards = cards.map((card) => CardSchema.parse(card));
+        const parsedCards = cards.map((card) => {
+            const { creator, assignees, ...rest } = ProviderCardSchema.parse(card);
+            return {
+                ...rest,
+                ...(creator !== undefined && { creator: normalizeCardCreator(creator) }),
+                ...(assignees !== undefined && { assignees: assignees.map(normalizeCardAssignee) })
+            };
+        });
 
         const linkHeader = response.headers['link'] || response.headers['Link'];
         const links = parseLinkHeader(linkHeader);

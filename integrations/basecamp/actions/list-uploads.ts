@@ -9,7 +9,21 @@ const InputSchema = z
     })
     .describe('Input for listing uploads in a Basecamp vault.');
 
-const UploadSchema = z
+const ProviderUploadCreatorSchema = z
+    .object({
+        id: z.number().describe('Creator person ID.'),
+        name: z.string().describe('Creator name.'),
+        email_address: z.string().nullable().optional().describe('Creator email address, or null/absent if the creator has none.')
+    })
+    .passthrough();
+
+// Output-facing variant: narrows `email_address` to `.optional()` (no `null`). The exec mapping
+// below parses raw data with ProviderUploadSchema and strips a `null` email to omission.
+const UploadCreatorSchema = ProviderUploadCreatorSchema.extend({
+    email_address: z.string().optional().describe('Creator email address, omitted if the creator has none.')
+});
+
+const ProviderUploadSchema = z
     .object({
         id: z.number().describe('Upload ID.'),
         status: z.string().describe('Status of the upload (e.g., active, drafted, trashed, archived).'),
@@ -46,14 +60,7 @@ const UploadSchema = z
             })
             .passthrough()
             .describe('Project information.'),
-        creator: z
-            .object({
-                id: z.number().describe('Creator person ID.'),
-                name: z.string().describe('Creator name.'),
-                email_address: z.string().nullable().describe('Creator email address, or null if the creator has none.')
-            })
-            .passthrough()
-            .describe('Creator information.'),
+        creator: ProviderUploadCreatorSchema.describe('Creator information.'),
         description: z.string().describe('Description of the upload in HTML.'),
         description_attachments: z.array(z.unknown()).describe('Attachments embedded in the description.'),
         content_type: z.string().describe('MIME type of the uploaded file.'),
@@ -65,6 +72,10 @@ const UploadSchema = z
         height: z.number().optional().describe('Height of the uploaded image in pixels, if applicable.')
     })
     .passthrough();
+
+const UploadSchema = ProviderUploadSchema.extend({
+    creator: UploadCreatorSchema.describe('Creator information.')
+});
 
 const OutputSchema = z
     .object({
@@ -95,7 +106,7 @@ const action = createAction({
             retries: 3
         });
 
-        const parsedPage = z.array(UploadSchema).safeParse(response.data);
+        const parsedPage = z.array(ProviderUploadSchema).safeParse(response.data);
         if (!parsedPage.success) {
             throw new nango.ActionError({
                 type: 'validation_error',
@@ -103,6 +114,17 @@ const action = createAction({
                 details: parsedPage.error.message
             });
         }
+
+        const items = parsedPage.data.map((upload) => {
+            const { email_address, ...creatorRest } = upload.creator;
+            return {
+                ...upload,
+                creator: {
+                    ...creatorRest,
+                    ...(email_address != null && { email_address })
+                }
+            };
+        });
 
         const linkHeader = response.headers?.['link'];
         let next_cursor: string | undefined;
@@ -117,7 +139,7 @@ const action = createAction({
         }
 
         return {
-            items: parsedPage.data,
+            items,
             ...(next_cursor !== undefined && { next_cursor })
         };
     }

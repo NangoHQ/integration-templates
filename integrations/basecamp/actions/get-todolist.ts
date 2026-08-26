@@ -113,7 +113,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the creator.'),
                 name: z.string().describe('The name of the creator.'),
-                email_address: z.string().nullable().describe('The email address of the creator, or null if the creator has no email address.'),
+                email_address: z.string().optional().describe('The email address of the creator, omitted if the creator has no email address.'),
                 avatar_url: z.string().describe('The avatar URL of the creator.')
             })
             .describe('The creator of the to-do list.')
@@ -172,7 +172,12 @@ const action = createAction({
             todos_url: todolist.todos_url,
             parent: todolist.parent,
             bucket: todolist.bucket,
-            creator: todolist.creator
+            creator: {
+                id: todolist.creator.id,
+                name: todolist.creator.name,
+                ...(todolist.creator.email_address != null && { email_address: todolist.creator.email_address }),
+                avatar_url: todolist.creator.avatar_url
+            }
         };
     }
 });

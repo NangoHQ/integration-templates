@@ -84,7 +84,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the person who created the step.'),
                 name: z.string().describe('The full name of the creator.'),
-                email_address: z.string().nullable().describe('The email address of the creator.')
+                email_address: z.string().optional().describe('The email address of the creator, omitted for some integration-type people.')
             })
             .describe('The person who created the step.'),
         assignees: z
@@ -92,7 +92,7 @@ const OutputSchema = z
                 z.object({
                     id: z.number().describe('The ID of the assigned person.'),
                     name: z.string().describe('The full name of the assigned person.'),
-                    email_address: z.string().nullable().describe('The email address of the assigned person.')
+                    email_address: z.string().optional().describe('The email address of the assigned person, omitted for some integration-type people.')
                 })
             )
             .describe('The people assigned to this step.')
@@ -143,8 +143,16 @@ const action = createAction({
             updated_at: step.updated_at,
             parent: step.parent,
             bucket: step.bucket,
-            creator: step.creator,
-            assignees: step.assignees
+            creator: {
+                id: step.creator.id,
+                name: step.creator.name,
+                ...(step.creator.email_address != null && { email_address: step.creator.email_address })
+            },
+            assignees: step.assignees.map((assignee) => ({
+                id: assignee.id,
+                name: assignee.name,
+                ...(assignee.email_address != null && { email_address: assignee.email_address })
+            }))
         };
     }
 });

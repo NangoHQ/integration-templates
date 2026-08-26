@@ -18,16 +18,21 @@ describe('basecamp list-vault-folders tests', () => {
     });
 
     it('should reject a cursor pointing outside the Basecamp API origin', async () => {
-        nangoMock.ActionError = class ActionError extends Error {
+        const originMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'list-vault-folders',
+            Model: 'ActionOutput_basecamp_listvaultfolders'
+        });
+        originMock.ActionError = class ActionError extends Error {
             constructor(public payload: Record<string, unknown>) {
                 super(payload.message as string);
             }
         };
 
-        const input = await nangoMock.getInput();
+        const input = await originMock.getInput();
 
         await expect(
-            createAction.exec(nangoMock, {
+            createAction.exec(originMock, {
                 ...input,
                 cursor: 'https://evil.example.com/buckets/48644099/vaults/10239340939/vaults.json?page=2'
             })

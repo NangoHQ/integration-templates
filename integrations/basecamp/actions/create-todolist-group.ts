@@ -35,7 +35,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('The ID of the creator.'),
         name: z.string().describe('The name of the creator.'),
-        email_address: z.string().nullable().optional().describe('The email address of the creator.'),
+        email_address: z.string().optional().describe('The email address of the creator, omitted for some integration-type people.'),
         avatar_url: z.string().optional().describe('The avatar URL of the creator.')
     })
     .describe('Creator reference.');
@@ -167,7 +167,12 @@ const action = createAction({
             position: providerGroup.position,
             parent: providerGroup.parent,
             bucket: providerGroup.bucket,
-            creator: providerGroup.creator,
+            creator: {
+                id: providerGroup.creator.id,
+                name: providerGroup.creator.name,
+                ...(providerGroup.creator.email_address != null && { email_address: providerGroup.creator.email_address }),
+                ...(providerGroup.creator.avatar_url !== undefined && { avatar_url: providerGroup.creator.avatar_url })
+            },
             description: providerGroup.description,
             description_attachments: providerGroup.description_attachments,
             completed: providerGroup.completed,

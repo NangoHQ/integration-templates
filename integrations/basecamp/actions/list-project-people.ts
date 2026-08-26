@@ -12,14 +12,43 @@ const CompanySchema = z.object({
     name: z.string().describe('The name of the company.')
 });
 
+const ProviderCompanySchema = z.object({
+    id: z.number(),
+    name: z.string()
+});
+
+const ProviderPersonSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email_address: z.string().nullable().optional(),
+    title: z.string().nullable().optional(),
+    tagline: z.string().nullable().optional(),
+    location: z.string().nullable().optional(),
+    bio: z.string().nullable().optional(),
+    admin: z.boolean(),
+    owner: z.boolean(),
+    client: z.boolean(),
+    employee: z.boolean(),
+    time_zone: z.string(),
+    avatar_url: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    company: ProviderCompanySchema.nullable().optional(),
+    can_ping: z.boolean(),
+    can_manage_projects: z.boolean(),
+    can_manage_people: z.boolean(),
+    can_access_timesheet: z.boolean(),
+    can_access_hill_charts: z.boolean()
+});
+
 const PersonSchema = z.object({
     id: z.number().describe('The unique ID of the person.'),
     name: z.string().describe('The display name of the person.'),
-    email_address: z.string().nullable().describe('The email address of the person, or null if the person has none. Redacted for non-admins.'),
-    title: z.string().nullable().describe('The job title of the person.'),
-    tagline: z.string().nullable().describe('The personal tagline or motto of the person.'),
-    location: z.string().nullable().describe('The geographic location of the person.'),
-    bio: z.string().nullable().describe('The short biography of the person.'),
+    email_address: z.string().optional().describe('The email address of the person, omitted if the person has none. Redacted for non-admins.'),
+    title: z.string().optional().describe('The job title of the person.'),
+    tagline: z.string().optional().describe('The personal tagline or motto of the person.'),
+    location: z.string().optional().describe('The geographic location of the person.'),
+    bio: z.string().optional().describe('The short biography of the person.'),
     admin: z.boolean().describe('Whether the person is an account administrator.'),
     owner: z.boolean().describe('Whether the person is the account owner.'),
     client: z.boolean().describe('Whether the person is a client.'),
@@ -37,6 +66,32 @@ const PersonSchema = z.object({
 });
 
 const OutputSchema = z.array(PersonSchema).describe('The list of people who have access to the specified project.');
+
+function normalizePerson(person: z.infer<typeof ProviderPersonSchema>): z.infer<typeof PersonSchema> {
+    return {
+        id: person.id,
+        name: person.name,
+        ...(person.email_address != null && { email_address: person.email_address }),
+        ...(person.title != null && { title: person.title }),
+        ...(person.tagline != null && { tagline: person.tagline }),
+        ...(person.location != null && { location: person.location }),
+        ...(person.bio != null && { bio: person.bio }),
+        admin: person.admin,
+        owner: person.owner,
+        client: person.client,
+        employee: person.employee,
+        time_zone: person.time_zone,
+        avatar_url: person.avatar_url,
+        created_at: person.created_at,
+        updated_at: person.updated_at,
+        ...(person.company != null && { company: person.company }),
+        can_ping: person.can_ping,
+        can_manage_projects: person.can_manage_projects,
+        can_manage_people: person.can_manage_people,
+        can_access_timesheet: person.can_access_timesheet,
+        can_access_hill_charts: person.can_access_hill_charts
+    };
+}
 
 /**
  * @tags: [read]
@@ -61,7 +116,7 @@ const action = createAction({
             },
             retries: 3
         })) {
-            const pageData = z.array(PersonSchema).safeParse(page);
+            const pageData = z.array(ProviderPersonSchema).safeParse(page);
             if (!pageData.success) {
                 throw new nango.ActionError({
                     type: 'invalid_response',
@@ -69,7 +124,7 @@ const action = createAction({
                     details: pageData.error.message
                 });
             }
-            people.push(...pageData.data);
+            people.push(...pageData.data.map(normalizePerson));
         }
 
         return people;

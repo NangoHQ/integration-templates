@@ -30,4 +30,21 @@ describe('basecamp list-comments tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should reject a malformed cursor with a structured ActionError instead of throwing a raw TypeError', async () => {
+        nangoMock.ActionError = class ActionError extends Error {
+            constructor(public payload: Record<string, unknown>) {
+                super(payload.message as string);
+            }
+        };
+
+        const input = await nangoMock.getInput();
+
+        await expect(
+            createAction.exec(nangoMock, {
+                ...input,
+                cursor: 'not a valid url'
+            })
+        ).rejects.toThrow(/not a valid URL/);
+    });
 });

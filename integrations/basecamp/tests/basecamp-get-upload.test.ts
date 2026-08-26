@@ -16,4 +16,18 @@ describe('basecamp get-upload tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should omit company when the provider returns it as null on the creator', async () => {
+        const nullCompanyMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'get-upload-null-company',
+            Model: 'ActionOutput_basecamp_getupload'
+        });
+
+        const input = await nullCompanyMock.getInput();
+        const response = await createAction.exec(nullCompanyMock, input);
+        const output = await nullCompanyMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
 });

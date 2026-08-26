@@ -1,0 +1,93 @@
+{
+  "input": {
+    "projectId": 48644099,
+    "todoListId": 10239442633
+  },
+  "output": {
+    "todos": [
+      {
+        "id": 10239442639,
+        "content": "Test todo assigned to an integration",
+        "completed": false,
+        "status": "active",
+        "created_at": "2026-08-26T04:35:59.438Z",
+        "updated_at": "2026-08-26T04:35:59.446Z",
+        "due_on": null,
+        "starts_on": null,
+        "assignees": [
+          {
+            "id": 53024699,
+            "name": "Zapier Integration"
+          }
+        ],
+        "description": "",
+        "position": 2,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/todos/10239442639.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todos/10239442639",
+        "comments_count": 0,
+        "creator": {
+          "id": 53024699,
+          "name": "Zapier Integration"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/todolists/10239442633/todos.json": {
+        "response": [
+          {
+            "id": 10239442639,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T04:35:59.438Z",
+            "updated_at": "2026-08-26T04:35:59.446Z",
+            "title": "Test todo assigned to an integration",
+            "inherits_status": true,
+            "type": "Todo",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/todos/10239442639.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todos/10239442639",
+            "comments_count": 0,
+            "position": 2,
+            "parent": {
+              "id": 10239442633,
+              "title": "Test list for list-todos",
+              "type": "Todolist",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239442633.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todolists/10239442633"
+            },
+            "bucket": {
+              "id": 48644099,
+              "name": "Name the project",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024699,
+              "name": "Zapier Integration",
+              "email_address": null
+            },
+            "description": "",
+            "description_attachments": [],
+            "completed": false,
+            "content": "Test todo assigned to an integration",
+            "starts_on": null,
+            "due_on": null,
+            "assignees": [
+              {
+                "id": 53024699,
+                "name": "Zapier Integration",
+                "email_address": null
+              }
+            ],
+            "completion_subscribers": [],
+            "steps": []
+          }
+        ],
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

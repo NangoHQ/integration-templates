@@ -18,7 +18,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('The unique ID of the comment creator.'),
     name: z.string().describe('The display name of the comment creator.'),
-    email_address: z.string().nullable().optional().describe('The email address of the comment creator, if exposed by the provider.')
+    email_address: z.string().optional().describe('The email address of the comment creator, if exposed by the provider.')
 });
 
 const InputSchema = z
@@ -98,7 +98,11 @@ const action = createAction({
             updated_at: comment.updated_at,
             parent: comment.parent,
             bucket: comment.bucket,
-            creator: comment.creator
+            creator: {
+                id: comment.creator.id,
+                name: comment.creator.name,
+                ...(comment.creator.email_address != null && { email_address: comment.creator.email_address })
+            }
         };
     }
 });

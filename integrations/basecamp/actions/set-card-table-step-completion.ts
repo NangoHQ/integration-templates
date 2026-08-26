@@ -24,7 +24,7 @@ const BucketSchema = z.object({
 const CreatorSchema = z.object({
     id: z.number().describe('The ID of the user.'),
     name: z.string().describe('The name of the user.'),
-    email_address: z.string().nullable().describe('The email address of the user, or null for people without one (e.g. integration accounts).')
+    email_address: z.string().optional().describe('The email address of the user, if exposed by the provider.')
 });
 
 const CompletionSchema = z
@@ -127,13 +127,24 @@ const action = createAction({
 
         const providerStep = ProviderStepSchema.parse(response.data);
 
+        const normalizeCreator = (creator: { id: number; name: string; email_address: string | null }): z.infer<typeof CreatorSchema> => ({
+            id: creator.id,
+            name: creator.name,
+            ...(creator.email_address != null && { email_address: creator.email_address })
+        });
+
         return {
             id: providerStep.id,
             status: providerStep.status,
             title: providerStep.title,
             type: providerStep.type,
             completed: providerStep.completed,
-            ...(providerStep.completion && { completion: providerStep.completion }),
+            ...(providerStep.completion && {
+                completion: {
+                    created_at: providerStep.completion.created_at,
+                    creator: normalizeCreator(providerStep.completion.creator)
+                }
+            }),
             created_at: providerStep.created_at,
             updated_at: providerStep.updated_at,
             url: providerStep.url,
@@ -141,7 +152,7 @@ const action = createAction({
             position: providerStep.position,
             parent: providerStep.parent,
             bucket: providerStep.bucket,
-            creator: providerStep.creator,
+            creator: normalizeCreator(providerStep.creator),
             ...(providerStep.due_on != null && { due_on: providerStep.due_on }),
             assignees: providerStep.assignees
         };

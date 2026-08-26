@@ -16,4 +16,18 @@ describe('basecamp list-uploads tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('should omit email_address when the provider returns it as null for the creator', async () => {
+        const nullEmailMock = new global.vitest.NangoActionMock({
+            dirname: __dirname,
+            name: 'list-uploads-null-email',
+            Model: 'ActionOutput_basecamp_listuploads'
+        });
+
+        const input = await nullEmailMock.getInput();
+        const response = await createAction.exec(nullEmailMock, input);
+        const output = await nullEmailMock.getOutput();
+
+        expect(response).toEqual(output);
+    });
 });

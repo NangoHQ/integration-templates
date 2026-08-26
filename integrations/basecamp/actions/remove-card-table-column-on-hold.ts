@@ -42,7 +42,7 @@ const OutputSchema = z
             .object({
                 id: z.number().describe('The ID of the person who created the column.'),
                 name: z.string().describe('The name of the creator.'),
-                email_address: z.string().nullable().describe('The email address of the creator, or null for people without one (e.g. integration accounts).')
+                email_address: z.string().optional().describe('The email address of the creator, if exposed by the provider.')
             })
             .passthrough()
             .describe('The person who created this column.'),
@@ -113,6 +113,7 @@ const action = createAction({
         });
 
         const providerColumn = ProviderColumnSchema.parse(response.data);
+        const { email_address, ...creatorRest } = providerColumn.creator;
 
         return {
             id: providerColumn.id,
@@ -129,7 +130,10 @@ const action = createAction({
             subscription_url: providerColumn.subscription_url,
             parent: providerColumn.parent,
             bucket: providerColumn.bucket,
-            creator: providerColumn.creator,
+            creator: {
+                ...creatorRest,
+                ...(email_address != null && { email_address })
+            },
             description: providerColumn.description,
             subscribers: providerColumn.subscribers,
             color: providerColumn.color,

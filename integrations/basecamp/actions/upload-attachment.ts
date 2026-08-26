@@ -33,6 +33,19 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const buffer = Buffer.from(input.content, 'base64');
 
+        // Buffer.from(..., 'base64') silently drops any characters outside the base64
+        // alphabet instead of throwing, so plain text or malformed base64 would otherwise
+        // decode into a corrupted byte sequence and upload without error. Reject that by
+        // requiring the decoded bytes to round-trip back to the original string (padding
+        // differences aside).
+        const stripPadding = (value: string) => value.replace(/=+$/, '');
+        if (buffer.length === 0 || stripPadding(buffer.toString('base64')) !== stripPadding(input.content)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'content must be non-empty, valid base64-encoded data.'
+            });
+        }
+
         const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/attachments.md
             endpoint: '/attachments.json',

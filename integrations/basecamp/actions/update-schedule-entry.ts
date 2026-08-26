@@ -43,7 +43,7 @@ const InputSchema = z
 const ParticipantSchema = z.object({
     id: z.number().describe('Person ID.'),
     name: z.string().describe('Person name.'),
-    emailAddress: z.string().nullable().optional().describe('Email address, if exposed by the provider.')
+    emailAddress: z.string().optional().describe('Email address, if exposed by the provider.')
 });
 
 const ParentScheduleSchema = z.object({
@@ -204,7 +204,7 @@ const action = createAction({
             participants: (providerEntry.participants || []).map((p) => ({
                 id: p.id,
                 name: p.name,
-                emailAddress: p.email_address
+                ...(p.email_address != null && { emailAddress: p.email_address })
             })),
             parent: {
                 id: providerEntry.parent.id,

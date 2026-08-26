@@ -11,7 +11,7 @@ const InputSchema = z
 const ProviderPersonSchema = z.object({
     id: z.number(),
     name: z.string(),
-    email_address: z.string().optional()
+    email_address: z.string().nullable().optional()
 });
 
 const ProviderParentSchema = z.object({
@@ -33,6 +33,14 @@ const ProviderCompletionSchema = z.object({
         name: z.string()
     })
 });
+
+function normalizePerson(person: z.infer<typeof ProviderPersonSchema>): { id: number; name: string; email_address?: string } {
+    return {
+        id: person.id,
+        name: person.name,
+        ...(person.email_address != null && { email_address: person.email_address })
+    };
+}
 
 const ProviderTodoSchema = z.object({
     id: z.number(),
@@ -148,8 +156,8 @@ const action = createAction({
             app_url: providerTodo.app_url,
             parent: providerTodo.parent,
             bucket: providerTodo.bucket,
-            creator: providerTodo.creator,
-            assignees: providerTodo.assignees,
+            creator: normalizePerson(providerTodo.creator),
+            assignees: providerTodo.assignees.map(normalizePerson),
             completion: providerTodo.completion
         };
     }

@@ -14,7 +14,7 @@ const CreatorSchema = z
     .object({
         id: z.number().describe('Person ID of the creator.'),
         name: z.string().describe('Display name of the creator.'),
-        email_address: z.string().nullable().describe('Email address of the creator.')
+        email_address: z.string().optional().describe('Email address of the creator, omitted for some integration-type people.')
     })
     .describe('Person who created the Campfire line.');
 
@@ -82,7 +82,11 @@ const action = createAction({
             updated_at: providerLine.updated_at,
             url: providerLine.url,
             app_url: providerLine.app_url,
-            creator: providerLine.creator
+            creator: {
+                id: providerLine.creator.id,
+                name: providerLine.creator.name,
+                ...(providerLine.creator.email_address != null && { email_address: providerLine.creator.email_address })
+            }
         };
     }
 });
