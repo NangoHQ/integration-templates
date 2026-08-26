@@ -36,12 +36,7 @@ const ProjectSchema = z
 
 const CheckpointSchema = z
     .object({
-        nextStatusIndex: z
-            .number()
-            .int()
-            .min(0)
-            .max(2)
-            .describe('Index of the next project status to fetch (0=active, 1=archived, 2=trashed).')
+        nextStatusIndex: z.number().int().min(0).max(2).describe('Index of the next project status to fetch (0=active, 1=archived, 2=trashed).')
     })
     .describe('Checkpoint for resuming a full-refresh project crawl across status filters.');
 

@@ -3,7 +3,17 @@ import { createAction } from 'nango';
 
 const RecurrenceScheduleSchema = z.object({
     frequency: z
-        .enum(['every_day', 'every_weekday', 'every_week', 'every_other_week', 'every_month', 'every_day_of_month', 'every_year', 'custom_week', 'custom_month'])
+        .enum([
+            'every_day',
+            'every_weekday',
+            'every_week',
+            'every_other_week',
+            'every_month',
+            'every_day_of_month',
+            'every_year',
+            'custom_week',
+            'custom_month'
+        ])
         .describe('Recurrence frequency'),
     days: z.array(z.number()).optional().describe('Days of the week or month for recurrence'),
     week_instance: z.number().optional().describe('Week of the month for recurrence, 1 to 4 or -1 for last week'),

@@ -350,9 +350,7 @@ const sync = createSync({
         let startIndex = 0;
         let nextPageUrl = checkpoint?.next_page_url ?? '';
         if (checkpoint?.recording_project_id && checkpoint?.recording_id) {
-            const resumeIndex = recordings.findIndex(
-                (r) => r.projectId === checkpoint.recording_project_id && r.recordingId === checkpoint.recording_id
-            );
+            const resumeIndex = recordings.findIndex((r) => r.projectId === checkpoint.recording_project_id && r.recordingId === checkpoint.recording_id);
             if (resumeIndex !== -1) {
                 startIndex = resumeIndex;
             } else {
