@@ -37,11 +37,16 @@ const AutomationSchema = z.object({
     entitlements_violation: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync automations from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Automation: AutomationSchema
     },
@@ -56,7 +61,16 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: ActiveCampaign /automations does not support a changed-since filter,
         // modified-since filter, cursor, or deleted-record endpoint.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointParse = CheckpointSchema.safeParse(rawCheckpoint ?? { offset: 0 });
+        if (!checkpointParse.success) {
+            throw new Error('Failed to parse checkpoint: ' + checkpointParse.error.message);
+        }
+        const checkpoint = checkpointParse.data;
+
         await nango.trackDeletesStart('Automation');
+
+        let currentOffset = checkpoint?.offset ?? 0;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.activecampaign.com/reference/list-all-automations
@@ -65,6 +79,7 @@ const sync = createSync({
                 type: 'offset',
                 offset_name_in_request: 'offset',
                 offset_calculation_method: 'per-page',
+                offset_start_value: currentOffset,
                 limit_name_in_request: 'limit',
                 limit: 20,
                 response_path: 'automations'
@@ -105,8 +120,12 @@ const sync = createSync({
             if (automations.length > 0) {
                 await nango.batchSave(automations, 'Automation');
             }
+
+            currentOffset++;
+            await nango.saveCheckpoint({ offset: currentOffset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Automation');
     }
 });

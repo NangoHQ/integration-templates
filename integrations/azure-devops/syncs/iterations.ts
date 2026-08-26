@@ -45,12 +45,17 @@ const IterationListResponseSchema = z.object({
     value: z.array(ProviderIterationSchema)
 });
 
+const CheckpointSchema = z.object({
+    nextProjectTeamIndex: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync sprint iterations for all teams',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Iteration: IterationSchema
     },
@@ -63,9 +68,18 @@ const sync = createSync({
             throw new Error('projectTeams metadata is required');
         }
 
+        // Blocker: the Azure DevOps iterations endpoint does not expose changed-since
+        // filters, deleted-record endpoints, or resumable page tokens. We checkpoint
+        // progress through the metadata projectTeams array so a full refresh can
+        // resume without restarting from the first team.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextProjectTeamIndex = parsedCheckpoint?.nextProjectTeamIndex ?? 0;
+
         await nango.trackDeletesStart('Iteration');
 
-        for (const pt of projectTeams) {
+        for (let i = nextProjectTeamIndex; i < projectTeams.length; i++) {
+            const pt = projectTeams[i]!;
             const response = await nango.get({
                 // https://learn.microsoft.com/en-us/rest/api/azure/devops/work/team-settings/iterations/list?view=azure-devops-rest-7.2
                 endpoint: `/${encodeURIComponent(pt.projectId)}/${encodeURIComponent(pt.teamId)}/_apis/work/teamsettings/iterations`,
@@ -93,8 +107,12 @@ const sync = createSync({
             if (iterations.length > 0) {
                 await nango.batchSave(iterations, 'Iteration');
             }
+
+            nextProjectTeamIndex = i + 1;
+            await nango.saveCheckpoint({ nextProjectTeamIndex });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Iteration');
     }
 });

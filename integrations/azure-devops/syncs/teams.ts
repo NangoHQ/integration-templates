@@ -5,6 +5,11 @@ const MetadataSchema = z.object({
     projectIds: z.array(z.string()).min(1)
 });
 
+const CheckpointSchema = z.object({
+    projectIndex: z.number(),
+    continuationToken: z.string()
+});
+
 const TeamSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
@@ -32,21 +37,27 @@ const ProviderTeamsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync teams across all projects',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema
     },
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
+        const checkpoint = await nango.getCheckpoint();
 
         await nango.trackDeletesStart('Team');
 
-        for (const projectId of metadata.projectIds) {
-            let continuationToken: string | undefined;
+        const rawProjectIndex = checkpoint?.projectIndex ?? 0;
+        const rawContinuationToken = checkpoint?.continuationToken ?? '';
+
+        let projectIndex = rawProjectIndex;
+        for (const projectId of metadata.projectIds.slice(rawProjectIndex)) {
+            let continuationToken: string | undefined = projectIndex === rawProjectIndex && rawContinuationToken.length > 0 ? rawContinuationToken : undefined;
 
             do {
                 // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/teams/get-teams?view=azure-devops-rest-7.2
@@ -79,10 +90,21 @@ const sync = createSync({
                 }
 
                 const rawToken = response.headers['x-ms-continuationtoken'];
-                continuationToken = typeof rawToken === 'string' && rawToken.length > 0 ? rawToken : undefined;
+                const nextToken = typeof rawToken === 'string' && rawToken.length > 0 ? rawToken : '';
+
+                if (nextToken.length > 0) {
+                    await nango.saveCheckpoint({ projectIndex, continuationToken: nextToken });
+                } else if (projectIndex + 1 < metadata.projectIds.length) {
+                    await nango.saveCheckpoint({ projectIndex: projectIndex + 1, continuationToken: '' });
+                }
+
+                continuationToken = nextToken.length > 0 ? nextToken : undefined;
             } while (continuationToken);
+
+            projectIndex++;
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Team');
     }
 });

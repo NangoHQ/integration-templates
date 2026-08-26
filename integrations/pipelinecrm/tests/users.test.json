@@ -3,18 +3,17 @@
     "batchSave": {
       "User": [
         {
-          "id": "843757",
+          "id": "844010",
           "first_name": "Nango",
-          "last_name": "Developer",
-          "email": "api@nango.dev",
+          "last_name": "dev2",
+          "email": "api+demo@nango.dev",
           "is_account_admin": true,
           "level": 3,
-          "account_id": "482622",
-          "updated_at": "2026/08/05 09:40:14 -0400",
-          "last_seen_at": "2026/08/05 09:39:01 -0400",
-          "work_phone": "302) 219-6023\u202c",
-          "mobile_number": "555-0199",
-          "full_name": "Nango Developer",
+          "account_id": "482730",
+          "updated_at": "2026/08/26 10:49:21 -0400",
+          "last_seen_at": "2026/08/26 10:49:21 -0400",
+          "work_phone": "(302) 219-6023‬",
+          "full_name": "Nango dev2",
           "read_only": false
         }
       ]
@@ -29,9 +28,9 @@
         "response": {
           "entries": [
             {
-              "id": 843757,
+              "id": 844010,
               "first_name": "Nango",
-              "last_name": "Developer",
+              "last_name": "dev2",
               "is_account_admin": true,
               "is_allowed_to_delete": true,
               "is_allowed_to_export": true,
@@ -42,31 +41,31 @@
               "is_backend_admin": false,
               "level": 3,
               "pipeline_email_client": true,
-              "account_id": 482622,
+              "account_id": 482730,
               "deleted_at": null,
               "date_format": "us",
               "name": null,
               "read_only": false,
               "time_format": "US",
               "time_zone": "America/New_York",
-              "w2lid": "54f5ec2d74ef",
+              "w2lid": "fd4531c65ea8",
               "team_id": null,
               "csv_column_separator": ",",
               "csv_decimal_mark": ".",
-              "mobile_number": "555-0199",
+              "mobile_number": null,
               "mobile_country_code": 1,
-              "work_phone": "302) 219-6023\u202c",
+              "work_phone": "(302) 219-6023‬",
               "data_reassigned_at": null,
-              "last_seen_at": "2026/08/05 09:39:01 -0400",
+              "last_seen_at": "2026/08/26 10:49:21 -0400",
               "receives_sms_reminders": null,
               "use_keyboard_shortcuts": false,
               "commission_rate": 0,
-              "updated_at": "2026/08/05 09:40:14 -0400",
-              "email": "api@nango.dev",
+              "updated_at": "2026/08/26 10:49:21 -0400",
+              "email": "api+demo@nango.dev",
               "avatar_thumb_url": null,
               "user_uploaded_avatar?": false,
-              "full_name": "Nango Developer",
-              "api_key": "ItuWHKdrs2akZ961xGrZ",
+              "full_name": "Nango dev2",
+              "api_key": "REDACTED_API_KEY",
               "mfa_enabled": false,
               "mfa_requested_at": null,
               "connect_synced?": false,
@@ -85,15 +84,7 @@
               "manager_id": null,
               "visible_teams": [
                 {
-                  "id": 1429341,
-                  "name": "Nango Registry Test Team 1 (updated)"
-                },
-                {
-                  "id": 1429342,
-                  "name": "Nango Registry Test Team 2"
-                },
-                {
-                  "id": 1429340,
+                  "id": 1429481,
                   "name": "Sales team"
                 }
               ],
@@ -249,7 +240,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 05 Aug 2026 13:40:36 GMT",
+          "date": "Wed, 26 Aug 2026 14:49:31 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -258,28 +249,30 @@
           "x-download-options": "noopen",
           "x-frame-options": "DENY",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "10",
           "x-ratelimit-remaining": "10",
-          "x-ratelimit-reset": "1785937236",
+          "x-ratelimit-reset": "1787755772",
           "server": "cloudflare",
           "vary": "Accept-Encoding, Origin",
           "cache-control": "no-store",
-          "etag": "W/\"8008501de2f80caadec2b175b42bfd63\"",
-          "x-request-id": "378376e7-9016-497c-943c-59a76ba7a0c3",
-          "x-runtime": "0.084017",
+          "etag": "W/\"d86eb9e5f03db867212bf32cccfaa6e9\"",
+          "x-request-id": "deef1a75-5198-486c-8b9c-4e0a080d00b7",
+          "x-runtime": "0.096284",
           "x-permitted-cross-domain-policies": "none",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a26636ebfaccdab7-PDX"
+          "cf-ray": "a313a4c07a51a509-PDX"
         },
+        "hash": "6f8d905255bbbcdadb29941d89ff725057b513b3",
         "request": {
           "params": {
+            "conditions[including_inactive]": "true",
             "page": "1",
-            "per_page": "100",
-            "conditions[including_inactive]": "true"
+            "per_page": "100"
           }
         }
       }

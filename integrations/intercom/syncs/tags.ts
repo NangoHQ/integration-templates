@@ -34,11 +34,16 @@ const TagSchema = z.object({
     updated_at: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    starting_after: z.string()
+});
+
 const sync = createSync({
     description: 'Sync tags from Intercom',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
@@ -53,10 +58,14 @@ const sync = createSync({
         // Blocker: The /tags endpoint does not support incremental filtering
         // (no updated_since, created_since, or similar parameters).
         // It returns the complete set of tags on every request.
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
+
+        let startingAfter: string | undefined = checkpointParsed.success ? checkpointParsed.data.starting_after : undefined;
+
         await nango.trackDeletesStart('Tag');
 
         let hasMore = true;
-        let startingAfter: string | undefined;
 
         while (hasMore) {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Tags
@@ -90,11 +99,13 @@ const sync = createSync({
             const nextStartingAfter = parsed.pages?.next?.starting_after;
             if (nextStartingAfter) {
                 startingAfter = nextStartingAfter;
+                await nango.saveCheckpoint({ starting_after: nextStartingAfter });
             } else {
                 hasMore = false;
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Tag');
     }
 });

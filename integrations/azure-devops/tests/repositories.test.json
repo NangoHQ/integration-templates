@@ -16,7 +16,7 @@
           "remote_url": "https://nangoapi@dev.azure.com/nangoapi/nangodev/_git/nangodev",
           "web_url": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev",
           "ssh_url": "git@ssh.dev.azure.com:v3/nangoapi/nangodev/nangodev",
-          "size": 256
+          "size": 2496
         }
       ]
     },
@@ -43,7 +43,7 @@
                 "lastUpdateTime": "2026-06-18T07:38:30.063Z"
               },
               "defaultBranch": "refs/heads/main",
-              "size": 256,
+              "size": 2496,
               "remoteUrl": "https://nangoapi@dev.azure.com/nangoapi/nangodev/_git/nangodev",
               "sshUrl": "git@ssh.dev.azure.com:v3/nangoapi/nangodev/nangodev",
               "webUrl": "https://dev.azure.com/nangoapi/nangodev/_git/nangodev",
@@ -55,7 +55,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 18 Jun 2026 08:08:51 GMT",
+          "date": "Wed, 26 Aug 2026 14:44:34 GMT",
           "content-type": "application/json; charset=utf-8; api-version=7.2-preview.1",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -64,27 +64,28 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Request-Context",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4950",
-          "x-ratelimit-reset": "1781770170",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1787755527",
           "cache-control": "no-cache, no-store, must-revalidate",
           "pragma": "no-cache",
           "expires": "-1",
           "p3p": "CP=\"CAO DSP COR ADMa DEV CONo TELo CUR PSA PSD TAI IVDo OUR SAMi BUS DEM NAV STA UNI COM INT PHY ONL FIN PUR LOC CNT\"",
-          "set-cookie": "VstsSession=%7B%22PersistentSessionId%22%3A%22eb13b565-c777-4cf5-9b1c-e70d7698938f%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None; domain=.dev.azure.com; expires=Fri, 18-Jun-2027 08:08:51 GMT; path=/; secure; HttpOnly",
-          "x-tfs-processid": "59973215-e36a-4609-9286-10043a130e2e",
-          "activityid": "e89b0bc8-bc16-4167-a3c5-10209c5ca8a5",
-          "x-tfs-session": "e89b0bc8-bc16-4167-a3c5-10209c5ca8a5",
-          "x-vss-e2eid": "e89b0bc8-bc16-4167-a3c5-10209c5ca8a5",
+          "set-cookie": "VstsSession=%7B%22PersistentSessionId%22%3A%22f3241b53-4f36-403b-8316-7598885da68a%22%2C%22PendingAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22CurrentAuthenticationSessionId%22%3A%2200000000-0000-0000-0000-000000000000%22%2C%22SignInState%22%3A%7B%7D%7D;SameSite=None; domain=.dev.azure.com; expires=Thu, 26-Aug-2027 14:44:34 GMT; path=/; secure; HttpOnly",
+          "x-tfs-processid": "255f81f8-388c-457f-81be-79d584243294",
+          "activityid": "1454b15d-eed4-46d9-9589-39fb43e0a0d4",
+          "x-tfs-session": "1454b15d-eed4-46d9-9589-39fb43e0a0d4",
+          "x-vss-e2eid": "1454b15d-eed4-46d9-9589-39fb43e0a0d4",
           "x-vss-senderdeploymentid": "f466e928-5898-edb4-7123-84c15666043f",
           "x-vss-userdata": "2a4985d2-16e6-6c2d-a9d5-6dd873b6c65d:api@nangodevelopers.onmicrosoft.com",
           "request-context": "appId=cid-v1:ba8cca98-f9cc-4f08-a334-706ff8d04ac6",
           "x-cache": "CONFIG_NOCACHE",
-          "x-msedge-ref": "Ref A: 6D4235BCEDB743BAB03408CCA587A9D7 Ref B: YVR311000107047 Ref C: 2026-06-18T08:08:51Z"
+          "x-msedge-ref": "Ref A: 13C9E8157E0A4ADFA5D11D275244EBE8 Ref B: CO6AA3150220035 Ref C: 2026-08-26T14:44:33Z"
         },
         "hash": "e5cc2c92ab780b13b2e58962ea1f2c8572941f25",
         "request": {

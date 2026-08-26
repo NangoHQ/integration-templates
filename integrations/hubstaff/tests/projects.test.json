@@ -3,60 +3,12 @@
     "batchSave": {
       "Project": [
         {
-          "id": "4145631",
-          "name": "Nango Registry Test Project (validated)",
+          "id": "4179339",
+          "name": "Nango's Organization's Project",
           "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T13:09:20.101983Z",
-          "updated_at": "2026-07-30T16:13:51.711300Z"
-        },
-        {
-          "id": "4145798",
-          "name": "Nango Registry Test Project 2",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T14:49:12.584081Z",
-          "updated_at": "2026-07-30T14:49:12.584081Z"
-        },
-        {
-          "id": "4145947",
-          "name": "Nango Create Project Test",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T16:13:21.264230Z",
-          "updated_at": "2026-07-30T16:13:21.264230Z"
-        },
-        {
-          "id": "4145948",
-          "name": "Nango Create Project Test",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T16:13:29.095882Z",
-          "updated_at": "2026-07-30T16:13:29.095882Z"
-        },
-        {
-          "id": "4145949",
-          "name": "Nango Create Project Test",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T16:13:39.991955Z",
-          "updated_at": "2026-07-30T16:13:39.991955Z"
-        },
-        {
-          "id": "4145950",
-          "name": "Nango Create Project Test",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T16:13:50.653796Z",
-          "updated_at": "2026-07-30T16:13:50.653796Z"
-        },
-        {
-          "id": "4145951",
-          "name": "Nango Create Project Test",
-          "status": "active",
-          "organization_id": 775646,
-          "created_at": "2026-07-30T16:13:57.330945Z",
-          "updated_at": "2026-07-30T16:13:57.330945Z"
+          "organization_id": 781376,
+          "created_at": "2026-08-25T14:04:14.763887Z",
+          "updated_at": "2026-08-25T14:04:14.763887Z"
         }
       ]
     },
@@ -70,20 +22,20 @@
         "response": {
           "organizations": [
             {
-              "id": 775646,
-              "name": "Nango'Dev Organization",
+              "id": 781376,
+              "name": "Nango's Organization",
               "status": "active",
-              "created_at": "2026-07-30T13:09:19.845631Z",
-              "updated_at": "2026-07-30T13:16:26.871468Z",
+              "created_at": "2026-08-25T14:04:14.423810Z",
+              "updated_at": "2026-08-25T14:04:44.635037Z",
               "member_profile_fields": [],
               "metadata": {},
-              "invite_url": "https://app.hubstaff.com/organizations/invite/2q4r8lb1WmxfN68AvSJ59g"
+              "invite_url": "https://app.hubstaff.com/organizations/invite/QMS9oYgvklFY3CEYGLA-mQ"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 30 Jul 2026 16:18:02 GMT",
+          "date": "Wed, 26 Aug 2026 14:47:53 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -92,102 +44,42 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1978",
-          "x-ratelimit-reset": "1785428310",
+          "x-ratelimit-remaining": "1969",
+          "x-ratelimit-reset": "1787755679",
           "vary": "Accept-Encoding, Origin",
           "cache-control": "no-cache",
-          "x-request-id": "7be6ab9dcb8b1fdbd3726f8a1c620cbf",
-          "x-runtime": "0.013175",
+          "x-request-id": "76240784c4ac4383d8e1792b9e7a710b",
+          "x-runtime": "0.014733",
           "x-permitted-cross-domain-policies": "none",
-          "referrer-policy": "strict-origin-when-cross-origin",
           "expect-ct": "max-age=86400, report-uri=\"https://hubstaff.report-uri.com/r/t/ct/reportOnly\"",
-          "content-security-policy": "default-src 'self' sentry.io; connect-src 'self' https://server-assets.hubstaff.com account.hubstaff.com hubstaff-production.s3.amazonaws.com api.segment.io api.hubspot.com static.hsappstatic.net forms.hscollectedforms.net forms.hsforms.com cdn.segment.com api.stripe.com checkout.stripe.com maps.googleapis.com analytics.google.com pipedream.wistia.com embed-cloudfront.wistia.com stats.g.doubleclick.net fast.wistia.com distillery.wistia.com region1.analytics.google.com fg8vvsvnieiv3ej16jby.litix.io bat.bing.com px.ads.linkedin.com www2.profitwell.com api.hubapi.com forms.hubspot.com google.com www.facebook.com api.getripe.com rest.ably.io wss://realtime.ably.io internet-up.ably-realtime.com cta-service-cms2.hubspot.com hubspot-forms-static-embed.s3.amazonaws.com www.google.pl/ads/ga-audiences ip2c.org/s zoom.us *.zoom.us wss://*.zoom.us *.zoom.com wss://*.zoom.com www.paypal.com api-m.sandbox.paypal.com api-m.paypal.com file-paa.zoom.us file.zoom.us bat.bing-int.com vc.hotjar.io metrics.hotjar.io surveystats.hotjar.io wss://ws.hotjar.com googleads.g.doubleclick.net www.googleadservices.com fast.wistia.net embed-ssl.wistia.com www.google-analytics.com perf-na1.hsforms.com content.hotjar.io overbridgenet.com zpns.zoom.us wss://zpns.zoom.us www.google.co.in www.google.com.au www.google.com.bd www.google.com bat.bing.net www.google.com.ua www.google.nl api.killadsapi.com www.google.com.ph www.google.com.pe www.google.lt www.google.com.sg www.google.co.za us.i.posthog.com www.google.co.uk www.google.com.pk www.google.com.ar www.googletagmanager.com ask.hotjar.io in.hotjar.com www.google.com.br www.google.ru 1752680588.rsc.cdn77.org www.google.com.mx www.google.ca www.google.com.co api.storylane.io o4505518331658240.ingest.us.sentry.io www.google.ae www.google.bg www.google.co.cr www.google.co.id www.google.co.il www.google.co.jp www.google.co.ke www.google.co.ma www.google.co.nz www.google.co.th www.google.co.ve www.google.com.do www.google.com.ec www.google.com.eg www.google.com.gt www.google.com.jm www.google.com.kh www.google.com.my www.google.com.ng www.google.com.ni www.google.com.np www.google.com.sa www.google.com.sv www.google.com.tr www.google.com.vn www.google.cz www.google.de www.google.es www.google.fr www.google.ge www.google.hn www.google.it www.google.jo www.google.lk www.google.pt www.google.ro www.google.rs www.google.se www.google.co.kr www.google.com.hk f.clarity.ms *.vibe.co marketplace.hubstaff.com featureassets.org prodregistryv2.org; font-src data: https://server-assets.hubstaff.com app.hubstaff.com fonts.gstatic.com fonts.googleapis.com netdna.bootstrapcdn.com fast.wistia.com maxcdn.bootstrapcdn.com use.typekit.net static.zohocdn.com cdn.megabonus.com assets.getripe.com fonts.bunny.net script.hotjar.com static2.sharepointonline.com use.fontawesome.com static.hsappstatic.net cdnjs.cloudflare.com at.alicdn.com assets.alicdn.com fonts.cdnfonts.com cdn.fontshare.com cdn-uicons.flaticon.com unpkg.com cdn.scite.ai cdn.jsdelivr.net; frame-src 'self' js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com hooks.stripe.com app.hubspot.com td.doubleclick.net www.facebook.com bid.g.doubleclick.net tasks.hubstaff.com www.youtube.com www.google.com www.googletagmanager.com tasks-api.hubstaff.com *.zoom.us *.zoom.com www.sandbox.paypal.com www.paypal.com *.paypal.com app.storylane.io *.hubstaff.com hubstaff.com accounts.google.com www.linkedin.com forms.hsforms.com wise.com wise-sandbox.com; img-src data: blob: https: *.stripe.com https://server-assets.hubstaff.com app.hubstaff.com hubstaff-production.s3.amazonaws.com track.hubspot.com forms.hsforms.com forms-na1.hsforms.com maps.gstatic.com fast.wistia.com embed-ssl.wistia.com maps.googleapis.com www.google.pl fast.wistia.net embed-cloudfront.wistia.com px.ads.linkedin.com www.facebook.com; media-src blob: fast.wistia.com embed-cloudfront.wistia.com us01ccistatic.zoom.us ssl.gstatic.com embed-ssl.wistia.com; script-src 'self' 'unsafe-eval' https://server-assets.hubstaff.com js-na1.hs-scripts.com js.hsforms.net js.hs-analytics.net js.hs-scripts.com js.hs-banner.com js.usemessages.com js.hscollectedforms.net cdn.segment.com js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com fast.wistia.com static.cloudflareinsights.com public.profitwell.com connect.facebook.net snap.licdn.com www.googletagmanager.com bat.bing.com www.googleadservices.com googleads.g.doubleclick.net js.hubspotfeedback.com ajax.cloudflare.com js.hsadspixel.net js.hsleadflows.net script.hotjar.com js.hubspot.com static.hotjar.com storage.getripe.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com js.storylane.io us01ccistatic-a.zoom.us maps.googleapis.com *.vibe.co; script-src-attr 'unsafe-inline'; script-src-elem 'unsafe-inline' https://server-assets.hubstaff.com app.hubstaff.com internal.hubstaff.com ajax.cloudflare.com js-na1.hs-scripts.com js.hs-analytics.net js.hscollectedforms.net js.hs-banner.com js.usemessages.com cdn.segment.com js.hs-scripts.com js.hsforms.net js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com maps.googleapis.com fast.wistia.com www.googletagmanager.com sandbox.accountdock.com bat.bing.com connect.facebook.net snap.licdn.com www.googleadservices.com public.profitwell.com googleads.g.doubleclick.net js.hsadspixel.net static.cloudflareinsights.com js.hsleadflows.net js.hubspotfeedback.com storage.getripe.com script.hotjar.com static.hotjar.com js.hubspot.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com js.storylane.io tasks-api.hubstaff.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com us01ccistatic-a.zoom.us www.google-analytics.com apis.google.com cdnjs.cloudflare.com tasks.hubstaff.com account-assets.hubstaff.com us-assets.i.posthog.com www.clarity.ms *.vibe.co; style-src 'unsafe-inline' 'sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com cdn.jsdelivr.net www.gstatic.com; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline' https://server-assets.hubstaff.com internal.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com maxcdn.bootstrapcdn.com account-assets.hubstaff.com app.hubstaff.com; worker-src 'self' blob: us01cci.zoom.us us01ccistatic.zoom.us us01apizva.zoom.us us01campaign.zoom.us us01cciapi.zoom.us zpns.zoom.us; report-uri https://hubstaff.report-uri.com/r/t/csp/enforce",
-          "set-cookie": "INGRESSCOOKIE=1785428283.757.42.369574|af37179f49f3801f2d6777c03dc5d676; Expires=Thu, 30-Jul-26 17:18:02 GMT; Max-Age=3600; Path=/; Secure; HttpOnly, _cfuvid=7RAayICguNZ9cN1YlAsKCOtLyGjXfZZNb4_bQanZ2i4-1785428282.718882-1.0.1.1-FAT3RI9jnC8TnbpROFzgV6OrSUB5JvIWwo1efdqBMeA; HttpOnly; SameSite=None; Secure; Path=/; Domain=hubstaff.com",
+          "content-security-policy": "default-src 'self' sentry.io; connect-src 'self' https://server-assets.hubstaff.com account.hubstaff.com hubstaff-production.s3.amazonaws.com api.segment.io api.hubspot.com static.hsappstatic.net forms.hscollectedforms.net forms.hsforms.com cdn.segment.com api.stripe.com checkout.stripe.com maps.googleapis.com analytics.google.com pipedream.wistia.com embed-cloudfront.wistia.com stats.g.doubleclick.net fast.wistia.com distillery.wistia.com region1.analytics.google.com fg8vvsvnieiv3ej16jby.litix.io bat.bing.com px.ads.linkedin.com www2.profitwell.com api.hubapi.com forms.hubspot.com google.com www.facebook.com api.getripe.com rest.ably.io wss://realtime.ably.io internet-up.ably-realtime.com cta-service-cms2.hubspot.com hubspot-forms-static-embed.s3.amazonaws.com www.google.pl/ads/ga-audiences ip2c.org/s zoom.us *.zoom.us wss://*.zoom.us *.zoom.com wss://*.zoom.com www.paypal.com api-m.sandbox.paypal.com api-m.paypal.com file-paa.zoom.us file.zoom.us bat.bing-int.com vc.hotjar.io metrics.hotjar.io surveystats.hotjar.io wss://ws.hotjar.com googleads.g.doubleclick.net www.googleadservices.com fast.wistia.net embed-ssl.wistia.com www.google-analytics.com perf-na1.hsforms.com content.hotjar.io overbridgenet.com zpns.zoom.us wss://zpns.zoom.us www.google.co.in www.google.com.au www.google.com.bd www.google.com bat.bing.net www.google.com.ua www.google.nl api.killadsapi.com www.google.com.ph www.google.com.pe www.google.lt www.google.com.sg www.google.co.za us.i.posthog.com www.google.co.uk www.google.com.pk www.google.com.ar www.googletagmanager.com ask.hotjar.io in.hotjar.com www.google.com.br www.google.ru 1752680588.rsc.cdn77.org www.google.com.mx www.google.ca www.google.com.co api.storylane.io o4505518331658240.ingest.us.sentry.io www.google.ae www.google.bg www.google.co.cr www.google.co.id www.google.co.il www.google.co.jp www.google.co.ke www.google.co.ma www.google.co.nz www.google.co.th www.google.co.ve www.google.com.do www.google.com.ec www.google.com.eg www.google.com.gt www.google.com.jm www.google.com.kh www.google.com.my www.google.com.ng www.google.com.ni www.google.com.np www.google.com.sa www.google.com.sv www.google.com.tr www.google.com.vn www.google.cz www.google.de www.google.es www.google.fr www.google.ge www.google.hn www.google.it www.google.jo www.google.lk www.google.pt www.google.ro www.google.rs www.google.se www.google.co.kr www.google.com.hk f.clarity.ms *.vibe.co marketplace.hubstaff.com featureassets.org prodregistryv2.org; font-src data: https://server-assets.hubstaff.com app.hubstaff.com fonts.gstatic.com fonts.googleapis.com netdna.bootstrapcdn.com fast.wistia.com maxcdn.bootstrapcdn.com use.typekit.net static.zohocdn.com cdn.megabonus.com assets.getripe.com fonts.bunny.net script.hotjar.com static2.sharepointonline.com use.fontawesome.com static.hsappstatic.net cdnjs.cloudflare.com at.alicdn.com assets.alicdn.com fonts.cdnfonts.com cdn.fontshare.com cdn-uicons.flaticon.com unpkg.com cdn.scite.ai cdn.jsdelivr.net; frame-src 'self' js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com hooks.stripe.com app.hubspot.com td.doubleclick.net www.facebook.com bid.g.doubleclick.net tasks.hubstaff.com www.youtube.com www.google.com www.googletagmanager.com tasks-api.hubstaff.com *.zoom.us *.zoom.com www.sandbox.paypal.com www.paypal.com *.paypal.com app.storylane.io *.hubstaff.com hubstaff.com accounts.google.com www.linkedin.com forms.hsforms.com wise.com wise-sandbox.com; img-src data: blob: https: *.stripe.com https://server-assets.hubstaff.com app.hubstaff.com hubstaff-production.s3.amazonaws.com track.hubspot.com forms.hsforms.com forms-na1.hsforms.com maps.gstatic.com fast.wistia.com embed-ssl.wistia.com maps.googleapis.com www.google.pl fast.wistia.net embed-cloudfront.wistia.com px.ads.linkedin.com www.facebook.com; media-src blob: https://server-assets.hubstaff.com fast.wistia.com embed-cloudfront.wistia.com us01ccistatic.zoom.us ssl.gstatic.com embed-ssl.wistia.com; script-src 'self' 'unsafe-eval' https://server-assets.hubstaff.com js-na1.hs-scripts.com js.hsforms.net js.hs-analytics.net js.hs-scripts.com js.hs-banner.com js.usemessages.com js.hscollectedforms.net cdn.segment.com js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com fast.wistia.com static.cloudflareinsights.com public.profitwell.com connect.facebook.net snap.licdn.com www.googletagmanager.com bat.bing.com www.googleadservices.com googleads.g.doubleclick.net js.hubspotfeedback.com ajax.cloudflare.com js.hsadspixel.net js.hsleadflows.net script.hotjar.com js.hubspot.com static.hotjar.com storage.getripe.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com js.storylane.io us01ccistatic-a.zoom.us maps.googleapis.com *.vibe.co; script-src-attr 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline' https://server-assets.hubstaff.com app.hubstaff.com ajax.cloudflare.com js-na1.hs-scripts.com js.hs-analytics.net js.hscollectedforms.net js.hs-banner.com js.usemessages.com cdn.segment.com js.hs-scripts.com js.hsforms.net js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com maps.googleapis.com fast.wistia.com www.googletagmanager.com sandbox.accountdock.com bat.bing.com connect.facebook.net snap.licdn.com www.googleadservices.com public.profitwell.com googleads.g.doubleclick.net js.hsadspixel.net static.cloudflareinsights.com js.hsleadflows.net js.hubspotfeedback.com storage.getripe.com script.hotjar.com static.hotjar.com js.hubspot.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com js.storylane.io tasks-api.hubstaff.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com us01ccistatic-a.zoom.us www.google-analytics.com apis.google.com cdnjs.cloudflare.com tasks.hubstaff.com account-assets.hubstaff.com us-assets.i.posthog.com www.clarity.ms *.vibe.co; style-src 'unsafe-inline' 'sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com cdn.jsdelivr.net www.gstatic.com; style-src-attr 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com maxcdn.bootstrapcdn.com account-assets.hubstaff.com app.hubstaff.com; worker-src 'self' blob: us01cci.zoom.us us01ccistatic.zoom.us us01apizva.zoom.us us01campaign.zoom.us us01cciapi.zoom.us zpns.zoom.us; report-uri https://hubstaff.report-uri.com/r/t/csp/enforce",
+          "set-cookie": "INGRESSCOOKIE=1787755674.046.3026.448707|54c84b9abc329531cb53bd62721da227; Expires=Wed, 26-Aug-26 15:47:53 GMT; Max-Age=3600; Path=/; Secure; HttpOnly, _cfuvid=zNJXKam9QaR_3UpaF1TMn07.fX8zyaHPrcfeCTHJjZU-1787755673.0022955-1.0.1.1-qoEsTEjBeJ5F4K_mAa_yOeAmUUfab5Q6Pf3795T2BUM; HttpOnly; SameSite=None; Secure; Path=/; Domain=hubstaff.com",
           "cf-cache-status": "DYNAMIC",
           "server": "cloudflare",
-          "cf-ray": "a235ad4ef92afef3-PDX",
+          "cf-ray": "a313a25c4dd5c153-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "61dbb9537a563941d52a1e1557aa214231b141fc",
+        "hash": "e01dc48b44fcffac8b9dff68029d273bd44c8579",
         "request": {
           "params": {
             "page_limit": "100"
           }
         }
       },
-      "/v2/organizations/775646/projects": {
+      "/v2/organizations/781376/projects": {
         "response": {
           "projects": [
             {
-              "id": 4145631,
-              "name": "Nango Registry Test Project (validated)",
-              "created_at": "2026-07-30T13:09:20.101983Z",
-              "updated_at": "2026-07-30T16:13:51.711300Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145798,
-              "name": "Nango Registry Test Project 2",
-              "created_at": "2026-07-30T14:49:12.584081Z",
-              "updated_at": "2026-07-30T14:49:12.584081Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145947,
-              "name": "Nango Create Project Test",
-              "created_at": "2026-07-30T16:13:21.264230Z",
-              "updated_at": "2026-07-30T16:13:21.264230Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145948,
-              "name": "Nango Create Project Test",
-              "created_at": "2026-07-30T16:13:29.095882Z",
-              "updated_at": "2026-07-30T16:13:29.095882Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145949,
-              "name": "Nango Create Project Test",
-              "created_at": "2026-07-30T16:13:39.991955Z",
-              "updated_at": "2026-07-30T16:13:39.991955Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145950,
-              "name": "Nango Create Project Test",
-              "created_at": "2026-07-30T16:13:50.653796Z",
-              "updated_at": "2026-07-30T16:13:50.653796Z",
-              "status": "active",
-              "type": "project",
-              "billable": true,
-              "metadata": {}
-            },
-            {
-              "id": 4145951,
-              "name": "Nango Create Project Test",
-              "created_at": "2026-07-30T16:13:57.330945Z",
-              "updated_at": "2026-07-30T16:13:57.330945Z",
+              "id": 4179339,
+              "name": "Nango's Organization's Project",
+              "created_at": "2026-08-25T14:04:14.763887Z",
+              "updated_at": "2026-08-25T14:04:14.763887Z",
               "status": "active",
               "type": "project",
               "billable": true,
@@ -197,7 +89,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 30 Jul 2026 16:18:03 GMT",
+          "date": "Wed, 26 Aug 2026 14:47:53 GMT",
           "content-type": "application/json",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -206,28 +98,28 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1977",
-          "x-ratelimit-reset": "1785428310",
+          "x-ratelimit-remaining": "1968",
+          "x-ratelimit-reset": "1787755679",
           "vary": "Accept-Encoding, Origin",
           "cache-control": "no-cache",
-          "x-request-id": "ebf2914bb8aaa63cb3d33777b2fb4a43",
-          "x-runtime": "0.023149",
+          "x-request-id": "58727ff1975ed16a759d492628c69829",
+          "x-runtime": "0.019133",
           "x-permitted-cross-domain-policies": "none",
-          "referrer-policy": "strict-origin-when-cross-origin",
           "expect-ct": "max-age=86400, report-uri=\"https://hubstaff.report-uri.com/r/t/ct/reportOnly\"",
-          "content-security-policy": "default-src 'self' sentry.io; connect-src 'self' https://server-assets.hubstaff.com account.hubstaff.com hubstaff-production.s3.amazonaws.com api.segment.io api.hubspot.com static.hsappstatic.net forms.hscollectedforms.net forms.hsforms.com cdn.segment.com api.stripe.com checkout.stripe.com maps.googleapis.com analytics.google.com pipedream.wistia.com embed-cloudfront.wistia.com stats.g.doubleclick.net fast.wistia.com distillery.wistia.com region1.analytics.google.com fg8vvsvnieiv3ej16jby.litix.io bat.bing.com px.ads.linkedin.com www2.profitwell.com api.hubapi.com forms.hubspot.com google.com www.facebook.com api.getripe.com rest.ably.io wss://realtime.ably.io internet-up.ably-realtime.com cta-service-cms2.hubspot.com hubspot-forms-static-embed.s3.amazonaws.com www.google.pl/ads/ga-audiences ip2c.org/s zoom.us *.zoom.us wss://*.zoom.us *.zoom.com wss://*.zoom.com www.paypal.com api-m.sandbox.paypal.com api-m.paypal.com file-paa.zoom.us file.zoom.us bat.bing-int.com vc.hotjar.io metrics.hotjar.io surveystats.hotjar.io wss://ws.hotjar.com googleads.g.doubleclick.net www.googleadservices.com fast.wistia.net embed-ssl.wistia.com www.google-analytics.com perf-na1.hsforms.com content.hotjar.io overbridgenet.com zpns.zoom.us wss://zpns.zoom.us www.google.co.in www.google.com.au www.google.com.bd www.google.com bat.bing.net www.google.com.ua www.google.nl api.killadsapi.com www.google.com.ph www.google.com.pe www.google.lt www.google.com.sg www.google.co.za us.i.posthog.com www.google.co.uk www.google.com.pk www.google.com.ar www.googletagmanager.com ask.hotjar.io in.hotjar.com www.google.com.br www.google.ru 1752680588.rsc.cdn77.org www.google.com.mx www.google.ca www.google.com.co api.storylane.io o4505518331658240.ingest.us.sentry.io www.google.ae www.google.bg www.google.co.cr www.google.co.id www.google.co.il www.google.co.jp www.google.co.ke www.google.co.ma www.google.co.nz www.google.co.th www.google.co.ve www.google.com.do www.google.com.ec www.google.com.eg www.google.com.gt www.google.com.jm www.google.com.kh www.google.com.my www.google.com.ng www.google.com.ni www.google.com.np www.google.com.sa www.google.com.sv www.google.com.tr www.google.com.vn www.google.cz www.google.de www.google.es www.google.fr www.google.ge www.google.hn www.google.it www.google.jo www.google.lk www.google.pt www.google.ro www.google.rs www.google.se www.google.co.kr www.google.com.hk f.clarity.ms *.vibe.co marketplace.hubstaff.com featureassets.org prodregistryv2.org; font-src data: https://server-assets.hubstaff.com app.hubstaff.com fonts.gstatic.com fonts.googleapis.com netdna.bootstrapcdn.com fast.wistia.com maxcdn.bootstrapcdn.com use.typekit.net static.zohocdn.com cdn.megabonus.com assets.getripe.com fonts.bunny.net script.hotjar.com static2.sharepointonline.com use.fontawesome.com static.hsappstatic.net cdnjs.cloudflare.com at.alicdn.com assets.alicdn.com fonts.cdnfonts.com cdn.fontshare.com cdn-uicons.flaticon.com unpkg.com cdn.scite.ai cdn.jsdelivr.net; frame-src 'self' js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com hooks.stripe.com app.hubspot.com td.doubleclick.net www.facebook.com bid.g.doubleclick.net tasks.hubstaff.com www.youtube.com www.google.com www.googletagmanager.com tasks-api.hubstaff.com *.zoom.us *.zoom.com www.sandbox.paypal.com www.paypal.com *.paypal.com app.storylane.io *.hubstaff.com hubstaff.com accounts.google.com www.linkedin.com forms.hsforms.com wise.com wise-sandbox.com; img-src data: blob: https: *.stripe.com https://server-assets.hubstaff.com app.hubstaff.com hubstaff-production.s3.amazonaws.com track.hubspot.com forms.hsforms.com forms-na1.hsforms.com maps.gstatic.com fast.wistia.com embed-ssl.wistia.com maps.googleapis.com www.google.pl fast.wistia.net embed-cloudfront.wistia.com px.ads.linkedin.com www.facebook.com; media-src blob: fast.wistia.com embed-cloudfront.wistia.com us01ccistatic.zoom.us ssl.gstatic.com embed-ssl.wistia.com; script-src 'self' 'unsafe-eval' https://server-assets.hubstaff.com js-na1.hs-scripts.com js.hsforms.net js.hs-analytics.net js.hs-scripts.com js.hs-banner.com js.usemessages.com js.hscollectedforms.net cdn.segment.com js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com fast.wistia.com static.cloudflareinsights.com public.profitwell.com connect.facebook.net snap.licdn.com www.googletagmanager.com bat.bing.com www.googleadservices.com googleads.g.doubleclick.net js.hubspotfeedback.com ajax.cloudflare.com js.hsadspixel.net js.hsleadflows.net script.hotjar.com js.hubspot.com static.hotjar.com storage.getripe.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com js.storylane.io us01ccistatic-a.zoom.us maps.googleapis.com *.vibe.co; script-src-attr 'unsafe-inline'; script-src-elem 'unsafe-inline' https://server-assets.hubstaff.com app.hubstaff.com internal.hubstaff.com ajax.cloudflare.com js-na1.hs-scripts.com js.hs-analytics.net js.hscollectedforms.net js.hs-banner.com js.usemessages.com cdn.segment.com js.hs-scripts.com js.hsforms.net js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com maps.googleapis.com fast.wistia.com www.googletagmanager.com sandbox.accountdock.com bat.bing.com connect.facebook.net snap.licdn.com www.googleadservices.com public.profitwell.com googleads.g.doubleclick.net js.hsadspixel.net static.cloudflareinsights.com js.hsleadflows.net js.hubspotfeedback.com storage.getripe.com script.hotjar.com static.hotjar.com js.hubspot.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com js.storylane.io tasks-api.hubstaff.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com us01ccistatic-a.zoom.us www.google-analytics.com apis.google.com cdnjs.cloudflare.com tasks.hubstaff.com account-assets.hubstaff.com us-assets.i.posthog.com www.clarity.ms *.vibe.co; style-src 'unsafe-inline' 'sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com cdn.jsdelivr.net www.gstatic.com; style-src-attr 'unsafe-inline'; style-src-elem 'unsafe-inline' https://server-assets.hubstaff.com internal.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com maxcdn.bootstrapcdn.com account-assets.hubstaff.com app.hubstaff.com; worker-src 'self' blob: us01cci.zoom.us us01ccistatic.zoom.us us01apizva.zoom.us us01campaign.zoom.us us01cciapi.zoom.us zpns.zoom.us; report-uri https://hubstaff.report-uri.com/r/t/csp/enforce",
+          "content-security-policy": "default-src 'self' sentry.io; connect-src 'self' https://server-assets.hubstaff.com account.hubstaff.com hubstaff-production.s3.amazonaws.com api.segment.io api.hubspot.com static.hsappstatic.net forms.hscollectedforms.net forms.hsforms.com cdn.segment.com api.stripe.com checkout.stripe.com maps.googleapis.com analytics.google.com pipedream.wistia.com embed-cloudfront.wistia.com stats.g.doubleclick.net fast.wistia.com distillery.wistia.com region1.analytics.google.com fg8vvsvnieiv3ej16jby.litix.io bat.bing.com px.ads.linkedin.com www2.profitwell.com api.hubapi.com forms.hubspot.com google.com www.facebook.com api.getripe.com rest.ably.io wss://realtime.ably.io internet-up.ably-realtime.com cta-service-cms2.hubspot.com hubspot-forms-static-embed.s3.amazonaws.com www.google.pl/ads/ga-audiences ip2c.org/s zoom.us *.zoom.us wss://*.zoom.us *.zoom.com wss://*.zoom.com www.paypal.com api-m.sandbox.paypal.com api-m.paypal.com file-paa.zoom.us file.zoom.us bat.bing-int.com vc.hotjar.io metrics.hotjar.io surveystats.hotjar.io wss://ws.hotjar.com googleads.g.doubleclick.net www.googleadservices.com fast.wistia.net embed-ssl.wistia.com www.google-analytics.com perf-na1.hsforms.com content.hotjar.io overbridgenet.com zpns.zoom.us wss://zpns.zoom.us www.google.co.in www.google.com.au www.google.com.bd www.google.com bat.bing.net www.google.com.ua www.google.nl api.killadsapi.com www.google.com.ph www.google.com.pe www.google.lt www.google.com.sg www.google.co.za us.i.posthog.com www.google.co.uk www.google.com.pk www.google.com.ar www.googletagmanager.com ask.hotjar.io in.hotjar.com www.google.com.br www.google.ru 1752680588.rsc.cdn77.org www.google.com.mx www.google.ca www.google.com.co api.storylane.io o4505518331658240.ingest.us.sentry.io www.google.ae www.google.bg www.google.co.cr www.google.co.id www.google.co.il www.google.co.jp www.google.co.ke www.google.co.ma www.google.co.nz www.google.co.th www.google.co.ve www.google.com.do www.google.com.ec www.google.com.eg www.google.com.gt www.google.com.jm www.google.com.kh www.google.com.my www.google.com.ng www.google.com.ni www.google.com.np www.google.com.sa www.google.com.sv www.google.com.tr www.google.com.vn www.google.cz www.google.de www.google.es www.google.fr www.google.ge www.google.hn www.google.it www.google.jo www.google.lk www.google.pt www.google.ro www.google.rs www.google.se www.google.co.kr www.google.com.hk f.clarity.ms *.vibe.co marketplace.hubstaff.com featureassets.org prodregistryv2.org; font-src data: https://server-assets.hubstaff.com app.hubstaff.com fonts.gstatic.com fonts.googleapis.com netdna.bootstrapcdn.com fast.wistia.com maxcdn.bootstrapcdn.com use.typekit.net static.zohocdn.com cdn.megabonus.com assets.getripe.com fonts.bunny.net script.hotjar.com static2.sharepointonline.com use.fontawesome.com static.hsappstatic.net cdnjs.cloudflare.com at.alicdn.com assets.alicdn.com fonts.cdnfonts.com cdn.fontshare.com cdn-uicons.flaticon.com unpkg.com cdn.scite.ai cdn.jsdelivr.net; frame-src 'self' js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com hooks.stripe.com app.hubspot.com td.doubleclick.net www.facebook.com bid.g.doubleclick.net tasks.hubstaff.com www.youtube.com www.google.com www.googletagmanager.com tasks-api.hubstaff.com *.zoom.us *.zoom.com www.sandbox.paypal.com www.paypal.com *.paypal.com app.storylane.io *.hubstaff.com hubstaff.com accounts.google.com www.linkedin.com forms.hsforms.com wise.com wise-sandbox.com; img-src data: blob: https: *.stripe.com https://server-assets.hubstaff.com app.hubstaff.com hubstaff-production.s3.amazonaws.com track.hubspot.com forms.hsforms.com forms-na1.hsforms.com maps.gstatic.com fast.wistia.com embed-ssl.wistia.com maps.googleapis.com www.google.pl fast.wistia.net embed-cloudfront.wistia.com px.ads.linkedin.com www.facebook.com; media-src blob: https://server-assets.hubstaff.com fast.wistia.com embed-cloudfront.wistia.com us01ccistatic.zoom.us ssl.gstatic.com embed-ssl.wistia.com; script-src 'self' 'unsafe-eval' https://server-assets.hubstaff.com js-na1.hs-scripts.com js.hsforms.net js.hs-analytics.net js.hs-scripts.com js.hs-banner.com js.usemessages.com js.hscollectedforms.net cdn.segment.com js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com fast.wistia.com static.cloudflareinsights.com public.profitwell.com connect.facebook.net snap.licdn.com www.googletagmanager.com bat.bing.com www.googleadservices.com googleads.g.doubleclick.net js.hubspotfeedback.com ajax.cloudflare.com js.hsadspixel.net js.hsleadflows.net script.hotjar.com js.hubspot.com static.hotjar.com storage.getripe.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com js.storylane.io us01ccistatic-a.zoom.us maps.googleapis.com *.vibe.co; script-src-attr 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline' https://server-assets.hubstaff.com app.hubstaff.com ajax.cloudflare.com js-na1.hs-scripts.com js.hs-analytics.net js.hscollectedforms.net js.hs-banner.com js.usemessages.com cdn.segment.com js.hs-scripts.com js.hsforms.net js.stripe.com *.js.stripe.com checkout.stripe.com connect-js.stripe.com maps.googleapis.com fast.wistia.com www.googletagmanager.com sandbox.accountdock.com bat.bing.com connect.facebook.net snap.licdn.com www.googleadservices.com public.profitwell.com googleads.g.doubleclick.net js.hsadspixel.net static.cloudflareinsights.com js.hsleadflows.net js.hubspotfeedback.com storage.getripe.com script.hotjar.com static.hotjar.com js.hubspot.com *.zoom.us *.zoom.com www.paypal.com www.sandbox.paypal.com js.storylane.io tasks-api.hubstaff.com browser.sentry-cdn.com bat.bing-int.com bat.bing.net fast.wistia.net ct.capterra.com static.hsappstatic.net infird.com us01ccistatic-a.zoom.us www.google-analytics.com apis.google.com cdnjs.cloudflare.com tasks.hubstaff.com account-assets.hubstaff.com us-assets.i.posthog.com www.clarity.ms *.vibe.co; style-src 'unsafe-inline' 'sha256-0hAheEzaMe6uXIKV4EehS9pu1am1lj/KnnzrOYqckXk=' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com cdn.jsdelivr.net www.gstatic.com; style-src-attr 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' https://server-assets.hubstaff.com netdna.bootstrapcdn.com fonts.googleapis.com maxcdn.bootstrapcdn.com account-assets.hubstaff.com app.hubstaff.com; worker-src 'self' blob: us01cci.zoom.us us01ccistatic.zoom.us us01apizva.zoom.us us01campaign.zoom.us us01cciapi.zoom.us zpns.zoom.us; report-uri https://hubstaff.report-uri.com/r/t/csp/enforce",
+          "set-cookie": "INGRESSCOOKIE=1787755674.399.31.123616|54c84b9abc329531cb53bd62721da227; Expires=Wed, 26-Aug-26 15:47:53 GMT; Max-Age=3600; Path=/; Secure; HttpOnly, _cfuvid=mnjNljftPp1hOUw5RQGYHyIjO.hBVD.iAWgGdCdWnkM-1787755673.3575144-1.0.1.1-A5K8paruETO7S2dBSm.D.Q5lQYpNG9oKtIIt7NWXSxU; HttpOnly; SameSite=None; Secure; Path=/; Domain=hubstaff.com",
           "cf-cache-status": "DYNAMIC",
-          "set-cookie": "INGRESSCOOKIE=1785428283.953.35.507994|af37179f49f3801f2d6777c03dc5d676; Expires=Thu, 30-Jul-26 17:18:02 GMT; Max-Age=3600; Path=/; Secure; HttpOnly, _cfuvid=_iQFxKlEaPDCyNiYNofwnj02sfzen31IfKc.qX4lrsc-1785428282.907323-1.0.1.1-uMCfCnoUmz8cZJ1tlAnRvUCzmINpYl6F.mSxhscIlqk; HttpOnly; SameSite=None; Secure; Path=/; Domain=hubstaff.com",
           "server": "cloudflare",
-          "cf-ray": "a235ad50296f5332-PDX",
+          "cf-ray": "a313a25e7a6aff06-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "3b634291472acdbf1011aa62d7149fea16b4a5ec",
+        "hash": "711f908c30bcd32aa1de6475d05c98bb60271d11",
         "request": {
           "params": {
             "page_limit": "100"
