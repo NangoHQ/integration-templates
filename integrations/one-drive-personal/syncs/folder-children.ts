@@ -68,7 +68,7 @@ type FolderChildrenCheckpoint = z.infer<typeof FolderChildrenCheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync children for selected folders',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -101,6 +101,10 @@ const sync = createSync({
 
         const folderIdsKey = JSON.stringify(folderIds);
         const checkpoint = StoredFolderChildrenCheckpointSchema.nullish().parse(await nango.getCheckpoint());
+        // Tracks whether a checkpoint row actually exists, so we only ever call
+        // clearCheckpoint() when there is something to clear - calling it when nothing
+        // was ever saved raises a checkpoint_conflict error.
+        let checkpointExists = checkpoint !== undefined && checkpoint !== null;
         let startIndex = checkpoint?.currentFolderIndex ?? 0;
         let nextLink = checkpoint?.nextLink || undefined;
         const checkpointFolderIdsKey = checkpoint?.folderIdsKey || '';
@@ -164,6 +168,7 @@ const sync = createSync({
                         nextLink: endpoint,
                         folderIdsKey
                     });
+                    checkpointExists = true;
                 }
 
                 if (i + 1 < folderIds.length) {
@@ -173,10 +178,13 @@ const sync = createSync({
                         folderIdsKey
                     };
                     await nango.saveCheckpoint(nextCheckpoint);
+                    checkpointExists = true;
                 }
             }
 
-            await nango.clearCheckpoint();
+            if (checkpointExists) {
+                await nango.clearCheckpoint();
+            }
         } finally {
             await nango.trackDeletesEnd('FolderChild');
         }
