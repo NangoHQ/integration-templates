@@ -1,0 +1,203 @@
+{
+  "input": {
+    "id": 1178517,
+    "name": "Nango Test View Updated"
+  },
+  "output": {
+    "id": 1178517,
+    "category": "user",
+    "created_datetime": "2026-08-26T18:38:17.811461+00:00",
+    "deactivated_datetime": null,
+    "decoration": null,
+    "fields": [],
+    "filters": "eq(ticket.status, \"open\")",
+    "name": "Nango Test View Updated",
+    "order_by": "updated_datetime",
+    "order_dir": "desc",
+    "search": null,
+    "shared_with_teams": [],
+    "shared_with_users": [],
+    "slug": "nango-test-view",
+    "type": "ticket-list",
+    "uri": "/api/views/1178517/",
+    "visibility": "public"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/views/1178517": {
+        "response": {
+          "id": 1178517,
+          "category": "user",
+          "created_datetime": "2026-08-26T18:38:17.811461+00:00",
+          "deactivated_datetime": null,
+          "decoration": null,
+          "fields": [],
+          "filters": "eq(ticket.status, \"open\")",
+          "filters_ast": {
+            "loc": {
+              "end": {
+                "line": 1,
+                "column": 25
+              },
+              "start": {
+                "line": 1,
+                "column": 0
+              }
+            },
+            "body": [
+              {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 25
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "type": "ExpressionStatement",
+                "expression": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 25
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 0
+                    }
+                  },
+                  "type": "CallExpression",
+                  "callee": {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 2
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "name": "eq",
+                    "type": "Identifier"
+                  },
+                  "arguments": [
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 16
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 3
+                        }
+                      },
+                      "type": "MemberExpression",
+                      "object": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 9
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 3
+                          }
+                        },
+                        "name": "ticket",
+                        "type": "Identifier"
+                      },
+                      "computed": false,
+                      "property": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 16
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 10
+                          }
+                        },
+                        "name": "status",
+                        "type": "Identifier"
+                      }
+                    },
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 24
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 18
+                        }
+                      },
+                      "raw": "\"open\"",
+                      "type": "Literal",
+                      "value": "open"
+                    }
+                  ]
+                }
+              }
+            ],
+            "type": "Program",
+            "sourceType": "script"
+          },
+          "name": "Nango Test View Updated",
+          "order_by": "updated_datetime",
+          "order_dir": "desc",
+          "search": null,
+          "shared_with_teams": [],
+          "shared_with_users": [],
+          "section_id": null,
+          "slug": "nango-test-view",
+          "type": "ticket-list",
+          "uri": "/api/views/1178517/",
+          "visibility": "public"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:40:01 GMT",
+          "content-type": "application/json",
+          "content-length": "1519",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1862",
+          "x-ratelimit-reset": "1787769620",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "14/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "6d13aa3a16c6b0a90eb0436b5291c20f",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f66a79b2ccd1-PDX",
+          "etag": "W/\"5ef-9s4aoMmJJe8PZZbvrmZSir3CHT0\""
+        },
+        "hash": "bac9e8c37806928d2edc2bec95593de95fec549a",
+        "request": {
+          "data": {
+            "name": "Nango Test View Updated"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,344 @@
+{
+  "nango": {
+    "batchSave": {
+      "Customer": [
+        {
+          "id": "519782465",
+          "email": "1v6lmg74314gjyqr@email.gorgias.com",
+          "name": "Nango Support",
+          "firstname": "Nango",
+          "lastname": "Support",
+          "created_datetime": "2026-08-26T19:25:15.392058+00:00",
+          "updated_datetime": "2026-08-26T19:25:15.392068+00:00"
+        },
+        {
+          "id": "519762152",
+          "email": "disposable-test@example.com",
+          "name": "Disposable Test",
+          "firstname": "Disposable",
+          "lastname": "Test",
+          "created_datetime": "2026-08-26T18:46:36.956667+00:00",
+          "updated_datetime": "2026-08-26T18:46:36.956676+00:00"
+        },
+        {
+          "id": "519761447",
+          "email": "disposable2@nango.dev",
+          "name": "Nango Disposable 2",
+          "firstname": "Nango",
+          "lastname": "Disposable",
+          "created_datetime": "2026-08-26T18:45:38.454107+00:00",
+          "updated_datetime": "2026-08-26T18:45:38.454116+00:00"
+        },
+        {
+          "id": "519759291",
+          "email": "test-dryrun-abc123@example.com",
+          "name": "Nango TestUser",
+          "firstname": "Nango",
+          "lastname": "TestUser",
+          "created_datetime": "2026-08-26T18:42:39.469359+00:00",
+          "updated_datetime": "2026-08-26T18:42:39.469369+00:00"
+        },
+        {
+          "id": "519755284",
+          "email": "target-merge@nango.test",
+          "name": "Nango Merge Target",
+          "firstname": "Nango",
+          "lastname": "Target",
+          "created_datetime": "2026-08-26T18:37:21.437018+00:00",
+          "updated_datetime": "2026-08-26T18:37:21.437027+00:00"
+        },
+        {
+          "id": "519754845",
+          "email": "test-del-cfv@example.com",
+          "firstname": "",
+          "lastname": "",
+          "created_datetime": "2026-08-26T18:36:44.670058+00:00",
+          "updated_datetime": "2026-08-26T18:36:44.670075+00:00"
+        },
+        {
+          "id": "519753903",
+          "email": "disposable-test-1787769330143@nango.dev",
+          "name": "Nango Disposable Test",
+          "firstname": "Nango",
+          "lastname": "Test",
+          "created_datetime": "2026-08-26T18:35:31.370841+00:00",
+          "updated_datetime": "2026-08-26T18:35:31.370850+00:00"
+        },
+        {
+          "id": "519753798",
+          "email": "temp+survey@nango.dev",
+          "name": "Nango TempCustomer",
+          "firstname": "Nango",
+          "lastname": "TempCustomer",
+          "created_datetime": "2026-08-26T18:35:22.689335+00:00",
+          "updated_datetime": "2026-08-26T18:35:22.689345+00:00"
+        },
+        {
+          "id": "519753749",
+          "email": "disposable-test@nango.dev",
+          "name": "Nango Disposable Test",
+          "firstname": "Nango",
+          "lastname": "Test",
+          "created_datetime": "2026-08-26T18:35:18.810736+00:00",
+          "updated_datetime": "2026-08-26T18:35:18.810745+00:00"
+        },
+        {
+          "id": "519543245",
+          "email": "support@gorgias.com",
+          "name": "Romain @Gorgias",
+          "firstname": "Romain",
+          "lastname": "@Gorgias",
+          "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+          "updated_datetime": "2026-08-26T18:38:08.300346+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Customer": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/customers": {
+        "response": {
+          "data": [
+            {
+              "id": 519782465,
+              "external_id": null,
+              "active": true,
+              "email": "1v6lmg74314gjyqr@email.gorgias.com",
+              "name": "Nango Support",
+              "firstname": "Nango",
+              "lastname": "Support",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T19:25:15.392058+00:00",
+              "updated_datetime": "2026-08-26T19:25:15.392068+00:00",
+              "meta": {
+                "name_set_via": "email"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519762152,
+              "external_id": null,
+              "active": true,
+              "email": "disposable-test@example.com",
+              "name": "Disposable Test",
+              "firstname": "Disposable",
+              "lastname": "Test",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:46:36.956667+00:00",
+              "updated_datetime": "2026-08-26T18:46:36.956676+00:00",
+              "meta": null,
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519761447,
+              "external_id": null,
+              "active": true,
+              "email": "disposable2@nango.dev",
+              "name": "Nango Disposable 2",
+              "firstname": "Nango",
+              "lastname": "Disposable",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:45:38.454107+00:00",
+              "updated_datetime": "2026-08-26T18:45:38.454116+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519759291,
+              "external_id": null,
+              "active": true,
+              "email": "test-dryrun-abc123@example.com",
+              "name": "Nango TestUser",
+              "firstname": "Nango",
+              "lastname": "TestUser",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:42:39.469359+00:00",
+              "updated_datetime": "2026-08-26T18:42:39.469369+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519755284,
+              "external_id": null,
+              "active": true,
+              "email": "target-merge@nango.test",
+              "name": "Nango Merge Target",
+              "firstname": "Nango",
+              "lastname": "Target",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:37:21.437018+00:00",
+              "updated_datetime": "2026-08-26T18:37:21.437027+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519754845,
+              "external_id": null,
+              "active": true,
+              "email": "test-del-cfv@example.com",
+              "name": null,
+              "firstname": "",
+              "lastname": "",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:36:44.670058+00:00",
+              "updated_datetime": "2026-08-26T18:36:44.670075+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519753903,
+              "external_id": null,
+              "active": true,
+              "email": "disposable-test-1787769330143@nango.dev",
+              "name": "Nango Disposable Test",
+              "firstname": "Nango",
+              "lastname": "Test",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:35:31.370841+00:00",
+              "updated_datetime": "2026-08-26T18:35:31.370850+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519753798,
+              "external_id": null,
+              "active": true,
+              "email": "temp+survey@nango.dev",
+              "name": "Nango TempCustomer",
+              "firstname": "Nango",
+              "lastname": "TempCustomer",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:35:22.689335+00:00",
+              "updated_datetime": "2026-08-26T18:35:22.689345+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519753749,
+              "external_id": null,
+              "active": true,
+              "email": "disposable-test@nango.dev",
+              "name": "Nango Disposable Test",
+              "firstname": "Nango",
+              "lastname": "Test",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T18:35:18.810736+00:00",
+              "updated_datetime": "2026-08-26T18:35:18.810745+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {}
+            },
+            {
+              "id": 519543245,
+              "external_id": null,
+              "active": true,
+              "email": "support@gorgias.com",
+              "name": "Romain @Gorgias",
+              "firstname": "Romain",
+              "lastname": "@Gorgias",
+              "language": null,
+              "timezone": null,
+              "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+              "updated_datetime": "2026-08-26T18:38:08.300346+00:00",
+              "meta": {
+                "name_set_via": "agent"
+              },
+              "data": null,
+              "note": null,
+              "custom_fields": {
+                "319830": {
+                  "value": "Nango Test Value",
+                  "id": 319830
+                }
+              }
+            }
+          ],
+          "object": "list",
+          "uri": "/api/customers?limit=100",
+          "meta": {
+            "prev_cursor": null,
+            "next_cursor": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 20:34:23 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1787776505",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "5/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "c38384bb11622ee0c00b68b2209080b9",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a3159df078cb1687-PDX"
+        },
+        "hash": "dc01140f9196ad98e4d2d748ea13c3a6366c2b03",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

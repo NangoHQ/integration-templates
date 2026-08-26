@@ -1,0 +1,342 @@
+{
+  "input": {
+    "id": 82753687,
+    "subject": "Updated Subject",
+    "status": "closed"
+  },
+  "output": {
+    "id": 82753687,
+    "uri": "/api/tickets/82753687/",
+    "external_id": null,
+    "status": "closed",
+    "priority": "normal",
+    "channel": "email",
+    "via": "api",
+    "from_agent": false,
+    "spam": false,
+    "imported": false,
+    "subject": "Updated Subject",
+    "language": "en",
+    "is_unread": true,
+    "tags": [],
+    "assignee_user": null,
+    "customer": {
+      "id": 519762152,
+      "email": "disposable-test@example.com",
+      "name": "Disposable Test",
+      "firstname": "Disposable",
+      "lastname": "Test",
+      "meta": null,
+      "channels": [
+        {
+          "id": 654312672,
+          "type": "email",
+          "address": "disposable-test@example.com",
+          "preferred": true,
+          "created_datetime": "2026-08-26T18:46:36.959853+00:00",
+          "updated_datetime": "2026-08-26T18:46:36.959858+00:00",
+          "deleted_datetime": null,
+          "user": {
+            "id": 519762152,
+            "name": "Disposable Test"
+          },
+          "customer": {
+            "id": 519762152,
+            "name": "Disposable Test"
+          }
+        }
+      ],
+      "data": null,
+      "customer": null,
+      "integrations": {},
+      "external_id": null,
+      "note": null
+    },
+    "custom_fields": {
+      "319613": {
+        "id": 319613,
+        "value": "Other::Other::Other"
+      }
+    },
+    "messages": [
+      {
+        "id": 218858323,
+        "uri": "/api/tickets/82753687/messages/218858323/",
+        "ticket_id": 82753687,
+        "channel": "phone",
+        "via": "api",
+        "subject": null,
+        "body_text": "Test message for disposable ticket",
+        "body_html": null,
+        "created_datetime": "2026-08-26T18:46:36.984977+00:00",
+        "public": true,
+        "message_id": null,
+        "external_id": null,
+        "source": {
+          "type": "phone"
+        },
+        "sender": {
+          "id": 519762152,
+          "email": "disposable-test@example.com",
+          "name": "Disposable Test",
+          "firstname": "Disposable",
+          "lastname": "Test",
+          "meta": null
+        },
+        "auth_customer_identity": null,
+        "integration_id": null,
+        "intents": [
+          {
+            "name": "other/question",
+            "rejected": null,
+            "is_user_feedback": false
+          }
+        ],
+        "rule_id": null,
+        "from_agent": false,
+        "receiver": null,
+        "stripped_text": null,
+        "stripped_html": null,
+        "stripped_signature": null,
+        "attachments": null,
+        "actions": null,
+        "imported": false,
+        "meta": null,
+        "processed_datetime": "2026-08-26T18:46:36.993992+00:00",
+        "sent_datetime": "2026-08-26T18:46:36.984977+00:00",
+        "failed_datetime": null,
+        "opened_datetime": null,
+        "last_sending_error": null,
+        "is_retriable": true
+      }
+    ],
+    "events": [],
+    "meta": null,
+    "summary": null,
+    "satisfaction_survey": null,
+    "reply_options": {
+      "email": {
+        "answerable": true
+      },
+      "internal-note": {
+        "answerable": true
+      }
+    },
+    "created_datetime": "2026-08-26T18:46:36.984977+00:00",
+    "updated_datetime": "2026-08-26T18:47:31.926621+00:00",
+    "processed_datetime": "2026-08-26T18:46:36.987118+00:00",
+    "opened_datetime": null,
+    "closed_datetime": "2026-08-26T18:46:43.050144+00:00",
+    "trashed_datetime": null,
+    "snooze_datetime": null,
+    "last_received_message_datetime": "2026-08-26T18:46:36.984977+00:00",
+    "last_message_datetime": "2026-08-26T18:46:36.984977+00:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/tickets/82753687": {
+        "response": {
+          "id": 82753687,
+          "uri": "/api/tickets/82753687/",
+          "external_id": null,
+          "events": [],
+          "status": "closed",
+          "priority": "normal",
+          "channel": "email",
+          "via": "api",
+          "from_agent": false,
+          "spam": false,
+          "imported": false,
+          "customer": {
+            "id": 519762152,
+            "email": "disposable-test@example.com",
+            "name": "Disposable Test",
+            "firstname": "Disposable",
+            "lastname": "Test",
+            "meta": null,
+            "channels": [
+              {
+                "id": 654312672,
+                "type": "email",
+                "address": "disposable-test@example.com",
+                "preferred": true,
+                "created_datetime": "2026-08-26T18:46:36.959853+00:00",
+                "updated_datetime": "2026-08-26T18:46:36.959858+00:00",
+                "deleted_datetime": null,
+                "user": {
+                  "id": 519762152,
+                  "name": "Disposable Test"
+                },
+                "customer": {
+                  "id": 519762152,
+                  "name": "Disposable Test"
+                }
+              }
+            ],
+            "data": null,
+            "customer": null,
+            "integrations": {},
+            "external_id": null,
+            "note": null
+          },
+          "assignee_user": null,
+          "assignee_user_id": null,
+          "assignee_team": null,
+          "assignee_team_id": null,
+          "language": "en",
+          "subject": "Updated Subject",
+          "summary": null,
+          "meta": null,
+          "tags": [],
+          "custom_fields": {
+            "319613": {
+              "id": 319613,
+              "value": "Other::Other::Other"
+            }
+          },
+          "messages": [
+            {
+              "id": 218858323,
+              "uri": "/api/tickets/82753687/messages/218858323/",
+              "message_id": null,
+              "ticket_id": 82753687,
+              "external_id": null,
+              "public": true,
+              "channel": "phone",
+              "via": "api",
+              "source": {
+                "type": "phone"
+              },
+              "sender": {
+                "id": 519762152,
+                "email": "disposable-test@example.com",
+                "name": "Disposable Test",
+                "firstname": "Disposable",
+                "lastname": "Test",
+                "meta": null
+              },
+              "auth_customer_identity": null,
+              "integration_id": null,
+              "intents": [
+                {
+                  "name": "other/question",
+                  "rejected": null,
+                  "is_user_feedback": false
+                }
+              ],
+              "rule_id": null,
+              "from_agent": false,
+              "receiver": null,
+              "subject": null,
+              "body_text": "Test message for disposable ticket",
+              "body_html": null,
+              "stripped_text": null,
+              "stripped_html": null,
+              "stripped_signature": null,
+              "attachments": null,
+              "actions": null,
+              "imported": false,
+              "meta": null,
+              "created_datetime": "2026-08-26T18:46:36.984977+00:00",
+              "processed_datetime": "2026-08-26T18:46:36.993992+00:00",
+              "sent_datetime": "2026-08-26T18:46:36.984977+00:00",
+              "failed_datetime": null,
+              "opened_datetime": null,
+              "last_sending_error": null,
+              "is_retriable": true
+            }
+          ],
+          "created_datetime": "2026-08-26T18:46:36.984977+00:00",
+          "processed_datetime": "2026-08-26T18:46:36.987118+00:00",
+          "opened_datetime": null,
+          "last_received_message_datetime": "2026-08-26T18:46:36.984977+00:00",
+          "last_message_datetime": "2026-08-26T18:46:36.984977+00:00",
+          "updated_datetime": "2026-08-26T18:47:31.926621+00:00",
+          "closed_datetime": "2026-08-26T18:46:43.050144+00:00",
+          "trashed_datetime": null,
+          "snooze_datetime": null,
+          "satisfaction_survey": null,
+          "reply_options": {
+            "email": {
+              "answerable": true
+            },
+            "internal-note": {
+              "answerable": true
+            }
+          },
+          "requester": {
+            "id": 519762152,
+            "email": "disposable-test@example.com",
+            "name": "Disposable Test",
+            "firstname": "Disposable",
+            "lastname": "Test",
+            "meta": null,
+            "channels": [
+              {
+                "id": 654312672,
+                "type": "email",
+                "address": "disposable-test@example.com",
+                "preferred": true,
+                "created_datetime": "2026-08-26T18:46:36.959853+00:00",
+                "updated_datetime": "2026-08-26T18:46:36.959858+00:00",
+                "deleted_datetime": null,
+                "user": {
+                  "id": 519762152,
+                  "name": "Disposable Test"
+                },
+                "customer": {
+                  "id": 519762152,
+                  "name": "Disposable Test"
+                }
+              }
+            ],
+            "data": null,
+            "customer": null,
+            "integrations": {},
+            "external_id": null,
+            "note": null
+          },
+          "is_unread": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:47:32 GMT",
+          "content-type": "application/json",
+          "content-length": "3347",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1935",
+          "x-ratelimit-reset": "1787770052",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "1/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "5a9315ee08632150305cdf6637112a01",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a315016758e6dfd2-PDX",
+          "etag": "W/\"d13-cVK5DmjB+Tkp+SjZekJNmV/7rwo\""
+        },
+        "hash": "53b5c720f6bc30643e776961ed435aaa220ecaf2",
+        "request": {
+          "data": {
+            "subject": "Updated Subject",
+            "status": "closed"
+          }
+        }
+      }
+    }
+  }
+}

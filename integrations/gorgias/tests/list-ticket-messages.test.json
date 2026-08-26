@@ -1,0 +1,157 @@
+{
+  "input": {
+    "ticket_id": 82682724
+  },
+  "output": {
+    "items": [
+      {
+        "id": 218665490,
+        "ticket_id": 82682724,
+        "body_text": "\nCongrats Nango!\n\nYou can now respond to customers from Gorgias :thumbsup:\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.\n\nWe look forward to hearing from you!\n\nRomain & the Gorgias team\n",
+        "channel": "email",
+        "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+        "from_agent": false,
+        "via": "email",
+        "source": {
+          "type": "email",
+          "to": [
+            {
+              "name": "Nango Support",
+              "address": "1v6lmg74314gjyqr@email.gorgias.com"
+            }
+          ],
+          "from": {
+            "name": "Romain @Gorgias",
+            "address": "support@gorgias.com"
+          }
+        },
+        "sender": {
+          "id": 519543245,
+          "email": "support@gorgias.com",
+          "name": "Romain @Gorgias",
+          "firstname": "Romain",
+          "lastname": "@Gorgias",
+          "meta": null
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/tickets/82682724/messages": {
+        "response": {
+          "data": [
+            {
+              "id": 218665490,
+              "uri": "/api/tickets/82682724/messages/218665490/",
+              "message_id": null,
+              "ticket_id": 82682724,
+              "external_id": null,
+              "public": true,
+              "channel": "email",
+              "via": "email",
+              "source": {
+                "type": "email",
+                "to": [
+                  {
+                    "name": "Nango Support",
+                    "address": "1v6lmg74314gjyqr@email.gorgias.com"
+                  }
+                ],
+                "from": {
+                  "name": "Romain @Gorgias",
+                  "address": "support@gorgias.com"
+                }
+              },
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": null
+              },
+              "auth_customer_identity": null,
+              "integration_id": null,
+              "intents": [],
+              "rule_id": null,
+              "from_agent": false,
+              "receiver": {
+                "id": 519543244,
+                "email": "1v6lmg74314gjyqr@email.gorgias.com",
+                "name": "Gorgias Bot",
+                "firstname": "Gorgias",
+                "lastname": "Bot",
+                "meta": {}
+              },
+              "subject": "Can't login. Please help",
+              "body_text": "\nCongrats Nango!\n\nYou can now respond to customers from Gorgias :thumbsup:\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.\n\nWe look forward to hearing from you!\n\nRomain & the Gorgias team\n",
+              "body_html": "\nCongrats Nango!<br><br>\n\nYou can now respond to customers from Gorgias &#128077<br><br>\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.<br><br>\n\nWe look forward to hearing from you!<br><br>\n\nRomain & the Gorgias team\n",
+              "stripped_text": null,
+              "stripped_html": null,
+              "stripped_signature": null,
+              "headers": {
+                "To": "1v6lmg74314gjyqr@email.gorgias.com",
+                "From": "support@gorgias.com"
+              },
+              "attachments": null,
+              "actions": null,
+              "macros": [],
+              "meta": null,
+              "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+              "processed_datetime": "2026-08-26T12:46:06.313087+00:00",
+              "sent_datetime": null,
+              "failed_datetime": null,
+              "deleted_datetime": null,
+              "opened_datetime": null,
+              "last_sending_error": null,
+              "is_retriable": true,
+              "imported": null
+            }
+          ],
+          "object": "list",
+          "uri": "/api/tickets/82682724/messages?",
+          "meta": {
+            "page": 1,
+            "per_page": 30,
+            "current_page": "/api/tickets/82682724/messages/?page=1",
+            "item_count": 1,
+            "nb_pages": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:35:44 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1900",
+          "x-ratelimit-reset": "1787769378",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "23/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "6334eb1667343e5d821f10c5cd09bd45",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f0205eb3ff0a-PDX"
+        },
+        "hash": "46bfe19745456f53a1cc23d9cebbc547da15bf40",
+        "request": {}
+      }
+    }
+  }
+}

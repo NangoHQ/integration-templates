@@ -1,0 +1,574 @@
+{
+  "input": {
+    "name": "Nango Test Rule",
+    "code": "if (eq(ticket.subject, \"test\")) { Action(\"addTags\", { tags: \"test\" }) }"
+  },
+  "output": {
+    "id": 120975,
+    "name": "Nango Test Rule",
+    "code": "if (eq(ticket.subject, \"test\")) { Action(\"addTags\", { tags: \"test\" }) }",
+    "code_ast": {
+      "loc": {
+        "end": {
+          "line": 1,
+          "column": 71
+        },
+        "start": {
+          "line": 1,
+          "column": 0
+        }
+      },
+      "body": [
+        {
+          "loc": {
+            "end": {
+              "line": 1,
+              "column": 71
+            },
+            "start": {
+              "line": 1,
+              "column": 0
+            }
+          },
+          "test": {
+            "loc": {
+              "end": {
+                "line": 1,
+                "column": 30
+              },
+              "start": {
+                "line": 1,
+                "column": 4
+              }
+            },
+            "type": "CallExpression",
+            "callee": {
+              "loc": {
+                "end": {
+                  "line": 1,
+                  "column": 6
+                },
+                "start": {
+                  "line": 1,
+                  "column": 4
+                }
+              },
+              "name": "eq",
+              "type": "Identifier"
+            },
+            "arguments": [
+              {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 21
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 7
+                  }
+                },
+                "type": "MemberExpression",
+                "object": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 13
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 7
+                    }
+                  },
+                  "name": "ticket",
+                  "type": "Identifier"
+                },
+                "computed": false,
+                "property": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 21
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 14
+                    }
+                  },
+                  "name": "subject",
+                  "type": "Identifier"
+                }
+              },
+              {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 29
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 23
+                  }
+                },
+                "raw": "\"test\"",
+                "type": "Literal",
+                "value": "test"
+              }
+            ]
+          },
+          "type": "IfStatement",
+          "alternate": null,
+          "consequent": {
+            "loc": {
+              "end": {
+                "line": 1,
+                "column": 71
+              },
+              "start": {
+                "line": 1,
+                "column": 32
+              }
+            },
+            "body": [
+              {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 70
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 34
+                  }
+                },
+                "type": "ExpressionStatement",
+                "expression": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 69
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 34
+                    }
+                  },
+                  "type": "CallExpression",
+                  "callee": {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 40
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 34
+                      }
+                    },
+                    "name": "Action",
+                    "type": "Identifier"
+                  },
+                  "arguments": [
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 50
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 41
+                        }
+                      },
+                      "raw": "\"addTags\"",
+                      "type": "Literal",
+                      "value": "addTags"
+                    },
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 68
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 52
+                        }
+                      },
+                      "type": "ObjectExpression",
+                      "properties": [
+                        {
+                          "key": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 58
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 54
+                              }
+                            },
+                            "name": "tags",
+                            "type": "Identifier"
+                          },
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 66
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 54
+                            }
+                          },
+                          "kind": "init",
+                          "type": "Property",
+                          "value": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 66
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 60
+                              }
+                            },
+                            "raw": "\"test\"",
+                            "type": "Literal",
+                            "value": "test"
+                          },
+                          "method": false,
+                          "computed": false,
+                          "shorthand": false
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "type": "BlockStatement"
+          }
+        }
+      ],
+      "type": "Program",
+      "sourceType": "script"
+    },
+    "created_datetime": "2026-08-26T18:37:57.548099+00:00",
+    "deactivated_datetime": null,
+    "description": null,
+    "event_types": null,
+    "priority": 6,
+    "updated_datetime": "2026-08-26T18:37:57.548103+00:00",
+    "uri": "/api/rules/120975/"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/rules": {
+        "response": {
+          "id": 120975,
+          "code": "if (eq(ticket.subject, \"test\")) { Action(\"addTags\", { tags: \"test\" }) }",
+          "code_ast": {
+            "loc": {
+              "end": {
+                "line": 1,
+                "column": 71
+              },
+              "start": {
+                "line": 1,
+                "column": 0
+              }
+            },
+            "body": [
+              {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 71
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "test": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 30
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 4
+                    }
+                  },
+                  "type": "CallExpression",
+                  "callee": {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 6
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 4
+                      }
+                    },
+                    "name": "eq",
+                    "type": "Identifier"
+                  },
+                  "arguments": [
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 21
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 7
+                        }
+                      },
+                      "type": "MemberExpression",
+                      "object": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 13
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 7
+                          }
+                        },
+                        "name": "ticket",
+                        "type": "Identifier"
+                      },
+                      "computed": false,
+                      "property": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 21
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 14
+                          }
+                        },
+                        "name": "subject",
+                        "type": "Identifier"
+                      }
+                    },
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 29
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 23
+                        }
+                      },
+                      "raw": "\"test\"",
+                      "type": "Literal",
+                      "value": "test"
+                    }
+                  ]
+                },
+                "type": "IfStatement",
+                "alternate": null,
+                "consequent": {
+                  "loc": {
+                    "end": {
+                      "line": 1,
+                      "column": 71
+                    },
+                    "start": {
+                      "line": 1,
+                      "column": 32
+                    }
+                  },
+                  "body": [
+                    {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 70
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 34
+                        }
+                      },
+                      "type": "ExpressionStatement",
+                      "expression": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 69
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 34
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 40
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 34
+                            }
+                          },
+                          "name": "Action",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 50
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 41
+                              }
+                            },
+                            "raw": "\"addTags\"",
+                            "type": "Literal",
+                            "value": "addTags"
+                          },
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 68
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 52
+                              }
+                            },
+                            "type": "ObjectExpression",
+                            "properties": [
+                              {
+                                "key": {
+                                  "loc": {
+                                    "end": {
+                                      "line": 1,
+                                      "column": 58
+                                    },
+                                    "start": {
+                                      "line": 1,
+                                      "column": 54
+                                    }
+                                  },
+                                  "name": "tags",
+                                  "type": "Identifier"
+                                },
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 66
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 54
+                                  }
+                                },
+                                "kind": "init",
+                                "type": "Property",
+                                "value": {
+                                  "loc": {
+                                    "end": {
+                                      "line": 1,
+                                      "column": 66
+                                    },
+                                    "start": {
+                                      "line": 1,
+                                      "column": 60
+                                    }
+                                  },
+                                  "raw": "\"test\"",
+                                  "type": "Literal",
+                                  "value": "test"
+                                },
+                                "method": false,
+                                "computed": false,
+                                "shorthand": false
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "type": "BlockStatement"
+                }
+              }
+            ],
+            "type": "Program",
+            "sourceType": "script"
+          },
+          "created_datetime": "2026-08-26T18:37:57.548099+00:00",
+          "deactivated_datetime": null,
+          "description": null,
+          "event_types": null,
+          "settings": null,
+          "name": "Nango Test Rule",
+          "priority": 6,
+          "type": "user",
+          "updated_datetime": "2026-08-26T18:37:57.548103+00:00",
+          "uri": "/api/rules/120975/"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:37:57 GMT",
+          "content-type": "application/json",
+          "content-length": "2661",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1956",
+          "x-ratelimit-reset": "1787769498",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "5/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "541b28238617aa50322295a60ec8642c",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f361d8654afe-PDX",
+          "etag": "W/\"a65-GDp+S8gXxyOzaDj7PF69HTBk2sU\""
+        },
+        "hash": "cbc22ee0312a80f2d58331221a35cb5876bd695e",
+        "request": {
+          "data": {
+            "name": "Nango Test Rule",
+            "code": "if (eq(ticket.subject, \"test\")) { Action(\"addTags\", { tags: \"test\" }) }"
+          }
+        }
+      }
+    }
+  }
+}
