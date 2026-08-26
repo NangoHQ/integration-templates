@@ -124,15 +124,15 @@
             </p>
             <div class="cards">
                 <div class="card">
-                    <div class="num">30</div>
+                    <div class="num">24</div>
                     <div>integrations remaining</div>
                 </div>
                 <div class="card">
-                    <div class="num">95</div>
+                    <div class="num">67</div>
                     <div>changed syncs</div>
                 </div>
                 <div class="card">
-                    <div class="num">94</div>
+                    <div class="num">66</div>
                     <div>checkpoint implementations</div>
                 </div>
                 <div class="card">
@@ -150,6 +150,10 @@
                 <div class="card">
                     <div class="num">68</div>
                     <div>syncs moved to <a href="https://github.com/NangoHQ/integration-templates/pull/649">PR #649</a></div>
+                </div>
+                <div class="card">
+                    <div class="num">28</div>
+                    <div>syncs moved to <a href="https://github.com/NangoHQ/integration-templates/pull/660">PR #660</a></div>
                 </div>
             </div>
             <p class="note">
@@ -177,20 +181,6 @@
                             <td>No connection configured.</td>
                         </tr>
                         <tr>
-                            <td><code>active-campaign</code></td>
-                            <td>9</td>
-                            <td>
-                                <code>accounts</code>, <code>automations</code>, <code>campaigns</code>, <code>custom-fields</code>, <code>deal-groups</code>,
-                                <code>deal-stages</code>, <code>lists</code>, <code>notes</code>, <code>tags</code>
-                            </td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/active-campaign/57bf0a39-cce7-40b2-8c88-952674fa244d/auth"
-                                    >57bf0a39-cce7-40b2-8c88-952674fa244d</a
-                                >
-                            </td>
-                            <td>Connection ID was not found in dev.</td>
-                        </tr>
-                        <tr>
                             <td><code>adp</code></td>
                             <td>1</td>
                             <td><code>unified-employees</code></td>
@@ -203,20 +193,6 @@
                             <td><code>users</code></td>
                             <td><span class="warn">Not configured</span></td>
                             <td>No connection configured.</td>
-                        </tr>
-                        <tr>
-                            <td><code>azure-devops</code></td>
-                            <td>6</td>
-                            <td>
-                                <code>branches</code>, <code>build-definitions</code>, <code>iterations</code>, <code>pipelines</code>,
-                                <code>repositories</code>, <code>teams</code>
-                            </td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/azure-devops/8fed0252-ad39-402d-90ec-82e2a925a908/auth"
-                                    >8fed0252-ad39-402d-90ec-82e2a925a908</a
-                                >
-                            </td>
-                            <td>401: the Azure DevOps PAT is expired; some calls also need metadata.</td>
                         </tr>
                         <tr>
                             <td><code>box</code></td>
@@ -292,33 +268,11 @@
                             <td>No connection configured.</td>
                         </tr>
                         <tr>
-                            <td><code>google-ads</code></td>
-                            <td>2</td>
-                            <td><code>accessible-customers</code>, <code>conversion-actions</code></td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/google-ads/892a25cd-ab96-4d8b-b687-d7e106b9d3dc/auth"
-                                    >892a25cd-ab96-4d8b-b687-d7e106b9d3dc</a
-                                >
-                            </td>
-                            <td>Required developer-token/customer-ID metadata is absent.</td>
-                        </tr>
-                        <tr>
                             <td><code>gusto</code></td>
                             <td>2</td>
                             <td><code>employees</code>, <code>unified-employees</code></td>
                             <td><span class="warn">Not configured</span></td>
                             <td>No connection configured.</td>
-                        </tr>
-                        <tr>
-                            <td><code>hubstaff</code></td>
-                            <td>3</td>
-                            <td><code>clients</code>, <code>projects</code>, <code>tasks</code></td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/hubstaff/7ba8c3c4-a643-4986-990a-58c179b1c512/auth"
-                                    >7ba8c3c4-a643-4986-990a-58c179b1c512</a
-                                >
-                            </td>
-                            <td>401 `invalid_token` on all three changed endpoints.</td>
                         </tr>
                         <tr>
                             <td><code>instantly</code></td>
@@ -330,20 +284,6 @@
                                 >
                             </td>
                             <td>402 Payment Required for the changed endpoints.</td>
-                        </tr>
-                        <tr>
-                            <td><code>intercom</code></td>
-                            <td>6</td>
-                            <td>
-                                <code>admins</code>, <code>articles</code>, <code>companies</code>, <code>help-center-collections</code>, <code>segments</code>,
-                                <code>tags</code>
-                            </td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/intercom/56f22489-50cb-4e87-8f21-2519d6d512e4/auth"
-                                    >56f22489-50cb-4e87-8f21-2519d6d512e4</a
-                                >
-                            </td>
-                            <td>401: the Intercom access token is invalid.</td>
                         </tr>
                         <tr>
                             <td><code>mailchimp</code></td>
@@ -405,17 +345,6 @@
                                 >
                             </td>
                             <td>`policies` returned 400 because `ENTITY_RISK_POLICY` is unavailable; seven syncs passed.</td>
-                        </tr>
-                        <tr>
-                            <td><code>pipelinecrm</code></td>
-                            <td>2</td>
-                            <td><code>teams</code>, <code>users</code></td>
-                            <td>
-                                <a href="https://app.nango.dev/dev/connections/pipelinecrm/31ff6c41-73e4-433a-b477-c6ec1c4a04e0/auth"
-                                    >31ff6c41-73e4-433a-b477-c6ec1c4a04e0</a
-                                >
-                            </td>
-                            <td>403: the provider account is cancelled.</td>
                         </tr>
                         <tr>
                             <td><code>ring-central</code></td>
@@ -501,12 +430,17 @@
             <h2>Artifacts</h2>
             <ul>
                 <li>Snapshot JSON changed or manually edited: <strong>0</strong>.</li>
-                <li>Generated TypeScript test changes: <strong>3</strong> (Figma and Intercom harness adjustments).</li>
+                <li>Generated TypeScript test changes: <strong>1</strong> (Figma harness adjustment).</li>
                 <li>Verified subset: <a href="https://github.com/NangoHQ/integration-templates/pull/649">PR #649</a>, 21 integrations / 68 syncs.</li>
+                <li>Verified part 3: <a href="https://github.com/NangoHQ/integration-templates/pull/660">PR #660</a>, 6 integrations / 28 syncs.</li>
             </ul>
             <p>
                 During the final rebase, <code>cal-com-v2/event-types</code> and <code>cal-com-v2/events</code> were removed from this PR because newer
                 implementations landed independently on <code>main</code> in PR #643. The counts above cover only changes still introduced by this branch.
+            </p>
+            <p>
+                ActiveCampaign, Azure DevOps, Google Ads, Hubstaff, Intercom, and PipelineCRM were removed after their refreshed connections allowed all 28
+                changed syncs to pass real provider validation and snapshot saving in PR #660.
             </p>
             <h2>Additional source-audit correction</h2>
             <p>

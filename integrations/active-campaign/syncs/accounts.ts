@@ -23,10 +23,6 @@ const AccountSchema = z.object({
     deal_count: z.string()
 });
 
-const CheckpointSchema = z.object({
-    offset: z.number().int().nonnegative()
-});
-
 const sync = createSync({
     description: 'Sync accounts from ActiveCampaign',
     version: '1.0.0',
@@ -38,7 +34,6 @@ const sync = createSync({
             method: 'GET'
         }
     ],
-    checkpoint: CheckpointSchema,
     models: {
         Account: AccountSchema
     },
@@ -47,11 +42,6 @@ const sync = createSync({
         // Blocker: ActiveCampaign GET /3/accounts only documents search (by name)
         // and count_deals query parameters. No changed-since filter, deleted-record
         // endpoint, or resumable cursor exists for accounts.
-        const checkpointRaw = await nango.getCheckpoint();
-        const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
-        const resumeOffset = checkpointResult.success ? checkpointResult.data.offset : 0;
-        let nextOffset: number | undefined = resumeOffset;
-
         await nango.trackDeletesStart('Account');
 
         const proxyConfig: ProxyConfiguration = {
@@ -60,14 +50,11 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: resumeOffset,
+                offset_start_value: 0,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'accounts',
-                on_page: async ({ nextPageParam }) => {
-                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                response_path: 'accounts'
             },
             retries: 3
         };
@@ -92,13 +79,8 @@ const sync = createSync({
             if (accounts.length > 0) {
                 await nango.batchSave(accounts, 'Account');
             }
-
-            if (nextOffset !== undefined) {
-                await nango.saveCheckpoint({ offset: nextOffset });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Account');
     }
 });

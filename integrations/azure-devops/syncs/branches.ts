@@ -41,18 +41,12 @@ const BranchSchema = z.object({
     url: z.string().optional()
 });
 
-const CheckpointSchema = z.object({
-    repoIndex: z.number().int().nonnegative(),
-    continuationToken: z.string()
-});
-
 const sync = createSync({
     description: 'Sync Git branches (refs/heads) across repositories',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
     models: {
         Branch: BranchSchema
     },
@@ -71,28 +65,18 @@ const sync = createSync({
             throw new Error('At least one repository is required in metadata');
         }
 
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { repoIndex: 0, continuationToken: '' };
-
         // Blocker: The Azure DevOps Git refs API does not expose a modified-date filter,
         // changed-records endpoint, or resumable cursor for incremental sync.
         // Pagination uses a per-request continuationToken with no incremental filter.
         // This sync performs a full snapshot with delete tracking.
         await nango.trackDeletesStart('Branch');
 
-        for (let i = checkpoint.repoIndex; i < repositories.length; i++) {
-            const repo = repositories[i];
-
-            if (!repo) {
-                throw new Error('Repository index out of bounds');
-            }
-
+        for (const repo of repositories) {
             if (!repo.project || !repo.repositoryId) {
                 throw new Error('Each repository must have project and repositoryId');
             }
 
-            let continuationToken: string | undefined = i === checkpoint.repoIndex && checkpoint.continuationToken ? checkpoint.continuationToken : undefined;
+            let continuationToken: string | undefined;
 
             do {
                 const params: Record<string, string> = {
@@ -134,20 +118,11 @@ const sync = createSync({
                     await nango.batchSave(branches, 'Branch');
                 }
 
-                const rawNextToken = response.headers['x-ms-continuationtoken'];
-                const nextToken = Array.isArray(rawNextToken) ? rawNextToken[0] : typeof rawNextToken === 'string' ? rawNextToken : undefined;
-
-                if (nextToken) {
-                    await nango.saveCheckpoint({ repoIndex: i, continuationToken: nextToken });
-                    continuationToken = nextToken;
-                } else {
-                    await nango.saveCheckpoint({ repoIndex: i + 1, continuationToken: '' });
-                    continuationToken = undefined;
-                }
+                const nextToken = response.headers['x-ms-continuationtoken'];
+                continuationToken = typeof nextToken === 'string' ? nextToken : undefined;
             } while (continuationToken);
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Branch');
     }
 });

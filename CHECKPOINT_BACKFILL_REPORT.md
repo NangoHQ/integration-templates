@@ -5,24 +5,26 @@ This branch contains checkpoint changes derived from source/API analysis that st
 -   Branch: `marcin/NAN-6669/backfill-checkpoints--speculative`
 -   Rebuilt from: `origin/main` at `80803b3b`
 -   Split date: 2026-08-24
--   Verified subset moved to: [PR #649](https://github.com/NangoHQ/integration-templates/pull/649)
+-   Verified subsets moved to: [PR #649](https://github.com/NangoHQ/integration-templates/pull/649) and [PR #660](https://github.com/NangoHQ/integration-templates/pull/660)
 
 ## Executive summary
 
 | Measure                                                |                            Count |
 | ------------------------------------------------------ | -------------------------------: |
-| Integrations remaining                                 |                               30 |
-| Changed sync source files                              |                               95 |
-| Real checkpoint implementations                        |                               94 |
+| Integrations remaining                                 |                               24 |
+| Changed sync source files                              |                               67 |
+| Real checkpoint implementations                        |                               66 |
 | No-checkpoint API exceptions                           |                                1 |
 | Successful real `dryrun --save` calls represented here |                                0 |
 | Snapshot JSON files changed                            |                                0 |
-| Generated test TypeScript files changed                |                                3 |
+| Generated test TypeScript files changed                |                                1 |
 | Snapshots manually modified                            |                                0 |
 | Repository compile                                     |           6,410 functions passed |
 | Affected integration tests                             | 1,087 files / 1,275 tests passed |
 | Integrations moved to verified part 2                  |                               21 |
 | Sync changes moved to verified part 2                  |                               68 |
+| Integrations moved to verified part 3                  |                                6 |
+| Sync changes moved to verified part 3                  |                               28 |
 
 Baseline snapshots are preserved on this branch because no remaining sync completed the full live verification bar. The source changes compile and are testable, but provider behavior is not represented by newly saved fixtures.
 
@@ -31,10 +33,8 @@ Baseline snapshots are preserved on this branch because no remaining sync comple
 | Integration       | Syncs | Changed syncs                                                                                                                           | Connection (dev)                                                                                                                         | Why it remains speculative                                                               |
 | ----------------- | ----: | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | `1password-scim`  |     1 | `scim-users`                                                                                                                            | Not configured                                                                                                                           | No connection configured.                                                                |
-| `active-campaign` |     9 | `accounts`, `automations`, `campaigns`, `custom-fields`, `deal-groups`, `deal-stages`, `lists`, `notes`, `tags`                         | [57bf0a39-cce7-40b2-8c88-952674fa244d](https://app.nango.dev/dev/connections/active-campaign/57bf0a39-cce7-40b2-8c88-952674fa244d/auth)  | Connection ID was not found in dev.                                                      |
 | `adp`             |     1 | `unified-employees`                                                                                                                     | Not configured                                                                                                                           | No connection configured.                                                                |
 | `aws-iam`         |     1 | `users`                                                                                                                                 | Not configured                                                                                                                           | No connection configured.                                                                |
-| `azure-devops`    |     6 | `branches`, `build-definitions`, `iterations`, `pipelines`, `repositories`, `teams`                                                     | [8fed0252-ad39-402d-90ec-82e2a925a908](https://app.nango.dev/dev/connections/azure-devops/8fed0252-ad39-402d-90ec-82e2a925a908/auth)     | 401: the Azure DevOps PAT is expired; some calls also need metadata.                     |
 | `box`             |     1 | `users`                                                                                                                                 | [3aaf1702-c0ec-4700-9bbb-c135ff5167bc](https://app.nango.dev/dev/connections/box/3aaf1702-c0ec-4700-9bbb-c135ff5167bc/auth)              | 403: the connection cannot list enterprise users.                                        |
 | `close`           |     3 | `pipelines`, `sequences`, `users`                                                                                                       | [d87cabc9-bf29-4af9-9e07-b4daeebbfa70](https://app.nango.dev/dev/connections/close/d87cabc9-bf29-4af9-9e07-b4daeebbfa70/auth)            | 401 Unauthorized; some calls also need metadata.                                         |
 | `connectsecure`   |     5 | `agents`, `companies`, `problem_groups`, `users`, `vulnerabilities`                                                                     | [c9ef67b1-e23f-4aa5-9563-8f773e7826fd](https://app.nango.dev/dev/connections/connectsecure/c9ef67b1-e23f-4aa5-9563-8f773e7826fd/auth)    | All five changed endpoints returned 403.                                                 |
@@ -42,17 +42,13 @@ Baseline snapshots are preserved on this branch because no remaining sync comple
 | `github`          |     1 | `repositories`                                                                                                                          | [9a029a76-8a73-4756-9e21-969c401dc8f9](https://app.nango.dev/dev/connections/github-app-oauth/9a029a76-8a73-4756-9e21-969c401dc8f9/auth) | The repository traversal ended in a 504 gateway timeout, including retry.                |
 | `gong`            |     4 | `call-outcomes`, `library-folders`, `scorecards`, `trackers`                                                                            | [8a2632ad-047e-4c8c-ae61-8db94e15c67f](https://app.nango.dev/dev/connections/gong-oauth/8a2632ad-047e-4c8c-ae61-8db94e15c67f/auth)       | `library-folders` returned 400 Bad request; three other changed syncs passed.            |
 | `google`          |     1 | `workspace-org-units`                                                                                                                   | Not configured                                                                                                                           | No connection configured.                                                                |
-| `google-ads`      |     2 | `accessible-customers`, `conversion-actions`                                                                                            | [892a25cd-ab96-4d8b-b687-d7e106b9d3dc](https://app.nango.dev/dev/connections/google-ads/892a25cd-ab96-4d8b-b687-d7e106b9d3dc/auth)       | Required developer-token/customer-ID metadata is absent.                                 |
 | `gusto`           |     2 | `employees`, `unified-employees`                                                                                                        | Not configured                                                                                                                           | No connection configured.                                                                |
-| `hubstaff`        |     3 | `clients`, `projects`, `tasks`                                                                                                          | [7ba8c3c4-a643-4986-990a-58c179b1c512](https://app.nango.dev/dev/connections/hubstaff/7ba8c3c4-a643-4986-990a-58c179b1c512/auth)         | 401 `invalid_token` on all three changed endpoints.                                      |
 | `instantly`       |     2 | `custom-tags`, `webhooks`                                                                                                               | [0ecdcd1a-50c0-4ead-81dc-b019da18c0fd](https://app.nango.dev/dev/connections/instantly/0ecdcd1a-50c0-4ead-81dc-b019da18c0fd/auth)        | 402 Payment Required for the changed endpoints.                                          |
-| `intercom`        |     6 | `admins`, `articles`, `companies`, `help-center-collections`, `segments`, `tags`                                                        | [56f22489-50cb-4e87-8f21-2519d6d512e4](https://app.nango.dev/dev/connections/intercom/56f22489-50cb-4e87-8f21-2519d6d512e4/auth)         | 401: the Intercom access token is invalid.                                               |
 | `mailchimp`       |     3 | `audiences`, `automations`, `stores`                                                                                                    | [263b8d18-1729-4eaf-84c7-392aaabbbd88](https://app.nango.dev/dev/connections/mailchimp/263b8d18-1729-4eaf-84c7-392aaabbbd88/auth)        | 400 `base_url_override_not_allowed` in proxy configuration.                              |
 | `make`            |     3 | `hooks`, `incomplete-executions`, `scenarios`                                                                                           | [fd1f21f1-ffcc-4c9a-8726-2189752fcf2d](https://app.nango.dev/dev/connections/make/fd1f21f1-ffcc-4c9a-8726-2189752fcf2d/auth)             | 401: required provider scopes are missing.                                               |
 | `microsoft-teams` |     5 | `channel-message-replies`, `chat-members`, `chats`, `joined-teams`, `team-members`                                                      | [a0918aff-f7d6-4ddb-8260-632135ed52d9](https://app.nango.dev/dev/connections/microsoft-teams/a0918aff-f7d6-4ddb-8260-632135ed52d9/auth)  | Four changed endpoints returned 401 because no valid Teams license is present.           |
 | `ninety-io`       |     2 | `rocks`, `todos`                                                                                                                        | [8c5b0dc2-d809-438d-bd9d-2933eb90b101](https://app.nango.dev/dev/connections/ninety-io/8c5b0dc2-d809-438d-bd9d-2933eb90b101/auth)        | 429 tier rate limit on both syncs, including cooldown retry.                             |
 | `okta`            |     8 | `application-users`, `applications`, `authorization-servers`, `factors`, `group-memberships`, `policies`, `role-assignments`, `schemas` | [fd93445d-26b6-4cb8-9dd0-c85f78e3a7b5](https://app.nango.dev/dev/connections/okta-cc/fd93445d-26b6-4cb8-9dd0-c85f78e3a7b5/auth)          | `policies` returned 400 because `ENTITY_RISK_POLICY` is unavailable; seven syncs passed. |
-| `pipelinecrm`     |     2 | `teams`, `users`                                                                                                                        | [31ff6c41-73e4-433a-b477-c6ec1c4a04e0](https://app.nango.dev/dev/connections/pipelinecrm/31ff6c41-73e4-433a-b477-c6ec1c4a04e0/auth)      | 403: the provider account is cancelled.                                                  |
 | `ring-central`    |     2 | `contacts`, `users`                                                                                                                     | Not configured                                                                                                                           | No connection configured.                                                                |
 | `tiktok-ads`      |     4 | `ad-groups`, `automated-rules`, `catalogs`, `pixels`                                                                                    | [nango-sandbox](https://app.nango.dev/dev/connections/tiktok-accounts/nango-sandbox/auth)                                                | `pixels` returned a payload without the required `data`; three syncs passed.             |
 | `tiktok-personal` |     1 | `videos`                                                                                                                                | [nango-sandbox-temp](https://app.nango.dev/dev/connections/tiktok-accounts/nango-sandbox-temp/auth)                                      | `videos` returned 404 from `/v2/video/list/`.                                            |
@@ -76,7 +72,7 @@ The endpoint returns the visible projects in one response. The branch removes un
 
 ## Snapshot policy
 
-No snapshot JSON was regenerated or manually edited on this branch. The three TypeScript test changes are test-harness adjustments for Figma and Intercom; existing JSON fixtures remain the baseline.
+No snapshot JSON was regenerated or manually edited on this branch. The remaining TypeScript test change is a test-harness adjustment for Figma; existing JSON fixtures remain the baseline.
 
 ## Additional source-audit correction
 
@@ -87,6 +83,10 @@ The final checkpoint lifecycle audit found that `microsoft-teams/chats` and `mic
 PR #649 contains 21 integrations / 68 sync changes that all passed real provider validation, save, generated tests, and affected integration suites. Its reports document the 55 changed/new snapshots and the four required credential sanitizations.
 
 During the final rebase, `cal-com-v2/event-types` and `cal-com-v2/events` were removed from this PR because newer implementations landed independently on `main` in PR #643. This report and the counts above cover only changes still introduced by this branch.
+
+## What moved to verified part 3
+
+[PR #660](https://github.com/NangoHQ/integration-templates/pull/660) contains the refreshed ActiveCampaign, Azure DevOps, Google Ads, Hubstaff, Intercom, and PipelineCRM connections: 6 integrations / 28 sync changes. All 28 syncs passed real provider validation and snapshot saving. Their old broken-connection rows and source changes have been removed from this speculative branch.
 
 ## Review guidance
 

@@ -18,11 +18,6 @@ const MetadataSchema = z.object({
     projects: z.array(z.string()).describe('List of project IDs or names to sync repositories from')
 });
 
-const CheckpointSchema = z.object({
-    project_index: z.number(),
-    continuation_token: z.string()
-});
-
 const ProviderProjectSchema = z.object({
     id: z.string(),
     name: z.string()
@@ -50,7 +45,6 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
     models: {
         Repository: RepositorySchema
     },
@@ -62,32 +56,19 @@ const sync = createSync({
             throw new Error('metadata.projects is required');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint ?? { project_index: 0, continuation_token: '' });
-        const currentCheckpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { project_index: 0, continuation_token: '' };
-        let projectIndex = currentCheckpoint['project_index'];
-        let continuationToken: string | undefined = currentCheckpoint['continuation_token'] || undefined;
-
         await nango.trackDeletesStart('Repository');
 
-        for (; projectIndex < metadata.projects.length; projectIndex++) {
-            const project = metadata.projects[projectIndex];
-            if (!project) {
-                continue;
-            }
+        for (const project of metadata.projects) {
+            let continuationToken: string | undefined;
 
             do {
-                const params: Record<string, string | number> = {
-                    'api-version': '7.2-preview.1'
-                };
-                if (continuationToken) {
-                    params['continuationToken'] = continuationToken;
-                }
-
                 const config: ProxyConfiguration = {
                     // https://learn.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-7.2
                     endpoint: `/${encodeURIComponent(project)}/_apis/git/repositories`,
-                    params,
+                    params: {
+                        'api-version': '7.2-preview.1',
+                        ...(continuationToken && { continuationToken })
+                    },
                     retries: 3
                 };
 
@@ -117,25 +98,9 @@ const sync = createSync({
 
                 const rawToken = response.headers['x-ms-continuationtoken'];
                 continuationToken = Array.isArray(rawToken) ? rawToken[0] : typeof rawToken === 'string' ? rawToken : undefined;
-
-                if (continuationToken) {
-                    await nango.saveCheckpoint({
-                        project_index: projectIndex,
-                        continuation_token: continuationToken
-                    });
-                }
             } while (continuationToken);
-
-            const nextProjectIndex = projectIndex + 1;
-            if (nextProjectIndex < metadata.projects.length) {
-                await nango.saveCheckpoint({
-                    project_index: nextProjectIndex,
-                    continuation_token: ''
-                });
-            }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Repository');
     }
 });

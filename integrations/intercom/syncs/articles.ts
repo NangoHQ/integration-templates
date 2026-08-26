@@ -34,25 +34,22 @@ const ArticleSchema = z.object({
 
 type Article = z.infer<typeof ArticleSchema>;
 
-const CheckpointSchema = z.object({
-    page: z.number()
-});
-
 const sync = createSync({
     description: 'Sync Help Center articles from Intercom',
     version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Article: ArticleSchema
     },
+    endpoints: [
+        {
+            method: 'GET',
+            path: '/syncs/articles'
+        }
+    ],
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
-        let page: number | undefined = checkpointParsed.success ? (checkpointParsed.data.page ?? 0) : 0;
-
         // /articles does not expose a provider-side updated_at filter, so this
         // must stay a full refresh to keep delete tracking accurate.
         await nango.trackDeletesStart('Article');
@@ -63,13 +60,9 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: page,
                 response_path: 'data',
                 limit_name_in_request: 'per_page',
-                limit: 100,
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
+                limit: 100
             },
             headers: {
                 'Intercom-Version': '2.11'
@@ -77,19 +70,12 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const pageResults of nango.paginate<Article>(proxyConfig)) {
-            if (pageResults.length > 0) {
-                await nango.batchSave(pageResults, 'Article');
-            }
-
-            // Persist pagination progress after every page so a run that exceeds the
-            // execution window resumes from the next page instead of restarting.
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ page });
+        for await (const page of nango.paginate<Article>(proxyConfig)) {
+            if (page.length > 0) {
+                await nango.batchSave(page, 'Article');
             }
         }
 
-        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Article');
     }
 });
