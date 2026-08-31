@@ -30,7 +30,10 @@ const FieldDefinitionSchema = z
                 input_settings: z
                     .object({
                         input_type: z.string().describe('Input widget type for the custom field'),
-                        choices: z.array(z.union([z.string(), z.boolean()])).optional().describe('Available choices for dropdown fields')
+                        choices: z
+                            .array(z.union([z.string(), z.boolean()]))
+                            .optional()
+                            .describe('Available choices for dropdown fields')
                     })
                     .optional()
                     .describe('Input rendering settings for the custom field')

@@ -35,7 +35,10 @@ const action = createAction({
                 retries: 3
             });
         } catch (err) {
-            const axiosResult = z.object({ response: z.object({ status: z.number() }).passthrough() }).passthrough().safeParse(err);
+            const axiosResult = z
+                .object({ response: z.object({ status: z.number() }).passthrough() })
+                .passthrough()
+                .safeParse(err);
             if (axiosResult.success && axiosResult.data.response.status === 403) {
                 throw new nango.ActionError({
                     type: 'permission_error',
