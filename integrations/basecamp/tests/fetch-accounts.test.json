@@ -1,0 +1,81 @@
+{
+  "input": {},
+  "output": {
+    "expires_at": "2026-09-09T03:48:31.000Z",
+    "identity": {
+      "id": 28665159,
+      "email_address": "api@nango.dev",
+      "first_name": "Nango",
+      "last_name": "Developer"
+    },
+    "accounts": [
+      {
+        "id": 6267157,
+        "name": "Nango Inc",
+        "product": "bc3",
+        "href": "https://3.basecampapi.com/6267157",
+        "app_href": "https://app.basecamp.com/6267157",
+        "hidden": false
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/authorization.json": {
+        "response": {
+          "expires_at": "2026-09-09T03:48:31.000Z",
+          "identity": {
+            "id": 28665159,
+            "email_address": "api@nango.dev",
+            "first_name": "Nango",
+            "last_name": "Developer"
+          },
+          "accounts": [
+            {
+              "id": 6267157,
+              "name": "Nango Inc",
+              "product": "bc3",
+              "href": "https://3.basecampapi.com/6267157",
+              "app_href": "https://app.basecamp.com/6267157",
+              "hidden": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:30:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1916",
+          "x-ratelimit-reset": "1787718685",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "etag": "W/\"5acd493e4adab96811badcda6d7cff0a\"",
+          "permissions-policy": "accelerometer=(), accessibility-events=(), ambient-light-sensor=(), camera=(), display-capture=(), clipboard-read=(), clipboard-write=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), payment=(), screen-wake-lock=()",
+          "x-permitted-cross-domain-policies": "none",
+          "x-request-id": "0e303d3a-066e-4094-a1ab-ac19472f5d63",
+          "x-robots-tag": "noindex",
+          "x-runtime": "0.006566",
+          "vary": "Accept-Encoding",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a3101ab1bb1eb7b9-PDX"
+        },
+        "hash": "4c64f42705bdfcdb3d995ecd2b3db1a6921d4bcb",
+        "request": {}
+      }
+    }
+  }
+}

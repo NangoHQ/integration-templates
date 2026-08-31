@@ -1,0 +1,61 @@
+{
+  "input": {
+    "projectId": 48644099
+  },
+  "output": [
+    {
+      "id": 53024699,
+      "name": "Zapier Integration",
+      "admin": false,
+      "owner": false,
+      "client": false,
+      "employee": false,
+      "time_zone": "Europe/Moscow",
+      "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+      "created_at": "2026-08-26T03:31:40.436Z",
+      "updated_at": "2026-08-26T03:31:50.720Z",
+      "can_ping": false,
+      "can_manage_projects": false,
+      "can_manage_people": false,
+      "can_access_timesheet": false,
+      "can_access_hill_charts": false
+    }
+  ],
+  "nango": {},
+  "api": {
+    "get": {
+      "/projects/48644099/people.json": {
+        "response": [
+          {
+            "id": 53024699,
+            "attachable_sgid": "gid-example",
+            "name": "Zapier Integration",
+            "personable_type": "Integration",
+            "title": null,
+            "tagline": null,
+            "location": null,
+            "created_at": "2026-08-26T03:31:40.436Z",
+            "updated_at": "2026-08-26T03:31:50.720Z",
+            "email_address": null,
+            "bio": null,
+            "admin": false,
+            "owner": false,
+            "client": false,
+            "employee": false,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+            "company": null,
+            "can_ping": false,
+            "can_manage_projects": false,
+            "can_manage_people": false,
+            "can_access_timesheet": false,
+            "can_access_hill_charts": false
+          }
+        ],
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}
