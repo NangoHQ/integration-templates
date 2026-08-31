@@ -27,7 +27,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['customers:write'],
+    scopes: ['customers:read', 'customers:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.gorgias.com/reference/get-customer-custom-fields

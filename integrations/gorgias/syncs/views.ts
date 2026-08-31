@@ -1,5 +1,4 @@
 import { createSync, type ProxyConfiguration } from 'nango';
-import type { CursorPagination } from '@nangohq/types';
 import { z } from 'zod';
 
 const ViewSchema = z
@@ -120,16 +119,6 @@ const sync = createSync({
         // changed-records endpoint exists. Full refresh is required.
         await nango.trackDeletesStart('View');
 
-        // https://developers.gorgias.com/reference/list-views
-        const paginateConfig: CursorPagination = {
-            type: 'cursor',
-            cursor_path_in_response: 'meta.next_cursor',
-            cursor_name_in_request: 'cursor',
-            response_path: 'data',
-            limit_name_in_request: 'limit',
-            limit: 100
-        };
-
         const proxyConfig: ProxyConfiguration = {
             // https://developers.gorgias.com/reference/list-views
             endpoint: '/api/views',
@@ -137,7 +126,14 @@ const sync = createSync({
                 limit: 100,
                 order_by: 'created_datetime:asc'
             },
-            paginate: paginateConfig,
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'meta.next_cursor',
+                cursor_name_in_request: 'cursor',
+                response_path: 'data',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
             retries: 3
         };
 
