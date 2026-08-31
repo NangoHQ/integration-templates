@@ -16,13 +16,13 @@ const AttachmentSchema = z.object({
 
 const MessageSchema = z.object({
     id: z.number().describe('The unique identifier of the message'),
-    body_text: z.string().optional().describe('The plain text body of the message'),
-    body_html: z.string().optional().describe('The HTML body of the message'),
-    channel: z.string().optional().describe('The channel used for this message'),
-    created_datetime: z.string().optional().describe('The ISO8601 datetime when the message was created'),
-    updated_datetime: z.string().optional().describe('The ISO8601 datetime when the message was last updated'),
-    sender: SenderSchema.optional().describe('The user or customer who sent this message'),
-    attachments: z.array(AttachmentSchema).optional().describe('Files attached to the message')
+    body_text: z.string().nullish().describe('The plain text body of the message'),
+    body_html: z.string().nullish().describe('The HTML body of the message'),
+    channel: z.string().nullish().describe('The channel used for this message'),
+    created_datetime: z.string().nullish().describe('The ISO8601 datetime when the message was created'),
+    updated_datetime: z.string().nullish().describe('The ISO8601 datetime when the message was last updated'),
+    sender: SenderSchema.nullish().describe('The user or customer who sent this message'),
+    attachments: z.array(AttachmentSchema).nullish().describe('Files attached to the message')
 });
 
 const TagSchema = z.object({
@@ -105,7 +105,7 @@ function normalizeNull<T>(value: T | null | undefined): T | undefined {
 
 const sync = createSync({
     description: 'Sync tickets with their full messages.',
-    version: '1.0.0',
+    version: '3.0.0',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -163,27 +163,23 @@ const sync = createSync({
                     subject: normalizeNull(detail.subject),
                     status: normalizeNull(detail.status),
                     channel: normalizeNull(detail.channel),
-                    messages: normalizeNull(detail.messages)
-                        ?.map((msg) => {
-                            const parsed = MessageSchema.safeParse(msg);
-                            if (!parsed.success) {
-                                return undefined;
-                            }
-                            return parsed.data;
-                        })
-                        .filter((m): m is z.infer<typeof MessageSchema> => m !== undefined),
+                    messages: normalizeNull(detail.messages)?.map((msg) => {
+                        const parsed = MessageSchema.safeParse(msg);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse message for ticket id ${ticket.id}: ${parsed.error.message}`);
+                        }
+                        return parsed.data;
+                    }),
                     customer_id: normalizeNull(detail.customer_id),
                     assignee_user_id: normalizeNull(detail.assignee_user_id),
                     requester_id: normalizeNull(detail.requester_id),
-                    tags: normalizeNull(detail.tags)
-                        ?.map((tag) => {
-                            const parsed = TagSchema.safeParse(tag);
-                            if (!parsed.success) {
-                                return undefined;
-                            }
-                            return parsed.data;
-                        })
-                        .filter((t): t is z.infer<typeof TagSchema> => t !== undefined),
+                    tags: normalizeNull(detail.tags)?.map((tag) => {
+                        const parsed = TagSchema.safeParse(tag);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse tag for ticket id ${ticket.id}: ${parsed.error.message}`);
+                        }
+                        return parsed.data;
+                    }),
                     created_datetime: normalizeNull(detail.created_datetime),
                     updated_datetime: normalizeNull(detail.updated_datetime),
                     opened_datetime: normalizeNull(detail.opened_datetime),

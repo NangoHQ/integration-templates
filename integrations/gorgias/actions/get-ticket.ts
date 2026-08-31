@@ -9,8 +9,8 @@ const InputSchema = z
 
 const MessageSchema = z.object({
     id: z.number().describe('Unique identifier of the message.'),
-    body_text: z.string().optional().describe('Plain text body of the message.'),
-    body_html: z.string().optional().describe('HTML body of the message.'),
+    body_text: z.string().nullable().optional().describe('Plain text body of the message.'),
+    body_html: z.string().nullable().optional().describe('HTML body of the message.'),
     channel: z.string().describe('Channel the message was sent through. Example: "email" or "phone".'),
     from_agent: z.boolean().describe('Whether the message was sent by an agent.'),
     public: z.boolean().describe('Whether the message is visible to the customer.'),
@@ -20,9 +20,9 @@ const MessageSchema = z.object({
 const OutputSchema = z
     .object({
         id: z.number().describe('Unique identifier of the ticket.'),
-        subject: z.string().optional().describe('Subject line of the ticket.'),
+        subject: z.string().nullable().optional().describe('Subject line of the ticket.'),
         status: z.string().describe('Current status of the ticket. Example: "open" or "closed".'),
-        channel: z.string().describe('Primary channel of the ticket. Example: "email" or "phone".'),
+        channel: z.string().nullable().optional().describe('Primary channel of the ticket. Example: "email" or "phone".'),
         created_datetime: z.string().describe('ISO 8601 timestamp when the ticket was created.'),
         updated_datetime: z.string().describe('ISO 8601 timestamp when the ticket was last updated.'),
         messages: z.array(MessageSchema).describe('Full list of messages attached to the ticket.')

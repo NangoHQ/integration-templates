@@ -32,7 +32,7 @@ const ProviderTagSchema = z.object({
 
 const ProviderMetaSchema = z.object({
     prev_cursor: z.string().nullable().optional(),
-    next_cursor: z.string().optional(),
+    next_cursor: z.string().nullable().optional(),
     total_resources: z.number().int().nullable().optional()
 });
 

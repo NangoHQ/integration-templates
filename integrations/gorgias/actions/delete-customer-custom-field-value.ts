@@ -18,6 +18,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty response indicating the custom field value was successfully cleared.'),
+    scopes: ['customers:write'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developers.gorgias.com/reference/delete-customer-custom-field-value

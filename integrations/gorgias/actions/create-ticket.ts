@@ -9,8 +9,8 @@ const CustomerChannelSchema = z.object({
 
 const CustomerSchema = z.object({
     id: z.number(),
-    name: z.string().optional(),
-    email: z.string().optional(),
+    name: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
     channels: z.array(CustomerChannelSchema).optional()
 });
 
@@ -202,6 +202,7 @@ async function createCustomer(nango: NangoAction, input: z.infer<typeof InputSch
  */
 const action = createAction({
     description: 'Create a ticket, finding or creating the customer by email/phone and choosing the phone vs. email message channel based on account settings.',
+    version: '2.0.0',
     input: InputSchema,
     output: TicketSchema,
     scopes: ['tickets:write', 'customers:write', 'customers:read', 'account:read'],

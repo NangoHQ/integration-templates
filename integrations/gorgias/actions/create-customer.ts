@@ -54,8 +54,8 @@ const ProviderCustomerSchema = z
     .object({
         id: z.number(),
         name: z.string().nullable().optional(),
-        firstname: z.string().optional(),
-        lastname: z.string().optional(),
+        firstname: z.string().nullable().optional(),
+        lastname: z.string().nullable().optional(),
         email: z.string().nullable().optional(),
         external_id: z.string().nullable().optional(),
         language: z.string().nullable().optional(),
@@ -102,8 +102,8 @@ const action = createAction({
         return {
             id: providerCustomer.id,
             ...(providerCustomer.name != null && { name: providerCustomer.name }),
-            ...(providerCustomer.firstname !== undefined && { firstname: providerCustomer.firstname }),
-            ...(providerCustomer.lastname !== undefined && { lastname: providerCustomer.lastname }),
+            ...(providerCustomer.firstname != null && { firstname: providerCustomer.firstname }),
+            ...(providerCustomer.lastname != null && { lastname: providerCustomer.lastname }),
             ...(providerCustomer.email != null && { email: providerCustomer.email }),
             ...(providerCustomer.external_id != null && { external_id: providerCustomer.external_id }),
             ...(providerCustomer.language != null && { language: providerCustomer.language }),

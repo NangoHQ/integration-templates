@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const ListInput = z
     .object({
         ticket_id: z.number().describe('Ticket ID to list messages for'),
-        cursor: z.string().optional().describe('Pagination cursor from the previous response'),
+        page: z.number().optional().describe('Page number to fetch. Defaults to the first page.'),
         limit: z.number().optional().describe('Maximum number of messages per page')
     })
     .describe('Input for listing ticket messages');
@@ -13,7 +13,8 @@ const ProviderResponseSchema = z.object({
     data: z.array(z.object({}).passthrough()),
     meta: z
         .object({
-            next_cursor: z.string().optional().nullable()
+            page: z.number().optional().nullable(),
+            nb_pages: z.number().optional().nullable()
         })
         .optional()
 });
@@ -22,11 +23,11 @@ const ProviderMessageSchema = z
     .object({
         id: z.number(),
         ticket_id: z.number(),
-        body: z.string().optional(),
+        body_html: z.string().optional().nullable(),
         body_text: z.string().optional().nullable(),
-        channel: z.string().optional(),
-        created_datetime: z.string().optional(),
-        updated_datetime: z.string().optional(),
+        channel: z.string().optional().nullable(),
+        created_datetime: z.string().optional().nullable(),
+        updated_datetime: z.string().optional().nullable(),
         from_agent: z.boolean().optional().nullable(),
         via: z.string().optional().nullable(),
         source: z.object({}).passthrough().optional().nullable(),
@@ -55,14 +56,15 @@ const MessageSchema = z
 const ListOutput = z
     .object({
         items: z.array(MessageSchema).describe('Array of ticket messages'),
-        next_cursor: z.string().optional().describe('Cursor for the next page of results')
+        page: z.number().optional().describe('The current page number.'),
+        nb_pages: z.number().optional().describe('The total number of pages available.')
     })
     .describe('Output for listing ticket messages');
 
 /**
  * @tags: [read]
  * @tagReason: Reads messages from an existing ticket.
- * @pitfalls: The provider returns body_html instead of body and omits updated_datetime, so both fields are always missing from the output.
+ * @pitfalls: The provider paginates this endpoint by page number (meta.page/meta.nb_pages), not by cursor; pass `page` to fetch subsequent pages.
  */
 const action = createAction({
     description: 'List messages on a specific ticket',
@@ -75,7 +77,7 @@ const action = createAction({
             // https://developers.gorgias.com/reference/list-ticket-messages
             endpoint: `/api/tickets/${encodeURIComponent(`${input.ticket_id}`)}/messages`,
             params: {
-                ...(input.cursor !== undefined && { cursor: input.cursor }),
+                ...(input.page !== undefined && { page: input.page }),
                 ...(input.limit !== undefined && { limit: input.limit })
             },
             retries: 3
@@ -88,11 +90,11 @@ const action = createAction({
             return {
                 id: message.id,
                 ticket_id: message.ticket_id,
-                ...(message.body !== undefined && { body: message.body }),
+                ...(message.body_html != null && { body: message.body_html }),
                 ...(message.body_text != null && { body_text: message.body_text }),
-                ...(message.channel !== undefined && { channel: message.channel }),
-                ...(message.created_datetime !== undefined && { created_datetime: message.created_datetime }),
-                ...(message.updated_datetime !== undefined && { updated_datetime: message.updated_datetime }),
+                ...(message.channel != null && { channel: message.channel }),
+                ...(message.created_datetime != null && { created_datetime: message.created_datetime }),
+                ...(message.updated_datetime != null && { updated_datetime: message.updated_datetime }),
                 ...(message.from_agent != null && { from_agent: message.from_agent }),
                 ...(message.via != null && { via: message.via }),
                 ...(message.source != null && { source: message.source }),
@@ -103,7 +105,8 @@ const action = createAction({
 
         return {
             items,
-            ...(providerResponse.meta?.next_cursor != null && { next_cursor: providerResponse.meta.next_cursor })
+            ...(providerResponse.meta?.page != null && { page: providerResponse.meta.page }),
+            ...(providerResponse.meta?.nb_pages != null && { nb_pages: providerResponse.meta.nb_pages })
         };
     }
 });

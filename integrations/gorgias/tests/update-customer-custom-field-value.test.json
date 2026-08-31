@@ -79,6 +79,37 @@
           ]
         }
       }
+    },
+    "get": {
+      "/api/customers/519543245/custom-fields": {
+        "response": {
+          "data": [
+            {
+              "field": {
+                "id": 319830,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Nango Test Customer Field",
+                "description": null,
+                "priority": 4,
+                "required": false,
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:41:26.294153+00:00",
+                "updated_datetime": "2026-08-26T18:41:26.294158+00:00",
+                "deactivated_datetime": null
+              },
+              "value": "Nango Test Value"
+            }
+          ]
+        },
+        "status": 200
+      }
     }
   }
 }

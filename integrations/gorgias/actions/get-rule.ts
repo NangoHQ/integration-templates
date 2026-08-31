@@ -11,14 +11,14 @@ const OutputSchema = z
     .object({
         id: z.number().describe('The unique identifier of the automation rule.'),
         name: z.string().describe('The name of the automation rule.'),
-        description: z.string().optional().describe('The description of the automation rule.'),
+        description: z.string().nullable().optional().describe('The description of the automation rule.'),
         created_datetime: z.string().optional().describe('ISO 8601 timestamp when the rule was created.'),
         updated_datetime: z.string().optional().describe('ISO 8601 timestamp when the rule was last updated.'),
         uri: z.string().optional().describe('The API URI of the rule resource.'),
         code: z.string().optional().describe('The rule logic expressed as code.'),
         code_ast: z.record(z.string(), z.unknown()).optional().describe('The parsed abstract syntax tree of the rule code.'),
         deactivated_datetime: z.string().nullable().optional().describe('ISO 8601 timestamp when the rule was deactivated, or null if active.'),
-        event_types: z.string().optional().describe('The event types that trigger this rule.'),
+        event_types: z.string().nullable().optional().describe('The event types that trigger this rule.'),
         settings: z.unknown().optional().describe('Additional rule settings.'),
         priority: z.number().optional().describe('The priority of the rule.'),
         type: z.string().optional().describe('The type of the rule.')

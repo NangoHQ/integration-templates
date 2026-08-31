@@ -39,7 +39,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tickets:write'],
+    scopes: ['tickets:write', 'tickets:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.tag_ids && !input.tag_names) {

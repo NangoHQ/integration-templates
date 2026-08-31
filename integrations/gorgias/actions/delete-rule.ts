@@ -17,6 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null(),
+    scopes: ['rules:write'],
 
     exec: async (nango, input): Promise<null> => {
         await nango.delete({

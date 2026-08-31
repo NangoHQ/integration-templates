@@ -42,7 +42,10 @@ const InputSchema = z
                     .object({
                         input_type: z.string().describe('The input widget type for the custom field. For text fields, use "input" (not "text_field").')
                     })
-                    .describe('Settings that control how the field is rendered in the UI.')
+                    .passthrough()
+                    .describe(
+                        'Settings that control how the field is rendered in the UI. Additional field-specific settings are forwarded to the provider as-is, e.g. `choices` for dropdown fields or `default`/`min`/`max` for number fields.'
+                    )
             })
             .describe('The type definition and UI settings for the custom field.')
     })
@@ -61,10 +64,13 @@ const OutputSchema = z
                 data_type: z.string().optional().describe('The data type of the custom field.'),
                 input_settings: z
                     .object({
-                        input_type: z.string().optional().describe('The input widget type for the custom field.')
+                        input_type: z.string().nullable().optional().describe('The input widget type for the custom field.')
                     })
+                    .passthrough()
                     .optional()
-                    .describe('Settings that control how the field is rendered in the UI.')
+                    .describe(
+                        'Settings that control how the field is rendered in the UI, including any field-specific settings such as `choices`, `default`, `min`, or `max`.'
+                    )
             })
             .optional()
             .describe('The type definition and UI settings for the custom field.'),
@@ -83,6 +89,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['custom_fields:write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developers.gorgias.com/reference/create-custom-field
@@ -111,11 +118,7 @@ const action = createAction({
                 definition: {
                     ...(providerField.definition.data_type != null && { data_type: providerField.definition.data_type }),
                     ...(providerField.definition.input_settings != null && {
-                        input_settings: {
-                            ...(providerField.definition.input_settings.input_type != null && {
-                                input_type: providerField.definition.input_settings.input_type
-                            })
-                        }
+                        input_settings: providerField.definition.input_settings
                     })
                 }
             }),

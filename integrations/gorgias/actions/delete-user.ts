@@ -14,6 +14,7 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Delete a user in Gorgias.',
+    version: '2.0.0',
     input: InputSchema,
     output: z.null(),
     scopes: ['users:write'],

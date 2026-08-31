@@ -19,7 +19,11 @@ const InputSchema = z
         object_type: z.string().optional().describe('Filter events by the type of object they relate to. Example: "Ticket", "Customer", "User".'),
         order_by: z.string().optional().describe('Sort order for the results. Example: "created_datetime:desc".'),
         types: z.array(z.string()).optional().describe('Filter events by specific event types. Example: ["ticket-created", "ticket-closed"].'),
-        user_ids: z.array(z.number()).optional().describe('Filter events by the IDs of users who performed the actions.'),
+        user_ids: z
+            .array(z.number())
+            .max(1)
+            .optional()
+            .describe('Filter events by the ID of the user who performed the actions. The API only supports a single element.'),
         created_datetime: CreatedDatetimeInputSchema
     })
     .describe('Input for listing Gorgias audit-trail events.');

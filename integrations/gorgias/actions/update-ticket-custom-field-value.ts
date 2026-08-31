@@ -36,7 +36,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tickets:write', 'custom_fields:write'],
+    scopes: ['tickets:read', 'tickets:write', 'custom_fields:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.gorgias.com/reference/get-ticket

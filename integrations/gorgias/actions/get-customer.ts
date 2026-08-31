@@ -16,7 +16,7 @@ const ChannelSchema = z.object({
 const OutputSchema = z
     .object({
         id: z.number().describe('The unique identifier of the customer.'),
-        name: z.string().describe('The full name of the customer.'),
+        name: z.string().optional().describe('The full name of the customer.'),
         firstname: z.string().optional().describe('The first name of the customer.'),
         lastname: z.string().optional().describe('The last name of the customer.'),
         channels: z.array(ChannelSchema).describe('The contact channels associated with the customer.')
@@ -53,7 +53,7 @@ const action = createAction({
         const customer = z
             .object({
                 id: z.number(),
-                name: z.string(),
+                name: z.string().nullable().optional(),
                 firstname: z.string().optional().nullable(),
                 lastname: z.string().optional().nullable(),
                 channels: z
@@ -70,7 +70,7 @@ const action = createAction({
 
         return {
             id: customer.id,
-            name: customer.name,
+            ...(customer.name != null && { name: customer.name }),
             ...(customer.firstname != null && { firstname: customer.firstname }),
             ...(customer.lastname != null && { lastname: customer.lastname }),
             channels: customer.channels || []

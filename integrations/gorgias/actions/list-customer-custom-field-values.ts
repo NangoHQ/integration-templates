@@ -9,10 +9,10 @@ const InputSchema = z
 
 const CustomFieldDefinitionSchema = z.object({
     id: z.number(),
-    external_id: z.string().optional(),
+    external_id: z.string().nullable().optional(),
     object_type: z.string().optional(),
     label: z.string().optional(),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     priority: z.number().optional(),
     required: z.boolean().optional(),
     managed_type: z.string().nullable().optional(),

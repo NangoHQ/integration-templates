@@ -17,7 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null(),
-    scopes: ['views:write'],
+    scopes: ['tickets:write'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developers.gorgias.com/reference/delete-view

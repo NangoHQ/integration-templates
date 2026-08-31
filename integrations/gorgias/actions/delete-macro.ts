@@ -13,6 +13,7 @@ const action = createAction({
         })
         .describe('Input payload for deleting a macro'),
     output: z.null().describe('Empty response indicating successful deletion'),
+    scopes: ['macros:write'],
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/delete-macro
         await nango.delete({

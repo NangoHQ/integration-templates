@@ -7,7 +7,21 @@
           "subject": "Nango Test Ticket for Custom Field",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218873961,
+              "body_text": "Test message",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T19:25:16.763796+00:00",
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T19:25:16.763796+00:00",
           "updated_datetime": "2026-08-26T19:25:18.551095+00:00",
@@ -20,7 +34,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218858924,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:47:51.764128+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:47:51.764128+00:00",
           "updated_datetime": "2026-08-26T18:47:52.236137+00:00",
@@ -33,7 +61,21 @@
           "subject": "Updated Subject",
           "status": "closed",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218858323,
+              "body_text": "Test message for disposable ticket",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:46:36.984977+00:00",
+              "sender": {
+                "id": 519762152,
+                "email": "disposable-test@example.com",
+                "name": "Disposable Test"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:46:36.984977+00:00",
           "updated_datetime": "2026-08-26T18:47:32.061547+00:00",
@@ -47,7 +89,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218858379,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:46:43.140876+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:46:43.140876+00:00",
           "updated_datetime": "2026-08-26T18:46:44.972609+00:00",
@@ -60,7 +116,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218858307,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:46:33.052758+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:46:33.052758+00:00",
           "updated_datetime": "2026-08-26T18:46:35.198586+00:00",
@@ -73,7 +143,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218857798,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:45:10.045461+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:45:10.045461+00:00",
           "updated_datetime": "2026-08-26T18:45:11.713644+00:00",
@@ -86,7 +170,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218857716,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:45:00.993388+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:45:00.993388+00:00",
           "updated_datetime": "2026-08-26T18:45:02.789499+00:00",
@@ -99,7 +197,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218857298,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:44:05.183362+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:44:05.183362+00:00",
           "updated_datetime": "2026-08-26T18:44:07.077520+00:00",
@@ -112,7 +224,21 @@
           "subject": "Test ticket",
           "status": "open",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218857078,
+              "body_text": "Hello from dryrun",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:43:40.653695+00:00",
+              "sender": {
+                "id": 519759291,
+                "email": "test-dryrun-abc123@example.com",
+                "name": "Nango TestUser"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:43:40.653695+00:00",
           "updated_datetime": "2026-08-26T18:43:42.301129+00:00",
@@ -151,7 +277,47 @@
           "subject": "Test ticket for message",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218853586,
+              "body_text": "Initial body",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:36:20.106093+00:00",
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias"
+              },
+              "attachments": null
+            },
+            {
+              "id": 218854603,
+              "body_text": "Test message from dryrun",
+              "body_html": "<p>Test message from dryrun</p>",
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:38:25.112155+00:00",
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias"
+              },
+              "attachments": null
+            },
+            {
+              "id": 218854668,
+              "body_text": "Test message from dryrun",
+              "body_html": "<p>Test message from dryrun</p>",
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:38:33.416987+00:00",
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:36:20.106093+00:00",
           "updated_datetime": "2026-08-26T18:38:33.936350+00:00",
@@ -164,7 +330,21 @@
           "subject": "Let's send your first message!",
           "status": "open",
           "channel": "email",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218665490,
+              "body_text": "\nCongrats Nango!\n\nYou can now respond to customers from Gorgias :thumbsup:\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.\n\nWe look forward to hearing from you!\n\nRomain & the Gorgias team\n",
+              "body_html": "\nCongrats Nango!<br><br>\n\nYou can now respond to customers from Gorgias &#128077<br><br>\n\nLet's get started by responding to this message. Can you tell us why you're trying Gorgias out? We respond to ALL our messages.<br><br>\n\nWe look forward to hearing from you!<br><br>\n\nRomain & the Gorgias team\n",
+              "channel": "email",
+              "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [
             {
               "id": 1812976,
@@ -199,7 +379,21 @@
           "subject": "Temp ticket for survey test",
           "status": "open",
           "channel": "phone",
-          "messages": [],
+          "messages": [
+            {
+              "id": 218853389,
+              "body_text": "Temp ticket for survey",
+              "body_html": null,
+              "channel": "phone",
+              "created_datetime": "2026-08-26T18:35:54.682089+00:00",
+              "sender": {
+                "id": 519543243,
+                "email": "api@nango.dev",
+                "name": "Nango Developer"
+              },
+              "attachments": null
+            }
+          ],
           "tags": [],
           "created_datetime": "2026-08-26T18:35:54.682089+00:00",
           "updated_datetime": "2026-08-26T18:35:54.857816+00:00",

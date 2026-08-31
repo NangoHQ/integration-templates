@@ -20,7 +20,7 @@ const CustomFieldSchema = z.object({
     label: z.string().optional().describe('Human-readable label shown in the UI.'),
     object_type: z.enum(['Ticket', 'Customer']).optional().describe('The object type this custom field applies to.'),
     type: z.string().optional().describe('Data type of the custom field (e.g., "string", "integer", "list", "boolean").'),
-    description: z.string().optional().describe('Optional description of the custom field.'),
+    description: z.string().nullable().optional().describe('Optional description of the custom field.'),
     deactivated_datetime: z.string().nullable().optional().describe('ISO 8601 timestamp when the field was deactivated, or null if active.'),
     position: z.number().optional().describe('Display order position of the custom field.'),
     choices: z.array(z.string()).optional().describe('Available choices for list-type custom fields.'),

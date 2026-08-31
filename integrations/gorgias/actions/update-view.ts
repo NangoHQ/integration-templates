@@ -64,22 +64,22 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         id: z.number().describe('ID of the view.'),
-        category: z.string().optional().describe('Category used to identify system and user views.'),
-        created_datetime: z.string().optional().describe('When the view was created.'),
+        category: z.string().nullable().optional().describe('Category used to identify system and user views.'),
+        created_datetime: z.string().nullable().optional().describe('When the view was created.'),
         deactivated_datetime: z.string().nullable().optional().describe('When the view was deactivated.'),
         decoration: ViewDecorationSchema.nullable().optional().describe('Object describing how the view appears in applications.'),
-        fields: z.array(ViewFieldSchema).optional().describe("List of object's attributes displayed in the UI."),
-        filters: z.string().optional().describe('The logic used to filter items in the view.'),
-        name: z.string().optional().describe('The name of the view.'),
-        order_by: z.string().optional().describe('Attribute used to sort items in the view.'),
-        order_dir: z.enum(['asc', 'desc']).optional().describe('Sort direction of items in the view.'),
+        fields: z.array(ViewFieldSchema).nullable().optional().describe("List of object's attributes displayed in the UI."),
+        filters: z.string().nullable().optional().describe('The logic used to filter items in the view.'),
+        name: z.string().nullable().optional().describe('The name of the view.'),
+        order_by: z.string().nullable().optional().describe('Attribute used to sort items in the view.'),
+        order_dir: z.enum(['asc', 'desc']).nullable().optional().describe('Sort direction of items in the view.'),
         search: z.string().nullable().optional().describe('Text used to search for items matching the query.'),
-        shared_with_teams: z.array(ViewSharedWithTeamSchema).optional().describe('Teams this view is shared with.'),
-        shared_with_users: z.array(ViewSharedWithUserSchema).optional().describe('Users this view is shared with.'),
-        slug: z.string().optional().describe('DEPRECATED - URL-compatible name of the view.'),
-        type: ViewTypeSchema.optional().describe('Type of objects the view is applied on.'),
-        uri: z.string().optional().describe('URI of the object (auto-generated).'),
-        visibility: ViewVisibilitySchema.optional().describe('Visibility of the view.')
+        shared_with_teams: z.array(ViewSharedWithTeamSchema).nullable().optional().describe('Teams this view is shared with.'),
+        shared_with_users: z.array(ViewSharedWithUserSchema).nullable().optional().describe('Users this view is shared with.'),
+        slug: z.string().nullable().optional().describe('DEPRECATED - URL-compatible name of the view.'),
+        type: ViewTypeSchema.nullable().optional().describe('Type of objects the view is applied on.'),
+        uri: z.string().nullable().optional().describe('URI of the object (auto-generated).'),
+        visibility: ViewVisibilitySchema.nullable().optional().describe('Visibility of the view.')
     })
     .describe('The updated view.');
 
@@ -93,6 +93,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['tickets:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

@@ -12,7 +12,11 @@ const SenderInputSchema = z
 const InputSchema = z
     .object({
         ticket_id: z.number().describe('The ID of the ticket to add the message to.'),
-        channel: z.string().describe('Channel used to send the message. Use "phone" to avoid a required source envelope.'),
+        channel: z
+            .literal('phone')
+            .describe(
+                'Channel used to send the message. Only "phone" is supported: other channels (e.g. "email") require a source envelope this action does not send and will be rejected by the provider.'
+            ),
         from_agent: z.boolean().describe('Whether the message was sent by your company.'),
         body_text: z.string().describe('Text version of the body of the message.'),
         body_html: z.string().optional().describe('HTML version of the body of the message.'),
@@ -67,7 +71,7 @@ const ProviderMessageSchema = z.object({
 /**
  * @tags: [write]
  * @tagReason: Creates a new message on the provider via POST /api/tickets/{ticket_id}/messages.
- * @pitfalls: Use channel "phone" to avoid requiring a source envelope; email-channel messages without a source.from object will 400. Messages are sent asynchronously, so the returned sent_datetime may initially be null and update later.
+ * @pitfalls: Only the "phone" channel is supported since this action does not send the source envelope required by other channels (e.g. "email"). Messages are sent asynchronously, so the returned sent_datetime may initially be null and update later.
  */
 const action = createAction({
     description: 'Add a new message to an existing ticket.',

@@ -10,11 +10,11 @@ const TicketMessageAttachmentSchema = z.object({
 });
 
 const TicketMessageUserOrCustomerSchema = z.object({
-    id: z.number().int().nullable(),
-    email: z.string().nullable(),
-    name: z.string().nullable(),
-    firstname: z.string().nullable(),
-    lastname: z.string().nullable()
+    id: z.number().int().nullable().optional(),
+    email: z.string().nullable().optional(),
+    name: z.string().nullable().optional(),
+    firstname: z.string().nullable().optional(),
+    lastname: z.string().nullable().optional()
 });
 
 const TicketMessageSourceAddressSchema = z.object({
@@ -63,41 +63,41 @@ const TicketMessageRepliedByOrToSchema = z.object({
 
 const TicketMessageSchema = z.object({
     id: z.number().int(),
-    uri: z.string().nullable(),
-    message_id: z.string().nullable(),
-    ticket_id: z.number().int().nullable(),
-    external_id: z.string().nullable(),
-    public: z.boolean().nullable(),
-    channel: z.string().nullable(),
-    via: z.string().nullable(),
-    source: TicketMessageSourceSchema.nullable(),
-    sender: TicketMessageUserOrCustomerSchema.nullable(),
-    auth_customer_identity: TicketMessageAuthCustomerIdentitySchema.nullable(),
-    integration_id: z.number().int().nullable(),
-    intents: z.array(TicketMessageIntentSchema).nullable(),
-    rule_id: z.number().int().nullable(),
-    from_agent: z.boolean().nullable(),
-    receiver: TicketMessageUserOrCustomerSchema.nullable(),
-    subject: z.string().nullable(),
-    body_text: z.string().nullable(),
-    body_html: z.string().nullable(),
-    stripped_text: z.string().nullable(),
-    stripped_html: z.string().nullable(),
-    stripped_signature: z.string().nullable(),
-    attachments: z.array(TicketMessageAttachmentSchema).nullable(),
+    uri: z.string().nullish(),
+    message_id: z.string().nullish(),
+    ticket_id: z.number().int().nullish(),
+    external_id: z.string().nullish(),
+    public: z.boolean().nullish(),
+    channel: z.string().nullish(),
+    via: z.string().nullish(),
+    source: TicketMessageSourceSchema.nullish(),
+    sender: TicketMessageUserOrCustomerSchema.nullish(),
+    auth_customer_identity: TicketMessageAuthCustomerIdentitySchema.nullish(),
+    integration_id: z.number().int().nullish(),
+    intents: z.array(TicketMessageIntentSchema).nullish(),
+    rule_id: z.number().int().nullish(),
+    from_agent: z.boolean().nullish(),
+    receiver: TicketMessageUserOrCustomerSchema.nullish(),
+    subject: z.string().nullish(),
+    body_text: z.string().nullish(),
+    body_html: z.string().nullish(),
+    stripped_text: z.string().nullish(),
+    stripped_html: z.string().nullish(),
+    stripped_signature: z.string().nullish(),
+    attachments: z.array(TicketMessageAttachmentSchema).nullish(),
     macros: z.array(TicketMessageMacroSchema).nullish(),
-    actions: z.array(z.record(z.string(), z.unknown())).nullable(),
+    actions: z.array(z.record(z.string(), z.unknown())).nullish(),
     headers: z.record(z.string(), z.unknown()).nullish(),
-    imported: z.boolean().nullable(),
-    meta: z.record(z.string(), z.unknown()).nullable(),
-    created_datetime: z.string().nullable(),
-    processed_datetime: z.string().nullable(),
+    imported: z.boolean().nullish(),
+    meta: z.record(z.string(), z.unknown()).nullish(),
+    created_datetime: z.string().nullish(),
+    processed_datetime: z.string().nullish(),
     deleted_datetime: z.string().nullish(),
-    sent_datetime: z.string().nullable(),
-    failed_datetime: z.string().nullable(),
-    opened_datetime: z.string().nullable(),
-    last_sending_error: TicketMessageSendingErrorSchema.nullable(),
-    is_retriable: z.boolean().nullable(),
+    sent_datetime: z.string().nullish(),
+    failed_datetime: z.string().nullish(),
+    opened_datetime: z.string().nullish(),
+    last_sending_error: TicketMessageSendingErrorSchema.nullish(),
+    is_retriable: z.boolean().nullish(),
     replied_by: TicketMessageRepliedByOrToSchema.nullish(),
     replied_to: TicketMessageRepliedByOrToSchema.nullish()
 });
@@ -183,8 +183,10 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const items = Array.isArray(page) ? page : [];
-            const records = items.map((item: unknown) => {
+            if (!Array.isArray(page)) {
+                throw new Error('Failed to fetch ticket messages: expected an array page from the provider.');
+            }
+            const records = page.map((item: unknown) => {
                 const parsed = TicketMessageSchema.safeParse(item);
                 if (!parsed.success) {
                     throw new Error(`Failed to validate ticket message: ${parsed.error.message}`);

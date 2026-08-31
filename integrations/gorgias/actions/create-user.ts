@@ -34,7 +34,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a new user with a role in Gorgias. Defaults to agent if a role is not provided.',
-    version: '1.0.0',
+    version: '3.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users:write'],

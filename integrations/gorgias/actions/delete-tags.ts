@@ -19,6 +19,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('No meaningful response body on success.'),
+    scopes: ['tags:write'],
 
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/delete-tags

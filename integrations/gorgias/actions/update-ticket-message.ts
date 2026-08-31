@@ -36,9 +36,9 @@ const MessageSchema = z.object({
     subject: z.string().nullable().optional(),
     created_datetime: z.string(),
     uri: z.string(),
-    source: z.object({}).passthrough().optional(),
-    sender: z.object({}).passthrough().optional(),
-    receiver: z.object({}).passthrough().optional()
+    source: z.object({}).passthrough().nullable().optional(),
+    sender: z.object({}).passthrough().nullable().optional(),
+    receiver: z.object({}).passthrough().nullable().optional()
 });
 
 /**

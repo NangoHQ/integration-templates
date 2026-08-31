@@ -20,6 +20,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Performs a PUT request to update a custom field value on a customer.
+ * @pitfalls: The provider's PUT endpoint fully replaces all custom field values on the customer, so this action first fetches the existing values and merges the requested one in before sending the complete set.
  */
 const action = createAction({
     description: 'Set a single custom field value on a customer.',
@@ -29,15 +30,32 @@ const action = createAction({
     scopes: ['customers:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developers.gorgias.com/reference/get-customer-custom-fields
+        const existingResponse = await nango.get({
+            endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
+            retries: 3
+        });
+
+        const existingData = z
+            .object({
+                data: z.array(
+                    z.object({
+                        field: z.object({ id: z.number() }).passthrough(),
+                        value: z.union([z.string(), z.number(), z.boolean()])
+                    })
+                )
+            })
+            .parse(existingResponse.data);
+
+        const mergedValues = existingData.data
+            .filter((entry) => entry.field.id !== input.custom_field_id)
+            .map((entry) => ({ id: entry.field.id, value: entry.value }));
+        mergedValues.push({ id: input.custom_field_id, value: input.value });
+
         const response = await nango.put({
             // https://developers.gorgias.com/reference/update-customer-custom-fields
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
-            data: [
-                {
-                    id: input.custom_field_id,
-                    value: input.value
-                }
-            ],
+            data: mergedValues,
             retries: 3
         });
 
@@ -45,14 +63,15 @@ const action = createAction({
             .object({
                 data: z.array(
                     z.object({
+                        field: z.object({ id: z.number() }).passthrough(),
                         value: z.union([z.string(), z.number(), z.boolean()])
                     })
                 )
             })
             .parse(response.data);
 
-        const firstResult = responseData.data[0];
-        if (!firstResult) {
+        const updatedResult = responseData.data.find((entry) => entry.field.id === input.custom_field_id);
+        if (!updatedResult) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'No custom field value was updated.'
@@ -62,7 +81,7 @@ const action = createAction({
         return {
             customer_id: input.customer_id,
             custom_field_id: input.custom_field_id,
-            value: firstResult.value
+            value: updatedResult.value
         };
     }
 });

@@ -20,8 +20,8 @@ const InputSchema = z
 const ProviderCustomerSchema = z.object({
     id: z.number().int(),
     name: z.string().nullable().optional(),
-    firstname: z.string().optional(),
-    lastname: z.string().optional(),
+    firstname: z.string().nullable().optional(),
+    lastname: z.string().nullable().optional(),
     email: z.string().nullable().optional(),
     external_id: z.string().nullable().optional(),
     language: z.string().nullable().optional(),
@@ -107,8 +107,8 @@ const action = createAction({
             return {
                 id: customer.id,
                 ...(customer.name != null && { name: customer.name }),
-                ...(customer.firstname !== undefined && { firstname: customer.firstname }),
-                ...(customer.lastname !== undefined && { lastname: customer.lastname }),
+                ...(customer.firstname != null && { firstname: customer.firstname }),
+                ...(customer.lastname != null && { lastname: customer.lastname }),
                 ...(customer.email != null && { email: customer.email }),
                 ...(customer.external_id != null && { external_id: customer.external_id }),
                 ...(customer.language != null && { language: customer.language }),

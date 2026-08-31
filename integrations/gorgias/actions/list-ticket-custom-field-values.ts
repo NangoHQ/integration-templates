@@ -67,7 +67,7 @@ const action = createAction({
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/list-ticket-custom-fields
         const response = await nango.get({
-            endpoint: `api/tickets/${encodeURIComponent(input.ticket_id)}/custom-fields`,
+            endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}/custom-fields`,
             retries: 3
         });
 

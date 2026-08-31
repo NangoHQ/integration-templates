@@ -14,24 +14,30 @@ const ProviderRuleSchema = z.object({
     id: z.number(),
     name: z.string(),
     description: z.string().nullable().optional(),
-    active: z.boolean().optional(),
     created_datetime: z.string().nullable().optional(),
     updated_datetime: z.string().nullable().optional(),
-    triggers: z.array(z.object({}).passthrough()).nullable().optional(),
-    actions: z.array(z.object({}).passthrough()).nullable().optional(),
-    order: z.number().nullable().optional()
+    deactivated_datetime: z.string().nullable().optional(),
+    event_types: z.string().nullable().optional(),
+    code: z.string().nullable().optional(),
+    code_ast: z.record(z.string(), z.unknown()).nullable().optional(),
+    priority: z.number().nullable().optional(),
+    type: z.string().nullable().optional(),
+    uri: z.string().nullable().optional()
 });
 
 const RuleSchema = z.object({
     id: z.number().describe('Unique rule identifier.'),
     name: z.string().describe('Display name of the automation rule.'),
     description: z.string().optional().describe('Human-readable description of what the rule does.'),
-    active: z.boolean().optional().describe('Whether the rule is currently enabled.'),
     created_datetime: z.string().optional().describe('ISO 8601 timestamp when the rule was created.'),
     updated_datetime: z.string().optional().describe('ISO 8601 timestamp when the rule was last modified.'),
-    triggers: z.array(z.object({}).passthrough()).optional().describe('Conditions that activate this rule.'),
-    actions: z.array(z.object({}).passthrough()).optional().describe('Actions executed when the rule triggers.'),
-    order: z.number().optional().describe('Execution priority order among rules.')
+    deactivated_datetime: z.string().optional().describe('ISO 8601 timestamp when the rule was deactivated, if applicable.'),
+    event_types: z.string().optional().describe('The event types that trigger this rule.'),
+    code: z.string().optional().describe('The rule logic expressed as code.'),
+    code_ast: z.record(z.string(), z.unknown()).optional().describe('The parsed abstract syntax tree of the rule code.'),
+    priority: z.number().optional().describe('The priority of the rule.'),
+    type: z.string().optional().describe('The type of the rule.'),
+    uri: z.string().optional().describe('The API URI of the rule resource.')
 });
 
 const ListRulesOutputSchema = z
@@ -82,12 +88,15 @@ const action = createAction({
                 id: rule.id,
                 name: rule.name,
                 ...(rule.description != null && { description: rule.description }),
-                ...(rule.active !== undefined && { active: rule.active }),
                 ...(rule.created_datetime != null && { created_datetime: rule.created_datetime }),
                 ...(rule.updated_datetime != null && { updated_datetime: rule.updated_datetime }),
-                ...(rule.triggers != null && { triggers: rule.triggers }),
-                ...(rule.actions != null && { actions: rule.actions }),
-                ...(rule.order != null && { order: rule.order })
+                ...(rule.deactivated_datetime != null && { deactivated_datetime: rule.deactivated_datetime }),
+                ...(rule.event_types != null && { event_types: rule.event_types }),
+                ...(rule.code != null && { code: rule.code }),
+                ...(rule.code_ast != null && { code_ast: rule.code_ast }),
+                ...(rule.priority != null && { priority: rule.priority }),
+                ...(rule.type != null && { type: rule.type }),
+                ...(rule.uri != null && { uri: rule.uri })
             };
         });
 

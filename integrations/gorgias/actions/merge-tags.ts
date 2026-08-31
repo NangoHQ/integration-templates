@@ -16,7 +16,7 @@ const OutputSchema = z
     .object({
         id: z.number().describe('ID of the tag. Example: 123456'),
         name: z.string().describe('Name of the tag. Tags\' names are case sensitive. Example: "urgent"'),
-        description: z.string().describe('Short description of the tag. Example: "Mark a ticket as urgent"'),
+        description: z.string().nullable().optional().describe('Short description of the tag. Example: "Mark a ticket as urgent"'),
         usage: z.number().describe('Number of tickets this tag is associated with. Example: 123'),
         uri: z.string().describe('URI of the tag. Example: "/api/tags/5/"'),
         created_datetime: z.string().describe('When the tag was created. Example: "2019-07-05T14:42:00.384938"'),
