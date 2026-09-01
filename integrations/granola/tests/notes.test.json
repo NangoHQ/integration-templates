@@ -1,0 +1,185 @@
+{
+  "nango": {
+    "batchSave": {
+      "Note": [
+        {
+          "id": "not_IBuThyr2eJgage",
+          "object": "note",
+          "title": "Demo meeting",
+          "owner": {
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          },
+          "created_at": "2026-08-31T11:15:53.536Z",
+          "updated_at": "2026-08-31T11:47:39.191Z",
+          "web_url": "https://notes.granola.ai/d/556129f4-7855-4799-9a0c-619b75ef88e7",
+          "calendar_event": {
+            "event_title": "Demo meeting",
+            "invitees": [
+              {
+                "email": "samstephenson@granola.ai"
+              }
+            ],
+            "calendar_event_id": "demo_meeting_d92bf0a5-7e61-4d44-8602-b6985f5f29c8",
+            "scheduled_start_time": "2026-08-31T11:15:53.536Z",
+            "scheduled_end_time": "2026-09-07T11:45:53.536Z"
+          },
+          "attendees": [
+            {
+              "name": "Nango Developer",
+              "email": "api@nango.dev"
+            },
+            {
+              "name": "Sam Stephenson",
+              "email": "samstephenson@granola.ai"
+            }
+          ],
+          "folder_membership": [
+            {
+              "id": "fol_omr6ASuOy2xE9L",
+              "object": "folder",
+              "name": "Customer calls"
+            }
+          ],
+          "summary_text": "Product Walkthrough\nSam demoed Granola’s core notepad and transcript features\nNotepad works like a regular text editor: type notes during the meeting\nTranscript visible via green dancing bars at the bottom of the screen\nEnhanced Notes\nAt meeting end, Granola auto-detects and generates enhanced notes\nNotes combine transcript capture with anything typed in the notepad\nManual flow: stop button, then “Enhanced Notes” button\nNote-Taker’s Notes\n73\n31\nPause on",
+          "summary_markdown": "# Product Walkthrough\n\n- Sam demoed Granola’s core notepad and transcript features\n- Notepad works like a regular text editor: type notes during the meeting\n- Transcript visible via green dancing bars at the bottom of the screen\n\n# Enhanced Notes\n\n- At meeting end, Granola auto-detects and generates enhanced notes\n- Notes combine transcript capture with anything typed in the notepad\n- Manual flow: stop button, then “Enhanced Notes” button\n\n# Note-Taker’s Notes\n\n- 73\n- 31\n- Pause on\n\n---\n\nChat with meeting transcript: [https://notes.granola.ai/t/ec37bdb4-aaee-44c6-a6d5-921b7bb7a4a8](https://notes.granola.ai/t/ec37bdb4-aaee-44c6-a6d5-921b7bb7a4a8)"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Note": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v1/notes": {
+        "response": {
+          "notes": [
+            {
+              "id": "not_IBuThyr2eJgage",
+              "object": "note",
+              "title": "Demo meeting",
+              "owner": {
+                "name": "Nango Developer",
+                "email": "api@nango.dev"
+              },
+              "created_at": "2026-08-31T11:15:53.536Z",
+              "updated_at": "2026-08-31T11:47:39.191Z"
+            }
+          ],
+          "hasMore": false,
+          "cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 01 Sep 2026 15:16:10 GMT",
+          "content-type": "application/json",
+          "content-length": "247",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1788275806",
+          "server": "awselb/2.0",
+          "etag": "W/\"f7-Db7ejH7iW008qIbCY3i5F+6zH/w\""
+        },
+        "hash": "fc1d3d49a58502911d3161ad2523cda5900520f4",
+        "request": {
+          "params": {
+            "page_size": "30"
+          }
+        }
+      },
+      "/v1/notes/not_IBuThyr2eJgage": {
+        "response": {
+          "id": "not_IBuThyr2eJgage",
+          "object": "note",
+          "title": "Demo meeting",
+          "web_url": "https://notes.granola.ai/d/556129f4-7855-4799-9a0c-619b75ef88e7",
+          "owner": {
+            "name": "Nango Developer",
+            "email": "api@nango.dev"
+          },
+          "created_at": "2026-08-31T11:15:53.536Z",
+          "updated_at": "2026-08-31T11:47:39.191Z",
+          "calendar_event": {
+            "event_title": "Demo meeting",
+            "invitees": [
+              {
+                "email": "samstephenson@granola.ai"
+              }
+            ],
+            "organiser": null,
+            "calendar_event_id": "demo_meeting_d92bf0a5-7e61-4d44-8602-b6985f5f29c8",
+            "scheduled_start_time": "2026-08-31T11:15:53.536Z",
+            "scheduled_end_time": "2026-09-07T11:45:53.536Z"
+          },
+          "attendees": [
+            {
+              "name": "Nango Developer",
+              "email": "api@nango.dev"
+            },
+            {
+              "email": "samstephenson@granola.ai",
+              "name": "Sam Stephenson"
+            }
+          ],
+          "folder_membership": [
+            {
+              "object": "folder",
+              "id": "fol_omr6ASuOy2xE9L",
+              "name": "Customer calls",
+              "parent_folder_id": null,
+              "space_id": "spa_IdfiRQ2DkJGmPR"
+            }
+          ],
+          "space_membership": [
+            {
+              "object": "space",
+              "id": "spa_IdfiRQ2DkJGmPR",
+              "name": "NangoDeveloperApp team"
+            }
+          ],
+          "transcript": null,
+          "summary_text": "Product Walkthrough\nSam demoed Granola’s core notepad and transcript features\nNotepad works like a regular text editor: type notes during the meeting\nTranscript visible via green dancing bars at the bottom of the screen\nEnhanced Notes\nAt meeting end, Granola auto-detects and generates enhanced notes\nNotes combine transcript capture with anything typed in the notepad\nManual flow: stop button, then “Enhanced Notes” button\nNote-Taker’s Notes\n73\n31\nPause on",
+          "summary_markdown": "# Product Walkthrough\n\n- Sam demoed Granola’s core notepad and transcript features\n- Notepad works like a regular text editor: type notes during the meeting\n- Transcript visible via green dancing bars at the bottom of the screen\n\n# Enhanced Notes\n\n- At meeting end, Granola auto-detects and generates enhanced notes\n- Notes combine transcript capture with anything typed in the notepad\n- Manual flow: stop button, then “Enhanced Notes” button\n\n# Note-Taker’s Notes\n\n- 73\n- 31\n- Pause on\n\n---\n\nChat with meeting transcript: [https://notes.granola.ai/t/ec37bdb4-aaee-44c6-a6d5-921b7bb7a4a8](https://notes.granola.ai/t/ec37bdb4-aaee-44c6-a6d5-921b7bb7a4a8)",
+          "private_notes_text": null,
+          "private_notes_markdown": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 01 Sep 2026 15:16:11 GMT",
+          "content-type": "application/json",
+          "content-length": "2209",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1788275806",
+          "server": "awselb/2.0",
+          "etag": "W/\"8a1-47C1H+KyR9/L97HH+U3sEjXCvFM\""
+        },
+        "hash": "7d68039e23d1b12344ba7ea7e81db4c2145a6434",
+        "request": {}
+      }
+    }
+  }
+}
