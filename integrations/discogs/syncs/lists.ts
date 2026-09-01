@@ -44,9 +44,11 @@ const ProviderListsPageSchema = z.object({
     pagination: z
         .object({
             page: z.number(),
-            pages: z.number()
+            pages: z.number(),
+            per_page: z.number(),
+            items: z.number()
         })
-        .optional()
+        .passthrough()
 });
 
 const sync = createSync({
@@ -98,7 +100,7 @@ const sync = createSync({
 
         processListsPage(firstPage.lists);
 
-        const totalPages = firstPage.pagination?.pages ?? 1;
+        const totalPages = firstPage.pagination.pages;
         for (let page = 2; page <= totalPages; page++) {
             const response = await nango.get({
                 endpoint: `/users/${encodeURIComponent(username)}/lists`,

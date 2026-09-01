@@ -13,10 +13,24 @@ const MediaCondition = z.enum([
     'Poor (P)'
 ]);
 
+const SleeveCondition = z.enum([
+    'Mint (M)',
+    'Near Mint (NM or M-)',
+    'Very Good Plus (VG+)',
+    'Very Good (VG)',
+    'Good Plus (G+)',
+    'Good (G)',
+    'Fair (F)',
+    'Poor (P)',
+    'Generic',
+    'Not Graded',
+    'No Cover'
+]);
+
 const InputSchema = z.object({
     release_id: z.number().int().positive(),
     condition: MediaCondition,
-    sleeve_condition: MediaCondition,
+    sleeve_condition: SleeveCondition.optional(),
     price: z.number(),
     comments: z.string().optional(),
     allow_offers: z.boolean().optional(),
@@ -44,14 +58,15 @@ const action = createAction({
     exec: async (nango, input) => {
         const username = await getDiscogsUsername(nango);
 
-        const { release_id, ...listingData } = input;
+        const { release_id, sleeve_condition, ...listingData } = input;
 
         // https://www.discogs.com/developers#page:marketplace,header-marketplace-new-listing
         const response = await nango.post({
             endpoint: `/users/${encodeURIComponent(username)}/inventory`,
             data: {
                 release_id,
-                ...listingData
+                ...listingData,
+                ...(sleeve_condition !== undefined && { sleeve_condition })
             },
             retries: 3
         });

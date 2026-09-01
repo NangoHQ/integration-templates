@@ -42,7 +42,7 @@ function parseCursor(cursor: string): number {
         throw new Error('Invalid cursor: must be a positive integer string');
     }
     const page = Number(cursor);
-    if (!Number.isInteger(page) || page <= 0) {
+    if (!Number.isSafeInteger(page) || page <= 0) {
         throw new Error('Invalid cursor: must be a positive integer string');
     }
     return page;
@@ -82,6 +82,32 @@ const action = createAction({
         if (input.contributor) params['contributor'] = input.contributor;
         if (input.credit) params['credit'] = input.credit;
         if (input.anv) params['anv'] = input.anv;
+
+        const hasSearchCriteria =
+            Boolean(input.query) ||
+            input.type !== undefined ||
+            Boolean(input.title) ||
+            Boolean(input.release_title) ||
+            Boolean(input.credit) ||
+            Boolean(input.artist) ||
+            Boolean(input.anv) ||
+            Boolean(input.label) ||
+            Boolean(input.genre) ||
+            Boolean(input.style) ||
+            Boolean(input.country) ||
+            Boolean(input.year) ||
+            Boolean(input.format) ||
+            Boolean(input.catno) ||
+            Boolean(input.barcode) ||
+            Boolean(input.track) ||
+            Boolean(input.submitter) ||
+            Boolean(input.contributor);
+
+        if (!hasSearchCriteria) {
+            throw new Error(
+                'At least one search criterion is required: provide a non-empty query or at least one filter (type, title, release_title, credit, artist, anv, label, genre, style, country, year, format, catno, barcode, track, submitter, contributor).'
+            );
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:database,header-database-search
