@@ -2,7 +2,7 @@ import { createAction, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const InputSchema = z.object({
-    query: z.string(),
+    query: z.string().optional(),
     type: z.enum(['release', 'master', 'artist', 'label']).optional(),
     title: z.string().optional(),
     release_title: z.string().optional(),
@@ -18,6 +18,8 @@ const InputSchema = z.object({
     track: z.string().optional(),
     submitter: z.string().optional(),
     contributor: z.string().optional(),
+    credit: z.string().optional(),
+    anv: z.string().optional(),
     cursor: z.string().optional(),
     per_page: z.number().int().min(1).max(100).optional()
 });
@@ -35,6 +37,17 @@ const OutputSchema = z.object({
     next_cursor: z.string().optional()
 });
 
+function parseCursor(cursor: string): number {
+    if (!/^\d+$/.test(cursor)) {
+        throw new Error('Invalid cursor: must be a positive integer string');
+    }
+    const page = Number(cursor);
+    if (!Number.isInteger(page) || page <= 0) {
+        throw new Error('Invalid cursor: must be a positive integer string');
+    }
+    return page;
+}
+
 const action = createAction({
     description: 'Search the Discogs database.',
     version: '1.0.0',
@@ -43,15 +56,15 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
-        const page = input.cursor ? Number(input.cursor) : 1;
+        const page = input.cursor ? parseCursor(input.cursor) : 1;
         const perPage = input.per_page ?? 50;
 
         const params: Record<string, string | number> = {
-            q: input.query,
             page,
             per_page: perPage
         };
 
+        if (input.query) params['q'] = input.query;
         if (input.type) params['type'] = input.type;
         if (input.title) params['title'] = input.title;
         if (input.release_title) params['release_title'] = input.release_title;
@@ -67,6 +80,8 @@ const action = createAction({
         if (input.track) params['track'] = input.track;
         if (input.submitter) params['submitter'] = input.submitter;
         if (input.contributor) params['contributor'] = input.contributor;
+        if (input.credit) params['credit'] = input.credit;
+        if (input.anv) params['anv'] = input.anv;
 
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:database,header-database-search
@@ -78,7 +93,7 @@ const action = createAction({
         const response = await nango.get(proxyConfig);
         const data = z
             .object({
-                results: z.array(z.record(z.string(), z.unknown())).optional(),
+                results: z.array(z.record(z.string(), z.unknown())),
                 pagination: z
                     .object({
                         page: z.number(),
@@ -90,12 +105,11 @@ const action = createAction({
             })
             .parse(response.data);
 
-        const results = data.results ?? [];
         const pagination = data.pagination;
         const next_cursor = pagination && pagination.page < pagination.pages ? String(pagination.page + 1) : undefined;
 
         return {
-            results,
+            results: data.results,
             ...(pagination !== undefined && { pagination }),
             ...(next_cursor !== undefined && { next_cursor })
         };

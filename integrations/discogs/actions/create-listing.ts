@@ -2,21 +2,37 @@ import { createAction } from 'nango';
 import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
+const MediaCondition = z.enum([
+    'Mint (M)',
+    'Near Mint (NM or M-)',
+    'Very Good Plus (VG+)',
+    'Very Good (VG)',
+    'Good Plus (G+)',
+    'Good (G)',
+    'Fair (F)',
+    'Poor (P)'
+]);
+
 const InputSchema = z.object({
-    release_id: z.number(),
-    condition: z.string(),
-    sleeve_condition: z.string(),
+    release_id: z.number().int().positive(),
+    condition: MediaCondition,
+    sleeve_condition: MediaCondition,
     price: z.number(),
     comments: z.string().optional(),
     allow_offers: z.boolean().optional(),
-    status: z.string().optional(),
+    status: z.enum(['For Sale', 'Draft']).optional(),
     external_id: z.string().optional(),
     location: z.string().optional(),
     weight: z.number().optional(),
     format_quantity: z.number().optional()
 });
 
-const OutputSchema = z.record(z.string(), z.unknown());
+const OutputSchema = z
+    .object({
+        listing_id: z.number(),
+        resource_url: z.string()
+    })
+    .passthrough();
 
 const action = createAction({
     description: 'Create a new marketplace listing.',
@@ -40,7 +56,7 @@ const action = createAction({
             retries: 3
         });
 
-        return z.record(z.string(), z.unknown()).parse(response.data ?? {});
+        return OutputSchema.parse(response.data);
     }
 });
 

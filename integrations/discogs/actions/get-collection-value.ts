@@ -3,7 +3,11 @@ import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
 const InputSchema = z.object({});
-const OutputSchema = z.record(z.string(), z.unknown());
+const OutputSchema = z.object({
+    minimum: z.coerce.number(),
+    median: z.coerce.number(),
+    maximum: z.coerce.number()
+});
 
 const action = createAction({
     description: 'Get the minimum, median, and maximum value of a collection.',
@@ -21,7 +25,7 @@ const action = createAction({
             retries: 3
         });
 
-        return z.record(z.string(), z.unknown()).parse(response.data ?? {});
+        return OutputSchema.parse(response.data);
     }
 });
 

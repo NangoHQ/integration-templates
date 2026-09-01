@@ -1,8 +1,7 @@
 import { createAction } from 'nango';
 import { z } from 'zod';
-import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
-const InputSchema = z.object({ export_id: z.number() });
+const InputSchema = z.object({ export_id: z.number().int().positive() });
 const OutputSchema = z.record(z.string(), z.unknown());
 
 const action = createAction({
@@ -13,11 +12,9 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
-        const username = await getDiscogsUsername(nango);
-
         // https://www.discogs.com/developers#page:marketplace,header-marketplace-get-inventory-export
         const response = await nango.get({
-            endpoint: `/users/${encodeURIComponent(username)}/inventory/export/${input.export_id}`,
+            endpoint: `/inventory/export/${input.export_id}`,
             retries: 3
         });
 

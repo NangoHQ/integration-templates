@@ -55,16 +55,16 @@ const sync = createSync({
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
 
-        await nango.trackDeletesStart('CollectionFolder');
-        await nango.trackDeletesStart('CollectionItem');
-
         // https://www.discogs.com/developers#page:user-collection,header-user-collection-collection-folders
         const foldersResponse = await nango.get({
             endpoint: `/users/${encodeURIComponent(username)}/collection/folders`,
             retries: 3
         });
 
-        const rawFolders = z.array(ProviderFolderSchema).parse(foldersResponse.data?.folders ?? []);
+        const { folders: rawFolders } = z.object({ folders: z.array(ProviderFolderSchema) }).parse(foldersResponse.data);
+
+        await nango.trackDeletesStart('CollectionFolder');
+        await nango.trackDeletesStart('CollectionItem');
         const nonUncategorized = rawFolders.filter((folder) => folder.id !== 0);
         const skipUncategorized = nonUncategorized.some((folder) => (folder.count ?? 0) > 0);
         const foldersToSync = skipUncategorized ? rawFolders.filter((folder) => folder.id !== 0) : rawFolders;

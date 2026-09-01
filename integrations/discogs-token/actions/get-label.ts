@@ -1,7 +1,7 @@
 import { createAction } from 'nango';
 import { z } from 'zod';
 
-const InputSchema = z.object({ label_id: z.number() });
+const InputSchema = z.object({ label_id: z.number().int().positive() });
 const OutputSchema = z.record(z.string(), z.unknown());
 
 const action = createAction({

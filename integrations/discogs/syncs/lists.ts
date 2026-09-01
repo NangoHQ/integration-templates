@@ -39,6 +39,16 @@ const ProviderListItemSchema = z
     })
     .passthrough();
 
+const ProviderListsPageSchema = z.object({
+    lists: z.array(ProviderUserListSchema),
+    pagination: z
+        .object({
+            page: z.number(),
+            pages: z.number()
+        })
+        .optional()
+});
+
 const sync = createSync({
     description: 'Sync user lists and their items.',
     version: '1.0.0',
@@ -56,29 +66,23 @@ const sync = createSync({
 
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
+        const perPage = 100;
+
+        // https://www.discogs.com/developers#page:user-list,header-user-list-user-lists
+        const firstResponse = await nango.get({
+            endpoint: `/users/${encodeURIComponent(username)}/lists`,
+            params: { page: 1, per_page: perPage },
+            retries: 3
+        });
+
+        const firstPage = ProviderListsPageSchema.parse(firstResponse.data);
 
         await nango.trackDeletesStart('UserList');
         await nango.trackDeletesStart('ListItem');
 
-        const listsProxy: ProxyConfiguration = {
-            // https://www.discogs.com/developers#page:user-list,header-user-list-user-lists
-            endpoint: `/users/${encodeURIComponent(username)}/lists`,
-            retries: 3,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                response_path: 'lists',
-                limit_name_in_request: 'per_page',
-                limit: 100
-            }
-        };
-
         const userLists: z.infer<typeof UserListSchema>[] = [];
 
-        for await (const page of nango.paginate(listsProxy)) {
-            const lists = z.array(ProviderUserListSchema).parse(page);
+        const processListsPage = (lists: z.infer<typeof ProviderUserListSchema>[]) => {
             for (const list of lists) {
                 userLists.push({
                     id: String(list.id),
@@ -90,6 +94,19 @@ const sync = createSync({
                     ...(list.resource_url != null && { resource_url: list.resource_url })
                 });
             }
+        };
+
+        processListsPage(firstPage.lists);
+
+        const totalPages = firstPage.pagination?.pages ?? 1;
+        for (let page = 2; page <= totalPages; page++) {
+            const response = await nango.get({
+                endpoint: `/users/${encodeURIComponent(username)}/lists`,
+                params: { page, per_page: perPage },
+                retries: 3
+            });
+            const parsed = ProviderListsPageSchema.parse(response.data);
+            processListsPage(parsed.lists);
         }
 
         if (userLists.length > 0) {

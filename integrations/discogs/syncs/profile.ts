@@ -27,6 +27,7 @@ const ProfileSchema = z.object({
 
 const ProviderProfileSchema = z
     .object({
+        id: z.number(),
         username: z.string(),
         name: z.string().nullish(),
         home_page: z.string().nullish(),
@@ -69,7 +70,7 @@ const sync = createSync({
 
         const parsed = ProviderProfileSchema.parse(response.data);
         const profile = {
-            id: parsed.username,
+            id: String(parsed.id),
             username: parsed.username,
             ...(parsed.name != null && { name: parsed.name }),
             ...(parsed.home_page != null && { home_page: parsed.home_page }),
