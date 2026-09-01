@@ -1,0 +1,120 @@
+{
+  "input": {
+    "project_id": 48644099,
+    "todolist_id": 10239437841
+  },
+  "output": {
+    "id": 10239437841,
+    "status": "active",
+    "visible_to_clients": false,
+    "created_at": "2026-08-26T04:31:56.323Z",
+    "updated_at": "2026-08-26T04:31:56.330Z",
+    "title": "Test todolist owned by an integration",
+    "type": "Todolist",
+    "url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841.json",
+    "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todolists/10239437841",
+    "position": 8,
+    "description": "",
+    "completed": false,
+    "completed_ratio": "0/0",
+    "name": "Test todolist owned by an integration",
+    "color": null,
+    "comments_count": 0,
+    "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239437841/comments.json",
+    "groups_url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841/groups.json",
+    "todos_url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841/todos.json",
+    "parent": {
+      "id": 10239340934,
+      "title": "To-dos",
+      "type": "Todoset",
+      "url": "https://3.basecampapi.com/6267157/buckets/48644099/todosets/10239340934.json",
+      "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todosets/10239340934"
+    },
+    "bucket": {
+      "id": 48644099,
+      "name": "Name the project",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 53024699,
+      "name": "Zapier Integration",
+      "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/todolists/10239437841.json": {
+        "response": {
+          "id": 10239437841,
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T04:31:56.323Z",
+          "updated_at": "2026-08-26T04:31:56.330Z",
+          "title": "Test todolist owned by an integration",
+          "inherits_status": true,
+          "type": "Todolist",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todolists/10239437841",
+          "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/example.json",
+          "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239437841/subscription.json",
+          "comments_count": 0,
+          "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239437841/comments.json",
+          "boosts_count": 0,
+          "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239437841/boosts.json",
+          "bubble_up_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239437841/bubble_up.json",
+          "position": 8,
+          "parent": {
+            "id": 10239340934,
+            "title": "To-dos",
+            "type": "Todoset",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/todosets/10239340934.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todosets/10239340934"
+          },
+          "bucket": {
+            "id": 48644099,
+            "name": "Name the project",
+            "type": "Project"
+          },
+          "creator": {
+            "id": 53024699,
+            "attachable_sgid": "gid-example",
+            "name": "Zapier Integration",
+            "personable_type": "Integration",
+            "title": null,
+            "tagline": null,
+            "location": null,
+            "created_at": "2026-08-26T03:31:40.436Z",
+            "updated_at": "2026-08-26T03:31:50.720Z",
+            "email_address": null,
+            "bio": null,
+            "admin": false,
+            "owner": false,
+            "client": false,
+            "employee": false,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+            "can_ping": false,
+            "can_manage_projects": false,
+            "can_manage_people": false,
+            "can_access_timesheet": false,
+            "can_access_hill_charts": false
+          },
+          "description": "",
+          "description_attachments": [],
+          "completed": false,
+          "completed_ratio": "0/0",
+          "name": "Test todolist owned by an integration",
+          "color": null,
+          "groups_url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841/groups.json",
+          "todos_url": "https://3.basecampapi.com/6267157/buckets/48644099/todolists/10239437841/todos.json",
+          "app_todos_url": "https://app.basecamp.com/6267157/buckets/48644099/todolists/10239437841/todos",
+          "comments_app_url": "https://app.basecamp.com/6267157/buckets/48644099/recordings/10239437841/comments"
+        },
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

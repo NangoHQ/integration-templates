@@ -1,0 +1,225 @@
+import { z } from 'zod';
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+
+// The account-scoped Basecamp API host. The configured provider base URL already embeds the account ID
+// (e.g. https://3.basecampapi.com/12345), and so does the absolute `next` URL from the Link header
+// (e.g. https://3.basecampapi.com/12345/buckets/.../cards.json?page=2). Reusing only the cursor's path
+// under the default base URL would double up the account ID and 404, so once the cursor's origin is
+// confirmed to be this trusted host, baseUrlOverride is set to that origin and the full account-scoped
+// path from the cursor is used as-is.
+const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
+
+function parseLinkHeader(linkHeader: string | undefined): Record<string, string> {
+    const result: Record<string, string> = {};
+    if (!linkHeader) {
+        return result;
+    }
+    const parts = linkHeader.split(',');
+    for (const part of parts) {
+        const match = part.match(/<([^>]+)>;\s*rel="([^"]+)"/);
+        if (match && match[1] && match[2]) {
+            result[match[2]] = match[1];
+        }
+    }
+    return result;
+}
+
+const InputSchema = z
+    .object({
+        projectId: z.string().describe('The project ID (bucket ID).'),
+        columnId: z.string().describe('The card table column ID.'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+    })
+    .describe('Input for listing cards in a Card Table column.');
+
+const ProviderCardCreatorSchema = z.object({
+    id: z.number().describe('ID of the creator.'),
+    name: z.string().describe('Name of the creator.'),
+    email_address: z.string().nullable().optional().describe('Email address of the creator, if any.')
+});
+
+const CardCreatorSchema = z.object({
+    id: z.number().describe('ID of the creator.'),
+    name: z.string().describe('Name of the creator.'),
+    email_address: z.string().optional().describe('Email address of the creator, if any.')
+});
+
+const ProviderCardAssigneeSchema = z.object({
+    id: z.number().describe('ID of the assignee.'),
+    name: z.string().describe('Name of the assignee.'),
+    email_address: z.string().nullable().optional().describe('Email address of the assignee, if any.')
+});
+
+const CardAssigneeSchema = z.object({
+    id: z.number().describe('ID of the assignee.'),
+    name: z.string().describe('Name of the assignee.'),
+    email_address: z.string().optional().describe('Email address of the assignee, if any.')
+});
+
+function normalizeCardCreator(creator: z.infer<typeof ProviderCardCreatorSchema>): z.infer<typeof CardCreatorSchema> {
+    return {
+        id: creator.id,
+        name: creator.name,
+        ...(creator.email_address != null && { email_address: creator.email_address })
+    };
+}
+
+function normalizeCardAssignee(assignee: z.infer<typeof ProviderCardAssigneeSchema>): z.infer<typeof CardAssigneeSchema> {
+    return {
+        id: assignee.id,
+        name: assignee.name,
+        ...(assignee.email_address != null && { email_address: assignee.email_address })
+    };
+}
+
+// Raw provider parse target: Basecamp can send an explicit `email_address: null` for the creator
+// and assignees (e.g. for integration-type people). The output-facing CardSchema below narrows
+// those fields to `.optional()` and the mapping strips `null` to omission.
+const ProviderCardSchema = z
+    .object({
+        id: z.number().describe('Unique identifier for the card.'),
+        status: z.string().describe('Status of the card.'),
+        visible_to_clients: z.boolean().optional().describe('Whether the card is visible to clients.'),
+        created_at: z.string().describe('ISO 8601 timestamp when the card was created.'),
+        updated_at: z.string().describe('ISO 8601 timestamp when the card was last updated.'),
+        title: z.string().describe('Title of the card.'),
+        inherits_status: z.boolean().optional().describe('Whether the card inherits status from its parent.'),
+        type: z.string().describe('Type of the record, typically "Kanban::Card".'),
+        url: z.string().describe('API URL for the card.'),
+        app_url: z.string().describe('App URL for the card.'),
+        bookmark_url: z.string().optional().describe('Bookmark URL for the card.'),
+        subscription_url: z.string().optional().describe('Subscription URL for the card.'),
+        comments_count: z.number().optional().describe('Number of comments on the card.'),
+        comments_url: z.string().optional().describe('URL to fetch comments for the card.'),
+        boosts_count: z.number().optional().describe('Number of boosts on the card.'),
+        boosts_url: z.string().optional().describe('URL to fetch boosts for the card.'),
+        position: z.number().describe('Position of the card in the column.'),
+        parent: z
+            .object({
+                id: z.number().describe('ID of the parent column.'),
+                title: z.string().describe('Title of the parent column.'),
+                type: z.string().describe('Type of the parent record.')
+            })
+            .optional()
+            .describe('The parent column containing this card.'),
+        bucket: z
+            .object({
+                id: z.number().describe('ID of the project (bucket).'),
+                name: z.string().describe('Name of the project.'),
+                type: z.string().describe('Type of the bucket, typically "Project".')
+            })
+            .optional()
+            .describe('The project this card belongs to.'),
+        creator: ProviderCardCreatorSchema.optional().describe('The person who created this card.'),
+        description: z.string().optional().describe('Description of the card.'),
+        description_attachments: z.array(z.unknown()).optional().describe('Attachments in the description.'),
+        completed: z.boolean().describe('Whether the card is completed.'),
+        content: z.string().nullable().optional().describe('Content of the card.'),
+        due_on: z.string().nullable().optional().describe('Due date of the card in ISO 8601 format.'),
+        assignees: z.array(ProviderCardAssigneeSchema).optional().describe('People assigned to the card.'),
+        completion_subscribers: z.array(z.unknown()).optional().describe('People subscribed to completion updates.'),
+        completion_url: z.string().optional().describe('URL to mark the card as complete.'),
+        comment_count: z.number().optional().describe('Number of comments on the card.'),
+        steps: z
+            .array(
+                z.object({
+                    id: z.number().describe('ID of the step.'),
+                    title: z.string().describe('Title of the step.'),
+                    completed: z.boolean().describe('Whether the step is completed.'),
+                    due_on: z.string().nullable().optional().describe('Due date of the step in ISO 8601 format.'),
+                    assignees: z
+                        .array(
+                            z.object({
+                                id: z.number().describe('ID of the assignee.'),
+                                name: z.string().describe('Name of the assignee.')
+                            })
+                        )
+                        .optional()
+                        .describe('People assigned to the step.')
+                })
+            )
+            .optional()
+            .describe('Steps within the card.')
+    })
+    .passthrough();
+
+// Output-facing variant: narrows `creator`/`assignees[].email_address` to `.optional()` (no `null`).
+// The exec mapping below parses raw data with ProviderCardSchema and strips `null` to omission.
+const CardSchema = ProviderCardSchema.extend({
+    creator: CardCreatorSchema.optional().describe('The person who created this card.'),
+    assignees: z.array(CardAssigneeSchema).optional().describe('People assigned to the card.')
+});
+
+const OutputSchema = z
+    .object({
+        cards: z.array(CardSchema).describe('The cards in the column.'),
+        next_cursor: z.string().optional().describe('Cursor for the next page of results.')
+    })
+    .describe('Output for listing cards in a Card Table column.');
+
+/**
+ * @tags: [read]
+ * @tagReason: Lists cards in a Card Table column via a GET request.
+ * @pitfalls: Cards reflect live column membership: a card moved to another column immediately disappears from this list.
+ */
+const action = createAction({
+    description: 'List the cards in a Card Table column.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: ['read'],
+
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let endpoint: string;
+        let baseUrlOverride: string | undefined;
+        if (input.cursor) {
+            if (input.cursor.startsWith('http')) {
+                const url = new URL(input.cursor);
+                if (url.origin !== BASECAMP_API_ORIGIN) {
+                    throw new nango.ActionError({
+                        type: 'invalid_cursor',
+                        message: 'The cursor does not point to the Basecamp API host.'
+                    });
+                }
+                baseUrlOverride = url.origin;
+                endpoint = url.pathname + url.search;
+            } else {
+                endpoint = input.cursor;
+            }
+        } else {
+            endpoint = `/buckets/${encodeURIComponent(input.projectId)}/card_tables/lists/${encodeURIComponent(input.columnId)}/cards.json`;
+        }
+
+        const config: ProxyConfiguration = {
+            // https://github.com/basecamp/bc3-api/blob/master/sections/card_table_cards.md#get-cards-in-a-column
+            endpoint,
+            ...(baseUrlOverride && { baseUrlOverride }),
+            retries: 3
+        };
+
+        const response = await nango.get(config);
+
+        const cards = z.array(z.unknown()).parse(response.data);
+        const parsedCards = cards.map((card) => {
+            const { creator, assignees, ...rest } = ProviderCardSchema.parse(card);
+            return {
+                ...rest,
+                ...(creator !== undefined && { creator: normalizeCardCreator(creator) }),
+                ...(assignees !== undefined && { assignees: assignees.map(normalizeCardAssignee) })
+            };
+        });
+
+        const linkHeader = response.headers['link'] || response.headers['Link'];
+        const links = parseLinkHeader(linkHeader);
+        const nextCursor = links['next'];
+
+        return {
+            cards: parsedCards,
+            ...(nextCursor && { next_cursor: nextCursor })
+        };
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
