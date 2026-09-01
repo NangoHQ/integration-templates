@@ -1,44 +1,32 @@
 import { createAction } from 'nango';
-import type { ProxyConfiguration } from 'nango';
-import { SuccessResponse, IdEntity } from '../models.js';
+import { z } from 'zod';
+
+const InputSchema = z
+    .object({
+        id: z.number().describe('The unique identifier of the user to delete')
+    })
+    .describe('Input for deleting a user in Gorgias');
 
 /**
- * Deletes a user based on the provided email address.
- *
- * @param {NangoAction} nango - The Nango action instance.
- * @param {EmailEntity} input - The input containing the email of the user to be deleted.
- * @throws {nango.ActionError} - Throws an error if the email is not provided.
- *
- * {@link https://developers.gorgias.com/reference/delete-user} for more information on the Gorgias API endpoint.
+ * @tags: [write, destructive]
+ * @tagReason: Deletes a user permanently from the Gorgias account.
+ * @pitfalls: Requires a connection with the users:write scope; deleting the connection owner permanently invalidates the connection and prevents further API calls.
  */
 const action = createAction({
-    description: 'Deletes a user in Gorgias',
-    version: '1.0.1',
-
-    input: IdEntity,
-    output: SuccessResponse,
+    description: 'Delete a user in Gorgias.',
+    version: '2.0.0',
+    input: InputSchema,
+    output: z.null(),
     scopes: ['users:write'],
-
-    exec: async (nango, input): Promise<SuccessResponse> => {
-        if (!input.id) {
-            throw new nango.ActionError({
-                message: 'Id is required to delete a user'
-            });
-        }
-
-        const config: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/delete-user
-            endpoint: `/api/users/${input.id}`,
+    exec: async (nango, input) => {
+        // https://developers.gorgias.com/reference/delete-user
+        await nango.delete({
+            endpoint: `/api/users/${encodeURIComponent(input.id)}`,
             retries: 3
-        };
+        });
 
-        await nango.delete(config);
-
-        return {
-            success: true
-        };
+        return null;
     }
 });
 
-export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

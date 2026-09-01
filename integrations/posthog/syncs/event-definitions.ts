@@ -43,12 +43,17 @@ const MetadataSchema = z.object({
     project_id: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number()
+});
+
 const sync = createSync({
     description: 'Sync event definitions (auto-detected event schemas) from PostHog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         EventDefinition: EventDefinitionSchema
     },
@@ -65,6 +70,11 @@ const sync = createSync({
             throw new Error('project_id is required in metadata');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const offset = parsedCheckpoint.success ? parsedCheckpoint.data.offset : 0;
+        let nextOffset: number | undefined;
+
         // Blocker: provider list endpoint only exposes limit/offset pagination
         // with no changed-since filter, no deleted-record endpoint, and no
         // resumable cursor for incremental syncs.
@@ -76,11 +86,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'results'
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         })) {
@@ -114,8 +127,13 @@ const sync = createSync({
             if (eventDefinitions.length > 0) {
                 await nango.batchSave(eventDefinitions, 'EventDefinition');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('EventDefinition');
     }
 });

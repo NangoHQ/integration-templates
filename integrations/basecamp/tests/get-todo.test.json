@@ -1,0 +1,146 @@
+{
+  "input": {
+    "projectId": 48644099,
+    "todoId": 10239848766
+  },
+  "output": {
+    "id": 10239848766,
+    "status": "active",
+    "content": "Test todo for get-todo action",
+    "title": "Test todo for get-todo action",
+    "completed": false,
+    "created_at": "2026-08-26T08:14:43.124Z",
+    "updated_at": "2026-08-26T08:14:43.139Z",
+    "description": "",
+    "url": "https://3.basecampapi.com/6267157/buckets/48644099/todos/10239848766.json",
+    "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todos/10239848766",
+    "parent": {
+      "id": 10239340934,
+      "title": "To-dos",
+      "type": "Todoset"
+    },
+    "bucket": {
+      "id": 48644099,
+      "name": "Name the project",
+      "type": "Project"
+    },
+    "creator": {
+      "id": 53024646,
+      "name": "Nango Developer",
+      "email_address": "api@nango.dev"
+    },
+    "assignees": []
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/todos/10239848766.json": {
+        "response": {
+          "id": 10239848766,
+          "status": "active",
+          "visible_to_clients": false,
+          "created_at": "2026-08-26T08:14:43.124Z",
+          "updated_at": "2026-08-26T08:14:43.139Z",
+          "title": "Test todo for get-todo action",
+          "inherits_status": true,
+          "type": "Todo",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644099/todos/10239848766.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todos/10239848766",
+          "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiL2dpZDovL2JjMy9SZWNvcmRpbmcvMTAyMzk4NDg3NjY_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--e3c670658deb526f98b63772cc9f7d6d9215be11.json",
+          "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239848766/subscription.json",
+          "comments_count": 0,
+          "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239848766/comments.json",
+          "boosts_count": 0,
+          "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239848766/boosts.json",
+          "position": 4,
+          "parent": {
+            "id": 10239340934,
+            "title": "To-dos",
+            "type": "Todoset",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/todosets/10239340934.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todosets/10239340934"
+          },
+          "bucket": {
+            "id": 48644099,
+            "name": "Name the project",
+            "type": "Project"
+          },
+          "creator": {
+            "id": 53024646,
+            "attachable_sgid": "BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9QZXJzb24vNTMwMjQ2NDY_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSIPYXR0YWNoYWJsZQY7AFQ=--3858efa40d167b95db0b2b5f13cf31d9461fe8b4",
+            "name": "Nango Developer",
+            "personable_type": "User",
+            "title": null,
+            "tagline": null,
+            "location": null,
+            "created_at": "2026-08-26T03:31:40.436Z",
+            "updated_at": "2026-08-26T03:31:50.720Z",
+            "email_address": "api@nango.dev",
+            "bio": null,
+            "admin": true,
+            "owner": true,
+            "client": false,
+            "employee": true,
+            "time_zone": "Europe/Moscow",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar",
+            "company": {
+              "id": 4237397,
+              "name": "Nango Inc"
+            },
+            "can_ping": true,
+            "can_manage_projects": true,
+            "can_manage_people": true,
+            "can_access_timesheet": false,
+            "can_access_hill_charts": true
+          },
+          "description": "",
+          "description_attachments": [],
+          "completed": false,
+          "content": "Test todo for get-todo action",
+          "starts_on": null,
+          "due_on": null,
+          "assignees": [],
+          "completion_subscribers": [],
+          "completion_url": "https://3.basecampapi.com/6267157/todos/10239848766/completion.json",
+          "steps": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 08:17:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2422",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1787732285",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-d98406dc30ce154b7e46a95761e6ed3233df8208e5629dca5ebcb708e59627ce'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"2a983651b776348ab140170a68e79fec\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_csp_nonce_id=PvItZQ6xCuwrUu6H6wpDZw%3D%3D; path=/; HttpOnly; SameSite=Lax; secure",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T08:17:10Z\"}",
+          "x-request-id": "d5968e05-ccf7-417f-8d6b-00c65dce2731",
+          "x-robots-tag": "none",
+          "x-runtime": "0.025799",
+          "cf-cache-status": "BYPASS",
+          "server": "cloudflare",
+          "cf-ray": "a31165f53c708f7a-PDX"
+        },
+        "hash": "7f22c6dcd6ee8e8aca8799df73393b6d9d0ea4ee",
+        "request": {}
+      }
+    }
+  }
+}

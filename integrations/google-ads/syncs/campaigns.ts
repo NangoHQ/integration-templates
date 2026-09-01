@@ -1,10 +1,10 @@
 import { createSync } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).min(1),
-    login_customer_id: z.string(),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string()
 });
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
@@ -197,7 +197,7 @@ function extractSearchStreamRows(data: unknown): unknown[] {
 
 const sync = createSync({
     description: 'Sync campaigns for customer accounts in scope.',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -217,6 +217,11 @@ const sync = createSync({
             throw new Error('customer_ids is required in metadata');
         }
 
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new Error('developer_token is required in connection config');
+        }
+
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpointResult = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
         const checkpoint = checkpointResult && checkpointResult.success ? checkpointResult.data : null;
@@ -233,12 +238,12 @@ const sync = createSync({
         );
         const now = formatDate(new Date());
 
-        async function searchStream(customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> {
+        const searchStream = async (customerId: string, loginCustomerId: string, query: string): Promise<unknown[]> => {
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
-                endpoint: `/v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+                endpoint: `/v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
                 headers: {
-                    'developer-token': metadata.developer_token,
+                    'developer-token': developerToken,
                     'login-customer-id': loginCustomerId
                 },
                 data: {
@@ -247,7 +252,7 @@ const sync = createSync({
                 retries: 3
             });
             return extractSearchStreamRows(response.data);
-        }
+        };
 
         function parseCampaignRows(rows: unknown[]): Array<z.infer<typeof CampaignSchema>> {
             const campaigns: Array<z.infer<typeof CampaignSchema>> = [];

@@ -1,0 +1,111 @@
+{
+  "input": {
+    "name": "NangoTestTeam1787223895b"
+  },
+  "output": {
+    "status": "success",
+    "message": "Your team will be created once we receive your payment. Please complete the payment using the payment link.",
+    "paymentLink": "https://checkout.stripe.com/c/pay/cs_live_b1XT25qzp2g7c7B4Tc8C1dQ79m5mr9WQvcTYNPNBpT364vI5eOh9P2vnlt#fid1d2BpamRhQ2prcSc%2FJ0xrcWB3JyknZ2p3YWB3VnF8aWAnPydhYGNkcGlxJykndnBndmZ3bHVxbGprUGtsdHBga2B2dkBrZGdpYGEnP2NkaXZgKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRMdnBUYE09UEFsckxjcW5qfUdTPGhHUl9odDxBcnRHYG1cMlRdUUBqd3BQNUpyVjJjUWI9TkNcRkpzfDxvXUp9PTNQTWY3Qm9yRm1LQDxufVdzZjE8QWg1NX1XPXZ0YHBSJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJjc8Nzw3PCcpJ2lkfGpwcVF8dWAnPydocGlxbFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl",
+    "pendingTeam": {
+      "id": 395315,
+      "parentId": null,
+      "name": "NangoTestTeam1787223895b",
+      "slug": "nangotestteam1787223895b",
+      "logoUrl": null,
+      "calVideoLogo": null,
+      "appLogo": null,
+      "appIconLogo": null,
+      "bio": null,
+      "hideBranding": false,
+      "isOrganization": false,
+      "isPrivate": false,
+      "hideBookATeamMember": false,
+      "theme": null,
+      "brandColor": null,
+      "darkBrandColor": null,
+      "bannerUrl": null,
+      "timeFormat": null,
+      "timeZone": "Europe/London",
+      "weekStart": "Sunday"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/teams": {
+        "response": {
+          "status": "success",
+          "data": {
+            "pendingTeam": {
+              "id": 395315,
+              "parentId": null,
+              "name": "NangoTestTeam1787223895b",
+              "slug": "nangotestteam1787223895b",
+              "logoUrl": null,
+              "calVideoLogo": null,
+              "appLogo": null,
+              "appIconLogo": null,
+              "bio": null,
+              "hideBranding": false,
+              "isOrganization": false,
+              "isPrivate": false,
+              "hideBookATeamMember": false,
+              "theme": null,
+              "brandColor": null,
+              "darkBrandColor": null,
+              "bannerUrl": null,
+              "timeFormat": null,
+              "timeZone": "Europe/London",
+              "weekStart": "Sunday"
+            },
+            "paymentLink": "https://checkout.stripe.com/c/pay/cs_live_b1XT25qzp2g7c7B4Tc8C1dQ79m5mr9WQvcTYNPNBpT364vI5eOh9P2vnlt#fid1d2BpamRhQ2prcSc%2FJ0xrcWB3JyknZ2p3YWB3VnF8aWAnPydhYGNkcGlxJykndnBndmZ3bHVxbGprUGtsdHBga2B2dkBrZGdpYGEnP2NkaXZgKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWmlsc2BaMDRMdnBUYE09UEFsckxjcW5qfUdTPGhHUl9odDxBcnRHYG1cMlRdUUBqd3BQNUpyVjJjUWI9TkNcRkpzfDxvXUp9PTNQTWY3Qm9yRm1LQDxufVdzZjE8QWg1NX1XPXZ0YHBSJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJjc8Nzw3PCcpJ2lkfGpwcVF8dWAnPydocGlxbFpscWBoJyknYGtkZ2lgVWlkZmBtamlhYHd2Jz9xd3BgeCUl",
+            "message": "Your team will be created once we receive your payment. Please complete the payment using the payment link."
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 20 Aug 2026 11:06:25 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1135",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1787224042",
+          "cf-ray": "a2e0edaf3ea070b9-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"46f-O6mcpynCF5Fr9GpVNqW6XAspww8\"",
+          "server": "cloudflare",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::9t9pl-1787223984532-79abb0fa45d6",
+          "x-vercel-cache": "MISS",
+          "x-vercel-id": "pdx1::cle1::9t9pl-1787223984532-79abb0fa45d6",
+          "set-cookie": "__cf_bm=5f.m3pSoFwiUO3RhfLpxBRGfEuiF2rxFr.moeajWIwc-1787223984.5202742-1.0.1.1-s7juV3UKjB5auUsAkP7Z5mD_Doh9WFcU0xRLPA2kvyf5Qy4Wr579FSmJ.6vRGUSWyyHIFoG6pt_EfgE4X3eBPANVy5SHeZ2k1mGLdRmsd8ckdRDs_VC2P5_uN5pD_ktP; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Thu, 20 Aug 2026 11:36:25 GMT"
+        },
+        "hash": "944941c10bdcde991f6bf10a3d11a9003ea18372",
+        "request": {
+          "data": {
+            "name": "NangoTestTeam1787223895b"
+          }
+        }
+      }
+    }
+  }
+}

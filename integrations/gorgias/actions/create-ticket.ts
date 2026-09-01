@@ -1,200 +1,264 @@
-import { createAction } from 'nango';
-import { createTicketInputSchema } from '../schema.zod.js';
-import type { GorgiasCustomerResponse, GorgiasSettingsResponse, TicketAssignmentData, GorgiasCustomersResponse, GorgiasTicketResponse } from '../types.js';
-import { toTicket } from '../mappers/to-ticket.js';
+import { createAction, NangoAction } from 'nango';
+import { z } from 'zod';
 
-import type { ProxyConfiguration } from 'nango';
-import { Ticket, CreateTicketInput } from '../models.js';
-
-const action = createAction({
-    description: 'Creates a new ticket',
-    version: '1.0.1',
-
-    input: CreateTicketInput,
-    output: Ticket,
-    scopes: ['tickets:write', 'account:read', 'customers:write', 'customers:read'],
-
-    exec: async (nango, input): Promise<Ticket> => {
-        await nango.zodValidateInput({ zodSchema: createTicketInputSchema, input });
-
-        const customer = await findOrCreateCustomer(nango, input.customer.phone_number, input.customer.email);
-
-        const channel = await checkSmsChannel(nango);
-
-        const ticketData = {
-            channel,
-            created_datetime: new Date().toISOString(),
-            customer: customer,
-            from_agent: false,
-            opened_datetime: new Date().toISOString(),
-            messages: input.ticket.messages.map((message) => ({
-                attachments: message.attachments || [],
-                body_html: message.body_html,
-                body_text: message.body_text,
-                channel: 'phone',
-                created_datetime: new Date().toISOString(),
-                external_id: message.id,
-                from_agent: false,
-                sender: customer,
-                via: 'api'
-            }))
-        };
-
-        const config: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/create-ticket
-            endpoint: '/api/tickets',
-            retries: 3,
-            data: ticketData
-        };
-
-        const response = await nango.post<GorgiasTicketResponse>(config);
-
-        return toTicket(response.data, response.data.messages);
-    }
+const CustomerChannelSchema = z.object({
+    type: z.string(),
+    address: z.string(),
+    preferred: z.boolean().optional()
 });
 
-export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
-export default action;
+const CustomerSchema = z.object({
+    id: z.number(),
+    name: z.string().nullable().optional(),
+    email: z.string().nullable().optional(),
+    channels: z.array(CustomerChannelSchema).optional()
+});
 
-/**
- * Finds an existing customer in Gorgias by email or phone, or creates a new one if no match is found.
- *
- * @param nango - An instance of NangoAction to handle API requests.
- * @param phone - The phone number to search for or associate with the customer.
- * @param email - The email address to search for or associate with the customer (optional).
- * @returns A Promise resolving to an object containing the customer's ID and email.
- */
-async function findOrCreateCustomer(nango: NangoActionLocal, phone: string, email?: string): Promise<{ id: number; email: string }> {
-    let customer: GorgiasCustomerResponse | null = null;
+const CustomerListResponseSchema = z.object({
+    data: z.array(CustomerSchema).optional(),
+    meta: z
+        .object({
+            next_cursor: z.string().nullable().optional()
+        })
+        .optional()
+});
 
-    // First, check if email is provided and try to find the customer by email
-    if (email) {
-        const customerConfig: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/list-customers
-            endpoint: '/api/customers',
-            retries: 3,
-            params: { email }
-        };
+const AccountSettingsListSchema = z.object({
+    data: z
+        .array(
+            z.object({
+                id: z.number(),
+                type: z.string(),
+                data: z
+                    .object({
+                        assignment_channels: z.array(z.string()).optional()
+                    })
+                    .optional()
+            })
+        )
+        .optional()
+});
 
-        const response = await nango.get<GorgiasCustomerResponse[]>(customerConfig);
-        if (response.data.length === 0) {
-            await nango.log(`No customer found with email: ${email}.`, { level: 'info' });
-        } else {
-            customer = response.data[0] || null;
-        }
-    }
+const TicketMessageSchema = z
+    .object({
+        id: z.number().describe('Unique identifier of the message.'),
+        channel: z.string().nullable().optional().describe('The channel used for the message (e.g., email, phone, chat).'),
+        body_text: z.string().nullable().optional().describe('The plain text body of the message.'),
+        body_html: z.string().nullable().optional().describe('The HTML body of the message.')
+    })
+    .passthrough();
 
-    // If no customer was found by email, check by phone number
-    if (!customer) {
-        const config: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/list-customers
-            endpoint: '/api/customers',
-            retries: 3,
-            paginate: {
-                type: 'cursor',
-                cursor_path_in_response: 'meta.next_cursor',
-                cursor_name_in_request: 'cursor',
-                response_path: 'data',
-                limit: 100,
-                limit_name_in_request: 'limit'
-            }
-        };
+const TicketSchema = z
+    .object({
+        id: z.number().describe('Unique identifier of the ticket.'),
+        channel: z.string().nullable().optional().describe('The channel through which the ticket was created (e.g., email, phone, chat).'),
+        subject: z.string().nullable().optional().describe('The subject of the ticket.'),
+        customer: z
+            .object({
+                id: z.number().describe('Unique identifier of the associated customer.')
+            })
+            .optional()
+            .describe('The customer associated with the ticket.'),
+        messages: z.array(TicketMessageSchema).optional().describe('List of messages on the ticket.'),
+        created_datetime: z.string().nullable().optional().describe('ISO 8601 timestamp when the ticket was created.'),
+        updated_datetime: z.string().nullable().optional().describe('ISO 8601 timestamp when the ticket was last updated.')
+    })
+    .passthrough()
+    .describe('A Gorgias ticket created by the action.');
 
-        for await (const paginatedCustomers of nango.paginate<GorgiasCustomersResponse>(config)) {
-            for (const customerData of paginatedCustomers) {
-                const customerDetailConfig: ProxyConfiguration = {
-                    // https://developers.gorgias.com/reference/get-customer
-                    endpoint: `/api/customers/${customerData.id}`,
-                    retries: 3
-                };
+const InputSchema = z
+    .object({
+        subject: z.string().describe('Subject of the ticket to create.'),
+        message: z.string().describe('Body of the first message on the ticket.'),
+        email: z.string().optional().describe('Customer email address to use for lookup or creation.'),
+        phone: z.string().optional().describe('Customer phone number to use for lookup or creation.'),
+        name: z.string().describe('Full name of the customer to create if not found.'),
+        from_agent: z.boolean().optional().describe('Whether the first message is from an agent. Defaults to false.')
+    })
+    .describe('Input for creating a Gorgias ticket, including customer details and the first message.');
 
-                const customerDetailResponse = await nango.get<GorgiasCustomerResponse>(customerDetailConfig);
-                const detailedCustomer = customerDetailResponse.data;
-
-                const emailChannel = detailedCustomer.channels.find((channel) => channel.type === 'email' && channel.address === email);
-                const phoneChannel = detailedCustomer.channels.find((channel) => channel.type === 'phone' && channel.address === phone);
-
-                if (emailChannel || phoneChannel) {
-                    customer = detailedCustomer;
-                    break;
-                }
-            }
-
-            if (customer) break;
-        }
-    }
-
-    // If no customer found by email or phone, create a new one
-    if (!customer) {
-        await nango.log(`No customer found with phone: ${phone} or email: ${email}. Creating a new one.`, { level: 'info' });
-
-        const newCustomer = await createNewCustomer(nango, phone, email);
-        return { id: newCustomer.id, email: newCustomer.email };
-    }
-
-    return { id: customer.id, email: customer.email };
-}
-/**
- * Creates a new customer in Gorgias with the provided phone and/or email details.
- *
- * @param nango - An instance of NangoAction to perform the API request.
- * @param phone - The phone number of the customer (optional).
- * @param email - The email address of the customer (optional).
- * @returns A Promise resolving to the created customer object.
- */
-async function createNewCustomer(nango: NangoActionLocal, phone?: string, email?: string): Promise<GorgiasCustomerResponse> {
-    const newCustomerData = {
-        channels: [...(email ? [{ type: 'email', address: email }] : []), ...(phone ? [{ type: 'phone', address: phone }] : [])]
-    };
-
-    const createConfig: ProxyConfiguration = {
-        // https://developers.gorgias.com/reference/create-customer//
-        endpoint: '/api/customers',
-        retries: 3,
-        data: newCustomerData
-    };
-
-    const createResponse = await nango.post<GorgiasCustomerResponse>(createConfig);
-    return createResponse.data;
-}
-
-/**
- * Checks if the SMS channel is enabled in Gorgias account settings.
- * If the SMS channel is found, it returns "phone"; otherwise, it defaults to "email".
- *
- * @param nango - An instance of NangoAction to perform API requests.
- * @returns A Promise resolving to "phone" if SMS is enabled, otherwise "email".
- */
-async function checkSmsChannel(nango: NangoActionLocal): Promise<'phone' | 'email'> {
-    const config: ProxyConfiguration = {
-        // https://developers.gorgias.com/reference/get-account
+async function checkSmsChannel(nango: NangoAction): Promise<'phone' | 'email'> {
+    // https://developers.gorgias.com/reference/get-account
+    const response = await nango.get({
         endpoint: '/api/account/settings',
         retries: 3
-    };
-
-    const response = await nango.get<GorgiasSettingsResponse>(config);
-    const settingsItems = response.data.data;
-
-    for (const item of settingsItems) {
-        if (item.type === 'ticket-assignment') {
-            if (item.data && 'assignment_channels' in item.data) {
-                if (isTicketAssignmentData(item.data)) {
-                    if (item.data.assignment_channels.includes('sms')) {
-                        return 'phone';
-                    }
-                }
-            }
-        }
+    });
+    const list = AccountSettingsListSchema.safeParse(response.data);
+    if (!list.success) {
+        return 'email';
     }
-
+    const ticketAssignment = list.data.data?.find((setting) => setting.type === 'ticket-assignment');
+    const channels = ticketAssignment?.data?.assignment_channels || [];
+    if (channels.includes('sms')) {
+        return 'phone';
+    }
     return 'email';
 }
 
-function isTicketAssignmentData(data: TicketAssignmentData): data is TicketAssignmentData {
-    return (
-        data &&
-        typeof data === 'object' &&
-        Array.isArray(data.assignment_channels) &&
-        data.assignment_channels.every((channel: any) => typeof channel === 'string')
-    );
+async function findCustomerByEmail(nango: NangoAction, email: string): Promise<number | null> {
+    // https://developers.gorgias.com/reference/list-customers
+    const response = await nango.get({
+        endpoint: '/api/customers',
+        params: {
+            email: email,
+            limit: 1
+        },
+        retries: 3
+    });
+    const list = CustomerListResponseSchema.safeParse(response.data);
+    if (!list.success) {
+        return null;
+    }
+    const customers = list.data.data || [];
+    const firstCustomer = customers[0];
+    if (firstCustomer && firstCustomer.id) {
+        return firstCustomer.id;
+    }
+    return null;
 }
+
+async function findCustomerByChannel(nango: NangoAction, type: string, address: string): Promise<number | null> {
+    // https://developers.gorgias.com/reference/list-customers
+    for await (const page of nango.paginate({
+        endpoint: '/api/customers',
+        params: {
+            limit: 100
+        },
+        retries: 3,
+        paginate: {
+            type: 'cursor',
+            cursor_path_in_response: 'meta.next_cursor',
+            cursor_name_in_request: 'cursor',
+            response_path: 'data',
+            limit_name_in_request: 'limit'
+        }
+    })) {
+        const customers = z.array(CustomerSchema).safeParse(page);
+        if (!customers.success) {
+            continue;
+        }
+        for (const customer of customers.data) {
+            if (!customer.id) {
+                continue;
+            }
+            // https://developers.gorgias.com/reference/get-customer
+            const detailResponse = await nango.get({
+                endpoint: `/api/customers/${encodeURIComponent(customer.id)}`,
+                retries: 3
+            });
+            const detail = CustomerSchema.safeParse(detailResponse.data);
+            if (!detail.success) {
+                continue;
+            }
+            const channels = detail.data.channels || [];
+            for (const channel of channels) {
+                if (channel.type === type && channel.address === address) {
+                    return detail.data.id;
+                }
+            }
+        }
+    }
+    return null;
+}
+
+async function createCustomer(nango: NangoAction, input: z.infer<typeof InputSchema>): Promise<number> {
+    const channels: { type: string; address: string; preferred: boolean }[] = [];
+    if (input.email) {
+        channels.push({
+            type: 'email',
+            address: input.email,
+            preferred: true
+        });
+    }
+    if (input.phone) {
+        channels.push({
+            type: 'phone',
+            address: input.phone,
+            preferred: !input.email
+        });
+    }
+    // https://developers.gorgias.com/reference/create-customer
+    const response = await nango.post({
+        endpoint: '/api/customers',
+        data: {
+            name: input.name,
+            channels: channels
+        },
+        retries: 3
+    });
+    const customer = CustomerSchema.safeParse(response.data);
+    if (!customer.success || !customer.data.id) {
+        throw new nango.ActionError({
+            message: 'Failed to create customer: invalid response'
+        });
+    }
+    return customer.data.id;
+}
+
+/**
+ * @tags: [read, write]
+ * @tagReason: Reads account settings to determine the ticket channel, searches for an existing customer, and creates a ticket (and a customer if necessary).
+ * @pitfalls: The ticket channel is determined by account settings (phone when sms is enabled, otherwise email), but the first message is always created with channel 'phone' regardless, because the provider rejects email-channel messages that lack a full source envelope.
+ */
+const action = createAction({
+    description: 'Create a ticket, finding or creating the customer by email/phone and choosing the phone vs. email message channel based on account settings.',
+    version: '2.0.0',
+    input: InputSchema,
+    output: TicketSchema,
+    scopes: ['tickets:write', 'customers:write', 'customers:read', 'account:read'],
+    exec: async (nango, input) => {
+        const ticketChannel = await checkSmsChannel(nango);
+        let customerId: number | null = null;
+
+        if (input.email) {
+            customerId = await findCustomerByEmail(nango, input.email);
+        }
+
+        if (customerId === null && input.phone) {
+            customerId = await findCustomerByChannel(nango, 'phone', input.phone);
+        }
+
+        if (customerId === null && input.email) {
+            customerId = await findCustomerByChannel(nango, 'email', input.email);
+        }
+
+        if (customerId === null) {
+            customerId = await createCustomer(nango, input);
+        }
+
+        const message = {
+            channel: 'phone',
+            body_text: input.message,
+            from_agent: input.from_agent ?? false,
+            sender: {
+                id: customerId
+            }
+        };
+
+        // https://developers.gorgias.com/reference/create-ticket
+        const response = await nango.post({
+            endpoint: '/api/tickets',
+            data: {
+                channel: ticketChannel,
+                customer: {
+                    id: customerId
+                },
+                from_agent: input.from_agent ?? false,
+                messages: [message],
+                subject: input.subject
+            },
+            retries: 3
+        });
+
+        const ticket = TicketSchema.safeParse(response.data);
+        if (!ticket.success) {
+            throw new nango.ActionError({
+                message: 'Failed to create ticket: invalid response'
+            });
+        }
+
+        return ticket.data;
+    }
+});
+
+export default action;

@@ -1,0 +1,89 @@
+{
+  "input": {
+    "review_id": 1306610400
+  },
+  "output": {
+    "id": 1306610400,
+    "rating": 5,
+    "body": "This is a test review for dryrun purposes.",
+    "reviewer_name": "Jane Vaugh",
+    "reviewer_email": "test@example.com",
+    "product_id": 10291926270247,
+    "product_title": "Gift Card",
+    "created_at": "2026-08-23T23:28:00+00:00",
+    "published": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/v1/reviews/1306610400": {
+        "response": {
+          "review": {
+            "id": 1306610400,
+            "title": null,
+            "body": "This is a test review for dryrun purposes.",
+            "rating": 5,
+            "product_external_id": 10291926270247,
+            "reviewer": {
+              "id": 1715262,
+              "external_id": 5269868494,
+              "email": "test@example.com",
+              "name": "Jane Vaugh",
+              "phone": "12105550123",
+              "accepts_marketing": true,
+              "unsubscribed_at": null,
+              "tags": [
+                "Wrote Judge.me web review",
+                "COD_REJECTS"
+              ]
+            },
+            "source": "web",
+            "curated": "spam",
+            "published": false,
+            "hidden": false,
+            "verified": "not-yet",
+            "featured": false,
+            "created_at": "2026-08-23T23:28:00+00:00",
+            "updated_at": "2026-08-23T23:28:58+00:00",
+            "pinned": false,
+            "has_published_pictures": false,
+            "has_published_videos": false,
+            "pictures": [],
+            "ip_address": null,
+            "product_title": "Gift Card",
+            "product_handle": "gift-card"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sun, 23 Aug 2026 23:29:29 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "709",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31556952; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1954",
+          "x-ratelimit-reset": "1787527803",
+          "x-permitted-cross-domain-policies": "none",
+          "x-robots-tag": "noindex, nofollow",
+          "vary": "Accept-Encoding",
+          "etag": "W/\"45784b3c29a1a33b283addb83bc89c36\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "e4e1bf19-405a-4052-8073-12bcba8824c1",
+          "x-runtime": "0.029298"
+        },
+        "hash": "fa9cf60502a6d8a00eb9cd5ee99ef75f7d78e5e3",
+        "request": {}
+      }
+    }
+  }
+}

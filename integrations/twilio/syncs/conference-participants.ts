@@ -1,5 +1,6 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
+import { URL } from 'url';
 
 const ConferenceParticipantSchema = z.object({
     id: z.string(),
@@ -36,12 +37,40 @@ const MetadataSchema = z.object({
     account_sid: z.string().optional()
 });
 
+const ConferenceListSchema = z.object({
+    conferences: z.array(z.unknown()),
+    next_page_uri: z.string().nullable(),
+    uri: z.string()
+});
+
+const ParticipantListSchema = z.object({
+    participants: z.array(z.unknown()),
+    next_page_uri: z.string().nullable(),
+    uri: z.string()
+});
+
+const CheckpointSchema = z.object({
+    conference_uri: z.string(),
+    current_conference_sid: z.string(),
+    participant_uri: z.string()
+});
+
+function parseTwilioPageUrl(url: string): { endpoint: string; params: Record<string, string> } {
+    const parsed = new URL(url, 'https://api.twilio.com');
+    const params: Record<string, string> = {};
+    parsed.searchParams.forEach((value, key) => {
+        params[key] = value;
+    });
+    return { endpoint: parsed.pathname, params };
+}
+
 const sync = createSync({
     description: 'Sync participants across all conferences from Twilio.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         ConferenceParticipant: ConferenceParticipantSchema
     },
@@ -61,6 +90,11 @@ const sync = createSync({
         // refresh is required for accurate participant syncing and deletion detection.
         const connection = await nango.getConnection();
         const metadata = await nango.getMetadata();
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpoint = checkpointRaw == null ? undefined : CheckpointSchema.safeParse(checkpointRaw);
+        if (checkpoint && !checkpoint.success) {
+            throw new Error(`Invalid checkpoint: ${checkpoint.error.message}`);
+        }
 
         let accountSid: string | undefined;
         if (
@@ -80,65 +114,96 @@ const sync = createSync({
 
         await nango.trackDeletesStart('ConferenceParticipant');
 
-        const conferencesPaginate: {
-            type: 'link';
-            link_path_in_response_body: string;
-            response_path: string;
-            limit: number;
-            limit_name_in_request: string;
-        } = {
-            type: 'link',
-            link_path_in_response_body: 'next_page_uri',
-            response_path: 'conferences',
-            limit: 50,
-            limit_name_in_request: 'PageSize'
-        };
+        let conferenceUri = checkpoint?.data.conference_uri || '';
+        let currentConferenceSid = checkpoint?.data.current_conference_sid || '';
+        let participantUri = checkpoint?.data.participant_uri || '';
 
         // https://www.twilio.com/docs/voice/api/conference-resource
-        const conferencesProxyConfig = {
-            endpoint: `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Conferences.json`,
-            paginate: conferencesPaginate,
-            retries: 3
-        };
+        while (true) {
+            let confEndpoint: string;
+            let confParams: Record<string, string>;
 
-        for await (const conferencePage of nango.paginate(conferencesProxyConfig)) {
-            for (const rawConference of conferencePage) {
+            if (conferenceUri) {
+                const parsed = parseTwilioPageUrl(conferenceUri);
+                confEndpoint = parsed.endpoint;
+                confParams = parsed.params;
+            } else {
+                confEndpoint = `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Conferences.json`;
+                confParams = { PageSize: '50' };
+            }
+
+            const conferencesResponse = await nango.get({
+                endpoint: confEndpoint,
+                params: confParams,
+                retries: 3
+            });
+
+            const conferencesResult = ConferenceListSchema.safeParse(conferencesResponse.data);
+            if (!conferencesResult.success) {
+                throw new Error(`Failed to parse conferences list: ${conferencesResult.error.message}`);
+            }
+
+            const conferencesData = conferencesResult.data;
+            const conferences = conferencesData.conferences;
+            const nextConferenceUri = conferencesData.next_page_uri ?? '';
+
+            const resumeIndex = currentConferenceSid
+                ? conferences.findIndex((raw) => {
+                      const parsed = ConferenceSchema.safeParse(raw);
+                      return parsed.success && parsed.data.sid === currentConferenceSid;
+                  })
+                : -1;
+
+            const startIndex = resumeIndex >= 0 ? resumeIndex : 0;
+
+            for (let i = startIndex; i < conferences.length; i++) {
+                const rawConference = conferences[i];
                 const conferenceResult = ConferenceSchema.safeParse(rawConference);
                 if (!conferenceResult.success) {
                     throw new Error(`Failed to parse conference: ${conferenceResult.error.message}`);
                 }
                 const conferenceSid = conferenceResult.data.sid;
 
-                const participantsPaginate: {
-                    type: 'link';
-                    link_path_in_response_body: string;
-                    response_path: string;
-                    limit: number;
-                    limit_name_in_request: string;
-                } = {
-                    type: 'link',
-                    link_path_in_response_body: 'next_page_uri',
-                    response_path: 'participants',
-                    limit: 50,
-                    limit_name_in_request: 'PageSize'
-                };
+                const resumeParticipantUri = i === resumeIndex && participantUri ? participantUri : '';
 
                 // https://www.twilio.com/docs/voice/api/conference-participant-resource
-                const participantsProxyConfig = {
-                    endpoint: `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Conferences/${encodeURIComponent(conferenceSid)}/Participants.json`,
-                    paginate: participantsPaginate,
-                    retries: 3
-                };
+                let participantPageUri = resumeParticipantUri;
+                while (true) {
+                    let partEndpoint: string;
+                    let partParams: Record<string, string>;
 
-                for await (const participantPage of nango.paginate(participantsProxyConfig)) {
-                    const participants = [];
-                    for (const rawParticipant of participantPage) {
+                    if (participantPageUri) {
+                        const parsed = parseTwilioPageUrl(participantPageUri);
+                        partEndpoint = parsed.endpoint;
+                        partParams = parsed.params;
+                    } else {
+                        partEndpoint = `/2010-04-01/Accounts/${encodeURIComponent(accountSid)}/Conferences/${encodeURIComponent(conferenceSid)}/Participants.json`;
+                        partParams = { PageSize: '50' };
+                    }
+
+                    const participantsResponse = await nango.get({
+                        endpoint: partEndpoint,
+                        params: partParams,
+                        retries: 3
+                    });
+
+                    const participantsResult = ParticipantListSchema.safeParse(participantsResponse.data);
+                    if (!participantsResult.success) {
+                        throw new Error(`Failed to parse participants list: ${participantsResult.error.message}`);
+                    }
+
+                    const participantsData = participantsResult.data;
+                    const participants = participantsData.participants;
+                    const nextParticipantUri = participantsData.next_page_uri ?? '';
+
+                    const mappedParticipants = [];
+                    for (const rawParticipant of participants) {
                         const participantResult = ParticipantSchema.safeParse(rawParticipant);
                         if (!participantResult.success) {
                             throw new Error(`Failed to parse participant: ${participantResult.error.message}`);
                         }
                         const participant = participantResult.data;
-                        participants.push({
+                        mappedParticipants.push({
                             id: participant.call_sid,
                             call_sid: participant.call_sid,
                             conference_sid: participant.conference_sid,
@@ -151,13 +216,46 @@ const sync = createSync({
                         });
                     }
 
-                    if (participants.length > 0) {
-                        await nango.batchSave(participants, 'ConferenceParticipant');
+                    if (mappedParticipants.length > 0) {
+                        await nango.batchSave(mappedParticipants, 'ConferenceParticipant');
                     }
+
+                    if (!nextParticipantUri) {
+                        break;
+                    }
+
+                    await nango.saveCheckpoint({
+                        conference_uri: conferencesData.uri,
+                        current_conference_sid: conferenceSid,
+                        participant_uri: nextParticipantUri
+                    });
+
+                    participantPageUri = nextParticipantUri;
                 }
+
+                await nango.saveCheckpoint({
+                    conference_uri: conferencesData.uri,
+                    current_conference_sid: conferenceSid,
+                    participant_uri: ''
+                });
             }
+
+            if (!nextConferenceUri) {
+                break;
+            }
+
+            conferenceUri = nextConferenceUri;
+            currentConferenceSid = '';
+            participantUri = '';
+
+            await nango.saveCheckpoint({
+                conference_uri: conferenceUri,
+                current_conference_sid: '',
+                participant_uri: ''
+            });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ConferenceParticipant');
     }
 });

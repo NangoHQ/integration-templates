@@ -1,10 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
     loginCustomerId: z.string().optional().describe('Manager account ID for API access. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"'),
     name: z.string().describe('Unique conversion action name.'),
     type: z.string().describe('Conversion action type. Example: "WEBPAGE"'),
     category: z.string().describe('Conversion action category. Example: "DEFAULT"'),
@@ -26,14 +26,22 @@ const MutateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a conversion action for tracking conversions.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId !== undefined && input.loginCustomerId !== '') {
@@ -41,8 +49,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/ConversionActionService/MutateConversionActions
-            endpoint: `/v21/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/ConversionActionService/MutateConversionActions
+            endpoint: `/v25/customers/${encodeURIComponent(input.customerId)}/conversionActions:mutate`,
             headers,
             data: {
                 operations: [

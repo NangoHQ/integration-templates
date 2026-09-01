@@ -1,0 +1,104 @@
+{
+  "input": {
+    "id": 1177172
+  },
+  "output": {
+    "id": 1177172,
+    "uri": "/api/views/1177172/",
+    "category": "system",
+    "created_datetime": "2026-08-26T12:46:06.201366+00:00",
+    "fields": [
+      "name",
+      "email",
+      "created",
+      "updated"
+    ],
+    "filters": "",
+    "name": "All customers",
+    "order_by": "updated_datetime",
+    "order_dir": "desc",
+    "shared_with_teams": [],
+    "shared_with_users": [],
+    "slug": "all-customers",
+    "type": "customer-list",
+    "visibility": "public"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/views/1177172": {
+        "response": {
+          "id": 1177172,
+          "category": "system",
+          "created_datetime": "2026-08-26T12:46:06.201366+00:00",
+          "deactivated_datetime": null,
+          "decoration": null,
+          "fields": [
+            "name",
+            "email",
+            "created",
+            "updated"
+          ],
+          "filters": "",
+          "filters_ast": {
+            "loc": {
+              "end": {
+                "line": 0,
+                "column": 0
+              },
+              "start": {
+                "line": 0,
+                "column": 0
+              }
+            },
+            "body": [],
+            "type": "Program",
+            "sourceType": "script"
+          },
+          "name": "All customers",
+          "order_by": "updated_datetime",
+          "order_dir": "desc",
+          "search": null,
+          "shared_with_teams": [],
+          "shared_with_users": [],
+          "section_id": null,
+          "slug": "all-customers",
+          "type": "customer-list",
+          "uri": "/api/views/1177172/",
+          "visibility": "public"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:47:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1787770113",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "5/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "e9b195ffbd8f529bb16b55bb6ce4da5d",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a31501c17cb7dfd2-PDX"
+        },
+        "hash": "9d6ecc954a636ede5ebef432845ab3f5f7e262d6",
+        "request": {}
+      }
+    }
+  }
+}

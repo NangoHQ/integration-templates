@@ -55,18 +55,31 @@ const ProviderProjectSchema = z.object({
     avatarUrls: z.record(z.string(), z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    start_at: z.number().int().nonnegative()
+});
+
+const StoredCheckpointSchema = z.object({
+    start_at: z.number().int().nonnegative().optional()
+});
+
 const sync = createSync({
     description: 'Sync Jira projects accessible to the authenticated user.',
-    version: '2.0.1',
+    version: '2.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/projects' }],
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema
     },
 
     exec: async (nango) => {
+        const parsedCheckpoint = StoredCheckpointSchema.safeParse(await nango.getCheckpoint());
+        const resumeOffset = parsedCheckpoint.success ? (parsedCheckpoint.data.start_at ?? 0) : 0;
+        let startAt: number | undefined = resumeOffset;
+
         const connection = await nango.getConnection();
         let cloudId = connection.connection_config?.['cloudId'];
         let baseUrl = connection.connection_config?.['baseUrl'];
@@ -92,7 +105,11 @@ const sync = createSync({
                 limit_name_in_request: 'maxResults',
                 limit: 50,
                 response_path: 'values',
-                offset_calculation_method: 'by-response-size'
+                offset_calculation_method: 'by-response-size',
+                offset_start_value: resumeOffset,
+                on_page: async (paginationState: { nextPageParam?: string | number | undefined; response: unknown }) => {
+                    startAt = typeof paginationState.nextPageParam === 'number' ? paginationState.nextPageParam : undefined;
+                }
             },
             retries: 3
         })) {
@@ -101,34 +118,39 @@ const sync = createSync({
                 throw new Error(`Failed to parse Jira projects: ${parsed.error.message}`);
             }
 
-            if (parsed.data.length === 0) continue;
+            if (parsed.data.length > 0) {
+                await nango.batchSave(
+                    parsed.data.map((project) => ({
+                        id: project.id,
+                        key: project.key,
+                        name: project.name,
+                        project_type_key: project.projectTypeKey,
+                        simplified: project.simplified,
+                        style: project.style,
+                        is_private: project.isPrivate,
+                        entity_id: project.entityId,
+                        uuid: project.uuid,
+                        lead: project.lead ? { account_id: project.lead.accountId, display_name: project.lead.displayName } : undefined,
+                        url: project.url,
+                        project_category: project.projectCategory
+                            ? {
+                                  id: project.projectCategory.id,
+                                  name: project.projectCategory.name,
+                                  description: project.projectCategory.description
+                              }
+                            : undefined,
+                        avatar_urls: project.avatarUrls
+                    })),
+                    'Project'
+                );
+            }
 
-            await nango.batchSave(
-                parsed.data.map((project) => ({
-                    id: project.id,
-                    key: project.key,
-                    name: project.name,
-                    project_type_key: project.projectTypeKey,
-                    simplified: project.simplified,
-                    style: project.style,
-                    is_private: project.isPrivate,
-                    entity_id: project.entityId,
-                    uuid: project.uuid,
-                    lead: project.lead ? { account_id: project.lead.accountId, display_name: project.lead.displayName } : undefined,
-                    url: project.url,
-                    project_category: project.projectCategory
-                        ? {
-                              id: project.projectCategory.id,
-                              name: project.projectCategory.name,
-                              description: project.projectCategory.description
-                          }
-                        : undefined,
-                    avatar_urls: project.avatarUrls
-                })),
-                'Project'
-            );
+            if (startAt !== undefined) {
+                await nango.saveCheckpoint({ start_at: startAt });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Project');
     }
 });

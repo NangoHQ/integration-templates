@@ -1,0 +1,307 @@
+{
+  "input": {
+    "ticket_id": 82759724,
+    "custom_field_id": 319832,
+    "value": "final test value"
+  },
+  "output": {
+    "ticket_id": 82759724,
+    "custom_field_id": 319832,
+    "value": "final test value"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/tickets/82759724": {
+        "response": {
+          "id": 82759724,
+          "uri": "/api/tickets/82759724/",
+          "external_id": null,
+          "events": [],
+          "status": "open",
+          "priority": "normal",
+          "channel": "phone",
+          "via": "api",
+          "from_agent": false,
+          "spam": false,
+          "imported": false,
+          "customer": {
+            "id": 519543245,
+            "email": "support@gorgias.com",
+            "name": "Romain @Gorgias",
+            "firstname": "Romain",
+            "lastname": "@Gorgias",
+            "meta": {
+              "name_set_via": "agent"
+            },
+            "channels": [
+              {
+                "id": 654042195,
+                "type": "email",
+                "address": "support@gorgias.com",
+                "preferred": true,
+                "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.231080+00:00",
+                "deleted_datetime": null,
+                "user": {
+                  "id": 519543245,
+                  "name": "Romain @Gorgias"
+                },
+                "customer": {
+                  "id": 519543245,
+                  "name": "Romain @Gorgias"
+                }
+              }
+            ],
+            "data": null,
+            "customer": null,
+            "integrations": {},
+            "external_id": null,
+            "note": null,
+            "external_data": {
+              "6a8ee355f22a0b59f9b3ac3d": {
+                "mrr": 123,
+                "plan": "pro",
+                "__app_name__": "Nango"
+              }
+            },
+            "ecommerce_data": {}
+          },
+          "assignee_user": null,
+          "assignee_user_id": null,
+          "assignee_team": null,
+          "assignee_team_id": null,
+          "language": "en",
+          "subject": "Nango Test Ticket for Custom Field",
+          "summary": null,
+          "meta": null,
+          "tags": [],
+          "custom_fields": {
+            "319832": {
+              "id": 319832,
+              "value": "final test value"
+            }
+          },
+          "messages": [
+            {
+              "id": 218873961,
+              "uri": "/api/tickets/82759724/messages/218873961/",
+              "message_id": null,
+              "ticket_id": 82759724,
+              "external_id": null,
+              "public": true,
+              "channel": "phone",
+              "via": "api",
+              "source": {
+                "type": "phone"
+              },
+              "sender": {
+                "id": 519543245,
+                "email": "support@gorgias.com",
+                "name": "Romain @Gorgias",
+                "firstname": "Romain",
+                "lastname": "@Gorgias",
+                "meta": {
+                  "name_set_via": "agent"
+                }
+              },
+              "auth_customer_identity": null,
+              "integration_id": null,
+              "intents": [
+                {
+                  "name": "other/question",
+                  "rejected": null,
+                  "is_user_feedback": false
+                }
+              ],
+              "rule_id": null,
+              "from_agent": false,
+              "receiver": null,
+              "subject": null,
+              "body_text": "Test message",
+              "body_html": null,
+              "stripped_text": null,
+              "stripped_html": null,
+              "stripped_signature": null,
+              "attachments": null,
+              "actions": null,
+              "imported": false,
+              "meta": null,
+              "created_datetime": "2026-08-26T19:25:16.763796+00:00",
+              "processed_datetime": "2026-08-26T19:25:16.778563+00:00",
+              "sent_datetime": "2026-08-26T19:25:16.763796+00:00",
+              "failed_datetime": null,
+              "opened_datetime": null,
+              "last_sending_error": null,
+              "is_retriable": true
+            }
+          ],
+          "created_datetime": "2026-08-26T19:25:16.763796+00:00",
+          "processed_datetime": "2026-08-26T19:25:16.765325+00:00",
+          "opened_datetime": null,
+          "last_received_message_datetime": "2026-08-26T19:25:16.763796+00:00",
+          "last_message_datetime": "2026-08-26T19:25:16.763796+00:00",
+          "updated_datetime": "2026-08-26T19:25:18.551095+00:00",
+          "closed_datetime": null,
+          "trashed_datetime": null,
+          "snooze_datetime": null,
+          "satisfaction_survey": null,
+          "reply_options": {
+            "email": {
+              "answerable": true
+            },
+            "internal-note": {
+              "answerable": true
+            }
+          },
+          "requester": {
+            "id": 519543245,
+            "email": "support@gorgias.com",
+            "name": "Romain @Gorgias",
+            "firstname": "Romain",
+            "lastname": "@Gorgias",
+            "meta": {
+              "name_set_via": "agent"
+            },
+            "channels": [
+              {
+                "id": 654042195,
+                "type": "email",
+                "address": "support@gorgias.com",
+                "preferred": true,
+                "created_datetime": "2026-08-26T12:46:06.231080+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.231080+00:00",
+                "deleted_datetime": null,
+                "user": {
+                  "id": 519543245,
+                  "name": "Romain @Gorgias"
+                },
+                "customer": {
+                  "id": 519543245,
+                  "name": "Romain @Gorgias"
+                }
+              }
+            ],
+            "data": null,
+            "customer": null,
+            "integrations": {},
+            "external_id": null,
+            "note": null,
+            "external_data": {
+              "6a8ee355f22a0b59f9b3ac3d": {
+                "mrr": 123,
+                "plan": "pro",
+                "__app_name__": "Nango"
+              }
+            },
+            "ecommerce_data": {}
+          },
+          "is_unread": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 19:37:39 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1787773104",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "6/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "a07032b34fd72f2ea6554e3022db6c66",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a3154ad53cdd1a0b-PDX"
+        },
+        "hash": "24b2a8c354f16beed0b0c0682213fd96a92d0c68",
+        "request": {}
+      }
+    },
+    "put": {
+      "/api/tickets/82759724/custom-fields": {
+        "response": {
+          "data": [
+            {
+              "field": {
+                "id": 319832,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango Test Field Action",
+                "description": "Temporary test field",
+                "priority": 13,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input",
+                    "placeholder": "Enter value"
+                  }
+                },
+                "created_datetime": "2026-08-26T19:26:24.101810+00:00",
+                "updated_datetime": "2026-08-26T19:26:24.101815+00:00",
+                "deactivated_datetime": null
+              },
+              "prediction": null,
+              "value": "final test value"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 19:37:39 GMT",
+          "content-type": "application/json",
+          "content-length": "547",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1787773104",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "7/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "f887dd68f34e741b1d9870d0efd72d88",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a3154ad70837fef1-PDX",
+          "etag": "W/\"223-g17eUwHv4rtjX+jDC6UjdbF4VVw\""
+        },
+        "hash": "fc3f7552c937c3867d576641e1dba0d37829e9d1",
+        "request": {
+          "data": [
+            {
+              "id": 319832,
+              "value": "final test value"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

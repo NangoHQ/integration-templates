@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const MonthlySearchVolumeSchema = z.object({
     year: z.string().optional(),
@@ -37,7 +38,6 @@ const InputSchema = z
         language: z.string().optional().describe('Language constant resource name. Example: "languageConstants/1000"'),
         geoTargetConstants: z.array(z.string()).optional().describe('Geo target constant resource names. Example: ["geoTargetConstants/2840"]'),
         keywordPlanNetwork: z.string().optional().describe('Keyword plan network. Example: "GOOGLE_SEARCH"'),
-        developerToken: z.string().describe('Google Ads developer token.'),
         loginCustomerId: z.string().optional().describe('Login customer ID when accessing via a manager account. Example: "3608201627"'),
         includeAdultKeywords: z.boolean().optional().describe('Whether to include adult keywords in the response.'),
         pageToken: z.string().optional().describe('Pagination token for the next page of results.'),
@@ -54,12 +54,20 @@ const InputSchema = z
 
 const action = createAction({
     description: 'Generate keyword ideas and search volume/competition metrics from a seed keyword list or URL.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input) => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const seed: Record<string, unknown> = {};
 
         if (input.keywords && input.keywords.length > 0 && input.url) {
@@ -92,7 +100,7 @@ const action = createAction({
         };
 
         const headers: Record<string, string> = {
-            'developer-token': input.developerToken
+            'developer-token': developerToken
         };
 
         if (input.loginCustomerId) {
@@ -100,8 +108,8 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rpc/v21/KeywordPlanIdeaService/GenerateKeywordIdeas
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/KeywordPlanIdeaService/GenerateKeywordIdeas
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}:generateKeywordIdeas`,
             data: body,
             headers,
             retries: 3

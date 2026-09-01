@@ -20,9 +20,23 @@ const OktaErrorSchema = z
 
 const MISSING_FEATURE_FLAG_MARKER = 'Missing Required Feature Flag';
 
+function isMissingFeatureFlagError(err: unknown): boolean {
+    if (err === null || typeof err !== 'object' || !('response' in err)) {
+        return false;
+    }
+    const response = err.response;
+    if (response === null || typeof response !== 'object' || !('status' in response) || response.status !== 400) {
+        return false;
+    }
+    if (!('data' in response) || response.data === null || response.data === undefined) {
+        return false;
+    }
+    return JSON.stringify(response.data).includes(MISSING_FEATURE_FLAG_MARKER);
+}
+
 const sync = createSync({
     description: 'Sync policies.',
-    version: '1.0.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -69,6 +83,8 @@ const sync = createSync({
                 retries: 3
             };
 
+            // @allowTryCatch Orgs without a policy type's feature flag enabled get a 400 from
+            // Okta for that type alone; skip just that type instead of aborting the whole sync.
             try {
                 for await (const page of nango.paginate(proxyConfig)) {
                     if (!Array.isArray(page)) {
@@ -91,11 +107,11 @@ const sync = createSync({
                     }
                 }
             } catch (err) {
-                const message = err instanceof Error ? err.message : String(err);
                 // Only skip the specific "org doesn't have this policy type enabled" case.
                 // Any other failure (transient network error, parse error, etc.) must abort
                 // the sync rather than let trackDeletesEnd finalize on partial enumeration.
-                if (!message.includes(MISSING_FEATURE_FLAG_MARKER)) {
+                const message = err instanceof Error ? err.message : String(err);
+                if (!isMissingFeatureFlagError(err) && !message.includes(MISSING_FEATURE_FLAG_MARKER)) {
                     throw err;
                 }
                 await nango.log(`Skipping policy type ${policyType}: ${message}`, { level: 'warn' });

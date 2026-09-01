@@ -3,8 +3,8 @@
     "batchSave": {
       "UserProperty": [
         {
-          "id": "gp:test-property-opencode-2026-06-16",
-          "user_property": "gp:test-property-opencode-2026-06-16",
+          "id": "gp:test-property-1781610924",
+          "user_property": "gp:test-property-1781610924",
           "description": "",
           "type": "any",
           "is_array_type": false,
@@ -13,8 +13,88 @@
           "deleted": false
         },
         {
-          "id": "gp:test-property-1781610924",
-          "user_property": "gp:test-property-1781610924",
+          "id": "gp:test-prop-1781611590682",
+          "user_property": "gp:test-prop-1781611590682",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:live-test-property-2026-06-16",
+          "user_property": "gp:live-test-property-2026-06-16",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:test_user_prop",
+          "user_property": "gp:test_user_prop",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:test_user_prop_123",
+          "user_property": "gp:test_user_prop_123",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:gp:live-test-property-2026-06-16",
+          "user_property": "gp:gp:live-test-property-2026-06-16",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:gp:unexpected-test-property-2026-06-16",
+          "user_property": "gp:gp:unexpected-test-property-2026-06-16",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:plan",
+          "user_property": "gp:plan",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "gp:unexpected-test-property-2026-06-16",
+          "user_property": "gp:unexpected-test-property-2026-06-16",
+          "description": "",
+          "type": "any",
+          "is_array_type": false,
+          "is_hidden": false,
+          "classifications": [],
+          "deleted": false
+        },
+        {
+          "id": "library",
+          "user_property": "library",
           "description": "",
           "type": "any",
           "is_array_type": false,
@@ -125,7 +205,7 @@
           "success": true,
           "data": [
             {
-              "user_property": "gp:test-property-opencode-2026-06-16",
+              "user_property": "gp:test-property-1781610924",
               "description": "",
               "type": "any",
               "enum_values": null,
@@ -136,7 +216,95 @@
               "deleted": false
             },
             {
-              "user_property": "gp:test-property-1781610924",
+              "user_property": "gp:test-prop-1781611590682",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:live-test-property-2026-06-16",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:test_user_prop",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:test_user_prop_123",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:gp:live-test-property-2026-06-16",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:gp:unexpected-test-property-2026-06-16",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:plan",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "gp:unexpected-test-property-2026-06-16",
+              "description": "",
+              "type": "any",
+              "enum_values": null,
+              "regex": null,
+              "is_array_type": false,
+              "is_hidden": false,
+              "classifications": [],
+              "deleted": false
+            },
+            {
+              "user_property": "library",
               "description": "",
               "type": "any",
               "enum_values": null,
@@ -249,7 +417,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 16 Jun 2026 11:55:45 GMT",
+          "date": "Tue, 18 Aug 2026 08:46:10 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -258,16 +426,17 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4894",
-          "x-ratelimit-reset": "1781610972",
-          "etag": "W/\"7d4958c55f912deb0d5d6ccb6f6ce7b47a27e80f\"",
-          "server-timing": "dash;dur=257.5",
-          "x-amzn-trace-id": "Root=1-6a3139c1-78b7431d5794f9c040847f7e",
+          "x-ratelimit-remaining": "4978",
+          "x-ratelimit-reset": "1787042792",
+          "etag": "W/\"bd82d3687a8a11ef754676312cd05f316a267bb9\"",
+          "server-timing": "dash;dur=346.9",
+          "x-amzn-trace-id": "Root=1-6a841bd2-7c96b0964a4c7e23173d635c",
           "cache-control": "no-cache, no-store, must-revalidate",
           "pragma": "no-cache",
           "expires": "0",

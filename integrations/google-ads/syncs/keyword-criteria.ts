@@ -1,4 +1,5 @@
 import { createSync, ProxyConfiguration } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const KeywordCriterionSchema = z.object({
@@ -23,8 +24,7 @@ const CheckpointSchema = z.object({
 
 const MetadataSchema = z.object({
     customer_ids: z.array(z.string()).optional(),
-    login_customer_id: z.string().optional(),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    login_customer_id: z.string().optional()
 });
 
 const SearchStreamResultSchema = z.object({
@@ -240,7 +240,7 @@ function mapResultToKeywordCriterion(result: z.infer<typeof SearchStreamResultSc
 async function fetchKeywordCriteriaViaSearchStream(nango: NangoSyncLocal, customerId: string, headers: Record<string, string>, query: string) {
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -285,7 +285,7 @@ async function fetchChangeStatusForWindow(
 
     const proxyConfig: ProxyConfiguration = {
         // https://developers.google.com/google-ads/api/docs/change-status
-        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
+        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
         method: 'POST',
         headers,
         data: { query },
@@ -312,7 +312,7 @@ async function fetchChangeStatusForWindow(
 
 const sync = createSync({
     description: 'Sync ad group keyword criteria for customer accounts in scope',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -333,7 +333,12 @@ const sync = createSync({
         }
 
         const loginCustomerId = parsedMetadata.data.login_customer_id;
-        const developerToken = parsedMetadata.data.developer_token;
+
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new Error('developer_token is required in connection config');
+        }
+
         const headers: Record<string, string> = {
             'developer-token': developerToken,
             ...(loginCustomerId && { 'login-customer-id': loginCustomerId })

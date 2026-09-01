@@ -1,0 +1,271 @@
+{
+  "input": {
+    "projectId": 48644099,
+    "name": "Name the project",
+    "description": "Updated description via Nango action."
+  },
+  "output": {
+    "id": 48644099,
+    "status": "archived",
+    "created_at": "2026-08-26T03:32:55.483Z",
+    "updated_at": "2026-08-26T04:33:12.138Z",
+    "name": "Name the project",
+    "description": "Updated description via Nango action.",
+    "purpose": "topic",
+    "clients_enabled": false,
+    "timesheet_enabled": false,
+    "color": null,
+    "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQwOTk_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--7900451949bc26ad24177434f502b3c6be3fb26d.json",
+    "star_url": "https://3.basecampapi.com/6267157/buckets/48644099/stars.json",
+    "url": "https://3.basecampapi.com/6267157/projects/48644099.json",
+    "app_url": "https://app.basecamp.com/6267157/projects/48644099",
+    "dock": [
+      {
+        "id": 10239340927,
+        "title": "Message Board",
+        "name": "message_board",
+        "enabled": true,
+        "position": 3,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/message_boards/10239340927.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/message_boards/10239340927"
+      },
+      {
+        "id": 10239340934,
+        "title": "To-dos",
+        "name": "todoset",
+        "enabled": true,
+        "position": 2,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/todosets/10239340934.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todosets/10239340934"
+      },
+      {
+        "id": 10239340939,
+        "title": "Docs & Files",
+        "name": "vault",
+        "enabled": true,
+        "position": 4,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/vaults/10239340939.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/vaults/10239340939"
+      },
+      {
+        "id": 10239340941,
+        "title": "Calendar",
+        "name": "schedule",
+        "enabled": true,
+        "position": 1,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/schedules/10239340941.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/schedules/10239340941"
+      },
+      {
+        "id": 10239340942,
+        "title": "Chat",
+        "name": "chat",
+        "enabled": true,
+        "position": 6,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/chats/10239340942.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/chats/10239340942"
+      },
+      {
+        "id": 10239340943,
+        "title": "Card Table",
+        "name": "kanban_board",
+        "enabled": true,
+        "position": 5,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/card_tables/10239340943.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/card_tables/10239340943"
+      },
+      {
+        "id": 10239340952,
+        "title": "Updated Check-ins",
+        "name": "questionnaire",
+        "enabled": true,
+        "position": 7,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/questionnaires/10239340952.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/questionnaires/10239340952"
+      },
+      {
+        "id": 10239340954,
+        "title": "Email Forwards",
+        "name": "inbox",
+        "enabled": false,
+        "position": null,
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/inboxes/10239340954.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/inboxes/10239340954"
+      }
+    ],
+    "people": {
+      "team": {
+        "count": 2,
+        "sample": [
+          {
+            "id": 53024646,
+            "name": "Nango Developer",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+          },
+          {
+            "id": 53024835,
+            "name": "Test Person",
+            "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBEMYKQM=--a6f561ef6d636e40eef5eefd47643b043d169f1a/avatar"
+          }
+        ]
+      }
+    },
+    "all_access": false
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/projects/48644099.json": {
+        "response": {
+          "id": 48644099,
+          "status": "archived",
+          "created_at": "2026-08-26T03:32:55.483Z",
+          "updated_at": "2026-08-26T04:33:12.138Z",
+          "name": "Name the project",
+          "description": "Updated description via Nango action.",
+          "purpose": "topic",
+          "clients_enabled": false,
+          "timesheet_enabled": false,
+          "color": null,
+          "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/BAh7BkkiC19yYWlscwY6BkVUewdJIglkYXRhBjsAVEkiKWdpZDovL2JjMy9CdWNrZXQvNDg2NDQwOTk_ZXhwaXJlc19pbgY7AFRJIghwdXIGOwBUSSINcmVhZGFibGUGOwBU--7900451949bc26ad24177434f502b3c6be3fb26d.json",
+          "star_url": "https://3.basecampapi.com/6267157/buckets/48644099/stars.json",
+          "url": "https://3.basecampapi.com/6267157/projects/48644099.json",
+          "app_url": "https://app.basecamp.com/6267157/projects/48644099",
+          "dock": [
+            {
+              "id": 10239340927,
+              "title": "Message Board",
+              "name": "message_board",
+              "enabled": true,
+              "position": 3,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/message_boards/10239340927.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/message_boards/10239340927"
+            },
+            {
+              "id": 10239340934,
+              "title": "To-dos",
+              "name": "todoset",
+              "enabled": true,
+              "position": 2,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/todosets/10239340934.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/todosets/10239340934"
+            },
+            {
+              "id": 10239340939,
+              "title": "Docs & Files",
+              "name": "vault",
+              "enabled": true,
+              "position": 4,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/vaults/10239340939.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/vaults/10239340939"
+            },
+            {
+              "id": 10239340941,
+              "title": "Calendar",
+              "name": "schedule",
+              "enabled": true,
+              "position": 1,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/schedules/10239340941.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/schedules/10239340941"
+            },
+            {
+              "id": 10239340942,
+              "title": "Chat",
+              "name": "chat",
+              "enabled": true,
+              "position": 6,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/chats/10239340942.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/chats/10239340942"
+            },
+            {
+              "id": 10239340943,
+              "title": "Card Table",
+              "name": "kanban_board",
+              "enabled": true,
+              "position": 5,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/card_tables/10239340943.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/card_tables/10239340943"
+            },
+            {
+              "id": 10239340952,
+              "title": "Updated Check-ins",
+              "name": "questionnaire",
+              "enabled": true,
+              "position": 7,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/questionnaires/10239340952.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/questionnaires/10239340952"
+            },
+            {
+              "id": 10239340954,
+              "title": "Email Forwards",
+              "name": "inbox",
+              "enabled": false,
+              "position": null,
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/inboxes/10239340954.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/inboxes/10239340954"
+            }
+          ],
+          "people": {
+            "team": {
+              "count": 2,
+              "sample": [
+                {
+                  "id": 53024646,
+                  "name": "Nango Developer",
+                  "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBIYXKQM=--bbc3d98a8a56e0453c50d405fe944aef9c757f4f/avatar"
+                },
+                {
+                  "id": 53024835,
+                  "name": "Test Person",
+                  "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/BAhpBEMYKQM=--a6f561ef6d636e40eef5eefd47643b043d169f1a/avatar"
+                }
+              ]
+            }
+          },
+          "all_access": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 04:33:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3230",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1809",
+          "x-ratelimit-reset": "1787718807",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "content-security-policy": "font-src 'self' blob: data: https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://use.typekit.net fonts.gstatic.com https://rsms.me; object-src 'none'; script-src 'self' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://www.dropbox.com/static/api/2/dropins.js https://platform.twitter.com https://platform.x.com https://cdn01.boxcdn.net/js/static/select.js embedr.flickr.com/assets/ widgets.flickr.com/embedr/ 'sha256-aCvRIQ79zbEtvxwsqDbuavE4Sa35jGPLpcm4Y1yIUA0=' 'sha256-Ez5uQZcKGUzoXDIfdPNg1TIyAIO39xBSe6Xba9lAhR4=' hcaptcha.com *.hcaptcha.com https://assets.tickspot.com https://secure.tickspot.com https://basecamp.com *.braintreegateway.com *.sentry-cdn.com beacon-v2.helpscout.net 'sha256-tkb4UZeVJlSA6VA48VjvAuLrjlKnMlkZ3aYzHpTVQ+Y=' 'report-sample' 'nonce-f032a9366afb17d51491b036e3ee2f5eb9aec57d1b1ab0ffaf14b6834049840f'; style-src 'self' 'unsafe-inline' https://bc3-production-assets-cdn.basecamp-static.com https://bc3-rollout-assets-cdn.basecamp-static.com https://assets.tickspot.com fonts.googleapis.com https://rsms.me/inter/inter.css 'report-sample'; base-uri 'self'; form-action 'self' https://3.basecamp.com https://app.basecamp.com https://launchpad.37signals.com https://basecamp.com/; frame-ancestors 'self' https://3.basecamp.com https://app.basecamp.com",
+          "etag": "W/\"d91e48b515791704f3db2fe060d0d9e9\"",
+          "server-timing": "dc;desc=sc_chi, lb;desc=sc_chi",
+          "set-cookie": "bc3_wrote=1787718793897; path=/6267157; max-age=30; secure; HttpOnly; SameSite=Lax, bc3_csp_nonce_id=Gyq9WqqnXnbtAu%2FfE%2FWLDw%3D%3D; path=/; HttpOnly; SameSite=Lax; secure, force-primary-dc=true; Path=/; Version=1; Max-Age=1",
+          "vary": "Origin, Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit": "{\"name\":\"API\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:33:20Z\"}, {\"name\":\"API_PATH\",\"period\":10,\"limit\":50,\"remaining\":49,\"until\":\"2026-08-26T04:33:20Z\"}",
+          "x-request-id": "8eb63046-8fc5-429e-9914-d44fad3181d5",
+          "x-robots-tag": "none",
+          "x-runtime": "0.055468",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a3101dfd4ff22fbe-PDX"
+        },
+        "hash": "23f2edbc1b0031b81d17af1dbddb0fc26fbcd904",
+        "request": {
+          "data": {
+            "name": "Name the project",
+            "description": "Updated description via Nango action."
+          }
+        }
+      }
+    }
+  }
+}

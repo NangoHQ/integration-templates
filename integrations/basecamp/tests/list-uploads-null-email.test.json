@@ -1,0 +1,145 @@
+{
+  "input": {
+    "projectId": 48644099,
+    "vaultId": 10239340939
+  },
+  "output": {
+    "items": [
+      {
+        "id": 10239440388,
+        "status": "active",
+        "visible_to_clients": false,
+        "created_at": "2026-08-26T04:34:02.870Z",
+        "updated_at": "2026-08-26T04:34:02.877Z",
+        "title": "test-upload-2.txt",
+        "inherits_status": true,
+        "type": "Upload",
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/uploads/10239440388.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/uploads/10239440388",
+        "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/example.json",
+        "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/subscription.json",
+        "comments_count": 0,
+        "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/comments.json",
+        "boosts_count": 0,
+        "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/boosts.json",
+        "position": 1,
+        "parent": {
+          "id": 10239340939,
+          "title": "Docs & Files",
+          "type": "Vault",
+          "url": "https://3.basecampapi.com/6267157/buckets/48644099/vaults/10239340939.json",
+          "app_url": "https://app.basecamp.com/6267157/buckets/48644099/vaults/10239340939"
+        },
+        "bucket": {
+          "id": 48644099,
+          "name": "Name the project",
+          "type": "Project"
+        },
+        "creator": {
+          "id": 53024699,
+          "name": "Zapier Integration",
+          "attachable_sgid": "gid-example",
+          "personable_type": "Integration",
+          "title": null,
+          "tagline": null,
+          "location": null,
+          "created_at": "2026-08-26T03:31:40.436Z",
+          "updated_at": "2026-08-26T03:31:50.720Z",
+          "bio": null,
+          "admin": false,
+          "owner": false,
+          "client": false,
+          "employee": false,
+          "time_zone": "Europe/Moscow",
+          "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+          "can_ping": false,
+          "can_manage_projects": false,
+          "can_manage_people": false,
+          "can_access_timesheet": false,
+          "can_access_hill_charts": false
+        },
+        "description": "Test upload description",
+        "description_attachments": [],
+        "content_type": "text/plain",
+        "byte_size": 52,
+        "filename": "test-upload-2.txt",
+        "download_url": "https://3.basecampapi.com/6267157/buckets/48644099/uploads/10239440388/download/test-upload-2.txt",
+        "app_download_url": "https://storage.app.basecamp.com/6267157/buckets/48644099/uploads/10239440388/download/test-upload-2.txt"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/vaults/10239340939/uploads.json": {
+        "response": [
+          {
+            "id": 10239440388,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T04:34:02.870Z",
+            "updated_at": "2026-08-26T04:34:02.877Z",
+            "title": "test-upload-2.txt",
+            "inherits_status": true,
+            "type": "Upload",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/uploads/10239440388.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/uploads/10239440388",
+            "bookmark_url": "https://3.basecampapi.com/6267157/my/bookmarks/example.json",
+            "subscription_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/subscription.json",
+            "comments_count": 0,
+            "comments_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/comments.json",
+            "boosts_count": 0,
+            "boosts_url": "https://3.basecampapi.com/6267157/buckets/48644099/recordings/10239440388/boosts.json",
+            "position": 1,
+            "parent": {
+              "id": 10239340939,
+              "title": "Docs & Files",
+              "type": "Vault",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/vaults/10239340939.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/vaults/10239340939"
+            },
+            "bucket": {
+              "id": 48644099,
+              "name": "Name the project",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024699,
+              "attachable_sgid": "gid-example",
+              "name": "Zapier Integration",
+              "personable_type": "Integration",
+              "title": null,
+              "tagline": null,
+              "location": null,
+              "created_at": "2026-08-26T03:31:40.436Z",
+              "updated_at": "2026-08-26T03:31:50.720Z",
+              "email_address": null,
+              "bio": null,
+              "admin": false,
+              "owner": false,
+              "client": false,
+              "employee": false,
+              "time_zone": "Europe/Moscow",
+              "avatar_url": "https://bc3-production-assets-cdn.basecamp-static.com/6267157/people/example/avatar",
+              "can_ping": false,
+              "can_manage_projects": false,
+              "can_manage_people": false,
+              "can_access_timesheet": false,
+              "can_access_hill_charts": false
+            },
+            "description": "Test upload description",
+            "description_attachments": [],
+            "content_type": "text/plain",
+            "byte_size": 52,
+            "filename": "test-upload-2.txt",
+            "download_url": "https://3.basecampapi.com/6267157/buckets/48644099/uploads/10239440388/download/test-upload-2.txt",
+            "app_download_url": "https://storage.app.basecamp.com/6267157/buckets/48644099/uploads/10239440388/download/test-upload-2.txt"
+          }
+        ],
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

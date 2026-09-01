@@ -98,12 +98,23 @@ const MetadataSchema = z.object({
     team_id: z.string()
 });
 
+// Blocker: ClickUp list endpoints (spaces, folders, folderless lists, folder lists)
+// do not expose changed-since filters, cursors, page tokens, or offset parameters.
+// We must walk the full nested hierarchy on every run. We checkpoint the space and
+// folder coordinates so a resumed execution skips completed outer work.
+const CheckpointSchema = z.object({
+    space_id: z.string(),
+    phase: z.string(),
+    folder_id: z.string()
+});
+
 const sync = createSync({
     description: 'Sync lists from ClickUp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         List: ListSchema
     },
@@ -121,11 +132,17 @@ const sync = createSync({
         }
         const teamId = metadata.team_id;
 
+        const checkpoint = await nango.getCheckpoint();
+        const raw = checkpoint ?? { space_id: '', phase: '', folder_id: '' };
+        const parsedCheckpoint = CheckpointSchema.safeParse(raw);
+        if (!parsedCheckpoint.success) {
+            throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+        const cp = parsedCheckpoint.data;
+
         // Blocker: ClickUp lists have no updated_at field, so we must do a full refresh.
         // We'll use trackDeletesStart/trackDeletesEnd to detect deletions.
         await nango.trackDeletesStart('List');
-
-        const allLists: Array<z.infer<typeof ListSchema>> = [];
 
         // First, get all spaces in the team
         // https://developer.clickup.com/reference/getspaces
@@ -146,30 +163,51 @@ const sync = createSync({
 
         const spaces = spacesResult.data.spaces;
 
-        // Process each space to get folderless lists and folder-based lists
-        for (const space of spaces) {
-            // Get folderless lists in this space
-            // https://developer.clickup.com/reference/getfolderlesslists
-            const folderlessResponse = await nango.get({
-                endpoint: `/api/v2/space/${encodeURIComponent(space.id)}/list`,
-                params: {
-                    archived: 'false'
-                },
-                retries: 3
-            });
-
-            const folderlessResult = z
-                .object({
-                    lists: z.array(ClickUpListSchema)
-                })
-                .safeParse(folderlessResponse.data);
-
-            if (!folderlessResult.success) {
-                throw new Error(`Failed to parse folderless lists response: ${folderlessResult.error.message}`);
+        let startSpaceIndex = 0;
+        if (cp.space_id) {
+            const foundIndex = spaces.findIndex((s) => s.id === cp.space_id);
+            if (foundIndex !== -1) {
+                startSpaceIndex = foundIndex;
             }
+        }
 
-            for (const list of folderlessResult.data.lists) {
-                allLists.push(normalizeList(list));
+        let spaceIndex = startSpaceIndex;
+        for (const space of spaces.slice(startSpaceIndex)) {
+            const isResumeSpace = cp.space_id === space.id;
+
+            const folderlessNotDone = !isResumeSpace || !cp.phase;
+            if (folderlessNotDone) {
+                // Get folderless lists in this space
+                // https://developer.clickup.com/reference/getfolderlesslists
+                const folderlessResponse = await nango.get({
+                    endpoint: `/api/v2/space/${encodeURIComponent(space.id)}/list`,
+                    params: {
+                        archived: 'false'
+                    },
+                    retries: 3
+                });
+
+                const folderlessResult = z
+                    .object({
+                        lists: z.array(ClickUpListSchema)
+                    })
+                    .safeParse(folderlessResponse.data);
+
+                if (!folderlessResult.success) {
+                    throw new Error(`Failed to parse folderless lists response: ${folderlessResult.error.message}`);
+                }
+
+                const lists = folderlessResult.data.lists.map(normalizeList);
+                if (lists.length > 0) {
+                    await nango.batchSave(lists, 'List');
+                }
+
+                // Save checkpoint after folderless lists so resumed runs skip them
+                await nango.saveCheckpoint({
+                    space_id: space.id,
+                    phase: 'folderless',
+                    folder_id: ''
+                });
             }
 
             // Get folders in this space to fetch folder-based lists
@@ -194,8 +232,16 @@ const sync = createSync({
 
             const folders = foldersResult.data.folders;
 
+            let startFolderIndex = 0;
+            if (isResumeSpace && cp.phase === 'folders' && cp.folder_id) {
+                const foundIndex = folders.findIndex((f) => f.id === cp.folder_id);
+                if (foundIndex !== -1) {
+                    startFolderIndex = foundIndex + 1;
+                }
+            }
+
             // Get lists for each folder
-            for (const folder of folders) {
+            for (const folder of folders.slice(startFolderIndex)) {
                 // https://developer.clickup.com/reference/getlists
                 const folderListsResponse = await nango.get({
                     endpoint: `/api/v2/folder/${encodeURIComponent(folder.id)}/list`,
@@ -215,18 +261,34 @@ const sync = createSync({
                     throw new Error(`Failed to parse folder lists response: ${folderListsResult.error.message}`);
                 }
 
-                for (const list of folderListsResult.data.lists) {
-                    allLists.push(normalizeList(list));
+                const lists = folderListsResult.data.lists.map(normalizeList);
+                if (lists.length > 0) {
+                    await nango.batchSave(lists, 'List');
                 }
+
+                // Save checkpoint after each folder's lists so resumed runs skip completed folders
+                await nango.saveCheckpoint({
+                    space_id: space.id,
+                    phase: 'folders',
+                    folder_id: folder.id
+                });
+            }
+
+            // Persist forward progress even when a valid page is empty
+            spaceIndex += 1;
+            const nextSpace = spaces[spaceIndex];
+            if (nextSpace) {
+                await nango.saveCheckpoint({
+                    space_id: nextSpace.id,
+                    phase: '',
+                    folder_id: ''
+                });
             }
         }
 
-        // Batch save all lists
-        if (allLists.length > 0) {
-            await nango.batchSave(allLists, 'List');
-        }
-
-        // Mark the end of deletion tracking - any lists not saved in this run will be marked deleted
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('List');
     }
 });

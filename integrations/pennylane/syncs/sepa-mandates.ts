@@ -31,31 +31,46 @@ const SepaMandateSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync SEPA mandates.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         SepaMandate: SepaMandateSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let cursor: string | undefined = checkpoint && checkpoint['cursor'] ? checkpoint['cursor'] : undefined;
+
+        await nango.trackDeletesStart('SepaMandate');
+
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getsepamandates
             endpoint: '/api/external/v2/sepa_mandates',
+            params: {
+                ...(cursor ? { cursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('SepaMandate');
 
         for await (const batch of nango.paginate(proxyConfig)) {
             if (!Array.isArray(batch)) {
@@ -88,8 +103,13 @@ const sync = createSync({
             if (mandates.length > 0) {
                 await nango.batchSave(mandates, 'SepaMandate');
             }
+
+            if (cursor) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SepaMandate');
     }
 });

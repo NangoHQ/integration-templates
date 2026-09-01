@@ -1,10 +1,10 @@
 import { createSync, type ProxyConfiguration } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
 
 const MetadataSchema = z.object({
     customerIds: z.array(z.string()),
-    loginCustomerId: z.string().optional(),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    loginCustomerId: z.string().optional()
 });
 
 // Checkpoint values must be scalars (string/number/boolean); the set of initialized customer IDs
@@ -60,9 +60,9 @@ const SearchResponseSchema = z.object({
     nextPageToken: z.string().optional()
 });
 
-function buildHeaders(metadata: z.infer<typeof MetadataSchema>): Record<string, string> {
+function buildHeaders(metadata: z.infer<typeof MetadataSchema>, developerToken: string): Record<string, string> {
     const headers: Record<string, string> = {
-        'developer-token': metadata.developerToken
+        'developer-token': developerToken
     };
     if (metadata.loginCustomerId) {
         headers['login-customer-id'] = metadata.loginCustomerId;
@@ -202,7 +202,7 @@ function mapRowToCampaignCriterion(row: z.infer<typeof GoogleAdsRowSchema>): z.i
 
 const sync = createSync({
     description: 'Sync campaign-level criteria (negative keywords and location targeting) for customer accounts in scope.',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -216,6 +216,11 @@ const sync = createSync({
         const metadata = MetadataSchema.parse(metadataRaw);
         if (metadata.customerIds.length === 0) {
             throw new Error('customerIds is required in metadata');
+        }
+
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new Error('developer_token is required in connection config');
         }
 
         const checkpointRaw = await nango.getCheckpoint();
@@ -262,7 +267,7 @@ const sync = createSync({
         }
 
         for (const customerId of metadata.customerIds) {
-            const headers = buildHeaders(metadata);
+            const headers = buildHeaders(metadata, developerToken);
             const needsFullRefresh = customerNeedsFullRefresh.get(customerId) ?? true;
 
             if (!needsFullRefresh) {
@@ -289,7 +294,7 @@ const sync = createSync({
 
                         const csConfig: ProxyConfiguration = {
                             // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                            endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                            endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                             data: {
                                 query: csQuery,
                                 ...(csPageToken && { pageToken: csPageToken })
@@ -355,7 +360,7 @@ const sync = createSync({
 
                             const fetchConfig: ProxyConfiguration = {
                                 // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                                endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                                endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                                 data: {
                                     query: fetchQuery,
                                     ...(fetchPageToken && { pageToken: fetchPageToken })
@@ -400,7 +405,7 @@ const sync = createSync({
 
                     const config: ProxyConfiguration = {
                         // https://developers.google.com/google-ads/api/docs/reporting/streaming
-                        endpoint: `v21/customers/${encodeURIComponent(customerId)}/googleAds:search`,
+                        endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:search`,
                         data: {
                             query,
                             ...(pageToken && { pageToken })

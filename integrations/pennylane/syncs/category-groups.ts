@@ -18,29 +18,44 @@ const CategoryGroupSchema = z.object({
     updated_at: z.string()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync analytical category groups',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         CategoryGroup: CategoryGroupSchema
     },
 
     exec: async (nango) => {
         // Full refresh: provider exposes no changed-since filter, changelog, or deleted-record endpoint.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+        let nextCursor = checkpoint ? checkpoint['cursor'] : undefined;
+
         await nango.trackDeletesStart('CategoryGroup');
 
         const proxyConfig: ProxyConfiguration = {
             // https://pennylane.readme.io/reference/getcategorygroups
             endpoint: '/api/external/v2/category_groups',
+            params: {
+                ...(nextCursor ? { cursor: nextCursor } : {})
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'items',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextCursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -64,8 +79,13 @@ const sync = createSync({
             if (categoryGroups.length > 0) {
                 await nango.batchSave(categoryGroups, 'CategoryGroup');
             }
+
+            if (nextCursor) {
+                await nango.saveCheckpoint({ cursor: nextCursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CategoryGroup');
     }
 });

@@ -1,0 +1,952 @@
+{
+  "nango": {
+    "batchSave": {
+      "CustomField": [
+        {
+          "id": "319832",
+          "object_type": "Ticket",
+          "label": "Nango Test Field Action",
+          "description": "Temporary test field",
+          "priority": 13,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input",
+              "placeholder": "Enter value"
+            }
+          },
+          "created_datetime": "2026-08-26T19:26:24.101810+00:00",
+          "updated_datetime": "2026-08-26T19:26:24.101815+00:00"
+        },
+        {
+          "id": "319831",
+          "object_type": "Ticket",
+          "label": "Disposable CF",
+          "description": "Temporary",
+          "priority": 12,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T18:42:40.963171+00:00",
+          "updated_datetime": "2026-08-26T18:44:58.518628+00:00",
+          "deactivated_datetime": "2026-08-26T18:45:00+00:00"
+        },
+        {
+          "id": "319827",
+          "object_type": "Ticket",
+          "label": "Nango CreateCF Test Save 2026-08-26",
+          "description": "Temporary custom field for action validation",
+          "priority": 11,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T18:36:13.607316+00:00",
+          "updated_datetime": "2026-08-26T18:39:38.987586+00:00",
+          "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+        },
+        {
+          "id": "319826",
+          "object_type": "Ticket",
+          "label": "Nango CreateCF Test 2026-08-26",
+          "description": "Temporary custom field for action validation",
+          "priority": 9,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T18:35:49.424315+00:00",
+          "updated_datetime": "2026-08-26T18:39:19.796052+00:00",
+          "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+        },
+        {
+          "id": "319825",
+          "object_type": "Ticket",
+          "label": "Nango Test CF",
+          "description": "Test field",
+          "priority": 8,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T18:35:05.340680+00:00",
+          "updated_datetime": "2026-08-26T18:38:15.159997+00:00",
+          "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+        },
+        {
+          "id": "319680",
+          "object_type": "Ticket",
+          "label": "Nango Test Field Reactivated",
+          "description": "test",
+          "priority": 7,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T13:53:48.693464+00:00",
+          "updated_datetime": "2026-08-26T18:36:37.577243+00:00",
+          "deactivated_datetime": "2026-08-26T13:53:48.693464+00:00"
+        },
+        {
+          "id": "319612",
+          "object_type": "Ticket",
+          "label": "Call status",
+          "description": "The status of the last call related to a ticket.",
+          "priority": 6,
+          "required": false,
+          "managed_type": "call_status",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "Answered",
+                "Missed with Voicemail",
+                "Missed",
+                "Cancelled",
+                "Abandoned",
+                "Callback Requested"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.331384+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.331391+00:00"
+        },
+        {
+          "id": "319617",
+          "object_type": "Ticket",
+          "label": "Managed sentiment",
+          "description": "Managed sentiment",
+          "priority": 5,
+          "required": false,
+          "managed_type": "managed_sentiment",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "Positive",
+                "Negative",
+                "Undefined"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341096+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.341096+00:00"
+        },
+        {
+          "id": "319613",
+          "object_type": "Ticket",
+          "label": "AI Intent",
+          "description": "Topics detected in tickets",
+          "priority": 4,
+          "required": false,
+          "managed_type": "ai_intent",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "Other::Other::Other",
+                "Account::Deletion",
+                "Account::Login",
+                "Account::Other",
+                "Account::Registration",
+                "Account::Update",
+                "Exchange::Other",
+                "Exchange::Request",
+                "Exchange::Status",
+                "Feedback::Negative",
+                "Feedback::Other",
+                "Feedback::Positive",
+                "Marketing::Advertising",
+                "Marketing::Collaboration",
+                "Marketing::Other",
+                "Marketing::Unsubscribe",
+                "Order::Cancel",
+                "Order::Damaged",
+                "Order::Edit",
+                "Order::Missing Item",
+                "Order::Other",
+                "Order::Payment",
+                "Order::Placement",
+                "Order::Refund",
+                "Order::Status",
+                "Order::Wrong Item",
+                "Other::No Reply",
+                "Other::Other",
+                "Other::Spam",
+                "Product::Availability",
+                "Product::Customization",
+                "Product::Details",
+                "Product::Other",
+                "Product::Quality Issues",
+                "Product::Usage",
+                "Promotion & Discount::Information",
+                "Promotion & Discount::Issue",
+                "Promotion & Discount::Other",
+                "Return::Information",
+                "Return::Other",
+                "Return::Request",
+                "Return::Status",
+                "Shipping::Change Address",
+                "Shipping::Delay",
+                "Shipping::Delivered Not Received",
+                "Shipping::Information",
+                "Shipping::Other",
+                "Subscription::Cancel",
+                "Subscription::Information",
+                "Subscription::Modification",
+                "Subscription::Other",
+                "Warranty::Claim",
+                "Warranty::Information",
+                "Warranty::Other",
+                "Wholesale::Information",
+                "Wholesale::Other"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341086+00:00",
+          "updated_datetime": "2026-08-26T13:56:19.781742+00:00"
+        },
+        {
+          "id": "319614",
+          "object_type": "Ticket",
+          "label": "Contact reason",
+          "description": "The reason why customers contact you.",
+          "priority": 3,
+          "required": false,
+          "managed_type": "contact_reason",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "Pre-sale::Product question",
+                "Pre-sale::Recommendation",
+                "Pre-sale::Notify when in stock",
+                "Pre-sale::Website questions",
+                "Pre-sale::Coupon/Discount",
+                "Order::Cancel",
+                "Order::Change",
+                "Order::Missing item",
+                "Order::Status",
+                "Order::Wrong item",
+                "Shipping::Change Address",
+                "Shipping::Delivery not received",
+                "Shipping::Damaged in transit",
+                "Shipping::Lost in transit",
+                "Shipping::Arrived late",
+                "Spam",
+                "Warranty",
+                "Exchange",
+                "Return",
+                "Feedback::Positive",
+                "Feedback::Negative",
+                "Subscription::Cancel",
+                "Subscription::Change",
+                "Wholesale",
+                "Marketing",
+                "Other"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341090+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.341091+00:00"
+        },
+        {
+          "id": "319615",
+          "object_type": "Ticket",
+          "label": "Product",
+          "description": "The type of product mentioned in a ticket.",
+          "priority": 2,
+          "required": false,
+          "managed_type": "product",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": []
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341092+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.341093+00:00"
+        },
+        {
+          "id": "319616",
+          "object_type": "Ticket",
+          "label": "Resolution",
+          "description": "The action taken by the agent to solve the customer's issue.",
+          "priority": 1,
+          "required": false,
+          "managed_type": "resolution",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "No action",
+                "Refund",
+                "Discount",
+                "Replacement sent",
+                "Updated Account Information",
+                "Information Given",
+                "Subscription::Updated",
+                "Subscription::Cancelled",
+                "Order::Updated Information",
+                "Order::Cancelled",
+                "Order::Upsold",
+                "Other"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341094+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.341095+00:00"
+        },
+        {
+          "id": "319830",
+          "object_type": "Customer",
+          "label": "Nango Test Customer Field",
+          "priority": 4,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input"
+            }
+          },
+          "created_datetime": "2026-08-26T18:41:26.294153+00:00",
+          "updated_datetime": "2026-08-26T18:41:26.294158+00:00"
+        },
+        {
+          "id": "319829",
+          "object_type": "Customer",
+          "label": "Nango Temp Delete Test 1787769630459",
+          "priority": 3,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input",
+              "placeholder": "test"
+            }
+          },
+          "created_datetime": "2026-08-26T18:40:30.609586+00:00",
+          "updated_datetime": "2026-08-26T18:41:46.336558+00:00",
+          "deactivated_datetime": "2026-08-26T18:41:46.203000+00:00"
+        },
+        {
+          "id": "319828",
+          "object_type": "Customer",
+          "label": "Nango Temp Delete Test",
+          "priority": 2,
+          "required": false,
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "input",
+              "placeholder": "test"
+            }
+          },
+          "created_datetime": "2026-08-26T18:39:20.571880+00:00",
+          "updated_datetime": "2026-08-26T18:41:44.647607+00:00",
+          "deactivated_datetime": "2026-08-26T18:41:44.415000+00:00"
+        },
+        {
+          "id": "319618",
+          "object_type": "Customer",
+          "label": "Customer Type",
+          "description": "Capture customer type for easy recognition in future communications.",
+          "priority": 1,
+          "required": false,
+          "managed_type": "customer_type",
+          "definition": {
+            "data_type": "text",
+            "input_settings": {
+              "input_type": "dropdown",
+              "choices": [
+                "💎 VIP",
+                "Collaborator::😊 Ambassador",
+                "Collaborator::👀 Prospective Ambassador",
+                "😡 Problematic",
+                "📦 High Returns",
+                "🙅‍♂️ Fraud"
+              ]
+            }
+          },
+          "created_datetime": "2026-08-26T12:46:06.341097+00:00",
+          "updated_datetime": "2026-08-26T12:46:06.341098+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "CustomField": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/custom-fields": [
+        {
+          "response": {
+            "object": "list",
+            "uri": "/api/custom-fields?object_type=Ticket&limit=100",
+            "data": [
+              {
+                "id": 319832,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango Test Field Action",
+                "description": "Temporary test field",
+                "priority": 13,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input",
+                    "placeholder": "Enter value"
+                  }
+                },
+                "created_datetime": "2026-08-26T19:26:24.101810+00:00",
+                "updated_datetime": "2026-08-26T19:26:24.101815+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319831,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Disposable CF",
+                "description": "Temporary",
+                "priority": 12,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:42:40.963171+00:00",
+                "updated_datetime": "2026-08-26T18:44:58.518628+00:00",
+                "deactivated_datetime": "2026-08-26T18:45:00+00:00"
+              },
+              {
+                "id": 319827,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango CreateCF Test Save 2026-08-26",
+                "description": "Temporary custom field for action validation",
+                "priority": 11,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:36:13.607316+00:00",
+                "updated_datetime": "2026-08-26T18:39:38.987586+00:00",
+                "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+              },
+              {
+                "id": 319826,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango CreateCF Test 2026-08-26",
+                "description": "Temporary custom field for action validation",
+                "priority": 9,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:35:49.424315+00:00",
+                "updated_datetime": "2026-08-26T18:39:19.796052+00:00",
+                "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+              },
+              {
+                "id": 319825,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango Test CF",
+                "description": "Test field",
+                "priority": 8,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:35:05.340680+00:00",
+                "updated_datetime": "2026-08-26T18:38:15.159997+00:00",
+                "deactivated_datetime": "2026-08-26T18:40:00+00:00"
+              },
+              {
+                "id": 319680,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Nango Test Field Reactivated",
+                "description": "test",
+                "priority": 7,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T13:53:48.693464+00:00",
+                "updated_datetime": "2026-08-26T18:36:37.577243+00:00",
+                "deactivated_datetime": "2026-08-26T13:53:48.693464+00:00"
+              },
+              {
+                "id": 319612,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Call status",
+                "description": "The status of the last call related to a ticket.",
+                "priority": 6,
+                "required": false,
+                "requirement_type": "conditional",
+                "managed_type": "call_status",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "Answered",
+                      "Missed with Voicemail",
+                      "Missed",
+                      "Cancelled",
+                      "Abandoned",
+                      "Callback Requested"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.331384+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.331391+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319617,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Managed sentiment",
+                "description": "Managed sentiment",
+                "priority": 5,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "managed_sentiment",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "Positive",
+                      "Negative",
+                      "Undefined"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341096+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341096+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319613,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "AI Intent",
+                "description": "Topics detected in tickets",
+                "priority": 4,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "ai_intent",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "Other::Other::Other",
+                      "Account::Deletion",
+                      "Account::Login",
+                      "Account::Other",
+                      "Account::Registration",
+                      "Account::Update",
+                      "Exchange::Other",
+                      "Exchange::Request",
+                      "Exchange::Status",
+                      "Feedback::Negative",
+                      "Feedback::Other",
+                      "Feedback::Positive",
+                      "Marketing::Advertising",
+                      "Marketing::Collaboration",
+                      "Marketing::Other",
+                      "Marketing::Unsubscribe",
+                      "Order::Cancel",
+                      "Order::Damaged",
+                      "Order::Edit",
+                      "Order::Missing Item",
+                      "Order::Other",
+                      "Order::Payment",
+                      "Order::Placement",
+                      "Order::Refund",
+                      "Order::Status",
+                      "Order::Wrong Item",
+                      "Other::No Reply",
+                      "Other::Other",
+                      "Other::Spam",
+                      "Product::Availability",
+                      "Product::Customization",
+                      "Product::Details",
+                      "Product::Other",
+                      "Product::Quality Issues",
+                      "Product::Usage",
+                      "Promotion & Discount::Information",
+                      "Promotion & Discount::Issue",
+                      "Promotion & Discount::Other",
+                      "Return::Information",
+                      "Return::Other",
+                      "Return::Request",
+                      "Return::Status",
+                      "Shipping::Change Address",
+                      "Shipping::Delay",
+                      "Shipping::Delivered Not Received",
+                      "Shipping::Information",
+                      "Shipping::Other",
+                      "Subscription::Cancel",
+                      "Subscription::Information",
+                      "Subscription::Modification",
+                      "Subscription::Other",
+                      "Warranty::Claim",
+                      "Warranty::Information",
+                      "Warranty::Other",
+                      "Wholesale::Information",
+                      "Wholesale::Other"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341086+00:00",
+                "updated_datetime": "2026-08-26T13:56:19.781742+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319614,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Contact reason",
+                "description": "The reason why customers contact you.",
+                "priority": 3,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "contact_reason",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "Pre-sale::Product question",
+                      "Pre-sale::Recommendation",
+                      "Pre-sale::Notify when in stock",
+                      "Pre-sale::Website questions",
+                      "Pre-sale::Coupon/Discount",
+                      "Order::Cancel",
+                      "Order::Change",
+                      "Order::Missing item",
+                      "Order::Status",
+                      "Order::Wrong item",
+                      "Shipping::Change Address",
+                      "Shipping::Delivery not received",
+                      "Shipping::Damaged in transit",
+                      "Shipping::Lost in transit",
+                      "Shipping::Arrived late",
+                      "Spam",
+                      "Warranty",
+                      "Exchange",
+                      "Return",
+                      "Feedback::Positive",
+                      "Feedback::Negative",
+                      "Subscription::Cancel",
+                      "Subscription::Change",
+                      "Wholesale",
+                      "Marketing",
+                      "Other"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341090+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341091+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319615,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Product",
+                "description": "The type of product mentioned in a ticket.",
+                "priority": 2,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "product",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": []
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341092+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341093+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319616,
+                "external_id": null,
+                "object_type": "Ticket",
+                "label": "Resolution",
+                "description": "The action taken by the agent to solve the customer's issue.",
+                "priority": 1,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "resolution",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "No action",
+                      "Refund",
+                      "Discount",
+                      "Replacement sent",
+                      "Updated Account Information",
+                      "Information Given",
+                      "Subscription::Updated",
+                      "Subscription::Cancelled",
+                      "Order::Updated Information",
+                      "Order::Cancelled",
+                      "Order::Upsold",
+                      "Other"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341094+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341095+00:00",
+                "deactivated_datetime": null
+              }
+            ],
+            "meta": {
+              "prev_cursor": null,
+              "next_cursor": null,
+              "total_resources": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 26 Aug 2026 20:34:10 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "Deny",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=31556926; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1993",
+            "x-ratelimit-reset": "1787776505",
+            "server": "cloudflare",
+            "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+            "x-gorgias-account-api-call-limit": "2/80",
+            "cross-origin-opener-policy": "same-origin-allow-popups",
+            "vary": "Cookie, accept-encoding",
+            "x-request-id": "3968573ec982846fed64837cc823352b",
+            "via": "1.1 google",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a3159d9bae009935-PDX"
+          },
+          "hash": "b170c9f9414f0392fe49443df5183e3389889d35",
+          "request": {
+            "params": {
+              "limit": "100",
+              "object_type": "Ticket"
+            }
+          }
+        },
+        {
+          "response": {
+            "object": "list",
+            "uri": "/api/custom-fields?object_type=Customer&limit=100",
+            "data": [
+              {
+                "id": 319830,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Nango Test Customer Field",
+                "description": null,
+                "priority": 4,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:41:26.294153+00:00",
+                "updated_datetime": "2026-08-26T18:41:26.294158+00:00",
+                "deactivated_datetime": null
+              },
+              {
+                "id": 319829,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Nango Temp Delete Test 1787769630459",
+                "description": null,
+                "priority": 3,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input",
+                    "placeholder": "test"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:40:30.609586+00:00",
+                "updated_datetime": "2026-08-26T18:41:46.336558+00:00",
+                "deactivated_datetime": "2026-08-26T18:41:46.203000+00:00"
+              },
+              {
+                "id": 319828,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Nango Temp Delete Test",
+                "description": null,
+                "priority": 2,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": null,
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "input",
+                    "placeholder": "test"
+                  }
+                },
+                "created_datetime": "2026-08-26T18:39:20.571880+00:00",
+                "updated_datetime": "2026-08-26T18:41:44.647607+00:00",
+                "deactivated_datetime": "2026-08-26T18:41:44.415000+00:00"
+              },
+              {
+                "id": 319618,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Customer Type",
+                "description": "Capture customer type for easy recognition in future communications.",
+                "priority": 1,
+                "required": false,
+                "requirement_type": "visible",
+                "managed_type": "customer_type",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "💎 VIP",
+                      "Collaborator::😊 Ambassador",
+                      "Collaborator::👀 Prospective Ambassador",
+                      "😡 Problematic",
+                      "📦 High Returns",
+                      "🙅‍♂️ Fraud"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341097+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341098+00:00",
+                "deactivated_datetime": null
+              }
+            ],
+            "meta": {
+              "prev_cursor": null,
+              "next_cursor": null,
+              "total_resources": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 26 Aug 2026 20:34:10 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "Deny",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=31556926; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1992",
+            "x-ratelimit-reset": "1787776505",
+            "server": "cloudflare",
+            "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+            "x-gorgias-account-api-call-limit": "3/80",
+            "cross-origin-opener-policy": "same-origin-allow-popups",
+            "vary": "Cookie, accept-encoding",
+            "x-request-id": "d9d3a236777efe3969e471f5af7bbeab",
+            "via": "1.1 google",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a3159d9f7b71a32d-PDX"
+          },
+          "hash": "e044bb2c1271a03db03844ce2a62329c55d7d5ae",
+          "request": {
+            "params": {
+              "limit": "100",
+              "object_type": "Customer"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

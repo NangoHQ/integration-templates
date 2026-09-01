@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     customerId: z.string().describe('Google Ads customer ID. Example: "1781900691"'),
@@ -43,16 +44,11 @@ const InputSchema = z.object({
             targetPartnerSearchNetwork: z.boolean().optional()
         })
         .optional(),
-    loginCustomerId: z
-        .string()
-        .optional()
-        .describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"'),
-    developerToken: z.string().optional().describe('Google Ads developer token. Falls back to connection metadata. Example: "YOUR_DEVELOPER_TOKEN"')
+    loginCustomerId: z.string().optional().describe('Manager account ID for login-customer-id header. Falls back to connection metadata. Example: "3608201627"')
 });
 
 const MetadataSchema = z.object({
-    loginCustomerId: z.string().describe('Manager account ID for login-customer-id header. Example: "3608201627"'),
-    developerToken: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+    loginCustomerId: z.string().describe('Manager account ID for login-customer-id header. Example: "3608201627"')
 });
 
 const OutputSchema = z.object({
@@ -61,7 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable campaign settings.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -69,19 +65,19 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let loginCustomerId = input.loginCustomerId;
-        let developerToken = input.developerToken;
 
-        if (!loginCustomerId || !developerToken) {
+        if (!loginCustomerId) {
             const rawMetadata = await nango.getMetadata();
             const metadata = rawMetadata ? MetadataSchema.parse(rawMetadata) : null;
             loginCustomerId = loginCustomerId ?? metadata?.loginCustomerId;
-            developerToken = developerToken ?? metadata?.developerToken;
         }
+
+        const developerToken = await getDeveloperToken(nango);
 
         if (!loginCustomerId || !developerToken) {
             throw new nango.ActionError({
                 type: 'missing_configuration',
-                message: 'loginCustomerId and developerToken are required. Set them in connection metadata or pass as input.'
+                message: 'loginCustomerId is required (pass as input or set in connection metadata); developer_token is required in connection config.'
             });
         }
 
@@ -148,7 +144,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaigns:mutate`,
             headers: {
                 'developer-token': developerToken,
                 'login-customer-id': loginCustomerId

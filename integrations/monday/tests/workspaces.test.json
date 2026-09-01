@@ -30,13 +30,13 @@
             ]
           },
           "extensions": {
-            "request_id": "ce8efa94-530f-98b0-9fc2-c76d1826fd92"
+            "request_id": "2d8b37c7-9182-95d5-9450-30bd52ad9a25"
           }
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 22 May 2026 05:53:25 GMT",
-          "content-type": "application/json",
+          "date": "Tue, 18 Aug 2026 09:11:33 GMT",
+          "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
           "x-xss-protection": "0",
@@ -44,30 +44,36 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
           "content-security-policy-report-only": "frame-ancestors https://*.monday.com; script-src 'self'; worker-src 'self'; connect-src 'self'; report-uri https://o916138.ingest.us.sentry.io/api/4507803872198656/security/?sentry_key=8e1fb7e952d4abfd146752c94791f51a&sentry_environment=production;",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4952",
-          "x-ratelimit-reset": "1779429237",
+          "x-ratelimit-remaining": "4987",
+          "x-ratelimit-reset": "1787044327",
           "api-version": "2026-04",
-          "vary": "origin, Accept-Encoding",
+          "ratelimit": "\"minuteRate\";r=1333, \"concurrency\";r=79, \"complexityMinute\";r=4999980;t=53",
+          "ratelimit-policy": "\"minuteRate\";q=1335;w=60, \"concurrency\";q=80;qu=\"concurrent-requests\", \"complexityMinute\";q=5000000;w=60;qu=\"content-bytes\"",
+          "vary": "Accept-Encoding",
           "x-api-gateway": "true",
-          "x-api-router": "true",
-          "x-request-id": "ce8efa94-530f-98b0-9fc2-c76d1826fd92",
-          "x-envoy-upstream-service-time": "364",
+          "x-powered-by": "Cosmo-Router",
+          "x-request-id": "2d8b37c7-9182-95d5-9450-30bd52ad9a25",
+          "x-envoy-upstream-service-time": "344",
           "content-security-policy": ";",
-          "x-monday-rgn": "euc1, use1",
+          "x-monday-rgn": "euc1, euc1, use1",
           "server": "cloudflare",
-          "x-routed-from": "use1",
-          "x-routed-to": "euc1",
-          "set-cookie": "__cf_bm=q0X5CGYPqnO4wbYoquhEp2B8bBMGp7NbOlMTrhuE544-1779429204.8564544-1.0.1.1-PZkPx9uspIBQpXvXJW59tSFHc2Qr_5K6o_WsUMB..xpPilt.18Hf6BU3UsjNMXnpfIivU8cPoT2rnJ3QMq0YiNBCe_meBd0shi2P634uXHVs36BKAZ38Rj.SInMTP.ECXDOkjmti.gBj1HLPSrLosA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Fri, 22 May 2026 06:23:25 GMT, _cfuvid=K9Iuxy6DWlJS5jqkSZ96t.63WKgOZa3ZYtIwf96UzX0-1779429204.8564544-1.0.1.1-JdtBqyWbxHYhIBtxoaQSjkpG55XeTh4thLxcdFD4iYA; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com",
+          "x-routed-from": "cells-router, use1",
+          "x-routed-to": "p-euc1-m-platform-01-fra, euc1",
+          "set-cookie": "__cf_bm=.3JN9YVtIemuGvgMKnP_SkS31_G_0nIWBdvSJYyTLoI-1787044293.0773873-1.0.1.1-_7BBcn5vZPCnksntxQeo3vtzp5rS_7wjj9sNFdUScCi8d0Ikw73au.z301bZFiBWglDHkXp9K3gXTmUprCcJYTP1Gse7gi6zGADrcOhebiZOadMAbYv1TWL_dWsgb9hyvrGrz6oXTx0wqPYBonpMUg; HttpOnly; SameSite=None; Secure; Path=/; Domain=monday.com; Expires=Tue, 18 Aug 2026 09:41:33 GMT",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "9ff98f725a8ffc83-PDX"
+          "cf-ray": "a2cfcaafbf40ca84-PDX"
         },
         "hash": "d7d089870c88783b0cf8ecf7da6e5b369ca53ce7",
         "request": {
+          "headers": {
+            "api-version": "2026-04"
+          },
           "data": {
             "query": "query ($limit: Int, $page: Int) { workspaces(limit: $limit, page: $page) { id name description kind state } }",
             "variables": {

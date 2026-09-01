@@ -29,12 +29,25 @@ const ContactSchema = z.object({
     last_modified_time: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().positive()
+});
+
+const PageContextSchema = z.object({
+    page_context: z
+        .object({
+            has_more_page: z.boolean().optional()
+        })
+        .optional()
+});
+
 const sync = createSync({
     description: 'Sync contacts from Zoho Books',
     version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],
     models: {
         Contact: ContactSchema
@@ -48,6 +61,10 @@ const sync = createSync({
         }
 
         const organizationId = parsedMetadata.data.organization_id;
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint ?? { page: 1 });
+        let nextPage: number | undefined = parsedCheckpoint.success ? parsedCheckpoint.data.page : 1;
 
         // https://www.zoho.com/books/api/v3/contacts/#list-contacts
         // Blocker: List Contacts does not support a last_modified_time or updated_after filter.
@@ -65,11 +82,19 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
-                offset_start_value: 1,
+                offset_start_value: nextPage,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: 'per_page',
                 limit: 200,
-                response_path: 'contacts'
+                response_path: 'contacts',
+                on_page: async ({ nextPageParam, response }) => {
+                    const parsedPage = PageContextSchema.safeParse(response.data);
+                    if (parsedPage.success && parsedPage.data.page_context?.has_more_page === false) {
+                        nextPage = undefined;
+                    } else {
+                        nextPage = typeof nextPageParam === 'number' ? nextPageParam + 1 : undefined;
+                    }
+                }
             },
             retries: 3
         };
@@ -95,8 +120,13 @@ const sync = createSync({
             if (mappedContacts.length > 0) {
                 await nango.batchSave(mappedContacts, 'Contact');
             }
+
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ page: nextPage });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Contact');
     }
 });

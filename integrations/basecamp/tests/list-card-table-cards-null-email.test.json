@@ -1,0 +1,108 @@
+{
+  "input": {
+    "projectId": "48644099",
+    "columnId": "10239340944"
+  },
+  "output": {
+    "cards": [
+      {
+        "id": 10239442915,
+        "status": "active",
+        "visible_to_clients": false,
+        "created_at": "2026-08-26T04:36:13.180Z",
+        "updated_at": "2026-08-26T04:36:13.187Z",
+        "title": "Test card assigned to an integration",
+        "inherits_status": true,
+        "type": "Kanban::Card",
+        "url": "https://3.basecampapi.com/6267157/buckets/48644099/card_tables/cards/10239442915.json",
+        "app_url": "https://app.basecamp.com/6267157/buckets/48644099/card_tables/cards/10239442915",
+        "position": 1,
+        "parent": {
+          "id": 10239340944,
+          "title": "Triage",
+          "type": "Kanban::Triage"
+        },
+        "bucket": {
+          "id": 48644099,
+          "name": "Name the project",
+          "type": "Project"
+        },
+        "creator": {
+          "id": 53024699,
+          "name": "Zapier Integration"
+        },
+        "description": "",
+        "description_attachments": [],
+        "completed": false,
+        "content": null,
+        "due_on": null,
+        "assignees": [
+          {
+            "id": 53024699,
+            "name": "Zapier Integration"
+          }
+        ],
+        "completion_subscribers": [],
+        "comment_count": 0,
+        "steps": []
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/buckets/48644099/card_tables/lists/10239340944/cards.json": {
+        "response": [
+          {
+            "id": 10239442915,
+            "status": "active",
+            "visible_to_clients": false,
+            "created_at": "2026-08-26T04:36:13.180Z",
+            "updated_at": "2026-08-26T04:36:13.187Z",
+            "title": "Test card assigned to an integration",
+            "inherits_status": true,
+            "type": "Kanban::Card",
+            "url": "https://3.basecampapi.com/6267157/buckets/48644099/card_tables/cards/10239442915.json",
+            "app_url": "https://app.basecamp.com/6267157/buckets/48644099/card_tables/cards/10239442915",
+            "position": 1,
+            "parent": {
+              "id": 10239340944,
+              "title": "Triage",
+              "type": "Kanban::Triage",
+              "url": "https://3.basecampapi.com/6267157/buckets/48644099/card_tables/columns/10239340944.json",
+              "app_url": "https://app.basecamp.com/6267157/buckets/48644099/card_tables/columns/10239340944"
+            },
+            "bucket": {
+              "id": 48644099,
+              "name": "Name the project",
+              "type": "Project"
+            },
+            "creator": {
+              "id": 53024699,
+              "name": "Zapier Integration",
+              "email_address": null
+            },
+            "description": "",
+            "description_attachments": [],
+            "completed": false,
+            "content": null,
+            "due_on": null,
+            "assignees": [
+              {
+                "id": 53024699,
+                "name": "Zapier Integration",
+                "email_address": null
+              }
+            ],
+            "completion_subscribers": [],
+            "comment_count": 0,
+            "steps": []
+          }
+        ],
+        "status": 200,
+        "headers": {},
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,13 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import { getDeveloperToken } from '../helpers/get-developer-token.js';
 
 const InputSchema = z.object({
     resource_name: z.string().describe('The resource name of the ad group ad to remove. Example: "customers/1781900691/adGroupAds/197714341345~816946667444"'),
     login_customer_id: z
         .string()
         .optional()
-        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"'),
-    developer_token: z.string().describe('Google Ads developer token. Example: "YOUR_DEVELOPER_TOKEN"')
+        .describe('Manager account ID (login-customer-id) required when accessing a client account through an MCC hierarchy. Example: "3608201627"')
 });
 
 const ProviderResponseSchema = z.object({
@@ -26,12 +26,20 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove an ad from an ad group by resource name.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const developerToken = await getDeveloperToken(nango);
+        if (!developerToken) {
+            throw new nango.ActionError({
+                type: 'missing_config',
+                message: 'developer_token is required in connection config'
+            });
+        }
+
         const resourceName = input.resource_name;
         const customerIdMatch = resourceName.match(/^customers\/(\d+)\/adGroupAds\//);
         if (!customerIdMatch) {
@@ -50,7 +58,7 @@ const action = createAction({
 
         const response = await nango.post({
             // https://developers.google.com/google-ads/api/docs/mutating/service-mutates
-            endpoint: `v21/customers/${encodeURIComponent(customerId)}/adGroupAds:mutate`,
+            endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroupAds:mutate`,
             data: {
                 operations: [
                     {
@@ -59,7 +67,7 @@ const action = createAction({
                 ]
             },
             headers: {
-                'developer-token': input.developer_token,
+                'developer-token': developerToken,
                 ...(input.login_customer_id && { 'login-customer-id': input.login_customer_id })
             },
             retries: 3

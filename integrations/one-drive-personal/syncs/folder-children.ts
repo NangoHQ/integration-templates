@@ -68,7 +68,7 @@ type FolderChildrenCheckpoint = z.infer<typeof FolderChildrenCheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync children for selected folders',
-    version: '1.0.0',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -101,6 +101,10 @@ const sync = createSync({
 
         const folderIdsKey = JSON.stringify(folderIds);
         const checkpoint = StoredFolderChildrenCheckpointSchema.nullish().parse(await nango.getCheckpoint());
+        // Tracks whether a checkpoint row actually exists, so we only ever call
+        // clearCheckpoint() when there is something to clear - calling it when nothing
+        // was ever saved raises a checkpoint_conflict error.
+        let checkpointExists = checkpoint !== undefined && checkpoint !== null;
         let startIndex = checkpoint?.currentFolderIndex ?? 0;
         let nextLink = checkpoint?.nextLink || undefined;
         const checkpointFolderIdsKey = checkpoint?.folderIdsKey || '';
@@ -112,74 +116,85 @@ const sync = createSync({
             nextLink = undefined;
         }
 
-        await nango.trackDeletesStart('FolderChild');
+        // A resumed run continues the delete-tracking generation the earlier run
+        // started, instead of starting a new one - otherwise folders already
+        // synced before this run resumed would look untouched and get deleted
+        // once the pass over all folders finally completes.
+        const isResuming = startIndex > 0 || nextLink !== undefined;
+        if (!isResuming) {
+            await nango.trackDeletesStart('FolderChild');
+        }
 
-        // @allowTryCatch
-        try {
-            for (let i = startIndex; i < folderIds.length; i++) {
-                const folderIdVal = folderIds[i];
-                if (folderIdVal === undefined) {
-                    continue;
-                }
-                const folderId = folderIdVal;
+        for (let i = startIndex; i < folderIds.length; i++) {
+            const folderIdVal = folderIds[i];
+            if (folderIdVal === undefined) {
+                continue;
+            }
+            const folderId = folderIdVal;
 
-                await nango.log(`Syncing children for folder: ${folderId}`);
+            await nango.log(`Syncing children for folder: ${folderId}`);
 
-                let endpoint = nextLink ?? `/v1.0/drive/items/${encodeURIComponent(folderId)}/children`;
-                nextLink = undefined;
+            let endpoint = nextLink ?? `/v1.0/drive/items/${encodeURIComponent(folderId)}/children`;
+            nextLink = undefined;
 
-                while (true) {
-                    // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
-                    const response = await nango.get({
-                        endpoint,
-                        retries: 3
-                    });
+            while (true) {
+                // https://learn.microsoft.com/onedrive/developer/rest-api/api/driveitem_list_children
+                const response = await nango.get({
+                    endpoint,
+                    retries: 3
+                });
 
-                    const childrenResponse = ListChildrenResponseSchema.parse(response.data);
-                    const children = childrenResponse.value.map((item: OneDriveDriveItem) => ({
-                        id: `${folderId}-${item.id}`,
-                        name: item.name,
-                        folderId: folderId,
-                        size: item.size,
-                        createdDateTime: item.createdDateTime,
-                        lastModifiedDateTime: item.lastModifiedDateTime,
-                        webUrl: item.webUrl,
-                        description: item.description,
-                        isFolder: item.folder !== undefined,
-                        parentId: item.parentReference?.id
-                    }));
+                const childrenResponse = ListChildrenResponseSchema.parse(response.data);
+                const children = childrenResponse.value.map((item: OneDriveDriveItem) => ({
+                    id: `${folderId}-${item.id}`,
+                    name: item.name,
+                    folderId: folderId,
+                    size: item.size,
+                    createdDateTime: item.createdDateTime,
+                    lastModifiedDateTime: item.lastModifiedDateTime,
+                    webUrl: item.webUrl,
+                    description: item.description,
+                    isFolder: item.folder !== undefined,
+                    parentId: item.parentReference?.id
+                }));
 
-                    if (children.length > 0) {
-                        await nango.batchSave(children, 'FolderChild');
-                    }
-
-                    const nextPage = childrenResponse['@odata.nextLink'];
-                    if (!nextPage) {
-                        break;
-                    }
-
-                    endpoint = normalizeOneDriveEndpoint(nextPage);
-                    await nango.saveCheckpoint({
-                        currentFolderIndex: i,
-                        nextLink: endpoint,
-                        folderIdsKey
-                    });
+                if (children.length > 0) {
+                    await nango.batchSave(children, 'FolderChild');
                 }
 
-                if (i + 1 < folderIds.length) {
-                    const nextCheckpoint: FolderChildrenCheckpoint = {
-                        currentFolderIndex: i + 1,
-                        nextLink: '',
-                        folderIdsKey
-                    };
-                    await nango.saveCheckpoint(nextCheckpoint);
+                const nextPage = childrenResponse['@odata.nextLink'];
+                if (!nextPage) {
+                    break;
                 }
+
+                endpoint = normalizeOneDriveEndpoint(nextPage);
+                await nango.saveCheckpoint({
+                    currentFolderIndex: i,
+                    nextLink: endpoint,
+                    folderIdsKey
+                });
+                checkpointExists = true;
             }
 
-            await nango.clearCheckpoint();
-        } finally {
-            await nango.trackDeletesEnd('FolderChild');
+            if (i + 1 < folderIds.length) {
+                const nextCheckpoint: FolderChildrenCheckpoint = {
+                    currentFolderIndex: i + 1,
+                    nextLink: '',
+                    folderIdsKey
+                };
+                await nango.saveCheckpoint(nextCheckpoint);
+                checkpointExists = true;
+            }
         }
+
+        if (checkpointExists) {
+            await nango.clearCheckpoint();
+        }
+
+        // Only finalize delete-tracking after a full, successful pass over every
+        // folder completes - if enumeration throws partway through, this must not
+        // run, or Nango will delete every FolderChild not yet reached this run.
+        await nango.trackDeletesEnd('FolderChild');
     }
 });
 

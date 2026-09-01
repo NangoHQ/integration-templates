@@ -46,27 +46,39 @@ const TranscriptDetailResponseSchema = z.object({
     })
 });
 
+const CheckpointSchema = z.object({
+    skip: z.number(),
+    last_processed_transcript_id: z.string()
+});
+
+const LooseCheckpointSchema = z.object({
+    skip: z.number().optional(),
+    last_processed_transcript_id: z.string().optional()
+});
+
 const sync = createSync({
     description: 'Full-refresh sync of all transcript sentences, fetched per transcript.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Sentence: SentenceSchema
     },
-    endpoints: [
-        {
-            path: '/syncs/transcript-sentences',
-            method: 'POST'
-        }
-    ],
 
     exec: async (nango) => {
         // Blocker: no per-sentence changed feed exists; sentences are embedded inside transcript objects only.
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = LooseCheckpointSchema.safeParse(checkpoint ?? {});
+        if (!parsedCheckpoint.success) {
+            throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+        }
+
         await nango.trackDeletesStart('Sentence');
 
         const limit = 50;
-        let skip = 0;
+        let skip = parsedCheckpoint.data.skip ?? 0;
+        let lastProcessedId = parsedCheckpoint.data.last_processed_transcript_id;
         let hasMore = true;
 
         while (hasMore) {
@@ -91,7 +103,16 @@ const sync = createSync({
                 break;
             }
 
-            for (const transcript of transcripts) {
+            let pageTranscripts = transcripts;
+            if (lastProcessedId) {
+                const resumeIndex = transcripts.findIndex((t) => t.id === lastProcessedId);
+                if (resumeIndex !== -1) {
+                    pageTranscripts = transcripts.slice(resumeIndex + 1);
+                }
+                lastProcessedId = undefined;
+            }
+
+            for (const transcript of pageTranscripts) {
                 // https://docs.fireflies.ai/graphql-api/query/transcript
                 const detailResponse = await nango.post({
                     endpoint: '/graphql',
@@ -123,15 +144,25 @@ const sync = createSync({
                 if (records.length > 0) {
                     await nango.batchSave(records, 'Sentence');
                 }
+
+                await nango.saveCheckpoint({
+                    skip,
+                    last_processed_transcript_id: transcript.id
+                });
             }
 
             if (transcripts.length < limit) {
                 hasMore = false;
             } else {
                 skip += limit;
+                await nango.saveCheckpoint({
+                    skip,
+                    last_processed_transcript_id: ''
+                });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Sentence');
     }
 });

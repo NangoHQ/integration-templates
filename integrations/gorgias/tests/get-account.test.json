@@ -1,0 +1,291 @@
+{
+  "input": {},
+  "output": {
+    "created_datetime": "2026-08-26T12:46:06.143793+00:00",
+    "current_subscription": {
+      "plan": null,
+      "start_datetime": "2026-08-26T12:46:10+00:00",
+      "status": "trialing",
+      "trial_end_datetime": "2026-09-25T12:46:09+00:00",
+      "trial_start_datetime": "2026-08-26T12:46:10+00:00"
+    },
+    "deactivated_datetime": null,
+    "domain": "nango",
+    "meta": {
+      "analytics_group_id": "acf5e221-8ba0-4d0f-a7bb-1b474597d7a5",
+      "company_domain": "nango.dev"
+    },
+    "settings": [
+      {
+        "id": 360951,
+        "data": {
+          "survey_interval": 2,
+          "survey_email_html": "<div>Hi {{ticket.customer.firstname}},</div>\n<br>\n\n<div>How would you rate the help that our team provided?</div>\n<br>\n\n<div>{{satisfaction_survey_url}}</div>\n\n<br>\n\n<div>Thanks!</div>\n",
+          "survey_email_text": "Hi {{ticket.customer.firstname}},\\n\nHow would you rate the help that our team provided?\\n\n{{satisfaction_survey_url}}\\n\nThanks!\n",
+          "send_survey_for_chat": true,
+          "send_survey_for_email": true,
+          "send_survey_for_help_center": true,
+          "send_survey_for_contact_form": true
+        },
+        "type": "satisfaction-surveys"
+      },
+      {
+        "id": 360952,
+        "data": {
+          "timezone": "Africa/Nairobi",
+          "business_hours": [
+            {
+              "days": "1,2,3,4,5",
+              "to_time": "17:00",
+              "from_time": "09:00"
+            }
+          ]
+        },
+        "type": "business-hours"
+      },
+      {
+        "id": 360953,
+        "data": {
+          "unassign_on_reply": true,
+          "assignment_channels": [
+            "chat",
+            "facebook-messenger",
+            "instagram-direct-message",
+            "sms",
+            "twitter-direct-message",
+            "whatsapp",
+            "custom-chat"
+          ],
+          "auto_assign_to_teams": false,
+          "max_user_chat_ticket": 3,
+          "max_user_non_chat_ticket": 4,
+          "can_exceed_max_agent_capacity": true,
+          "unassign_on_user_unavailability": [],
+          "auto_assign_ticket_to_responding_agent": false
+        },
+        "type": "ticket-assignment"
+      },
+      {
+        "id": 360954,
+        "data": {
+          "views": {},
+          "views_top": {},
+          "views_bottom": {},
+          "view_sections": {}
+        },
+        "type": "views-ordering"
+      },
+      {
+        "id": 360955,
+        "data": {
+          "signup_mode": "invite",
+          "allowed_domains": [],
+          "google_sso_enabled": true,
+          "custom_sso_providers": {},
+          "office365_sso_enabled": true
+        },
+        "type": "access"
+      },
+      {
+        "id": 360956,
+        "data": {
+          "hidden_views": []
+        },
+        "type": "views-visibility"
+      },
+      {
+        "id": 360957,
+        "data": {
+          "tickets": {
+            "enabled": false,
+            "merging_window_days": 5
+          }
+        },
+        "type": "auto-merge"
+      },
+      {
+        "id": 360958,
+        "data": {
+          "email": {
+            "enabled": true,
+            "split_after_days": 10
+          }
+        },
+        "type": "auto-split"
+      },
+      {
+        "id": 360959,
+        "data": {
+          "email": 126637
+        },
+        "type": "default-integration"
+      }
+    ],
+    "status": {
+      "status": "active"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/account": {
+        "response": {
+          "created_datetime": "2026-08-26T12:46:06.143793+00:00",
+          "current_subscription": {
+            "plan": null,
+            "start_datetime": "2026-08-26T12:46:10+00:00",
+            "status": "trialing",
+            "trial_end_datetime": "2026-09-25T12:46:09+00:00",
+            "trial_start_datetime": "2026-08-26T12:46:10+00:00"
+          },
+          "deactivated_datetime": null,
+          "domain": "nango",
+          "meta": {
+            "analytics_group_id": "acf5e221-8ba0-4d0f-a7bb-1b474597d7a5",
+            "company_domain": "nango.dev"
+          },
+          "settings": [
+            {
+              "id": 360951,
+              "data": {
+                "survey_interval": 2,
+                "survey_email_html": "<div>Hi {{ticket.customer.firstname}},</div>\n<br>\n\n<div>How would you rate the help that our team provided?</div>\n<br>\n\n<div>{{satisfaction_survey_url}}</div>\n\n<br>\n\n<div>Thanks!</div>\n",
+                "survey_email_text": "Hi {{ticket.customer.firstname}},\\n\nHow would you rate the help that our team provided?\\n\n{{satisfaction_survey_url}}\\n\nThanks!\n",
+                "send_survey_for_chat": true,
+                "send_survey_for_email": true,
+                "send_survey_for_help_center": true,
+                "send_survey_for_contact_form": true
+              },
+              "type": "satisfaction-surveys"
+            },
+            {
+              "id": 360952,
+              "data": {
+                "timezone": "Africa/Nairobi",
+                "business_hours": [
+                  {
+                    "days": "1,2,3,4,5",
+                    "to_time": "17:00",
+                    "from_time": "09:00"
+                  }
+                ]
+              },
+              "type": "business-hours"
+            },
+            {
+              "id": 360953,
+              "data": {
+                "unassign_on_reply": true,
+                "assignment_channels": [
+                  "chat",
+                  "facebook-messenger",
+                  "instagram-direct-message",
+                  "sms",
+                  "twitter-direct-message",
+                  "whatsapp",
+                  "custom-chat"
+                ],
+                "auto_assign_to_teams": false,
+                "max_user_chat_ticket": 3,
+                "max_user_non_chat_ticket": 4,
+                "can_exceed_max_agent_capacity": true,
+                "unassign_on_user_unavailability": [],
+                "auto_assign_ticket_to_responding_agent": false
+              },
+              "type": "ticket-assignment"
+            },
+            {
+              "id": 360954,
+              "data": {
+                "views": {},
+                "views_top": {},
+                "views_bottom": {},
+                "view_sections": {}
+              },
+              "type": "views-ordering"
+            },
+            {
+              "id": 360955,
+              "data": {
+                "signup_mode": "invite",
+                "allowed_domains": [],
+                "google_sso_enabled": true,
+                "custom_sso_providers": {},
+                "office365_sso_enabled": true
+              },
+              "type": "access"
+            },
+            {
+              "id": 360956,
+              "data": {
+                "hidden_views": []
+              },
+              "type": "views-visibility"
+            },
+            {
+              "id": 360957,
+              "data": {
+                "tickets": {
+                  "enabled": false,
+                  "merging_window_days": 5
+                }
+              },
+              "type": "auto-merge"
+            },
+            {
+              "id": 360958,
+              "data": {
+                "email": {
+                  "enabled": true,
+                  "split_after_days": 10
+                }
+              },
+              "type": "auto-split"
+            },
+            {
+              "id": 360959,
+              "data": {
+                "email": 126637
+              },
+              "type": "default-integration"
+            }
+          ],
+          "status": {
+            "status": "active"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:35:47 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1887",
+          "x-ratelimit-reset": "1787769378",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "24/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "54a6c1a266b6d6c6b7fab1bc259d2438",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f0377d231319-PDX"
+        },
+        "hash": "6b3a35935328763bdfdf8092b930ab7d1fc1e951",
+        "request": {}
+      }
+    }
+  }
+}
