@@ -1,0 +1,73 @@
+{
+  "input": {
+    "id": 6960684,
+    "scored_datetime": "2026-08-26T12:30:00+00:00",
+    "score": 4
+  },
+  "output": {
+    "id": 6960684,
+    "ticket_id": 82697494,
+    "customer_id": 519598046,
+    "score": 4,
+    "scored_datetime": "2026-08-26T12:30:00+00:00",
+    "sent_datetime": "2026-08-26T12:00:00+00:00",
+    "created_datetime": "2026-08-26T13:58:25.082529+00:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/satisfaction-surveys/6960684": {
+        "response": {
+          "id": 6960684,
+          "body_text": null,
+          "created_datetime": "2026-08-26T13:58:25.082529+00:00",
+          "customer_id": 519598046,
+          "meta": null,
+          "score": 4,
+          "scored_datetime": "2026-08-26T12:30:00+00:00",
+          "sent_datetime": "2026-08-26T12:00:00+00:00",
+          "should_send_datetime": null,
+          "ticket_id": 82697494,
+          "uri": "/api/satisfaction-surveys/6960684/"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 19:31:48 GMT",
+          "content-type": "application/json",
+          "content-length": "334",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1787772729",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "4/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "26dfc4f8f01950acd09a89e52b0dee51",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a31542445b535509-PDX",
+          "etag": "W/\"14e-AHvWaJNhyJc2WZwsyfDbbA2Myso\""
+        },
+        "hash": "806b99f37a7504136bf8d6cf3fd196e612dd43e2",
+        "request": {
+          "data": {
+            "score": 4,
+            "scored_datetime": "2026-08-26T12:30:00+00:00"
+          }
+        }
+      }
+    }
+  }
+}

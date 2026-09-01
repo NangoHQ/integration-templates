@@ -1,0 +1,1685 @@
+{
+  "input": {},
+  "output": {
+    "views": [
+      {
+        "id": 1178512,
+        "uri": "/api/views/1178512/",
+        "name": "Nango Test View",
+        "category": "user",
+        "created_datetime": "2026-08-26T18:37:16.174966+00:00",
+        "fields": [],
+        "filters": "",
+        "order_by": "updated_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "nango-test-view-172469",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1178508,
+        "uri": "/api/views/1178508/",
+        "name": "Nango Test View",
+        "category": "user",
+        "created_datetime": "2026-08-26T18:36:24.569146+00:00",
+        "fields": [],
+        "filters": "",
+        "order_by": "updated_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "nango-test-view-172468",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177172,
+        "uri": "/api/views/1177172/",
+        "name": "All customers",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201366+00:00",
+        "fields": [
+          "name",
+          "email",
+          "created",
+          "updated"
+        ],
+        "filters": "",
+        "order_by": "updated_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "all-customers",
+        "type": "customer-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177171,
+        "uri": "/api/views/1177171/",
+        "name": "Spam",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201364+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "eq(ticket.spam, true)",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "spam",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177170,
+        "uri": "/api/views/1177170/",
+        "name": "Trash",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201362+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "isNotEmpty(ticket.trashed_datetime)",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "trash",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177169,
+        "uri": "/api/views/1177169/",
+        "name": "Closed",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201360+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "eq(ticket.status, \"closed\")",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "closed",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177168,
+        "uri": "/api/views/1177168/",
+        "name": "Snoozed",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201359+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "eq(ticket.assignee_user.id, \"{{current_user.id}}\") && isNotEmpty(ticket.snooze_datetime)",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "snoozed",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177167,
+        "uri": "/api/views/1177167/",
+        "name": "All",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201357+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "eq(ticket.status, \"open\")",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "all",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177166,
+        "uri": "/api/views/1177166/",
+        "name": "Unassigned",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201354+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "(eq(ticket.status, \"open\")) && (isEmpty(ticket.assignee_user.id))",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "unassigned",
+        "type": "ticket-list",
+        "visibility": "public"
+      },
+      {
+        "id": 1177165,
+        "uri": "/api/views/1177165/",
+        "name": "Inbox",
+        "category": "system",
+        "created_datetime": "2026-08-26T12:46:06.201350+00:00",
+        "fields": [
+          "details",
+          "tags",
+          "customer",
+          "last_message"
+        ],
+        "filters": "eq(ticket.assignee_user.id, \"{{current_user.id}}\") && eq(ticket.status, \"open\")",
+        "order_by": "last_message_datetime",
+        "order_dir": "desc",
+        "shared_with_teams": [],
+        "shared_with_users": [],
+        "slug": "inbox",
+        "type": "ticket-list",
+        "visibility": "public"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/views": {
+        "response": {
+          "object": "list",
+          "uri": "/api/views?",
+          "data": [
+            {
+              "id": 1178512,
+              "category": "user",
+              "created_datetime": "2026-08-26T18:37:16.174966+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [],
+              "filters": "",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 0,
+                    "column": 0
+                  },
+                  "start": {
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                "body": [],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Nango Test View",
+              "order_by": "updated_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "nango-test-view-172469",
+              "type": "ticket-list",
+              "uri": "/api/views/1178512/",
+              "visibility": "public"
+            },
+            {
+              "id": 1178508,
+              "category": "user",
+              "created_datetime": "2026-08-26T18:36:24.569146+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [],
+              "filters": "",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 0,
+                    "column": 0
+                  },
+                  "start": {
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                "body": [],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Nango Test View",
+              "order_by": "updated_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "nango-test-view-172468",
+              "type": "ticket-list",
+              "uri": "/api/views/1178508/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177172,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201366+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "name",
+                "email",
+                "created",
+                "updated"
+              ],
+              "filters": "",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 0,
+                    "column": 0
+                  },
+                  "start": {
+                    "line": 0,
+                    "column": 0
+                  }
+                },
+                "body": [],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "All customers",
+              "order_by": "updated_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "all-customers",
+              "type": "customer-list",
+              "uri": "/api/views/1177172/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177171,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201364+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "eq(ticket.spam, true)",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 21
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 21
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 21
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "type": "CallExpression",
+                      "callee": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 2
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "name": "eq",
+                        "type": "Identifier"
+                      },
+                      "arguments": [
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 14
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 3
+                            }
+                          },
+                          "type": "MemberExpression",
+                          "object": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 9
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 3
+                              }
+                            },
+                            "name": "ticket",
+                            "type": "Identifier"
+                          },
+                          "computed": false,
+                          "property": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 14
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 10
+                              }
+                            },
+                            "name": "spam",
+                            "type": "Identifier"
+                          }
+                        },
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 20
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 16
+                            }
+                          },
+                          "raw": "true",
+                          "type": "Literal",
+                          "value": true
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Spam",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "spam",
+              "type": "ticket-list",
+              "uri": "/api/views/1177171/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177170,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201362+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "isNotEmpty(ticket.trashed_datetime)",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 35
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 35
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 35
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "type": "CallExpression",
+                      "callee": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 10
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "name": "isNotEmpty",
+                        "type": "Identifier"
+                      },
+                      "arguments": [
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 34
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 11
+                            }
+                          },
+                          "type": "MemberExpression",
+                          "object": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 17
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 11
+                              }
+                            },
+                            "name": "ticket",
+                            "type": "Identifier"
+                          },
+                          "computed": false,
+                          "property": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 34
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 18
+                              }
+                            },
+                            "name": "trashed_datetime",
+                            "type": "Identifier"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Trash",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "trash",
+              "type": "ticket-list",
+              "uri": "/api/views/1177170/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177169,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201360+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "eq(ticket.status, \"closed\")",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 27
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 27
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 27
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "type": "CallExpression",
+                      "callee": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 2
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "name": "eq",
+                        "type": "Identifier"
+                      },
+                      "arguments": [
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 16
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 3
+                            }
+                          },
+                          "type": "MemberExpression",
+                          "object": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 9
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 3
+                              }
+                            },
+                            "name": "ticket",
+                            "type": "Identifier"
+                          },
+                          "computed": false,
+                          "property": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 16
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 10
+                              }
+                            },
+                            "name": "status",
+                            "type": "Identifier"
+                          }
+                        },
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 26
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 18
+                            }
+                          },
+                          "raw": "\"closed\"",
+                          "type": "Literal",
+                          "value": "closed"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Closed",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "closed",
+              "type": "ticket-list",
+              "uri": "/api/views/1177169/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177168,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201359+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "eq(ticket.assignee_user.id, \"{{current_user.id}}\") && isNotEmpty(ticket.snooze_datetime)",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 88
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 88
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 88
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "left": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 50
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 2
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 0
+                            }
+                          },
+                          "name": "eq",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 26
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 3
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 23
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 3
+                                }
+                              },
+                              "type": "MemberExpression",
+                              "object": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 9
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 3
+                                  }
+                                },
+                                "name": "ticket",
+                                "type": "Identifier"
+                              },
+                              "computed": false,
+                              "property": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 23
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 10
+                                  }
+                                },
+                                "name": "assignee_user",
+                                "type": "Identifier"
+                              }
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 26
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 24
+                                }
+                              },
+                              "name": "id",
+                              "type": "Identifier"
+                            }
+                          },
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 49
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 28
+                              }
+                            },
+                            "raw": "\"{{current_user.id}}\"",
+                            "type": "Literal",
+                            "value": "{{current_user.id}}"
+                          }
+                        ]
+                      },
+                      "type": "LogicalExpression",
+                      "right": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 88
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 54
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 64
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 54
+                            }
+                          },
+                          "name": "isNotEmpty",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 87
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 65
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 71
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 65
+                                }
+                              },
+                              "name": "ticket",
+                              "type": "Identifier"
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 87
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 72
+                                }
+                              },
+                              "name": "snooze_datetime",
+                              "type": "Identifier"
+                            }
+                          }
+                        ]
+                      },
+                      "operator": "&&"
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Snoozed",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "snoozed",
+              "type": "ticket-list",
+              "uri": "/api/views/1177168/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177167,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201357+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "eq(ticket.status, \"open\")",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 25
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 25
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 25
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "type": "CallExpression",
+                      "callee": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 2
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "name": "eq",
+                        "type": "Identifier"
+                      },
+                      "arguments": [
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 16
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 3
+                            }
+                          },
+                          "type": "MemberExpression",
+                          "object": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 9
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 3
+                              }
+                            },
+                            "name": "ticket",
+                            "type": "Identifier"
+                          },
+                          "computed": false,
+                          "property": {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 16
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 10
+                              }
+                            },
+                            "name": "status",
+                            "type": "Identifier"
+                          }
+                        },
+                        {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 24
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 18
+                            }
+                          },
+                          "raw": "\"open\"",
+                          "type": "Literal",
+                          "value": "open"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "All",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "all",
+              "type": "ticket-list",
+              "uri": "/api/views/1177167/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177166,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201354+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "(eq(ticket.status, \"open\")) && (isEmpty(ticket.assignee_user.id))",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 65
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 65
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 65
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "left": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 26
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 1
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 3
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 1
+                            }
+                          },
+                          "name": "eq",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 17
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 4
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 10
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 4
+                                }
+                              },
+                              "name": "ticket",
+                              "type": "Identifier"
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 17
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 11
+                                }
+                              },
+                              "name": "status",
+                              "type": "Identifier"
+                            }
+                          },
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 25
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 19
+                              }
+                            },
+                            "raw": "\"open\"",
+                            "type": "Literal",
+                            "value": "open"
+                          }
+                        ]
+                      },
+                      "type": "LogicalExpression",
+                      "right": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 64
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 32
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 39
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 32
+                            }
+                          },
+                          "name": "isEmpty",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 63
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 40
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 60
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 40
+                                }
+                              },
+                              "type": "MemberExpression",
+                              "object": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 46
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 40
+                                  }
+                                },
+                                "name": "ticket",
+                                "type": "Identifier"
+                              },
+                              "computed": false,
+                              "property": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 60
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 47
+                                  }
+                                },
+                                "name": "assignee_user",
+                                "type": "Identifier"
+                              }
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 63
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 61
+                                }
+                              },
+                              "name": "id",
+                              "type": "Identifier"
+                            }
+                          }
+                        ]
+                      },
+                      "operator": "&&"
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Unassigned",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "unassigned",
+              "type": "ticket-list",
+              "uri": "/api/views/1177166/",
+              "visibility": "public"
+            },
+            {
+              "id": 1177165,
+              "category": "system",
+              "created_datetime": "2026-08-26T12:46:06.201350+00:00",
+              "deactivated_datetime": null,
+              "decoration": null,
+              "fields": [
+                "details",
+                "tags",
+                "customer",
+                "last_message"
+              ],
+              "filters": "eq(ticket.assignee_user.id, \"{{current_user.id}}\") && eq(ticket.status, \"open\")",
+              "filters_ast": {
+                "loc": {
+                  "end": {
+                    "line": 1,
+                    "column": 79
+                  },
+                  "start": {
+                    "line": 1,
+                    "column": 0
+                  }
+                },
+                "body": [
+                  {
+                    "loc": {
+                      "end": {
+                        "line": 1,
+                        "column": 79
+                      },
+                      "start": {
+                        "line": 1,
+                        "column": 0
+                      }
+                    },
+                    "type": "ExpressionStatement",
+                    "expression": {
+                      "loc": {
+                        "end": {
+                          "line": 1,
+                          "column": 79
+                        },
+                        "start": {
+                          "line": 1,
+                          "column": 0
+                        }
+                      },
+                      "left": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 50
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 0
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 2
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 0
+                            }
+                          },
+                          "name": "eq",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 26
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 3
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 23
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 3
+                                }
+                              },
+                              "type": "MemberExpression",
+                              "object": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 9
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 3
+                                  }
+                                },
+                                "name": "ticket",
+                                "type": "Identifier"
+                              },
+                              "computed": false,
+                              "property": {
+                                "loc": {
+                                  "end": {
+                                    "line": 1,
+                                    "column": 23
+                                  },
+                                  "start": {
+                                    "line": 1,
+                                    "column": 10
+                                  }
+                                },
+                                "name": "assignee_user",
+                                "type": "Identifier"
+                              }
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 26
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 24
+                                }
+                              },
+                              "name": "id",
+                              "type": "Identifier"
+                            }
+                          },
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 49
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 28
+                              }
+                            },
+                            "raw": "\"{{current_user.id}}\"",
+                            "type": "Literal",
+                            "value": "{{current_user.id}}"
+                          }
+                        ]
+                      },
+                      "type": "LogicalExpression",
+                      "right": {
+                        "loc": {
+                          "end": {
+                            "line": 1,
+                            "column": 79
+                          },
+                          "start": {
+                            "line": 1,
+                            "column": 54
+                          }
+                        },
+                        "type": "CallExpression",
+                        "callee": {
+                          "loc": {
+                            "end": {
+                              "line": 1,
+                              "column": 56
+                            },
+                            "start": {
+                              "line": 1,
+                              "column": 54
+                            }
+                          },
+                          "name": "eq",
+                          "type": "Identifier"
+                        },
+                        "arguments": [
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 70
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 57
+                              }
+                            },
+                            "type": "MemberExpression",
+                            "object": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 63
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 57
+                                }
+                              },
+                              "name": "ticket",
+                              "type": "Identifier"
+                            },
+                            "computed": false,
+                            "property": {
+                              "loc": {
+                                "end": {
+                                  "line": 1,
+                                  "column": 70
+                                },
+                                "start": {
+                                  "line": 1,
+                                  "column": 64
+                                }
+                              },
+                              "name": "status",
+                              "type": "Identifier"
+                            }
+                          },
+                          {
+                            "loc": {
+                              "end": {
+                                "line": 1,
+                                "column": 78
+                              },
+                              "start": {
+                                "line": 1,
+                                "column": 72
+                              }
+                            },
+                            "raw": "\"open\"",
+                            "type": "Literal",
+                            "value": "open"
+                          }
+                        ]
+                      },
+                      "operator": "&&"
+                    }
+                  }
+                ],
+                "type": "Program",
+                "sourceType": "script"
+              },
+              "name": "Inbox",
+              "order_by": "last_message_datetime",
+              "order_dir": "desc",
+              "search": null,
+              "shared_with_teams": [],
+              "shared_with_users": [],
+              "section_id": null,
+              "slug": "inbox",
+              "type": "ticket-list",
+              "uri": "/api/views/1177165/",
+              "visibility": "public"
+            }
+          ],
+          "meta": {
+            "prev_cursor": null,
+            "next_cursor": null,
+            "total_resources": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:37:54 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1967",
+          "x-ratelimit-reset": "1787769498",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "3/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "3758a3145d87a6527eae9e67611626c9",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f34eea2f8f7a-PDX"
+        },
+        "hash": "a1fe73ee94d12eb9d03ff3c97b8a06bef430549d",
+        "request": {}
+      }
+    }
+  }
+}

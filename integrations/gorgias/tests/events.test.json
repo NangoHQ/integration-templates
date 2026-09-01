@@ -1,0 +1,2867 @@
+{
+  "nango": {
+    "batchSave": {
+      "Event": [
+        {
+          "id": "2189392455",
+          "created_datetime": "2026-08-26T12:46:06.292896+00:00",
+          "context": "9bf06527-a63f-4e29-89c2-0e08e254b0e5",
+          "object_id": 519543245,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "uri": "/api/events/2189392455/"
+        },
+        {
+          "id": "2189392456",
+          "created_datetime": "2026-08-26T12:46:06.309584+00:00",
+          "context": "80116285-9440-40ca-9303-44abdf09020f",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "uri": "/api/events/2189392456/"
+        },
+        {
+          "id": "2189392458",
+          "created_datetime": "2026-08-26T12:46:06.317604+00:00",
+          "context": "80116285-9440-40ca-9303-44abdf09020f",
+          "object_id": 218665490,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "uri": "/api/events/2189392458/"
+        },
+        {
+          "id": "2189392464",
+          "created_datetime": "2026-08-26T12:46:06.426269+00:00",
+          "context": "a7e7a773-1864-4057-b436-e8851b550370",
+          "object_id": 519543243,
+          "object_type": "User",
+          "type": "user-created",
+          "uri": "/api/events/2189392464/"
+        },
+        {
+          "id": "2189392468",
+          "created_datetime": "2026-08-26T12:46:06.456377+00:00",
+          "context": "df8a9002-c12c-493f-8891-ae05f2563cd4",
+          "object_id": 519543244,
+          "object_type": "User",
+          "type": "user-created",
+          "uri": "/api/events/2189392468/"
+        },
+        {
+          "id": "2189392473",
+          "created_datetime": "2026-08-26T12:46:06.544053+00:00",
+          "context": "4e1cda56-ecb7-4788-a2f5-5f07b94bd632",
+          "object_id": 223048,
+          "object_type": "Account",
+          "type": "account-created",
+          "uri": "/api/events/2189392473/"
+        },
+        {
+          "id": "2189392690",
+          "created_datetime": "2026-08-26T12:46:09.781341+00:00",
+          "data": {
+            "login_type": [
+              "account-creation"
+            ],
+            "remote_addr": "196.96.167.135"
+          },
+          "object_id": 519543243,
+          "object_type": "User",
+          "type": "user-logged-in",
+          "user_id": 519543243,
+          "uri": "/api/events/2189392690/"
+        },
+        {
+          "id": "2189392728",
+          "created_datetime": "2026-08-26T12:46:10.291539+00:00",
+          "context": "ccab1c35-890e-4999-ba17-0c3443ba5f92",
+          "data": {
+            "remote_addr": "196.96.167.135"
+          },
+          "object_id": 519543243,
+          "object_type": "User",
+          "type": "user-logged-in",
+          "user_id": 519543243,
+          "uri": "/api/events/2189392728/"
+        },
+        {
+          "id": "2189392766",
+          "created_datetime": "2026-08-26T12:46:10.655706+00:00",
+          "context": "c9a4c84d-6aa0-4549-a66b-bd34f88f0e90",
+          "object_id": 223048,
+          "object_type": "Account",
+          "type": "account-updated",
+          "uri": "/api/events/2189392766/"
+        },
+        {
+          "id": "2189393315",
+          "created_datetime": "2026-08-26T12:46:17.420941+00:00",
+          "context": "6b7894b5-5a68-4494-afe3-5b8575e28a2d",
+          "object_id": 223048,
+          "object_type": "Account",
+          "type": "account-updated",
+          "uri": "/api/events/2189393315/"
+        },
+        {
+          "id": "2189731132",
+          "created_datetime": "2026-08-26T13:52:00.223373+00:00",
+          "context": "d0a4daba-9cb0-4079-aaab-0c3754ab2b74",
+          "object_id": 519595738,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189731132/"
+        },
+        {
+          "id": "2189732575",
+          "created_datetime": "2026-08-26T13:52:15.930085+00:00",
+          "context": "42719775-49b0-4538-a4b3-dfc5547d5d24",
+          "object_id": 519595738,
+          "object_type": "Customer",
+          "type": "customer-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189732575/"
+        },
+        {
+          "id": "2189734393",
+          "created_datetime": "2026-08-26T13:52:35.927544+00:00",
+          "context": "131f7f92-872d-4f63-b3ab-875e13dde67b",
+          "object_id": 519596125,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189734393/"
+        },
+        {
+          "id": "2189734496",
+          "created_datetime": "2026-08-26T13:52:37.250203+00:00",
+          "context": "31f244d3-f225-48d4-bfdc-4796241233f7",
+          "object_id": 519596125,
+          "object_type": "Customer",
+          "type": "customer-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189734496/"
+        },
+        {
+          "id": "2189734631",
+          "created_datetime": "2026-08-26T13:52:38.507610+00:00",
+          "context": "ef8002b6-a96a-48e8-8c6b-c09502a22d41",
+          "object_id": 519596125,
+          "object_type": "Customer",
+          "type": "customer-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189734631/"
+        },
+        {
+          "id": "2189735524",
+          "created_datetime": "2026-08-26T13:52:47.536851+00:00",
+          "context": "67211fed-4599-4837-a3b0-ac582c7d9d53",
+          "object_id": 1813324,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189735524/"
+        },
+        {
+          "id": "2189735712",
+          "created_datetime": "2026-08-26T13:52:49.968442+00:00",
+          "context": "3b05ae15-2fad-44b6-93ff-92e265cad8de",
+          "object_id": 1813324,
+          "object_type": "Tag",
+          "type": "tag-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189735712/"
+        },
+        {
+          "id": "2189735714",
+          "created_datetime": "2026-08-26T13:52:49.985006+00:00",
+          "context": "1490e731-4b45-4117-813b-eea07fd41859",
+          "object_id": 1813324,
+          "object_type": "Tag",
+          "type": "tag-renamed",
+          "user_id": 519543243,
+          "uri": "/api/events/2189735714/"
+        },
+        {
+          "id": "2189735803",
+          "created_datetime": "2026-08-26T13:52:51.368732+00:00",
+          "context": "9a85ef38-65f9-4a85-a6db-497ad0061fa6",
+          "object_id": 1813324,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189735803/"
+        },
+        {
+          "id": "2189737286",
+          "created_datetime": "2026-08-26T13:53:07.257804+00:00",
+          "context": "01d8f07a-3c77-45f3-abc9-53ee9168058b",
+          "object_id": 374494,
+          "object_type": "Macro",
+          "type": "macro-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189737286/"
+        },
+        {
+          "id": "2189737672",
+          "created_datetime": "2026-08-26T13:53:09.755264+00:00",
+          "context": "4def85b3-5e84-4337-8638-4919f0f2ee7e",
+          "object_id": 374494,
+          "object_type": "Macro",
+          "type": "macro-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189737672/"
+        },
+        {
+          "id": "2189737831",
+          "created_datetime": "2026-08-26T13:53:10.969907+00:00",
+          "context": "3152a865-b16f-44d7-b8d7-7fd130af0a5f",
+          "object_id": 374494,
+          "object_type": "Macro",
+          "type": "macro-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189737831/"
+        },
+        {
+          "id": "2189738815",
+          "created_datetime": "2026-08-26T13:53:20.907883+00:00",
+          "context": "437f7d56-daae-497c-8994-5cdc7b297f53",
+          "object_id": 374496,
+          "object_type": "Macro",
+          "type": "macro-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189738815/"
+        },
+        {
+          "id": "2189739091",
+          "created_datetime": "2026-08-26T13:53:24.508384+00:00",
+          "context": "c83e667a-333f-45f5-976c-f920d078102f",
+          "object_id": 374496,
+          "object_type": "Macro",
+          "type": "macro-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189739091/"
+        },
+        {
+          "id": "2189741221",
+          "created_datetime": "2026-08-26T13:53:48.700190+00:00",
+          "context": "ee17a686-a065-4cd9-acbc-979ab23b685a",
+          "object_id": 319680,
+          "object_type": "CustomField",
+          "type": "custom-field-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189741221/"
+        },
+        {
+          "id": "2189741460",
+          "created_datetime": "2026-08-26T13:53:51.542940+00:00",
+          "context": "fbfb6328-1626-4ea1-a1f8-ee8f9cba7e35",
+          "object_id": 319680,
+          "object_type": "CustomField",
+          "type": "custom-field-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189741460/"
+        },
+        {
+          "id": "2189742843",
+          "created_datetime": "2026-08-26T13:54:10.130126+00:00",
+          "context": "aa6e9a35-977f-4ad2-bf75-6de2cdad5fab",
+          "object_id": 319680,
+          "object_type": "CustomField",
+          "type": "custom-field-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189742843/"
+        },
+        {
+          "id": "2189745734",
+          "created_datetime": "2026-08-26T13:54:44.608203+00:00",
+          "context": "c9f223a4-9389-465c-8c71-f40ab9e2c957",
+          "object_id": 120913,
+          "object_type": "Rule",
+          "type": "rule-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189745734/"
+        },
+        {
+          "id": "2189747211",
+          "created_datetime": "2026-08-26T13:55:00.503224+00:00",
+          "context": "b55c30fe-3c1e-426c-90c0-5b718bec7207",
+          "object_id": 120913,
+          "object_type": "Rule",
+          "type": "rule-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189747211/"
+        },
+        {
+          "id": "2189747320",
+          "created_datetime": "2026-08-26T13:55:02.023661+00:00",
+          "context": "c0addd72-c244-4563-b0f8-0dac3cf90690",
+          "object_id": 120913,
+          "object_type": "Rule",
+          "type": "rule-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189747320/"
+        },
+        {
+          "id": "2189749282",
+          "created_datetime": "2026-08-26T13:55:23.423258+00:00",
+          "context": "ad9c08b0-3138-4981-b3a0-d829d3f39016",
+          "object_id": 1177446,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189749282/"
+        },
+        {
+          "id": "2189749839",
+          "created_datetime": "2026-08-26T13:55:29.680712+00:00",
+          "context": "7939461a-b833-4ac8-b2b2-00aad34d520f",
+          "object_id": 1177446,
+          "object_type": "View",
+          "type": "view-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189749839/"
+        },
+        {
+          "id": "2189750167",
+          "created_datetime": "2026-08-26T13:55:33.427889+00:00",
+          "context": "c9808ba8-5587-44e8-9b85-8df19d2d1b36",
+          "object_id": 1177446,
+          "object_type": "View",
+          "type": "view-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189750167/"
+        },
+        {
+          "id": "2189751095",
+          "created_datetime": "2026-08-26T13:55:43.417057+00:00",
+          "context": "bcd1fe13-fb8b-44f8-bbd8-a1a576d5c2fe",
+          "object_id": 519598046,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189751095/"
+        },
+        {
+          "id": "2189754080",
+          "created_datetime": "2026-08-26T13:56:18.531539+00:00",
+          "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189754080/"
+        },
+        {
+          "id": "2189754084",
+          "created_datetime": "2026-08-26T13:56:18.560964+00:00",
+          "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+          "object_id": 218707604,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189754084/"
+        },
+        {
+          "id": "2189754105",
+          "created_datetime": "2026-08-26T13:56:18.810264+00:00",
+          "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189754105/"
+        },
+        {
+          "id": "2189754141",
+          "created_datetime": "2026-08-26T13:56:19.110029+00:00",
+          "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189754141/"
+        },
+        {
+          "id": "2189754214",
+          "created_datetime": "2026-08-26T13:56:19.798685+00:00",
+          "context": "5e4c5dca-0998-4ef3-86f6-b4d5028b9c33",
+          "object_id": 319613,
+          "object_type": "CustomField",
+          "type": "custom-field-updated",
+          "uri": "/api/events/2189754214/"
+        },
+        {
+          "id": "2189754247",
+          "created_datetime": "2026-08-26T13:56:20.333871+00:00",
+          "context": "b96d230b-ffae-41e5-8fde-ce6c0b4d8194",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2189754247/"
+        },
+        {
+          "id": "2189755131",
+          "created_datetime": "2026-08-26T13:56:30.787198+00:00",
+          "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189755131/"
+        },
+        {
+          "id": "2189755146",
+          "created_datetime": "2026-08-26T13:56:30.887602+00:00",
+          "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-closed",
+          "user_id": 519543243,
+          "uri": "/api/events/2189755146/"
+        },
+        {
+          "id": "2189755151",
+          "created_datetime": "2026-08-26T13:56:30.904225+00:00",
+          "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+          "data": {
+            "reasons": [
+              "The ticket lacks the required minimum interaction: at least one message from the customer and one from an agent.",
+              "The ticket conversation is shorter than the minimum requirement of 250 characters."
+            ]
+          },
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-satisfaction-survey-skipped",
+          "uri": "/api/events/2189755151/"
+        },
+        {
+          "id": "2189755156",
+          "created_datetime": "2026-08-26T13:56:30.915169+00:00",
+          "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+          "data": {
+            "new_subject": "Nango Updated Subject"
+          },
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-subject-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189755156/"
+        },
+        {
+          "id": "2189757441",
+          "created_datetime": "2026-08-26T13:56:57.218185+00:00",
+          "context": "5f1c0e6e-35be-4d71-a88d-ae0d22621e3a",
+          "object_id": 1813326,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189757441/"
+        },
+        {
+          "id": "2189757553",
+          "created_datetime": "2026-08-26T13:56:58.438512+00:00",
+          "context": "b426059f-5672-4360-8c5b-88bcb28d7b27",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189757553/"
+        },
+        {
+          "id": "2189757562",
+          "created_datetime": "2026-08-26T13:56:58.521102+00:00",
+          "context": "b426059f-5672-4360-8c5b-88bcb28d7b27",
+          "data": {
+            "tags_added": [
+              1813326
+            ]
+          },
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-tags-added",
+          "user_id": 519543243,
+          "uri": "/api/events/2189757562/"
+        },
+        {
+          "id": "2189765273",
+          "created_datetime": "2026-08-26T13:58:10.893373+00:00",
+          "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+          "object_id": 218708762,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189765273/"
+        },
+        {
+          "id": "2189765280",
+          "created_datetime": "2026-08-26T13:58:11.026093+00:00",
+          "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189765280/"
+        },
+        {
+          "id": "2189765326",
+          "created_datetime": "2026-08-26T13:58:11.479735+00:00",
+          "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2189765326/"
+        },
+        {
+          "id": "2189765327",
+          "created_datetime": "2026-08-26T13:58:11.487453+00:00",
+          "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-reopened",
+          "user_id": 519543243,
+          "uri": "/api/events/2189765327/"
+        },
+        {
+          "id": "2189767594",
+          "created_datetime": "2026-08-26T13:58:35.817406+00:00",
+          "context": "25b6cbcb-e7b5-4ade-b507-3c75e2340d54",
+          "object_id": 82697494,
+          "object_type": "Ticket",
+          "type": "ticket-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189767594/"
+        },
+        {
+          "id": "2189767697",
+          "created_datetime": "2026-08-26T13:58:37.068918+00:00",
+          "context": "b566a0d7-b387-4143-867b-8f47c346a331",
+          "object_id": 1813326,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189767697/"
+        },
+        {
+          "id": "2189769620",
+          "created_datetime": "2026-08-26T13:58:57.399327+00:00",
+          "context": "f2f8b30d-bb40-4f30-8bd9-fc18f47ee3fa",
+          "object_id": 519598046,
+          "object_type": "Customer",
+          "type": "customer-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189769620/"
+        },
+        {
+          "id": "2189781333",
+          "created_datetime": "2026-08-26T14:01:01.562010+00:00",
+          "context": "18168980-7bc9-485f-a7ef-00c841685ab0",
+          "object_id": 519602107,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2189781333/"
+        },
+        {
+          "id": "2189782637",
+          "created_datetime": "2026-08-26T14:01:15.163386+00:00",
+          "context": "c3d46b0e-d1c3-459b-8873-83a09afcf4e4",
+          "object_id": 519602107,
+          "object_type": "Customer",
+          "type": "customer-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2189782637/"
+        },
+        {
+          "id": "2190924443",
+          "created_datetime": "2026-08-26T18:33:47.706707+00:00",
+          "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190924443/"
+        },
+        {
+          "id": "2190924451",
+          "created_datetime": "2026-08-26T18:33:47.794380+00:00",
+          "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+          "data": {
+            "tags_removed": [
+              1812976
+            ]
+          },
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-tags-removed",
+          "uri": "/api/events/2190924451/"
+        },
+        {
+          "id": "2190924458",
+          "created_datetime": "2026-08-26T18:33:47.851100+00:00",
+          "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190924458/"
+        },
+        {
+          "id": "2190924681",
+          "created_datetime": "2026-08-26T18:33:53.439658+00:00",
+          "context": "ac24c9ba-5abd-4f82-844f-acc513523744",
+          "object_id": 1178501,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190924681/"
+        },
+        {
+          "id": "2190925412",
+          "created_datetime": "2026-08-26T18:34:08.913638+00:00",
+          "context": "9568a1a7-fbf7-411b-8a33-cf8502cba092",
+          "object_id": 374712,
+          "object_type": "Macro",
+          "type": "macro-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190925412/"
+        },
+        {
+          "id": "2190925814",
+          "created_datetime": "2026-08-26T18:34:17.403580+00:00",
+          "context": "a05c6e5d-ca21-4529-8797-9f70591f3c76",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190925814/"
+        },
+        {
+          "id": "2190925817",
+          "created_datetime": "2026-08-26T18:34:17.412122+00:00",
+          "context": "a05c6e5d-ca21-4529-8797-9f70591f3c76",
+          "data": {
+            "tags_added": [
+              1812976
+            ]
+          },
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-tags-added",
+          "uri": "/api/events/2190925817/"
+        },
+        {
+          "id": "2190926050",
+          "created_datetime": "2026-08-26T18:34:21.827652+00:00",
+          "context": "24990a79-2a89-49ae-abfb-248113ee3d41",
+          "object_id": 1178501,
+          "object_type": "View",
+          "type": "view-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190926050/"
+        },
+        {
+          "id": "2190926475",
+          "created_datetime": "2026-08-26T18:34:28.296403+00:00",
+          "context": "d3e7a2b5-4f26-47b8-96b9-a39827dd59b2",
+          "object_id": 1814124,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190926475/"
+        },
+        {
+          "id": "2190926982",
+          "created_datetime": "2026-08-26T18:34:37.724259+00:00",
+          "context": "22ed1b6d-75a4-47af-b909-ee644bd85d72",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190926982/"
+        },
+        {
+          "id": "2190926985",
+          "created_datetime": "2026-08-26T18:34:37.735172+00:00",
+          "context": "22ed1b6d-75a4-47af-b909-ee644bd85d72",
+          "data": {
+            "tags_removed": [
+              1812976
+            ]
+          },
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-tags-removed",
+          "uri": "/api/events/2190926985/"
+        },
+        {
+          "id": "2190927371",
+          "created_datetime": "2026-08-26T18:34:45.731655+00:00",
+          "context": "13ed07c4-6036-436e-9abb-1ec32b38be73",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190927371/"
+        },
+        {
+          "id": "2190927374",
+          "created_datetime": "2026-08-26T18:34:45.817443+00:00",
+          "context": "13ed07c4-6036-436e-9abb-1ec32b38be73",
+          "data": {
+            "tags_added": [
+              1812976
+            ]
+          },
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-tags-added",
+          "user_id": 519543243,
+          "uri": "/api/events/2190927374/"
+        },
+        {
+          "id": "2190928420",
+          "created_datetime": "2026-08-26T18:35:05.355224+00:00",
+          "context": "c7c782c6-f5b2-4e1f-b131-7cb12084c2e9",
+          "object_id": 319825,
+          "object_type": "CustomField",
+          "type": "custom-field-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190928420/"
+        },
+        {
+          "id": "2190928831",
+          "created_datetime": "2026-08-26T18:35:12.378776+00:00",
+          "context": "afe27e04-f16a-4eca-a6f2-e22522e3dc7c",
+          "object_id": 1814129,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190928831/"
+        },
+        {
+          "id": "2190929004",
+          "created_datetime": "2026-08-26T18:35:15.679514+00:00",
+          "context": "65f11b63-357e-4899-8cd3-ed3ef11576f7",
+          "object_id": 1814130,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929004/"
+        },
+        {
+          "id": "2190929168",
+          "created_datetime": "2026-08-26T18:35:18.817555+00:00",
+          "context": "f7c89d47-8f1c-4ef2-af0a-1776f056329d",
+          "object_id": 519753749,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929168/"
+        },
+        {
+          "id": "2190929181",
+          "created_datetime": "2026-08-26T18:35:19.106144+00:00",
+          "context": "76b82910-f0e1-4b54-a3ad-6488353a830b",
+          "object_id": 1814131,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929181/"
+        },
+        {
+          "id": "2190929224",
+          "created_datetime": "2026-08-26T18:35:19.839790+00:00",
+          "context": "f3351932-3ad2-4752-8692-b16d0fded0e1",
+          "object_id": 1178504,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929224/"
+        },
+        {
+          "id": "2190929335",
+          "created_datetime": "2026-08-26T18:35:22.693159+00:00",
+          "context": "9bf2332d-bbc2-4ead-a920-78779c4f122a",
+          "object_id": 519753798,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929335/"
+        },
+        {
+          "id": "2190929387",
+          "created_datetime": "2026-08-26T18:35:24.786983+00:00",
+          "context": "136300da-4a0f-4cd1-8436-860b2cf9d0cf",
+          "object_id": 1814129,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929387/"
+        },
+        {
+          "id": "2190929661",
+          "created_datetime": "2026-08-26T18:35:29.140262+00:00",
+          "context": "b4bc35cc-e1b1-4b24-aec8-8905dd4dbe4d",
+          "object_id": 374713,
+          "object_type": "Macro",
+          "type": "macro-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929661/"
+        },
+        {
+          "id": "2190929692",
+          "created_datetime": "2026-08-26T18:35:29.564086+00:00",
+          "context": "5ea951bd-94d5-4361-8953-cd9d5da64915",
+          "object_id": 1814124,
+          "object_type": "Tag",
+          "type": "tag-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929692/"
+        },
+        {
+          "id": "2190929695",
+          "created_datetime": "2026-08-26T18:35:29.589774+00:00",
+          "context": "0564077d-b5a4-4847-9b35-c5247ef6b0c0",
+          "object_id": 1814124,
+          "object_type": "Tag",
+          "type": "tag-renamed",
+          "user_id": 519543243,
+          "uri": "/api/events/2190929695/"
+        },
+        {
+          "id": "2190930019",
+          "created_datetime": "2026-08-26T18:35:31.378874+00:00",
+          "context": "831d974d-c371-40cb-996d-1717b0fdcc0d",
+          "object_id": 519753903,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930019/"
+        },
+        {
+          "id": "2190930060",
+          "created_datetime": "2026-08-26T18:35:31.565875+00:00",
+          "context": "8659bcba-ea26-4c1d-a734-503c051f5670",
+          "object_id": 1814132,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930060/"
+        },
+        {
+          "id": "2190930065",
+          "created_datetime": "2026-08-26T18:35:31.650153+00:00",
+          "context": "a8a01944-225b-4c7a-b056-9748b29a7e2f",
+          "object_id": 519753904,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930065/"
+        },
+        {
+          "id": "2190930114",
+          "created_datetime": "2026-08-26T18:35:31.857522+00:00",
+          "context": "5619f4fd-761d-4b13-986d-d4445e7d76ad",
+          "object_id": 1814133,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930114/"
+        },
+        {
+          "id": "2190930324",
+          "created_datetime": "2026-08-26T18:35:34.157952+00:00",
+          "context": "78778464-50d6-4d59-a8fb-53de6fc5d402",
+          "object_id": 1178504,
+          "object_type": "View",
+          "type": "view-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930324/"
+        },
+        {
+          "id": "2190930503",
+          "created_datetime": "2026-08-26T18:35:37.191314+00:00",
+          "context": "62623ba0-e65d-4fa0-9d7d-6f0a8c1c6759",
+          "object_id": 1814134,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930503/"
+        },
+        {
+          "id": "2190930506",
+          "created_datetime": "2026-08-26T18:35:37.253491+00:00",
+          "context": "8d2aa816-db88-4f13-8f89-1388ba095c42",
+          "object_id": 1814124,
+          "object_type": "Tag",
+          "type": "tag-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930506/"
+        },
+        {
+          "id": "2190930796",
+          "created_datetime": "2026-08-26T18:35:42.673889+00:00",
+          "context": "057afea6-68c9-4c0d-8185-1ed656d8f57c",
+          "object_id": 120971,
+          "object_type": "Rule",
+          "type": "rule-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930796/"
+        },
+        {
+          "id": "2190930983",
+          "created_datetime": "2026-08-26T18:35:46.338002+00:00",
+          "context": "13c886fc-bf30-442e-80a7-861a6cfac003",
+          "object_id": 1814133,
+          "object_type": "Tag",
+          "type": "tag-merged",
+          "user_id": 519543243,
+          "uri": "/api/events/2190930983/"
+        },
+        {
+          "id": "2190931115",
+          "created_datetime": "2026-08-26T18:35:49.359792+00:00",
+          "context": "43432e52-f75b-439f-9605-3b287fd32493",
+          "object_id": 1814130,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931115/"
+        },
+        {
+          "id": "2190931116",
+          "created_datetime": "2026-08-26T18:35:49.372157+00:00",
+          "context": "c326547b-80dd-483b-b31f-b31c23d66214",
+          "object_id": 1814134,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931116/"
+        },
+        {
+          "id": "2190931125",
+          "created_datetime": "2026-08-26T18:35:49.429487+00:00",
+          "context": "2385a782-2cb5-4da0-83f5-63df25adb2c2",
+          "object_id": 319826,
+          "object_type": "CustomField",
+          "type": "custom-field-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931125/"
+        },
+        {
+          "id": "2190931225",
+          "created_datetime": "2026-08-26T18:35:50.769532+00:00",
+          "context": "458d0e56-28fe-4c0e-8386-3225eb2e2f47",
+          "object_id": 120971,
+          "object_type": "Rule",
+          "type": "rule-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931225/"
+        },
+        {
+          "id": "2190931359",
+          "created_datetime": "2026-08-26T18:35:53.753225+00:00",
+          "context": "ff983dde-a720-4ff2-a4d6-96dd73586b75",
+          "object_id": 1814133,
+          "object_type": "Tag",
+          "type": "tag-merged",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931359/"
+        },
+        {
+          "id": "2190931381",
+          "created_datetime": "2026-08-26T18:35:54.692041+00:00",
+          "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+          "object_id": 82751748,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931381/"
+        },
+        {
+          "id": "2190931384",
+          "created_datetime": "2026-08-26T18:35:54.702602+00:00",
+          "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+          "object_id": 218853389,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931384/"
+        },
+        {
+          "id": "2190931391",
+          "created_datetime": "2026-08-26T18:35:54.863324+00:00",
+          "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+          "object_id": 82751748,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931391/"
+        },
+        {
+          "id": "2190931454",
+          "created_datetime": "2026-08-26T18:35:56.101209+00:00",
+          "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+          "object_id": 82751753,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931454/"
+        },
+        {
+          "id": "2190931456",
+          "created_datetime": "2026-08-26T18:35:56.112118+00:00",
+          "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+          "object_id": 218853402,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931456/"
+        },
+        {
+          "id": "2190931473",
+          "created_datetime": "2026-08-26T18:35:56.295921+00:00",
+          "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+          "object_id": 82751753,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190931473/"
+        },
+        {
+          "id": "2190932615",
+          "created_datetime": "2026-08-26T18:36:13.612706+00:00",
+          "context": "57b6e3f6-9140-4d96-b9a1-232022245619",
+          "object_id": 319827,
+          "object_type": "CustomField",
+          "type": "custom-field-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190932615/"
+        },
+        {
+          "id": "2190932751",
+          "created_datetime": "2026-08-26T18:36:15.037364+00:00",
+          "context": "3509ef29-0016-4b8b-81bc-3cf865da3927",
+          "object_id": 1178507,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190932751/"
+        },
+        {
+          "id": "2190933025",
+          "created_datetime": "2026-08-26T18:36:20.110047+00:00",
+          "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+          "object_id": 82751818,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933025/"
+        },
+        {
+          "id": "2190933027",
+          "created_datetime": "2026-08-26T18:36:20.116152+00:00",
+          "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+          "object_id": 218853586,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933027/"
+        },
+        {
+          "id": "2190933040",
+          "created_datetime": "2026-08-26T18:36:20.321876+00:00",
+          "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+          "object_id": 82751818,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933040/"
+        },
+        {
+          "id": "2190933076",
+          "created_datetime": "2026-08-26T18:36:20.714869+00:00",
+          "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+          "object_id": 82751818,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933076/"
+        },
+        {
+          "id": "2190933148",
+          "created_datetime": "2026-08-26T18:36:21.719100+00:00",
+          "context": "d4e35245-61a4-46a1-afb3-24b7133ba3a3",
+          "object_id": 82751818,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190933148/"
+        },
+        {
+          "id": "2190933150",
+          "created_datetime": "2026-08-26T18:36:21.744141+00:00",
+          "context": "733358b1-3e91-4d0f-b015-5c4c5b438fd0",
+          "object_id": 120972,
+          "object_type": "Rule",
+          "type": "rule-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933150/"
+        },
+        {
+          "id": "2190933332",
+          "created_datetime": "2026-08-26T18:36:24.631610+00:00",
+          "context": "af4e933c-cdd9-4cb9-839a-33275ae93986",
+          "object_id": 1178508,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933332/"
+        },
+        {
+          "id": "2190933382",
+          "created_datetime": "2026-08-26T18:36:25.510522+00:00",
+          "context": "5e15ccf5-7d56-4390-b232-087c9f1c79a3",
+          "object_id": 1814135,
+          "object_type": "Tag",
+          "type": "tag-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933382/"
+        },
+        {
+          "id": "2190933443",
+          "created_datetime": "2026-08-26T18:36:26.477876+00:00",
+          "context": "fa47afd8-9e5e-4009-9aa2-12db26f3f171",
+          "object_id": 1814124,
+          "object_type": "Tag",
+          "type": "tag-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933443/"
+        },
+        {
+          "id": "2190933546",
+          "created_datetime": "2026-08-26T18:36:28.158561+00:00",
+          "context": "a0bdd29c-abfd-4bb3-894a-fb22a03b4478",
+          "object_id": 1178507,
+          "object_type": "View",
+          "type": "view-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933546/"
+        },
+        {
+          "id": "2190933942",
+          "created_datetime": "2026-08-26T18:36:35.819366+00:00",
+          "context": "312662f0-0573-4b62-8090-75defb541f52",
+          "object_id": 1178509,
+          "object_type": "View",
+          "type": "view-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190933942/"
+        },
+        {
+          "id": "2190934014",
+          "created_datetime": "2026-08-26T18:36:37.583201+00:00",
+          "context": "70f30435-49de-431c-9f7a-650efbbb6db1",
+          "object_id": 319680,
+          "object_type": "CustomField",
+          "type": "custom-field-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934014/"
+        },
+        {
+          "id": "2190934289",
+          "created_datetime": "2026-08-26T18:36:42.781167+00:00",
+          "context": "0d7c810b-6348-41ed-b3db-9a39e4009fdd",
+          "object_id": 1178509,
+          "object_type": "View",
+          "type": "view-deleted",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934289/"
+        },
+        {
+          "id": "2190934395",
+          "created_datetime": "2026-08-26T18:36:44.676473+00:00",
+          "context": "ec21990e-9ac4-4691-ba72-86d40f5b00ae",
+          "object_id": 519754845,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934395/"
+        },
+        {
+          "id": "2190934426",
+          "created_datetime": "2026-08-26T18:36:45.231617+00:00",
+          "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+          "object_id": 82751869,
+          "object_type": "Ticket",
+          "type": "ticket-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934426/"
+        },
+        {
+          "id": "2190934428",
+          "created_datetime": "2026-08-26T18:36:45.239492+00:00",
+          "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+          "object_id": 218853764,
+          "object_type": "TicketMessage",
+          "type": "ticket-message-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934428/"
+        },
+        {
+          "id": "2190934441",
+          "created_datetime": "2026-08-26T18:36:45.453667+00:00",
+          "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+          "object_id": 82751869,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934441/"
+        },
+        {
+          "id": "2190934462",
+          "created_datetime": "2026-08-26T18:36:45.776191+00:00",
+          "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+          "object_id": 82751869,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934462/"
+        },
+        {
+          "id": "2190934534",
+          "created_datetime": "2026-08-26T18:36:46.684121+00:00",
+          "context": "b6882ed2-95df-48e4-ae17-af7b91393253",
+          "object_id": 82751869,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "uri": "/api/events/2190934534/"
+        },
+        {
+          "id": "2190934550",
+          "created_datetime": "2026-08-26T18:36:46.945544+00:00",
+          "context": "02e7899a-1db6-49cc-89b1-62d9da6bd489",
+          "object_id": 374712,
+          "object_type": "Macro",
+          "type": "macro-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934550/"
+        },
+        {
+          "id": "2190934679",
+          "created_datetime": "2026-08-26T18:36:49.419999+00:00",
+          "context": "571ae873-eeb0-4591-9ac3-5ebb94059516",
+          "object_id": 519754890,
+          "object_type": "Customer",
+          "type": "customer-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934679/"
+        },
+        {
+          "id": "2190934711",
+          "created_datetime": "2026-08-26T18:36:49.924956+00:00",
+          "context": "303c0b65-8e9a-4056-8231-affca482436c",
+          "object_id": 319680,
+          "object_type": "CustomField",
+          "type": "custom-field-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934711/"
+        },
+        {
+          "id": "2190934835",
+          "created_datetime": "2026-08-26T18:36:51.389158+00:00",
+          "context": "2b77688a-d20a-4bfe-a23f-7e84f6732964",
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934835/"
+        },
+        {
+          "id": "2190934845",
+          "created_datetime": "2026-08-26T18:36:51.469144+00:00",
+          "context": "2b77688a-d20a-4bfe-a23f-7e84f6732964",
+          "data": {
+            "tags_added": [
+              1813010
+            ]
+          },
+          "object_id": 82682724,
+          "object_type": "Ticket",
+          "type": "ticket-tags-added",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934845/"
+        },
+        {
+          "id": "2190934963",
+          "created_datetime": "2026-08-26T18:36:53.623628+00:00",
+          "context": "cad94b11-e500-479a-b77b-421af2cfb062",
+          "object_id": 374712,
+          "object_type": "Macro",
+          "type": "macro-updated",
+          "user_id": 519543243,
+          "uri": "/api/events/2190934963/"
+        },
+        {
+          "id": "2190935918",
+          "created_datetime": "2026-08-26T18:37:08.971467+00:00",
+          "context": "aee60893-7e19-438b-9d27-8150df1d9350",
+          "object_id": 120973,
+          "object_type": "Rule",
+          "type": "rule-created",
+          "user_id": 519543243,
+          "uri": "/api/events/2190935918/"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Event": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/events": [
+        {
+          "response": {
+            "data": [
+              {
+                "id": 2189392455,
+                "context": "9bf06527-a63f-4e29-89c2-0e08e254b0e5",
+                "created_datetime": "2026-08-26T12:46:06.292896+00:00",
+                "data": null,
+                "object_id": 519543245,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": null,
+                "uri": "/api/events/2189392455/"
+              },
+              {
+                "id": 2189392456,
+                "context": "80116285-9440-40ca-9303-44abdf09020f",
+                "created_datetime": "2026-08-26T12:46:06.309584+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": null,
+                "uri": "/api/events/2189392456/"
+              },
+              {
+                "id": 2189392458,
+                "context": "80116285-9440-40ca-9303-44abdf09020f",
+                "created_datetime": "2026-08-26T12:46:06.317604+00:00",
+                "data": null,
+                "object_id": 218665490,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": null,
+                "uri": "/api/events/2189392458/"
+              },
+              {
+                "id": 2189392464,
+                "context": "a7e7a773-1864-4057-b436-e8851b550370",
+                "created_datetime": "2026-08-26T12:46:06.426269+00:00",
+                "data": null,
+                "object_id": 519543243,
+                "object_type": "User",
+                "type": "user-created",
+                "user_id": null,
+                "uri": "/api/events/2189392464/"
+              },
+              {
+                "id": 2189392468,
+                "context": "df8a9002-c12c-493f-8891-ae05f2563cd4",
+                "created_datetime": "2026-08-26T12:46:06.456377+00:00",
+                "data": null,
+                "object_id": 519543244,
+                "object_type": "User",
+                "type": "user-created",
+                "user_id": null,
+                "uri": "/api/events/2189392468/"
+              },
+              {
+                "id": 2189392473,
+                "context": "4e1cda56-ecb7-4788-a2f5-5f07b94bd632",
+                "created_datetime": "2026-08-26T12:46:06.544053+00:00",
+                "data": null,
+                "object_id": 223048,
+                "object_type": "Account",
+                "type": "account-created",
+                "user_id": null,
+                "uri": "/api/events/2189392473/"
+              },
+              {
+                "id": 2189392690,
+                "context": null,
+                "created_datetime": "2026-08-26T12:46:09.781341+00:00",
+                "data": {
+                  "login_type": [
+                    "account-creation"
+                  ],
+                  "remote_addr": "196.96.167.135"
+                },
+                "object_id": 519543243,
+                "object_type": "User",
+                "type": "user-logged-in",
+                "user_id": 519543243,
+                "uri": "/api/events/2189392690/"
+              },
+              {
+                "id": 2189392728,
+                "context": "ccab1c35-890e-4999-ba17-0c3443ba5f92",
+                "created_datetime": "2026-08-26T12:46:10.291539+00:00",
+                "data": {
+                  "remote_addr": "196.96.167.135"
+                },
+                "object_id": 519543243,
+                "object_type": "User",
+                "type": "user-logged-in",
+                "user_id": 519543243,
+                "uri": "/api/events/2189392728/"
+              },
+              {
+                "id": 2189392766,
+                "context": "c9a4c84d-6aa0-4549-a66b-bd34f88f0e90",
+                "created_datetime": "2026-08-26T12:46:10.655706+00:00",
+                "data": null,
+                "object_id": 223048,
+                "object_type": "Account",
+                "type": "account-updated",
+                "user_id": null,
+                "uri": "/api/events/2189392766/"
+              },
+              {
+                "id": 2189393315,
+                "context": "6b7894b5-5a68-4494-afe3-5b8575e28a2d",
+                "created_datetime": "2026-08-26T12:46:17.420941+00:00",
+                "data": null,
+                "object_id": 223048,
+                "object_type": "Account",
+                "type": "account-updated",
+                "user_id": null,
+                "uri": "/api/events/2189393315/"
+              },
+              {
+                "id": 2189731132,
+                "context": "d0a4daba-9cb0-4079-aaab-0c3754ab2b74",
+                "created_datetime": "2026-08-26T13:52:00.223373+00:00",
+                "data": null,
+                "object_id": 519595738,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189731132/"
+              },
+              {
+                "id": 2189732575,
+                "context": "42719775-49b0-4538-a4b3-dfc5547d5d24",
+                "created_datetime": "2026-08-26T13:52:15.930085+00:00",
+                "data": null,
+                "object_id": 519595738,
+                "object_type": "Customer",
+                "type": "customer-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189732575/"
+              },
+              {
+                "id": 2189734393,
+                "context": "131f7f92-872d-4f63-b3ab-875e13dde67b",
+                "created_datetime": "2026-08-26T13:52:35.927544+00:00",
+                "data": null,
+                "object_id": 519596125,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189734393/"
+              },
+              {
+                "id": 2189734496,
+                "context": "31f244d3-f225-48d4-bfdc-4796241233f7",
+                "created_datetime": "2026-08-26T13:52:37.250203+00:00",
+                "data": null,
+                "object_id": 519596125,
+                "object_type": "Customer",
+                "type": "customer-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189734496/"
+              },
+              {
+                "id": 2189734631,
+                "context": "ef8002b6-a96a-48e8-8c6b-c09502a22d41",
+                "created_datetime": "2026-08-26T13:52:38.507610+00:00",
+                "data": null,
+                "object_id": 519596125,
+                "object_type": "Customer",
+                "type": "customer-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189734631/"
+              },
+              {
+                "id": 2189735524,
+                "context": "67211fed-4599-4837-a3b0-ac582c7d9d53",
+                "created_datetime": "2026-08-26T13:52:47.536851+00:00",
+                "data": null,
+                "object_id": 1813324,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189735524/"
+              },
+              {
+                "id": 2189735712,
+                "context": "3b05ae15-2fad-44b6-93ff-92e265cad8de",
+                "created_datetime": "2026-08-26T13:52:49.968442+00:00",
+                "data": null,
+                "object_id": 1813324,
+                "object_type": "Tag",
+                "type": "tag-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189735712/"
+              },
+              {
+                "id": 2189735714,
+                "context": "1490e731-4b45-4117-813b-eea07fd41859",
+                "created_datetime": "2026-08-26T13:52:49.985006+00:00",
+                "data": null,
+                "object_id": 1813324,
+                "object_type": "Tag",
+                "type": "tag-renamed",
+                "user_id": 519543243,
+                "uri": "/api/events/2189735714/"
+              },
+              {
+                "id": 2189735803,
+                "context": "9a85ef38-65f9-4a85-a6db-497ad0061fa6",
+                "created_datetime": "2026-08-26T13:52:51.368732+00:00",
+                "data": null,
+                "object_id": 1813324,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189735803/"
+              },
+              {
+                "id": 2189737286,
+                "context": "01d8f07a-3c77-45f3-abc9-53ee9168058b",
+                "created_datetime": "2026-08-26T13:53:07.257804+00:00",
+                "data": null,
+                "object_id": 374494,
+                "object_type": "Macro",
+                "type": "macro-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189737286/"
+              },
+              {
+                "id": 2189737672,
+                "context": "4def85b3-5e84-4337-8638-4919f0f2ee7e",
+                "created_datetime": "2026-08-26T13:53:09.755264+00:00",
+                "data": null,
+                "object_id": 374494,
+                "object_type": "Macro",
+                "type": "macro-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189737672/"
+              },
+              {
+                "id": 2189737831,
+                "context": "3152a865-b16f-44d7-b8d7-7fd130af0a5f",
+                "created_datetime": "2026-08-26T13:53:10.969907+00:00",
+                "data": null,
+                "object_id": 374494,
+                "object_type": "Macro",
+                "type": "macro-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189737831/"
+              },
+              {
+                "id": 2189738815,
+                "context": "437f7d56-daae-497c-8994-5cdc7b297f53",
+                "created_datetime": "2026-08-26T13:53:20.907883+00:00",
+                "data": null,
+                "object_id": 374496,
+                "object_type": "Macro",
+                "type": "macro-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189738815/"
+              },
+              {
+                "id": 2189739091,
+                "context": "c83e667a-333f-45f5-976c-f920d078102f",
+                "created_datetime": "2026-08-26T13:53:24.508384+00:00",
+                "data": null,
+                "object_id": 374496,
+                "object_type": "Macro",
+                "type": "macro-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189739091/"
+              },
+              {
+                "id": 2189741221,
+                "context": "ee17a686-a065-4cd9-acbc-979ab23b685a",
+                "created_datetime": "2026-08-26T13:53:48.700190+00:00",
+                "data": null,
+                "object_id": 319680,
+                "object_type": "CustomField",
+                "type": "custom-field-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189741221/"
+              },
+              {
+                "id": 2189741460,
+                "context": "fbfb6328-1626-4ea1-a1f8-ee8f9cba7e35",
+                "created_datetime": "2026-08-26T13:53:51.542940+00:00",
+                "data": null,
+                "object_id": 319680,
+                "object_type": "CustomField",
+                "type": "custom-field-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189741460/"
+              },
+              {
+                "id": 2189742843,
+                "context": "aa6e9a35-977f-4ad2-bf75-6de2cdad5fab",
+                "created_datetime": "2026-08-26T13:54:10.130126+00:00",
+                "data": null,
+                "object_id": 319680,
+                "object_type": "CustomField",
+                "type": "custom-field-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189742843/"
+              },
+              {
+                "id": 2189745734,
+                "context": "c9f223a4-9389-465c-8c71-f40ab9e2c957",
+                "created_datetime": "2026-08-26T13:54:44.608203+00:00",
+                "data": null,
+                "object_id": 120913,
+                "object_type": "Rule",
+                "type": "rule-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189745734/"
+              },
+              {
+                "id": 2189747211,
+                "context": "b55c30fe-3c1e-426c-90c0-5b718bec7207",
+                "created_datetime": "2026-08-26T13:55:00.503224+00:00",
+                "data": null,
+                "object_id": 120913,
+                "object_type": "Rule",
+                "type": "rule-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189747211/"
+              },
+              {
+                "id": 2189747320,
+                "context": "c0addd72-c244-4563-b0f8-0dac3cf90690",
+                "created_datetime": "2026-08-26T13:55:02.023661+00:00",
+                "data": null,
+                "object_id": 120913,
+                "object_type": "Rule",
+                "type": "rule-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189747320/"
+              },
+              {
+                "id": 2189749282,
+                "context": "ad9c08b0-3138-4981-b3a0-d829d3f39016",
+                "created_datetime": "2026-08-26T13:55:23.423258+00:00",
+                "data": null,
+                "object_id": 1177446,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189749282/"
+              },
+              {
+                "id": 2189749839,
+                "context": "7939461a-b833-4ac8-b2b2-00aad34d520f",
+                "created_datetime": "2026-08-26T13:55:29.680712+00:00",
+                "data": null,
+                "object_id": 1177446,
+                "object_type": "View",
+                "type": "view-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189749839/"
+              },
+              {
+                "id": 2189750167,
+                "context": "c9808ba8-5587-44e8-9b85-8df19d2d1b36",
+                "created_datetime": "2026-08-26T13:55:33.427889+00:00",
+                "data": null,
+                "object_id": 1177446,
+                "object_type": "View",
+                "type": "view-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189750167/"
+              },
+              {
+                "id": 2189751095,
+                "context": "bcd1fe13-fb8b-44f8-bbd8-a1a576d5c2fe",
+                "created_datetime": "2026-08-26T13:55:43.417057+00:00",
+                "data": null,
+                "object_id": 519598046,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189751095/"
+              },
+              {
+                "id": 2189754080,
+                "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+                "created_datetime": "2026-08-26T13:56:18.531539+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189754080/"
+              },
+              {
+                "id": 2189754084,
+                "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+                "created_datetime": "2026-08-26T13:56:18.560964+00:00",
+                "data": null,
+                "object_id": 218707604,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189754084/"
+              },
+              {
+                "id": 2189754105,
+                "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+                "created_datetime": "2026-08-26T13:56:18.810264+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189754105/"
+              },
+              {
+                "id": 2189754141,
+                "context": "a9357ca7-ddc7-4ee6-8551-4da74d5f2cdf",
+                "created_datetime": "2026-08-26T13:56:19.110029+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189754141/"
+              },
+              {
+                "id": 2189754214,
+                "context": "5e4c5dca-0998-4ef3-86f6-b4d5028b9c33",
+                "created_datetime": "2026-08-26T13:56:19.798685+00:00",
+                "data": null,
+                "object_id": 319613,
+                "object_type": "CustomField",
+                "type": "custom-field-updated",
+                "user_id": null,
+                "uri": "/api/events/2189754214/"
+              },
+              {
+                "id": 2189754247,
+                "context": "b96d230b-ffae-41e5-8fde-ce6c0b4d8194",
+                "created_datetime": "2026-08-26T13:56:20.333871+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2189754247/"
+              },
+              {
+                "id": 2189755131,
+                "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+                "created_datetime": "2026-08-26T13:56:30.787198+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189755131/"
+              },
+              {
+                "id": 2189755146,
+                "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+                "created_datetime": "2026-08-26T13:56:30.887602+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-closed",
+                "user_id": 519543243,
+                "uri": "/api/events/2189755146/"
+              },
+              {
+                "id": 2189755151,
+                "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+                "created_datetime": "2026-08-26T13:56:30.904225+00:00",
+                "data": {
+                  "reasons": [
+                    "The ticket lacks the required minimum interaction: at least one message from the customer and one from an agent.",
+                    "The ticket conversation is shorter than the minimum requirement of 250 characters."
+                  ]
+                },
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-satisfaction-survey-skipped",
+                "user_id": null,
+                "uri": "/api/events/2189755151/"
+              },
+              {
+                "id": 2189755156,
+                "context": "4e8963aa-ed55-4ea6-9f57-725ce1175088",
+                "created_datetime": "2026-08-26T13:56:30.915169+00:00",
+                "data": {
+                  "new_subject": "Nango Updated Subject"
+                },
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-subject-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189755156/"
+              },
+              {
+                "id": 2189757441,
+                "context": "5f1c0e6e-35be-4d71-a88d-ae0d22621e3a",
+                "created_datetime": "2026-08-26T13:56:57.218185+00:00",
+                "data": null,
+                "object_id": 1813326,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189757441/"
+              },
+              {
+                "id": 2189757553,
+                "context": "b426059f-5672-4360-8c5b-88bcb28d7b27",
+                "created_datetime": "2026-08-26T13:56:58.438512+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189757553/"
+              },
+              {
+                "id": 2189757562,
+                "context": "b426059f-5672-4360-8c5b-88bcb28d7b27",
+                "created_datetime": "2026-08-26T13:56:58.521102+00:00",
+                "data": {
+                  "tags_added": [
+                    1813326
+                  ]
+                },
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-tags-added",
+                "user_id": 519543243,
+                "uri": "/api/events/2189757562/"
+              },
+              {
+                "id": 2189765273,
+                "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+                "created_datetime": "2026-08-26T13:58:10.893373+00:00",
+                "data": null,
+                "object_id": 218708762,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189765273/"
+              },
+              {
+                "id": 2189765280,
+                "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+                "created_datetime": "2026-08-26T13:58:11.026093+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189765280/"
+              },
+              {
+                "id": 2189765326,
+                "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+                "created_datetime": "2026-08-26T13:58:11.479735+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2189765326/"
+              },
+              {
+                "id": 2189765327,
+                "context": "c9d6e3ee-5911-4074-a6b1-1125a3295863",
+                "created_datetime": "2026-08-26T13:58:11.487453+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-reopened",
+                "user_id": 519543243,
+                "uri": "/api/events/2189765327/"
+              },
+              {
+                "id": 2189767594,
+                "context": "25b6cbcb-e7b5-4ade-b507-3c75e2340d54",
+                "created_datetime": "2026-08-26T13:58:35.817406+00:00",
+                "data": null,
+                "object_id": 82697494,
+                "object_type": "Ticket",
+                "type": "ticket-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189767594/"
+              },
+              {
+                "id": 2189767697,
+                "context": "b566a0d7-b387-4143-867b-8f47c346a331",
+                "created_datetime": "2026-08-26T13:58:37.068918+00:00",
+                "data": null,
+                "object_id": 1813326,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189767697/"
+              },
+              {
+                "id": 2189769620,
+                "context": "f2f8b30d-bb40-4f30-8bd9-fc18f47ee3fa",
+                "created_datetime": "2026-08-26T13:58:57.399327+00:00",
+                "data": null,
+                "object_id": 519598046,
+                "object_type": "Customer",
+                "type": "customer-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189769620/"
+              },
+              {
+                "id": 2189781333,
+                "context": "18168980-7bc9-485f-a7ef-00c841685ab0",
+                "created_datetime": "2026-08-26T14:01:01.562010+00:00",
+                "data": null,
+                "object_id": 519602107,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2189781333/"
+              },
+              {
+                "id": 2189782637,
+                "context": "c3d46b0e-d1c3-459b-8873-83a09afcf4e4",
+                "created_datetime": "2026-08-26T14:01:15.163386+00:00",
+                "data": null,
+                "object_id": 519602107,
+                "object_type": "Customer",
+                "type": "customer-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2189782637/"
+              },
+              {
+                "id": 2190924443,
+                "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+                "created_datetime": "2026-08-26T18:33:47.706707+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190924443/"
+              },
+              {
+                "id": 2190924451,
+                "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+                "created_datetime": "2026-08-26T18:33:47.794380+00:00",
+                "data": {
+                  "tags_removed": [
+                    1812976
+                  ]
+                },
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-tags-removed",
+                "user_id": null,
+                "uri": "/api/events/2190924451/"
+              },
+              {
+                "id": 2190924458,
+                "context": "e1eca396-1c02-47bc-b2c7-5e0245a9e577",
+                "created_datetime": "2026-08-26T18:33:47.851100+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190924458/"
+              },
+              {
+                "id": 2190924681,
+                "context": "ac24c9ba-5abd-4f82-844f-acc513523744",
+                "created_datetime": "2026-08-26T18:33:53.439658+00:00",
+                "data": null,
+                "object_id": 1178501,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190924681/"
+              },
+              {
+                "id": 2190925412,
+                "context": "9568a1a7-fbf7-411b-8a33-cf8502cba092",
+                "created_datetime": "2026-08-26T18:34:08.913638+00:00",
+                "data": null,
+                "object_id": 374712,
+                "object_type": "Macro",
+                "type": "macro-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190925412/"
+              },
+              {
+                "id": 2190925814,
+                "context": "a05c6e5d-ca21-4529-8797-9f70591f3c76",
+                "created_datetime": "2026-08-26T18:34:17.403580+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190925814/"
+              },
+              {
+                "id": 2190925817,
+                "context": "a05c6e5d-ca21-4529-8797-9f70591f3c76",
+                "created_datetime": "2026-08-26T18:34:17.412122+00:00",
+                "data": {
+                  "tags_added": [
+                    1812976
+                  ]
+                },
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-tags-added",
+                "user_id": null,
+                "uri": "/api/events/2190925817/"
+              },
+              {
+                "id": 2190926050,
+                "context": "24990a79-2a89-49ae-abfb-248113ee3d41",
+                "created_datetime": "2026-08-26T18:34:21.827652+00:00",
+                "data": null,
+                "object_id": 1178501,
+                "object_type": "View",
+                "type": "view-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190926050/"
+              },
+              {
+                "id": 2190926475,
+                "context": "d3e7a2b5-4f26-47b8-96b9-a39827dd59b2",
+                "created_datetime": "2026-08-26T18:34:28.296403+00:00",
+                "data": null,
+                "object_id": 1814124,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190926475/"
+              },
+              {
+                "id": 2190926982,
+                "context": "22ed1b6d-75a4-47af-b909-ee644bd85d72",
+                "created_datetime": "2026-08-26T18:34:37.724259+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190926982/"
+              },
+              {
+                "id": 2190926985,
+                "context": "22ed1b6d-75a4-47af-b909-ee644bd85d72",
+                "created_datetime": "2026-08-26T18:34:37.735172+00:00",
+                "data": {
+                  "tags_removed": [
+                    1812976
+                  ]
+                },
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-tags-removed",
+                "user_id": null,
+                "uri": "/api/events/2190926985/"
+              },
+              {
+                "id": 2190927371,
+                "context": "13ed07c4-6036-436e-9abb-1ec32b38be73",
+                "created_datetime": "2026-08-26T18:34:45.731655+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190927371/"
+              },
+              {
+                "id": 2190927374,
+                "context": "13ed07c4-6036-436e-9abb-1ec32b38be73",
+                "created_datetime": "2026-08-26T18:34:45.817443+00:00",
+                "data": {
+                  "tags_added": [
+                    1812976
+                  ]
+                },
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-tags-added",
+                "user_id": 519543243,
+                "uri": "/api/events/2190927374/"
+              },
+              {
+                "id": 2190928420,
+                "context": "c7c782c6-f5b2-4e1f-b131-7cb12084c2e9",
+                "created_datetime": "2026-08-26T18:35:05.355224+00:00",
+                "data": null,
+                "object_id": 319825,
+                "object_type": "CustomField",
+                "type": "custom-field-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190928420/"
+              },
+              {
+                "id": 2190928831,
+                "context": "afe27e04-f16a-4eca-a6f2-e22522e3dc7c",
+                "created_datetime": "2026-08-26T18:35:12.378776+00:00",
+                "data": null,
+                "object_id": 1814129,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190928831/"
+              },
+              {
+                "id": 2190929004,
+                "context": "65f11b63-357e-4899-8cd3-ed3ef11576f7",
+                "created_datetime": "2026-08-26T18:35:15.679514+00:00",
+                "data": null,
+                "object_id": 1814130,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929004/"
+              },
+              {
+                "id": 2190929168,
+                "context": "f7c89d47-8f1c-4ef2-af0a-1776f056329d",
+                "created_datetime": "2026-08-26T18:35:18.817555+00:00",
+                "data": null,
+                "object_id": 519753749,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929168/"
+              },
+              {
+                "id": 2190929181,
+                "context": "76b82910-f0e1-4b54-a3ad-6488353a830b",
+                "created_datetime": "2026-08-26T18:35:19.106144+00:00",
+                "data": null,
+                "object_id": 1814131,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929181/"
+              },
+              {
+                "id": 2190929224,
+                "context": "f3351932-3ad2-4752-8692-b16d0fded0e1",
+                "created_datetime": "2026-08-26T18:35:19.839790+00:00",
+                "data": null,
+                "object_id": 1178504,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929224/"
+              },
+              {
+                "id": 2190929335,
+                "context": "9bf2332d-bbc2-4ead-a920-78779c4f122a",
+                "created_datetime": "2026-08-26T18:35:22.693159+00:00",
+                "data": null,
+                "object_id": 519753798,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929335/"
+              },
+              {
+                "id": 2190929387,
+                "context": "136300da-4a0f-4cd1-8436-860b2cf9d0cf",
+                "created_datetime": "2026-08-26T18:35:24.786983+00:00",
+                "data": null,
+                "object_id": 1814129,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929387/"
+              },
+              {
+                "id": 2190929661,
+                "context": "b4bc35cc-e1b1-4b24-aec8-8905dd4dbe4d",
+                "created_datetime": "2026-08-26T18:35:29.140262+00:00",
+                "data": null,
+                "object_id": 374713,
+                "object_type": "Macro",
+                "type": "macro-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929661/"
+              },
+              {
+                "id": 2190929692,
+                "context": "5ea951bd-94d5-4361-8953-cd9d5da64915",
+                "created_datetime": "2026-08-26T18:35:29.564086+00:00",
+                "data": null,
+                "object_id": 1814124,
+                "object_type": "Tag",
+                "type": "tag-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929692/"
+              },
+              {
+                "id": 2190929695,
+                "context": "0564077d-b5a4-4847-9b35-c5247ef6b0c0",
+                "created_datetime": "2026-08-26T18:35:29.589774+00:00",
+                "data": null,
+                "object_id": 1814124,
+                "object_type": "Tag",
+                "type": "tag-renamed",
+                "user_id": 519543243,
+                "uri": "/api/events/2190929695/"
+              },
+              {
+                "id": 2190930019,
+                "context": "831d974d-c371-40cb-996d-1717b0fdcc0d",
+                "created_datetime": "2026-08-26T18:35:31.378874+00:00",
+                "data": null,
+                "object_id": 519753903,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930019/"
+              },
+              {
+                "id": 2190930060,
+                "context": "8659bcba-ea26-4c1d-a734-503c051f5670",
+                "created_datetime": "2026-08-26T18:35:31.565875+00:00",
+                "data": null,
+                "object_id": 1814132,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930060/"
+              },
+              {
+                "id": 2190930065,
+                "context": "a8a01944-225b-4c7a-b056-9748b29a7e2f",
+                "created_datetime": "2026-08-26T18:35:31.650153+00:00",
+                "data": null,
+                "object_id": 519753904,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930065/"
+              },
+              {
+                "id": 2190930114,
+                "context": "5619f4fd-761d-4b13-986d-d4445e7d76ad",
+                "created_datetime": "2026-08-26T18:35:31.857522+00:00",
+                "data": null,
+                "object_id": 1814133,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930114/"
+              },
+              {
+                "id": 2190930324,
+                "context": "78778464-50d6-4d59-a8fb-53de6fc5d402",
+                "created_datetime": "2026-08-26T18:35:34.157952+00:00",
+                "data": null,
+                "object_id": 1178504,
+                "object_type": "View",
+                "type": "view-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930324/"
+              },
+              {
+                "id": 2190930503,
+                "context": "62623ba0-e65d-4fa0-9d7d-6f0a8c1c6759",
+                "created_datetime": "2026-08-26T18:35:37.191314+00:00",
+                "data": null,
+                "object_id": 1814134,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930503/"
+              },
+              {
+                "id": 2190930506,
+                "context": "8d2aa816-db88-4f13-8f89-1388ba095c42",
+                "created_datetime": "2026-08-26T18:35:37.253491+00:00",
+                "data": null,
+                "object_id": 1814124,
+                "object_type": "Tag",
+                "type": "tag-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930506/"
+              },
+              {
+                "id": 2190930796,
+                "context": "057afea6-68c9-4c0d-8185-1ed656d8f57c",
+                "created_datetime": "2026-08-26T18:35:42.673889+00:00",
+                "data": null,
+                "object_id": 120971,
+                "object_type": "Rule",
+                "type": "rule-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930796/"
+              },
+              {
+                "id": 2190930983,
+                "context": "13c886fc-bf30-442e-80a7-861a6cfac003",
+                "created_datetime": "2026-08-26T18:35:46.338002+00:00",
+                "data": null,
+                "object_id": 1814133,
+                "object_type": "Tag",
+                "type": "tag-merged",
+                "user_id": 519543243,
+                "uri": "/api/events/2190930983/"
+              },
+              {
+                "id": 2190931115,
+                "context": "43432e52-f75b-439f-9605-3b287fd32493",
+                "created_datetime": "2026-08-26T18:35:49.359792+00:00",
+                "data": null,
+                "object_id": 1814130,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931115/"
+              },
+              {
+                "id": 2190931116,
+                "context": "c326547b-80dd-483b-b31f-b31c23d66214",
+                "created_datetime": "2026-08-26T18:35:49.372157+00:00",
+                "data": null,
+                "object_id": 1814134,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931116/"
+              },
+              {
+                "id": 2190931125,
+                "context": "2385a782-2cb5-4da0-83f5-63df25adb2c2",
+                "created_datetime": "2026-08-26T18:35:49.429487+00:00",
+                "data": null,
+                "object_id": 319826,
+                "object_type": "CustomField",
+                "type": "custom-field-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931125/"
+              },
+              {
+                "id": 2190931225,
+                "context": "458d0e56-28fe-4c0e-8386-3225eb2e2f47",
+                "created_datetime": "2026-08-26T18:35:50.769532+00:00",
+                "data": null,
+                "object_id": 120971,
+                "object_type": "Rule",
+                "type": "rule-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931225/"
+              },
+              {
+                "id": 2190931359,
+                "context": "ff983dde-a720-4ff2-a4d6-96dd73586b75",
+                "created_datetime": "2026-08-26T18:35:53.753225+00:00",
+                "data": null,
+                "object_id": 1814133,
+                "object_type": "Tag",
+                "type": "tag-merged",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931359/"
+              },
+              {
+                "id": 2190931381,
+                "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+                "created_datetime": "2026-08-26T18:35:54.692041+00:00",
+                "data": null,
+                "object_id": 82751748,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931381/"
+              },
+              {
+                "id": 2190931384,
+                "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+                "created_datetime": "2026-08-26T18:35:54.702602+00:00",
+                "data": null,
+                "object_id": 218853389,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931384/"
+              },
+              {
+                "id": 2190931391,
+                "context": "7e8f2322-d364-4071-87b8-5e3f87649e0d",
+                "created_datetime": "2026-08-26T18:35:54.863324+00:00",
+                "data": null,
+                "object_id": 82751748,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931391/"
+              },
+              {
+                "id": 2190931454,
+                "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+                "created_datetime": "2026-08-26T18:35:56.101209+00:00",
+                "data": null,
+                "object_id": 82751753,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931454/"
+              },
+              {
+                "id": 2190931456,
+                "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+                "created_datetime": "2026-08-26T18:35:56.112118+00:00",
+                "data": null,
+                "object_id": 218853402,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931456/"
+              },
+              {
+                "id": 2190931473,
+                "context": "d8c8b12f-7a34-4fad-bb1c-e7cc1680abb9",
+                "created_datetime": "2026-08-26T18:35:56.295921+00:00",
+                "data": null,
+                "object_id": 82751753,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190931473/"
+              }
+            ],
+            "object": "list",
+            "uri": "/api/events?order_by=created_datetime%3Aasc&limit=100",
+            "meta": {
+              "prev_cursor": null,
+              "next_cursor": "WyJuZXh0IiwgIjIwMjYtMDgtMjZUMTg6MzU6NTYuMjk1OTIxIiwgMjE5MDkzMTQ3M10="
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 26 Aug 2026 18:37:10 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "Deny",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=31556926; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1850",
+            "x-ratelimit-reset": "1787769438",
+            "server": "cloudflare",
+            "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+            "x-gorgias-account-api-call-limit": "12/80",
+            "cross-origin-opener-policy": "same-origin-allow-popups",
+            "vary": "Cookie, accept-encoding",
+            "x-request-id": "f4c6d3d3aacfdad72d2f5be45047395f",
+            "via": "1.1 google",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a314f23ac80efc83-PDX"
+          },
+          "hash": "f0912f854f255efdb91a9d85f70b1664c1c0bfe9",
+          "request": {
+            "params": {
+              "limit": "100",
+              "order_by": "created_datetime:asc"
+            }
+          }
+        },
+        {
+          "response": {
+            "data": [
+              {
+                "id": 2190932615,
+                "context": "57b6e3f6-9140-4d96-b9a1-232022245619",
+                "created_datetime": "2026-08-26T18:36:13.612706+00:00",
+                "data": null,
+                "object_id": 319827,
+                "object_type": "CustomField",
+                "type": "custom-field-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190932615/"
+              },
+              {
+                "id": 2190932751,
+                "context": "3509ef29-0016-4b8b-81bc-3cf865da3927",
+                "created_datetime": "2026-08-26T18:36:15.037364+00:00",
+                "data": null,
+                "object_id": 1178507,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190932751/"
+              },
+              {
+                "id": 2190933025,
+                "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+                "created_datetime": "2026-08-26T18:36:20.110047+00:00",
+                "data": null,
+                "object_id": 82751818,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933025/"
+              },
+              {
+                "id": 2190933027,
+                "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+                "created_datetime": "2026-08-26T18:36:20.116152+00:00",
+                "data": null,
+                "object_id": 218853586,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933027/"
+              },
+              {
+                "id": 2190933040,
+                "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+                "created_datetime": "2026-08-26T18:36:20.321876+00:00",
+                "data": null,
+                "object_id": 82751818,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933040/"
+              },
+              {
+                "id": 2190933076,
+                "context": "7483856b-bd60-4cdc-b6c4-ec606c3afd5d",
+                "created_datetime": "2026-08-26T18:36:20.714869+00:00",
+                "data": null,
+                "object_id": 82751818,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933076/"
+              },
+              {
+                "id": 2190933148,
+                "context": "d4e35245-61a4-46a1-afb3-24b7133ba3a3",
+                "created_datetime": "2026-08-26T18:36:21.719100+00:00",
+                "data": null,
+                "object_id": 82751818,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190933148/"
+              },
+              {
+                "id": 2190933150,
+                "context": "733358b1-3e91-4d0f-b015-5c4c5b438fd0",
+                "created_datetime": "2026-08-26T18:36:21.744141+00:00",
+                "data": null,
+                "object_id": 120972,
+                "object_type": "Rule",
+                "type": "rule-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933150/"
+              },
+              {
+                "id": 2190933332,
+                "context": "af4e933c-cdd9-4cb9-839a-33275ae93986",
+                "created_datetime": "2026-08-26T18:36:24.631610+00:00",
+                "data": null,
+                "object_id": 1178508,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933332/"
+              },
+              {
+                "id": 2190933382,
+                "context": "5e15ccf5-7d56-4390-b232-087c9f1c79a3",
+                "created_datetime": "2026-08-26T18:36:25.510522+00:00",
+                "data": null,
+                "object_id": 1814135,
+                "object_type": "Tag",
+                "type": "tag-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933382/"
+              },
+              {
+                "id": 2190933443,
+                "context": "fa47afd8-9e5e-4009-9aa2-12db26f3f171",
+                "created_datetime": "2026-08-26T18:36:26.477876+00:00",
+                "data": null,
+                "object_id": 1814124,
+                "object_type": "Tag",
+                "type": "tag-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933443/"
+              },
+              {
+                "id": 2190933546,
+                "context": "a0bdd29c-abfd-4bb3-894a-fb22a03b4478",
+                "created_datetime": "2026-08-26T18:36:28.158561+00:00",
+                "data": null,
+                "object_id": 1178507,
+                "object_type": "View",
+                "type": "view-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933546/"
+              },
+              {
+                "id": 2190933942,
+                "context": "312662f0-0573-4b62-8090-75defb541f52",
+                "created_datetime": "2026-08-26T18:36:35.819366+00:00",
+                "data": null,
+                "object_id": 1178509,
+                "object_type": "View",
+                "type": "view-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190933942/"
+              },
+              {
+                "id": 2190934014,
+                "context": "70f30435-49de-431c-9f7a-650efbbb6db1",
+                "created_datetime": "2026-08-26T18:36:37.583201+00:00",
+                "data": null,
+                "object_id": 319680,
+                "object_type": "CustomField",
+                "type": "custom-field-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934014/"
+              },
+              {
+                "id": 2190934289,
+                "context": "0d7c810b-6348-41ed-b3db-9a39e4009fdd",
+                "created_datetime": "2026-08-26T18:36:42.781167+00:00",
+                "data": null,
+                "object_id": 1178509,
+                "object_type": "View",
+                "type": "view-deleted",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934289/"
+              },
+              {
+                "id": 2190934395,
+                "context": "ec21990e-9ac4-4691-ba72-86d40f5b00ae",
+                "created_datetime": "2026-08-26T18:36:44.676473+00:00",
+                "data": null,
+                "object_id": 519754845,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934395/"
+              },
+              {
+                "id": 2190934426,
+                "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+                "created_datetime": "2026-08-26T18:36:45.231617+00:00",
+                "data": null,
+                "object_id": 82751869,
+                "object_type": "Ticket",
+                "type": "ticket-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934426/"
+              },
+              {
+                "id": 2190934428,
+                "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+                "created_datetime": "2026-08-26T18:36:45.239492+00:00",
+                "data": null,
+                "object_id": 218853764,
+                "object_type": "TicketMessage",
+                "type": "ticket-message-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934428/"
+              },
+              {
+                "id": 2190934441,
+                "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+                "created_datetime": "2026-08-26T18:36:45.453667+00:00",
+                "data": null,
+                "object_id": 82751869,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934441/"
+              },
+              {
+                "id": 2190934462,
+                "context": "5216a721-d9e5-45be-82c4-4fa99af9fbfc",
+                "created_datetime": "2026-08-26T18:36:45.776191+00:00",
+                "data": null,
+                "object_id": 82751869,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934462/"
+              },
+              {
+                "id": 2190934534,
+                "context": "b6882ed2-95df-48e4-ae17-af7b91393253",
+                "created_datetime": "2026-08-26T18:36:46.684121+00:00",
+                "data": null,
+                "object_id": 82751869,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": null,
+                "uri": "/api/events/2190934534/"
+              },
+              {
+                "id": 2190934550,
+                "context": "02e7899a-1db6-49cc-89b1-62d9da6bd489",
+                "created_datetime": "2026-08-26T18:36:46.945544+00:00",
+                "data": null,
+                "object_id": 374712,
+                "object_type": "Macro",
+                "type": "macro-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934550/"
+              },
+              {
+                "id": 2190934679,
+                "context": "571ae873-eeb0-4591-9ac3-5ebb94059516",
+                "created_datetime": "2026-08-26T18:36:49.419999+00:00",
+                "data": null,
+                "object_id": 519754890,
+                "object_type": "Customer",
+                "type": "customer-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934679/"
+              },
+              {
+                "id": 2190934711,
+                "context": "303c0b65-8e9a-4056-8231-affca482436c",
+                "created_datetime": "2026-08-26T18:36:49.924956+00:00",
+                "data": null,
+                "object_id": 319680,
+                "object_type": "CustomField",
+                "type": "custom-field-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934711/"
+              },
+              {
+                "id": 2190934835,
+                "context": "2b77688a-d20a-4bfe-a23f-7e84f6732964",
+                "created_datetime": "2026-08-26T18:36:51.389158+00:00",
+                "data": null,
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934835/"
+              },
+              {
+                "id": 2190934845,
+                "context": "2b77688a-d20a-4bfe-a23f-7e84f6732964",
+                "created_datetime": "2026-08-26T18:36:51.469144+00:00",
+                "data": {
+                  "tags_added": [
+                    1813010
+                  ]
+                },
+                "object_id": 82682724,
+                "object_type": "Ticket",
+                "type": "ticket-tags-added",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934845/"
+              },
+              {
+                "id": 2190934963,
+                "context": "cad94b11-e500-479a-b77b-421af2cfb062",
+                "created_datetime": "2026-08-26T18:36:53.623628+00:00",
+                "data": null,
+                "object_id": 374712,
+                "object_type": "Macro",
+                "type": "macro-updated",
+                "user_id": 519543243,
+                "uri": "/api/events/2190934963/"
+              },
+              {
+                "id": 2190935918,
+                "context": "aee60893-7e19-438b-9d27-8150df1d9350",
+                "created_datetime": "2026-08-26T18:37:08.971467+00:00",
+                "data": null,
+                "object_id": 120973,
+                "object_type": "Rule",
+                "type": "rule-created",
+                "user_id": 519543243,
+                "uri": "/api/events/2190935918/"
+              }
+            ],
+            "object": "list",
+            "uri": "/api/events?order_by=created_datetime%3Aasc&limit=100&cursor=WyJuZXh0IiwgIjIwMjYtMDgtMjZUMTg6MzU6NTYuMjk1OTIxIiwgMjE5MDkzMTQ3M10%3D",
+            "meta": {
+              "prev_cursor": "WyJwcmV2IiwgIjIwMjYtMDgtMjZUMTg6MzY6MTMuNjEyNzA2IiwgMjE5MDkzMjYxNV0=",
+              "next_cursor": null
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Wed, 26 Aug 2026 18:37:10 GMT",
+            "content-type": "application/json",
+            "transfer-encoding": "chunked",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "Deny",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=31556926; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1849",
+            "x-ratelimit-reset": "1787769438",
+            "server": "cloudflare",
+            "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+            "x-gorgias-account-api-call-limit": "13/80",
+            "cross-origin-opener-policy": "same-origin-allow-popups",
+            "vary": "Cookie, accept-encoding",
+            "x-request-id": "66fba503ce477b11392ae21641f2829d",
+            "via": "1.1 google",
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "a314f23d18471fb9-PDX"
+          },
+          "hash": "dfe65a943080ea42c207ed68647e36f0b58c7404",
+          "request": {
+            "params": {
+              "cursor": "WyJuZXh0IiwgIjIwMjYtMDgtMjZUMTg6MzU6NTYuMjk1OTIxIiwgMjE5MDkzMTQ3M10=",
+              "limit": "100",
+              "order_by": "created_datetime:asc"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

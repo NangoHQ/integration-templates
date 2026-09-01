@@ -1,56 +1,66 @@
+import { z } from 'zod';
 import { createAction } from 'nango';
-import { gorgiasCreateUserSchema } from '../schema.zod.js';
-import type { GorgiasCreateUserReq, GorgiasUserResponse } from '../types.js';
 
-import type { ProxyConfiguration } from 'nango';
-import { GorgiasUser, GorgiasCreateUser } from '../models.js';
+const InputSchema = z
+    .object({
+        name: z.string().describe('Full name of the user. Example: "Jane Doe"'),
+        email: z.string().describe('Email address of the user. Example: "jane@example.com"'),
+        role: z.string().optional().describe('Role name for the user. Defaults to "agent" if not provided. Example: "admin"')
+    })
+    .describe('Input to create a new Gorgias user.');
+
+const ProviderUserSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    email: z.string(),
+    role: z.object({
+        name: z.string()
+    })
+});
+
+const OutputSchema = z
+    .object({
+        id: z.string().describe('Unique identifier of the created user. Example: "519543243"'),
+        name: z.string().describe('Full name of the created user.'),
+        email: z.string().describe('Email address of the created user.'),
+        role: z.string().describe('Role name assigned to the user. Example: "agent"')
+    })
+    .describe('Created Gorgias user data.');
 
 /**
- * Creates a new user in Gorgias.
- *
- * @param {NangoAction} nango - The Nango action instance.
- * @param {GorgiasCreateUser} input - The input data for creating a user.
- * @returns {Promise<GorgiasUser>} - A promise that resolves to the created Gorgias user.
- * @throws {nango.ActionError} - Throws an error if the input validation fails.
+ * @tags: [write]
+ * @tagReason: Creates a new user in the Gorgias account.
+ * @pitfalls: Requires the `users:write` scope; the provider rejects an email already assigned to another user.
  */
 const action = createAction({
-    description: 'Creates a new user with a role in Gorgias. Defaults to agent if a role is not provided',
-    version: '2.0.1',
-
-    input: GorgiasCreateUser,
-    output: GorgiasUser,
+    description: 'Create a new user with a role in Gorgias. Defaults to agent if a role is not provided.',
+    version: '3.0.0',
+    input: InputSchema,
+    output: OutputSchema,
     scopes: ['users:write'],
 
-    exec: async (nango, input): Promise<GorgiasUser> => {
-        await nango.zodValidateInput({ zodSchema: gorgiasCreateUserSchema, input });
-
-        const data: GorgiasCreateUserReq = {
-            name: `${input.firstName} ${input.lastName}`,
-            email: input.email.toLowerCase(),
-            role: {
-                name: input.role || 'agent'
-            }
-        };
-
-        const config: ProxyConfiguration = {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const response = await nango.post({
             // https://developers.gorgias.com/reference/create-user
             endpoint: '/api/users',
-            retries: 3,
-            data
+            data: {
+                name: input.name,
+                email: input.email,
+                role: {
+                    name: input.role || 'agent'
+                }
+            },
+            retries: 10
+        });
+
+        const providerUser = ProviderUserSchema.parse(response.data);
+
+        return {
+            id: String(providerUser.id),
+            name: providerUser.name,
+            email: providerUser.email,
+            role: providerUser.role.name
         };
-
-        const response = await nango.post<GorgiasUserResponse>(config);
-
-        const { data: dataResponse } = response;
-
-        const user: GorgiasUser = {
-            id: dataResponse.id.toString(),
-            firstName: dataResponse.name.split(' ')[0] || '',
-            lastName: dataResponse.name.split(' ')[1] || '',
-            email: dataResponse.email
-        };
-
-        return user;
     }
 });
 

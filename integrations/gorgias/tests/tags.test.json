@@ -1,0 +1,984 @@
+{
+  "nango": {
+    "batchSave": {
+      "Tag": [
+        {
+          "id": "1814147",
+          "name": "Nango Test Tag 1787772228",
+          "usage": 0,
+          "uri": "/api/tags/1814147/",
+          "created_datetime": "2026-08-26T19:23:52.290160+00:00",
+          "decoration": {
+            "color": "#998e2c"
+          }
+        },
+        {
+          "id": "1814146",
+          "name": "Nango Test Tag 1787772216",
+          "usage": 0,
+          "uri": "/api/tags/1814146/",
+          "created_datetime": "2026-08-26T19:23:40.319429+00:00",
+          "decoration": {
+            "color": "#63248d"
+          }
+        },
+        {
+          "id": "1814145",
+          "name": "Nango Test Tag",
+          "usage": 0,
+          "uri": "/api/tags/1814145/",
+          "created_datetime": "2026-08-26T19:23:22.366135+00:00",
+          "decoration": {
+            "color": "#9d02a1"
+          }
+        },
+        {
+          "id": "1814132",
+          "name": "nango-merge-dest-1787769331039",
+          "description": "Temporary destination tag for merge test",
+          "usage": 0,
+          "uri": "/api/tags/1814132/",
+          "created_datetime": "2026-08-26T18:35:31.559458+00:00",
+          "decoration": {
+            "color": "#000000"
+          }
+        },
+        {
+          "id": "1814131",
+          "name": "nango-merge-dest-1787769318864",
+          "description": "Temporary destination tag for merge test",
+          "usage": 0,
+          "uri": "/api/tags/1814131/",
+          "created_datetime": "2026-08-26T18:35:19.099607+00:00",
+          "decoration": {
+            "color": "#000000"
+          }
+        },
+        {
+          "id": "1813012",
+          "name": "sentiments-promoter",
+          "usage": 0,
+          "uri": "/api/tags/1813012/",
+          "created_datetime": "2026-08-26T12:46:06.324097+00:00",
+          "decoration": {
+            "color": "#3bc47b"
+          }
+        },
+        {
+          "id": "1813011",
+          "name": "sentiments-positive",
+          "usage": 0,
+          "uri": "/api/tags/1813011/",
+          "created_datetime": "2026-08-26T12:46:06.324096+00:00",
+          "decoration": {
+            "color": "#6dd766"
+          }
+        },
+        {
+          "id": "1813010",
+          "name": "sentiments-threatening",
+          "usage": 0,
+          "uri": "/api/tags/1813010/",
+          "created_datetime": "2026-08-26T12:46:06.324095+00:00",
+          "decoration": {
+            "color": "#c13e50"
+          }
+        },
+        {
+          "id": "1813009",
+          "name": "sentiments-offensive",
+          "usage": 0,
+          "uri": "/api/tags/1813009/",
+          "created_datetime": "2026-08-26T12:46:06.324094+00:00",
+          "decoration": {
+            "color": "#c54e3a"
+          }
+        },
+        {
+          "id": "1813008",
+          "name": "sentiments-negative",
+          "usage": 0,
+          "uri": "/api/tags/1813008/",
+          "created_datetime": "2026-08-26T12:46:06.324093+00:00",
+          "decoration": {
+            "color": "#ce3132"
+          }
+        },
+        {
+          "id": "1813007",
+          "name": "sentiments-urgent",
+          "usage": 0,
+          "uri": "/api/tags/1813007/",
+          "created_datetime": "2026-08-26T12:46:06.324092+00:00",
+          "decoration": {
+            "color": "#f30c4c"
+          }
+        },
+        {
+          "id": "1813006",
+          "name": "spam",
+          "usage": 0,
+          "uri": "/api/tags/1813006/",
+          "created_datetime": "2026-08-26T12:46:06.324091+00:00",
+          "decoration": {
+            "color": "#9c9c9c"
+          }
+        },
+        {
+          "id": "1813005",
+          "name": "order-wrong",
+          "usage": 0,
+          "uri": "/api/tags/1813005/",
+          "created_datetime": "2026-08-26T12:46:06.324090+00:00",
+          "decoration": {
+            "color": "#1f45c2"
+          }
+        },
+        {
+          "id": "1813004",
+          "name": "discount-request",
+          "usage": 0,
+          "uri": "/api/tags/1813004/",
+          "created_datetime": "2026-08-26T12:46:06.324089+00:00",
+          "decoration": {
+            "color": "#69c0fc"
+          }
+        },
+        {
+          "id": "1813003",
+          "name": "social-lead",
+          "usage": 0,
+          "uri": "/api/tags/1813003/",
+          "created_datetime": "2026-08-26T12:46:06.324088+00:00",
+          "decoration": {
+            "color": "#1869e7"
+          }
+        },
+        {
+          "id": "1813002",
+          "name": "social-question",
+          "usage": 0,
+          "uri": "/api/tags/1813002/",
+          "created_datetime": "2026-08-26T12:46:06.324087+00:00",
+          "decoration": {
+            "color": "#13a6ec"
+          }
+        },
+        {
+          "id": "1813001",
+          "name": "VIP",
+          "usage": 0,
+          "uri": "/api/tags/1813001/",
+          "created_datetime": "2026-08-26T12:46:06.324085+00:00",
+          "decoration": {
+            "color": "#4988b6"
+          }
+        },
+        {
+          "id": "1813000",
+          "name": "automatic-ooo",
+          "usage": 0,
+          "uri": "/api/tags/1813000/",
+          "created_datetime": "2026-08-26T12:46:06.324084+00:00",
+          "decoration": {
+            "color": "#3090cf"
+          }
+        },
+        {
+          "id": "1812999",
+          "name": "quick-reply-FAQ",
+          "usage": 0,
+          "uri": "/api/tags/1812999/",
+          "created_datetime": "2026-08-26T12:46:06.324083+00:00",
+          "decoration": {
+            "color": "#4aa0b5"
+          }
+        },
+        {
+          "id": "1812998",
+          "name": "during-business-hours",
+          "usage": 0,
+          "uri": "/api/tags/1812998/",
+          "created_datetime": "2026-08-26T12:46:06.324082+00:00",
+          "decoration": {
+            "color": "#20a0df"
+          }
+        },
+        {
+          "id": "1812997",
+          "name": "outside-business-hours",
+          "usage": 0,
+          "uri": "/api/tags/1812997/",
+          "created_datetime": "2026-08-26T12:46:06.324081+00:00",
+          "decoration": {
+            "color": "#4461bb"
+          }
+        },
+        {
+          "id": "1812996",
+          "name": "policy",
+          "usage": 0,
+          "uri": "/api/tags/1812996/",
+          "created_datetime": "2026-08-26T12:46:06.324080+00:00",
+          "decoration": {
+            "color": "#4497bb"
+          }
+        },
+        {
+          "id": "1812995",
+          "name": "auto-reply",
+          "usage": 0,
+          "uri": "/api/tags/1812995/",
+          "created_datetime": "2026-08-26T12:46:06.324079+00:00",
+          "decoration": {
+            "color": "#0e62f1"
+          }
+        },
+        {
+          "id": "1812994",
+          "name": "auto-close",
+          "usage": 0,
+          "uri": "/api/tags/1812994/",
+          "created_datetime": "2026-08-26T12:46:06.324078+00:00",
+          "decoration": {
+            "color": "#0079ff"
+          }
+        },
+        {
+          "id": "1812993",
+          "name": "PRODUCT",
+          "usage": 0,
+          "uri": "/api/tags/1812993/",
+          "created_datetime": "2026-08-26T12:46:06.324077+00:00",
+          "decoration": {
+            "color": "#1265ed"
+          }
+        },
+        {
+          "id": "1812992",
+          "name": "partial-refund",
+          "usage": 0,
+          "uri": "/api/tags/1812992/",
+          "created_datetime": "2026-08-26T12:46:06.324075+00:00",
+          "decoration": {
+            "color": "#fe8940"
+          }
+        },
+        {
+          "id": "1812991",
+          "name": "full-refund",
+          "usage": 0,
+          "uri": "/api/tags/1812991/",
+          "created_datetime": "2026-08-26T12:46:06.324074+00:00",
+          "decoration": {
+            "color": "#fe691d"
+          }
+        },
+        {
+          "id": "1812990",
+          "name": "REFUND",
+          "usage": 0,
+          "uri": "/api/tags/1812990/",
+          "created_datetime": "2026-08-26T12:46:06.324073+00:00",
+          "decoration": {
+            "color": "#d85a17"
+          }
+        },
+        {
+          "id": "1812989",
+          "name": "change-order",
+          "usage": 0,
+          "uri": "/api/tags/1812989/",
+          "created_datetime": "2026-08-26T12:46:06.324072+00:00",
+          "decoration": {
+            "color": "#f1c50e"
+          }
+        },
+        {
+          "id": "1812988",
+          "name": "cancel/refund",
+          "usage": 0,
+          "uri": "/api/tags/1812988/",
+          "created_datetime": "2026-08-26T12:46:06.324071+00:00",
+          "decoration": {
+            "color": "#ffb200"
+          }
+        },
+        {
+          "id": "1812987",
+          "name": "already-shipped",
+          "usage": 0,
+          "uri": "/api/tags/1812987/",
+          "created_datetime": "2026-08-26T12:46:06.324070+00:00",
+          "decoration": {
+            "color": "#f7d808"
+          }
+        },
+        {
+          "id": "1812986",
+          "name": "edit-address",
+          "usage": 0,
+          "uri": "/api/tags/1812986/",
+          "created_datetime": "2026-08-26T12:46:06.324069+00:00",
+          "decoration": {
+            "color": "#fcd303"
+          }
+        },
+        {
+          "id": "1812985",
+          "name": "ORDER-CHANGE/CANCEL",
+          "usage": 0,
+          "uri": "/api/tags/1812985/",
+          "created_datetime": "2026-08-26T12:46:06.324068+00:00",
+          "decoration": {
+            "color": "#c5a608"
+          }
+        },
+        {
+          "id": "1812984",
+          "name": "instructions",
+          "usage": 0,
+          "uri": "/api/tags/1812984/",
+          "created_datetime": "2026-08-26T12:46:06.324067+00:00",
+          "decoration": {
+            "color": "#8032cd"
+          }
+        },
+        {
+          "id": "1812983",
+          "name": "damaged",
+          "usage": 0,
+          "uri": "/api/tags/1812983/",
+          "created_datetime": "2026-08-26T12:46:06.324065+00:00",
+          "decoration": {
+            "color": "#4930cf"
+          }
+        },
+        {
+          "id": "1812982",
+          "name": "RETURN/EXCHANGE",
+          "usage": 0,
+          "uri": "/api/tags/1812982/",
+          "created_datetime": "2026-08-26T12:46:06.324063+00:00",
+          "decoration": {
+            "color": "#5e44bb"
+          }
+        },
+        {
+          "id": "1812981",
+          "name": "not-shipped",
+          "usage": 0,
+          "uri": "/api/tags/1812981/",
+          "created_datetime": "2026-08-26T12:46:06.324062+00:00",
+          "decoration": {
+            "color": "#7be88c"
+          }
+        },
+        {
+          "id": "1812980",
+          "name": "shipped",
+          "usage": 0,
+          "uri": "/api/tags/1812980/",
+          "created_datetime": "2026-08-26T12:46:06.324061+00:00",
+          "decoration": {
+            "color": "#85c350"
+          }
+        },
+        {
+          "id": "1812979",
+          "name": "not-received",
+          "usage": 0,
+          "uri": "/api/tags/1812979/",
+          "created_datetime": "2026-08-26T12:46:06.324060+00:00",
+          "decoration": {
+            "color": "#68bc51"
+          }
+        },
+        {
+          "id": "1812978",
+          "name": "received",
+          "usage": 0,
+          "uri": "/api/tags/1812978/",
+          "created_datetime": "2026-08-26T12:46:06.324058+00:00",
+          "decoration": {
+            "color": "#559f4c"
+          }
+        },
+        {
+          "id": "1812977",
+          "name": "ORDER-STATUS",
+          "usage": 0,
+          "uri": "/api/tags/1812977/",
+          "created_datetime": "2026-08-26T12:46:06.324055+00:00",
+          "decoration": {
+            "color": "#84db2d"
+          }
+        },
+        {
+          "id": "1812976",
+          "name": "sample ticket",
+          "usage": 0,
+          "uri": "/api/tags/1812976/",
+          "created_datetime": "2026-08-26T12:46:06.284930+00:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Tag": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/tags": {
+        "response": {
+          "object": "list",
+          "uri": "/api/tags?limit=100",
+          "data": [
+            {
+              "id": 1814147,
+              "decoration": {
+                "color": "#998e2c"
+              },
+              "description": null,
+              "name": "Nango Test Tag 1787772228",
+              "usage": 0,
+              "uri": "/api/tags/1814147/",
+              "created_datetime": "2026-08-26T19:23:52.290160+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1814146,
+              "decoration": {
+                "color": "#63248d"
+              },
+              "description": null,
+              "name": "Nango Test Tag 1787772216",
+              "usage": 0,
+              "uri": "/api/tags/1814146/",
+              "created_datetime": "2026-08-26T19:23:40.319429+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1814145,
+              "decoration": {
+                "color": "#9d02a1"
+              },
+              "description": null,
+              "name": "Nango Test Tag",
+              "usage": 0,
+              "uri": "/api/tags/1814145/",
+              "created_datetime": "2026-08-26T19:23:22.366135+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1814132,
+              "decoration": {
+                "color": "#000000"
+              },
+              "description": "Temporary destination tag for merge test",
+              "name": "nango-merge-dest-1787769331039",
+              "usage": 0,
+              "uri": "/api/tags/1814132/",
+              "created_datetime": "2026-08-26T18:35:31.559458+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1814131,
+              "decoration": {
+                "color": "#000000"
+              },
+              "description": "Temporary destination tag for merge test",
+              "name": "nango-merge-dest-1787769318864",
+              "usage": 0,
+              "uri": "/api/tags/1814131/",
+              "created_datetime": "2026-08-26T18:35:19.099607+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813012,
+              "decoration": {
+                "color": "#3bc47b"
+              },
+              "description": null,
+              "name": "sentiments-promoter",
+              "usage": 0,
+              "uri": "/api/tags/1813012/",
+              "created_datetime": "2026-08-26T12:46:06.324097+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813011,
+              "decoration": {
+                "color": "#6dd766"
+              },
+              "description": null,
+              "name": "sentiments-positive",
+              "usage": 0,
+              "uri": "/api/tags/1813011/",
+              "created_datetime": "2026-08-26T12:46:06.324096+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813010,
+              "decoration": {
+                "color": "#c13e50"
+              },
+              "description": null,
+              "name": "sentiments-threatening",
+              "usage": 0,
+              "uri": "/api/tags/1813010/",
+              "created_datetime": "2026-08-26T12:46:06.324095+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813009,
+              "decoration": {
+                "color": "#c54e3a"
+              },
+              "description": null,
+              "name": "sentiments-offensive",
+              "usage": 0,
+              "uri": "/api/tags/1813009/",
+              "created_datetime": "2026-08-26T12:46:06.324094+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813008,
+              "decoration": {
+                "color": "#ce3132"
+              },
+              "description": null,
+              "name": "sentiments-negative",
+              "usage": 0,
+              "uri": "/api/tags/1813008/",
+              "created_datetime": "2026-08-26T12:46:06.324093+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813007,
+              "decoration": {
+                "color": "#f30c4c"
+              },
+              "description": null,
+              "name": "sentiments-urgent",
+              "usage": 0,
+              "uri": "/api/tags/1813007/",
+              "created_datetime": "2026-08-26T12:46:06.324092+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813006,
+              "decoration": {
+                "color": "#9c9c9c"
+              },
+              "description": null,
+              "name": "spam",
+              "usage": 0,
+              "uri": "/api/tags/1813006/",
+              "created_datetime": "2026-08-26T12:46:06.324091+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813005,
+              "decoration": {
+                "color": "#1f45c2"
+              },
+              "description": null,
+              "name": "order-wrong",
+              "usage": 0,
+              "uri": "/api/tags/1813005/",
+              "created_datetime": "2026-08-26T12:46:06.324090+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813004,
+              "decoration": {
+                "color": "#69c0fc"
+              },
+              "description": null,
+              "name": "discount-request",
+              "usage": 0,
+              "uri": "/api/tags/1813004/",
+              "created_datetime": "2026-08-26T12:46:06.324089+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813003,
+              "decoration": {
+                "color": "#1869e7"
+              },
+              "description": null,
+              "name": "social-lead",
+              "usage": 0,
+              "uri": "/api/tags/1813003/",
+              "created_datetime": "2026-08-26T12:46:06.324088+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813002,
+              "decoration": {
+                "color": "#13a6ec"
+              },
+              "description": null,
+              "name": "social-question",
+              "usage": 0,
+              "uri": "/api/tags/1813002/",
+              "created_datetime": "2026-08-26T12:46:06.324087+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813001,
+              "decoration": {
+                "color": "#4988b6"
+              },
+              "description": null,
+              "name": "VIP",
+              "usage": 0,
+              "uri": "/api/tags/1813001/",
+              "created_datetime": "2026-08-26T12:46:06.324085+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1813000,
+              "decoration": {
+                "color": "#3090cf"
+              },
+              "description": null,
+              "name": "automatic-ooo",
+              "usage": 0,
+              "uri": "/api/tags/1813000/",
+              "created_datetime": "2026-08-26T12:46:06.324084+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812999,
+              "decoration": {
+                "color": "#4aa0b5"
+              },
+              "description": null,
+              "name": "quick-reply-FAQ",
+              "usage": 0,
+              "uri": "/api/tags/1812999/",
+              "created_datetime": "2026-08-26T12:46:06.324083+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812998,
+              "decoration": {
+                "color": "#20a0df"
+              },
+              "description": null,
+              "name": "during-business-hours",
+              "usage": 0,
+              "uri": "/api/tags/1812998/",
+              "created_datetime": "2026-08-26T12:46:06.324082+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812997,
+              "decoration": {
+                "color": "#4461bb"
+              },
+              "description": null,
+              "name": "outside-business-hours",
+              "usage": 0,
+              "uri": "/api/tags/1812997/",
+              "created_datetime": "2026-08-26T12:46:06.324081+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812996,
+              "decoration": {
+                "color": "#4497bb"
+              },
+              "description": null,
+              "name": "policy",
+              "usage": 0,
+              "uri": "/api/tags/1812996/",
+              "created_datetime": "2026-08-26T12:46:06.324080+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812995,
+              "decoration": {
+                "color": "#0e62f1"
+              },
+              "description": null,
+              "name": "auto-reply",
+              "usage": 0,
+              "uri": "/api/tags/1812995/",
+              "created_datetime": "2026-08-26T12:46:06.324079+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812994,
+              "decoration": {
+                "color": "#0079ff"
+              },
+              "description": null,
+              "name": "auto-close",
+              "usage": 0,
+              "uri": "/api/tags/1812994/",
+              "created_datetime": "2026-08-26T12:46:06.324078+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812993,
+              "decoration": {
+                "color": "#1265ed"
+              },
+              "description": null,
+              "name": "PRODUCT",
+              "usage": 0,
+              "uri": "/api/tags/1812993/",
+              "created_datetime": "2026-08-26T12:46:06.324077+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812992,
+              "decoration": {
+                "color": "#fe8940"
+              },
+              "description": null,
+              "name": "partial-refund",
+              "usage": 0,
+              "uri": "/api/tags/1812992/",
+              "created_datetime": "2026-08-26T12:46:06.324075+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812991,
+              "decoration": {
+                "color": "#fe691d"
+              },
+              "description": null,
+              "name": "full-refund",
+              "usage": 0,
+              "uri": "/api/tags/1812991/",
+              "created_datetime": "2026-08-26T12:46:06.324074+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812990,
+              "decoration": {
+                "color": "#d85a17"
+              },
+              "description": null,
+              "name": "REFUND",
+              "usage": 0,
+              "uri": "/api/tags/1812990/",
+              "created_datetime": "2026-08-26T12:46:06.324073+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812989,
+              "decoration": {
+                "color": "#f1c50e"
+              },
+              "description": null,
+              "name": "change-order",
+              "usage": 0,
+              "uri": "/api/tags/1812989/",
+              "created_datetime": "2026-08-26T12:46:06.324072+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812988,
+              "decoration": {
+                "color": "#ffb200"
+              },
+              "description": null,
+              "name": "cancel/refund",
+              "usage": 0,
+              "uri": "/api/tags/1812988/",
+              "created_datetime": "2026-08-26T12:46:06.324071+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812987,
+              "decoration": {
+                "color": "#f7d808"
+              },
+              "description": null,
+              "name": "already-shipped",
+              "usage": 0,
+              "uri": "/api/tags/1812987/",
+              "created_datetime": "2026-08-26T12:46:06.324070+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812986,
+              "decoration": {
+                "color": "#fcd303"
+              },
+              "description": null,
+              "name": "edit-address",
+              "usage": 0,
+              "uri": "/api/tags/1812986/",
+              "created_datetime": "2026-08-26T12:46:06.324069+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812985,
+              "decoration": {
+                "color": "#c5a608"
+              },
+              "description": null,
+              "name": "ORDER-CHANGE/CANCEL",
+              "usage": 0,
+              "uri": "/api/tags/1812985/",
+              "created_datetime": "2026-08-26T12:46:06.324068+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812984,
+              "decoration": {
+                "color": "#8032cd"
+              },
+              "description": null,
+              "name": "instructions",
+              "usage": 0,
+              "uri": "/api/tags/1812984/",
+              "created_datetime": "2026-08-26T12:46:06.324067+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812983,
+              "decoration": {
+                "color": "#4930cf"
+              },
+              "description": null,
+              "name": "damaged",
+              "usage": 0,
+              "uri": "/api/tags/1812983/",
+              "created_datetime": "2026-08-26T12:46:06.324065+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812982,
+              "decoration": {
+                "color": "#5e44bb"
+              },
+              "description": null,
+              "name": "RETURN/EXCHANGE",
+              "usage": 0,
+              "uri": "/api/tags/1812982/",
+              "created_datetime": "2026-08-26T12:46:06.324063+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812981,
+              "decoration": {
+                "color": "#7be88c"
+              },
+              "description": null,
+              "name": "not-shipped",
+              "usage": 0,
+              "uri": "/api/tags/1812981/",
+              "created_datetime": "2026-08-26T12:46:06.324062+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812980,
+              "decoration": {
+                "color": "#85c350"
+              },
+              "description": null,
+              "name": "shipped",
+              "usage": 0,
+              "uri": "/api/tags/1812980/",
+              "created_datetime": "2026-08-26T12:46:06.324061+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812979,
+              "decoration": {
+                "color": "#68bc51"
+              },
+              "description": null,
+              "name": "not-received",
+              "usage": 0,
+              "uri": "/api/tags/1812979/",
+              "created_datetime": "2026-08-26T12:46:06.324060+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812978,
+              "decoration": {
+                "color": "#559f4c"
+              },
+              "description": null,
+              "name": "received",
+              "usage": 0,
+              "uri": "/api/tags/1812978/",
+              "created_datetime": "2026-08-26T12:46:06.324058+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812977,
+              "decoration": {
+                "color": "#84db2d"
+              },
+              "description": null,
+              "name": "ORDER-STATUS",
+              "usage": 0,
+              "uri": "/api/tags/1812977/",
+              "created_datetime": "2026-08-26T12:46:06.324055+00:00",
+              "deleted_datetime": null
+            },
+            {
+              "id": 1812976,
+              "decoration": {},
+              "description": null,
+              "name": "sample ticket",
+              "usage": 0,
+              "uri": "/api/tags/1812976/",
+              "created_datetime": "2026-08-26T12:46:06.284930+00:00",
+              "deleted_datetime": null
+            }
+          ],
+          "meta": {
+            "prev_cursor": null,
+            "next_cursor": null,
+            "total_resources": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 20:35:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1787776572",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "3/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie, accept-encoding",
+          "x-request-id": "d484bad71ef30f3bd38fb0ecb7994c1b",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a3159f8a9d72ac0d-PDX"
+        },
+        "hash": "317ccc4151f54ada3bdbe29b1b1e72c50575e38d",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

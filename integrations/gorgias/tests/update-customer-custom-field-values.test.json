@@ -1,0 +1,98 @@
+{
+  "input": {
+    "customer_id": 519753904,
+    "values": [
+      {
+        "id": 319618,
+        "value": "💎 VIP"
+      }
+    ]
+  },
+  "output": [
+    {
+      "field_id": 319618,
+      "field_label": "Customer Type",
+      "value": "💎 VIP"
+    }
+  ],
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/customers/519753904/custom-fields": {
+        "response": {
+          "data": [
+            {
+              "field": {
+                "id": 319618,
+                "external_id": null,
+                "object_type": "Customer",
+                "label": "Customer Type",
+                "description": "Capture customer type for easy recognition in future communications.",
+                "priority": 1,
+                "required": false,
+                "managed_type": "customer_type",
+                "definition": {
+                  "data_type": "text",
+                  "input_settings": {
+                    "input_type": "dropdown",
+                    "choices": [
+                      "💎 VIP",
+                      "Collaborator::😊 Ambassador",
+                      "Collaborator::👀 Prospective Ambassador",
+                      "😡 Problematic",
+                      "📦 High Returns",
+                      "🙅‍♂️ Fraud"
+                    ]
+                  }
+                },
+                "created_datetime": "2026-08-26T12:46:06.341097+00:00",
+                "updated_datetime": "2026-08-26T12:46:06.341098+00:00",
+                "deactivated_datetime": null
+              },
+              "value": "💎 VIP"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 26 Aug 2026 18:37:54 GMT",
+          "content-type": "application/json",
+          "content-length": "743",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "Deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31556926; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1970",
+          "x-ratelimit-reset": "1787769498",
+          "server": "cloudflare",
+          "x-gorgias-release": "3f9f83e7b774a28054f32a55eb5d504352f99975",
+          "x-gorgias-account-api-call-limit": "2/80",
+          "cross-origin-opener-policy": "same-origin-allow-popups",
+          "vary": "Cookie",
+          "x-request-id": "f2cdf9a4d8077a293312d5bbba6647c8",
+          "via": "1.1 google",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a314f34dd847fc83-PDX",
+          "etag": "W/\"2e7-azLYpJdXWjWOBCcUeMnFGhJQE+E\""
+        },
+        "hash": "531e66abee26f5ef3c03e31f4f7cd7c18fc58eba",
+        "request": {
+          "data": [
+            {
+              "id": 319618,
+              "value": "💎 VIP"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
