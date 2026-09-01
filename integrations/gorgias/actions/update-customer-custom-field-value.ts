@@ -17,6 +17,20 @@ const OutputSchema = z
     })
     .describe('Output confirming the updated custom field value on a customer.');
 
+const CustomFieldValueEntrySchema = z.object({
+    field: z.object({ id: z.number() }).passthrough(),
+    // The provider documents this as `any`; unset or non-scalar fields (e.g. multi-select) can return null or an array.
+    value: z.unknown()
+});
+
+// The GET and PUT responses for this endpoint have been observed both as a bare array and as `{ data: [...] }`.
+function parseCustomFieldValueEntries(data: unknown): z.infer<typeof CustomFieldValueEntrySchema>[] {
+    if (Array.isArray(data)) {
+        return z.array(CustomFieldValueEntrySchema).parse(data);
+    }
+    return z.object({ data: z.array(CustomFieldValueEntrySchema) }).parse(data).data;
+}
+
 /**
  * @tags: [write]
  * @tagReason: Performs a PUT request to update a custom field value on a customer.
@@ -36,18 +50,9 @@ const action = createAction({
             retries: 3
         });
 
-        const existingData = z
-            .object({
-                data: z.array(
-                    z.object({
-                        field: z.object({ id: z.number() }).passthrough(),
-                        value: z.union([z.string(), z.number(), z.boolean()])
-                    })
-                )
-            })
-            .parse(existingResponse.data);
+        const existingEntries = parseCustomFieldValueEntries(existingResponse.data);
 
-        const mergedValues = existingData.data
+        const mergedValues = existingEntries
             .filter((entry) => entry.field.id !== input.custom_field_id)
             .map((entry) => ({ id: entry.field.id, value: entry.value }));
         mergedValues.push({ id: input.custom_field_id, value: input.value });
@@ -59,18 +64,9 @@ const action = createAction({
             retries: 3
         });
 
-        const responseData = z
-            .object({
-                data: z.array(
-                    z.object({
-                        field: z.object({ id: z.number() }).passthrough(),
-                        value: z.union([z.string(), z.number(), z.boolean()])
-                    })
-                )
-            })
-            .parse(response.data);
+        const updatedEntries = parseCustomFieldValueEntries(response.data);
 
-        const updatedResult = responseData.data.find((entry) => entry.field.id === input.custom_field_id);
+        const updatedResult = updatedEntries.find((entry) => entry.field.id === input.custom_field_id);
         if (!updatedResult) {
             throw new nango.ActionError({
                 type: 'not_found',
@@ -81,7 +77,7 @@ const action = createAction({
         return {
             customer_id: input.customer_id,
             custom_field_id: input.custom_field_id,
-            value: updatedResult.value
+            value: z.union([z.string(), z.number(), z.boolean()]).parse(updatedResult.value)
         };
     }
 });

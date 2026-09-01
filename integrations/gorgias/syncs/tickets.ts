@@ -14,7 +14,7 @@ const AttachmentSchema = z.object({
     size: z.number().optional().describe('The file size in bytes')
 });
 
-const MessageSchema = z.object({
+const ProviderMessageSchema = z.object({
     id: z.number().describe('The unique identifier of the message'),
     body_text: z.string().nullish().describe('The plain text body of the message'),
     body_html: z.string().nullish().describe('The HTML body of the message'),
@@ -23,6 +23,17 @@ const MessageSchema = z.object({
     updated_datetime: z.string().nullish().describe('The ISO8601 datetime when the message was last updated'),
     sender: SenderSchema.nullish().describe('The user or customer who sent this message'),
     attachments: z.array(AttachmentSchema).nullish().describe('Files attached to the message')
+});
+
+const MessageSchema = z.object({
+    id: z.number().describe('The unique identifier of the message'),
+    body_text: z.string().optional().describe('The plain text body of the message'),
+    body_html: z.string().optional().describe('The HTML body of the message'),
+    channel: z.string().optional().describe('The channel used for this message'),
+    created_datetime: z.string().optional().describe('The ISO8601 datetime when the message was created'),
+    updated_datetime: z.string().optional().describe('The ISO8601 datetime when the message was last updated'),
+    sender: SenderSchema.optional().describe('The user or customer who sent this message'),
+    attachments: z.array(AttachmentSchema).optional().describe('Files attached to the message')
 });
 
 const TagSchema = z.object({
@@ -164,11 +175,21 @@ const sync = createSync({
                     status: normalizeNull(detail.status),
                     channel: normalizeNull(detail.channel),
                     messages: normalizeNull(detail.messages)?.map((msg) => {
-                        const parsed = MessageSchema.safeParse(msg);
+                        const parsed = ProviderMessageSchema.safeParse(msg);
                         if (!parsed.success) {
                             throw new Error(`Failed to parse message for ticket id ${ticket.id}: ${parsed.error.message}`);
                         }
-                        return parsed.data;
+                        const message = parsed.data;
+                        return {
+                            id: message.id,
+                            ...(message.body_text != null && { body_text: message.body_text }),
+                            ...(message.body_html != null && { body_html: message.body_html }),
+                            ...(message.channel != null && { channel: message.channel }),
+                            ...(message.created_datetime != null && { created_datetime: message.created_datetime }),
+                            ...(message.updated_datetime != null && { updated_datetime: message.updated_datetime }),
+                            ...(message.sender != null && { sender: message.sender }),
+                            ...(message.attachments != null && { attachments: message.attachments })
+                        };
                     }),
                     customer_id: normalizeNull(detail.customer_id),
                     assignee_user_id: normalizeNull(detail.assignee_user_id),
