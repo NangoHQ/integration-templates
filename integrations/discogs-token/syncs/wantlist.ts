@@ -33,6 +33,8 @@ const sync = createSync({
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
 
+        await nango.trackDeletesStart('WantlistItem');
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:user-wantlist,header-user-wantlist-wantlist
             endpoint: `/users/${encodeURIComponent(username)}/wants`,
@@ -63,7 +65,7 @@ const sync = createSync({
                 await nango.batchSave(items, 'WantlistItem');
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('WantlistItem');
+        await nango.trackDeletesEnd('WantlistItem');
     }
 });
 

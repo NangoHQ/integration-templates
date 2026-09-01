@@ -69,6 +69,9 @@ const sync = createSync({
         });
 
         const parsed = ProviderProfileSchema.parse(response.data);
+
+        await nango.trackDeletesStart('Profile');
+
         const profile = {
             id: String(parsed.id),
             username: parsed.username,
@@ -93,7 +96,7 @@ const sync = createSync({
         };
 
         await nango.batchSave([profile], 'Profile');
-        await nango.deleteRecordsFromPreviousExecutions('Profile');
+        await nango.trackDeletesEnd('Profile');
     }
 });
 

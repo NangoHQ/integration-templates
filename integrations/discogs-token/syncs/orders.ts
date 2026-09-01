@@ -37,6 +37,8 @@ const sync = createSync({
     metadata: z.object({}),
 
     exec: async (nango) => {
+        await nango.trackDeletesStart('Order');
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:marketplace,header-marketplace-list-orders
             endpoint: '/marketplace/orders',
@@ -70,7 +72,7 @@ const sync = createSync({
                 await nango.batchSave(records, 'Order');
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Order');
+        await nango.trackDeletesEnd('Order');
     }
 });
 

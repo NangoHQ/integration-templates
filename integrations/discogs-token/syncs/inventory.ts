@@ -45,6 +45,8 @@ const sync = createSync({
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
 
+        await nango.trackDeletesStart('InventoryListing');
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:marketplace,header-marketplace-inventory
             endpoint: `/users/${encodeURIComponent(username)}/inventory`,
@@ -82,7 +84,7 @@ const sync = createSync({
                 await nango.batchSave(records, 'InventoryListing');
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('InventoryListing');
+        await nango.trackDeletesEnd('InventoryListing');
     }
 });
 

@@ -48,6 +48,8 @@ const sync = createSync({
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
 
+        await nango.trackDeletesStart('Contribution');
+
         const proxyConfig: ProxyConfiguration = {
             // https://www.discogs.com/developers#page:user-contributions,header-user-contributions-contributions
             endpoint: `/users/${encodeURIComponent(username)}/contributions`,
@@ -85,7 +87,7 @@ const sync = createSync({
                 await nango.batchSave(records, 'Contribution');
             }
         }
-        await nango.deleteRecordsFromPreviousExecutions('Contribution');
+        await nango.trackDeletesEnd('Contribution');
     }
 });
 

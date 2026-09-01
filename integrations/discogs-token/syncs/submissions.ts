@@ -72,6 +72,8 @@ const sync = createSync({
         const perPage = 100;
         let page = 1;
 
+        await nango.trackDeletesStart('Submission');
+
         while (true) {
             // https://www.discogs.com/developers#page:user-submissions,header-user-submissions-submissions
             const response = await nango.get({
@@ -129,7 +131,7 @@ const sync = createSync({
             page++;
         }
 
-        await nango.deleteRecordsFromPreviousExecutions('Submission');
+        await nango.trackDeletesEnd('Submission');
     }
 });
 
