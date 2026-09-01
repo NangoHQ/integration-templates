@@ -53,7 +53,7 @@ const ProviderNoteSchema = z.object({
     calendar_event: ProviderCalendarEventSchema.nullable(),
     attendees: z.array(ProviderUserSchema),
     folder_membership: z.array(ProviderFolderSchema),
-    space_membership: z.array(ProviderSpaceSchema),
+    space_membership: z.array(ProviderSpaceSchema).default([]),
     summary_text: z.string(),
     summary_markdown: z.string().nullable(),
     private_notes_text: z.string().nullable(),
