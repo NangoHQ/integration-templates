@@ -69,8 +69,8 @@ type MilestonesVariables = {
 
 const sync = createSync({
     description: 'Sync Linear milestones for project planning.',
-    version: '3.0.1',
-    frequency: 'every 6min',
+    version: '3.0.2',
+    frequency: 'every hour',
     autoStart: true,
     scopes: ['read'],
     checkpoint: CheckpointSchema,

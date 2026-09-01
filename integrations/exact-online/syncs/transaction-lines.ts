@@ -52,8 +52,8 @@ const extraConfig: Record<string, unknown> = {
 const sync = createSync({
     ...extraConfig,
     description: 'Sync financial transaction line details including amounts and GL account assignments.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

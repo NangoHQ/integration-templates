@@ -90,8 +90,8 @@ function normalizeJql(jql: string | undefined): string {
 
 const sync = createSync({
     description: 'Sync Jira issues using JQL-backed search with incremental updates',
-    version: '3.0.0',
-    frequency: 'every 5 minutes',
+    version: '3.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/issues' }],
     checkpoint: CheckpointSchema,

@@ -60,8 +60,8 @@ function toCalendlyTimestamp(date: Date): string {
 
 const sync = createSync({
     description: 'Sync scheduled events from Calendly',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [
         {

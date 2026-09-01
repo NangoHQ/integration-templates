@@ -46,7 +46,7 @@ const TimeEntrySchema = z.object({
 });
 
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
-const SYNC_INTERVAL_MS = 30 * 60 * 1000;
+const SYNC_INTERVAL_MS = 60 * 60 * 1000;
 
 const MetadataSchema = z.object({
     team_id: z.string()
@@ -54,9 +54,9 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync time entries from ClickUp',
-    version: '1.0.0',
+    version: '1.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/time-entries' }],
-    frequency: 'every 30 minutes',
+    frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
     models: {

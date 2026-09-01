@@ -62,8 +62,8 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify fulfillment orders for operational workflows.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/fulfillmentOrders
     endpoints: [

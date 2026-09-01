@@ -110,8 +110,8 @@ function toTransfer(raw: QBTransfer): Transfer {
 
 const sync = createSync({
     description: 'Sync QuickBooks transfers',
-    version: '2.0.0',
-    frequency: 'every 5 minutes',
+    version: '2.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'POST', path: '/syncs/transfers' }],

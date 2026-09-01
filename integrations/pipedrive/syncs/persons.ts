@@ -72,8 +72,8 @@ type ProviderPerson = z.infer<typeof ProviderPersonSchema>;
 
 const sync = createSync({
     description: 'Sync persons from Pipedrive.',
-    version: '2.0.0',
-    frequency: 'every 5 minutes',
+    version: '2.0.1',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/persons' }],
     checkpoint: CheckpointSchema,

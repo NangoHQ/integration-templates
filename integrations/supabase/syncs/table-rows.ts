@@ -58,8 +58,8 @@ const buildOrder = (checkpointColumn: 'updated_at' | 'id', requestedOrder?: stri
 
 const sync = createSync({
     description: 'Sync rows from a configured Supabase table.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,

@@ -56,8 +56,8 @@ function buildDomain(checkpoint: Checkpoint): Array<unknown> {
 
 const sync = createSync({
     description: 'Sync Odoo customer and vendor payments',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
     models: {

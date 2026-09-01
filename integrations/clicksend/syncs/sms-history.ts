@@ -12,8 +12,8 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches the history of SMS messages sent through ClickSend.',
-    version: '2.1.0',
-    frequency: 'every half hour',
+    version: '2.1.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
 

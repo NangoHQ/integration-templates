@@ -38,8 +38,8 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Salesforce knowledge articles with title, content, and modified timestamps',
-    version: '3.0.0',
-    frequency: 'every 5 minutes',
+    version: '3.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
