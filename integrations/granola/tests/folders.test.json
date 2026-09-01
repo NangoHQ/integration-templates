@@ -5,12 +5,14 @@
         {
           "id": "fol_omr6ASuOy2xE9L",
           "name": "Customer calls",
-          "parent_folder_id": null
+          "parent_folder_id": null,
+          "space_id": "spa_IdfiRQ2DkJGmPR"
         },
         {
           "id": "fol_bYRRm9Q6dQ2wSK",
           "name": "Team meetings",
-          "parent_folder_id": null
+          "parent_folder_id": null,
+          "space_id": "spa_IdfiRQ2DkJGmPR"
         }
       ]
     },

@@ -33,7 +33,14 @@ const FolderSchema = z.object({
     id: z.string().describe('The ID of the folder.'),
     object: z.string().describe('The object type of the folder.'),
     name: z.string().describe('The name of the folder.'),
-    parent_folder_id: z.string().nullable().describe('The ID of the parent folder, or null if the folder is top-level.')
+    parent_folder_id: z.string().nullable().describe('The ID of the parent folder, or null if the folder is top-level.'),
+    space_id: z.string().optional().describe('The ID of the space this folder belongs to.')
+});
+
+const SpaceSchema = z.object({
+    id: z.string().describe('The ID of the space.'),
+    object: z.string().describe('The object type of the space.'),
+    name: z.string().describe('The name of the space.')
 });
 
 const SpeakerSchema = z.object({
@@ -62,6 +69,7 @@ const OutputSchema = z
         calendar_event: CalendarEventSchema.nullable().describe('The calendar event associated with the note, or null if not available.'),
         attendees: z.array(UserSchema).describe('The attendees of the meeting.'),
         folder_membership: z.array(FolderSchema).describe('The folders this note belongs to.'),
+        space_membership: z.array(SpaceSchema).describe('The spaces this note belongs to.'),
         summary_text: z.string().describe('The summary text of the note.'),
         summary_markdown: z.string().nullable().describe('The summary of the note in markdown format, or null if not available.'),
         private_notes_text: z.string().nullable().describe('The private notes text of the note owner, or null if the API key does not belong to the owner.'),

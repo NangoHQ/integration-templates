@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        page_size: z.number().optional().describe('Number of folders per page, between 1 and 30. Defaults to 10.')
+        page_size: z.number().int().min(1).max(30).optional().describe('Number of folders per page, between 1 and 30. Defaults to 10.')
     })
     .describe('Input for listing folders.');
 
@@ -12,7 +12,8 @@ const ProviderFolderSchema = z.object({
     id: z.string().describe('Unique identifier for the folder.'),
     object: z.string().describe('The object type, typically "folder".'),
     name: z.string().describe('Name of the folder.'),
-    parent_folder_id: z.string().nullable().describe('ID of the parent folder, or null for top-level folders.')
+    parent_folder_id: z.string().nullable().describe('ID of the parent folder, or null for top-level folders.'),
+    space_id: z.string().optional().describe('ID of the space this folder belongs to.')
 });
 
 const OutputSchema = z
@@ -56,7 +57,8 @@ const action = createAction({
                         id: z.string(),
                         object: z.string(),
                         name: z.string(),
-                        parent_folder_id: z.string().nullable()
+                        parent_folder_id: z.string().nullable(),
+                        space_id: z.string().optional()
                     })
                 ),
                 hasMore: z.boolean(),
@@ -69,7 +71,8 @@ const action = createAction({
                 id: folder.id,
                 object: folder.object,
                 name: folder.name,
-                parent_folder_id: folder.parent_folder_id
+                parent_folder_id: folder.parent_folder_id,
+                ...(folder.space_id != null && { space_id: folder.space_id })
             })),
             hasMore: providerResponse.hasMore,
             ...(providerResponse.cursor != null && { next_cursor: providerResponse.cursor })

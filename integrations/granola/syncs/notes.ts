@@ -32,7 +32,14 @@ const ProviderFolderSchema = z.object({
     id: z.string(),
     object: z.literal('folder'),
     name: z.string(),
-    parent_folder_id: z.string().nullable()
+    parent_folder_id: z.string().nullable(),
+    space_id: z.string().optional()
+});
+
+const ProviderSpaceSchema = z.object({
+    id: z.string(),
+    object: z.literal('space'),
+    name: z.string()
 });
 
 const ProviderNoteSchema = z.object({
@@ -46,6 +53,7 @@ const ProviderNoteSchema = z.object({
     calendar_event: ProviderCalendarEventSchema.nullable(),
     attendees: z.array(ProviderUserSchema),
     folder_membership: z.array(ProviderFolderSchema),
+    space_membership: z.array(ProviderSpaceSchema),
     summary_text: z.string(),
     summary_markdown: z.string().nullable(),
     private_notes_text: z.string().nullable(),
@@ -84,9 +92,18 @@ const FolderSchema = z
         id: z.string().describe('The ID of the folder'),
         object: z.string().describe('The object type of the folder'),
         name: z.string().describe('The name of the folder'),
-        parent_folder_id: z.string().optional().describe('The ID of the parent folder, or omitted if top-level')
+        parent_folder_id: z.string().optional().describe('The ID of the parent folder, or omitted if top-level'),
+        space_id: z.string().optional().describe('The ID of the space this folder belongs to')
     })
     .describe('A folder');
+
+const SpaceSchema = z
+    .object({
+        id: z.string().describe('The ID of the space'),
+        object: z.string().describe('The object type of the space'),
+        name: z.string().describe('The name of the space')
+    })
+    .describe('A Granola space (team workspace)');
 
 const NoteSchema = z
     .object({
@@ -100,6 +117,7 @@ const NoteSchema = z
         calendar_event: CalendarEventSchema.optional().describe('Calendar event associated with the note'),
         attendees: z.array(UserSchema).describe('The attendees of the meeting'),
         folder_membership: z.array(FolderSchema).describe('The folders the note belongs to'),
+        space_membership: z.array(SpaceSchema).describe('The spaces the note belongs to'),
         summary_text: z.string().describe('The summary text of the note'),
         summary_markdown: z.string().optional().describe('The summary of the note in markdown format'),
         private_notes_text: z.string().optional().describe('The private notes text of the note owner'),
@@ -215,7 +233,13 @@ const sync = createSync({
                         id: folder.id,
                         object: folder.object,
                         name: folder.name,
-                        ...(folder.parent_folder_id != null && { parent_folder_id: folder.parent_folder_id })
+                        ...(folder.parent_folder_id != null && { parent_folder_id: folder.parent_folder_id }),
+                        ...(folder.space_id != null && { space_id: folder.space_id })
+                    })),
+                    space_membership: note.space_membership.map((space) => ({
+                        id: space.id,
+                        object: space.object,
+                        name: space.name
                     })),
                     summary_text: note.summary_text,
                     ...(note.summary_markdown != null && { summary_markdown: note.summary_markdown }),

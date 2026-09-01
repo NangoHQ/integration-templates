@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         note_id: z.string().describe('Unique identifier of the note whose transcript to retrieve. Example: "not_IBuThyr2eJgage"'),
         cursor: z.string().optional().describe('Opaque pagination cursor from a previous response. Omit for the first page.'),
-        page_size: z.number().min(1).max(100).optional().describe('Number of transcript segments per page. Maximum 100, default 50.')
+        page_size: z.number().int().min(1).max(100).optional().describe('Number of transcript segments per page. Maximum 100, default 50.')
     })
     .describe('Input for retrieving a paginated meeting transcript.');
 

@@ -38,7 +38,15 @@
             {
               "id": "fol_omr6ASuOy2xE9L",
               "object": "folder",
-              "name": "Customer calls"
+              "name": "Customer calls",
+              "space_id": "spa_IdfiRQ2DkJGmPR"
+            }
+          ],
+          "space_membership": [
+            {
+              "id": "spa_IdfiRQ2DkJGmPR",
+              "object": "space",
+              "name": "NangoDeveloperApp team"
             }
           ],
           "summary_text": "Product Walkthrough\nSam demoed Granola’s core notepad and transcript features\nNotepad works like a regular text editor: type notes during the meeting\nTranscript visible via green dancing bars at the bottom of the screen\nEnhanced Notes\nAt meeting end, Granola auto-detects and generates enhanced notes\nNotes combine transcript capture with anything typed in the notepad\nManual flow: stop button, then “Enhanced Notes” button\nNote-Taker’s Notes\n73\n31\nPause on",

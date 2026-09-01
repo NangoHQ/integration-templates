@@ -17,7 +17,7 @@ const InputSchema = z
             .optional()
             .describe('Return notes in this folder and any of its child folders. Use the list folders endpoint to discover folder IDs.'),
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        page_size: z.number().min(1).max(30).optional().describe('Maximum number of notes to return per page. Defaults to 10, capped at 30.')
+        page_size: z.number().int().min(1).max(30).optional().describe('Maximum number of notes to return per page. Defaults to 10, capped at 30.')
     })
     .describe('Input for listing Granola meeting notes.');
 

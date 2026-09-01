@@ -5,14 +5,16 @@ const ProviderFolderSchema = z.object({
     id: z.string(),
     object: z.string(),
     name: z.string(),
-    parent_folder_id: z.string().nullable()
+    parent_folder_id: z.string().nullable(),
+    space_id: z.string().optional()
 });
 
 const FolderSchema = z
     .object({
         id: z.string().describe('Unique identifier for the folder'),
         name: z.string().describe('Name of the folder'),
-        parent_folder_id: z.string().nullable().describe('ID of the parent folder, or null when this folder is top-level')
+        parent_folder_id: z.string().nullable().describe('ID of the parent folder, or null when this folder is top-level'),
+        space_id: z.string().optional().describe('ID of the space this folder belongs to')
     })
     .describe('A folder for organizing meeting notes in Granola');
 
@@ -33,6 +35,7 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         let cursor: string | undefined;
+        const isFreshSync = rawCheckpoint === null;
 
         if (rawCheckpoint !== null) {
             const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
@@ -44,7 +47,12 @@ const sync = createSync({
             cursor = parsedCheckpoint.data.cursor || undefined;
         }
 
-        await nango.trackDeletesStart('Folder');
+        // Only (re)start the deletion window on a fresh sync. When resuming from a saved
+        // cursor, the earlier pages were already saved under the still-open window from the
+        // interrupted run; starting a new window here would make trackDeletesEnd delete them.
+        if (isFreshSync) {
+            await nango.trackDeletesStart('Folder');
+        }
 
         let processedAnyPage = false;
 
@@ -77,7 +85,8 @@ const sync = createSync({
             const mapped = folders.map((folder) => ({
                 id: folder.id,
                 name: folder.name,
-                parent_folder_id: folder.parent_folder_id
+                parent_folder_id: folder.parent_folder_id,
+                ...(folder.space_id != null && { space_id: folder.space_id })
             }));
 
             if (mapped.length > 0) {
