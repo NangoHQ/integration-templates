@@ -2842,6 +2842,14 @@ import './gorgias/actions/update-view.js';
 import './grammarly/syncs/users.js';
 import './grammarly/actions/delete-user.js';
 
+// -- Integration: granola
+import './granola/syncs/folders.js';
+import './granola/syncs/notes.js';
+import './granola/actions/get-note.js';
+import './granola/actions/get-transcript.js';
+import './granola/actions/list-folders.js';
+import './granola/actions/list-notes.js';
+
 // -- Integration: greenhouse-basic
 import './greenhouse-basic/syncs/applications.js';
 import './greenhouse-basic/syncs/candidates.js';
