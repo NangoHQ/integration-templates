@@ -204,8 +204,8 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '3.0.1',
-    frequency: 'every 5 minutes',
+    version: '3.0.2',
+    frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/issues' }],
     checkpoint: CheckpointSchema,

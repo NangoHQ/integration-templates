@@ -57,13 +57,19 @@ const DealResponseSchema = z.object({
 const HubspotCrmCheckpointSchema = z.object({
     phase: z.string(),
     after: z.string(),
-    updatedAfter: z.string()
+    updatedAfter: z.string(),
+    // Tie-breaker record id for the `updatedAfter` timestamp; lets the search filter make
+    // guaranteed progress through records that share a timestamp (see buildIncrementalFilterGroups).
+    updatedAfterId: z.string(),
+    windowCount: z.number()
 });
 
 type HubspotCrmCheckpoint = {
     phase: 'initial' | 'incremental';
     after?: string;
     updatedAfter?: string;
+    updatedAfterId?: string;
+    windowCount: number;
 };
 
 type AssociationClient = {
@@ -71,17 +77,21 @@ type AssociationClient = {
 };
 
 function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undefined {
-    const result = HubspotCrmCheckpointSchema.safeParse(value);
+    // `windowCount` and `updatedAfterId` were added after this sync first shipped. Default them
+    // when absent so a checkpoint saved by an earlier version still resumes incrementally instead
+    // of failing validation and forcing a full resync.
+    const withDefaults = value && typeof value === 'object' ? { windowCount: 0, updatedAfterId: '', ...value } : value;
+    const result = HubspotCrmCheckpointSchema.safeParse(withDefaults);
     if (!result.success) {
         return undefined;
     }
 
-    const { phase, after, updatedAfter } = result.data;
+    const { phase, after, updatedAfter, updatedAfterId, windowCount } = result.data;
     if (phase !== 'initial' && phase !== 'incremental') {
         return undefined;
     }
 
-    const checkpoint: HubspotCrmCheckpoint = { phase };
+    const checkpoint: HubspotCrmCheckpoint = { phase, windowCount };
 
     if (after) {
         checkpoint.after = after;
@@ -91,7 +101,66 @@ function parseHubspotCrmCheckpoint(value: unknown): HubspotCrmCheckpoint | undef
         checkpoint.updatedAfter = updatedAfter;
     }
 
+    if (updatedAfterId) {
+        checkpoint.updatedAfterId = updatedAfterId;
+    }
+
     return checkpoint;
+}
+
+// Builds filters equivalent to `hs_lastmodifieddate > floor OR (hs_lastmodifieddate = floor AND
+// hs_object_id > floorId)`. Plain `GT`/`GTE` on the timestamp alone cannot both avoid data loss and
+// guarantee progress once more records than fit in a search window share the same timestamp: GT
+// permanently skips unseen ties, and GTE re-issues an identical query forever if the tied group
+// itself exceeds the window. The timestamp+id composite key strictly increases every page.
+//
+// Without a tie-breaker id (the very first window after the initial list phase, or a checkpoint
+// saved before `updatedAfterId` existed) there is no safe way to express the composite key, so
+// this falls back to GTE: it may re-fetch already-saved boundary records (harmless, batchSave
+// upserts them), but never drops ones a prior GTE-based run had not gotten to yet. That window
+// is bounded by the caller's result-count cap, and the very first cap-driven window advance
+// captures a real tie-breaker id, after which the composite filter below takes over and
+// guarantees progress on every subsequent window.
+function buildIncrementalFilterGroups(floor: string, floorId: string): Record<string, unknown>[] {
+    if (!floorId) {
+        return [
+            {
+                filters: [
+                    {
+                        propertyName: 'hs_lastmodifieddate',
+                        operator: 'GTE',
+                        value: floor
+                    }
+                ]
+            }
+        ];
+    }
+
+    return [
+        {
+            filters: [
+                {
+                    propertyName: 'hs_lastmodifieddate',
+                    operator: 'GT',
+                    value: floor
+                }
+            ]
+        },
+        {
+            filters: [
+                {
+                    propertyName: 'hs_lastmodifieddate',
+                    operator: 'EQ',
+                    value: floor
+                },
+                {
+                    propertyName: 'hs_object_id',
+                    operator: 'GT',
+                    value: floorId
+                }
+            ]
+        }
+    ];
 }
 
 function updateLatestUpdatedAt(current: string | undefined, candidate: string | null | undefined): string | undefined {
@@ -119,9 +188,9 @@ async function fetchAssociatedIds(client: AssociationClient, dealId: string, ass
 
 const sync = createSync({
     description: 'Sync deals with amount, close date, stage, owner, description, and associated companies and contacts',
-    version: '3.0.0',
+    version: '3.0.3',
     endpoints: [{ method: 'GET', path: '/syncs/deals', group: 'Deals' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
 
@@ -181,7 +250,9 @@ const sync = createSync({
                     await nango.saveCheckpoint({
                         phase: 'initial',
                         after: nextAfter,
-                        updatedAfter: latestUpdatedAt || ''
+                        updatedAfter: latestUpdatedAt || '',
+                        updatedAfterId: '',
+                        windowCount: 0
                     });
                     after = nextAfter;
                     continue;
@@ -191,7 +262,9 @@ const sync = createSync({
                     await nango.saveCheckpoint({
                         phase: 'incremental',
                         after: '',
-                        updatedAfter: latestUpdatedAt
+                        updatedAfter: latestUpdatedAt,
+                        updatedAfterId: '',
+                        windowCount: 0
                     });
                 }
 
@@ -201,9 +274,32 @@ const sync = createSync({
             return;
         }
 
-        const updatedAfter = checkpoint.updatedAfter;
+        // HubSpot search queries can only page through 10,000 total results; paging past that
+        // returns a 400. Once a search window approaches the cap, advance the window's lower
+        // bound to the latest modification time (and record) seen so far and resume paging from
+        // there, which partitions the incremental run into bounded sub-windows instead of ever
+        // hitting the cap. The window count is persisted in the checkpoint since a run can be
+        // interrupted and resumed mid-window, at which point the in-memory count alone would be lost.
+        // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
+        const SEARCH_WINDOW_RESULT_LIMIT = 9900;
+
+        let windowFloor = checkpoint.updatedAfter;
+        let windowFloorId = checkpoint.updatedAfterId || '';
         let after = checkpoint.after;
-        let latestUpdatedAt = updatedAfter;
+        let resultsInWindow = checkpoint.windowCount;
+
+        if (!windowFloorId && after) {
+            // Resuming a checkpoint saved before the composite cursor existed: its `after` offset
+            // was computed against a narrower GT-only result set. Widening the floor to GTE below
+            // inserts boundary-timestamp rows ahead of that offset, so reusing it verbatim would
+            // silently skip exactly the records the widening is meant to recover. Restart this
+            // window's pagination from the beginning instead; batchSave upserts the repeat fetch.
+            after = '';
+            resultsInWindow = 0;
+        }
+
+        let latestUpdatedAt = windowFloor;
+        let latestId = windowFloorId;
         let hasMore = true;
 
         while (hasMore) {
@@ -214,26 +310,17 @@ const sync = createSync({
                     {
                         propertyName: 'hs_lastmodifieddate',
                         direction: 'ASCENDING'
-                    }
-                ],
-                filterGroups: [
+                    },
                     {
-                        filters: [
-                            {
-                                propertyName: 'hs_lastmodifieddate',
-                                operator: 'GT',
-                                value: updatedAfter
-                            }
-                        ]
+                        propertyName: 'hs_object_id',
+                        direction: 'ASCENDING'
                     }
                 ],
+                filterGroups: buildIncrementalFilterGroups(windowFloor || '', windowFloorId),
                 ...(after && { after })
             };
 
             // Incremental syncs use search so they can filter by last modified date.
-            // HubSpot search queries are capped at 10,000 total results; paging past that returns a 400 and can leave this incremental sync incomplete.
-            // Template users should narrow the search window/filter strategy to fit their data volume before relying on this template.
-            // https://developers.hubspot.com/docs/api-reference/search/guide#paging-through-results
             const response = await nango.post({
                 endpoint: '/crm/v3/objects/deals/search',
                 data: searchBody,
@@ -269,15 +356,54 @@ const sync = createSync({
 
             await nango.batchSave(deals, 'Deal');
 
-            latestUpdatedAt = deals.reduce((latest, deal) => updateLatestUpdatedAt(latest, deal.updatedAt), latestUpdatedAt);
+            // Sorted ascending by (hs_lastmodifieddate, hs_object_id), so the last item in the
+            // page holds the maximum composite key seen so far.
+            const lastItem = parsedBatch[parsedBatch.length - 1]!;
+            const lastItemTimestamp = lastItem.properties?.['hs_lastmodifieddate'];
+
+            if (lastItemTimestamp) {
+                latestUpdatedAt = lastItemTimestamp;
+                latestId = lastItem.id;
+            }
+
+            resultsInWindow += parsedBatch.length;
 
             const nextAfter = data.paging?.next?.after;
+            const madeProgress = latestUpdatedAt !== windowFloor || latestId !== windowFloorId;
+
+            if (nextAfter && resultsInWindow >= SEARCH_WINDOW_RESULT_LIMIT) {
+                if (!madeProgress) {
+                    // Defensive backstop: the composite (timestamp, id) filter should always make
+                    // progress once it carries a tie-breaker id. Stop instead of re-issuing an
+                    // identical query forever if that invariant is ever violated.
+                    await nango.log('Incremental deals sync made no progress advancing the search window; stopping to avoid an infinite loop', {
+                        windowFloor: windowFloor || '',
+                        windowFloorId
+                    });
+                    break;
+                }
+
+                windowFloor = latestUpdatedAt || windowFloor;
+                windowFloorId = latestId || '';
+                after = '';
+                resultsInWindow = 0;
+                await nango.saveCheckpoint({
+                    phase: 'incremental',
+                    after: '',
+                    updatedAfter: windowFloor || '',
+                    updatedAfterId: windowFloorId,
+                    windowCount: 0
+                });
+                continue;
+            }
 
             if (nextAfter) {
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: nextAfter,
-                    updatedAfter: updatedAfter || ''
+                    updatedAfter: windowFloor || '',
+                    updatedAfterId: windowFloorId,
+                    windowCount: resultsInWindow
                 });
                 after = nextAfter;
                 continue;
@@ -287,7 +413,9 @@ const sync = createSync({
                 await nango.saveCheckpoint({
                     phase: 'incremental',
                     after: '',
-                    updatedAfter: latestUpdatedAt
+                    updatedAfter: latestUpdatedAt,
+                    updatedAfterId: latestId || '',
+                    windowCount: 0
                 });
             }
 

@@ -19,8 +19,8 @@ const CheckpointSchema = z.object({}).catchall(z.union([z.string(), z.number(), 
 
 const sync = createSync({
     description: 'Sync stories.',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

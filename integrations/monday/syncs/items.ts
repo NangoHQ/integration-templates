@@ -86,8 +86,8 @@ function shiftIso(isoTimestamp: string, deltaMs: number): string {
 
 const sync = createSync({
     description: 'Sync items from monday.com',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {

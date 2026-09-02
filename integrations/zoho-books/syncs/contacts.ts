@@ -44,7 +44,7 @@ const PageContextSchema = z.object({
 const sync = createSync({
     description: 'Sync contacts from Zoho Books',
     version: '1.0.1',
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,

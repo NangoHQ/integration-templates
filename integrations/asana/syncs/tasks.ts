@@ -114,9 +114,9 @@ function mapTask(raw: z.infer<typeof AsanaTaskSchema>): z.infer<typeof TaskSchem
 
 const sync = createSync({
     description: 'Sync tasks for projects, sections, or workspace search scopes.',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/tasks' }],
-    frequency: 'every 5 minutes',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,

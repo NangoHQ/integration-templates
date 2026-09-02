@@ -49,8 +49,8 @@ type OrderRecord = {
 
 const sync = createSync({
     description: 'Sync sales orders with incremental updates',
-    version: '1.0.0',
-    frequency: 'every 5 minutes',
+    version: '1.0.1',
+    frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     // https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-SCR-sandbox-salesorder-SalesOrders
