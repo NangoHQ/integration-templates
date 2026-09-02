@@ -40,12 +40,12 @@ const UserSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    page: z.number()
+    page: z.number().int().positive()
 });
 
 const sync = createSync({
     description: 'Sync users (team members) in this account',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

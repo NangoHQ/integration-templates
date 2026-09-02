@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
@@ -19,7 +20,8 @@ const MetadataSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    project_index: z.number(),
+    projects_hash: z.string(),
+    project_index: z.number().int().nonnegative(),
     continuation_token: z.string()
 });
 
@@ -46,7 +48,7 @@ const ProviderRepositoriesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Git repositories across all projects',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -62,9 +64,12 @@ const sync = createSync({
             throw new Error('metadata.projects is required');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint ?? { project_index: 0, continuation_token: '' });
-        const currentCheckpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { project_index: 0, continuation_token: '' };
+        const projectsHash = createHash('sha256').update(JSON.stringify(metadata.projects)).digest('hex');
+        const parsedCheckpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const currentCheckpoint =
+            parsedCheckpoint.success && parsedCheckpoint.data.projects_hash === projectsHash && parsedCheckpoint.data.project_index < metadata.projects.length
+                ? parsedCheckpoint.data
+                : { projects_hash: projectsHash, project_index: 0, continuation_token: '' };
         let projectIndex = currentCheckpoint['project_index'];
         let continuationToken: string | undefined = currentCheckpoint['continuation_token'] || undefined;
 
@@ -120,6 +125,7 @@ const sync = createSync({
 
                 if (continuationToken) {
                     await nango.saveCheckpoint({
+                        projects_hash: projectsHash,
                         project_index: projectIndex,
                         continuation_token: continuationToken
                     });
@@ -129,6 +135,7 @@ const sync = createSync({
             const nextProjectIndex = projectIndex + 1;
             if (nextProjectIndex < metadata.projects.length) {
                 await nango.saveCheckpoint({
+                    projects_hash: projectsHash,
                     project_index: nextProjectIndex,
                     continuation_token: ''
                 });

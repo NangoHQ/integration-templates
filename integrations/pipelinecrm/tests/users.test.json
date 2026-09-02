@@ -10,8 +10,8 @@
           "is_account_admin": true,
           "level": 3,
           "account_id": "482730",
-          "updated_at": "2026/08/26 10:49:21 -0400",
-          "last_seen_at": "2026/08/26 10:49:21 -0400",
+          "updated_at": "2026/09/02 12:03:28 -0400",
+          "last_seen_at": "2026/09/02 12:03:28 -0400",
           "work_phone": "(302) 219-6023‬",
           "full_name": "Nango dev2",
           "read_only": false
@@ -56,11 +56,11 @@
               "mobile_country_code": 1,
               "work_phone": "(302) 219-6023‬",
               "data_reassigned_at": null,
-              "last_seen_at": "2026/08/26 10:49:21 -0400",
+              "last_seen_at": "2026/09/02 12:03:28 -0400",
               "receives_sms_reminders": null,
               "use_keyboard_shortcuts": false,
               "commission_rate": 0,
-              "updated_at": "2026/08/26 10:49:21 -0400",
+              "updated_at": "2026/09/02 12:03:28 -0400",
               "email": "api+demo@nango.dev",
               "avatar_thumb_url": null,
               "user_uploaded_avatar?": false,
@@ -226,7 +226,8 @@
                 "search_populate_change_detection": null,
                 "union_note_visibility": null,
                 "pipeline_user_presence_ui": null,
-                "pipeline_phone_su": null
+                "pipeline_phone_su": null,
+                "pipeline_phone_porting": null
               }
             }
           ],
@@ -240,7 +241,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 26 Aug 2026 14:49:31 GMT",
+          "date": "Wed, 02 Sep 2026 16:05:30 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -255,17 +256,17 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "10",
-          "x-ratelimit-remaining": "10",
-          "x-ratelimit-reset": "1787755772",
+          "x-ratelimit-remaining": "9",
+          "x-ratelimit-reset": "1788365131",
           "server": "cloudflare",
           "vary": "Accept-Encoding, Origin",
           "cache-control": "no-store",
-          "etag": "W/\"d86eb9e5f03db867212bf32cccfaa6e9\"",
-          "x-request-id": "deef1a75-5198-486c-8b9c-4e0a080d00b7",
-          "x-runtime": "0.096284",
+          "etag": "W/\"aab44db4755a742364354d9c18b5948d\"",
+          "x-request-id": "3ea0a4f4-61b7-44e9-9021-e284e11ffde1",
+          "x-runtime": "0.102925",
           "x-permitted-cross-domain-policies": "none",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a313a4c07a51a509-PDX"
+          "cf-ray": "a34dc1b3187dd82e-PDX"
         },
         "hash": "6f8d905255bbbcdadb29941d89ff725057b513b3",
         "request": {

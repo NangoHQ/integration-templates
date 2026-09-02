@@ -63,7 +63,7 @@ function parseStateJson(json: string): z.infer<typeof StateSchema> {
 
 const sync = createSync({
     description: 'Sync clients across all organizations.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -111,12 +111,16 @@ const sync = createSync({
             const rawNextOrgCursor = parsedOrgs.data.pagination?.next_page_start_id;
             const nextOrgCursor = rawNextOrgCursor != null ? String(rawNextOrgCursor) : undefined;
 
+            if (resumeOrgId !== undefined && !orgs.some((org) => org.id === resumeOrgId)) {
+                orgCursor = undefined;
+                resumeOrgId = undefined;
+                resumeClientCursor = undefined;
+                continue;
+            }
+
             for (let i = 0; i < orgs.length; i++) {
                 const org = orgs[i];
                 if (org === undefined) {
-                    continue;
-                }
-                if (resumeOrgId !== undefined && org.id !== resumeOrgId) {
                     continue;
                 }
                 if (resumeOrgId !== undefined && org.id === resumeOrgId) {

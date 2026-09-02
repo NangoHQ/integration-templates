@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -46,12 +47,13 @@ const IterationListResponseSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
+    projectTeamsHash: z.string(),
     nextProjectTeamIndex: z.number().int().min(0)
 });
 
 const sync = createSync({
     description: 'Sync sprint iterations for all teams',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -72,9 +74,14 @@ const sync = createSync({
         // filters, deleted-record endpoints, or resumable page tokens. We checkpoint
         // progress through the metadata projectTeams array so a full refresh can
         // resume without restarting from the first team.
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
-        let nextProjectTeamIndex = parsedCheckpoint?.nextProjectTeamIndex ?? 0;
+        const projectTeamsHash = createHash('sha256').update(JSON.stringify(projectTeams)).digest('hex');
+        const parsedCheckpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        let nextProjectTeamIndex =
+            parsedCheckpoint.success &&
+            parsedCheckpoint.data.projectTeamsHash === projectTeamsHash &&
+            parsedCheckpoint.data.nextProjectTeamIndex <= projectTeams.length
+                ? parsedCheckpoint.data.nextProjectTeamIndex
+                : 0;
 
         await nango.trackDeletesStart('Iteration');
 
@@ -109,7 +116,7 @@ const sync = createSync({
             }
 
             nextProjectTeamIndex = i + 1;
-            await nango.saveCheckpoint({ nextProjectTeamIndex });
+            await nango.saveCheckpoint({ projectTeamsHash, nextProjectTeamIndex });
         }
 
         await nango.clearCheckpoint();

@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync } from 'nango';
 import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
@@ -54,12 +55,13 @@ const SearchStreamChunkSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
+    customer_ids_hash: z.string(),
     customer_index: z.number().int().nonnegative()
 });
 
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -81,12 +83,14 @@ const sync = createSync({
             throw new Error('developer_token is required in connection config');
         }
 
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { customer_index: 0 });
-        if (!checkpointResult.success) {
-            throw new Error('Invalid checkpoint: ' + checkpointResult.error.message);
-        }
-        const startIndex = checkpointResult.data.customer_index;
+        const customerIdsHash = createHash('sha256').update(JSON.stringify(metadata.customerIds)).digest('hex');
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const startIndex =
+            checkpointResult.success &&
+            checkpointResult.data.customer_ids_hash === customerIdsHash &&
+            checkpointResult.data.customer_index <= metadata.customerIds.length
+                ? checkpointResult.data.customer_index
+                : 0;
 
         // Blocker: Google Ads SearchStream does not support incremental filters,
         // resumable cursor pagination, or a deleted-record endpoint for conversion_action.
@@ -172,7 +176,7 @@ const sync = createSync({
             }
 
             // Persist progress so a resumed run skips already-processed customers.
-            await nango.saveCheckpoint({ customer_index: i + 1 });
+            await nango.saveCheckpoint({ customer_ids_hash: customerIdsHash, customer_index: i + 1 });
         }
 
         await nango.clearCheckpoint();

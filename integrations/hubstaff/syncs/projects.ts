@@ -26,7 +26,7 @@ const OrganizationListResponseSchema = z.object({
     organizations: z.array(OrganizationSchema),
     pagination: z
         .object({
-            next_page_start_id: z.union([z.string(), z.number()]).optional()
+            next_page_start_id: z.union([z.string(), z.number()]).nullish()
         })
         .optional()
 });
@@ -35,7 +35,7 @@ const ProjectListResponseSchema = z.object({
     projects: z.array(ProviderProjectSchema),
     pagination: z
         .object({
-            next_page_start_id: z.union([z.string(), z.number()]).optional()
+            next_page_start_id: z.union([z.string(), z.number()]).nullish()
         })
         .optional()
 });
@@ -43,13 +43,13 @@ const ProjectListResponseSchema = z.object({
 const CheckpointSchema = z.object({
     org_page_start_id: z.string(),
     org_ids_json: z.string(),
-    current_org_index: z.number(),
+    current_org_index: z.number().int().nonnegative(),
     project_page_start_id: z.string()
 });
 
 const sync = createSync({
     description: 'Sync projects across all organizations this connection can access.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -6,7 +7,8 @@ const MetadataSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
-    projectIndex: z.number(),
+    projectIdsHash: z.string(),
+    projectIndex: z.number().int().nonnegative(),
     continuationToken: z.string()
 });
 
@@ -37,7 +39,7 @@ const ProviderTeamsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync teams across all projects',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -48,7 +50,14 @@ const sync = createSync({
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const checkpoint = await nango.getCheckpoint();
+        const projectIdsHash = createHash('sha256').update(JSON.stringify(metadata.projectIds)).digest('hex');
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const checkpoint =
+            checkpointResult.success &&
+            checkpointResult.data.projectIdsHash === projectIdsHash &&
+            checkpointResult.data.projectIndex < metadata.projectIds.length
+                ? checkpointResult.data
+                : { projectIdsHash, projectIndex: 0, continuationToken: '' };
 
         await nango.trackDeletesStart('Team');
 
@@ -93,9 +102,9 @@ const sync = createSync({
                 const nextToken = typeof rawToken === 'string' && rawToken.length > 0 ? rawToken : '';
 
                 if (nextToken.length > 0) {
-                    await nango.saveCheckpoint({ projectIndex, continuationToken: nextToken });
+                    await nango.saveCheckpoint({ projectIdsHash, projectIndex, continuationToken: nextToken });
                 } else if (projectIndex + 1 < metadata.projectIds.length) {
-                    await nango.saveCheckpoint({ projectIndex: projectIndex + 1, continuationToken: '' });
+                    await nango.saveCheckpoint({ projectIdsHash, projectIndex: projectIndex + 1, continuationToken: '' });
                 }
 
                 continuationToken = nextToken.length > 0 ? nextToken : undefined;

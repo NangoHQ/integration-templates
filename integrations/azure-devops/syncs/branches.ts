@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -42,13 +43,14 @@ const BranchSchema = z.object({
 });
 
 const CheckpointSchema = z.object({
+    repositoriesHash: z.string(),
     repoIndex: z.number().int().nonnegative(),
     continuationToken: z.string()
 });
 
 const sync = createSync({
     description: 'Sync Git branches (refs/heads) across repositories',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -71,9 +73,16 @@ const sync = createSync({
             throw new Error('At least one repository is required in metadata');
         }
 
+        const repositoriesHash = createHash('sha256').update(JSON.stringify(repositories)).digest('hex');
         const rawCheckpoint = await nango.getCheckpoint();
         const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
-        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { repoIndex: 0, continuationToken: '' };
+        const checkpoint =
+            parsedCheckpoint.success &&
+            parsedCheckpoint.data.repositoriesHash === repositoriesHash &&
+            parsedCheckpoint.data.repoIndex <= repositories.length &&
+            (parsedCheckpoint.data.repoIndex < repositories.length || parsedCheckpoint.data.continuationToken === '')
+                ? parsedCheckpoint.data
+                : { repositoriesHash, repoIndex: 0, continuationToken: '' };
 
         // Blocker: The Azure DevOps Git refs API does not expose a modified-date filter,
         // changed-records endpoint, or resumable cursor for incremental sync.
@@ -138,10 +147,10 @@ const sync = createSync({
                 const nextToken = Array.isArray(rawNextToken) ? rawNextToken[0] : typeof rawNextToken === 'string' ? rawNextToken : undefined;
 
                 if (nextToken) {
-                    await nango.saveCheckpoint({ repoIndex: i, continuationToken: nextToken });
+                    await nango.saveCheckpoint({ repositoriesHash, repoIndex: i, continuationToken: nextToken });
                     continuationToken = nextToken;
                 } else {
-                    await nango.saveCheckpoint({ repoIndex: i + 1, continuationToken: '' });
+                    await nango.saveCheckpoint({ repositoriesHash, repoIndex: i + 1, continuationToken: '' });
                     continuationToken = undefined;
                 }
             } while (continuationToken);
