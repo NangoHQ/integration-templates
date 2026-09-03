@@ -35,11 +35,16 @@ const DealStageSchema = z.object({
     udate: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync deal stages from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         DealStage: DealStageSchema
     },
@@ -50,6 +55,10 @@ const sync = createSync({
         // an updated_after filter, cursor, or since_id parameter. It only supports
         // limit/offset pagination and title/pipeline filters, so incremental
         // checkpoints are not possible.
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpoint);
+        let nextOffset = checkpointResult.success ? checkpointResult.data.offset : 0;
+
         await nango.trackDeletesStart('DealStage');
 
         const proxyConfig: ProxyConfiguration = {
@@ -60,7 +69,7 @@ const sync = createSync({
                 limit_name_in_request: 'limit',
                 limit: 100,
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: nextOffset,
                 offset_calculation_method: 'by-response-size',
                 response_path: 'dealStages'
             },
@@ -95,10 +104,15 @@ const sync = createSync({
             if (dealStages.length > 0) {
                 await nango.batchSave(dealStages, 'DealStage');
             }
+
+            nextOffset += dealStages.length;
+            await nango.saveCheckpoint({ offset: nextOffset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('DealStage');
     }
 });
 
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;

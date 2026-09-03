@@ -33,17 +33,26 @@ const ListSchema = z.object({
     to_name: z.string()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync lists from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/lists' }],
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         List: ListSchema
     },
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
+        let offset = checkpointResult.success ? checkpointResult.data.offset : 0;
+
         await nango.trackDeletesStart('List');
 
         const proxyConfig: ProxyConfiguration = {
@@ -54,6 +63,7 @@ const sync = createSync({
                 limit_name_in_request: 'limit',
                 limit: 100,
                 offset_name_in_request: 'offset',
+                offset_start_value: offset,
                 response_path: 'lists'
             },
             retries: 3
@@ -85,8 +95,12 @@ const sync = createSync({
             if (lists.length > 0) {
                 await nango.batchSave(lists, 'List');
             }
+
+            offset += providerLists.data.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('List');
     }
 });

@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { createSync } from 'nango';
 import { getDeveloperToken } from '../helpers/get-developer-token.js';
 import { z } from 'zod';
@@ -53,12 +54,18 @@ const SearchStreamChunkSchema = z.object({
     requestId: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    customer_ids_hash: z.string(),
+    customer_index: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.2',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         ConversionAction: ConversionActionSchema
     },
@@ -76,13 +83,27 @@ const sync = createSync({
             throw new Error('developer_token is required in connection config');
         }
 
+        const customerIdsHash = createHash('sha256').update(JSON.stringify(metadata.customerIds)).digest('hex');
+        const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        const startIndex =
+            checkpointResult.success &&
+            checkpointResult.data.customer_ids_hash === customerIdsHash &&
+            checkpointResult.data.customer_index <= metadata.customerIds.length
+                ? checkpointResult.data.customer_index
+                : 0;
+
         // Blocker: Google Ads SearchStream does not support incremental filters,
         // resumable cursor pagination, or a deleted-record endpoint for conversion_action.
         // Conversion actions are a small, low-cardinality, long-lived reference set,
         // so full refresh with trackDeletes is appropriate.
         await nango.trackDeletesStart('ConversionAction');
 
-        for (const customerId of metadata.customerIds) {
+        for (let i = startIndex; i < metadata.customerIds.length; i++) {
+            const customerId = metadata.customerIds[i];
+            if (!customerId) {
+                throw new Error(`Missing customerId at index ${i}`);
+            }
+
             // https://developers.google.com/google-ads/api/docs/reporting/streaming
             const response = await nango.post({
                 endpoint: `v25/customers/${encodeURIComponent(customerId)}/googleAds:searchStream`,
@@ -153,8 +174,12 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'ConversionAction');
             }
+
+            // Persist progress so a resumed run skips already-processed customers.
+            await nango.saveCheckpoint({ customer_ids_hash: customerIdsHash, customer_index: i + 1 });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ConversionAction');
     }
 });

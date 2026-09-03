@@ -3,65 +3,11 @@
     "batchSave": {
       "Team": [
         {
-          "id": "1429341",
-          "name": "Nango Registry Test Team 1 (updated)",
-          "account_id": "482622",
-          "created_at": "2026/08/05 09:11:19 -0400",
-          "updated_at": "2026/08/05 09:11:51 -0400",
-          "permissions": {
-            "member": {
-              "company": {
-                "visibility_level": "owner"
-              },
-              "deal": {
-                "visibility_level": "owner"
-              },
-              "person": {
-                "visibility_level": "owner"
-              }
-            },
-            "*": {
-              "person": {
-                "use_deal_association": false
-              }
-            }
-          },
-          "height": 0,
-          "depth": 0
-        },
-        {
-          "id": "1429342",
-          "name": "Nango Registry Test Team 2",
-          "account_id": "482622",
-          "created_at": "2026/08/05 09:11:32 -0400",
-          "updated_at": "2026/08/05 09:11:32 -0400",
-          "permissions": {
-            "member": {
-              "company": {
-                "visibility_level": "owner"
-              },
-              "deal": {
-                "visibility_level": "owner"
-              },
-              "person": {
-                "visibility_level": "owner"
-              }
-            },
-            "*": {
-              "person": {
-                "use_deal_association": false
-              }
-            }
-          },
-          "height": 0,
-          "depth": 0
-        },
-        {
-          "id": "1429340",
+          "id": "1429481",
           "name": "Sales team",
-          "account_id": "482622",
-          "created_at": "2026/08/05 08:44:48 -0400",
-          "updated_at": "2026/08/05 08:44:48 -0400",
+          "account_id": "482730",
+          "created_at": "2026/08/25 12:16:32 -0400",
+          "updated_at": "2026/08/25 12:16:32 -0400",
           "permissions": {
             "member": {
               "company": {
@@ -95,68 +41,12 @@
         "response": {
           "entries": [
             {
-              "id": 1429341,
-              "account_id": 482622,
-              "name": "Nango Registry Test Team 1 (updated)",
-              "parent_id": null,
-              "created_at": "2026/08/05 09:11:19 -0400",
-              "updated_at": "2026/08/05 09:11:51 -0400",
-              "permissions": {
-                "member": {
-                  "company": {
-                    "visibility_level": "owner"
-                  },
-                  "deal": {
-                    "visibility_level": "owner"
-                  },
-                  "person": {
-                    "visibility_level": "owner"
-                  }
-                },
-                "*": {
-                  "person": {
-                    "use_deal_association": false
-                  }
-                }
-              },
-              "height": 0,
-              "depth": 0
-            },
-            {
-              "id": 1429342,
-              "account_id": 482622,
-              "name": "Nango Registry Test Team 2",
-              "parent_id": null,
-              "created_at": "2026/08/05 09:11:32 -0400",
-              "updated_at": "2026/08/05 09:11:32 -0400",
-              "permissions": {
-                "member": {
-                  "company": {
-                    "visibility_level": "owner"
-                  },
-                  "deal": {
-                    "visibility_level": "owner"
-                  },
-                  "person": {
-                    "visibility_level": "owner"
-                  }
-                },
-                "*": {
-                  "person": {
-                    "use_deal_association": false
-                  }
-                }
-              },
-              "height": 0,
-              "depth": 0
-            },
-            {
-              "id": 1429340,
-              "account_id": 482622,
+              "id": 1429481,
+              "account_id": 482730,
               "name": "Sales team",
               "parent_id": null,
-              "created_at": "2026/08/05 08:44:48 -0400",
-              "updated_at": "2026/08/05 08:44:48 -0400",
+              "created_at": "2026/08/25 12:16:32 -0400",
+              "updated_at": "2026/08/25 12:16:32 -0400",
               "permissions": {
                 "member": {
                   "company": {
@@ -184,12 +74,12 @@
             "page_var": "page",
             "per_page": 100,
             "pages": 1,
-            "total": 3
+            "total": 1
           }
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 05 Aug 2026 13:52:09 GMT",
+          "date": "Wed, 26 Aug 2026 14:49:24 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -198,22 +88,23 @@
           "x-download-options": "noopen",
           "x-frame-options": "DENY",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31556952; includeSubDomains; preload",
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "10",
           "x-ratelimit-remaining": "10",
-          "x-ratelimit-reset": "1785937930",
+          "x-ratelimit-reset": "1787755765",
           "server": "cloudflare",
           "vary": "Accept-Encoding, Origin",
           "cache-control": "no-store",
-          "etag": "W/\"6d419fc262517219c5f5760f98b00575\"",
-          "x-request-id": "4dbf165f-699d-4290-97d3-f7ffeafe47bb",
-          "x-runtime": "0.068250",
+          "etag": "W/\"b3ef3f08fead94302ac5118902e05298\"",
+          "x-request-id": "fa8291c0-5b3f-4dbc-a301-14139a2cd25d",
+          "x-runtime": "0.070425",
           "x-permitted-cross-domain-policies": "none",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a26647d8da253741-PDX"
+          "cf-ray": "a313a4984b86dfd2-PDX"
         },
         "hash": "4f89443cc13c551f196a08f63b83406d5ffc9542",
         "request": {

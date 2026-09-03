@@ -5,6 +5,11 @@ const MetadataSchema = z.object({
     projects: z.array(z.string())
 });
 
+const CheckpointSchema = z.object({
+    project: z.string(),
+    continuationToken: z.string()
+});
+
 const PipelineSchema = z.object({
     id: z.string(),
     projectId: z.string(),
@@ -29,10 +34,11 @@ const PipelineResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync YAML pipeline definitions',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         Pipeline: PipelineSchema
     },
@@ -44,12 +50,30 @@ const sync = createSync({
             throw new Error('Metadata projects array is required and must not be empty');
         }
 
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+
+        let startProjectIndex = 0;
+        let startContinuationToken = '';
+
+        if (parsedCheckpoint.success) {
+            const projectIdx = metadata.projects.indexOf(parsedCheckpoint.data.project);
+            if (projectIdx !== -1) {
+                startProjectIndex = projectIdx;
+                startContinuationToken = parsedCheckpoint.data.continuationToken;
+            }
+        }
+
         await nango.trackDeletesStart('Pipeline');
 
-        for (const project of metadata.projects) {
-            let continuationToken: string | undefined;
+        for (let projectIdx = startProjectIndex; projectIdx < metadata.projects.length; projectIdx++) {
+            const project = metadata.projects[projectIdx];
+            if (typeof project !== 'string') {
+                continue;
+            }
+            let continuationToken: string = projectIdx === startProjectIndex ? startContinuationToken : '';
 
-            do {
+            while (true) {
                 const params: Record<string, string | number> = {
                     'api-version': '7.2-preview.1'
                 };
@@ -85,10 +109,24 @@ const sync = createSync({
                 }
 
                 const nextToken = response.headers['x-ms-continuationtoken'];
-                continuationToken = typeof nextToken === 'string' ? nextToken : undefined;
-            } while (continuationToken);
+                const nextTokenStr =
+                    typeof nextToken === 'string' ? nextToken : Array.isArray(nextToken) && typeof nextToken[0] === 'string' ? nextToken[0] : undefined;
+
+                if (typeof nextTokenStr === 'string' && nextTokenStr.length > 0) {
+                    continuationToken = nextTokenStr;
+                    await nango.saveCheckpoint({ project, continuationToken: nextTokenStr });
+                    continue;
+                }
+
+                const nextProject = metadata.projects[projectIdx + 1];
+                if (nextProject) {
+                    await nango.saveCheckpoint({ project: nextProject, continuationToken: '' });
+                }
+                break;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Pipeline');
     }
 });

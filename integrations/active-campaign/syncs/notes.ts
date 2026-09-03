@@ -25,11 +25,16 @@ const NoteSchema = z.object({
     user: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync notes from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Note: NoteSchema
     },
@@ -44,6 +49,12 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: GET /3/notes does not document any changed-since filter,
         // cursor, or ordering parameter, so this sync must do a full refresh.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+        let offset = checkpointResult.success ? checkpointResult.data.offset : 0;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
         await nango.trackDeletesStart('Note');
 
         // https://developers.activecampaign.com/reference/retrieve-list-of-all-notes
@@ -53,6 +64,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: offset,
                 limit_name_in_request: 'limit',
                 limit: 100,
                 response_path: 'notes'
@@ -78,8 +90,12 @@ const sync = createSync({
             if (notes.length > 0) {
                 await nango.batchSave(notes, 'Note');
             }
+
+            offset += validatedPage.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Note');
     }
 });

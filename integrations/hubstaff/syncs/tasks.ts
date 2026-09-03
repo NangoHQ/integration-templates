@@ -40,16 +40,51 @@ const TaskModelSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    state: z.string()
+});
+
+function parseCheckpointState(state: string): { project_id?: number; task_cursor?: string } {
+    if (!state) {
+        return {};
+    }
+    const parts = state.split(':');
+    const projectId = Number(parts[0]);
+    if (isNaN(projectId)) {
+        return {};
+    }
+    return {
+        project_id: projectId,
+        ...(parts[1] && { task_cursor: parts[1] })
+    };
+}
+
+function encodeCheckpointState(projectId: number, taskCursor?: string | number): string {
+    if (taskCursor !== undefined) {
+        return `${projectId}:${taskCursor}`;
+    }
+    return String(projectId);
+}
+
 const sync = createSync({
     description: 'Sync tasks across all projects',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Task: TaskModelSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = rawCheckpoint === null || rawCheckpoint === undefined ? null : CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = checkpointResult?.success ? parseCheckpointState(checkpointResult.data.state) : {};
+
+        // Start (or resume) the full-refresh deletion window before the provider
+        // requests used to discover organizations and projects.
+        await nango.trackDeletesStart('Task');
+
         const orgsProxyConfig: ProxyConfiguration = {
             // https://developer.hubstaff.com/
             endpoint: 'v2/organizations',
@@ -74,8 +109,6 @@ const sync = createSync({
                 organizations.push(parsed.data);
             }
         }
-
-        await nango.trackDeletesStart('Task');
 
         const allProjects: z.infer<typeof ProjectSchema>[] = [];
         for (const org of organizations) {
@@ -104,17 +137,42 @@ const sync = createSync({
             }
         }
 
-        for (const project of allProjects) {
+        let projectIndex = 0;
+
+        if (checkpoint.project_id !== undefined) {
+            const resumeIndex = allProjects.findIndex((p) => p.id === checkpoint.project_id);
+            if (resumeIndex !== -1) {
+                projectIndex = resumeIndex;
+            }
+        }
+
+        for (let i = projectIndex; i < allProjects.length; i++) {
+            const project = allProjects[i];
+            if (project === undefined) {
+                throw new Error(`Project at index ${i} is undefined`);
+            }
+
+            let nextTaskCursor: string | number | undefined;
+            const taskCursor = checkpoint.project_id === project.id ? checkpoint.task_cursor : undefined;
+
             const tasksProxyConfig: ProxyConfiguration = {
                 // https://developer.hubstaff.com/
                 endpoint: `v2/projects/${encodeURIComponent(String(project.id))}/tasks`,
+                ...(taskCursor !== undefined && {
+                    params: {
+                        page_start_id: String(taskCursor)
+                    }
+                }),
                 paginate: {
                     type: 'cursor',
                     cursor_name_in_request: 'page_start_id',
                     cursor_path_in_response: 'pagination.next_page_start_id',
                     response_path: 'tasks',
                     limit_name_in_request: 'page_limit',
-                    limit: 100
+                    limit: 100,
+                    on_page: async ({ nextPageParam }) => {
+                        nextTaskCursor = typeof nextPageParam === 'string' || typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                    }
                 },
                 retries: 3
             };
@@ -156,9 +214,19 @@ const sync = createSync({
                 if (deletedTasks.length > 0) {
                     await nango.batchDelete(deletedTasks, 'Task');
                 }
+
+                if (nextTaskCursor !== undefined) {
+                    await nango.saveCheckpoint({ state: encodeCheckpointState(project.id, nextTaskCursor) });
+                }
+            }
+
+            const nextProject = allProjects[i + 1];
+            if (nextProject !== undefined) {
+                await nango.saveCheckpoint({ state: encodeCheckpointState(nextProject.id) });
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Task');
     }
 });
