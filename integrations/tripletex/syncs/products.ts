@@ -25,11 +25,20 @@ const ProviderProductSchema = z.object({
     isInactive: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number().int().nonnegative()
+});
+
+const DEFAULT_CHECKPOINT = {
+    from: 0
+};
+
 const sync = createSync({
     description: 'Sync products.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
@@ -38,6 +47,13 @@ const sync = createSync({
         // Blocker: Tripletex product list endpoint (GET v2/product) does not expose a
         // modified-timestamp or changes-since filter, and no deleted-record endpoint
         // or resumable cursor was confirmed in this pass.
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.parse({
+            ...DEFAULT_CHECKPOINT,
+            ...(checkpoint ?? {})
+        });
+        let from = parsedCheckpoint.from;
+
         await nango.trackDeletesStart('Product');
 
         const proxyConfig: ProxyConfiguration = {
@@ -46,6 +62,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
+                offset_start_value: from,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
@@ -77,8 +94,12 @@ const sync = createSync({
             if (products.length > 0) {
                 await nango.batchSave(products, 'Product');
             }
+
+            from += page.length;
+            await nango.saveCheckpoint({ from });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Product');
     }
 });

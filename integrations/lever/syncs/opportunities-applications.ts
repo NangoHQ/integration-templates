@@ -73,78 +73,140 @@ const LeverOpportunityApplication = z.object({
     archived: ArchivedSchema.nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    opportunityOffset: z.string(),
+    opportunityIndex: z.number(),
+    applicationCursor: z.string()
+});
+
 const sync = createSync({
     description: 'Fetches a list of all applications for a candidate in Lever',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
     scopes: ['applications:read:admin'],
     metadata: z.object({}),
+    checkpoint: CheckpointSchema,
     models: {
         LeverOpportunityApplication: LeverOpportunityApplication
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
+        await nango.trackDeletesStart('LeverOpportunityApplication');
+
+        let nextOpportunityOffset = checkpoint?.opportunityOffset ?? '';
+        let currentOpportunityOffset = nextOpportunityOffset;
+        let applicationCursor = checkpoint?.applicationCursor ?? '';
         let totalRecords = 0;
+        let consumedCheckpoint = false;
 
-        const opportunities = await getAllOpportunities(nango);
+        const opportunitiesConfig: ProxyConfiguration = {
+            // https://hire.lever.co/developer/documentation#list-all-opportunities
+            endpoint: '/v1/opportunities',
+            params: {
+                ...(nextOpportunityOffset && { offset: nextOpportunityOffset }),
+                limit: LIMIT
+            },
+            paginate: {
+                type: 'cursor',
+                cursor_path_in_response: 'next',
+                cursor_name_in_request: 'offset',
+                limit_name_in_request: 'limit',
+                response_path: 'data',
+                limit: LIMIT,
+                on_page: async ({ nextPageParam }) => {
+                    currentOpportunityOffset = nextOpportunityOffset;
+                    nextOpportunityOffset = typeof nextPageParam === 'string' ? nextPageParam : '';
+                }
+            },
+            retries: 3
+        };
 
-        for (const opportunity of opportunities) {
-            const config: ProxyConfiguration = {
-                // https://hire.lever.co/developer/documentation#list-all-applications
-                endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/applications`,
-                paginate: {
-                    type: 'cursor',
-                    cursor_path_in_response: 'next',
-                    cursor_name_in_request: 'offset',
-                    limit_name_in_request: 'limit',
-                    response_path: 'data',
-                    limit: LIMIT
-                },
-                retries: 3
-            };
-
-            for await (const batch of nango.paginate(config)) {
-                const parsed = z.array(ApplicationResponse).parse(batch);
-                const mapped = parsed.map(mapApplication);
-                const batchSize = mapped.length;
-                totalRecords += batchSize;
-                await nango.log(`Saving batch of ${batchSize} application(s) for opportunity ${opportunity.id} (total application(s): ${totalRecords})`);
-                await nango.batchSave(mapped, 'LeverOpportunityApplication');
+        for await (const opportunityBatch of nango.paginate(opportunitiesConfig)) {
+            if (!consumedCheckpoint && checkpoint && checkpoint.opportunityIndex >= opportunityBatch.length) {
+                consumedCheckpoint = true;
+                await nango.saveCheckpoint({
+                    opportunityOffset: nextOpportunityOffset,
+                    opportunityIndex: 0,
+                    applicationCursor: ''
+                });
+                continue;
             }
+
+            const resumeOpportunityIndex = !consumedCheckpoint && checkpoint ? checkpoint.opportunityIndex : -1;
+            const startIndex = resumeOpportunityIndex >= 0 ? resumeOpportunityIndex : 0;
+            consumedCheckpoint = true;
+
+            for (let i = startIndex; i < opportunityBatch.length; i++) {
+                const opportunity = OpportunityResponse.parse(opportunityBatch[i]);
+
+                if (i !== resumeOpportunityIndex) {
+                    applicationCursor = '';
+                }
+
+                const appConfig: ProxyConfiguration = {
+                    // https://hire.lever.co/developer/documentation#list-all-applications
+                    endpoint: `/v1/opportunities/${encodeURIComponent(opportunity.id)}/applications`,
+                    params: {
+                        ...(applicationCursor && { offset: applicationCursor }),
+                        limit: LIMIT
+                    },
+                    paginate: {
+                        type: 'cursor',
+                        cursor_path_in_response: 'next',
+                        cursor_name_in_request: 'offset',
+                        limit_name_in_request: 'limit',
+                        response_path: 'data',
+                        limit: LIMIT,
+                        on_page: async ({ nextPageParam }) => {
+                            applicationCursor = typeof nextPageParam === 'string' ? nextPageParam : '';
+                        }
+                    },
+                    retries: 3
+                };
+
+                for await (const batch of nango.paginate(appConfig)) {
+                    const parsed = z.array(ApplicationResponse).parse(batch);
+                    const mapped = parsed.map(mapApplication);
+                    const batchSize = mapped.length;
+                    totalRecords += batchSize;
+                    await nango.log(`Saving batch of ${batchSize} application(s) for opportunity ${opportunity.id} (total application(s): ${totalRecords})`);
+                    await nango.batchSave(mapped, 'LeverOpportunityApplication');
+
+                    if (applicationCursor !== '') {
+                        await nango.saveCheckpoint({
+                            opportunityOffset: currentOpportunityOffset,
+                            opportunityIndex: i,
+                            applicationCursor
+                        });
+                    }
+                }
+
+                await nango.saveCheckpoint({
+                    opportunityOffset: currentOpportunityOffset,
+                    opportunityIndex: i + 1,
+                    applicationCursor: ''
+                });
+            }
+
+            await nango.saveCheckpoint({
+                opportunityOffset: nextOpportunityOffset,
+                opportunityIndex: 0,
+                applicationCursor: ''
+            });
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('LeverOpportunityApplication');
     }
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function getAllOpportunities(nango: NangoSyncLocal) {
-    const records: Array<z.infer<typeof OpportunityResponse>> = [];
-    const config: ProxyConfiguration = {
-        // https://hire.lever.co/developer/documentation#list-all-opportunities
-        endpoint: '/v1/opportunities',
-        paginate: {
-            type: 'cursor',
-            cursor_path_in_response: 'next',
-            cursor_name_in_request: 'offset',
-            limit_name_in_request: 'limit',
-            response_path: 'data',
-            limit: LIMIT
-        },
-        retries: 3
-    };
-
-    for await (const batch of nango.paginate(config)) {
-        for (const record of batch) {
-            const opportunity = OpportunityResponse.parse(record);
-            records.push(opportunity);
-        }
-    }
-
-    return records;
-}
 
 function mapApplication(application: z.infer<typeof ApplicationResponse>): z.infer<typeof LeverOpportunityApplication> {
     return {

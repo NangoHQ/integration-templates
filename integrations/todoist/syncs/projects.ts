@@ -45,28 +45,47 @@ const ProjectSchema = z.object({
     inbox_project: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : undefined;
+
+        // GET /api/v1/projects does not support any changed-since filter, so this
+        // remains a full refresh. The provider cursor still lets us resume an
+        // interrupted crawl mid-snapshot before delete tracking completes.
+        let cursor = checkpoint?.cursor;
+
         await nango.trackDeletesStart('Project');
 
         const proxyConfig: ProxyConfiguration = {
             // https://developer.todoist.com/api/v1/#get-all-projects
             endpoint: '/api/v1/projects',
+            params: {
+                ...(cursor && { cursor })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'cursor',
                 cursor_path_in_response: 'next_cursor',
                 response_path: 'results',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    cursor = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -102,8 +121,13 @@ const sync = createSync({
             if (records.length > 0) {
                 await nango.batchSave(records, 'Project');
             }
+
+            if (cursor !== undefined) {
+                await nango.saveCheckpoint({ cursor });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Project');
     }
 });

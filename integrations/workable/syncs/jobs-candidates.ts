@@ -38,16 +38,33 @@ const JobCandidateSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    job_page_url: z.string(),
+    job_shortcode: z.string(),
+    candidate_page_url: z.string()
+});
+
 const sync = createSync({
     description: 'Sync candidates scoped to each job.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         JobCandidate: JobCandidateSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { job_page_url: '', job_shortcode: '', candidate_page_url: '' });
+
+        let currentJobPageUrl: string = checkpoint.job_page_url || '/spi/v3/jobs';
+        let resumeJobShortcode: string | undefined = checkpoint.job_shortcode || undefined;
+        const candidatePageUrl: string | undefined = checkpoint.candidate_page_url || undefined;
+        let nextJobPageUrl: string | undefined;
+
+        await nango.trackDeletesStart('JobCandidate');
+
         const jobsProxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/list-jobs
             endpoint: '/spi/v3/jobs',
@@ -56,13 +73,22 @@ const sync = createSync({
                 link_path_in_response_body: 'paging.next',
                 response_path: 'jobs',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextJobPageUrl = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
 
-        const jobs: Array<z.infer<typeof JobSchema>> = [];
+        if (currentJobPageUrl !== '/spi/v3/jobs') {
+            const url = new URL(currentJobPageUrl);
+            jobsProxyConfig.endpoint = url.pathname + url.search;
+            jobsProxyConfig.baseUrlOverride = url.origin;
+        }
+
         for await (const page of nango.paginate(jobsProxyConfig)) {
+            const jobs: Array<z.infer<typeof JobSchema>> = [];
             for (const rawJob of page) {
                 const parsed = JobSchema.safeParse(rawJob);
                 if (!parsed.success) {
@@ -70,62 +96,103 @@ const sync = createSync({
                 }
                 jobs.push(parsed.data);
             }
-        }
 
-        if (jobs.length === 0) {
-            return;
-        }
+            if (resumeJobShortcode && !jobs.some((job) => job.shortcode === resumeJobShortcode)) {
+                await nango.saveCheckpoint({ job_page_url: '', job_shortcode: '', candidate_page_url: '' });
+                throw new Error(
+                    `Checkpointed job ${resumeJobShortcode} was not found on its saved jobs page; the next execution will restart job discovery from the first page`
+                );
+            }
 
-        await nango.trackDeletesStart('JobCandidate');
+            if (jobs.length === 0) {
+                if (nextJobPageUrl) {
+                    await nango.saveCheckpoint({ job_page_url: nextJobPageUrl, job_shortcode: '', candidate_page_url: '' });
+                    currentJobPageUrl = nextJobPageUrl;
+                }
+                continue;
+            }
 
-        for (const job of jobs) {
-            const candidatesProxyConfig: ProxyConfiguration = {
-                // https://workable.readme.io/reference/list-candidates
-                endpoint: '/spi/v3/candidates',
-                params: {
-                    shortcode: job.shortcode
-                },
-                paginate: {
-                    type: 'link',
-                    link_path_in_response_body: 'paging.next',
-                    response_path: 'candidates',
-                    limit_name_in_request: 'limit',
-                    limit: 100
-                },
-                retries: 3
-            };
+            for (const job of jobs) {
+                if (resumeJobShortcode && job.shortcode !== resumeJobShortcode) {
+                    continue;
+                }
 
-            for await (const page of nango.paginate(candidatesProxyConfig)) {
-                const candidates: Array<z.infer<typeof JobCandidateSchema>> = [];
-                for (const rawCandidate of page) {
-                    const parsed = ProviderCandidateSchema.safeParse(rawCandidate);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse candidate: ${parsed.error.message}`);
+                if (resumeJobShortcode && job.shortcode === resumeJobShortcode) {
+                    resumeJobShortcode = undefined;
+                }
+
+                let nextCandidatePageUrl: string | undefined;
+
+                const candidatesProxyConfig: ProxyConfiguration = {
+                    // https://workable.readme.io/reference/list-candidates
+                    endpoint: '/spi/v3/candidates',
+                    params: {
+                        shortcode: job.shortcode
+                    },
+                    paginate: {
+                        type: 'link',
+                        link_path_in_response_body: 'paging.next',
+                        response_path: 'candidates',
+                        limit_name_in_request: 'limit',
+                        limit: 100,
+                        on_page: async ({ nextPageParam }) => {
+                            nextCandidatePageUrl = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                        }
+                    },
+                    retries: 3
+                };
+
+                if (candidatePageUrl && job.shortcode === checkpoint.job_shortcode) {
+                    const url = new URL(candidatePageUrl);
+                    candidatesProxyConfig.endpoint = url.pathname + url.search;
+                    candidatesProxyConfig.baseUrlOverride = url.origin;
+                    delete candidatesProxyConfig.params;
+                }
+
+                for await (const candidatePage of nango.paginate(candidatesProxyConfig)) {
+                    const candidates: Array<z.infer<typeof JobCandidateSchema>> = [];
+                    for (const rawCandidate of candidatePage) {
+                        const parsed = ProviderCandidateSchema.safeParse(rawCandidate);
+                        if (!parsed.success) {
+                            throw new Error(`Failed to parse candidate: ${parsed.error.message}`);
+                        }
+                        const candidate = parsed.data;
+                        candidates.push({
+                            id: `${job.shortcode}-${candidate.id}`,
+                            candidate_id: candidate.id,
+                            job_shortcode: job.shortcode,
+                            ...(candidate.name != null && { name: candidate.name }),
+                            ...(candidate.firstname != null && { firstname: candidate.firstname }),
+                            ...(candidate.lastname != null && { lastname: candidate.lastname }),
+                            ...(candidate.email != null && { email: candidate.email }),
+                            ...(candidate.phone != null && { phone: candidate.phone }),
+                            ...(candidate.headline != null && { headline: candidate.headline }),
+                            ...(candidate.stage != null && { stage: candidate.stage }),
+                            ...(candidate.disqualified != null && { disqualified: candidate.disqualified }),
+                            ...(candidate.created_at != null && { created_at: candidate.created_at }),
+                            ...(candidate.updated_at != null && { updated_at: candidate.updated_at })
+                        });
                     }
-                    const candidate = parsed.data;
-                    candidates.push({
-                        id: `${job.shortcode}-${candidate.id}`,
-                        candidate_id: candidate.id,
+
+                    if (candidates.length > 0) {
+                        await nango.batchSave(candidates, 'JobCandidate');
+                    }
+
+                    await nango.saveCheckpoint({
+                        job_page_url: currentJobPageUrl,
                         job_shortcode: job.shortcode,
-                        ...(candidate.name != null && { name: candidate.name }),
-                        ...(candidate.firstname != null && { firstname: candidate.firstname }),
-                        ...(candidate.lastname != null && { lastname: candidate.lastname }),
-                        ...(candidate.email != null && { email: candidate.email }),
-                        ...(candidate.phone != null && { phone: candidate.phone }),
-                        ...(candidate.headline != null && { headline: candidate.headline }),
-                        ...(candidate.stage != null && { stage: candidate.stage }),
-                        ...(candidate.disqualified != null && { disqualified: candidate.disqualified }),
-                        ...(candidate.created_at != null && { created_at: candidate.created_at }),
-                        ...(candidate.updated_at != null && { updated_at: candidate.updated_at })
+                        candidate_page_url: nextCandidatePageUrl || ''
                     });
                 }
+            }
 
-                if (candidates.length > 0) {
-                    await nango.batchSave(candidates, 'JobCandidate');
-                }
+            if (nextJobPageUrl) {
+                await nango.saveCheckpoint({ job_page_url: nextJobPageUrl, job_shortcode: '', candidate_page_url: '' });
+                currentJobPageUrl = nextJobPageUrl;
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('JobCandidate');
     }
 });

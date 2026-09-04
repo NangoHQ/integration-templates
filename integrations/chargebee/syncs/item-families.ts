@@ -29,17 +29,34 @@ const ProviderListWrapperSchema = z.object({
     item_family: ProviderItemFamilySchema
 });
 
+const CheckpointSchema = z.object({
+    offset: z.string()
+});
+
 const sync = createSync({
     description: 'Sync item families as a full refresh (Product Catalog 2.0). Dataset is small and static.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ItemFamily: ItemFamilySchema
     },
     // https://apidocs.chargebee.com/docs/api/item_families
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        let nextOffset: string | undefined;
+        if (rawCheckpoint) {
+            const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!checkpointResult.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+            }
+            if (checkpointResult.data.offset !== '') {
+                nextOffset = checkpointResult.data.offset;
+            }
+        }
+
         // Blocker: Chargebee item_families endpoint does not support incremental filters
         // (e.g., updated_at[gt], modified_since) and the dataset is small and static.
         await nango.trackDeletesStart('ItemFamily');
@@ -48,13 +65,19 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://apidocs.chargebee.com/docs/api/item_families
             endpoint: '/api/v2/item_families',
+            params: {
+                ...(nextOffset !== undefined && { offset: nextOffset })
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'offset',
                 cursor_path_in_response: 'next_offset',
                 response_path: 'list',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'string' && nextPageParam !== '' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -77,8 +100,15 @@ const sync = createSync({
             if (families.length > 0) {
                 await nango.batchSave(families, 'ItemFamily');
             }
+
+            // Save pagination progress after every page so a resumed run does not
+            // restart from the first page.
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ItemFamily');
     }
 });

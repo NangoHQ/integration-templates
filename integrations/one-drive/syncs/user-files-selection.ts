@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -65,11 +66,21 @@ const DriveItemSchema = z.object({
     '@microsoft.graph.downloadUrl': z.string().optional()
 });
 
+/**
+ * Checkpoint schema for resumable full refresh over picked files.
+ * index is the next file offset in metadata.pickedFiles to resume from.
+ */
+const CheckpointSchema = z.object({
+    index: z.number().int().nonnegative(),
+    selection_fingerprint: z.string()
+});
+
 const sync = createSync({
     description: 'Sync selected OneDrive files from metadata',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
+    checkpoint: CheckpointSchema,
     models: {
         SelectedUserFile: UserFileSchema
     },
@@ -104,29 +115,34 @@ const sync = createSync({
             }
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : undefined;
+        const selectionFingerprint = createHash('sha256')
+            .update(JSON.stringify(metadata.pickedFiles.map(({ driveId, id }) => ({ driveId, id }))))
+            .digest('hex');
+        const checkpoint =
+            parsedCheckpoint?.success &&
+            parsedCheckpoint.data.selection_fingerprint === selectionFingerprint &&
+            parsedCheckpoint.data.index <= metadata.pickedFiles.length
+                ? parsedCheckpoint.data
+                : undefined;
+        const startIndex = checkpoint?.index ?? 0;
+
+        if (rawCheckpoint != null && checkpoint == null) {
+            await nango.log('The selected file set changed or the checkpoint is obsolete; restarting from the first selected file.', { level: 'warn' });
+        }
+
         // Track deletes to remove files that are no longer selected
         await nango.trackDeletesStart('SelectedUserFile');
-        let fetchErrorCount = 0;
 
-        const files: Array<{
-            id: string;
-            driveId: string;
-            driveItemId: string;
-            name?: string;
-            webUrl?: string;
-            downloadUrl?: string;
-            size?: number;
-            createdDateTime?: string;
-            lastModifiedDateTime?: string;
-            mimeType?: string;
-            parentReferenceId?: string;
-            parentReferenceName?: string;
-            parentReferencePath?: string;
-        }> = [];
+        for (let i = startIndex; i < metadata.pickedFiles.length; i++) {
+            const pickedFile = metadata.pickedFiles[i];
+            if (!pickedFile) {
+                continue;
+            }
 
-        for (const pickedFile of metadata.pickedFiles) {
-            // @allowTryCatch Continue processing other files if one fails
-            // Individual file failures should not block the entire sync
+            // @allowTryCatch Log the file identity before aborting so the same file is retried
+            // from the existing checkpoint on the next execution.
             try {
                 // https://learn.microsoft.com/graph/api/driveitem-get
                 const response = await nango.get({
@@ -193,28 +209,20 @@ const sync = createSync({
                     fileRecord.parentReferencePath = item.parentReference.path;
                 }
 
-                files.push(fileRecord);
+                await nango.batchSave([fileRecord], 'SelectedUserFile');
                 await nango.log(`Processed file: ${fileRecord.name ?? fileRecord.id}`);
+                await nango.saveCheckpoint({ index: i + 1, selection_fingerprint: selectionFingerprint });
             } catch (error) {
-                fetchErrorCount++;
                 await nango.log(
-                    `Warning: Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`
+                    `Failed to fetch file ${pickedFile.id} from drive ${pickedFile.driveId}: ${error instanceof Error ? error.message : String(error)}`,
+                    { level: 'error' }
                 );
+                throw error;
             }
         }
 
-        // Guard: if every file fetch failed, abort rather than calling trackDeletesEnd with
-        // no saves, which would mass-delete all previously synced records.
-        if (fetchErrorCount === metadata.pickedFiles.length) {
-            throw new Error('All file fetches failed; aborting sync to prevent accidental data loss from delete tracking');
-        }
-
-        // Save all files
-        if (files.length > 0) {
-            await nango.batchSave(files, 'SelectedUserFile');
-        }
-
-        // End delete tracking - files no longer in selection will be deleted
+        // Clear checkpoint and end delete tracking - files no longer in selection will be deleted
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('SelectedUserFile');
     }
 });
