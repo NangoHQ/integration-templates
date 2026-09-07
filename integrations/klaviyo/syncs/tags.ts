@@ -36,10 +36,15 @@ const KlaviyoTagSchema = z.object({
     relationships: KlaviyoTagRelationshipsSchema.optional().nullable()
 });
 
+const CheckpointSchema = z.object({
+    next_url: z.string()
+});
+
 const sync = createSync({
     description: 'Sync tags.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
+    checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
@@ -47,23 +52,43 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: Klaviyo GET /api/tags does not expose an updated-since or modified-since filter,
         // only page[cursor] pagination via links.next. Full refresh with delete tracking is required.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
+
         await nango.trackDeletesStart('Tag');
+
+        let endpoint = '/api/tags';
+        let params: Record<string, string | number> = {
+            'page[size]': 20
+        };
+        let baseUrlOverride: string | undefined;
+
+        if (checkpoint?.next_url) {
+            const url = new URL(checkpoint.next_url);
+            endpoint = url.pathname + url.search;
+            baseUrlOverride = url.origin;
+            params = {};
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.klaviyo.com/en/reference/get_tags
-            endpoint: '/api/tags',
+            endpoint,
             headers: {
                 revision: '2026-04-15'
             },
-            params: {
-                'page[size]': 20
-            },
+            params,
+            baseUrlOverride,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'links.next',
                 response_path: 'data',
                 limit_name_in_request: 'page[size]',
-                limit: 20
+                limit: 20,
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'string') {
+                        await nango.saveCheckpoint({ next_url: nextPageParam });
+                    }
+                }
             },
             retries: 3
         };
@@ -87,6 +112,7 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Tag');
     }
 });

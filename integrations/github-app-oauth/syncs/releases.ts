@@ -1,4 +1,5 @@
-import { createSync } from 'nango';
+import { createHash } from 'crypto';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ReleaseAssetSchema = z
@@ -86,29 +87,47 @@ const ProviderReleaseSchema = z.object({
     assets: z.array(ProviderReleaseAssetSchema).optional()
 });
 
+const CheckpointSchema = z.object({
+    repo_index: z.number().int().nonnegative(),
+    repositories_fingerprint: z.string(),
+    release_page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync releases for a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Release: ReleaseSchema
     },
 
     exec: async (nango) => {
-        // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
-        const reposConfig = {
-            endpoint: '/installation/repositories',
-            paginate: {
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                response_path: 'repositories'
-            },
-            retries: 3
-        };
+        const checkpointRaw = await nango.getCheckpoint();
+        const parsedCheckpoint = checkpointRaw != null ? CheckpointSchema.safeParse(checkpointRaw) : undefined;
+        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
 
+        // repo_index addresses the complete repository list, so always rebuild that list
+        // from page 1 before applying the saved index.
+        let repoPage = 1;
         const repos: Array<{ name: string; owner: { login: string } }> = [];
-        for await (const batch of nango.paginate(reposConfig)) {
+        while (true) {
+            const repoResponse = await nango.get({
+                // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
+                endpoint: '/installation/repositories',
+                params: {
+                    per_page: 100,
+                    ...(repoPage > 1 ? { page: repoPage } : {})
+                },
+                retries: 3
+            });
+
+            const batch = z.array(z.unknown()).parse(repoResponse.data.repositories);
+            if (batch.length === 0) {
+                break;
+            }
+
             for (const raw of batch) {
                 const parsed = z
                     .object({
@@ -121,6 +140,12 @@ const sync = createSync({
                 }
                 repos.push(parsed.data);
             }
+
+            if (batch.length < 100) {
+                break;
+            }
+
+            repoPage++;
         }
 
         if (repos.length === 0) {
@@ -130,18 +155,46 @@ const sync = createSync({
             return;
         }
 
+        const repositoriesFingerprint = createHash('sha256').update(JSON.stringify(repos)).digest('hex');
+        const resumeCheckpoint =
+            checkpoint?.repositories_fingerprint === repositoriesFingerprint && checkpoint.repo_index <= repos.length ? checkpoint : undefined;
+
+        if (checkpointRaw != null && resumeCheckpoint == null) {
+            await nango.log('The accessible repository set changed or the checkpoint is obsolete; restarting repository enumeration.', { level: 'warn' });
+        }
+
         await nango.trackDeletesStart('Release');
 
-        for (const repo of repos) {
+        const startIndex = resumeCheckpoint?.repo_index ?? 0;
+
+        for (let i = startIndex; i < repos.length; i++) {
+            const repo = repos[i];
+            if (repo == null) {
+                throw new Error(`Repository index ${i} is out of bounds`);
+            }
             const owner = repo.owner.login;
             const repoName = repo.name;
+            let nextReleasePage: number | undefined;
 
-            // https://docs.github.com/rest/releases/releases#list-releases
-            const releasesConfig = {
+            const releasesConfig: ProxyConfiguration = {
+                // https://docs.github.com/rest/releases/releases#list-releases
                 endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/releases`,
+                params: {
+                    per_page: 100,
+                    ...(resumeCheckpoint != null && resumeCheckpoint.release_page > 1 && i === startIndex ? { page: resumeCheckpoint.release_page } : {})
+                },
                 paginate: {
+                    type: 'link',
                     limit_name_in_request: 'per_page',
-                    limit: 100
+                    limit: 100,
+                    on_page: async (paginationState) => {
+                        if (typeof paginationState.nextPageParam === 'string') {
+                            const url = new URL(paginationState.nextPageParam);
+                            nextReleasePage = Number(url.searchParams.get('page'));
+                        } else {
+                            nextReleasePage = undefined;
+                        }
+                    }
                 },
                 retries: 3
             };
@@ -196,9 +249,20 @@ const sync = createSync({
                 if (releases.length > 0) {
                     await nango.batchSave(releases, 'Release');
                 }
+
+                if (nextReleasePage !== undefined) {
+                    await nango.saveCheckpoint({
+                        repo_index: i,
+                        repositories_fingerprint: repositoriesFingerprint,
+                        release_page: nextReleasePage
+                    });
+                }
             }
+
+            await nango.saveCheckpoint({ repo_index: i + 1, repositories_fingerprint: repositoriesFingerprint, release_page: 1 });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Release');
     }
 });

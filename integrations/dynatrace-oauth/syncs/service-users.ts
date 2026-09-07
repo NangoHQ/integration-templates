@@ -1,4 +1,4 @@
-import { createSync } from 'nango';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const ProviderServiceUserSchema = z.object({
@@ -11,11 +11,6 @@ const ProviderServiceUserSchema = z.object({
     userStatus: z.string().nullish(),
     description: z.string().nullish(),
     createdAt: z.string().nullish()
-});
-
-const ProviderResponseSchema = z.object({
-    results: z.array(ProviderServiceUserSchema),
-    totalCount: z.number()
 });
 
 const ConnectionConfigSchema = z.object({
@@ -35,11 +30,16 @@ const ServiceUserSchema = z.object({
     createdAt: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    nextPageKey: z.string()
+});
+
 const sync = createSync({
     description: 'Sync service (API-only) users in this account.',
-    version: '1.1.0',
+    version: '1.2.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         ServiceUser: ServiceUserSchema
     },
@@ -63,36 +63,62 @@ const sync = createSync({
             throw new Error('Missing accountUuid in connection configuration or metadata');
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/list-service-users
-        const response = await nango.get({
-            endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
-            retries: 3
-        });
-
-        const parsedResponse = ProviderResponseSchema.safeParse(response.data);
-        if (!parsedResponse.success) {
-            throw new Error(`Failed to parse service users response: ${parsedResponse.error.message}`);
-        }
+        const checkpoint = await nango.getCheckpoint();
 
         await nango.trackDeletesStart('ServiceUser');
 
-        const serviceUsers = parsedResponse.data.results.map((user) => ({
-            id: user.uid,
-            uid: user.uid,
-            ...(user.login != null && { login: user.login }),
-            ...(user.email != null && { email: user.email }),
-            ...(user.name != null && { name: user.name }),
-            ...(user.surname != null && { surname: user.surname }),
-            ...(user.type != null && { type: user.type }),
-            ...(user.userStatus != null && { userStatus: user.userStatus }),
-            ...(user.description != null && { description: user.description }),
-            ...(user.createdAt != null && { createdAt: user.createdAt })
-        }));
+        let nextPageKey: string | undefined;
 
-        if (serviceUsers.length > 0) {
-            await nango.batchSave(serviceUsers, 'ServiceUser');
+        const params: Record<string, string> = {};
+        if (checkpoint?.nextPageKey) {
+            params['page-key'] = checkpoint.nextPageKey;
         }
 
+        const proxyConfig: ProxyConfiguration = {
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/list-service-users
+            endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
+            params,
+            paginate: {
+                type: 'cursor',
+                cursor_name_in_request: 'page-key',
+                cursor_path_in_response: 'nextPageKey',
+                response_path: 'results',
+                on_page: async ({ nextPageParam }) => {
+                    nextPageKey = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
+            },
+            retries: 3
+        };
+
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            const parsedPage = z.array(ProviderServiceUserSchema).safeParse(pageResults);
+            if (!parsedPage.success) {
+                throw new Error(`Failed to parse service users response: ${parsedPage.error.message}`);
+            }
+
+            const serviceUsers = parsedPage.data.map((user) => ({
+                id: user.uid,
+                uid: user.uid,
+                ...(user.login != null && { login: user.login }),
+                ...(user.email != null && { email: user.email }),
+                ...(user.name != null && { name: user.name }),
+                ...(user.surname != null && { surname: user.surname }),
+                ...(user.type != null && { type: user.type }),
+                ...(user.userStatus != null && { userStatus: user.userStatus }),
+                ...(user.description != null && { description: user.description }),
+                ...(user.createdAt != null && { createdAt: user.createdAt })
+            }));
+
+            if (serviceUsers.length > 0) {
+                await nango.batchSave(serviceUsers, 'ServiceUser');
+            }
+
+            if (nextPageKey !== undefined) {
+                await nango.saveCheckpoint({ nextPageKey });
+            }
+        }
+
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('ServiceUser');
     }
 });

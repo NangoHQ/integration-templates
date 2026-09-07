@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const SegmentSchema = z.object({
@@ -26,11 +26,42 @@ const KlaviyoSegmentItemSchema = z.object({
         .optional()
 });
 
+const KlaviyoListResponseSchema = z.object({
+    data: z.array(KlaviyoSegmentItemSchema),
+    links: z
+        .object({
+            next: z.string().nullable().optional(),
+            self: z.string().nullable().optional(),
+            prev: z.string().nullable().optional()
+        })
+        .optional()
+});
+
+const CheckpointSchema = z.object({
+    state: z.string()
+});
+
+const CheckpointStateSchema = z.object({
+    cursor: z.string().optional()
+});
+
+function extractCursor(nextUrl: string): string | undefined {
+    // @allowTryCatch URL parsing may fail on malformed links from the provider
+    try {
+        const url = new URL(nextUrl);
+        const cursor = url.searchParams.get('page[cursor]');
+        return cursor ?? undefined;
+    } catch {
+        return undefined;
+    }
+}
+
 const sync = createSync({
     description: 'Sync segments.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Segment: SegmentSchema
     },
@@ -38,36 +69,57 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: Klaviyo GET /api/segments does not expose an updated-since filter
         // that supports incremental sync, so full-refresh delete tracking is required.
+        const checkpoint = await nango.getCheckpoint();
+
+        let state: z.infer<typeof CheckpointStateSchema> = {};
+        if (checkpoint?.state) {
+            let parsed: unknown;
+            // @allowTryCatch JSON.parse may throw on corrupted checkpoint state
+            try {
+                parsed = JSON.parse(checkpoint.state);
+            } catch {
+                throw new Error('Failed to parse checkpoint state');
+            }
+            const validated = CheckpointStateSchema.safeParse(parsed);
+            if (!validated.success) {
+                throw new Error(`Invalid checkpoint state: ${validated.error.message}`);
+            }
+            state = validated.data;
+        }
+
+        let cursor = state.cursor;
+
         await nango.trackDeletesStart('Segment');
 
-        const proxyConfig: ProxyConfiguration = {
+        while (true) {
+            const params: Record<string, string | number> = {
+                'page[size]': 10
+            };
+
+            if (cursor) {
+                params['page[cursor]'] = cursor;
+            }
+
             // https://developers.klaviyo.com/en/reference/get_segments
-            endpoint: '/api/segments',
-            headers: {
-                revision: '2026-04-15'
-            },
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'links.next',
-                response_path: 'data',
-                limit_name_in_request: 'page[size]',
-                limit: 10
-            },
-            retries: 3
-        };
+            const response = await nango.get({
+                endpoint: '/api/segments',
+                params,
+                headers: {
+                    revision: '2026-04-15'
+                },
+                retries: 3
+            });
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const segments = page.map((item: unknown) => {
-                const parsed = KlaviyoSegmentItemSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse segment item: ${parsed.error.message}`);
-                }
+            const validated = KlaviyoListResponseSchema.safeParse(response.data);
+            if (!validated.success) {
+                throw new Error(`Invalid response from Klaviyo segments API: ${validated.error.message}`);
+            }
 
-                const segment = parsed.data;
-                const attributes = segment.attributes;
+            const segments = validated.data.data.map((item) => {
+                const attributes = item.attributes;
 
                 return {
-                    id: segment.id,
+                    id: item.id,
                     ...(attributes?.name != null && { name: attributes.name }),
                     ...(attributes?.created != null && { created: attributes.created }),
                     ...(attributes?.updated != null && { updated: attributes.updated }),
@@ -80,9 +132,23 @@ const sync = createSync({
             if (segments.length > 0) {
                 await nango.batchSave(segments, 'Segment');
             }
-        }
 
-        await nango.trackDeletesEnd('Segment');
+            const nextUrl = validated.data.links?.next;
+            if (!nextUrl) {
+                await nango.clearCheckpoint();
+                await nango.trackDeletesEnd('Segment');
+                break;
+            }
+
+            const nextCursor = extractCursor(nextUrl);
+            if (!nextCursor) {
+                throw new Error('Failed to extract cursor from next page URL');
+            }
+
+            cursor = nextCursor;
+            const nextState: z.infer<typeof CheckpointStateSchema> = { cursor };
+            await nango.saveCheckpoint({ state: JSON.stringify(nextState) });
+        }
     }
 });
 

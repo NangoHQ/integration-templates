@@ -21,16 +21,25 @@ const InboundRouteModelSchema = z.object({
     url: z.string()
 });
 
+const CheckpointSchema = z.object({
+    processed_domains: z.string()
+});
+
 const sync = createSync({
     description: 'Sync all inbound mailbox routes across all known inbound domains',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         InboundRoute: InboundRouteModelSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const processedDomainsRaw = checkpoint?.['processed_domains'];
+        const processedDomains = typeof processedDomainsRaw === 'string' ? processedDomainsRaw.split(',') : [];
+
         // https://mailchimp.com/developer/transactional/api/inbound/list-inbound-domains/
         const domainsResponse = await nango.post({
             endpoint: '/1.4/inbound/domains.json',
@@ -44,10 +53,13 @@ const sync = createSync({
         }
 
         const domains = parsedDomains.data;
+        const remainingDomains = domains.filter((d) => !processedDomains.includes(d.domain));
 
-        const recordsByDomain: { domain: string; records: z.infer<typeof InboundRouteModelSchema>[] }[] = [];
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('InboundRoute');
 
-        for (const domain of domains) {
+        for (const domain of remainingDomains) {
             // https://mailchimp.com/developer/transactional/api/inbound/list-routes/
             const routesResponse = await nango.post({
                 endpoint: '/1.4/inbound/routes.json',
@@ -70,17 +82,21 @@ const sync = createSync({
                 url: route.url
             }));
 
-            recordsByDomain.push({ domain: domain.domain, records });
-        }
-
-        await nango.trackDeletesStart('InboundRoute');
-
-        for (const { records } of recordsByDomain) {
             if (records.length > 0) {
                 await nango.batchSave(records, 'InboundRoute');
             }
+
+            // Save progress after every domain so a timeout resumes without re-querying
+            // domains that were already successfully fetched and saved.
+            processedDomains.push(domain.domain);
+            await nango.saveCheckpoint({
+                ['processed_domains']: processedDomains.join(',')
+            });
         }
 
+        // Clear the checkpoint only after the last domain has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('InboundRoute');
     }
 });
