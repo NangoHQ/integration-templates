@@ -1,0 +1,182 @@
+{
+  "input": {
+    "order_id": "21076844566079928125112510",
+    "fulfillment_id": "22076844581359274374992510",
+    "tracking_info_list": [
+      {
+        "tracking_number": "NANGO999999",
+        "tracking_company": "UpdatedCarrier",
+        "tracking_url": "https://updated.example.com/track"
+      }
+    ],
+    "notify_customer": false
+  },
+  "output": {
+    "id": "22076844581359274374992510",
+    "order_id": "21076844566079928125112510",
+    "status": "success",
+    "tracking_info_list": [
+      {
+        "tracking_number": "NANGO999999",
+        "tracking_company": "UpdatedCarrier",
+        "tracking_url": "https://updated.example.com/track"
+      }
+    ],
+    "created_at": "2026-09-02T21:58:26+08:00",
+    "updated_at": "2026-09-02T21:59:18+08:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/fulfillments/21076844566079928125112510/22076844581359274374992510/update_tracking.json": {
+        "response": {
+          "fulfillment": {
+            "tracking_urls": [
+              "https://updated.example.com/track"
+            ],
+            "updated_at": "2026-09-02T21:59:18+08:00",
+            "line_items": [
+              {
+                "properties": null,
+                "requires_shipping": true,
+                "taxable": true,
+                "name": "Long Sleeve Sweatshirt with letter",
+                "tax_lines": [
+                  {
+                    "rate": null,
+                    "title": "VAT",
+                    "name": null,
+                    "price": "0.00",
+                    "price_set": {
+                      "presentment_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      },
+                      "shop_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      }
+                    }
+                  },
+                  {
+                    "name": null,
+                    "price": "0.00",
+                    "price_set": {
+                      "presentment_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      },
+                      "shop_money": {
+                        "currency_code": "USD",
+                        "amount": "0.00"
+                      }
+                    },
+                    "rate": null,
+                    "title": "VAT"
+                  }
+                ],
+                "total_discount_set": {
+                  "presentment_money": {
+                    "currency_code": "USD",
+                    "amount": "0.00"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "product_id": "16076831074834689599241755",
+                "vendor": null,
+                "price": "1.00",
+                "grams": 500,
+                "fulfillable_quantity": 0,
+                "fulfillment_status": "fulfilled",
+                "id": 456856,
+                "variant_title": "black / S",
+                "sku": "240",
+                "total_discount": "0.00",
+                "variant_id": "18076831074843078207351755",
+                "version": "0",
+                "quantity": 1,
+                "title": "Long Sleeve Sweatshirt with letter",
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "1.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "1.00",
+                    "currency_code": "USD"
+                  }
+                }
+              }
+            ],
+            "order_id": "21076844566079928125112510",
+            "name": "#1021.1",
+            "status": "success",
+            "id": "22076844581359274374992510",
+            "tracking_info_list": [
+              {
+                "tracking_url": "https://updated.example.com/track",
+                "tracking_company": "UpdatedCarrier",
+                "tracking_number": "NANGO999999"
+              }
+            ],
+            "tracking_number": "NANGO999999",
+            "tracking_numbers": [
+              "NANGO999999"
+            ],
+            "tracking_url": "https://updated.example.com/track",
+            "created_at": "2026-09-02T21:58:26+08:00",
+            "shipment_status": null,
+            "tracking_company": "UpdatedCarrier"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:59:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1928",
+          "x-ratelimit-reset": "1788357583",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982bb6000000000a7fd3831f6e6a12",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=EpKM1PT3n6hUqMyxqVKRepBqxsn2yx5Ub5BA2EQtNCo-1788357558.210636-1.0.1.1-zJaS8gG4x8FFjvYwWl_qS0JMJYJ0mJCQAmBizsVuw4NC7I4eaDabnggrGTfQrsV0MkeLbpOU7kMDHsu6.PZZ2pPhKxewjbIbeS8uLjwqHdppVPOUrKd0iIUxtrcTRces; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:29:18 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=dd0L1LhWMQrrzz6WcD5JZOJtz55Thyp8%2BEFyqq2DdWnhfZIbOmiIdIilJuTuHw%2FprixUSbNW9oz%2FSphY1zebHIQVCGgOgUXXafNe9ktIIQfM1g3xasQe6HYZES1cMuwVPgyOdVo1YEZ3\"}]}",
+          "cf-ray": "a34d08d2dd10b84b-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "330e3d1dad4b712d5b97dff9a8edebc7e3c4ee51",
+        "request": {
+          "data": {
+            "fulfillment": {
+              "tracking_info_list": [
+                {
+                  "tracking_number": "NANGO999999",
+                  "tracking_company": "UpdatedCarrier",
+                  "tracking_url": "https://updated.example.com/track"
+                }
+              ],
+              "notify_customer": false
+            }
+          }
+        }
+      }
+    }
+  }
+}

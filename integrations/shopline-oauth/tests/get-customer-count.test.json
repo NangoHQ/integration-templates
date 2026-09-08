@@ -1,0 +1,48 @@
+{
+  "input": {},
+  "output": {
+    "count": 5
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/customers/v2/count.json": {
+        "response": {
+          "count": 5
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:50:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "script-src 'unsafe-inline' 'unsafe-eval'; connect-src 'none'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=an1bWGrErJgMRxFu2znfJnvORvPB3iuTiKzEmcRHeCw-1788357054.2351367-1.0.1.1-XXTZHCrDs5gFz5_M8imUYetoVMYVuXiAumD0WKXgV2aCNim3hJlareKoziwNjlr.yhZ9lswBy0nsmxWFu38w6uTG9jMAgun9cERbv4hd6UZXxmcM9c_Cg8Qa7IGz9WFfAP6no3v4_6bkqnV0YpZE_vDB_gRWEE5t_Oy.maKLL8Lo.Xa0OXinwcE0ExV8HKe8; report-to cf-csp-endpoint",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1788357091",
+          "server": "cloudflare",
+          "traceid": "6a9829be0000000031d163f59c203c9a",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=8udTMsE2KcQimNgWY7BBvx_77JWudl8nveaORN2wVFY-1788357054.2351367-1.0.1.1-bCUwqoO24ukGCUgoxQjAyTLidVH55zTZuEYio_gVPfl77UlIXwbGLbBaphepmysrmTtIXmSsMRkegjLsH5Y8kAhto9G.j9RBhlw25ixadGU6LH9C_V3zYbaXI0Nbggtk; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:20:54 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=MYWN8Lr0RuxVglY%2Bd5L8MPAg1sJipOe2CQu6oyQLt4mTwAhAvAdT8sYNlAtnCHk6qYdA4ZSol%2BV3ynbMFRBQMOZBhB%2BULt69%2BcvbZUeq5o1te0F2kIe%2FGZNTTfNm7p0QqDfauaX0Nt1v\"}]}, {\"group\":\"cf-csp-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=an1bWGrErJgMRxFu2znfJnvORvPB3iuTiKzEmcRHeCw-1788357054.2351367-1.0.1.1-XXTZHCrDs5gFz5_M8imUYetoVMYVuXiAumD0WKXgV2aCNim3hJlareKoziwNjlr.yhZ9lswBy0nsmxWFu38w6uTG9jMAgun9cERbv4hd6UZXxmcM9c_Cg8Qa7IGz9WFfAP6no3v4_6bkqnV0YpZE_vDB_gRWEE5t_Oy.maKLL8Lo.Xa0OXinwcE0ExV8HKe8\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "reporting-endpoints": "cf-csp-endpoint=\"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=an1bWGrErJgMRxFu2znfJnvORvPB3iuTiKzEmcRHeCw-1788357054.2351367-1.0.1.1-XXTZHCrDs5gFz5_M8imUYetoVMYVuXiAumD0WKXgV2aCNim3hJlareKoziwNjlr.yhZ9lswBy0nsmxWFu38w6uTG9jMAgun9cERbv4hd6UZXxmcM9c_Cg8Qa7IGz9WFfAP6no3v4_6bkqnV0YpZE_vDB_gRWEE5t_Oy.maKLL8Lo.Xa0OXinwcE0ExV8HKe8\"",
+          "cf-ray": "a34cfc84f9618bee-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"b-Ki38EB6gkUcnU3ceRsc88njPo3U\""
+        },
+        "hash": "bdd5e76407f4c8ba751216162b282a8d3ee2e32b",
+        "request": {}
+      }
+    }
+  }
+}

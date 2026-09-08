@@ -1,0 +1,239 @@
+{
+  "input": {
+    "order_id": "21076844541266089830983097",
+    "fulfillment_id": "22076844543875955194563097"
+  },
+  "output": {
+    "fulfillment": {
+      "id": "22076844543875955194563097",
+      "order_id": "21076844541266089830983097",
+      "status": "cancelled",
+      "name": "#1013.1",
+      "created_at": "2026-09-02T21:54:43+08:00",
+      "updated_at": "2026-09-02T21:57:29+08:00",
+      "tracking_company": "",
+      "tracking_number": "",
+      "tracking_url": "",
+      "tracking_numbers": [],
+      "tracking_urls": [],
+      "tracking_info_list": [
+        {
+          "tracking_company": "",
+          "tracking_number": "",
+          "tracking_url": ""
+        }
+      ],
+      "line_items": [
+        {
+          "id": 457559,
+          "variant_id": "18076831074843245979951755",
+          "product_id": "16076831074833682966241755",
+          "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+          "name": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+          "variant_title": "Yellow / S",
+          "sku": "209001YellowS",
+          "price": "1000000.00",
+          "quantity": 1,
+          "fulfillment_quantity": 1,
+          "fulfillable_quantity": 1,
+          "fulfillment_status": "partial",
+          "requires_shipping": true,
+          "taxable": true,
+          "grams": 0,
+          "total_discount": "0.00",
+          "version": "0",
+          "price_set": {
+            "shop_money": {
+              "amount": "1000000.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "1000000.00",
+              "currency_code": "USD"
+            }
+          },
+          "total_discount_set": {
+            "shop_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            },
+            "presentment_money": {
+              "amount": "0.00",
+              "currency_code": "USD"
+            }
+          },
+          "tax_lines": [
+            {
+              "price": "0.00",
+              "price_set": {
+                "shop_money": {
+                  "amount": "0.00",
+                  "currency_code": "USD"
+                },
+                "presentment_money": {
+                  "amount": "0.00",
+                  "currency_code": "USD"
+                }
+              },
+              "rate": null,
+              "title": "VAT"
+            },
+            {
+              "price": "0.00",
+              "price_set": {
+                "shop_money": {
+                  "amount": "0.00",
+                  "currency_code": "USD"
+                },
+                "presentment_money": {
+                  "amount": "0.00",
+                  "currency_code": "USD"
+                }
+              },
+              "rate": null,
+              "title": "VAT"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/fulfillments/21076844541266089830983097/22076844543875955194563097/cancel.json": {
+        "response": {
+          "fulfillment": {
+            "tracking_number": "",
+            "tracking_urls": [],
+            "id": "22076844543875955194563097",
+            "status": "cancelled",
+            "tracking_numbers": [],
+            "updated_at": "2026-09-02T21:57:29+08:00",
+            "created_at": "2026-09-02T21:54:43+08:00",
+            "line_items": [
+              {
+                "variant_title": "Yellow / S",
+                "total_discount_set": {
+                  "presentment_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "variant_id": "18076831074843245979951755",
+                "version": "0",
+                "grams": 0,
+                "sku": "209001YellowS",
+                "vendor": null,
+                "fulfillment_quantity": 1,
+                "fulfillment_status": "partial",
+                "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+                "name": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+                "properties": null,
+                "quantity": 1,
+                "id": 457559,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "1000000.00",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "1000000.00",
+                    "currency_code": "USD"
+                  }
+                },
+                "fulfillable_quantity": 1,
+                "total_discount": "0.00",
+                "price": "1000000.00",
+                "product_id": "16076831074833682966241755",
+                "tax_lines": [
+                  {
+                    "price": "0.00",
+                    "price_set": {
+                      "presentment_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      },
+                      "shop_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      }
+                    },
+                    "rate": null,
+                    "title": "VAT",
+                    "name": null
+                  },
+                  {
+                    "name": null,
+                    "price": "0.00",
+                    "price_set": {
+                      "presentment_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      },
+                      "shop_money": {
+                        "amount": "0.00",
+                        "currency_code": "USD"
+                      }
+                    },
+                    "rate": null,
+                    "title": "VAT"
+                  }
+                ],
+                "taxable": true,
+                "requires_shipping": true
+              }
+            ],
+            "tracking_info_list": [
+              {
+                "tracking_company": "",
+                "tracking_number": "",
+                "tracking_url": ""
+              }
+            ],
+            "tracking_company": "",
+            "tracking_url": "",
+            "name": "#1013.1",
+            "order_id": "21076844541266089830983097",
+            "shipment_status": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:57:41 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1788357521",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982b55000000005c55d578dc85c12b",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PLxIm%2FwBbja33g%2BsacmPxEE4Stutu2N3uhaysOeOqhEaxditzohlEJBz5OTXp0hMhPU5IjRLLH6ODnZXc4lbNfPwv87dRetifH2rsaKdGAa8iGgHR8epvvvzRor1J2X9lrFKyBujj9eS\"}]}",
+          "cf-ray": "a34d0676dd9b8736-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "30dea5faee189f743c01a336c076470f9e9763ad",
+        "request": {}
+      }
+    }
+  }
+}

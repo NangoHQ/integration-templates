@@ -1,0 +1,169 @@
+{
+  "input": {
+    "uids": [
+      "2791641345",
+      "2791641344"
+    ]
+  },
+  "output": {
+    "user_addresses": [
+      {
+        "uid": "2791641345",
+        "addresses": [
+          {
+            "id": "SL201UA7683107423792406419",
+            "first_name": "Jerry",
+            "last_name": "Frank",
+            "company": "Sunny Ltd.",
+            "address1": "Australia",
+            "address2": "Australia apartment",
+            "city": null,
+            "province": "Australian Capital Territory",
+            "country": "Australia",
+            "zip": "1246768",
+            "phone": "(+852)53657436",
+            "def": true,
+            "address_type": 0,
+            "country_code": "AU",
+            "province_code": "1500001",
+            "province_code_v2": "ACT",
+            "city_code": null,
+            "district": null,
+            "district_code": null,
+            "town": null
+          }
+        ]
+      },
+      {
+        "uid": "2791641344",
+        "addresses": [
+          {
+            "id": "SL201UA7683107418188814967",
+            "first_name": "Nick",
+            "last_name": "Miller",
+            "company": "SINER Ltd.",
+            "address1": "Singapore",
+            "address2": "Singapore apartment",
+            "city": null,
+            "province": null,
+            "country": "Singapore",
+            "zip": "346864",
+            "phone": "(+852)59974863",
+            "def": true,
+            "address_type": 0,
+            "country_code": "SG",
+            "province_code": null,
+            "province_code_v2": null,
+            "city_code": null,
+            "district": null,
+            "district_code": null,
+            "town": null
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/customers/addresses/list.json": {
+        "response": {
+          "user_address": [
+            {
+              "addresses": [
+                {
+                  "id": "SL201UA7683107423792406419",
+                  "phone": "(+852)53657436",
+                  "province_code": "1500001",
+                  "city_code": null,
+                  "province": "Australian Capital Territory",
+                  "last_name": "Frank",
+                  "district": null,
+                  "address_type": 0,
+                  "address2": "Australia apartment",
+                  "zip": "1246768",
+                  "country_code": "AU",
+                  "first_name": "Jerry",
+                  "company": "Sunny Ltd.",
+                  "city": null,
+                  "country": "Australia",
+                  "town": null,
+                  "def": true,
+                  "district_code": null,
+                  "province_code_v2": "ACT",
+                  "address1": "Australia"
+                }
+              ],
+              "uid": "2791641345"
+            },
+            {
+              "addresses": [
+                {
+                  "province": null,
+                  "town": null,
+                  "first_name": "Nick",
+                  "address_type": 0,
+                  "company": "SINER Ltd.",
+                  "address2": "Singapore apartment",
+                  "city": null,
+                  "country": "Singapore",
+                  "province_code_v2": null,
+                  "address1": "Singapore",
+                  "id": "SL201UA7683107418188814967",
+                  "phone": "(+852)59974863",
+                  "province_code": null,
+                  "city_code": null,
+                  "def": true,
+                  "district_code": null,
+                  "district": null,
+                  "zip": "346864",
+                  "country_code": "SG",
+                  "last_name": "Miller"
+                }
+              ],
+              "uid": "2791641344"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:53:03 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1927",
+          "x-ratelimit-reset": "1788357212",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982a3e000000002fcc3fcba071138a",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=hynkf5w0SS0EsDwoyDuhAFyL1RvRK5hIjQas63tIVfI-1788357182.9329505-1.0.1.1-aIXC4yESv4B70Wjt_sDdEvVU6aoyY0uM4dfFNTnVxLKjOe.Z1UWadf1p6hqIkRdRYxbsk.pJV3M4aQZyQ2aGS.BHkkQOe3bcIgVGpPilr.mxc8uq.UkhGig52dGCKRGm; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:23:03 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Q%2BDyeaKj5%2FrIDa1TfWV3iW0MqGU6p3yCz7p%2FL1MbC3rqQo2VTQcXJjcVsKk9ly28YxniG37x3lG8o8VN1YINh2f3Du0HxOsZ5hFyQ6IMKpGPuVR5BSAx%2Bf%2FNg9nOM1mK%2BztB7nsyirbH\"}]}",
+          "cf-ray": "a34cffa958aead66-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "026e6c5e01b3c24a4c013f1e126ee4f0a2fc19ca",
+        "request": {
+          "data": {
+            "uids": [
+              "2791641345",
+              "2791641344"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

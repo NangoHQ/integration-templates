@@ -336,10 +336,13 @@ const sync = createSync({
         }
 
         if (isFullRefresh) {
+            // Close delete-tracking before persisting the checkpoint: if trackDeletesEnd throws,
+            // the checkpoint must stay empty so the next run retries as a full refresh instead of
+            // switching to incremental mode with the delete-tracking window never finalized.
+            await nango.trackDeletesEnd('Product');
             if (latestUpdatedAt != null) {
                 await nango.saveCheckpoint({ updated_after: latestUpdatedAt });
             }
-            await nango.trackDeletesEnd('Product');
         }
     }
 });

@@ -1,0 +1,67 @@
+{
+  "input": {
+    "inventory_item_id": "7683107486941858849",
+    "location_id": "7683107397838218873",
+    "available": 50
+  },
+  "output": {
+    "inventory_item_id": "7683107486941858849",
+    "location_id": "7683107397838218873",
+    "available": 50,
+    "updated_at": "2026-09-02T21:59:12+08:00",
+    "variant_id": "18076831074843245979951755"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/inventory_levels/set.json": {
+        "response": {
+          "inventory_level": {
+            "location_id": "7683107397838218873",
+            "updated_at": "2026-09-02T21:59:12+08:00",
+            "variant_id": "18076831074843245979951755",
+            "available": 50,
+            "inventory_item_id": "7683107486941858849"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:59:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1943",
+          "x-ratelimit-reset": "1788357583",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982bb0000000000de2c2f9dc83679d",
+          "http_status_code": "0",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0%2Bz60Ea%2FtqkXEKKrwXi2bpx3iP7KURGiyGWULPF2SFmoubqndyu6LV73OqupB2NWXQmWE%2B5w3z8zz%2FPArptFVHQ32uAQ4s5k1WaEYJEDBCP0Pfo7Z0q11yF8IpFoMEfRxSx5Fv3Tvx%2BP\"}]}",
+          "cf-ray": "a34d08ae1b5ee6e0-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "dee34a8e4df4f0c9a55fa835ecc1eb35a7839ff5",
+        "request": {
+          "data": {
+            "inventory_item_id": "7683107486941858849",
+            "location_id": "7683107397838218873",
+            "available": 50
+          }
+        }
+      }
+    }
+  }
+}

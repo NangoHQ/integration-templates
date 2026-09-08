@@ -1,0 +1,66 @@
+{
+  "input": {
+    "code": "NANGOTEST10-UPDATED-1788356756"
+  },
+  "output": {
+    "discount_code": {
+      "id": "7684445207870834575",
+      "price_rule_id": "7684445204465059720",
+      "code": "NANGOTEST10-UPDATED-1788356756",
+      "usage_count": 0,
+      "create_at": "2026-09-02T21:46:02+08:00",
+      "update_at": "2026-09-02T21:46:02+08:00"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/sales/discount_codes/lookup.json": {
+        "response": {
+          "discount_code": {
+            "code": "NANGOTEST10-UPDATED-1788356756",
+            "create_at": "2026-09-02T21:46:02+08:00",
+            "id": "7684445207870834575",
+            "price_rule_id": "7684445204465059720",
+            "update_at": "2026-09-02T21:46:02+08:00",
+            "usage_count": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:53:27 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1885",
+          "x-ratelimit-reset": "1788357212",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982a5600000000320852a1f8486e31",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=KFTftmPzXeu_GadpUuH5PomqUPiqgMwnbBJbkg3IKeE-1788357206.973793-1.0.1.1-Jcyg_4oP3lYwCuYvt5WUYiJrLuCiAtfnO..d3QZyDGyurISry0aZ5FY_fMg_xpS_SCBLVwf1gO9toj14RW_G.yHjJoEgl18OBtwbXW39ZGvn_t0y21Hh_lpfZBhvntXE; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:23:27 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=r8un53ERzhU179vkvs1NZxioNQFb%2BzIE7DLVKs4Jvt0XuuapuLiKry7RbKna%2FSCmlERS3xEJGzW6GREqJEKRQ749HA1aq%2Fw64tCKdM%2FvEmpzWxiH2Z4UTzV7u8NImZmJwdf00dw7bT%2B3\"}]}",
+          "cf-ray": "a34d003f9a4158c2-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d2bb0cc26de6b1ec6e27a45ba345a1c2d024c212",
+        "request": {
+          "params": {
+            "code": "NANGOTEST10-UPDATED-1788356756"
+          }
+        }
+      }
+    }
+  }
+}

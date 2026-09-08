@@ -9,10 +9,12 @@ const InputSchema = z
 
 const VariantEntitlementSchema = z
     .object({
-        product_id: z.string().describe('Product ID of the entitled or prerequisite variant.'),
-        variant_id: z.string().describe('Variant ID of the entitled or prerequisite variant.')
+        product_id: z.string().nullable().optional().describe('Product ID of the entitled or prerequisite variant.'),
+        variant_id: z.string().nullable().optional().describe('Variant ID of the entitled or prerequisite variant.')
     })
-    .describe('A product/variant ID pair the provider uses to reference a specific variant.');
+    .describe(
+        'A product/variant ID pair the provider uses to reference a specific variant. Either ID can be null, e.g. when the referenced product or variant was later deleted.'
+    );
 
 const RawPriceRuleSchema = z
     .object({
