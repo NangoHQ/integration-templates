@@ -50,6 +50,7 @@ const action = createAction({
 
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_discounts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/sales/price-rule/discount-codes
@@ -64,9 +65,9 @@ const action = createAction({
         const linkHeader = response.headers?.['link'];
         let nextCursor: string | undefined;
         if (typeof linkHeader === 'string') {
-            const match = linkHeader.match(/page_info=([^&>]+)/);
-            if (match && linkHeader.includes('rel="next"')) {
-                nextCursor = match[1];
+            const nextMatch = linkHeader.match(/<[^>]*[?&]page_info=([^&>]+)[^>]*>;\s*rel="next"/);
+            if (nextMatch && nextMatch[1]) {
+                nextCursor = decodeURIComponent(nextMatch[1]);
             }
         }
 

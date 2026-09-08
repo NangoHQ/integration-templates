@@ -53,7 +53,7 @@ function extractNextPageInfo(headers: Record<string, unknown>): string | undefin
         return undefined;
     }
     const match = linkHeader.match(/<[^>]*[?&]page_info=([^&>]+)[^>]*>;\s*rel="next"/);
-    return match ? match[1] : undefined;
+    return match && match[1] ? decodeURIComponent(match[1]) : undefined;
 }
 
 /**
@@ -66,6 +66,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_price_rules'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/sales/price-rules/price-rules-list

@@ -144,6 +144,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const productId = input.product_id;

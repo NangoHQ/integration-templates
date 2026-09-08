@@ -35,6 +35,7 @@ const getProductImage = createAction({
     version: '1.0.0',
     input: inputSchema,
     output: outputSchema,
+    scopes: ['read_products'],
 
     exec: async (nango, input) => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/product/product-image/get-product-image

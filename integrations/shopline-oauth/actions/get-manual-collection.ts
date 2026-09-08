@@ -22,7 +22,19 @@ const OutputSchema = z
             .nullable()
             .optional()
             .describe('The image associated with the manual collection.'),
-        banner: z.string().nullable().optional().describe('The banner image URL or identifier of the manual collection.'),
+        // The provider does not document a fixed shape for banner and no live sample in the sandbox has a non-null value;
+        // this mirrors the image object shape (used consistently by update-manual-collection.ts) plus passthrough for
+        // any additional fields (e.g. alt), matching the more permissive shape used by the manual-collections sync.
+        banner: z
+            .object({
+                src: z.string().optional().describe('The source URL of the banner image.'),
+                width: z.number().optional().describe('The width of the banner image in pixels.'),
+                height: z.number().optional().describe('The height of the banner image in pixels.')
+            })
+            .passthrough()
+            .nullable()
+            .optional()
+            .describe('The banner image associated with the manual collection.'),
         sort_order: z.string().optional().describe('The sort order for products within the collection.'),
         published_scope: z.string().optional().describe('The scope of publication, e.g. global or web.'),
         published_at: z.string().nullable().optional().describe('The ISO 8601 timestamp when the collection was published.'),
@@ -47,7 +59,15 @@ const ProviderResponseSchema = z.object({
             })
             .nullable()
             .optional(),
-        banner: z.string().nullable().optional(),
+        banner: z
+            .object({
+                src: z.string().optional(),
+                width: z.number().optional(),
+                height: z.number().optional()
+            })
+            .passthrough()
+            .nullable()
+            .optional(),
         sort_order: z.string().optional(),
         published_scope: z.string().optional(),
         published_at: z.string().nullable().optional(),
@@ -67,6 +87,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

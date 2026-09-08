@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        id: z.number().describe('The unique numeric identifier of the customer to delete.')
+        id: z.string().describe('The unique identifier of the customer to delete.')
     })
     .describe('Input for deleting a customer.');
 
@@ -17,6 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('A null response indicating successful deletion.'),
+    scopes: ['write_customers'],
 
     exec: async (nango, input): Promise<null> => {
         const response = await nango.delete({

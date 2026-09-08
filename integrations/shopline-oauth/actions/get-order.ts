@@ -36,7 +36,7 @@ const AddressSchema = z
 
 const CustomerSchema = z
     .object({
-        id: z.string().optional().describe('The unique identifier of the customer.'),
+        id: z.string().nullable().optional().describe('The unique identifier of the customer.'),
         email: z.string().nullable().optional().describe('The email address of the customer.'),
         first_name: z.string().nullable().optional().describe('First name of the customer.'),
         last_name: z.string().nullable().optional().describe('Last name of the customer.'),
@@ -123,7 +123,7 @@ const RiskSchema = z
     .object({
         id: z.string().optional().describe('The unique identifier of the risk assessment.'),
         order_id: z.string().optional().describe('The order ID associated with the risk.'),
-        score: z.number().optional().describe('The risk score.'),
+        score: z.string().optional().describe('The risk score.'),
         recommendation: z.string().optional().describe('The risk recommendation.')
     })
     .passthrough();
@@ -206,6 +206,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OrderSchema,
+    scopes: ['read_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OrderSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/orders/orders/get-order

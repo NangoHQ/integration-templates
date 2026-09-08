@@ -27,7 +27,7 @@ const InputSchema = z
 
 const ProviderCustomerAddressSchema = z
     .object({
-        id: z.string().optional(),
+        id: z.string(),
         customer_id: z.string().optional(),
         address1: z.string().optional().nullable(),
         first_name: z.string().optional().nullable(),
@@ -85,7 +85,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['customers'],
+    scopes: ['write_customers'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/customers/customer-address/create-customer-address
@@ -125,7 +125,7 @@ const action = createAction({
         const providerAddress = parsedResponse.customer_address;
 
         const output: z.infer<typeof OutputSchema> = {
-            id: providerAddress.id ?? '',
+            id: providerAddress.id,
             customer_id: providerAddress.customer_id ?? input.customer_id
         };
 

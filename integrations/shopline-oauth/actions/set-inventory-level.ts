@@ -39,6 +39,8 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['write_inventory'],
+
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.shopline.com/docs/admin-rest-api/v20260601/product/inventory/set-item-inventory

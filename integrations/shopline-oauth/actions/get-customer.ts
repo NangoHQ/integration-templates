@@ -9,18 +9,18 @@ const InputSchema = z
 
 const ProviderCustomerAddressSchema = z.object({
     id: z.string().optional(),
-    customer_id: z.string().optional(),
-    address1: z.string().optional(),
-    address2: z.string().optional(),
-    city: z.string().optional(),
-    province: z.string().optional(),
-    province_code: z.string().optional(),
-    country: z.string().optional(),
-    country_code: z.string().optional(),
-    country_name: z.string().optional(),
-    zip: z.string().optional(),
+    customer_id: z.string().nullable().optional(),
+    address1: z.string().nullable().optional(),
+    address2: z.string().nullable().optional(),
+    city: z.string().nullable().optional(),
+    province: z.string().nullable().optional(),
+    province_code: z.string().nullable().optional(),
+    country: z.string().nullable().optional(),
+    country_code: z.string().nullable().optional(),
+    country_name: z.string().nullable().optional(),
+    zip: z.string().nullable().optional(),
     phone: z.string().nullable().optional(),
-    name: z.string().optional(),
+    name: z.string().nullable().optional(),
     default: z.boolean().optional()
 });
 
@@ -89,18 +89,18 @@ function normalizeAddress(addr: z.infer<typeof ProviderCustomerAddressSchema> | 
     }
     return {
         id: addr.id,
-        customer_id: addr.customer_id,
-        address1: addr.address1,
-        address2: addr.address2,
-        city: addr.city,
-        province: addr.province,
-        province_code: addr.province_code,
-        country: addr.country,
-        country_code: addr.country_code,
-        country_name: addr.country_name,
-        zip: addr.zip,
+        customer_id: addr.customer_id ?? undefined,
+        address1: addr.address1 ?? undefined,
+        address2: addr.address2 ?? undefined,
+        city: addr.city ?? undefined,
+        province: addr.province ?? undefined,
+        province_code: addr.province_code ?? undefined,
+        country: addr.country ?? undefined,
+        country_code: addr.country_code ?? undefined,
+        country_name: addr.country_name ?? undefined,
+        zip: addr.zip ?? undefined,
         phone: addr.phone ?? undefined,
-        name: addr.name,
+        name: addr.name ?? undefined,
         default: addr.default
     };
 }

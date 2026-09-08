@@ -132,6 +132,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['write_customers'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const customerBody: Record<string, unknown> = {};

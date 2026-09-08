@@ -16,7 +16,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty response indicating the order was successfully deleted.'),
-    scopes: ['orders:write'],
+    scopes: ['write_orders'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/orders/order-delete-order

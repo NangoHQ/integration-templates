@@ -24,7 +24,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['products'],
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/products/product/delete-a-product

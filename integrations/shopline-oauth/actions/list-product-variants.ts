@@ -13,10 +13,10 @@ const InputSchema = z
 
 const VariantSchema = z
     .object({
-        id: z.string().describe('The unique identifier for the variant.'),
-        product_id: z.string().describe('The ID of the product this variant belongs to.'),
-        title: z.string().describe('The title of the variant.'),
-        price: z.string().describe('The price of the variant.'),
+        id: z.string().optional().describe('The unique identifier for the variant.'),
+        product_id: z.string().optional().describe('The ID of the product this variant belongs to.'),
+        title: z.string().optional().describe('The title of the variant.'),
+        price: z.string().optional().describe('The price of the variant.'),
         sku: z.string().nullable().optional().describe('The SKU (stock keeping unit) of the variant.'),
         position: z.number().nullable().optional().describe("The position of the variant in the product's variant list."),
         inventory_item_id: z.string().nullable().optional().describe('The ID of the inventory item associated with this variant.'),
@@ -44,7 +44,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

@@ -31,7 +31,7 @@ const ProviderVariantResponseSchema = z.object({
         sku: z.string(),
         compare_at_price: z.string().nullable(),
         barcode: z.string().nullable(),
-        weight: z.number().nullable(),
+        weight: z.union([z.number(), z.string()]).nullable(),
         weight_unit: z.string().nullable(),
         option1: z.string().nullable(),
         option2: z.string().nullable(),
@@ -56,7 +56,10 @@ const OutputSchema = z
         sku: z.string().describe('Variant SKU.'),
         compare_at_price: z.string().optional().describe('Compare-at price if set.'),
         barcode: z.string().optional().describe('Barcode if set.'),
-        weight: z.number().optional().describe('Weight if set.'),
+        weight: z
+            .union([z.number(), z.string()])
+            .optional()
+            .describe('Weight if set. May be a number or a decimal string, depending on the provider response.'),
         weight_unit: z.string().optional().describe('Weight unit if set.'),
         option1: z.string().optional().describe('Option 1 value if set.'),
         option2: z.string().optional().describe('Option 2 value if set.'),

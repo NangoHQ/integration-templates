@@ -49,6 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/orders/orders/orders-query
@@ -89,8 +90,8 @@ const action = createAction({
             const nextLink = linkHeader.split(',').find((part) => part.includes('rel="next"'));
             if (nextLink) {
                 const match = nextLink.match(/page_info=([^&>]+)/);
-                if (match) {
-                    next_cursor = match[1];
+                if (match && match[1]) {
+                    next_cursor = decodeURIComponent(match[1]);
                 }
             }
         }

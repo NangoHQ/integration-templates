@@ -311,6 +311,8 @@ const sync = createSync({
             retries: 3
         };
 
+        let latestUpdatedAt: string | undefined;
+
         for await (const page of nango.paginate(proxyConfig)) {
             const items: unknown[] = page;
             const products = items.map((item) => mapProduct(ProviderProductSchema.parse(item)));
@@ -319,18 +321,24 @@ const sync = createSync({
                 await nango.batchSave(products, 'Product');
 
                 const lastProduct = products.at(-1);
-                if (lastProduct != null) {
-                    const lastUpdatedAt = lastProduct.updated_at;
-                    if (lastUpdatedAt != null) {
-                        await nango.saveCheckpoint({
-                            updated_after: lastUpdatedAt
-                        });
+                if (lastProduct != null && lastProduct.updated_at != null) {
+                    latestUpdatedAt = lastProduct.updated_at;
+
+                    // An incremental run can safely checkpoint mid-pass. A full refresh must not
+                    // record progress until it is confirmed complete below - otherwise a run that
+                    // gets cut off partway would switch to incremental mode having only seen part
+                    // of the catalog, skipping the rest, and would never close delete-tracking.
+                    if (!isFullRefresh) {
+                        await nango.saveCheckpoint({ updated_after: latestUpdatedAt });
                     }
                 }
             }
         }
 
         if (isFullRefresh) {
+            if (latestUpdatedAt != null) {
+                await nango.saveCheckpoint({ updated_after: latestUpdatedAt });
+            }
             await nango.trackDeletesEnd('Product');
         }
     }

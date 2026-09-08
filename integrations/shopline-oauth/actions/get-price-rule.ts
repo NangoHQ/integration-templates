@@ -7,6 +7,13 @@ const InputSchema = z
     })
     .describe('Input for retrieving a single price rule by ID.');
 
+const VariantEntitlementSchema = z
+    .object({
+        product_id: z.string().describe('Product ID of the entitled or prerequisite variant.'),
+        variant_id: z.string().describe('Variant ID of the entitled or prerequisite variant.')
+    })
+    .describe('A product/variant ID pair the provider uses to reference a specific variant.');
+
 const RawPriceRuleSchema = z
     .object({
         id: z.string().describe('Unique identifier of the price rule.'),
@@ -21,7 +28,7 @@ const RawPriceRuleSchema = z
         usage_limit: z.number().nullable().optional().describe('Maximum number of times the price rule can be used in total.'),
         usage_per_customer: z.number().nullable().optional().describe('Maximum number of times the price rule can be used by a single customer.'),
         entitled_product_ids: z.array(z.string()).nullable().optional().describe('Product IDs entitled to the discount.'),
-        entitled_variant_ids: z.array(z.string()).nullable().optional().describe('Variant IDs entitled to the discount.'),
+        entitled_variant_ids: z.array(VariantEntitlementSchema).nullable().optional().describe('Product/variant ID pairs entitled to the discount.'),
         entitled_collection_ids: z.array(z.string()).nullable().optional().describe('Collection IDs entitled to the discount.'),
         prerequisite_subtotal_range: z.record(z.string(), z.unknown()).nullable().optional().describe('Minimum subtotal prerequisite for the price rule.'),
         prerequisite_quantity_range: z.record(z.string(), z.unknown()).nullable().optional().describe('Minimum quantity prerequisite for the price rule.'),
@@ -33,7 +40,11 @@ const RawPriceRuleSchema = z
             .describe('Quantity ratio prerequisite for the price rule.'),
         prerequisite_customer_ids: z.array(z.string()).nullable().optional().describe('Customer IDs that must be met as a prerequisite.'),
         prerequisite_product_ids: z.array(z.string()).nullable().optional().describe('Product IDs that must be in the cart as a prerequisite.'),
-        prerequisite_variant_ids: z.array(z.string()).nullable().optional().describe('Variant IDs that must be in the cart as a prerequisite.'),
+        prerequisite_variant_ids: z
+            .array(VariantEntitlementSchema)
+            .nullable()
+            .optional()
+            .describe('Product/variant ID pairs that must be in the cart as a prerequisite.'),
         prerequisite_collection_ids: z.array(z.string()).nullable().optional().describe('Collection IDs that must be in the cart as a prerequisite.'),
         sales_channels: z
             .array(z.union([z.string(), z.record(z.string(), z.unknown())]))
@@ -59,7 +70,7 @@ const OutputPriceRuleSchema = z
         usage_limit: z.number().optional().describe('Maximum number of times the price rule can be used in total.'),
         usage_per_customer: z.number().optional().describe('Maximum number of times the price rule can be used by a single customer.'),
         entitled_product_ids: z.array(z.string()).optional().describe('Product IDs entitled to the discount.'),
-        entitled_variant_ids: z.array(z.string()).optional().describe('Variant IDs entitled to the discount.'),
+        entitled_variant_ids: z.array(VariantEntitlementSchema).optional().describe('Product/variant ID pairs entitled to the discount.'),
         entitled_collection_ids: z.array(z.string()).optional().describe('Collection IDs entitled to the discount.'),
         prerequisite_subtotal_range: z.record(z.string(), z.unknown()).optional().describe('Minimum subtotal prerequisite for the price rule.'),
         prerequisite_quantity_range: z.record(z.string(), z.unknown()).optional().describe('Minimum quantity prerequisite for the price rule.'),
@@ -67,7 +78,7 @@ const OutputPriceRuleSchema = z
         prerequisite_to_entitlement_quantity_ratio: z.record(z.string(), z.unknown()).optional().describe('Quantity ratio prerequisite for the price rule.'),
         prerequisite_customer_ids: z.array(z.string()).optional().describe('Customer IDs that must be met as a prerequisite.'),
         prerequisite_product_ids: z.array(z.string()).optional().describe('Product IDs that must be in the cart as a prerequisite.'),
-        prerequisite_variant_ids: z.array(z.string()).optional().describe('Variant IDs that must be in the cart as a prerequisite.'),
+        prerequisite_variant_ids: z.array(VariantEntitlementSchema).optional().describe('Product/variant ID pairs that must be in the cart as a prerequisite.'),
         prerequisite_collection_ids: z.array(z.string()).optional().describe('Collection IDs that must be in the cart as a prerequisite.'),
         sales_channels: z
             .array(z.union([z.string(), z.record(z.string(), z.unknown())]))
@@ -87,13 +98,14 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single price rule from the provider by ID without any mutation.
- * @pitfalls: The provider uses non-standard timestamp field names create_at and update_at instead of the usual created_at and updated_at.
+ * @pitfalls: The provider uses non-standard timestamp field names create_at and update_at instead of the usual created_at and updated_at. entitled_variant_ids and prerequisite_variant_ids are returned as arrays of { product_id, variant_id } object pairs, not plain variant ID strings.
  */
 const action = createAction({
     description: 'Retrieve a single price rule by ID.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_price_rules'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

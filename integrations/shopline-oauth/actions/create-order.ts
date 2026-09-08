@@ -165,15 +165,18 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['orders'],
+    scopes: ['write_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
             order: {
                 line_items: input.line_items,
                 price_info: input.price_info,
-                ...(input.customer_id !== undefined && { customer: { id: input.customer_id } }),
+                // customer_id takes precedence over an inline customer object: silently letting
+                // customer overwrite customer_id here would risk permanently creating a new
+                // Customer record when the caller only meant to reference an existing one.
                 ...(input.customer !== undefined && { customer: input.customer }),
+                ...(input.customer_id !== undefined && { customer: { id: input.customer_id } }),
                 ...(input.shipping_address !== undefined && { shipping_address: input.shipping_address }),
                 ...(input.billing_address !== undefined && { billing_address: input.billing_address }),
                 ...(input.currency !== undefined && { currency: input.currency }),

@@ -15,6 +15,7 @@ const action = createAction({
         })
         .describe('Input for removing a product from a collection by collect ID.'),
     output: z.null().describe('Empty response indicating the collect was removed.'),
+    scopes: ['write_products'],
 
     exec: async (nango, input) => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/product/collect/delete-collect

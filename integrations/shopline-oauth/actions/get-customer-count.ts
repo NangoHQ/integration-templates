@@ -19,6 +19,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_customers'],
 
     exec: async (nango, _input: z.infer<typeof InputSchema>): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

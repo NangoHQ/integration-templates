@@ -90,7 +90,7 @@ const sync = createSync({
 
         let updatedAfter = parsedCheckpoint.data.updated_after || undefined;
         const isFullRefresh = updatedAfter === undefined;
-        let pageInfo = isFullRefresh ? undefined : (parsedCheckpoint.data.page_info || undefined);
+        let pageInfo = isFullRefresh ? undefined : parsedCheckpoint.data.page_info || undefined;
 
         if (isFullRefresh) {
             await nango.trackDeletesStart('Customer');

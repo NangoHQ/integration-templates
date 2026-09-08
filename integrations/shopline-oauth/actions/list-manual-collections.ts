@@ -44,6 +44,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -74,7 +75,7 @@ const action = createAction({
         if (typeof linkHeader === 'string') {
             const nextMatch = linkHeader.match(/<[^>]*[?&]page_info=([^&>]*)[^>]*>;\s*rel="next"/);
             if (nextMatch && nextMatch[1]) {
-                next_page_info = nextMatch[1];
+                next_page_info = decodeURIComponent(nextMatch[1]);
             }
         }
 

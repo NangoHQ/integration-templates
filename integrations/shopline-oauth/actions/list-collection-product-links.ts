@@ -107,8 +107,8 @@ const action = createAction({
             const nextLink = linkHeader.split(',').find((part) => part.includes('rel="next"'));
             if (nextLink) {
                 const pageInfoMatch = nextLink.match(/page_info=([^&>]+)/);
-                if (pageInfoMatch) {
-                    next_cursor = pageInfoMatch[1];
+                if (pageInfoMatch && pageInfoMatch[1]) {
+                    next_cursor = decodeURIComponent(pageInfoMatch[1]);
                 }
             }
         }

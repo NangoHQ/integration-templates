@@ -51,11 +51,11 @@ const action = createAction({
 
         const providerResponse = z
             .object({
-                risks: z.array(z.unknown())
+                risks: z.array(z.unknown()).nullable()
             })
             .parse(response.data);
 
-        const risks = providerResponse.risks.map((item: unknown) => RiskSchema.parse(item));
+        const risks = (providerResponse.risks ?? []).map((item: unknown) => RiskSchema.parse(item));
 
         return {
             risks

@@ -109,7 +109,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['orders:write'],
+    scopes: ['write_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const orderBody: Record<string, unknown> = {};

@@ -32,6 +32,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_inventory'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const inventoryItemIds = input.inventory_item_ids.join(',');

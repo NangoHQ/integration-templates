@@ -95,31 +95,12 @@ const sync = createSync({
                 if (foundIndex !== -1) {
                     resumeIndex = foundIndex;
                 } else {
-                    const linkHeader = response.headers['link'];
-                    let nextPageInfo = '';
-                    if (typeof linkHeader === 'string') {
-                        const match = linkHeader.match(/<([^>]+)>;\s*rel="next"/);
-                        if (match && match[1]) {
-                            // @allowTryCatch Malformed Link header URLs should not crash the sync; default to no next page.
-                            try {
-                                nextPageInfo = new URL(match[1]).searchParams.get('page_info') || '';
-                            } catch {
-                                nextPageInfo = '';
-                            }
-                        }
-                    }
-                    if (nextPageInfo === '') {
-                        break;
-                    }
-                    outerPageInfo = nextPageInfo;
+                    // The saved price rule no longer appears on this page (deleted, or the
+                    // page contents shifted). Reprocess the current page from its first rule
+                    // instead of jumping to the next page, so no rule is silently skipped.
+                    resumeIndex = 0;
                     currentPriceRuleId = '';
                     innerPageInfo = '';
-                    await nango.saveCheckpoint({
-                        outer_page_info: outerPageInfo,
-                        current_price_rule_id: '',
-                        inner_page_info: ''
-                    });
-                    continue;
                 }
             }
 
