@@ -1,0 +1,116 @@
+{
+  "input": {
+    "price_rule_id": "7684457307951334460",
+    "title": "Nango Test Update Price Rule Updated",
+    "value": "15.0",
+    "value_type": "percentage",
+    "starts_at": "2026-01-01T00:00:00Z"
+  },
+  "output": {
+    "id": "7684457307951334460",
+    "title": "Nango Test Update Price Rule Updated",
+    "value": "15",
+    "value_type": "percentage",
+    "starts_at": "2026-01-01T08:00:00+08:00",
+    "target_type": "line_item",
+    "target_selection": "all",
+    "entitled_product_ids": [],
+    "entitled_collection_ids": [],
+    "entitled_country_ids": [],
+    "joint_discount": false,
+    "overlay_discount_code": false,
+    "allocation_method": "across"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/sales/price_rules/7684457307951334460.json": {
+        "response": {
+          "price_rule": {
+            "joint_discount": false,
+            "entitled_product_ids": [],
+            "prerequisite_customer_ids": [],
+            "prerequisite_variant_ids": [],
+            "value": "15",
+            "value_type": "percentage",
+            "joint_discount_product": false,
+            "sales_channels": [
+              "all"
+            ],
+            "allocation_method": "across",
+            "entitled_country_ids": [],
+            "starts_at": "2026-01-01T08:00:00+08:00",
+            "target_user_feature_values": [],
+            "joint_discount_shipping": false,
+            "prerequisite_to_entitlement_purchase": null,
+            "title": "Nango Test Update Price Rule Updated",
+            "target_selection": "all",
+            "prerequisite_saved_search_ids": [],
+            "prerequisite_to_entitlement_quantity_ratio": null,
+            "recurring_cycle_limit": 1,
+            "usage_limit": null,
+            "overlay_discount_code_order": false,
+            "prerequisite_shipping_price_range": null,
+            "entitled_variant_ids": [],
+            "overlay_discount_code": false,
+            "usage_per_customer": null,
+            "allocation_limit": null,
+            "id": "7684457307951334460",
+            "prerequisite_collection_ids": [],
+            "target_type": "line_item",
+            "entitled_collection_ids": [],
+            "prerequisite_subtotal_range": null,
+            "create_at": "2026-09-02T21:57:37+08:00",
+            "joint_discount_order": false,
+            "update_at": "2026-09-02T21:58:39+08:00",
+            "prerequisite_product_ids": [],
+            "overlay_discount_code_product": false,
+            "overlay_discount_code_shipping": false,
+            "prerequisite_quantity_range": null,
+            "ends_at": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:58:39 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1892",
+          "x-ratelimit-reset": "1788357521",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982b8f0000000026717f3695cbda9e",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=uHbygeckpftqP.C_cmR0ABop8kj57GiKEqElv7LgyPo-1788357519.2093627-1.0.1.1-rxiypJrT3cghv8CbufCHT8Mvf2QuXSJwH58YD7GOOYDuXDqd6K6zUYdQkrvwWPW.F9erPEb.Qvw53m5VC2VOKwsX7C.DiAYu7nhiCtnHSgP9ZpWSWBojzv7hfG8KP3dB; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:28:39 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=0JEEQ0MCW1VAJgxAfLN1V9RiNLR3XsbBBG7Nd7Zbv1nWZClmeGXzD5%2FVoZrE3KUWeBRwwH4A5QwtLQi9fUP4TPvaVeEAdZ8w3%2FYbfKUTIMUpB5jcD1q3IX%2FI4HqDAO04K2SaNntdrFiV\"}]}",
+          "cf-ray": "a34d07df08efe6e0-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "35e82937d84471c667cc77faa40b711b6653d6dd",
+        "request": {
+          "data": {
+            "price_rule": {
+              "title": "Nango Test Update Price Rule Updated",
+              "value": "15.0",
+              "value_type": "percentage",
+              "starts_at": "2026-01-01T00:00:00Z"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "input": {
+    "collection_id": "12276844464740342190251755",
+    "product_ids": [
+      "16076831074833682966241755"
+    ]
+  },
+  "output": {},
+  "nango": {},
+  "api": {
+    "delete": {
+      "/admin/openapi/v20260601/products/custom_collections/12276844464740342190251755/products.json": {
+        "response": {},
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:55:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1857",
+          "x-ratelimit-reset": "1788357333",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982abf00000000797eb5a73f48aa90",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=R0aidTKE5zcCiszi6YCz9KdfVaUTPDsBL8S7KEy7mYo-1788357311.8839915-1.0.1.1-QuM1GoyvBkBEv5vmqoLVFHvJzt9z3hOeEeFR2D94N.pmic28q2pa9nCPNv9Bn7tq3vSZ6zZx0bfB6EX9qT_J2KhFWJQeMfdd0rl0qlQ7wqQoIbLQzFTK95JgTgJh9i74; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:25:12 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rCPY0pdtsDlE724hF6t76DscPFu5vGyOeQHT2sVaAD1IGdKUHFGNH%2F2LW0iNTRj%2F%2FNUq7AtHd0uaQhhstttBlfhaeA4VGU9i9bKvdTgIBMRvRdrghsHN6j2ZQ4oCxtSDqfiemK0fo7n4\"}]}",
+          "cf-ray": "a34d02cf4d91c895-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+        },
+        "hash": "ea5d922bc8342ca63e65f91a9a454be019c3ec78",
+        "request": {
+          "data": {
+            "product_ids": [
+              "16076831074833682966241755"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

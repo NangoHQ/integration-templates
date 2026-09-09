@@ -1,0 +1,405 @@
+{
+  "nango": {
+    "batchSave": {
+      "ManualCollection": [
+        {
+          "id": "12276831074721443391081755",
+          "handle": "23spring-new",
+          "title": "23spring-new",
+          "body_html": "2023 春季新品分类",
+          "updated_at": "2026-09-02T22:00:00+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/23spring-new.webp?w=1146&h=580"
+          }
+        },
+        {
+          "id": "12276831074722282287151755",
+          "handle": "accessories",
+          "title": "accessories",
+          "body_html": "配件",
+          "updated_at": "2026-09-01T23:36:40+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/-1.png?w=1146&h=580"
+          }
+        },
+        {
+          "id": "12276831074722785603651755",
+          "handle": "shoes-bags",
+          "title": "shoes-bags",
+          "body_html": "鞋包",
+          "updated_at": "2026-09-01T23:38:00+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/shoes-bags.webp?w=1024&h=1024"
+          }
+        },
+        {
+          "id": "12276831074723624464471755",
+          "handle": "23summer-new",
+          "title": "23summer new",
+          "body_html": "",
+          "updated_at": "2026-09-01T23:38:00+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/23summer-new.webp?w=1584&h=1400"
+          }
+        },
+        {
+          "id": "12276831074724463325291755",
+          "handle": "women",
+          "title": "women",
+          "body_html": "女装",
+          "updated_at": "2026-09-01T23:36:49+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/women.webp?w=1146&h=580"
+          }
+        },
+        {
+          "id": "12276831074728322049681755",
+          "handle": "men",
+          "title": "men",
+          "body_html": "男装",
+          "updated_at": "2026-09-01T23:36:40+08:00",
+          "created_at": "2026-09-01T23:36:40+08:00",
+          "published_at": "2026-09-01T23:36:40+08:00",
+          "published_scope": "web",
+          "sort_order": "best-selling",
+          "image": {
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/men.webp?w=1146&h=580"
+          }
+        },
+        {
+          "id": "12276844453153493544311755",
+          "handle": "nango-test-collection",
+          "title": "Nango Test Collection",
+          "updated_at": "2026-09-02T21:45:42+08:00",
+          "created_at": "2026-09-02T21:45:42+08:00",
+          "published_at": "2026-09-02T21:45:42+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        },
+        {
+          "id": "12276844455038078243041755",
+          "handle": "nango-test-collection-1",
+          "title": "Nango Test Collection",
+          "updated_at": "2026-09-02T21:45:53+08:00",
+          "created_at": "2026-09-02T21:45:53+08:00",
+          "published_at": "2026-09-02T21:45:53+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        },
+        {
+          "id": "12276844464740342190251755",
+          "handle": "nango-disposable-delete-test",
+          "title": "Nango Disposable Delete Test Updated",
+          "body_html": "Temporary collection for delete action validation",
+          "updated_at": "2026-09-02T21:57:00+08:00",
+          "created_at": "2026-09-02T21:46:51+08:00",
+          "published_at": "2026-09-02T21:46:51+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        },
+        {
+          "id": "12276844465855355996481755",
+          "handle": "nango-test-collection-2",
+          "title": "Nango Test Collection",
+          "updated_at": "2026-09-02T21:53:00+08:00",
+          "created_at": "2026-09-02T21:46:58+08:00",
+          "published_at": "2026-09-02T21:46:58+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        },
+        {
+          "id": "12276844549171010655961755",
+          "handle": "nango-test-manual-collection-2026-09-02",
+          "title": "Nango Test Manual Collection",
+          "updated_at": "2026-09-02T21:55:14+08:00",
+          "created_at": "2026-09-02T21:55:14+08:00",
+          "published_at": "2026-09-02T21:55:14+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        },
+        {
+          "id": "12276844553098053605741755",
+          "handle": "nango-test-manual-collection-2026-09-02-1",
+          "title": "Nango Test Manual Collection",
+          "updated_at": "2026-09-02T21:55:38+08:00",
+          "created_at": "2026-09-02T21:55:38+08:00",
+          "published_at": "2026-09-02T21:55:38+08:00",
+          "published_scope": "web",
+          "sort_order": "manual",
+          "template_path": "templates/collection.json"
+        }
+      ]
+    },
+    "batchDelete": {
+      "ManualCollection": []
+    }
+  },
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/products/custom_collections.json": {
+        "response": {
+          "custom_collections": [
+            {
+              "updated_at": "2026-09-02T22:00:00+08:00",
+              "banner": null,
+              "id": "12276831074721443391081755",
+              "published_scope": "web",
+              "title": "23spring-new",
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "handle": "23spring-new",
+              "path": "/collections/23spring-new",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "template_path": null,
+              "image": {
+                "alt": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/23spring-new.webp?w=1146&h=580"
+              },
+              "body_html": "2023 春季新品分类",
+              "sort_order": "best-selling"
+            },
+            {
+              "updated_at": "2026-09-01T23:36:40+08:00",
+              "published_scope": "web",
+              "title": "accessories",
+              "body_html": "配件",
+              "handle": "accessories",
+              "path": "/collections/accessories",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "sort_order": "best-selling",
+              "banner": null,
+              "id": "12276831074722282287151755",
+              "image": {
+                "alt": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/-1.png?w=1146&h=580"
+              },
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "template_path": null
+            },
+            {
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "path": "/collections/shoes-bags",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "sort_order": "best-selling",
+              "updated_at": "2026-09-01T23:38:00+08:00",
+              "id": "12276831074722785603651755",
+              "published_scope": "web",
+              "body_html": "鞋包",
+              "handle": "shoes-bags",
+              "template_path": null,
+              "banner": null,
+              "image": {
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/shoes-bags.webp?w=1024&h=1024",
+                "alt": null
+              },
+              "title": "shoes-bags"
+            },
+            {
+              "body_html": "",
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "handle": "23summer-new",
+              "path": "/collections/23summer-new",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "sort_order": "best-selling",
+              "template_path": null,
+              "id": "12276831074723624464471755",
+              "updated_at": "2026-09-01T23:38:00+08:00",
+              "banner": null,
+              "image": {
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/23summer-new.webp?w=1584&h=1400",
+                "alt": null
+              },
+              "published_scope": "web",
+              "title": "23summer new"
+            },
+            {
+              "title": "women",
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "banner": null,
+              "id": "12276831074724463325291755",
+              "body_html": "女装",
+              "handle": "women",
+              "path": "/collections/women",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "sort_order": "best-selling",
+              "template_path": null,
+              "updated_at": "2026-09-01T23:36:49+08:00",
+              "image": {
+                "alt": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/women.webp?w=1146&h=580"
+              },
+              "published_scope": "web"
+            },
+            {
+              "created_at": "2026-09-01T23:36:40+08:00",
+              "handle": "men",
+              "path": "/collections/men",
+              "banner": null,
+              "id": "12276831074728322049681755",
+              "published_scope": "web",
+              "body_html": "男装",
+              "published_at": "2026-09-01T23:36:40+08:00",
+              "sort_order": "best-selling",
+              "template_path": null,
+              "updated_at": "2026-09-01T23:36:40+08:00",
+              "image": {
+                "alt": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/men.webp?w=1146&h=580"
+              },
+              "title": "men"
+            },
+            {
+              "banner": null,
+              "id": "12276844453153493544311755",
+              "image": null,
+              "published_scope": "web",
+              "title": "Nango Test Collection",
+              "body_html": null,
+              "handle": "nango-test-collection",
+              "path": "/collections/nango-test-collection",
+              "sort_order": "manual",
+              "template_path": "templates/collection.json",
+              "updated_at": "2026-09-02T21:45:42+08:00",
+              "created_at": "2026-09-02T21:45:42+08:00",
+              "published_at": "2026-09-02T21:45:42+08:00"
+            },
+            {
+              "path": "/collections/nango-test-collection-1",
+              "published_at": "2026-09-02T21:45:53+08:00",
+              "sort_order": "manual",
+              "template_path": "templates/collection.json",
+              "updated_at": "2026-09-02T21:45:53+08:00",
+              "banner": null,
+              "image": null,
+              "id": "12276844455038078243041755",
+              "published_scope": "web",
+              "title": "Nango Test Collection",
+              "body_html": null,
+              "created_at": "2026-09-02T21:45:53+08:00",
+              "handle": "nango-test-collection-1"
+            },
+            {
+              "published_scope": "web",
+              "title": "Nango Disposable Delete Test Updated",
+              "body_html": "Temporary collection for delete action validation",
+              "created_at": "2026-09-02T21:46:51+08:00",
+              "sort_order": "manual",
+              "template_path": "templates/collection.json",
+              "updated_at": "2026-09-02T21:57:00+08:00",
+              "image": null,
+              "handle": "nango-disposable-delete-test",
+              "path": "/collections/nango-disposable-delete-test",
+              "published_at": "2026-09-02T21:46:51+08:00",
+              "banner": null,
+              "id": "12276844464740342190251755"
+            },
+            {
+              "body_html": null,
+              "created_at": "2026-09-02T21:46:58+08:00",
+              "handle": "nango-test-collection-2",
+              "path": "/collections/nango-test-collection-2",
+              "sort_order": "manual",
+              "updated_at": "2026-09-02T21:53:00+08:00",
+              "image": null,
+              "published_scope": "web",
+              "published_at": "2026-09-02T21:46:58+08:00",
+              "template_path": "templates/collection.json",
+              "banner": null,
+              "id": "12276844465855355996481755",
+              "title": "Nango Test Collection"
+            },
+            {
+              "handle": "nango-test-manual-collection-2026-09-02",
+              "path": "/collections/nango-test-manual-collection-2026-09-02",
+              "published_at": "2026-09-02T21:55:14+08:00",
+              "sort_order": "manual",
+              "id": "12276844549171010655961755",
+              "title": "Nango Test Manual Collection",
+              "body_html": null,
+              "created_at": "2026-09-02T21:55:14+08:00",
+              "template_path": "templates/collection.json",
+              "updated_at": "2026-09-02T21:55:14+08:00",
+              "banner": null,
+              "image": null,
+              "published_scope": "web"
+            },
+            {
+              "published_scope": "web",
+              "title": "Nango Test Manual Collection",
+              "created_at": "2026-09-02T21:55:38+08:00",
+              "template_path": "templates/collection.json",
+              "updated_at": "2026-09-02T21:55:38+08:00",
+              "banner": null,
+              "id": "12276844553098053605741755",
+              "image": null,
+              "body_html": null,
+              "handle": "nango-test-manual-collection-2026-09-02-1",
+              "path": "/collections/nango-test-manual-collection-2026-09-02-1",
+              "published_at": "2026-09-02T21:55:38+08:00",
+              "sort_order": "manual"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:09:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1970",
+          "x-ratelimit-reset": "1788358167",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982e12000000007e2c902c9c3f1b1e",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rgNwALnyCV3cin7dC0ZJKF%2Bf0y%2FmKJ%2BSnOLJ%2B%2FSowsP8Y01UQ8%2BapbPEj1UreYBZWp5Y8qHyeTqKGV%2F1jfDvVA0IFpWJD0BR3KmbhF6bQkJ8oPyCA84xIEMxyuG8YYvW9Z%2BLiCapwsJE\"}]}",
+          "cf-ray": "a34d1795dd33fefd-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "4cea412fe9f0ac52c90f1ff4a297d408b60d8757",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "input": {
+    "variant_id": "18076831074843078207351755",
+    "price": "24.99"
+  },
+  "output": {
+    "id": "18076831074843078207351755",
+    "product_id": "16076831074834689599241755",
+    "price": "24.99",
+    "compare_at_price": "56.00",
+    "sku": "240",
+    "barcode": "273847",
+    "weight": "500.00",
+    "weight_unit": "g",
+    "inventory_policy": "deny",
+    "inventory_tracker": true,
+    "inventory_item_id": "7683107486925081623",
+    "required_shipping": true,
+    "taxable": true,
+    "option1": "black",
+    "option2": "S"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/products/variants/18076831074843078207351755.json": {
+        "response": {
+          "variant": {
+            "option2": "S",
+            "created_at": "2026-09-01T23:36:41+08:00",
+            "inventory_tracker": true,
+            "product_id": "16076831074834689599241755",
+            "image": null,
+            "inventory_item_id": "7683107486925081623",
+            "inventory_policy": "deny",
+            "price": "24.99",
+            "weight": "500.00",
+            "option5": null,
+            "updated_at": "2026-09-02T22:00:22+08:00",
+            "barcode": "273847",
+            "compare_at_price": "56.00",
+            "option4": null,
+            "option1": "black",
+            "id": "18076831074843078207351755",
+            "option3": null,
+            "taxable": true,
+            "required_shipping": true,
+            "inventory_quantity": null,
+            "sku": "240",
+            "weight_unit": "g"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:02:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1950",
+          "x-ratelimit-reset": "1788357768",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982c83000000004980718fd4f0c8e7",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=3L_H8WX5I0W8_coovTnFMQ7D4KxBGOcSlhMGYtieJ5w-1788357764.0078535-1.0.1.1-olimEkEMX7dVcIzISYIXWwA3Uo0wd0JGO_nJ4t04rnwU1ixzywLpmjXP.OAiKFjJkJU37mIbysueefc8lDzXOab88SV.YXOazU9aWBXISRXRTwICqwY12tK40h2V3NbD; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:32:44 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=xsaXZZwkaYJEmGO2AV9Ma30kCQTeNy1MmIThrjn2gRAUfcr4VA%2FGfU2OiQ4awWLi1pLIf4wv7fAFlY9ARUsS0M%2F4O0Mh7miJDb8ELuozQs9qBdRyztYE2ds7iqTEi6TCZDgBjfjy6870\"}]}",
+          "cf-ray": "a34d0dd909baf820-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "bfe7f6cc75555f2cfc5132cd37050c321f4a6b9e",
+        "request": {
+          "data": {
+            "variant": {
+              "price": "24.99"
+            }
+          }
+        }
+      }
+    }
+  }
+}

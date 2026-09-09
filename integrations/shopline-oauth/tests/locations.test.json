@@ -1,0 +1,164 @@
+{
+  "nango": {
+    "batchSave": {
+      "Location": [
+        {
+          "id": "7683107397838218873",
+          "name": "Default",
+          "active": true,
+          "address1": "This is the location created automatically by SHOPLINE.",
+          "city": "Washington",
+          "country": "United States",
+          "country_code": "US",
+          "created_at": "2026-09-01T23:36:36+08:00",
+          "is_default": true,
+          "legacy": false,
+          "phone": "1",
+          "phone_code": "",
+          "province": "District of Columbia",
+          "province_code": "4200010",
+          "updated_at": "2026-09-01T23:36:36+08:00"
+        },
+        {
+          "id": "7683107420286130462",
+          "name": "Location2",
+          "active": true,
+          "address1": "Location2 Address",
+          "address2": "Singapore",
+          "city": "",
+          "country": "Singapore",
+          "country_code": "SG",
+          "created_at": "2026-09-01T23:36:37+08:00",
+          "is_default": false,
+          "legacy": false,
+          "phone": "3155437",
+          "phone_code": "",
+          "province": "",
+          "province_code": "",
+          "updated_at": "2026-09-01T23:36:37+08:00",
+          "zip": "018915"
+        },
+        {
+          "id": "7683107425705173272",
+          "name": "Location1",
+          "active": true,
+          "address1": "Location1 Address",
+          "address2": "New York",
+          "city": "New York",
+          "country": "the USA",
+          "country_code": "US",
+          "created_at": "2026-09-01T23:36:37+08:00",
+          "is_default": false,
+          "legacy": false,
+          "phone": "654757442",
+          "phone_code": "",
+          "province": "阿拉斯加州",
+          "province_code": "4200002",
+          "updated_at": "2026-09-01T23:36:37+08:00",
+          "zip": "10125"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Location": []
+    }
+  },
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/locations/list.json": {
+        "response": {
+          "locations": [
+            {
+              "phone": "1",
+              "created_at": "2026-09-01T23:36:36+08:00",
+              "is_default": true,
+              "phone_code": "",
+              "zip": null,
+              "active": true,
+              "province_code": "4200010",
+              "country_code": "US",
+              "legacy": false,
+              "address1": "This is the location created automatically by SHOPLINE.",
+              "address2": null,
+              "updated_at": "2026-09-01T23:36:36+08:00",
+              "city": "Washington",
+              "province": "District of Columbia",
+              "name": "Default",
+              "country": "United States",
+              "id": "7683107397838218873"
+            },
+            {
+              "zip": "018915",
+              "address1": "Location2 Address",
+              "address2": "Singapore",
+              "id": "7683107420286130462",
+              "province": "",
+              "created_at": "2026-09-01T23:36:37+08:00",
+              "active": true,
+              "city": "",
+              "country": "Singapore",
+              "phone": "3155437",
+              "country_code": "SG",
+              "phone_code": "",
+              "province_code": "",
+              "is_default": false,
+              "legacy": false,
+              "name": "Location2",
+              "updated_at": "2026-09-01T23:36:37+08:00"
+            },
+            {
+              "address1": "Location1 Address",
+              "address2": "New York",
+              "phone_code": "",
+              "active": true,
+              "city": "New York",
+              "phone": "654757442",
+              "name": "Location1",
+              "country": "the USA",
+              "province_code": "4200002",
+              "country_code": "US",
+              "created_at": "2026-09-01T23:36:37+08:00",
+              "legacy": false,
+              "updated_at": "2026-09-01T23:36:37+08:00",
+              "zip": "10125",
+              "id": "7683107425705173272",
+              "province": "阿拉斯加州",
+              "is_default": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:06:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1788357980",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982d4d000000002fa97cbba8dd30f7",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=p8OWq424C3ZHSsVYD3oKldsrCFthmRpA%2BYc%2FKnCJNpgLbR%2B%2BNXjoSDpnwEqZRyJWiftJDhzW%2FGpS1Bsj1pLMFvmr4m3cvY%2B79cfrhBLOV%2FSOC%2BUVayy9jwn1GnzVeS83lsc3X9T59tAi\"}]}",
+          "cf-ray": "a34d12c4e8cbcb5f-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "03849dadb4d209ed3214fe2ff38d8113f473b39b",
+        "request": {}
+      }
+    }
+  }
+}

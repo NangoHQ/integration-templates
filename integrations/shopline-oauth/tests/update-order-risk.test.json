@@ -1,0 +1,76 @@
+{
+  "input": {
+    "order_id": "21076844533574239874297428",
+    "risk_id": "2907684453361383548366",
+    "recommendation": "accept",
+    "score": "0.1"
+  },
+  "output": {
+    "id": "2907684453361383548366",
+    "order_id": "21076844533574239874297428",
+    "checkout_id": "",
+    "source": "External",
+    "score": "0.1",
+    "recommendation": "accept",
+    "display": true,
+    "cause_cancel": false,
+    "risk_detail_msg_list": []
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/orders/v2/21076844533574239874297428/risks/2907684453361383548366.json": {
+        "response": {
+          "risk": {
+            "display": true,
+            "recommendation": "accept",
+            "risk_detail_msg_list": [],
+            "checkout_id": "",
+            "score": "0.1",
+            "source": "External",
+            "cause_cancel": false,
+            "id": "2907684453361383548366",
+            "order_id": "21076844533574239874297428"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:53:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1880",
+          "x-ratelimit-reset": "1788357273",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982a760000000050ea51af2bc7ea84",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=a6eNVGIMIdk8Ls18NHDh3JHZPco1mE3QcU6KVvfZRs0-1788357238.8576534-1.0.1.1-BrS5SBwkVDbGCFMOQ2g4UsqzPwxKdi8RXfkPlaJztBzw6OMbtbLDTPeqaJdS.f1iIe0F6UEPUkMxxoY.wdrfwuZEsGQhQpTvhv4hlumSGDUQyLhZBxlp_mZsMfmH8Pu5; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:23:58 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4WHVt%2BR5GrNaMKNpaZ%2FL8CfilYDGgSwZM5kgWB1eSnTosZDQ1oi8Trwg6beMlrAX2geeJVbyxdsPiSC%2BAlsUp%2BnWMiVmjkh5sEMSe%2FovDFTVH4Ye0Q%2FTesI%2FvaND1Gzgbx6lpuUhj3hL\"}]}",
+          "cf-ray": "a34d0106d8bd5ef5-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9730ac5615b8b5ebe0510f0d42b40b5628edacb4",
+        "request": {
+          "data": {
+            "risk": {
+              "recommendation": "accept",
+              "score": "0.1"
+            }
+          }
+        }
+      }
+    }
+  }
+}

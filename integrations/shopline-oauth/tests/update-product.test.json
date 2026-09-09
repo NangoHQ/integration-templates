@@ -1,0 +1,144 @@
+{
+  "input": {
+    "product_id": "16076844620459414709731755",
+    "title": "Nango Updated Product Title 2"
+  },
+  "output": {
+    "id": "16076844620459414709731755",
+    "title": "Nango Updated Product Title 2",
+    "handle": "nango-temp-update-test-product-2",
+    "status": "draft",
+    "published_scope": "web",
+    "template_path": "templates/product.json",
+    "variants": [
+      {
+        "id": "18076844620459750254061755",
+        "product_id": "16076844620459414709731755",
+        "option1": null,
+        "option2": null,
+        "option3": null,
+        "option4": null,
+        "option5": null,
+        "price": "0.00",
+        "sku": null,
+        "inventory_quantity": 0,
+        "inventory_item_id": "7684462046042138384",
+        "taxable": true,
+        "inventory_tracker": false,
+        "updated_at": "2026-09-02T22:02:19+08:00",
+        "image": null,
+        "inventory_policy": "deny",
+        "title": null,
+        "barcode": null,
+        "created_at": "2026-09-02T22:02:19+08:00",
+        "weight": null,
+        "required_shipping": true,
+        "weight_unit": null,
+        "compare_at_price": null
+      }
+    ],
+    "images": [],
+    "options": [],
+    "media": [],
+    "created_at": "2026-09-02T22:02:19+08:00",
+    "updated_at": "2026-09-02T22:02:28+08:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/products/16076844620459414709731755.json": {
+        "response": {
+          "product": {
+            "updated_at": "2026-09-02T22:02:28+08:00",
+            "featured_media": null,
+            "template_path": "templates/product.json",
+            "title": "Nango Updated Product Title 2",
+            "created_at": "2026-09-02T22:02:19+08:00",
+            "image": null,
+            "published_scope": "web",
+            "tags": null,
+            "subtitle": null,
+            "product_type": "NORMAL",
+            "id": "16076844620459414709731755",
+            "product_behavior": "",
+            "published_at": "2026-09-02T22:02:19+08:00",
+            "standard_category_id": "",
+            "status": "draft",
+            "handle": "nango-temp-update-test-product-2",
+            "media": [],
+            "product_category": null,
+            "variants": [
+              {
+                "sku": null,
+                "taxable": true,
+                "inventory_tracker": false,
+                "option1": null,
+                "updated_at": "2026-09-02T22:02:19+08:00",
+                "inventory_quantity": 0,
+                "image": null,
+                "option5": null,
+                "id": "18076844620459750254061755",
+                "option4": null,
+                "price": "0.00",
+                "inventory_policy": "deny",
+                "title": null,
+                "barcode": null,
+                "product_id": "16076844620459414709731755",
+                "created_at": "2026-09-02T22:02:19+08:00",
+                "option3": null,
+                "weight": null,
+                "inventory_item_id": "7684462046042138384",
+                "required_shipping": true,
+                "weight_unit": null,
+                "compare_at_price": null,
+                "option2": null
+              }
+            ],
+            "vendor": null,
+            "body_html": null,
+            "images": [],
+            "spu": null,
+            "options": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:02:28 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1965",
+          "x-ratelimit-reset": "1788357768",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982c740000000004c3b667880829cc",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=mPUDUgpDeoA8Ou5UAjNdGTOBwGqINBBQ2XnEWhiiy7E-1788357748.170475-1.0.1.1-BVEPo5Hr9LLUogYKzkgniZc6B5n8dwba2m.0hiHqinLK8F1v5OPMWPgpCRaGGTMJXar.JXNHCrahrCHofhbvcvqeTk1Fm_sgsbk4bft86x.lARthQ9GGAbl1s7m5GYeE; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:32:28 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=kmvxoyH0%2B64tqJXU8ZdQr1YtsjoLNM75NPlrFAAB4QeYUGdBU0yTpgpirzTiTR7UPbB60Zy5O1qYG3Bj535rxcp%2FSdAEHHJGXd5fzzPlCCmKeufTJX8gFENjSM30hUjLSB6NVjMMcN7P\"}]}",
+          "cf-ray": "a34d0d760b76ef2c-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "74772dd6d17e37ee91b44eec6525bfacf8e508c0",
+        "request": {
+          "data": {
+            "product": {
+              "title": "Nango Updated Product Title 2"
+            }
+          }
+        }
+      }
+    }
+  }
+}

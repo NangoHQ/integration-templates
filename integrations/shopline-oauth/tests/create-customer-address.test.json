@@ -1,0 +1,102 @@
+{
+  "input": {
+    "customer_id": "2791747437",
+    "address1": "456 Save Ave",
+    "city": "Save City",
+    "country": "United States",
+    "province": "California",
+    "zip": "90210",
+    "first_name": "Save",
+    "last_name": "Test"
+  },
+  "output": {
+    "id": "SL201UA7684456797273372526",
+    "customer_id": "2791747437",
+    "address1": "456 Save Ave",
+    "first_name": "Save",
+    "last_name": "Test",
+    "country": "United States",
+    "country_code": "US",
+    "province": "California",
+    "province_code": "4200006",
+    "city": "Save City",
+    "zip": "90210",
+    "def": false,
+    "address_type": 0
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/customers/2791747437/addresses.json": {
+        "response": {
+          "customer_address": {
+            "address2": null,
+            "address_type": 0,
+            "city": "Save City",
+            "customer_id": "2791747437",
+            "def": false,
+            "district_code": null,
+            "id": "SL201UA7684456797273372526",
+            "last_name": "Test",
+            "country": "United States",
+            "country_code": "US",
+            "city_code": null,
+            "first_name": "Save",
+            "province": "California",
+            "province_code_v2": "CA",
+            "district": null,
+            "zip": "90210",
+            "address1": "456 Save Ave",
+            "province_code": "4200006",
+            "town": null,
+            "company": null,
+            "phone": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:57:06 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1924",
+          "x-ratelimit-reset": "1788357461",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982b3200000000257f64ab7ffcd675",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=Sb.vjN9gcPZQJ3Dwd2K252e8Q4RDVHKbuniUwiy2dkQ-1788357426.612913-1.0.1.1-HB6GHZLaVm1cCfiv.5B_896Hkrls92LcDKZpSAD9w0s4oSQ7Y3E3VDNZwqhJsEu9Og3P7tCdFN0tFL6K67q_yT2MFnXUHVzeVUXUkZDVLL88ROTqoPvvkL5t_6.2iMW9; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:27:06 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=p82T1xhpb62XzJp6PrBgS0%2BBuhDqvoLWQ1aytbN4AW%2FwcV4Z8nlvO8Xxza53rUN1tmZtWBtjYGJURpG8GEFNIBGPRVbd1eZqqWxlcvG9M8DYmdyp5pZaeSl9FpA5Qi6jYnmhj2H0bk%2BO\"}]}",
+          "cf-ray": "a34d059c5ce5d82e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "410003d776f72e3ae67e95d94b04ad4e17bf1f35",
+        "request": {
+          "data": {
+            "customer_address": {
+              "address1": "456 Save Ave",
+              "first_name": "Save",
+              "last_name": "Test",
+              "country": "United States",
+              "province": "California",
+              "city": "Save City",
+              "zip": "90210"
+            }
+          }
+        }
+      }
+    }
+  }
+}
