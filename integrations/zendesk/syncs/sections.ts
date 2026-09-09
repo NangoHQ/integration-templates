@@ -1,5 +1,6 @@
 import { createSync } from 'nango';
 import { z } from 'zod';
+import type { ProxyConfiguration } from 'nango';
 
 const SectionSchema = z.object({
     id: z.number(),
@@ -35,11 +36,16 @@ const SectionModelSchema = z.object({
     theme_template: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    next_page: z.string()
+});
+
 const sync = createSync({
     description: 'Sync Zendesk Help Center sections',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     endpoints: [
         {
             path: '/syncs/sections',
@@ -51,73 +57,77 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://developer.zendesk.com/api-reference/help_center/help-center-api/sections/
-        const proxyConfig: {
-            endpoint: string;
-            params: { sort_by: string; sort_order: string };
-            paginate: {
-                type: 'cursor';
-                cursor_path_in_response: string;
-                cursor_name_in_request: string;
-                response_path: string;
-                limit: number;
-            };
-            retries: number;
-        } = {
+        const checkpoint = await nango.getCheckpoint();
+        const checkpointNextPage = checkpoint?.['next_page'];
+        let nextPage: string | undefined = typeof checkpointNextPage === 'string' && checkpointNextPage ? checkpointNextPage : undefined;
+
+        const proxyConfig: ProxyConfiguration = {
+            // https://developer.zendesk.com/api-reference/help_center/help-center-api/sections/
             endpoint: '/api/v2/help_center/sections.json',
             params: {
                 sort_by: 'updated_at',
-                sort_order: 'asc'
+                sort_order: 'asc',
+                ...(nextPage && { page: nextPage })
             },
             paginate: {
                 type: 'cursor',
                 cursor_path_in_response: 'next_page',
                 cursor_name_in_request: 'page',
                 response_path: 'sections',
-                limit: 100
+                limit: 100,
+                on_page: async (paginationState) => {
+                    const rawNextPage = paginationState.response.data.next_page;
+                    nextPage =
+                        typeof rawNextPage === 'string'
+                            ? rawNextPage
+                            : typeof paginationState.nextPageParam === 'string'
+                              ? paginationState.nextPageParam
+                              : undefined;
+                }
             },
             retries: 3
         };
 
         await nango.trackDeletesStart('Section');
 
-        try {
-            for await (const page of nango.paginate(proxyConfig)) {
-                const sections: z.infer<typeof SectionSchema>[] = [];
-                for (const raw of page) {
-                    const parsed = SectionSchema.safeParse(raw);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse section: ${parsed.error.message}`);
-                    }
-                    sections.push(parsed.data);
+        for await (const page of nango.paginate(proxyConfig)) {
+            const sections: z.infer<typeof SectionSchema>[] = [];
+            for (const raw of page) {
+                const parsed = SectionSchema.safeParse(raw);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse section: ${parsed.error.message}`);
                 }
+                sections.push(parsed.data);
+            }
 
-                if (sections.length === 0) {
-                    continue;
-                }
+            const mappedSections = sections.map((section) => ({
+                id: String(section.id),
+                name: section.name,
+                ...(section.description !== undefined && section.description !== null && { description: section.description }),
+                ...(section.category_id !== undefined && section.category_id !== null && { category_id: section.category_id }),
+                ...(section.parent_section_id !== undefined && section.parent_section_id !== null && { parent_section_id: section.parent_section_id }),
+                locale: section.locale,
+                ...(section.source_locale !== undefined && section.source_locale !== null && { source_locale: section.source_locale }),
+                created_at: section.created_at,
+                updated_at: section.updated_at,
+                ...(section.position !== undefined && section.position !== null && { position: section.position }),
+                ...(section.outdated !== undefined && section.outdated !== null && { outdated: section.outdated }),
+                ...(section.html_url !== undefined && section.html_url !== null && { html_url: section.html_url }),
+                ...(section.url !== undefined && section.url !== null && { url: section.url }),
+                ...(section.theme_template !== undefined && section.theme_template !== null && { theme_template: section.theme_template })
+            }));
 
-                const mappedSections = sections.map((section) => ({
-                    id: String(section.id),
-                    name: section.name,
-                    ...(section.description !== undefined && section.description !== null && { description: section.description }),
-                    ...(section.category_id !== undefined && section.category_id !== null && { category_id: section.category_id }),
-                    ...(section.parent_section_id !== undefined && section.parent_section_id !== null && { parent_section_id: section.parent_section_id }),
-                    locale: section.locale,
-                    ...(section.source_locale !== undefined && section.source_locale !== null && { source_locale: section.source_locale }),
-                    created_at: section.created_at,
-                    updated_at: section.updated_at,
-                    ...(section.position !== undefined && section.position !== null && { position: section.position }),
-                    ...(section.outdated !== undefined && section.outdated !== null && { outdated: section.outdated }),
-                    ...(section.html_url !== undefined && section.html_url !== null && { html_url: section.html_url }),
-                    ...(section.url !== undefined && section.url !== null && { url: section.url }),
-                    ...(section.theme_template !== undefined && section.theme_template !== null && { theme_template: section.theme_template })
-                }));
-
+            if (mappedSections.length > 0) {
                 await nango.batchSave(mappedSections, 'Section');
             }
-        } finally {
-            await nango.trackDeletesEnd('Section');
+
+            if (nextPage !== undefined) {
+                await nango.saveCheckpoint({ next_page: nextPage });
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Section');
     }
 });
 

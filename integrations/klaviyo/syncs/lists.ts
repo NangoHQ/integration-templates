@@ -20,41 +20,87 @@ const KlaviyoListItemSchema = z.object({
         .optional()
 });
 
+const KlaviyoListsResponseSchema = z.object({
+    data: z.array(z.unknown()),
+    links: z
+        .object({
+            self: z.string().optional().nullable(),
+            next: z.string().optional().nullable(),
+            prev: z.string().optional().nullable()
+        })
+        .optional()
+});
+
+const CheckpointSchema = z.object({
+    cursor: z.string()
+});
+
+function extractPageCursor(nextLink: string | number | null | undefined): string | undefined {
+    if (typeof nextLink !== 'string') {
+        return undefined;
+    }
+    const url = new URL(nextLink, 'https://a.klaviyo.com');
+    const cursor = url.searchParams.get('page[cursor]');
+    return cursor ?? undefined;
+}
+
 const sync = createSync({
     description: 'Sync lists.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         List: ListSchema
     },
 
     exec: async (nango) => {
-        const proxyConfig: ProxyConfiguration = {
-            // https://developers.klaviyo.com/en/reference/get_lists
-            endpoint: '/api/lists',
-            headers: {
-                revision: '2026-04-15'
-            },
-            paginate: {
-                type: 'link',
-                link_path_in_response_body: 'links.next',
-                response_path: 'data',
-                limit_name_in_request: 'page[size]',
-                limit: 10
-            },
-            retries: 3
-        };
+        const checkpoint = await nango.getCheckpoint();
+        let cursor: string | undefined;
+
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            cursor = parsedCheckpoint.data.cursor;
+        }
 
         await nango.trackDeletesStart('List');
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            if (!Array.isArray(page)) {
-                throw new Error('Expected page to be an array from response_path: data');
+        let hasNextPage = true;
+
+        while (hasNextPage) {
+            const params: Record<string, string> = {
+                'page[size]': '10'
+            };
+
+            if (cursor) {
+                params['page[cursor]'] = cursor;
             }
 
+            const proxyConfig: ProxyConfiguration = {
+                // https://developers.klaviyo.com/en/reference/get_lists
+                endpoint: '/api/lists',
+                params,
+                headers: {
+                    revision: '2026-04-15'
+                },
+                retries: 3
+            };
+
+            const response = await nango.get(proxyConfig);
+
+            const parsedResponse = KlaviyoListsResponseSchema.safeParse(response.data);
+            if (!parsedResponse.success) {
+                throw new Error(`Failed to parse lists response: ${parsedResponse.error.message}`);
+            }
+
+            const items = parsedResponse.data.data;
+            const nextLink = parsedResponse.data.links?.next;
+
             const lists = [];
-            for (const raw of page) {
+            for (const raw of items) {
                 const parsed = KlaviyoListItemSchema.safeParse(raw);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse list item: ${parsed.error.message}`);
@@ -72,8 +118,17 @@ const sync = createSync({
             if (lists.length > 0) {
                 await nango.batchSave(lists, 'List');
             }
+
+            const nextCursor = extractPageCursor(nextLink);
+            if (nextCursor) {
+                cursor = nextCursor;
+                await nango.saveCheckpoint({ cursor });
+            } else {
+                hasNextPage = false;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('List');
     }
 });

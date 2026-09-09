@@ -76,11 +76,16 @@ type ProjectRecord = {
     currencyId?: string;
 };
 
+const CheckpointSchema = z.object({
+    from: z.number().int()
+});
+
 const sync = createSync({
     description: 'Sync projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Project: RecordSchema
     },
@@ -88,6 +93,17 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes GET /v2/project with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Full refresh is required.
+        const checkpoint = await nango.getCheckpoint();
+
+        let from = 0;
+        if (checkpoint != null) {
+            const parsed = CheckpointSchema.safeParse(checkpoint);
+            if (!parsed.success) {
+                throw new Error(`Invalid checkpoint: ${parsed.error.message}`);
+            }
+            from = parsed.data.from;
+        }
+
         await nango.trackDeletesStart('Project');
 
         const proxyConfig: ProxyConfiguration = {
@@ -96,7 +112,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: from,
                 limit_name_in_request: 'count',
                 limit: 100,
                 response_path: 'values'
@@ -134,8 +150,12 @@ const sync = createSync({
             if (projects.length > 0) {
                 await nango.batchSave(projects, 'Project');
             }
+
+            from += page.length;
+            await nango.saveCheckpoint({ from });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Project');
     }
 });

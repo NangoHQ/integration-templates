@@ -1,4 +1,3 @@
-import type { ProxyConfiguration } from 'nango';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -29,16 +28,28 @@ const GroupSchema = z.object({
     url: z.string().optional()
 });
 
-type ProviderGroup = z.infer<typeof ProviderGroupSchema>;
 type Group = z.infer<typeof GroupSchema>;
+
+// https://developer.zendesk.com/api-reference/ticketing/groups/groups/#list-groups
+const GroupsResponseSchema = z.object({
+    groups: z.array(z.unknown()),
+    next_page: z.string().nullable().optional(),
+    previous_page: z.string().nullable().optional(),
+    count: z.number().optional()
+});
+
+const CheckpointSchema = z.object({
+    page: z.number()
+});
 
 const sync = createSync({
     description: 'Sync support groups from Zendesk.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/groups', group: 'Groups' }],
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    checkpoint: CheckpointSchema,
 
     models: {
         Group: GroupSchema
@@ -48,57 +59,75 @@ const sync = createSync({
         // Blocker: Groups endpoint supports pagination but no delta/changed-since filter.
         // The API returns all groups on every request.
         // Full refresh with trackDeletesStart/trackDeletesEnd is appropriate.
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        let currentPage = 1;
+        if (rawCheckpoint) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${JSON.stringify(parsedCheckpoint.error.issues)}`);
+            }
+            currentPage = parsedCheckpoint.data.page;
+        }
+
         await nango.trackDeletesStart('Group');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://developer.zendesk.com/api-reference/ticketing/groups/groups/#list-groups
-            endpoint: '/api/v2/groups',
-            params: {
-                exclude_deleted: 'false'
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                response_path: 'groups'
-            },
-            retries: 3
-        };
+        let hasMorePages = true;
 
-        try {
-            for await (const page of nango.paginate<ProviderGroup>(proxyConfig)) {
-                const groups: Group[] = [];
+        while (hasMorePages) {
+            const response = await nango.get({
+                // https://developer.zendesk.com/api-reference/ticketing/groups/groups/#list-groups
+                endpoint: '/api/v2/groups',
+                params: {
+                    exclude_deleted: 'false',
+                    page: String(currentPage),
+                    per_page: '100'
+                },
+                retries: 3
+            });
 
-                for (const record of page) {
-                    const parseResult = ProviderGroupSchema.safeParse(record);
-                    if (!parseResult.success) {
-                        throw new Error(`Failed to parse group: ${JSON.stringify(parseResult.error.issues)}`);
-                    }
-
-                    const group = parseResult.data;
-                    groups.push({
-                        id: String(group.id),
-                        name: group.name,
-                        ...(group.description && { description: group.description }),
-                        ...(group.default !== undefined && { isDefault: group.default }),
-                        ...(group.deleted !== undefined && { isDeleted: group.deleted }),
-                        ...(group.is_public !== undefined && { isPublic: group.is_public }),
-                        ...(group.created_at && { createdAt: group.created_at }),
-                        ...(group.updated_at && { updatedAt: group.updated_at }),
-                        ...(group.url && { url: group.url })
-                    });
-                }
-
-                if (groups.length > 0) {
-                    await nango.batchSave(groups, 'Group');
-                }
+            const parsed = GroupsResponseSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new Error(`Failed to parse groups response: ${JSON.stringify(parsed.error.issues)}`);
             }
-        } finally {
-            await nango.trackDeletesEnd('Group');
+
+            const { groups, next_page } = parsed.data;
+
+            const mappedGroups: Group[] = [];
+            for (const record of groups) {
+                const parseResult = ProviderGroupSchema.safeParse(record);
+                if (!parseResult.success) {
+                    throw new Error(`Failed to parse group: ${JSON.stringify(parseResult.error.issues)}`);
+                }
+
+                const group = parseResult.data;
+                mappedGroups.push({
+                    id: String(group.id),
+                    name: group.name,
+                    ...(group.description && { description: group.description }),
+                    ...(group.default !== undefined && { isDefault: group.default }),
+                    ...(group.deleted !== undefined && { isDeleted: group.deleted }),
+                    ...(group.is_public !== undefined && { isPublic: group.is_public }),
+                    ...(group.created_at && { createdAt: group.created_at }),
+                    ...(group.updated_at && { updatedAt: group.updated_at }),
+                    ...(group.url && { url: group.url })
+                });
+            }
+
+            if (mappedGroups.length > 0) {
+                await nango.batchSave(mappedGroups, 'Group');
+            }
+
+            if (next_page) {
+                currentPage++;
+                await nango.saveCheckpoint({ page: currentPage });
+            } else {
+                hasMorePages = false;
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Group');
     }
 });
 

@@ -21,33 +21,63 @@ const ProviderDriveItemSchema = z.object({
     webUrl: z.string().optional()
 });
 
+// Checkpoint stores the next page URL path for resuming a full refresh
+const CheckpointSchema = z.object({
+    nextEndpoint: z.string()
+});
+
+function normalizeGraphEndpoint(link: string | undefined): string {
+    if (!link) {
+        return '';
+    }
+
+    try {
+        const url = new URL(link, 'https://graph.microsoft.com');
+        return `${url.pathname}${url.search}`;
+    } catch {
+        return link;
+    }
+}
+
 const sync = createSync({
     description: 'Sync recently used drive items from OneDrive',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
     endpoints: [{ method: 'GET', path: '/syncs/recent-items' }],
     metadata: z.void(),
+    checkpoint: CheckpointSchema,
     models: {
         RecentItem: RecentItemSchema
     },
     scopes: ['Files.Read', 'offline_access'],
 
     exec: async (nango) => {
-        // Full refresh: start tracking deletes before fetching data
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+        let nextEndpoint = parsedCheckpoint.success ? parsedCheckpoint.data.nextEndpoint : '';
+
+        // Full refresh: start tracking deletes on every execution, including resumed runs
         await nango.trackDeletesStart('RecentItem');
+
+        const baseEndpoint = '/v1.0/me/drive/recent';
+        const initialEndpoint = nextEndpoint || baseEndpoint;
 
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/graph/api/drive-recent
-            endpoint: '/v1.0/me/drive/recent',
+            endpoint: initialEndpoint,
+            ...(initialEndpoint === baseEndpoint ? { params: { $top: 100 } } : {}),
             paginate: {
-                type: 'cursor',
-                cursor_path_in_response: '@odata.nextLink',
-                cursor_name_in_request: '$skiptoken',
+                type: 'link',
+                link_path_in_response_body: '@odata.nextLink',
                 response_path: 'value',
                 limit: 100,
-                limit_name_in_request: '$top'
+                limit_name_in_request: '$top',
+                on_page: async ({ response }) => {
+                    const rawNextLink = response.data?.['@odata.nextLink'];
+                    nextEndpoint = normalizeGraphEndpoint(typeof rawNextLink === 'string' ? rawNextLink : undefined);
+                }
             },
             retries: 3
         };
@@ -71,9 +101,14 @@ const sync = createSync({
             if (items.length > 0) {
                 await nango.batchSave(items, 'RecentItem');
             }
+
+            if (nextEndpoint) {
+                await nango.saveCheckpoint({ nextEndpoint });
+            }
         }
 
-        // Full refresh: end tracking deletes after successful fetch and save
+        // Full refresh: clear checkpoint before ending delete tracking on the success path
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('RecentItem');
     }
 });
