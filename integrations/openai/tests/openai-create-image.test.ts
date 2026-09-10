@@ -32,6 +32,18 @@ describe('openai create-image tests', () => {
                 response_format: 'url'
             }).success
         ).toBe(false);
+        expect(
+            createAction.input.safeParse({
+                prompt: 'A red circle on a white background',
+                size: '0x1024'
+            }).success
+        ).toBe(false);
+        expect(
+            createAction.input.safeParse({
+                prompt: 'A red circle on a white background',
+                size: '1024x0'
+            }).success
+        ).toBe(false);
 
         const schema = createAction.input.toJSONSchema();
         expect(schema.properties).not.toHaveProperty('response_format');

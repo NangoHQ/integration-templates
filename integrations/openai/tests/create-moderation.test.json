@@ -47,8 +47,8 @@
           "self-harm/instructions": 1.9833367060283617e-06,
           "harassment/threatening": 1.5598027633743823e-05,
           "violence": 0.0005048825150668042,
-          "illicit": 4.61905832902385e-05,
-          "illicit/violent": 9.761566060239504e-06
+          "illicit": null,
+          "illicit/violent": null
         }
       }
     ]
@@ -84,8 +84,8 @@
                 "sexual": 7.321812616608614e-05,
                 "hate": 3.150386940813393e-05,
                 "hate/threatening": 9.666109404131067e-07,
-                "illicit": 4.61905832902385e-05,
-                "illicit/violent": 9.761566060239504e-06,
+                "illicit": null,
+                "illicit/violent": null,
                 "self-harm/intent": 0.0002128468589176327,
                 "self-harm/instructions": 1.9833367060283617e-06,
                 "self-harm": 1.177445922838707e-05,

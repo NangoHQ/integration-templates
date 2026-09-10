@@ -24,8 +24,8 @@ const ModerationCategoryScoresSchema = z.object({
     'self-harm': z.number(),
     'sexual/minors': z.number(),
     'hate/threatening': z.number(),
-    illicit: z.number(),
-    'illicit/violent': z.number(),
+    illicit: z.number().nullable(),
+    'illicit/violent': z.number().nullable(),
     'violence/graphic': z.number(),
     'self-harm/intent': z.number(),
     'self-harm/instructions': z.number(),
@@ -74,8 +74,8 @@ const OutputSchema = z.object({
     results: z.array(
         z.object({
             flagged: z.boolean(),
-            categories: z.record(z.string(), z.union([z.boolean(), z.null()])),
-            category_scores: z.record(z.string(), z.number())
+            categories: z.record(z.string(), z.boolean().nullable()),
+            category_scores: z.record(z.string(), z.number().nullable())
         })
     )
 });

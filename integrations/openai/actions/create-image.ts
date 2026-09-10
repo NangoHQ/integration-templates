@@ -10,7 +10,7 @@ const InputSchema = z.object({
         .describe('A supported GPT Image model ID. Defaults to "gpt-image-1".'),
     n: z.number().int().min(1).max(10).optional().describe('The number of images to generate. Must be between 1 and 10.'),
     size: z
-        .union([z.literal('auto'), z.string().regex(/^\d+x\d+$/)])
+        .union([z.literal('auto'), z.string().regex(/^[1-9]\d*x[1-9]\d*$/)])
         .optional()
         .describe('Image dimensions such as "1024x1024", "1536x1024", or "auto". Newer GPT image models support arbitrary WIDTHxHEIGHT values.'),
     quality: z
