@@ -7,7 +7,9 @@ const InputSchema = z.object({
     limit: z.number().int().min(1).max(100).optional(),
     order: z.enum(['asc', 'desc']).optional(),
     directory: z.string().optional().describe('Filter users by directory ID.'),
-    group: z.string().optional().describe('Filter users by directory group ID.')
+    group: z.string().optional().describe('Filter users by directory group ID.'),
+    idp_id: z.string().optional().describe('Filter users by the identity provider user ID.'),
+    email: z.string().email().optional().describe('Filter users by email address.')
 });
 const DirectoryGroupSchema = z
     .object({
@@ -64,7 +66,9 @@ const action = createAction({
                 ...(input.limit !== undefined && { limit: String(input.limit) }),
                 ...(input.order !== undefined && { order: input.order }),
                 ...(input.directory !== undefined && { directory: input.directory }),
-                ...(input.group !== undefined && { group: input.group })
+                ...(input.group !== undefined && { group: input.group }),
+                ...(input.idp_id !== undefined && { idp_id: input.idp_id }),
+                ...(input.email !== undefined && { email: input.email })
             },
             retries: 3
         });
