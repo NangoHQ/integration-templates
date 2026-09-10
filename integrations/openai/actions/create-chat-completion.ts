@@ -9,8 +9,9 @@ const MessageSchema = z.object({
 const InputSchema = z.object({
     model: z.string().describe('Model ID. Example: "gpt-4o-mini"'),
     messages: z.array(MessageSchema).describe('Array of messages with role and content'),
-    temperature: z.number().optional().describe('Sampling temperature (0-2)'),
-    max_tokens: z.number().optional().describe('Maximum tokens to generate'),
+    temperature: z.number().min(0).max(2).optional().describe('Sampling temperature from 0 to 2.'),
+    max_completion_tokens: z.number().int().min(1).optional().describe('Maximum number of visible output and reasoning tokens to generate.'),
+    max_tokens: z.number().int().min(1).optional().describe('Deprecated maximum token limit for older models. Use max_completion_tokens for current models.'),
     tools: z.array(z.unknown()).optional().describe('Tools available to the model'),
     tool_choice: z.unknown().optional().describe('Tool choice strategy'),
     response_format: z.unknown().optional().describe('Response format specification'),
@@ -52,7 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Chat Completions API response for compatibility workflows',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],
@@ -65,7 +66,11 @@ const action = createAction({
                 model: input.model,
                 messages: input.messages,
                 ...(input.temperature !== undefined && { temperature: input.temperature }),
-                ...(input.max_tokens !== undefined && { max_tokens: input.max_tokens }),
+                ...(input.max_completion_tokens !== undefined
+                    ? { max_completion_tokens: input.max_completion_tokens }
+                    : input.max_tokens !== undefined
+                      ? { max_tokens: input.max_tokens }
+                      : {}),
                 ...(input.tools !== undefined && { tools: input.tools }),
                 ...(input.tool_choice !== undefined && { tool_choice: input.tool_choice }),
                 ...(input.response_format !== undefined && { response_format: input.response_format }),
