@@ -1209,6 +1209,18 @@ import './checkr-partner-staging/syncs/account.js';
 // -- Integration: clari-copilot
 import './clari-copilot/syncs/calls.js';
 
+// -- Integration: clerk
+import './clerk/actions/create-organization.js';
+import './clerk/actions/create-user.js';
+import './clerk/actions/delete-organization.js';
+import './clerk/actions/delete-user.js';
+import './clerk/actions/get-organization.js';
+import './clerk/actions/get-user.js';
+import './clerk/actions/list-organizations.js';
+import './clerk/actions/list-users.js';
+import './clerk/actions/update-organization.js';
+import './clerk/actions/update-user.js';
+
 // -- Integration: clicksend
 import './clicksend/syncs/sms-history.js';
 import './clicksend/actions/fetch-account.js';
