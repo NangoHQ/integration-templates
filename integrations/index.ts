@@ -6705,6 +6705,20 @@ import './workday-refresh-token/actions/list-worker-time-off.js';
 import './workday-refresh-token/actions/list-workers.js';
 import './workday-refresh-token/actions/submit-time-off-request.js';
 
+// -- Integration: workos
+import './workos/actions/create-organization.js';
+import './workos/actions/create-user.js';
+import './workos/actions/delete-organization.js';
+import './workos/actions/delete-user.js';
+import './workos/actions/get-organization.js';
+import './workos/actions/get-user.js';
+import './workos/actions/list-directory-groups.js';
+import './workos/actions/list-directory-users.js';
+import './workos/actions/list-organizations.js';
+import './workos/actions/list-users.js';
+import './workos/actions/update-organization.js';
+import './workos/actions/update-user.js';
+
 // -- Integration: xero
 import './xero/syncs/accounts.js';
 import './xero/syncs/bank-transactions.js';
