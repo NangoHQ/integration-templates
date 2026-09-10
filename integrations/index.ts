@@ -1210,16 +1210,48 @@ import './checkr-partner-staging/syncs/account.js';
 import './clari-copilot/syncs/calls.js';
 
 // -- Integration: clerk
+import './clerk/actions/assign-organization-role-permission.js';
+import './clerk/actions/create-email-address.js';
+import './clerk/actions/create-organization-domain.js';
+import './clerk/actions/create-organization-invitation.js';
+import './clerk/actions/create-organization-membership.js';
+import './clerk/actions/create-organization-role.js';
 import './clerk/actions/create-organization.js';
+import './clerk/actions/create-phone-number.js';
 import './clerk/actions/create-user.js';
+import './clerk/actions/delete-email-address.js';
+import './clerk/actions/delete-organization-domain.js';
+import './clerk/actions/delete-organization-membership.js';
+import './clerk/actions/delete-organization-role.js';
 import './clerk/actions/delete-organization.js';
+import './clerk/actions/delete-phone-number.js';
 import './clerk/actions/delete-user.js';
+import './clerk/actions/get-email-address.js';
+import './clerk/actions/get-organization-invitation.js';
+import './clerk/actions/get-organization-role.js';
 import './clerk/actions/get-organization.js';
+import './clerk/actions/get-phone-number.js';
+import './clerk/actions/get-session.js';
 import './clerk/actions/get-user.js';
+import './clerk/actions/list-organization-domains.js';
+import './clerk/actions/list-organization-invitations.js';
+import './clerk/actions/list-organization-memberships.js';
+import './clerk/actions/list-organization-roles.js';
 import './clerk/actions/list-organizations.js';
+import './clerk/actions/list-sessions.js';
 import './clerk/actions/list-users.js';
+import './clerk/actions/remove-organization-role-permission.js';
+import './clerk/actions/revoke-organization-invitation.js';
+import './clerk/actions/revoke-session.js';
+import './clerk/actions/update-email-address.js';
+import './clerk/actions/update-organization-domain.js';
+import './clerk/actions/update-organization-membership-metadata.js';
+import './clerk/actions/update-organization-membership.js';
+import './clerk/actions/update-organization-role.js';
 import './clerk/actions/update-organization.js';
+import './clerk/actions/update-phone-number.js';
 import './clerk/actions/update-user.js';
+import './clerk/actions/verify-organization-domain.js';
 
 // -- Integration: clicksend
 import './clicksend/syncs/sms-history.js';
