@@ -1,0 +1,16 @@
+{
+  "input": {
+    "project_id": "example",
+    "snapshot_id": "example",
+    "body": {
+      "snapshot": {}
+    }
+  },
+  "response": {
+    "snapshot": {
+      "id": "example",
+      "name": "example",
+      "created_at": "2025-01-15T10:30:00Z"
+    }
+  }
+}

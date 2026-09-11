@@ -47,6 +47,16 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `list-organizations` | GET | `/users/me/organizations` |
 | `list-shared-projects` | GET | `/projects/shared` |
 
+| `create-snapshot` | POST | `/projects/{project_id}/branches/{branch_id}/snapshot` |
+| `list-snapshots` | GET | `/projects/{project_id}/snapshots` |
+| `update-snapshot` | PATCH | `/projects/{project_id}/snapshots/{snapshot_id}` |
+| `delete-snapshot` | DELETE | `/projects/{project_id}/snapshots/{snapshot_id}` |
+| `restore-snapshot` | POST | `/projects/{project_id}/snapshots/{snapshot_id}/restore` |
+| `get-snapshot-schedule` | GET | `/projects/{project_id}/branches/{branch_id}/backup_schedule` |
+| `set-snapshot-schedule` | PUT | `/projects/{project_id}/branches/{branch_id}/backup_schedule` |
+| `restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/restore` |
+| `finalize-restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/finalize_restore` |
+
 Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
 
 GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
@@ -76,3 +86,5 @@ Added compute lifecycle: `create-endpoint`, `update-endpoint`, `delete-endpoint`
 Added database lifecycle: `get-database`, `create-database`, `update-database`, `delete-database`.
 
 Added discovery and access context: `list-regions`, `get-auth-details`, `list-organizations`, `list-shared-projects`.
+
+Added recovery: `create-snapshot`, `list-snapshots`, `update-snapshot`, `delete-snapshot`, `restore-snapshot`, `get-snapshot-schedule`, `set-snapshot-schedule`, `restore-branch`, `finalize-restore-branch`.

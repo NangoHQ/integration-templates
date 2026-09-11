@@ -1,0 +1,9 @@
+{
+  "input": {
+    "project_id": "example",
+    "snapshot_id": "example"
+  },
+  "response": {
+    "operations": []
+  }
+}

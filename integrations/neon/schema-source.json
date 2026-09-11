@@ -226,6 +226,69 @@
             "path": "/projects/shared",
             "operationId": "listSharedProjects",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "create-snapshot",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/snapshot",
+            "operationId": "createSnapshot",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-snapshots",
+            "method": "GET",
+            "path": "/projects/{project_id}/snapshots",
+            "operationId": "listSnapshots",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-snapshot",
+            "method": "PATCH",
+            "path": "/projects/{project_id}/snapshots/{snapshot_id}",
+            "operationId": "updateSnapshot",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-snapshot",
+            "method": "DELETE",
+            "path": "/projects/{project_id}/snapshots/{snapshot_id}",
+            "operationId": "deleteSnapshot",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "restore-snapshot",
+            "method": "POST",
+            "path": "/projects/{project_id}/snapshots/{snapshot_id}/restore",
+            "operationId": "restoreSnapshot",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-snapshot-schedule",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/backup_schedule",
+            "operationId": "getSnapshotSchedule",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "set-snapshot-schedule",
+            "method": "PUT",
+            "path": "/projects/{project_id}/branches/{branch_id}/backup_schedule",
+            "operationId": "setSnapshotSchedule",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "restore-branch",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/restore",
+            "operationId": "restoreProjectBranch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "finalize-restore-branch",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/finalize_restore",
+            "operationId": "finalizeRestoreBranch",
+            "omittedQueryParameters": []
         }
     ]
 }

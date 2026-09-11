@@ -1,0 +1,14 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example"
+  },
+  "response": {
+    "snapshot": {
+      "id": "example",
+      "name": "example",
+      "created_at": "2025-01-15T10:30:00Z"
+    },
+    "operations": []
+  }
+}
