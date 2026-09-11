@@ -121,6 +121,55 @@
             "path": "/projects/{project_id}/branches/{branch_id}/set_as_default",
             "operationId": "setDefaultProjectBranch",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "create-endpoint",
+            "method": "POST",
+            "path": "/projects/{project_id}/endpoints",
+            "operationId": "createProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-endpoint",
+            "method": "PATCH",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}",
+            "operationId": "updateProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-endpoint",
+            "method": "DELETE",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}",
+            "operationId": "deleteProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "start-endpoint",
+            "method": "POST",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}/start",
+            "operationId": "startProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "suspend-endpoint",
+            "method": "POST",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}/suspend",
+            "operationId": "suspendProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "restart-endpoint",
+            "method": "POST",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}/restart",
+            "operationId": "restartProjectEndpoint",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-branch-endpoints",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/endpoints",
+            "operationId": "listProjectBranchEndpoints",
+            "omittedQueryParameters": []
         }
     ]
 }

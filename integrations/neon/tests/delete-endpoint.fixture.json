@@ -1,0 +1,47 @@
+{
+  "input": {
+    "project_id": "example",
+    "endpoint_id": "example"
+  },
+  "response": {
+    "endpoint": {
+      "host": "ep-steep-bush-777093.us-east-2.aws.neon.tech",
+      "id": "ep-steep-bush-777093",
+      "project_id": "shiny-wind-028834",
+      "branch_id": "br-raspy-hill-832856",
+      "autoscaling_limit_min_cu": 1,
+      "autoscaling_limit_max_cu": 1,
+      "region_id": "aws-us-east-2",
+      "type": "read_write",
+      "current_state": "idle",
+      "settings": {
+        "pg_settings": {}
+      },
+      "pooler_enabled": false,
+      "pooler_mode": "transaction",
+      "disabled": false,
+      "passwordless_access": true,
+      "last_active": "2022-12-03T15:00:00Z",
+      "created_at": "2022-12-03T15:37:07Z",
+      "updated_at": "2022-12-03T15:49:10Z",
+      "proxy_host": "us-east-2.aws.neon.tech",
+      "creation_source": "console",
+      "provisioner": "k8s-pod",
+      "suspend_timeout_seconds": 10800
+    },
+    "operations": [
+      {
+        "id": "fd11748e-3c68-458f-b9e3-66d409e3eef0",
+        "project_id": "bitter-meadow-966132",
+        "branch_id": "br-proud-paper-090813",
+        "endpoint_id": "ep-shrill-thunder-454069",
+        "action": "suspend_compute",
+        "status": "running",
+        "failures_count": 0,
+        "created_at": "2022-12-03T15:51:06Z",
+        "updated_at": "2022-12-03T15:51:06Z",
+        "total_duration_ms": 100
+      }
+    ]
+  }
+}

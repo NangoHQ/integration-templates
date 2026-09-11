@@ -1,0 +1,35 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example"
+  },
+  "response": {
+    "endpoints": [
+      {
+        "host": "ep-little-smoke-851426.us-east-2.aws.neon.tech",
+        "id": "ep-little-smoke-851426",
+        "project_id": "shiny-wind-028834",
+        "branch_id": "br-aged-salad-637688",
+        "autoscaling_limit_min_cu": 1,
+        "autoscaling_limit_max_cu": 1,
+        "region_id": "aws-us-east-2",
+        "type": "read_write",
+        "current_state": "idle",
+        "settings": {
+          "pg_settings": {}
+        },
+        "pooler_enabled": false,
+        "pooler_mode": "transaction",
+        "disabled": false,
+        "passwordless_access": true,
+        "last_active": "2022-11-23T17:00:00Z",
+        "created_at": "2022-11-23T17:42:25Z",
+        "updated_at": "2022-11-30T18:25:21Z",
+        "proxy_host": "us-east-2.aws.neon.tech",
+        "creation_source": "console",
+        "provisioner": "k8s-pod",
+        "suspend_timeout_seconds": 10800
+      }
+    ]
+  }
+}

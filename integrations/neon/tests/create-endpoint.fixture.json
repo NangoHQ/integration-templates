@@ -1,0 +1,52 @@
+{
+  "input": {
+    "project_id": "example",
+    "body": {
+      "endpoint": {
+        "branch_id": "example",
+        "type": "read_only"
+      }
+    }
+  },
+  "response": {
+    "endpoint": {
+      "host": "ep-shrill-thunder-454069.us-east-2.aws.neon.tech",
+      "id": "ep-shrill-thunder-454069",
+      "project_id": "bitter-meadow-966132",
+      "branch_id": "br-proud-paper-090813",
+      "autoscaling_limit_min_cu": 1,
+      "autoscaling_limit_max_cu": 1,
+      "region_id": "aws-us-east-2",
+      "type": "read_write",
+      "current_state": "init",
+      "pending_state": "active",
+      "settings": {
+        "pg_settings": {}
+      },
+      "pooler_enabled": false,
+      "pooler_mode": "transaction",
+      "disabled": false,
+      "passwordless_access": true,
+      "created_at": "2022-12-03T15:37:07Z",
+      "updated_at": "2022-12-03T15:37:07Z",
+      "proxy_host": "us-east-2.aws.neon.tech",
+      "creation_source": "console",
+      "suspend_timeout_seconds": 10800,
+      "provisioner": "k8s-pod"
+    },
+    "operations": [
+      {
+        "id": "874f8bfe-f51d-4c61-85af-a29bea73e0e2",
+        "project_id": "bitter-meadow-966132",
+        "branch_id": "br-proud-paper-090813",
+        "endpoint_id": "ep-shrill-thunder-454069",
+        "action": "start_compute",
+        "status": "running",
+        "failures_count": 0,
+        "created_at": "2022-12-03T15:37:07Z",
+        "updated_at": "2022-12-03T15:37:07Z",
+        "total_duration_ms": 100
+      }
+    ]
+  }
+}
