@@ -25,6 +25,10 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `get-branch-schema` | GET | `/projects/{project_id}/branches/{branch_id}/schema` |
 | `compare-branch-schema` | GET | `/projects/{project_id}/branches/{branch_id}/compare_schema` |
 
+| `update-project` | PATCH | `/projects/{project_id}` |
+| `update-branch` | PATCH | `/projects/{project_id}/branches/{branch_id}` |
+| `set-default-branch` | POST | `/projects/{project_id}/branches/{branch_id}/set_as_default` |
+
 Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
 
 GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
@@ -46,3 +50,5 @@ npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext -
 Added operation completion: `get-operation`, `list-operations`.
 
 Added schema inspection: `get-branch-schema`, `compare-branch-schema`.
+
+Added project and branch configuration: `update-project`, `update-branch`, `set-default-branch`.

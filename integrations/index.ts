@@ -4158,6 +4158,9 @@ import './neon/actions/list-databases.js';
 import './neon/actions/list-endpoints.js';
 import './neon/actions/list-operations.js';
 import './neon/actions/list-projects.js';
+import './neon/actions/set-default-branch.js';
+import './neon/actions/update-branch.js';
+import './neon/actions/update-project.js';
 
 // -- Integration: netsuite-tba
 import './netsuite-tba/syncs/credit-notes.js';

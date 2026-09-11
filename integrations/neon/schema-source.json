@@ -100,6 +100,27 @@
             "path": "/projects/{project_id}/branches/{branch_id}/compare_schema",
             "operationId": "getProjectBranchSchemaComparison",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "update-project",
+            "method": "PATCH",
+            "path": "/projects/{project_id}",
+            "operationId": "updateProject",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-branch",
+            "method": "PATCH",
+            "path": "/projects/{project_id}/branches/{branch_id}",
+            "operationId": "updateProjectBranch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "set-default-branch",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/set_as_default",
+            "operationId": "setDefaultProjectBranch",
+            "omittedQueryParameters": []
         }
     ]
 }
