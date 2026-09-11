@@ -198,6 +198,34 @@
             "path": "/projects/{project_id}/branches/{branch_id}/databases/{database_name}",
             "operationId": "deleteProjectBranchDatabase",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "list-regions",
+            "method": "GET",
+            "path": "/regions",
+            "operationId": "getActiveRegions",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-auth-details",
+            "method": "GET",
+            "path": "/auth",
+            "operationId": "getAuthDetails",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-organizations",
+            "method": "GET",
+            "path": "/users/me/organizations",
+            "operationId": "getCurrentUserOrganizations",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-shared-projects",
+            "method": "GET",
+            "path": "/projects/shared",
+            "operationId": "listSharedProjects",
+            "omittedQueryParameters": []
         }
     ]
 }

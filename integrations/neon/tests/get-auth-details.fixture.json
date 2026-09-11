@@ -1,0 +1,7 @@
+{
+  "input": {},
+  "response": {
+    "account_id": "example",
+    "auth_method": "keycloak"
+  }
+}

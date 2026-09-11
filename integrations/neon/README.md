@@ -42,6 +42,11 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `update-database` | PATCH | `/projects/{project_id}/branches/{branch_id}/databases/{database_name}` |
 | `delete-database` | DELETE | `/projects/{project_id}/branches/{branch_id}/databases/{database_name}` |
 
+| `list-regions` | GET | `/regions` |
+| `get-auth-details` | GET | `/auth` |
+| `list-organizations` | GET | `/users/me/organizations` |
+| `list-shared-projects` | GET | `/projects/shared` |
+
 Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
 
 GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
@@ -69,3 +74,5 @@ Added project and branch configuration: `update-project`, `update-branch`, `set-
 Added compute lifecycle: `create-endpoint`, `update-endpoint`, `delete-endpoint`, `start-endpoint`, `suspend-endpoint`, `restart-endpoint`, `list-branch-endpoints`.
 
 Added database lifecycle: `get-database`, `create-database`, `update-database`, `delete-database`.
+
+Added discovery and access context: `list-regions`, `get-auth-details`, `list-organizations`, `list-shared-projects`.
