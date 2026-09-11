@@ -5,7 +5,7 @@ import { z } from 'zod';
 // Contract derived from https://api.incident.io/v1/openapiV3.json
 // Operation: Incidents V2#List
 const InputSchema = z.object({
-    page_size: z.number().int().min(1).max(500).optional(),
+    page_size: z.number().int().min(1).max(250).optional(),
     after: z.string().optional(),
     sort_by: z.enum(['created_at_newest_first', 'created_at_oldest_first']).optional(),
     filter_mode: z.enum(['all', 'any']).optional()

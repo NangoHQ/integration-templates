@@ -45,6 +45,7 @@ describe('incident.io versions, nullability, and pagination', () => {
         expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v2/incidents/incident%2Fpath%3F%23' }));
     });
     it('validates v3 page size bounds', () => {
+        expect(incidents.input.safeParse({ page_size: 251 }).success).toBe(false);
         expect(followUps.input.safeParse({ page_size: 251 }).success).toBe(false);
         expect(actions.input.safeParse({ page_size: 0 }).success).toBe(false);
     });
