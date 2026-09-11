@@ -4143,6 +4143,18 @@ import './monday/actions/update-item.js';
 // -- Integration: namely-pat
 import './namely-pat/syncs/unified-employees.js';
 
+// -- Integration: neon
+import './neon/actions/create-branch.js';
+import './neon/actions/create-project.js';
+import './neon/actions/delete-branch.js';
+import './neon/actions/get-branch.js';
+import './neon/actions/get-endpoint.js';
+import './neon/actions/get-project.js';
+import './neon/actions/list-branches.js';
+import './neon/actions/list-databases.js';
+import './neon/actions/list-endpoints.js';
+import './neon/actions/list-projects.js';
+
 // -- Integration: netsuite-tba
 import './netsuite-tba/syncs/credit-notes.js';
 import './netsuite-tba/syncs/customers.js';

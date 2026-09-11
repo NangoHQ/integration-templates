@@ -1,0 +1,77 @@
+{
+    "url": "https://raw.githubusercontent.com/neondatabase/neon-pkgs/af5a839e5900dc98120af6261b5b29d02c74a8e1/packages/sdk/spec/neon-openapi.json",
+    "sha256": "48a9f51e38c8524456f69c834dc989162cdf02d7cf8d85b09b3a524e82394a02",
+    "retrievedAt": "2026-09-11",
+    "operations": [
+        {
+            "action": "list-projects",
+            "method": "GET",
+            "path": "/projects",
+            "operationId": "listProjects",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-project",
+            "method": "GET",
+            "path": "/projects/{project_id}",
+            "operationId": "getProject",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-project",
+            "method": "POST",
+            "path": "/projects",
+            "operationId": "createProject",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-branches",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches",
+            "operationId": "listProjectBranches",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-branch",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}",
+            "operationId": "getProjectBranch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-branch",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches",
+            "operationId": "createProjectBranch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-branch",
+            "method": "DELETE",
+            "path": "/projects/{project_id}/branches/{branch_id}",
+            "operationId": "deleteProjectBranch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-databases",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/databases",
+            "operationId": "listProjectBranchDatabases",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-endpoints",
+            "method": "GET",
+            "path": "/projects/{project_id}/endpoints",
+            "operationId": "listProjectEndpoints",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-endpoint",
+            "method": "GET",
+            "path": "/projects/{project_id}/endpoints/{endpoint_id}",
+            "operationId": "getProjectEndpoint",
+            "omittedQueryParameters": []
+        }
+    ]
+}

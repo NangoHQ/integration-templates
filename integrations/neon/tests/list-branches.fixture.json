@@ -1,0 +1,88 @@
+{
+    "input": {
+        "project_id": "example"
+    },
+    "response": {
+        "branches": [
+            {
+                "id": "br-aged-salad-637688",
+                "project_id": "shiny-wind-028834",
+                "name": "main",
+                "current_state": "ready",
+                "state_changed_at": "2022-11-30T20:09:48Z",
+                "logical_size": 28,
+                "created_at": "2022-11-23T17:42:25Z",
+                "updated_at": "2022-11-23T17:42:26Z",
+                "data_transfer_bytes": 1000000,
+                "written_data_bytes": 100800,
+                "compute_time_seconds": 100,
+                "active_time_seconds": 100,
+                "cpu_used_sec": 100,
+                "default": true,
+                "protected": false,
+                "creation_source": "console",
+                "init_source": "parent-data"
+            },
+            {
+                "id": "br-sweet-breeze-497520",
+                "project_id": "shiny-wind-028834",
+                "parent_id": "br-aged-salad-637688",
+                "parent_lsn": "0/1DE2850",
+                "name": "dev2",
+                "current_state": "ready",
+                "state_changed_at": "2022-11-30T20:09:48Z",
+                "logical_size": 28,
+                "created_at": "2022-11-30T19:09:48Z",
+                "updated_at": "2022-11-30T19:09:49Z",
+                "data_transfer_bytes": 1000000,
+                "written_data_bytes": 100800,
+                "compute_time_seconds": 100,
+                "active_time_seconds": 100,
+                "cpu_used_sec": 100,
+                "default": true,
+                "protected": false,
+                "creation_source": "console",
+                "init_source": "parent-data"
+            },
+            {
+                "id": "br-raspy-hill-832856",
+                "project_id": "shiny-wind-028834",
+                "parent_id": "br-aged-salad-637688",
+                "parent_lsn": "0/19623D8",
+                "name": "dev1",
+                "current_state": "ready",
+                "state_changed_at": "2022-11-30T20:09:48Z",
+                "logical_size": 21,
+                "created_at": "2022-11-30T17:36:57Z",
+                "updated_at": "2022-11-30T17:36:57Z",
+                "data_transfer_bytes": 1000000,
+                "written_data_bytes": 100800,
+                "compute_time_seconds": 100,
+                "active_time_seconds": 100,
+                "cpu_used_sec": 100,
+                "default": true,
+                "protected": false,
+                "creation_source": "console",
+                "init_source": "parent-data"
+            }
+        ],
+        "annotations": {
+            "br-aged-salad-637688": {
+                "object": {
+                    "type": "console/branch",
+                    "id": "br-aged-salad-637688"
+                },
+                "value": {
+                    "vercel-commit-ref": "test"
+                },
+                "created_at": "2022-11-23T17:42:25Z",
+                "updated_at": "2022-11-23T17:42:26Z"
+            }
+        },
+        "pagination": {
+            "next": "eyJjcmVhdGV",
+            "sort_by": "updated_at",
+            "sort_order": "desc"
+        }
+    }
+}

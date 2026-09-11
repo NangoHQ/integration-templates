@@ -1,0 +1,38 @@
+{
+    "input": {
+        "project_id": "example"
+    },
+    "response": {
+        "project": {
+            "id": "shiny-wind-028834",
+            "platform_id": "aws",
+            "region_id": "aws-us-east-2",
+            "name": "shiny-wind-028834",
+            "provisioner": "k8s-pod",
+            "pg_version": 15,
+            "history_retention_seconds": 604800,
+            "created_at": "2022-11-23T17:42:25Z",
+            "updated_at": "2022-11-23T17:42:25Z",
+            "proxy_host": "us-east-2.aws.neon.tech",
+            "branch_logical_size_limit": 0,
+            "cpu_used_sec": 10,
+            "owner_id": "1232111",
+            "owner": {
+                "name": "John Smith",
+                "email": "some@email.com",
+                "branches_limit": 10,
+                "subscription_type": "scale"
+            },
+            "creation_source": "console",
+            "store_passwords": true,
+            "branch_logical_size_limit_bytes": 10500,
+            "data_storage_bytes_hour": 1040,
+            "data_transfer_bytes": 1000000,
+            "written_data_bytes": 100800,
+            "compute_time_seconds": 100,
+            "active_time_seconds": 100,
+            "consumption_period_start": "2023-02-01T00:00:00Z",
+            "consumption_period_end": "2023-03-01T00:00:00Z"
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "input": {
+        "project_id": "example",
+        "branch_id": "example"
+    },
+    "response": {
+        "branch": {
+            "id": "br-aged-salad-637688",
+            "project_id": "shiny-wind-028834",
+            "name": "main",
+            "current_state": "ready",
+            "state_changed_at": "2022-11-30T20:09:48Z",
+            "logical_size": 28,
+            "created_at": "2022-11-23T17:42:25Z",
+            "updated_at": "2022-11-23T17:42:26Z",
+            "data_transfer_bytes": 1000000,
+            "written_data_bytes": 100800,
+            "compute_time_seconds": 100,
+            "active_time_seconds": 100,
+            "cpu_used_sec": 100,
+            "default": true,
+            "protected": false,
+            "creation_source": "console",
+            "init_source": "parent-data"
+        },
+        "operations": [
+            {
+                "id": "b6afbc21-2990-4a76-980b-b57d8c2948f2",
+                "project_id": "shiny-wind-028834",
+                "branch_id": "br-sweet-breeze-497520",
+                "endpoint_id": "ep-soft-violet-752733",
+                "action": "suspend_compute",
+                "status": "running",
+                "failures_count": 0,
+                "created_at": "2022-12-01T19:53:05Z",
+                "updated_at": "2022-12-01T19:53:05Z",
+                "total_duration_ms": 100
+            },
+            {
+                "id": "b6afbc21-2990-4a76-980b-b57d8c2948f2",
+                "project_id": "shiny-wind-028834",
+                "branch_id": "br-sweet-breeze-497520",
+                "action": "delete_timeline",
+                "status": "scheduling",
+                "failures_count": 0,
+                "created_at": "2022-12-01T19:53:05Z",
+                "updated_at": "2022-12-01T19:53:05Z",
+                "total_duration_ms": 100
+            }
+        ]
+    }
+}

@@ -1,0 +1,66 @@
+{
+    "input": {
+        "body": {
+            "project": {}
+        }
+    },
+    "response": {
+        "project": {
+            "id": "spring-example-302709",
+            "platform_id": "aws",
+            "region_id": "aws-us-east-2",
+            "name": "spring-example-302709",
+            "provisioner": "k8s-pod",
+            "pg_version": 15,
+            "proxy_host": "us-east-2.aws.neon.tech",
+            "store_passwords": true,
+            "creation_source": "console",
+            "history_retention_seconds": 604800,
+            "created_at": "2022-12-13T01:30:55Z",
+            "updated_at": "2022-12-13T01:30:55Z",
+            "owner": {
+                "name": "John Smith",
+                "email": "some@email.com",
+                "branches_limit": 10,
+                "subscription_type": "scale"
+            },
+            "org_id": "org-morning-bread-81040908",
+            "owner_id": "629982cc-de05-43db-ae16-28f2399c4910",
+            "data_storage_bytes_hour": 2831928,
+            "branch_logical_size_limit": 10,
+            "branch_logical_size_limit_bytes": 10485760,
+            "data_transfer_bytes": 1000,
+            "written_data_bytes": 193990002,
+            "compute_time_seconds": 2485760,
+            "active_time_seconds": 621440,
+            "cpu_used_sec": 155350,
+            "consumption_period_start": "2022-11-01T00:00:00Z",
+            "consumption_period_end": "2022-12-01T00:00:00Z"
+        },
+        "connection_uris": [],
+        "roles": [],
+        "databases": [],
+        "operations": [],
+        "branch": {
+            "id": "br-wispy-meadow-118737",
+            "project_id": "spring-example-302709",
+            "parent_id": "br-aged-salad-637688",
+            "parent_lsn": "0/1DE2850",
+            "name": "dev2",
+            "protected": false,
+            "current_state": "ready",
+            "state_changed_at": "2022-11-30T20:09:48Z",
+            "creation_source": "console",
+            "created_at": "2022-11-30T19:09:48Z",
+            "updated_at": "2022-12-01T19:53:05Z",
+            "default": true,
+            "init_source": "parent-data",
+            "data_transfer_bytes": 72911987,
+            "written_data_bytes": 542998300,
+            "compute_time_seconds": 823880990,
+            "active_time_seconds": 922200,
+            "cpu_used_sec": 461100
+        },
+        "endpoints": []
+    }
+}
