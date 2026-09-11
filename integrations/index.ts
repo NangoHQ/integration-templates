@@ -6299,6 +6299,20 @@ import './tripletex/actions/update-product.js';
 import './tripletex/actions/update-project.js';
 import './tripletex/actions/update-supplier.js';
 
+// -- Integration: tracify
+import './tracify/syncs/kpis-channels.js';
+import './tracify/syncs/kpis-discount-codes.js';
+import './tracify/syncs/kpis-nvr.js';
+import './tracify/syncs/kpis-overview.js';
+import './tracify/actions/get-kpis-overview.js';
+import './tracify/actions/get-kpis-channels.js';
+import './tracify/actions/get-kpis-channel.js';
+import './tracify/actions/get-kpis-channel-breakdown.js';
+import './tracify/actions/get-kpis-channel-export.js';
+import './tracify/actions/get-kpis-nvr-channel.js';
+import './tracify/actions/get-kpis-nvr.js';
+import './tracify/actions/get-kpis-discount-codes.js';
+
 // -- Integration: twilio
 import './twilio/syncs/api-keys.js';
 import './twilio/syncs/calls.js';
