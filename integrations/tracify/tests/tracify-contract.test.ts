@@ -160,11 +160,13 @@ describe('Tracify Analytics public templates', () => {
     });
 
     it('declares one NVR array element per persisted record', () => {
-        expect(() => syncKpisNvr.models.TracifyKpiNvr.parse({
-            id: 'record-1',
-            endpoint: 'kpis-nvr',
-            fetched_at: '2026-09-10T00:00:00.000Z',
-            data: { date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }
-        })).not.toThrow();
+        expect(() =>
+            syncKpisNvr.models.TracifyKpiNvr.parse({
+                id: 'record-1',
+                endpoint: 'kpis-nvr',
+                fetched_at: '2026-09-10T00:00:00.000Z',
+                data: { date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }
+            })
+        ).not.toThrow();
     });
 });
