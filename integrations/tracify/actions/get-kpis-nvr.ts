@@ -14,7 +14,7 @@ const action = createAction({
   output: nvrResponse,
   exec: async (nango, input) =>
     nvrResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input),
+      await getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input, 3),
     ),
 });
 

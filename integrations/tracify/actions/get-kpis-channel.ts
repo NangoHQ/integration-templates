@@ -23,6 +23,7 @@ const action = createAction({
         nango,
         `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/`,
         values,
+        3,
       ),
     ),
 });

@@ -110,7 +110,7 @@ describe('Tracify Analytics public templates', () => {
         expect(Object.keys(syncKpisNvr.models)).toEqual(['TracifyKpiNvr']);
     });
 
-    it('uses three retries and closes full-refresh delete tracking after saving', async () => {
+    it('uses action and sync retry policies and closes full-refresh delete tracking after saving', async () => {
         const syncs = [
             [syncKpisOverview, 'TracifyKpiOverview'],
             [syncKpisChannels, 'TracifyKpiChannels'],
@@ -147,7 +147,7 @@ describe('Tracify Analytics public templates', () => {
             await sync.exec(nango as never);
 
             expect(calls[0]).toEqual({ type: 'track-start', model });
-            expect(calls[1]).toEqual({ type: 'proxy', retries: 3 });
+            expect(calls[1]).toEqual({ type: 'proxy', retries: 10 });
             expect(calls.at(-1)).toEqual({ type: 'track-end', model });
         }
     });

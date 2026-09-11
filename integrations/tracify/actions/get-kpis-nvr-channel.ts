@@ -20,6 +20,7 @@ const action = createAction({
         nango,
         `/analytics/api/v1/kpis/nvr_daily_breakdown/${encodeURIComponent(values.channel)}`,
         values,
+        3,
       ),
     ),
 });

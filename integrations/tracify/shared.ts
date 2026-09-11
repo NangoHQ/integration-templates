@@ -368,13 +368,14 @@ export async function getJson(
   nango: NangoProxy,
   path: string,
   input: Record<string, unknown>,
+  retries: 3 | 10,
 ): Promise<unknown> {
   const response = await nango.proxy({
     // https://tracify.dev/analytics-api/
     endpoint: path,
     method: "GET",
     params: toParams(input),
-    retries: 3,
+    retries,
   });
   return response.data;
 }

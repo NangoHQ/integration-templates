@@ -33,7 +33,7 @@ const sync = createSync({
     await nango.trackDeletesStart("TracifyKpiDiscountCodes");
     const input = await connectionKpiQuery(nango);
     const payload = kpiDiscountCodesResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/discount_codes", input),
+      await getJson(nango, "/analytics/api/v1/kpis/discount_codes", input, 10),
     );
     await savePayload(nango, "TracifyKpiDiscountCodes", "kpis-discount-codes", payload);
     await nango.trackDeletesEnd("TracifyKpiDiscountCodes");

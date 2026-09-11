@@ -29,7 +29,7 @@ const sync = createSync({
     await nango.trackDeletesStart("TracifyKpiNvr");
     const input = await connectionKpiQuery(nango, 7);
     const payload = nvrResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input),
+      await getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input, 10),
     );
     await savePayload(nango, "TracifyKpiNvr", "kpis-nvr", payload);
     await nango.trackDeletesEnd("TracifyKpiNvr");

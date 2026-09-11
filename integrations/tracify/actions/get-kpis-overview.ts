@@ -17,7 +17,7 @@ const action = createAction({
   output: kpiOverviewResponse,
   exec: async (nango, input) =>
     kpiOverviewResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/overview/", input),
+      await getJson(nango, "/analytics/api/v1/kpis/overview/", input, 3),
     ),
 });
 
