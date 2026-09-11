@@ -2,9 +2,12 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    model: z.enum(['tts-1', 'tts-1-hd', 'gpt-4o-mini-tts']).describe('TTS model to use. Example: "tts-1"'),
+    model: z.string().describe('TTS model to use. Example: "gpt-4o-mini-tts"'),
     input: z.string().max(4096).describe('Text to synthesize into speech. Max 4096 characters. Example: "Hello world"'),
-    voice: z.enum(['alloy', 'echo', 'fable', 'onyx', 'nova', 'shimmer']).describe('Voice to use for synthesis. Example: "alloy"'),
+    voice: z
+        .union([z.string(), z.object({ id: z.string().describe('Custom voice ID. Example: "voice_1234"') })])
+        .describe('Built-in voice name or custom voice ID to use for synthesis. Example: "alloy"'),
+    instructions: z.string().optional().describe('Additional voice instructions for GPT-4o mini TTS models.'),
     response_format: z.enum(['mp3', 'opus', 'aac', 'flac', 'wav', 'pcm']).optional().describe('Audio format. Defaults to "mp3".'),
     speed: z.number().min(0.25).max(4.0).optional().describe('Speech speed. 0.25 to 4.0. Defaults to 1.0.')
 });
@@ -16,7 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Generate speech audio from text.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],
@@ -29,6 +32,7 @@ const action = createAction({
                 model: input.model,
                 input: input.input,
                 voice: input.voice,
+                ...(input.instructions !== undefined && { instructions: input.instructions }),
                 ...(input.response_format !== undefined && {
                     response_format: input.response_format
                 }),
