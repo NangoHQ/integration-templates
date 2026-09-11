@@ -12,6 +12,12 @@ describe('schema inspection selectors', () => {
         expect(schema.input.safeParse({ ...base, timestamp: 'yesterday' }).success).toBe(false);
         expect(schema.input.safeParse({ ...base, format: 'yaml' }).success).toBe(false);
     });
+    it('validates known response fields even when the provider omits optional fields', () => {
+        expect(schema.output.safeParse({ sql: 123 }).success).toBe(false);
+        expect(schema.output.safeParse({ json: { tables: [{ schema: 'public', name: 'items', columns: [{ name: 'id', type: 123 }] }] } }).success).toBe(false);
+        expect(compare.output.safeParse({ diff: 123 }).success).toBe(false);
+        expect(compare.output.safeParse({ diff: '- old\n+ new' }).success).toBe(true);
+    });
     it('requires a database and allows independent historical points', () => {
         expect(schema.input.safeParse({ project_id: 'project', branch_id: 'branch' }).success).toBe(false);
         expect(compare.input.safeParse({ ...base, lsn: '0/123', base_timestamp: '2026-09-01T00:00:00Z' }).success).toBe(true);

@@ -22,6 +22,20 @@ describe('recovery contracts', () => {
             restore.input.safeParse({ ...base, body: { source_branch_id: 'other', source_lsn: '0/123', source_timestamp: '2026-09-01T00:00:00Z' } }).success
         ).toBe(false);
     });
+    it('sends snapshot selectors as query parameters on POST, as required by the API', async () => {
+        const fixture = JSON.parse(readFileSync(new URL('./create-snapshot.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'create-snapshot', Model: 'Output' });
+        nango.post.mockResolvedValue({ data: fixture.response });
+        await snapshot.exec(nango, snapshot.input.parse({ ...base, lsn: '0/123', name: 'before migration', expires_at: '2030-01-01T00:00:00Z' }));
+        expect(nango.post).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v2/projects/project/branches/branch/snapshot',
+                params: { lsn: '0/123', name: 'before migration', expires_at: '2030-01-01T00:00:00Z' },
+                retries: 0
+            })
+        );
+        expect(nango.post.mock.calls[0]?.[0]).not.toHaveProperty('data');
+    });
     it('does not finalize a snapshot restore unless explicitly requested', async () => {
         const fixture = JSON.parse(readFileSync(new URL('./restore-snapshot.fixture.json', import.meta.url), 'utf8'));
         const nango = new NangoActionMock({ dirname: __dirname, name: 'restore-snapshot', Model: 'Output' });
