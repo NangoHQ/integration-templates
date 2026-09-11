@@ -301,7 +301,10 @@ export const kpiDiscountCodesResponse = z.object({
 
 export const exportStatusResponse = z.object({
   task_id: z.string(),
-  status: z.enum(["PENDING", "STARTED", "COMPLETED", "FAILED"]),
+  status: z
+    .enum(["PENDING", "STARTED", "COMPLETED", "FAILED"])
+    .nullable()
+    .optional(),
   row_count: z.number().int().nullable().optional(),
   estimated_size_bytes: z.number().int().nullable().optional(),
   download_url: z.string().nullable().optional(),
@@ -365,24 +368,14 @@ export async function getJson(
   nango: NangoProxy,
   path: string,
   input: Record<string, unknown>,
-  retries: 3 | 10 = 3,
 ): Promise<unknown> {
-  const response =
-    retries === 10
-      ? await nango.proxy({
-          // https://tracify.dev/analytics-api/
-          endpoint: path,
-          method: "GET",
-          params: toParams(input),
-          retries: 10,
-        })
-      : await nango.proxy({
-          // https://tracify.dev/analytics-api/
-          endpoint: path,
-          method: "GET",
-          params: toParams(input),
-          retries: 3,
-        });
+  const response = await nango.proxy({
+    // https://tracify.dev/analytics-api/
+    endpoint: path,
+    method: "GET",
+    params: toParams(input),
+    retries: 3,
+  });
   return response.data;
 }
 

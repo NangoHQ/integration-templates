@@ -40,7 +40,7 @@ const actionResponses = {
         overall,
         breakdown
     },
-    'channel-export-status': { task_id: 'task-1', status: 'PENDING', detail: 'queued' },
+    'channel-export-status': { task_id: 'task-1', detail: 'queued' },
     'nvr-channel': [{ date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }],
     nvr: [{ date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }],
     'discount-codes': { overall, breakdown }
@@ -128,7 +128,7 @@ describe('Tracify Analytics public templates', () => {
             } as const;
             const nango = {
                 getConnection: async () => ({ connection_config: { siteId, presetId: 'preset-test' } }),
-                proxy: async (request: { retries?: number }) => {
+                proxy: async (request: { retries: number }) => {
                     calls.push({ type: 'proxy', retries: request.retries });
                     return { data: dataByModel[model] };
                 },
@@ -156,5 +156,15 @@ describe('Tracify Analytics public templates', () => {
         expect(() => getKpisOverview.output.parse({ overall: {} })).toThrow();
         expect(() => getKpisChannels.output.parse({ overall, channels: { google: {} } })).toThrow();
         expect(() => getKpisNvr.output.parse([{ channel: 'google' }])).toThrow();
+        expect(() => getKpisChannelExport.output.parse({ task_id: 'task-1', detail: 'queued' })).not.toThrow();
+    });
+
+    it('declares one NVR array element per persisted record', () => {
+        expect(() => syncKpisNvr.models.TracifyKpiNvr.parse({
+            id: 'record-1',
+            endpoint: 'kpis-nvr',
+            fetched_at: '2026-09-10T00:00:00.000Z',
+            data: { date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }
+        })).not.toThrow();
     });
 });

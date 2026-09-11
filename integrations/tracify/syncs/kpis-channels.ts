@@ -32,7 +32,7 @@ const sync = createSync({
     await nango.trackDeletesStart("TracifyKpiChannels");
     const input = await connectionKpiQuery(nango);
     const payload = kpiChannelsResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/channels/", input, 3),
+      await getJson(nango, "/analytics/api/v1/kpis/channels/", input),
     );
     await savePayload(nango, "TracifyKpiChannels", "kpis-channels", payload);
     await nango.trackDeletesEnd("TracifyKpiChannels");
