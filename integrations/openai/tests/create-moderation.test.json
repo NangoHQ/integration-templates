@@ -1,6 +1,18 @@
 {
   "input": {
-    "input": "This is a test message for moderation."
+    "input": [
+      {
+        "type": "text",
+        "text": "This is a test message for moderation."
+      },
+      {
+        "type": "image_url",
+        "image_url": {
+          "url": "https://example.com/image.png"
+        }
+      }
+    ],
+    "model": "omni-moderation-2024-09-26"
   },
   "output": {
     "id": "modr-4625",
@@ -19,20 +31,24 @@
           "self-harm/intent": false,
           "self-harm/instructions": false,
           "harassment/threatening": false,
-          "violence": false
+          "violence": false,
+          "illicit": false,
+          "illicit/violent": false
         },
         "category_scores": {
-          "sexual": 0.00007321812616608614,
-          "hate": 0.00003150386940813393,
+          "sexual": 7.321812616608614e-05,
+          "hate": 3.150386940813393e-05,
           "harassment": 0.0006567535265395168,
-          "self-harm": 0.00001177445922838707,
-          "sexual/minors": 0.000009610241549947397,
-          "hate/threatening": 9.666109404131067e-7,
-          "violence/graphic": 0.000009610241549947397,
+          "self-harm": 1.177445922838707e-05,
+          "sexual/minors": 9.610241549947397e-06,
+          "hate/threatening": 9.666109404131067e-07,
+          "violence/graphic": 9.610241549947397e-06,
           "self-harm/intent": 0.0002128468589176327,
-          "self-harm/instructions": 0.0000019833367060283617,
-          "harassment/threatening": 0.000015598027633743823,
-          "violence": 0.0005048825150668042
+          "self-harm/instructions": 1.9833367060283617e-06,
+          "harassment/threatening": 1.5598027633743823e-05,
+          "violence": 0.0005048825150668042,
+          "illicit": null,
+          "illicit/violent": null
         }
       }
     ]
@@ -64,18 +80,18 @@
               },
               "category_scores": {
                 "harassment": 0.0006567535265395168,
-                "harassment/threatening": 0.000015598027633743823,
-                "sexual": 0.00007321812616608614,
-                "hate": 0.00003150386940813393,
-                "hate/threatening": 9.666109404131067e-7,
-                "illicit": 0.0000461905832902385,
-                "illicit/violent": 0.000009761566060239504,
+                "harassment/threatening": 1.5598027633743823e-05,
+                "sexual": 7.321812616608614e-05,
+                "hate": 3.150386940813393e-05,
+                "hate/threatening": 9.666109404131067e-07,
+                "illicit": null,
+                "illicit/violent": null,
                 "self-harm/intent": 0.0002128468589176327,
-                "self-harm/instructions": 0.0000019833367060283617,
-                "self-harm": 0.00001177445922838707,
-                "sexual/minors": 0.000009610241549947397,
+                "self-harm/instructions": 1.9833367060283617e-06,
+                "self-harm": 1.177445922838707e-05,
+                "sexual/minors": 9.610241549947397e-06,
                 "violence": 0.0005048825150668042,
-                "violence/graphic": 0.000009610241549947397
+                "violence/graphic": 9.610241549947397e-06
               },
               "category_applied_input_types": {
                 "harassment": [
@@ -151,10 +167,22 @@
           "cf-ray": "9feaa559fe0a6c17-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "032d7b0443b8f8c789d842cf945419119a98a4b5",
+        "hash": "8e598ca23161b061dba977d425e3b2978267a14a",
         "request": {
           "data": {
-            "input": "This is a test message for moderation."
+            "input": [
+              {
+                "type": "text",
+                "text": "This is a test message for moderation."
+              },
+              {
+                "type": "image_url",
+                "image_url": {
+                  "url": "https://example.com/image.png"
+                }
+              }
+            ],
+            "model": "omni-moderation-2024-09-26"
           }
         }
       }
