@@ -1,0 +1,17 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example",
+    "database_name": "example"
+  },
+  "response": {
+    "database": {
+      "id": 834686,
+      "branch_id": "br-aged-salad-637688",
+      "name": "main",
+      "owner_name": "casey",
+      "created_at": "2022-11-30T18:25:15Z",
+      "updated_at": "2022-11-30T18:25:15Z"
+    }
+  }
+}

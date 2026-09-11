@@ -4146,12 +4146,15 @@ import './namely-pat/syncs/unified-employees.js';
 // -- Integration: neon
 import './neon/actions/compare-branch-schema.js';
 import './neon/actions/create-branch.js';
+import './neon/actions/create-database.js';
 import './neon/actions/create-endpoint.js';
 import './neon/actions/create-project.js';
 import './neon/actions/delete-branch.js';
+import './neon/actions/delete-database.js';
 import './neon/actions/delete-endpoint.js';
 import './neon/actions/get-branch.js';
 import './neon/actions/get-branch-schema.js';
+import './neon/actions/get-database.js';
 import './neon/actions/get-endpoint.js';
 import './neon/actions/get-operation.js';
 import './neon/actions/get-project.js';
@@ -4166,6 +4169,7 @@ import './neon/actions/set-default-branch.js';
 import './neon/actions/start-endpoint.js';
 import './neon/actions/suspend-endpoint.js';
 import './neon/actions/update-branch.js';
+import './neon/actions/update-database.js';
 import './neon/actions/update-endpoint.js';
 import './neon/actions/update-project.js';
 

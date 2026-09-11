@@ -170,6 +170,34 @@
             "path": "/projects/{project_id}/branches/{branch_id}/endpoints",
             "operationId": "listProjectBranchEndpoints",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "get-database",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/databases/{database_name}",
+            "operationId": "getProjectBranchDatabase",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-database",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/databases",
+            "operationId": "createProjectBranchDatabase",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-database",
+            "method": "PATCH",
+            "path": "/projects/{project_id}/branches/{branch_id}/databases/{database_name}",
+            "operationId": "updateProjectBranchDatabase",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-database",
+            "method": "DELETE",
+            "path": "/projects/{project_id}/branches/{branch_id}/databases/{database_name}",
+            "operationId": "deleteProjectBranchDatabase",
+            "omittedQueryParameters": []
         }
     ]
 }
