@@ -368,14 +368,28 @@ export async function getJson(
   nango: NangoProxy,
   path: string,
   input: Record<string, unknown>,
-  retries: 3 | 10,
 ): Promise<unknown> {
   const response = await nango.proxy({
     // https://tracify.dev/analytics-api/
     endpoint: path,
     method: "GET",
     params: toParams(input),
-    retries,
+    retries: 3,
+  });
+  return response.data;
+}
+
+export async function getJsonSync(
+  nango: NangoProxy,
+  path: string,
+  input: Record<string, unknown>,
+): Promise<unknown> {
+  const response = await nango.proxy({
+    // https://tracify.dev/analytics-api/
+    endpoint: path,
+    method: "GET",
+    params: toParams(input),
+    retries: 10,
   });
   return response.data;
 }

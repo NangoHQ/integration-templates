@@ -21,7 +21,6 @@ const action = createAction({
         nango,
         `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/exports/${encodeURIComponent(values.taskId)}`,
         values,
-        3,
       ),
     ),
 });

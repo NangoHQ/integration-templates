@@ -2,7 +2,7 @@ import { createSync } from "nango";
 import * as z from "zod";
 import {
   connectionKpiQuery,
-  getJson,
+  getJsonSync,
   kpiDiscountCodesResponse,
   savePayload,
 } from "../shared.js";
@@ -33,7 +33,7 @@ const sync = createSync({
     await nango.trackDeletesStart("TracifyKpiDiscountCodes");
     const input = await connectionKpiQuery(nango);
     const payload = kpiDiscountCodesResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/discount_codes", input, 10),
+      await getJsonSync(nango, "/analytics/api/v1/kpis/discount_codes", input),
     );
     await savePayload(nango, "TracifyKpiDiscountCodes", "kpis-discount-codes", payload);
     await nango.trackDeletesEnd("TracifyKpiDiscountCodes");

@@ -2,7 +2,7 @@ import { createSync } from "nango";
 import * as z from "zod";
 import {
   connectionKpiQuery,
-  getJson,
+  getJsonSync,
   kpiChannelsResponse,
   savePayload,
 } from "../shared.js";
@@ -32,7 +32,7 @@ const sync = createSync({
     await nango.trackDeletesStart("TracifyKpiChannels");
     const input = await connectionKpiQuery(nango);
     const payload = kpiChannelsResponse.parse(
-      await getJson(nango, "/analytics/api/v1/kpis/channels/", input, 10),
+      await getJsonSync(nango, "/analytics/api/v1/kpis/channels/", input),
     );
     await savePayload(nango, "TracifyKpiChannels", "kpis-channels", payload);
     await nango.trackDeletesEnd("TracifyKpiChannels");
