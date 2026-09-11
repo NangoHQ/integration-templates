@@ -1,6 +1,6 @@
 import { createAction } from "nango";
 import * as z from "zod";
-import { getJson, nvrQuery } from "../shared.js";
+import { getJson, nvrQuery, nvrResponse } from "../shared.js";
 
 const input = nvrQuery.extend({ channel: z.string().min(1).max(100) });
 const action = createAction({
@@ -13,12 +13,15 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input,
-  output: z.unknown(),
+  output: nvrResponse,
   exec: async (nango, values) =>
-    getJson(
-      nango,
-      `/analytics/api/v1/kpis/nvr_daily_breakdown/${encodeURIComponent(values.channel)}`,
-      values,
+    nvrResponse.parse(
+      await getJson(
+        nango,
+        `/analytics/api/v1/kpis/nvr_daily_breakdown/${encodeURIComponent(values.channel)}`,
+        values,
+        3,
+      ),
     ),
 });
 

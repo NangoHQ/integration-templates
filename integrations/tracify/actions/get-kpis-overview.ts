@@ -1,6 +1,9 @@
 import { createAction } from "nango";
-import * as z from "zod";
-import { getJson, kpiQuery } from "../shared.js";
+import {
+  getJson,
+  kpiOverviewResponse,
+  kpiQuery,
+} from "../shared.js";
 
 const action = createAction({
   description: "Fetches aggregated Tracify KPI overview data for a date range.",
@@ -11,9 +14,11 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input: kpiQuery,
-  output: z.unknown(),
+  output: kpiOverviewResponse,
   exec: async (nango, input) =>
-    getJson(nango, "/analytics/api/v1/kpis/overview/", input),
+    kpiOverviewResponse.parse(
+      await getJson(nango, "/analytics/api/v1/kpis/overview/", input, 3),
+    ),
 });
 
 export type NangoActionLocal = Parameters<(typeof action)["exec"]>[0];

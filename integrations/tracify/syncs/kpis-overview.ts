@@ -1,12 +1,17 @@
 import { createSync } from "nango";
 import * as z from "zod";
-import { connectionKpiQuery, getJson, savePayload } from "../shared.js";
+import {
+  connectionKpiQuery,
+  getJson,
+  kpiOverviewResponse,
+  savePayload,
+} from "../shared.js";
 
 const record = z.object({
   id: z.string(),
   endpoint: z.string(),
   fetched_at: z.string(),
-  data: z.unknown(),
+  data: kpiOverviewResponse,
 });
 const sync = createSync({
   description:
@@ -25,10 +30,13 @@ const sync = createSync({
   metadata: z.void(),
   models: { TracifyKpiOverview: record },
   exec: async (nango) => {
+    await nango.trackDeletesStart("TracifyKpiOverview");
     const input = await connectionKpiQuery(nango);
-    const payload = await getJson(nango, "/analytics/api/v1/kpis/overview/", input, 10);
+    const payload = kpiOverviewResponse.parse(
+      await getJson(nango, "/analytics/api/v1/kpis/overview/", input, 3),
+    );
     await savePayload(nango, "TracifyKpiOverview", "kpis-overview", payload);
-    await nango.deleteRecordsFromPreviousExecutions("TracifyKpiOverview");
+    await nango.trackDeletesEnd("TracifyKpiOverview");
   },
 });
 

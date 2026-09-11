@@ -24,9 +24,31 @@ const baseInput = {
     granularity: 'none'
 };
 
+const overall = { fixed: {}, total: {}, returning: {}, new: {} };
+const breakdown = {
+    data: [],
+    pagination: { offset: 0, limit: 25, total: 0, has_next_page: false, detail: 'none' }
+};
+
+const actionResponses = {
+    overview: { overall },
+    channels: { overall, channels: {} },
+    channel: { channel: 'google', overall },
+    'channel-breakdown': {
+        channel: 'google',
+        breakdown_dimension: 'campaign',
+        overall,
+        breakdown
+    },
+    'channel-export-status': { task_id: 'task-1', status: 'PENDING', detail: 'queued' },
+    'nvr-channel': [{ date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }],
+    nvr: [{ date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }],
+    'discount-codes': { overall, breakdown }
+} as const;
+
 const actions = [
     ['overview', getKpisOverview, '/analytics/api/v1/kpis/overview/', {}],
-    ['channels', getKpisChannels, '/analytics/api/v1/kpis/channels/', {}],
+    ['channels', getKpisChannels, '/analytics/api/v1/kpis/channels/', { channels: ['google'] }],
     ['channel', getKpisChannel, '/analytics/api/v1/kpis/channels/google/', { channel: 'google' }],
     ['channel-breakdown', getKpisChannelBreakdown, '/analytics/api/v1/kpis/channels/google/campaign', { channel: 'google', breakdownDimension: 'campaign' }],
     ['channel-export-status', getKpisChannelExport, '/analytics/api/v1/kpis/channels/google/exports/task-1', { channel: 'google', taskId: 'task-1' }],
@@ -54,7 +76,7 @@ describe('Tracify Analytics public templates', () => {
             const nango = {
                 proxy: async (request: { endpoint: string; method?: string; retries?: number; params?: Record<string, unknown> }) => {
                     calls.push(request);
-                    return { data: { overall: {} } };
+                    return { data: actionResponses[name] };
                 }
             };
 
@@ -66,11 +88,17 @@ describe('Tracify Analytics public templates', () => {
             expect(calls[0]?.endpoint, name).toBe(expectedPath);
             expect(calls[0]?.params?.['csids'], name).toEqual([siteId]);
             expect(calls[0]?.params?.['preset_id'], name).toBe(name === 'channel-export-status' ? undefined : 'preset-test');
+            if (name === 'channels') {
+                expect(calls[0]?.params?.['channels'], name).toEqual(['google']);
+            }
         }
     });
 
     it('rejects an NVR request spanning more than seven days', () => {
         expect(() => getKpisNvr.input.parse({ ...baseInput, startDate: '2026-09-01', endDate: '2026-09-10' })).toThrow(
+            'NVR time ranges must not exceed 7 days'
+        );
+        expect(() => getKpisNvr.input.parse({ ...baseInput, startDate: '2026-09-10', endDate: '2026-09-09' })).toThrow(
             'NVR time ranges must not exceed 7 days'
         );
     });
@@ -82,7 +110,7 @@ describe('Tracify Analytics public templates', () => {
         expect(Object.keys(syncKpisNvr.models)).toEqual(['TracifyKpiNvr']);
     });
 
-    it('uses the sync retry policy and clears records from prior full-sync executions', async () => {
+    it('uses three retries and closes full-refresh delete tracking after saving', async () => {
         const syncs = [
             [syncKpisOverview, 'TracifyKpiOverview'],
             [syncKpisChannels, 'TracifyKpiChannels'],
@@ -92,25 +120,41 @@ describe('Tracify Analytics public templates', () => {
 
         for (const [sync, model] of syncs) {
             const calls: { type: string; retries?: number; model?: string }[] = [];
+            const dataByModel = {
+                TracifyKpiOverview: { overall },
+                TracifyKpiChannels: { overall, channels: {} },
+                TracifyKpiDiscountCodes: { overall, breakdown },
+                TracifyKpiNvr: [{ date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }]
+            } as const;
             const nango = {
                 getConnection: async () => ({ connection_config: { siteId, presetId: 'preset-test' } }),
                 proxy: async (request: { retries?: number }) => {
                     calls.push({ type: 'proxy', retries: request.retries });
-                    return { data: { overall: {} } };
+                    return { data: dataByModel[model] };
                 },
                 batchSave: async () => {
                     calls.push({ type: 'batch-save' });
                 },
-                deleteRecordsFromPreviousExecutions: async (deletedModel: string) => {
-                    calls.push({ type: 'delete-previous', model: deletedModel });
+                trackDeletesStart: async (trackedModel: string) => {
+                    calls.push({ type: 'track-start', model: trackedModel });
+                },
+                trackDeletesEnd: async (trackedModel: string) => {
+                    calls.push({ type: 'track-end', model: trackedModel });
                 },
                 log: async () => undefined
             };
 
             await sync.exec(nango as never);
 
-            expect(calls[0]).toEqual({ type: 'proxy', retries: 10 });
-            expect(calls.at(-1)).toEqual({ type: 'delete-previous', model });
+            expect(calls[0]).toEqual({ type: 'track-start', model });
+            expect(calls[1]).toEqual({ type: 'proxy', retries: 3 });
+            expect(calls.at(-1)).toEqual({ type: 'track-end', model });
         }
+    });
+
+    it('rejects malformed provider responses at action boundaries', () => {
+        expect(() => getKpisOverview.output.parse({ overall: {} })).toThrow();
+        expect(() => getKpisChannels.output.parse({ overall, channels: { google: {} } })).toThrow();
+        expect(() => getKpisNvr.output.parse([{ channel: 'google' }])).toThrow();
     });
 });

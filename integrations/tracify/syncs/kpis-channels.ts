@@ -1,12 +1,17 @@
 import { createSync } from "nango";
 import * as z from "zod";
-import { connectionKpiQuery, getJson, savePayload } from "../shared.js";
+import {
+  connectionKpiQuery,
+  getJson,
+  kpiChannelsResponse,
+  savePayload,
+} from "../shared.js";
 
 const record = z.object({
   id: z.string(),
   endpoint: z.string(),
   fetched_at: z.string(),
-  data: z.unknown(),
+  data: kpiChannelsResponse,
 });
 const sync = createSync({
   description: "Keeps the last 30 days of Tracify channel KPI data fresh.",
@@ -24,10 +29,13 @@ const sync = createSync({
   metadata: z.void(),
   models: { TracifyKpiChannels: record },
   exec: async (nango) => {
+    await nango.trackDeletesStart("TracifyKpiChannels");
     const input = await connectionKpiQuery(nango);
-    const payload = await getJson(nango, "/analytics/api/v1/kpis/channels/", input, 10);
+    const payload = kpiChannelsResponse.parse(
+      await getJson(nango, "/analytics/api/v1/kpis/channels/", input, 3),
+    );
     await savePayload(nango, "TracifyKpiChannels", "kpis-channels", payload);
-    await nango.deleteRecordsFromPreviousExecutions("TracifyKpiChannels");
+    await nango.trackDeletesEnd("TracifyKpiChannels");
   },
 });
 

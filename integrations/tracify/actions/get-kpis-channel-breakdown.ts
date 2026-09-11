@@ -4,6 +4,7 @@ import {
   breakdownDimension,
   channelBreakdownQuery,
   getJson,
+  kpiChannelBreakdownResponse,
 } from "../shared.js";
 
 const input = channelBreakdownQuery.extend({
@@ -19,12 +20,15 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input,
-  output: z.unknown(),
+  output: kpiChannelBreakdownResponse,
   exec: async (nango, values) =>
-    getJson(
-      nango,
-      `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/${encodeURIComponent(values.breakdownDimension)}`,
-      values,
+    kpiChannelBreakdownResponse.parse(
+      await getJson(
+        nango,
+        `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/${encodeURIComponent(values.breakdownDimension)}`,
+        values,
+        3,
+      ),
     ),
 });
 

@@ -1,6 +1,5 @@
 import { createAction } from "nango";
-import * as z from "zod";
-import { getJson, nvrQuery } from "../shared.js";
+import { getJson, nvrQuery, nvrResponse } from "../shared.js";
 
 const action = createAction({
   description:
@@ -12,9 +11,11 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input: nvrQuery,
-  output: z.unknown(),
+  output: nvrResponse,
   exec: async (nango, input) =>
-    getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input),
+    nvrResponse.parse(
+      await getJson(nango, "/analytics/api/v1/kpis/nvr_daily_breakdown", input, 3),
+    ),
 });
 
 export type NangoActionLocal = Parameters<(typeof action)["exec"]>[0];

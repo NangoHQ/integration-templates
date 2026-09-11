@@ -154,7 +154,7 @@ const nvrQueryShape = kpiQuery
 export const nvrQuery = nvrQueryShape.superRefine((value, ctx) => {
   const days =
     (Date.parse(value.endDate) - Date.parse(value.startDate)) / 86_400_000;
-  if (days > 7) {
+  if (days < 0 || days > 7) {
     ctx.addIssue({
       code: "custom",
       path: ["endDate"],
@@ -172,6 +172,142 @@ export const exportStatusQuery = z.object({
 export type KpiQuery = z.infer<typeof kpiQuery>;
 export type NvrQuery = z.infer<typeof nvrQuery>;
 
+const metricBucket = z.record(z.string(), z.number().nullable());
+const overviewPeriod = z.object({
+  date,
+  fixed: metricBucket.nullable().optional(),
+  total: metricBucket.nullable().optional(),
+  returning: metricBucket.nullable().optional(),
+  new: metricBucket.nullable().optional(),
+});
+const overviewOverall = z.object({
+  fixed: metricBucket,
+  total: metricBucket,
+  returning: metricBucket,
+  new: metricBucket,
+});
+
+export const kpiOverviewResponse = z.object({
+  overall: overviewOverall,
+  daily: z.array(overviewPeriod).nullable().optional(),
+  weekly: z.array(overviewPeriod).nullable().optional(),
+  monthly: z.array(overviewPeriod).nullable().optional(),
+});
+
+const kpiChannelResponse = z.object({
+  overall: overviewOverall,
+  daily: z.array(overviewPeriod).nullable().optional(),
+  weekly: z.array(overviewPeriod).nullable().optional(),
+  monthly: z.array(overviewPeriod).nullable().optional(),
+});
+
+export const kpiChannelsResponse = z.object({
+  overall: overviewOverall,
+  channels: z.record(z.string(), kpiChannelResponse),
+});
+
+export const kpiChannelResponseWithName = kpiChannelResponse.extend({
+  channel: z.string(),
+});
+
+const breakdownInfo = z
+  .object({
+    campaign_id: z.string().nullable().optional(),
+    adset_id: z.string().nullable().optional(),
+    ad_id: z.string().nullable().optional(),
+    campaign_name: z.string().nullable().optional(),
+    adset_name: z.string().nullable().optional(),
+    ad_name: z.string().nullable().optional(),
+    ad_status: z.string().nullable().optional(),
+    adset_status: z.string().nullable().optional(),
+    campaign_status: z.string().nullable().optional(),
+    advertising_channel_type: z.string().nullable().optional(),
+    ads_count: z.number().nullable().optional(),
+    image: z.string().nullable().optional(),
+    video: z.string().nullable().optional(),
+    image_url: z.string().nullable().optional(),
+    video_url: z.string().nullable().optional(),
+    ad_creative_id: z.string().nullable().optional(),
+    influencer_id: z.string().nullable().optional(),
+    influencer_name: z.string().nullable().optional(),
+    cooperation_id: z.string().nullable().optional(),
+    cooperation_name: z.string().nullable().optional(),
+    placement_type: z.string().nullable().optional(),
+    placement_source: z.string().nullable().optional(),
+    labels: z.array(z.string()).nullable().optional(),
+    cooperation_link_id: z.string().nullable().optional(),
+    cooperation_link_title: z.string().nullable().optional(),
+    discount_code: z.string().nullable().optional(),
+  })
+  .passthrough();
+const pagination = z.object({
+  offset: z.number().int(),
+  limit: z.number().int(),
+  total: z.number().int(),
+  has_next_page: z.boolean(),
+  detail: z.string(),
+});
+const breakdownItem = z
+  .object({
+    info: breakdownInfo,
+    fixed: metricBucket.nullable().optional(),
+    total: metricBucket.nullable().optional(),
+    returning: metricBucket.nullable().optional(),
+    new: metricBucket.nullable().optional(),
+    daily: z.array(overviewPeriod).nullable().optional(),
+    weekly: z.array(overviewPeriod).nullable().optional(),
+    monthly: z.array(overviewPeriod).nullable().optional(),
+  })
+  .passthrough();
+const breakdown = z.object({
+  data: z.array(breakdownItem),
+  pagination,
+});
+const channelBreakdownResponse = z.object({
+  channel: z.string(),
+  breakdown_dimension: breakdownDimension,
+  overall: overviewOverall,
+  breakdown,
+});
+const comparisonBreakdownResponse = z.object({
+  main: channelBreakdownResponse,
+  comparison: z.object({
+    channel: z.string(),
+    breakdown_dimension: breakdownDimension,
+    overall: overviewOverall,
+    breakdown: z.object({ data: z.array(breakdownItem) }),
+  }),
+});
+
+export const kpiChannelBreakdownResponse = z.union([
+  channelBreakdownResponse,
+  comparisonBreakdownResponse,
+]);
+
+export const nvrResponse = z.array(
+  z
+    .object({
+      date,
+      new_vs_returning: userType,
+      channel: z.string(),
+    })
+    .passthrough(),
+);
+
+export const kpiDiscountCodesResponse = z.object({
+  overall: overviewOverall,
+  breakdown,
+});
+
+export const exportStatusResponse = z.object({
+  task_id: z.string(),
+  status: z.enum(["PENDING", "STARTED", "COMPLETED", "FAILED"]),
+  row_count: z.number().int().nullable().optional(),
+  estimated_size_bytes: z.number().int().nullable().optional(),
+  download_url: z.string().nullable().optional(),
+  detail: z.string(),
+});
+
 interface NangoProxy {
   proxy(config: ProxyConfiguration): Promise<{ data: unknown }>;
 }
@@ -179,7 +315,8 @@ interface NangoProxy {
 interface NangoSync {
   getConnection(): Promise<{ connection_config: Record<string, unknown> }>;
   batchSave(records: object[], model: string): unknown;
-  deleteRecordsFromPreviousExecutions(model: string): unknown;
+  trackDeletesStart(model: string): unknown;
+  trackDeletesEnd(model: string): unknown;
   log(message: string): unknown;
 }
 
@@ -228,16 +365,24 @@ export async function getJson(
   nango: NangoProxy,
   path: string,
   input: Record<string, unknown>,
-  retries = 3
+  retries: 3 | 10 = 3,
 ): Promise<unknown> {
-  const proxyConfig: ProxyConfiguration = {
-    // https://tracify.dev/analytics-api/
-    endpoint: path,
-    method: 'GET',
-    params: toParams(input),
-    retries
-  };
-  const response = await nango.proxy(proxyConfig);
+  const response =
+    retries === 10
+      ? await nango.proxy({
+          // https://tracify.dev/analytics-api/
+          endpoint: path,
+          method: "GET",
+          params: toParams(input),
+          retries: 10,
+        })
+      : await nango.proxy({
+          // https://tracify.dev/analytics-api/
+          endpoint: path,
+          method: "GET",
+          params: toParams(input),
+          retries: 3,
+        });
   return response.data;
 }
 

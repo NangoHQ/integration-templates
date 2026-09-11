@@ -1,6 +1,9 @@
 import { createAction } from "nango";
-import * as z from "zod";
-import { exportStatusQuery, getJson } from "../shared.js";
+import {
+  exportStatusQuery,
+  exportStatusResponse,
+  getJson,
+} from "../shared.js";
 
 const action = createAction({
   description: "Gets the status or result of a Tracify KPI export job.",
@@ -11,12 +14,15 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input: exportStatusQuery,
-  output: z.unknown(),
+  output: exportStatusResponse,
   exec: async (nango, values) =>
-    getJson(
-      nango,
-      `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/exports/${encodeURIComponent(values.taskId)}`,
-      values,
+    exportStatusResponse.parse(
+      await getJson(
+        nango,
+        `/analytics/api/v1/kpis/channels/${encodeURIComponent(values.channel)}/exports/${encodeURIComponent(values.taskId)}`,
+        values,
+        3,
+      ),
     ),
 });
 

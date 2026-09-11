@@ -1,6 +1,9 @@
 import { createAction } from "nango";
-import * as z from "zod";
-import { getJson, pagedKpiQuery } from "../shared.js";
+import {
+  getJson,
+  kpiDiscountCodesResponse,
+  pagedKpiQuery,
+} from "../shared.js";
 
 const action = createAction({
   description: "Fetches KPI data grouped by Tracify discount code.",
@@ -11,9 +14,11 @@ const action = createAction({
     group: "Analytics KPIs",
   },
   input: pagedKpiQuery,
-  output: z.unknown(),
+  output: kpiDiscountCodesResponse,
   exec: async (nango, input) =>
-    getJson(nango, "/analytics/api/v1/kpis/discount_codes", input),
+    kpiDiscountCodesResponse.parse(
+      await getJson(nango, "/analytics/api/v1/kpis/discount_codes", input, 3),
+    ),
 });
 
 export type NangoActionLocal = Parameters<(typeof action)["exec"]>[0];
