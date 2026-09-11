@@ -1,0 +1,20 @@
+{
+    "input": {
+        "project_id": "example",
+        "operation_id": "00000000-0000-4000-8000-000000000001"
+    },
+    "response": {
+        "operation": {
+            "id": "a07f8772-1877-4da9-a939-3a3ae62d1d8d",
+            "project_id": "floral-king-961888",
+            "branch_id": "br-bitter-sound-247814",
+            "endpoint_id": "ep-dark-snowflake-942567",
+            "action": "create_timeline",
+            "status": "finished",
+            "failures_count": 0,
+            "created_at": "2022-10-04T18:20:17Z",
+            "updated_at": "2022-10-04T18:20:18Z",
+            "total_duration_ms": 100
+        }
+    }
+}

@@ -4149,10 +4149,12 @@ import './neon/actions/create-project.js';
 import './neon/actions/delete-branch.js';
 import './neon/actions/get-branch.js';
 import './neon/actions/get-endpoint.js';
+import './neon/actions/get-operation.js';
 import './neon/actions/get-project.js';
 import './neon/actions/list-branches.js';
 import './neon/actions/list-databases.js';
 import './neon/actions/list-endpoints.js';
+import './neon/actions/list-operations.js';
 import './neon/actions/list-projects.js';
 
 // -- Integration: netsuite-tba

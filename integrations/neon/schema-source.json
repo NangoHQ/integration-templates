@@ -72,6 +72,20 @@
             "path": "/projects/{project_id}/endpoints/{endpoint_id}",
             "operationId": "getProjectEndpoint",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "get-operation",
+            "method": "GET",
+            "path": "/projects/{project_id}/operations/{operation_id}",
+            "operationId": "getProjectOperation",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-operations",
+            "method": "GET",
+            "path": "/projects/{project_id}/operations",
+            "operationId": "listProjectOperations",
+            "omittedQueryParameters": []
         }
     ]
 }

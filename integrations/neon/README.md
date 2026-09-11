@@ -19,6 +19,9 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `list-endpoints` | GET | `/projects/{project_id}/endpoints` |
 | `get-endpoint` | GET | `/projects/{project_id}/endpoints/{endpoint_id}` |
 
+| `get-operation` | GET | `/projects/{project_id}/operations/{operation_id}` |
+| `list-operations` | GET | `/projects/{project_id}/operations` |
+
 Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
 
 GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
@@ -36,3 +39,5 @@ npx vitest run integrations/neon/tests
 npx eslint integrations/neon
 npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck integrations/neon/actions/*.ts
 ```
+
+Added operation completion: `get-operation`, `list-operations`.
