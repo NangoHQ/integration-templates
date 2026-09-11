@@ -1,0 +1,11 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example",
+    "body": {}
+  },
+  "response": {
+    "logs": [],
+    "is_truncated": false
+  }
+}

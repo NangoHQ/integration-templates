@@ -57,6 +57,12 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/restore` |
 | `finalize-restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/finalize_restore` |
 
+| `query-branch-logs` | POST | `/projects/{project_id}/branches/{branch_id}/logs/query` |
+| `list-branch-log-fields` | GET | `/projects/{project_id}/branches/{branch_id}/logs/fields` |
+| `list-branch-log-field-values` | GET | `/projects/{project_id}/branches/{branch_id}/logs/fields/{field_name}/values` |
+| `get-project-consumption` | GET | `/consumption_history/v2/projects` |
+| `get-branch-consumption` | GET | `/consumption_history/v2/branches` |
+
 Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
 
 GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
@@ -88,3 +94,5 @@ Added database lifecycle: `get-database`, `create-database`, `update-database`, 
 Added discovery and access context: `list-regions`, `get-auth-details`, `list-organizations`, `list-shared-projects`.
 
 Added recovery: `create-snapshot`, `list-snapshots`, `update-snapshot`, `delete-snapshot`, `restore-snapshot`, `get-snapshot-schedule`, `set-snapshot-schedule`, `restore-branch`, `finalize-restore-branch`.
+
+Added diagnostics: `query-branch-logs`, `list-branch-log-fields`, `list-branch-log-field-values`, `get-project-consumption`, `get-branch-consumption`.

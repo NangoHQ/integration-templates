@@ -289,6 +289,41 @@
             "path": "/projects/{project_id}/branches/{branch_id}/finalize_restore",
             "operationId": "finalizeRestoreBranch",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "query-branch-logs",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/logs/query",
+            "operationId": "queryProjectBranchLogs",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-branch-log-fields",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/logs/fields",
+            "operationId": "listProjectBranchLogFields",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-branch-log-field-values",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/logs/fields/{field_name}/values",
+            "operationId": "listProjectBranchLogFieldValues",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-project-consumption",
+            "method": "GET",
+            "path": "/consumption_history/v2/projects",
+            "operationId": "getConsumptionHistoryPerProjectV2",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-branch-consumption",
+            "method": "GET",
+            "path": "/consumption_history/v2/branches",
+            "operationId": "getConsumptionHistoryPerBranchV2",
+            "omittedQueryParameters": []
         }
     ]
 }

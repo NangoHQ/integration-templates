@@ -1389,3 +1389,175 @@ describe('finalize-restore-branch', () => {
         await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
     });
 });
+
+describe('query-branch-logs', () => {
+    async function setup() {
+        const action = (await import('../actions/query-branch-logs.js')).default;
+        const fixture = JSON.parse(readFileSync(new URL('./query-branch-logs.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'query-branch-logs', Model: 'Output' });
+        nango.post.mockResolvedValue({ data: fixture.response });
+        return { action, fixture, nango };
+    }
+
+    it('validates the contract and forwards the request through the provider proxy', async () => {
+        const { action, fixture, nango } = await setup();
+        const input = action.input.parse(fixture.input);
+        const output = await action.exec(nango, input);
+        expect(action.output.safeParse(output).success).toBe(true);
+        expect(output).toMatchObject(fixture.response);
+        const endpoint = '/v2/projects/{project_id}/branches/{branch_id}/logs/query'.replace(/\{([^}]+)\}/g, (_, key) =>
+            encodeURIComponent(fixture.input[key])
+        );
+        expect(nango.post).toHaveBeenCalledOnce();
+        expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
+        expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ data: input.body }));
+    });
+
+    it('propagates provider failures', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.post.mockRejectedValue(new Error('Provider unavailable'));
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow('Provider unavailable');
+    });
+
+    it('rejects a malformed provider envelope', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.post.mockResolvedValue({ data: null });
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
+    });
+});
+
+describe('list-branch-log-fields', () => {
+    async function setup() {
+        const action = (await import('../actions/list-branch-log-fields.js')).default;
+        const fixture = JSON.parse(readFileSync(new URL('./list-branch-log-fields.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'list-branch-log-fields', Model: 'Output' });
+        nango.get.mockResolvedValue({ data: fixture.response });
+        return { action, fixture, nango };
+    }
+
+    it('validates the contract and forwards the request through the provider proxy', async () => {
+        const { action, fixture, nango } = await setup();
+        const input = action.input.parse(fixture.input);
+        const output = await action.exec(nango, input);
+        expect(action.output.safeParse(output).success).toBe(true);
+        expect(output).toMatchObject(fixture.response);
+        const endpoint = '/v2/projects/{project_id}/branches/{branch_id}/logs/fields'.replace(/\{([^}]+)\}/g, (_, key) =>
+            encodeURIComponent(fixture.input[key])
+        );
+        expect(nango.get).toHaveBeenCalledOnce();
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
+    });
+
+    it('propagates provider failures', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockRejectedValue(new Error('Provider unavailable'));
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow('Provider unavailable');
+    });
+
+    it('rejects a malformed provider envelope', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockResolvedValue({ data: null });
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
+    });
+});
+
+describe('list-branch-log-field-values', () => {
+    async function setup() {
+        const action = (await import('../actions/list-branch-log-field-values.js')).default;
+        const fixture = JSON.parse(readFileSync(new URL('./list-branch-log-field-values.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'list-branch-log-field-values', Model: 'Output' });
+        nango.get.mockResolvedValue({ data: fixture.response });
+        return { action, fixture, nango };
+    }
+
+    it('validates the contract and forwards the request through the provider proxy', async () => {
+        const { action, fixture, nango } = await setup();
+        const input = action.input.parse(fixture.input);
+        const output = await action.exec(nango, input);
+        expect(action.output.safeParse(output).success).toBe(true);
+        expect(output).toMatchObject(fixture.response);
+        const endpoint = '/v2/projects/{project_id}/branches/{branch_id}/logs/fields/{field_name}/values'.replace(/\{([^}]+)\}/g, (_, key) =>
+            encodeURIComponent(fixture.input[key])
+        );
+        expect(nango.get).toHaveBeenCalledOnce();
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
+    });
+
+    it('propagates provider failures', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockRejectedValue(new Error('Provider unavailable'));
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow('Provider unavailable');
+    });
+
+    it('rejects a malformed provider envelope', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockResolvedValue({ data: null });
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
+    });
+});
+
+describe('get-project-consumption', () => {
+    async function setup() {
+        const action = (await import('../actions/get-project-consumption.js')).default;
+        const fixture = JSON.parse(readFileSync(new URL('./get-project-consumption.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'get-project-consumption', Model: 'Output' });
+        nango.get.mockResolvedValue({ data: fixture.response });
+        return { action, fixture, nango };
+    }
+
+    it('validates the contract and forwards the request through the provider proxy', async () => {
+        const { action, fixture, nango } = await setup();
+        const input = action.input.parse(fixture.input);
+        const output = await action.exec(nango, input);
+        expect(action.output.safeParse(output).success).toBe(true);
+        expect(output).toMatchObject(fixture.response);
+        const endpoint = '/v2/consumption_history/v2/projects'.replace(/\{([^}]+)\}/g, (_, key) => encodeURIComponent(fixture.input[key]));
+        expect(nango.get).toHaveBeenCalledOnce();
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
+    });
+
+    it('propagates provider failures', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockRejectedValue(new Error('Provider unavailable'));
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow('Provider unavailable');
+    });
+
+    it('rejects a malformed provider envelope', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockResolvedValue({ data: null });
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
+    });
+});
+
+describe('get-branch-consumption', () => {
+    async function setup() {
+        const action = (await import('../actions/get-branch-consumption.js')).default;
+        const fixture = JSON.parse(readFileSync(new URL('./get-branch-consumption.fixture.json', import.meta.url), 'utf8'));
+        const nango = new NangoActionMock({ dirname: __dirname, name: 'get-branch-consumption', Model: 'Output' });
+        nango.get.mockResolvedValue({ data: fixture.response });
+        return { action, fixture, nango };
+    }
+
+    it('validates the contract and forwards the request through the provider proxy', async () => {
+        const { action, fixture, nango } = await setup();
+        const input = action.input.parse(fixture.input);
+        const output = await action.exec(nango, input);
+        expect(action.output.safeParse(output).success).toBe(true);
+        expect(output).toMatchObject(fixture.response);
+        const endpoint = '/v2/consumption_history/v2/branches'.replace(/\{([^}]+)\}/g, (_, key) => encodeURIComponent(fixture.input[key]));
+        expect(nango.get).toHaveBeenCalledOnce();
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
+    });
+
+    it('propagates provider failures', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockRejectedValue(new Error('Provider unavailable'));
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow('Provider unavailable');
+    });
+
+    it('rejects a malformed provider envelope', async () => {
+        const { action, fixture, nango } = await setup();
+        nango.get.mockResolvedValue({ data: null });
+        await expect(action.exec(nango, action.input.parse(fixture.input))).rejects.toThrow();
+    });
+});

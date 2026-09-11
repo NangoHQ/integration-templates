@@ -1,0 +1,11 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example",
+    "field_name": "example"
+  },
+  "response": {
+    "values": [],
+    "is_truncated": false
+  }
+}

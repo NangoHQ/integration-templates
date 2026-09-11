@@ -1,0 +1,17 @@
+{
+  "input": {
+    "project_ids": [
+      "example"
+    ],
+    "from": "2026-09-01T00:00:00Z",
+    "to": "2026-09-02T00:00:00Z",
+    "granularity": "hourly",
+    "org_id": "example",
+    "metrics": [
+      "compute_unit_seconds"
+    ]
+  },
+  "response": {
+    "branches": []
+  }
+}
