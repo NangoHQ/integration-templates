@@ -1,0 +1,35 @@
+{
+  "input": {
+    "project_id": "example",
+    "branch_id": "example",
+    "body": {
+      "role": {
+        "name": "example"
+      }
+    }
+  },
+  "response": {
+    "role": {
+      "branch_id": "br-noisy-sunset-458773",
+      "name": "sally",
+      "password": "Onf1AjayKwe0",
+      "protected": false,
+      "created_at": "2022-12-03T11:58:29Z",
+      "updated_at": "2022-12-03T11:58:29Z"
+    },
+    "operations": [
+      {
+        "id": "2c2be371-d5ac-4db5-8b68-79f05e8bc287",
+        "project_id": "shiny-wind-028834",
+        "branch_id": "br-noisy-sunset-458773",
+        "endpoint_id": "ep-small-pine-767857",
+        "action": "apply_config",
+        "status": "running",
+        "failures_count": 0,
+        "created_at": "2022-12-03T11:58:29Z",
+        "updated_at": "2022-12-03T11:58:29Z",
+        "total_duration_ms": 100
+      }
+    ]
+  }
+}

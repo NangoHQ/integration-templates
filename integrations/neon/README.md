@@ -1,10 +1,10 @@
-# neon actions
+# Neon actions
 
-Uses Nango provider `neon`, whose base URL already includes `/api`; actions use `/v2/...`. The catalog covers project listing/retrieval/creation, branch listing/retrieval/creation/deletion, database listing, and compute endpoint listing/retrieval. It uses the same Management API operations as [Neon tools](https://github.com/neondatabase/neon-pkgs/tree/af5a839e5900dc98120af6261b5b29d02c74a8e1/packages/tools), through Nango authentication. SQL execution, composed create-and-connect workflows, and credential retrieval are outside this initial catalog.
+50 actions for the Neon Management API, using Nango provider `neon`. Its base URL includes `/api`; action paths start with `/v2`. Authenticate with a Neon API-key connection in Nango. API-key permissions and the Neon plan determine which actions are available; no OAuth scopes are required.
 
-Authenticate with an API-key connection configured in Nango. These providers do not use OAuth scopes; the API key's provider-side permissions control which operations are available. Give write access only when using the create/update/delete actions.
+## Coverage
 
-## Actions
+The catalog covers projects, branches, asynchronous operations, schema inspection and comparison, compute lifecycle, databases, regions and organizations, snapshots and recovery, logs and consumption, and PostgreSQL roles. SQL row reads/writes, password reveal/reset, connection-URI retrieval, and administrative organization/billing changes are outside this catalog.
 
 | Action | Method | Provider path |
 | --- | --- | --- |
@@ -18,17 +18,13 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `list-databases` | GET | `/projects/{project_id}/branches/{branch_id}/databases` |
 | `list-endpoints` | GET | `/projects/{project_id}/endpoints` |
 | `get-endpoint` | GET | `/projects/{project_id}/endpoints/{endpoint_id}` |
-
 | `get-operation` | GET | `/projects/{project_id}/operations/{operation_id}` |
 | `list-operations` | GET | `/projects/{project_id}/operations` |
-
 | `get-branch-schema` | GET | `/projects/{project_id}/branches/{branch_id}/schema` |
 | `compare-branch-schema` | GET | `/projects/{project_id}/branches/{branch_id}/compare_schema` |
-
 | `update-project` | PATCH | `/projects/{project_id}` |
 | `update-branch` | PATCH | `/projects/{project_id}/branches/{branch_id}` |
 | `set-default-branch` | POST | `/projects/{project_id}/branches/{branch_id}/set_as_default` |
-
 | `create-endpoint` | POST | `/projects/{project_id}/endpoints` |
 | `update-endpoint` | PATCH | `/projects/{project_id}/endpoints/{endpoint_id}` |
 | `delete-endpoint` | DELETE | `/projects/{project_id}/endpoints/{endpoint_id}` |
@@ -36,17 +32,14 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `suspend-endpoint` | POST | `/projects/{project_id}/endpoints/{endpoint_id}/suspend` |
 | `restart-endpoint` | POST | `/projects/{project_id}/endpoints/{endpoint_id}/restart` |
 | `list-branch-endpoints` | GET | `/projects/{project_id}/branches/{branch_id}/endpoints` |
-
 | `get-database` | GET | `/projects/{project_id}/branches/{branch_id}/databases/{database_name}` |
 | `create-database` | POST | `/projects/{project_id}/branches/{branch_id}/databases` |
 | `update-database` | PATCH | `/projects/{project_id}/branches/{branch_id}/databases/{database_name}` |
 | `delete-database` | DELETE | `/projects/{project_id}/branches/{branch_id}/databases/{database_name}` |
-
 | `list-regions` | GET | `/regions` |
 | `get-auth-details` | GET | `/auth` |
 | `list-organizations` | GET | `/users/me/organizations` |
 | `list-shared-projects` | GET | `/projects/shared` |
-
 | `create-snapshot` | POST | `/projects/{project_id}/branches/{branch_id}/snapshot` |
 | `list-snapshots` | GET | `/projects/{project_id}/snapshots` |
 | `update-snapshot` | PATCH | `/projects/{project_id}/snapshots/{snapshot_id}` |
@@ -56,43 +49,48 @@ Authenticate with an API-key connection configured in Nango. These providers do 
 | `set-snapshot-schedule` | PUT | `/projects/{project_id}/branches/{branch_id}/backup_schedule` |
 | `restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/restore` |
 | `finalize-restore-branch` | POST | `/projects/{project_id}/branches/{branch_id}/finalize_restore` |
-
 | `query-branch-logs` | POST | `/projects/{project_id}/branches/{branch_id}/logs/query` |
 | `list-branch-log-fields` | GET | `/projects/{project_id}/branches/{branch_id}/logs/fields` |
 | `list-branch-log-field-values` | GET | `/projects/{project_id}/branches/{branch_id}/logs/fields/{field_name}/values` |
 | `get-project-consumption` | GET | `/consumption_history/v2/projects` |
 | `get-branch-consumption` | GET | `/consumption_history/v2/branches` |
+| `list-roles` | GET | `/projects/{project_id}/branches/{branch_id}/roles` |
+| `get-role` | GET | `/projects/{project_id}/branches/{branch_id}/roles/{role_name}` |
+| `create-role` | POST | `/projects/{project_id}/branches/{branch_id}/roles` |
+| `delete-role` | DELETE | `/projects/{project_id}/branches/{branch_id}/roles/{role_name}` |
 
-Inputs use provider parameter names. JSON request payloads are nested under `body` so path, query, and header arguments cannot leak into the payload. Responses retain provider field names and envelopes. Paginated actions return one page and expose `next_cursor` alongside the original pagination metadata; reuse it as `cursor` (Neon) or `after` (Resend and incident.io), preserving other filters/sort options. Stop when it is absent. Unpaginated list endpoints return their complete provider envelope.
+## Request and response behavior
 
-GET, PUT and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Incident creation uses its required body `idempotency_key`; Resend email sending retries only with an explicit idempotency key.
+Inputs use provider parameter names. JSON payloads are nested under `body`; path and query parameters are separate. Responses preserve the provider envelope, asynchronous operation IDs, and unknown response fields. Use `get-operation` or `list-operations` to inspect completion; mutations do not poll automatically.
+
+Paginated list and consumption actions return one page with an additive `next_cursor`. Pass it as `cursor` and preserve the other filters. Log queries already return `next_cursor`; pass it as `body.cursor` with the original time bounds and filters. Stop when the cursor is absent or empty. Log field discovery preserves `is_truncated` when the provider scan limit is reached.
+
+Consumption queries accept arrays for `metrics`, `project_ids`, and `branch_ids`, encoded as comma-separated query values as documented by Neon. Metrics are required. Branch consumption accepts six metrics; project consumption additionally supports extra-branch and snapshot-storage metrics. Plan eligibility and historical retention limits are enforced by Neon.
+
+Schema inspection requires `db_name`. `lsn` and `timestamp` are mutually exclusive; schema comparison applies the same rule independently to the base branch. LogQL cannot be combined with structured log filters, and relative `since` cannot be combined with absolute `start_time`.
+
+Database, compute, and role deletion return the provider envelope on HTTP 200. HTTP 204 means the resource is already absent and returns `{ "deleted": true, "already_absent": true }`. Malformed HTTP 200 responses still fail validation.
+
+POST requests use zero retries to avoid repeating mutations without an idempotency contract. GET, PATCH, PUT, and DELETE use three retries. API errors propagate to the caller.
+
+## Recovery and roles
+
+`restore-branch` restores from a source branch's head or historical point. Restoring from the same branch requires an LSN or timestamp and `preserve_under_name`; Neon also requires preservation when children exist. The latter depends on live branch state and is checked by Neon.
+
+`restore-snapshot` creates a restored branch for preview by default. Setting `body.finalize_restore: true`, or calling `finalize-restore-branch` later, replaces the original branch's function, moves its computes, and restarts them. These are explicit mutations. Schedule entries are required; snapshot expiration can be cleared with `body.snapshot.expires_at: null`.
+
+Role creation supports `no_login` and validates the 63-byte UTF-8 name limit. Role responses preserve a password if Neon returns one; no separate password reveal or reset action is included. Project/branch creation can also return connection credentials. Select actions according to the access the consuming workflow needs.
 
 ## Contract provenance and validation
 
-Schemas were extracted from the official OpenAPI source recorded in `schema-source.json`, including required fields, enums, nullable fields, and numeric/array bounds. Reference objects are expanded locally so every action is independently usable. Provider response objects preserve unknown fields for forward compatibility. Review upstream API documentation when changing an action: OpenAPI examples and required flags can lag actual behavior.
+`schema-source.json` records the pinned official OpenAPI URL, input SHA-256, selected operation IDs, and omitted parameters. Schemas expand references locally and preserve required fields, enums, nullable fields, and numeric/array bounds. Additional deterministic constraints expressed in OpenAPI prose are enforced in input schemas, including time-selector exclusions, autoscaling bounds, metric sets, restore requirements, and the role-name byte limit.
 
-`schema-source.json` records the source URL, SHA-256 of the JSON input, retrieval date, selected operations, and omitted query parameters. Resend's input is its YAML specification converted to JSON with Python `json.dumps`; the other inputs are the downloaded JSON bytes. Tests use published examples and synthetic contract fixtures, **not live recordings**. No provider credentials were available for live validation.
+Tests use published OpenAPI examples and synthetic contract fixtures, not live recordings. No provider credentials were available for live validation. Contract tests cover each action; behavioral tests cover pagination, query serialization, mutation inputs, asynchronous status, and empty deletion responses.
 
-Run the focused checks from the repository root:
+Run from the repository root:
 
 ```sh
 npx vitest run integrations/neon/tests
 npx eslint integrations/neon
 npx tsc --noEmit --target ES2022 --module NodeNext --moduleResolution NodeNext --strict --skipLibCheck integrations/neon/actions/*.ts
 ```
-
-Added operation completion: `get-operation`, `list-operations`.
-
-Added schema inspection: `get-branch-schema`, `compare-branch-schema`.
-
-Added project and branch configuration: `update-project`, `update-branch`, `set-default-branch`.
-
-Added compute lifecycle: `create-endpoint`, `update-endpoint`, `delete-endpoint`, `start-endpoint`, `suspend-endpoint`, `restart-endpoint`, `list-branch-endpoints`.
-
-Added database lifecycle: `get-database`, `create-database`, `update-database`, `delete-database`.
-
-Added discovery and access context: `list-regions`, `get-auth-details`, `list-organizations`, `list-shared-projects`.
-
-Added recovery: `create-snapshot`, `list-snapshots`, `update-snapshot`, `delete-snapshot`, `restore-snapshot`, `get-snapshot-schedule`, `set-snapshot-schedule`, `restore-branch`, `finalize-restore-branch`.
-
-Added diagnostics: `query-branch-logs`, `list-branch-log-fields`, `list-branch-log-field-values`, `get-project-consumption`, `get-branch-consumption`.

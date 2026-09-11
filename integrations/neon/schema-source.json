@@ -324,6 +324,34 @@
             "path": "/consumption_history/v2/branches",
             "operationId": "getConsumptionHistoryPerBranchV2",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "list-roles",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/roles",
+            "operationId": "listProjectBranchRoles",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-role",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/roles/{role_name}",
+            "operationId": "getProjectBranchRole",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-role",
+            "method": "POST",
+            "path": "/projects/{project_id}/branches/{branch_id}/roles",
+            "operationId": "createProjectBranchRole",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-role",
+            "method": "DELETE",
+            "path": "/projects/{project_id}/branches/{branch_id}/roles/{role_name}",
+            "operationId": "deleteProjectBranchRole",
+            "omittedQueryParameters": []
         }
     ]
 }
