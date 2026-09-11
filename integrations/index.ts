@@ -6705,6 +6705,48 @@ import './workday-refresh-token/actions/list-worker-time-off.js';
 import './workday-refresh-token/actions/list-workers.js';
 import './workday-refresh-token/actions/submit-time-off-request.js';
 
+// -- Integration: workos
+import './workos/actions/create-connection.js';
+import './workos/actions/create-invitation.js';
+import './workos/actions/create-organization-domain.js';
+import './workos/actions/create-organization-membership.js';
+import './workos/actions/create-organization.js';
+import './workos/actions/create-user.js';
+import './workos/actions/deactivate-organization-membership.js';
+import './workos/actions/delete-connection.js';
+import './workos/actions/delete-directory.js';
+import './workos/actions/delete-organization-domain.js';
+import './workos/actions/delete-organization-membership.js';
+import './workos/actions/delete-organization.js';
+import './workos/actions/delete-user.js';
+import './workos/actions/get-connection.js';
+import './workos/actions/get-directory-group.js';
+import './workos/actions/get-directory-user.js';
+import './workos/actions/get-directory.js';
+import './workos/actions/get-invitation.js';
+import './workos/actions/get-organization-domain.js';
+import './workos/actions/get-organization-membership.js';
+import './workos/actions/get-organization.js';
+import './workos/actions/get-user.js';
+import './workos/actions/list-connections.js';
+import './workos/actions/list-directories.js';
+import './workos/actions/list-directory-groups.js';
+import './workos/actions/list-directory-users.js';
+import './workos/actions/list-events.js';
+import './workos/actions/list-invitations.js';
+import './workos/actions/list-organization-membership-groups.js';
+import './workos/actions/list-organization-memberships.js';
+import './workos/actions/list-organizations.js';
+import './workos/actions/list-users.js';
+import './workos/actions/reactivate-organization-membership.js';
+import './workos/actions/resend-invitation.js';
+import './workos/actions/revoke-invitation.js';
+import './workos/actions/update-connection.js';
+import './workos/actions/update-organization-membership.js';
+import './workos/actions/update-organization.js';
+import './workos/actions/update-user.js';
+import './workos/actions/verify-organization-domain.js';
+
 // -- Integration: xero
 import './xero/syncs/accounts.js';
 import './xero/syncs/bank-transactions.js';
