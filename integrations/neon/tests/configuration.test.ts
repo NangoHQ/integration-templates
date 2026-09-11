@@ -15,6 +15,14 @@ describe('project and branch configuration', () => {
         expect(project.input.safeParse({ project_id: 'project', body: { project: { history_retention_seconds: -1 } } }).success).toBe(false);
         expect(branch.input.safeParse({ project_id: 'project', branch_id: 'branch', body: { branch: { name: '' } } }).success).toBe(false);
     });
+    it('validates project compute defaults while allowing partial updates', () => {
+        const base = { project_id: 'project' };
+        expect(
+            project.input.safeParse({ ...base, body: { project: { default_endpoint_settings: { autoscaling_limit_min_cu: 4, autoscaling_limit_max_cu: 1 } } } })
+                .success
+        ).toBe(false);
+        expect(project.input.safeParse({ ...base, body: { project: { default_endpoint_settings: { autoscaling_limit_min_cu: 4 } } } }).success).toBe(true);
+    });
     it('changes the default branch with one explicit POST and returns its operations', async () => {
         const fixture = JSON.parse(readFileSync(new URL('./set-default-branch.fixture.json', import.meta.url), 'utf8'));
         const nango = new NangoActionMock({ dirname: __dirname, name: 'set-default-branch', Model: 'Output' });

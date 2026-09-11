@@ -14,7 +14,7 @@ const InputSchema = z
             .optional(),
         limit: z.number().int().min(1).max(100).describe('Maximum number of projects per page. Allowed range: 1 to 100. Default: 10.\n').optional(),
         project_ids: z
-            .array(z.string().regex(new RegExp('^([a-z0-9-]{1,60}(,[a-z0-9-]{1,60}){0,99})?$')))
+            .array(z.string().regex(new RegExp('^[a-z0-9-]{1,60}$')))
             .min(0)
             .max(100)
             .describe(

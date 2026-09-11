@@ -8,7 +8,9 @@ const base = { project_id: 'project', branch_id: 'branch' };
 const period = { org_id: 'org', from: '2026-09-01T00:00:00Z', to: '2026-09-02T00:00:00Z', granularity: 'daily' };
 describe('diagnostics contracts', () => {
     it('rejects conflicting log filters and time windows', () => {
-        expect(logs.input.safeParse({ ...base, body: { logql: '{source="compute"}', source: 'compute' } }).success).toBe(false);
+        expect(logs.input.safeParse({ ...base, body: { source: 'pg_endpoint' } }).success).toBe(true);
+        expect(logs.input.safeParse({ ...base, body: { logql: '{source="pg_endpoint"}' } }).success).toBe(true);
+        expect(logs.input.safeParse({ ...base, body: { logql: '{source="compute"}', source: 'pg_endpoint' } }).success).toBe(false);
         expect(logs.input.safeParse({ ...base, body: { since: '1h', start_time: period.from } }).success).toBe(false);
         expect(fields.input.safeParse({ ...base, field_name: 'service_name', since: '1h', start_time: period.from }).success).toBe(false);
         expect(logs.input.safeParse({ ...base, body: { logql: '{source="compute"}', since: '1h', limit: 10, sort_order: 'asc' } }).success).toBe(true);
@@ -28,6 +30,14 @@ describe('diagnostics contracts', () => {
         expect(branches.input.safeParse({ ...period, project_ids: ['project'], metrics: ['snapshot_storage_bytes_month'] }).success).toBe(false);
         expect(projects.input.safeParse({ ...period, metrics: ['snapshot_storage_bytes_month'] }).success).toBe(true);
         expect(projects.input.safeParse({ ...period, from: period.to, to: period.from, metrics: ['compute_unit_seconds'] }).success).toBe(false);
+    });
+    it('counts individual nonempty IDs in consumption filters', () => {
+        const base = { ...period, metrics: ['compute_unit_seconds'] };
+        expect(branches.input.safeParse({ ...base, project_ids: [''] }).success).toBe(false);
+        expect(branches.input.safeParse({ ...base, project_ids: ['a,b'] }).success).toBe(false);
+        expect(branches.input.safeParse({ ...base, project_ids: Array(101).fill('project') }).success).toBe(false);
+        expect(projects.input.safeParse({ ...base, project_ids: ['a,b'] }).success).toBe(false);
+        expect(branches.input.safeParse({ ...base, project_ids: ['project'], branch_ids: [''] }).success).toBe(false);
     });
     it('serializes consumption arrays in the documented comma-separated form and retains the cursor', async () => {
         const nango = new NangoActionMock({ dirname: __dirname, name: 'get-branch-consumption', Model: 'Output' });

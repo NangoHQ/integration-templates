@@ -65,7 +65,7 @@ Inputs use provider parameter names. JSON payloads are nested under `body`; path
 
 Paginated list and consumption actions return one page with an additive `next_cursor`. Pass it as `cursor` and preserve the other filters. Log queries already return `next_cursor`; pass it as `body.cursor` with the original time bounds and filters. Stop when the cursor is absent or empty. Log field discovery preserves `is_truncated` when the provider scan limit is reached.
 
-Consumption queries accept arrays for `metrics`, `project_ids`, and `branch_ids`, encoded as comma-separated query values as documented by Neon. Metrics are required. Branch consumption accepts six metrics; project consumption additionally supports extra-branch and snapshot-storage metrics. Plan eligibility and historical retention limits are enforced by Neon.
+Consumption queries accept arrays for `metrics`, `project_ids`, and `branch_ids`, with one nonempty ID per array item, encoded as comma-separated query values as documented by Neon. Metrics are required. Branch consumption accepts six metrics; project consumption additionally supports extra-branch and snapshot-storage metrics. Plan eligibility and historical retention limits are enforced by Neon.
 
 Schema inspection requires `db_name`. `lsn` and `timestamp` are mutually exclusive; schema comparison applies the same rule independently to the base branch. LogQL cannot be combined with structured log filters, and relative `since` cannot be combined with absolute `start_time`.
 

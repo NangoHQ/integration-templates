@@ -13,10 +13,10 @@ describe('discovery and access context', () => {
     it('preserves partial shared-project results and pagination', async () => {
         const nango = new NangoActionMock({ dirname: __dirname, name: 'list-shared-projects', Model: 'Output' });
         nango.get.mockResolvedValue({
-            data: { projects: [], applications: {}, integrations: {}, unavailable: ['project-loading'], pagination: { cursor: 'next' } }
+            data: { projects: [], applications: {}, integrations: {}, unavailable_project_ids: ['project-loading'], pagination: { cursor: 'next' } }
         });
         const output = await shared.exec(nango, { timeout: 100, cursor: 'previous', search: 'team & project' });
-        expect(output.unavailable).toEqual(['project-loading']);
+        expect(output.unavailable_project_ids).toEqual(['project-loading']);
         expect(output.next_cursor).toBe('next');
         expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ params: { timeout: 100, cursor: 'previous', search: 'team & project' } }));
     });

@@ -11,7 +11,7 @@ const InputSchema = z
         db_name: z.string().describe('Name of the database for which the schema is retrieved'),
         lsn: z.string().describe('The Log Sequence Number (LSN) for which the schema is retrieved\n').optional(),
         timestamp: z.string().datetime({ offset: true }).describe('The point in time for which the schema is retrieved\n').optional(),
-        format: z.string().describe('The format of the schema to retrieve. Possible values:\n- `sql` (default)\n- `json`\n').optional()
+        format: z.enum(['sql', 'json']).describe('The format of the schema to retrieve. Possible values:\n- `sql` (default)\n- `json`\n').optional()
     })
     .refine((input) => input.lsn === undefined || input.timestamp === undefined, { message: 'Use either lsn or timestamp, not both' });
 

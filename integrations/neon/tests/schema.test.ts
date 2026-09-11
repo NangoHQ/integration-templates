@@ -10,6 +10,7 @@ describe('schema inspection selectors', () => {
         expect(compare.input.safeParse({ ...base, ...selectors }).success).toBe(false);
         expect(compare.input.safeParse({ ...base, base_lsn: '0/123', base_timestamp: selectors.timestamp }).success).toBe(false);
         expect(schema.input.safeParse({ ...base, timestamp: 'yesterday' }).success).toBe(false);
+        expect(schema.input.safeParse({ ...base, format: 'yaml' }).success).toBe(false);
     });
     it('requires a database and allows independent historical points', () => {
         expect(schema.input.safeParse({ project_id: 'project', branch_id: 'branch' }).success).toBe(false);
