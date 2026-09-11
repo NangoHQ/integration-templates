@@ -86,6 +86,20 @@
             "path": "/projects/{project_id}/operations",
             "operationId": "listProjectOperations",
             "omittedQueryParameters": []
+        },
+        {
+            "action": "get-branch-schema",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/schema",
+            "operationId": "getProjectBranchSchema",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "compare-branch-schema",
+            "method": "GET",
+            "path": "/projects/{project_id}/branches/{branch_id}/compare_schema",
+            "operationId": "getProjectBranchSchemaComparison",
+            "omittedQueryParameters": []
         }
     ]
 }

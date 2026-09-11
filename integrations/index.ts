@@ -4144,10 +4144,12 @@ import './monday/actions/update-item.js';
 import './namely-pat/syncs/unified-employees.js';
 
 // -- Integration: neon
+import './neon/actions/compare-branch-schema.js';
 import './neon/actions/create-branch.js';
 import './neon/actions/create-project.js';
 import './neon/actions/delete-branch.js';
 import './neon/actions/get-branch.js';
+import './neon/actions/get-branch-schema.js';
 import './neon/actions/get-endpoint.js';
 import './neon/actions/get-operation.js';
 import './neon/actions/get-project.js';
