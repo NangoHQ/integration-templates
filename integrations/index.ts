@@ -3030,6 +3030,19 @@ import './hubstaff/actions/update-client.js';
 import './hubstaff/actions/update-project.js';
 import './hubstaff/actions/update-task.js';
 
+// -- Integration: incident-io
+import './incident-io/actions/create-follow-up.js';
+import './incident-io/actions/create-incident.js';
+import './incident-io/actions/get-action.js';
+import './incident-io/actions/get-follow-up.js';
+import './incident-io/actions/get-incident.js';
+import './incident-io/actions/list-actions.js';
+import './incident-io/actions/list-follow-ups.js';
+import './incident-io/actions/list-incident-statuses.js';
+import './incident-io/actions/list-incidents.js';
+import './incident-io/actions/list-severities.js';
+import './incident-io/actions/update-follow-up.js';
+
 // -- Integration: ingenious-build
 import './ingenious-build/syncs/budgets.js';
 import './ingenious-build/syncs/buildings.js';
