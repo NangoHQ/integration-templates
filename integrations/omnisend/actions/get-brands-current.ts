@@ -1,5 +1,3 @@
-/* Generated from the pinned Omnisend OpenAPI snapshot. */
-/* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
 import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
@@ -10,7 +8,6 @@ const output = z.unknown();
 const action = createAction({
     description: 'Get information about brand',
     version: '1.0.0',
-    // Omnisend API docs: https://api-docs.omnisend.com/v2026-03-15/reference/
     endpoint: {
         method: 'GET',
         path: '/omnisend/getBrandsCurrent',
@@ -18,9 +15,7 @@ const action = createAction({
     },
     input,
     output,
-    exec: async (nango, requestInput) => output.parse(
-    (await callOmnisend(nango, 'GET', '/brands/current', requestInput as Record<string, unknown>)).data
-    )
+    exec: async (nango, requestInput) => output.parse((await callOmnisend(nango, 'GET', '/brands/current', requestInput)).data)
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];

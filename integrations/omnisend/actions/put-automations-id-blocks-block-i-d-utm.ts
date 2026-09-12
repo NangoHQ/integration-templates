@@ -1,16 +1,23 @@
-/* Generated from the pinned Omnisend OpenAPI snapshot. */
-/* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
 import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
-const input = z.object({"id": z.string().min(1), "blockID": z.string().min(1), body: z.object({"tags": z.object({"campaign": z.string().optional(), "medium": z.string().optional(), "source": z.string().optional()}).passthrough().optional()}).passthrough()}).passthrough();
-const output = z.object({"tags": z.object({"campaign": z.string().optional(), "medium": z.string().optional(), "source": z.string().optional()}).passthrough().optional()}).passthrough();
+const input = z
+    .object({
+        id: z.string().min(1),
+        blockID: z.string().min(1),
+        body: z
+            .object({ tags: z.object({ campaign: z.string().max(250), medium: z.string().max(250), source: z.string().max(250) }).passthrough() })
+            .passthrough()
+    })
+    .passthrough();
+const output = z
+    .object({ tags: z.object({ campaign: z.string().optional(), medium: z.string().optional(), source: z.string().optional() }).passthrough().optional() })
+    .passthrough();
 
 const action = createAction({
     description: 'Update UTM tags for an automation block',
     version: '1.0.0',
-    // Omnisend API docs: https://api-docs.omnisend.com/v2026-03-15/reference/
     endpoint: {
         method: 'PUT',
         path: '/omnisend/putAutomationsIdBlocksBlockIDUtm',
@@ -18,9 +25,7 @@ const action = createAction({
     },
     input,
     output,
-    exec: async (nango, requestInput) => output.parse(
-    (await callOmnisend(nango, 'PUT', '/automations/{id}/blocks/{blockID}/utm', requestInput as Record<string, unknown>)).data
-    )
+    exec: async (nango, requestInput) => output.parse((await callOmnisend(nango, 'PUT', '/automations/{id}/blocks/{blockID}/utm', requestInput)).data)
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];

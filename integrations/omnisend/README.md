@@ -7,24 +7,29 @@ kundenspezifische Freigabe- oder Tenant-Policy.
 
 ## Lokaler Ablauf
 
+Die Actions und Syncs sind als Quellcode committed und in
+`integrations/index.ts` registriert. Für diesen Provider gibt es im
+Template-Repository keinen Generator und keine lokale OpenAPI-Quelle.
+
 ```bash
 npm install
-npm run generate
 npm test
-npm run compile
+npm run compile:integrations
+npx prettier --config .prettierrc --check \
+  integrations/omnisend/shared.ts \
+  integrations/omnisend/actions/*.ts \
+  integrations/omnisend/syncs/*.ts \
+  integrations/omnisend/tests/*.ts
+npx eslint integrations/omnisend/shared.ts integrations/omnisend/actions \
+  integrations/omnisend/syncs --ext .ts
 ```
 
-`npm run generate` liest die OpenAPI-Dateien aus
-`../omnisend-api-specs/openapi` und erzeugt Actions, Syncs sowie die
-`generated/operation-matrix.json`. Die Quelle ist in
-`generated/source-lock.json` auf einen Commit gepinnt. Die redundanten
-Drittanbieter-Dateien werden per Inhalt dedupliziert; Änderungen am Snapshot
-werden im Matrix-Test sichtbar.
-
-Die generierten Zod-Grenzen übernehmen die dokumentierten Top-Level-Felder,
-Primitive, Enums, Arrays und flache verschachtelte Objekte. Bei stark
-polymorphen oder rekursiven Omnisend-Payloads bleibt `z.unknown()` bewusst als
-MVP-Fallback erhalten; die Request-Route bleibt trotzdem statisch gebunden.
+Der Omnisend-Vertragstest liegt unter
+`integrations/omnisend/tests/omnisend-contract.test.ts`. Die generierten
+Zod-Grenzen übernehmen die dokumentierten Top-Level-Felder, Primitive, Enums,
+Arrays und flache verschachtelte Objekte. Bei stark polymorphen oder
+rekursiven Omnisend-Payloads bleibt `z.unknown()` bewusst als MVP-Fallback
+erhalten; die Request-Route bleibt trotzdem statisch gebunden.
 
 ## Authentifizierung
 
@@ -35,12 +40,9 @@ generierten Artefakten gespeichert.
 
 ## Schreiboperationen
 
-Alle in der Omnisend-API veröffentlichten Schreiboperationen sind als Actions
-registriert, einschließlich Campaign Send/Test, Automation Enable/Disable,
-Events, Kontaktmutationen und Löschoperationen. Dieses Projekt setzt keine
-Kunden-Policy durch. Für den lokalen Testlauf werden jedoch ausschließlich
-GET-Requests gegen den vorhandenen Produktions-Key ausgeführt; insbesondere
-werden keine E-Mails, SMS, Push-Nachrichten, Automationen oder sonstigen
-produktiven Mutationen ausgelöst.
-
-Write-E2E ist für einen separaten Test-Account vorgesehen.
+Für den sicheren lokalen Produktions-Smoke-Test ist ausschließlich ein
+separat neu angelegtes Segment mit den beiden Testadressen zulässig. Es dürfen
+keine bestehenden Templates, Segmente oder Kontakte geändert werden. Aktionen,
+die E-Mails, SMS, Push-Nachrichten oder Automationen senden/aktivieren können,
+werden nicht ausgelöst. Der getestete Write-Read-back muss die neu angelegte
+Ressource per ID verifizieren.

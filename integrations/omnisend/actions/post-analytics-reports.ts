@@ -1,16 +1,57 @@
-/* Generated from the pinned Omnisend OpenAPI snapshot. */
-/* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
 import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
-const input = z.object({body: z.object({"queries": z.array(z.object({"alias": z.unknown().optional(), "dateRange": z.unknown().optional(), "dimensions": z.unknown().optional(), "filters": z.unknown().optional(), "metrics": z.unknown().optional()}).passthrough()).optional()}).passthrough()}).passthrough();
-const output = z.object({"reports": z.array(z.object({"alias": z.string().optional(), "dimensions": z.array(z.unknown()).optional(), "metrics": z.array(z.unknown()).optional(), "rows": z.array(z.unknown()).optional()}).passthrough()).optional()}).passthrough();
+const input = z
+    .object({
+        body: z
+            .object({
+                queries: z
+                    .array(
+                        z
+                            .object({
+                                alias: z.string().optional(),
+                                dateRange: z
+                                    .object({ from: z.string().optional(), interval: z.string().optional(), to: z.string().optional() })
+                                    .passthrough()
+                                    .optional(),
+                                dimensions: z.array(z.object({ granularity: z.unknown().optional(), name: z.unknown().optional() }).passthrough()).optional(),
+                                filters: z
+                                    .array(
+                                        z
+                                            .object({ name: z.unknown().optional(), operator: z.unknown().optional(), values: z.unknown().optional() })
+                                            .passthrough()
+                                    )
+                                    .optional(),
+                                metrics: z.array(z.object({ name: z.unknown().optional() }).passthrough()).optional()
+                            })
+                            .passthrough()
+                    )
+                    .optional()
+            })
+            .passthrough()
+    })
+    .passthrough();
+const output = z
+    .object({
+        reports: z
+            .array(
+                z
+                    .object({
+                        alias: z.string().optional(),
+                        dimensions: z.array(z.object({ granularity: z.string().optional(), name: z.string().optional() }).passthrough()).optional(),
+                        metrics: z.array(z.object({ name: z.string().optional() }).passthrough()).optional(),
+                        rows: z.array(z.record(z.string(), z.unknown())).optional()
+                    })
+                    .passthrough()
+            )
+            .optional()
+    })
+    .passthrough();
 
 const action = createAction({
     description: 'Generate report',
     version: '1.0.0',
-    // Omnisend API docs: https://api-docs.omnisend.com/v2026-03-15/reference/
     endpoint: {
         method: 'POST',
         path: '/omnisend/postAnalyticsReports',
@@ -18,9 +59,7 @@ const action = createAction({
     },
     input,
     output,
-    exec: async (nango, requestInput) => output.parse(
-    (await callOmnisend(nango, 'POST', '/analytics/reports', requestInput as Record<string, unknown>)).data
-    )
+    exec: async (nango, requestInput) => output.parse((await callOmnisend(nango, 'POST', '/analytics/reports', requestInput)).data)
 });
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
