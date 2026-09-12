@@ -42,10 +42,10 @@ const output = z
                         country: z.string().optional(),
                         countryCode: z.string().optional(),
                         createdAt: z.string().optional(),
-                        customProperties: z.record(z.string(), z.unknown()).optional(),
+                        customProperties: z.record(z.string(), z.unknown()).nullable().optional(),
                         email: z.string().optional(),
                         firstName: z.string().optional(),
-                        gender: z.enum(['m', 'f']).optional(),
+                        gender: z.string().optional(),
                         id: z.string().optional(),
                         identifiers: z
                             .array(
@@ -84,7 +84,7 @@ const output = z
             .optional(),
         paging: z
             .object({
-                cursors: z.object({ after: z.string().optional(), before: z.string().optional() }).passthrough().optional(),
+                cursors: z.object({ after: z.string().nullable().optional(), before: z.string().nullable().optional() }).passthrough().optional(),
                 hasMore: z.boolean().optional(),
                 limit: z.number().int().optional()
             })

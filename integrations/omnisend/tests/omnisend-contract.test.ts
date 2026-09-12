@@ -2,6 +2,19 @@ import { access, readFile } from 'node:fs/promises';
 
 import { describe, expect, it } from 'vitest';
 
+import getAutomations from '../actions/get-automations.js';
+import getBatches from '../actions/get-batches.js';
+import getCampaigns from '../actions/get-campaigns.js';
+import getContacts from '../actions/get-contacts.js';
+import getContactsId from '../actions/get-contacts-id.js';
+import getEmailTemplates from '../actions/get-email-templates.js';
+import getEmailUniversalLayouts from '../actions/get-email-universal-layouts.js';
+import getProductCategories from '../actions/get-product-categories.js';
+import getProducts from '../actions/get-products.js';
+import getSegments from '../actions/get-segments.js';
+import patchContacts from '../actions/patch-contacts.js';
+import patchContactsId from '../actions/patch-contacts-id.js';
+import postContacts from '../actions/post-contacts.js';
 import { callOmnisend, runCollectionSync } from '../shared.js';
 
 type ProxyCall = Record<string, unknown>;
@@ -17,6 +30,26 @@ it('registers every Omnisend action and sync in the central index', async () => 
 });
 
 describe('Omnisend shared request and sync contracts', () => {
+    it('accepts nullable collection fields observed in live GET responses', () => {
+        expect(() => getAutomations.output.parse({ automations: [], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+        expect(() => getBatches.output.parse({ batches: [], paging: { next: null, previous: null } })).not.toThrow();
+        expect(() => getCampaigns.output.parse({ campaigns: [{ sendingSettings: { strategy: '' } }], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+        expect(() => getContacts.output.parse({ contacts: [{ customProperties: null, gender: '' }], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+        expect(() => getContactsId.output.parse({ customProperties: null, gender: '' })).not.toThrow();
+        expect(() => getEmailTemplates.output.parse({ templates: [], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+        expect(() => getEmailUniversalLayouts.output.parse({ universalLayouts: [], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+        expect(() => getProductCategories.output.parse({ categories: [], paging: { previous: null } })).not.toThrow();
+        expect(() => getProducts.output.parse({ products: [], paging: { previous: null } })).not.toThrow();
+        expect(() => getSegments.output.parse({ segments: [{ archivedAt: null }], paging: { cursors: { after: null, before: null } } })).not.toThrow();
+    });
+
+    it('accepts the same nullable contact response in write actions', () => {
+        const response = { customProperties: null, gender: '' };
+        expect(() => postContacts.output.parse(response)).not.toThrow();
+        expect(() => patchContacts.output.parse(response)).not.toThrow();
+        expect(() => patchContactsId.output.parse(response)).not.toThrow();
+    });
+
     it('uses the fixed API prefix, version header, and three retries', async () => {
         const calls: ProxyCall[] = [];
         const nango = { proxy: async (config: ProxyCall) => { calls.push(config); return { data: { campaigns: [] } }; } };

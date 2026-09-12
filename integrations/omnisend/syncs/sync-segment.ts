@@ -6,7 +6,7 @@ const record = z.object({
     id: z.string(),
     data: z
         .object({
-            archivedAt: z.string().optional(),
+            archivedAt: z.string().nullable().optional(),
             conditionGroups: z
                 .array(
                     z

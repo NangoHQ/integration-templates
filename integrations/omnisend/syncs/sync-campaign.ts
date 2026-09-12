@@ -95,7 +95,7 @@ const record = z.object({
                     isTZOptimizationEnabled: z.boolean().optional(),
                     optimizeFor: z.enum(['opens', 'clicks', 'orders']).optional(),
                     scheduledAt: z.string().optional(),
-                    strategy: z.enum(['immediate', 'scheduled', 'personalized']).optional()
+                    strategy: z.enum(['', 'immediate', 'scheduled', 'personalized']).optional()
                 })
                 .passthrough()
                 .optional(),

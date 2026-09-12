@@ -25,10 +25,10 @@ const record = z.object({
             country: z.string().optional(),
             countryCode: z.string().optional(),
             createdAt: z.string().optional(),
-            customProperties: z.record(z.string(), z.unknown()).optional(),
+            customProperties: z.record(z.string(), z.unknown()).nullable().optional(),
             email: z.string().optional(),
             firstName: z.string().optional(),
-            gender: z.enum(['m', 'f']).optional(),
+            gender: z.string().optional(),
             id: z.string().optional(),
             identifiers: z
                 .array(

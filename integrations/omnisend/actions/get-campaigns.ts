@@ -110,7 +110,7 @@ const output = z
                                 isTZOptimizationEnabled: z.boolean().optional(),
                                 optimizeFor: z.enum(['opens', 'clicks', 'orders']).optional(),
                                 scheduledAt: z.string().optional(),
-                                strategy: z.enum(['immediate', 'scheduled', 'personalized']).optional()
+                                strategy: z.enum(['', 'immediate', 'scheduled', 'personalized']).optional()
                             })
                             .passthrough()
                             .optional(),
@@ -124,7 +124,7 @@ const output = z
             .optional(),
         paging: z
             .object({
-                cursors: z.object({ after: z.string().optional(), before: z.string().optional() }).passthrough().optional(),
+                cursors: z.object({ after: z.string().nullable().optional(), before: z.string().nullable().optional() }).passthrough().optional(),
                 hasMore: z.boolean().optional(),
                 limit: z.number().int().optional()
             })

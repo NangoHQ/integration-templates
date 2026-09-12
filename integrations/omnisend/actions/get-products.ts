@@ -8,7 +8,12 @@ const input = z
 const output = z
     .object({
         paging: z
-            .object({ limit: z.number().int().optional(), next: z.string().optional(), offset: z.number().int().optional(), previous: z.string().optional() })
+            .object({
+                limit: z.number().int().optional(),
+                next: z.string().optional(),
+                offset: z.number().int().optional(),
+                previous: z.string().nullable().optional()
+            })
             .passthrough()
             .optional(),
         products: z

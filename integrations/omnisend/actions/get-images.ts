@@ -32,7 +32,7 @@ const output = z
             .optional(),
         paging: z
             .object({
-                cursors: z.object({ after: z.string().optional(), before: z.string().optional() }).passthrough().optional(),
+                cursors: z.object({ after: z.string().nullable().optional(), before: z.string().nullable().optional() }).passthrough().optional(),
                 hasMore: z.boolean().optional(),
                 limit: z.number().int().optional()
             })

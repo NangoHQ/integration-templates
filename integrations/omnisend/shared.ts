@@ -1,6 +1,5 @@
 /* Omnisend transport boundary: provider responses remain unknown until parsed. */
 /* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
-import { createHash } from 'node:crypto';
 import type { ProxyConfiguration } from 'nango';
 
 export type OmnisendMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
@@ -103,7 +102,15 @@ export async function callOmnisend(nango: ProxyClient, method: OmnisendMethod, p
 function stableId(item: Record<string, unknown>, idField: string): string {
     const providerId = item[idField] ?? item['id'];
     if (typeof providerId === 'string' || typeof providerId === 'number') return String(providerId);
-    return createHash('sha256').update(JSON.stringify(item)).digest('hex');
+
+    // Keep the fallback deterministic without importing Node built-ins, which are unavailable in the Nango sandbox.
+    const serialized = JSON.stringify(item);
+    let hash = 2166136261;
+    for (let index = 0; index < serialized.length; index += 1) {
+        hash ^= serialized.charCodeAt(index);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(16).padStart(8, '0');
 }
 
 function pageItems(data: unknown, collectionKey: string): Array<Record<string, unknown>> {

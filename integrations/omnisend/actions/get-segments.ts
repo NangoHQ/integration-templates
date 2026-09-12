@@ -15,7 +15,7 @@ const output = z
     .object({
         paging: z
             .object({
-                cursors: z.object({ after: z.string().optional(), before: z.string().optional() }).passthrough().optional(),
+                cursors: z.object({ after: z.string().nullable().optional(), before: z.string().nullable().optional() }).passthrough().optional(),
                 hasMore: z.boolean().optional(),
                 limit: z.number().int().optional()
             })
@@ -25,7 +25,7 @@ const output = z
             .array(
                 z
                     .object({
-                        archivedAt: z.string().optional(),
+                        archivedAt: z.string().nullable().optional(),
                         conditionGroups: z.array(z.object({ conditions: z.array(z.unknown()).optional() }).passthrough()).optional(),
                         createdAt: z.string().optional(),
                         isStarred: z.boolean().optional(),
