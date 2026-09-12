@@ -1,0 +1,27 @@
+/* Generated from the pinned Omnisend OpenAPI snapshot. */
+/* eslint-disable @nangohq/custom-integrations-linting/no-object-casting */
+import { createAction } from 'nango';
+import * as z from 'zod';
+import { callOmnisend } from '../shared.js';
+
+const input = z.object({"id": z.string().min(1)}).passthrough();
+const output = z.object({"createdAt": z.string().optional(), "generalSettings": z.object({"body": z.object({"backgroundColor": z.string().optional(), "backgroundImageID": z.string().optional(), "backgroundRepeat": z.string().optional(), "backgroundSize": z.string().optional()}).passthrough().optional(), "buttonPresets": z.array(z.object({"id": z.unknown().optional(), "name": z.unknown().optional(), "styles": z.unknown().optional()}).passthrough()).optional(), "content": z.object({"createdAt": z.string().optional(), "generalSettings": z.object({"body": z.unknown().optional(), "buttonPresets": z.unknown().optional(), "content": z.unknown().optional(), "gmail": z.unknown().optional(), "logo": z.unknown().optional(), "textPresets": z.unknown().optional()}).passthrough().optional(), "id": z.string().optional(), "sections": z.array(z.unknown()).optional(), "updatedAt": z.string().optional()}).passthrough().optional(), "gmail": z.object({"annotation": z.object({"discountDescription": z.unknown().optional(), "isEnabled": z.unknown().optional()}).passthrough().optional()}).passthrough().optional(), "logo": z.object({"link": z.string().optional(), "resizeWidth": z.number().optional()}).passthrough().optional(), "textPresets": z.array(z.object({"id": z.unknown().optional(), "name": z.unknown().optional(), "styles": z.unknown().optional()}).passthrough()).optional()}).passthrough().optional(), "id": z.string().optional(), "name": z.string().optional(), "sections": z.array(z.object({"id": z.string().optional(), "productRecommender": z.object({"excludeCategories": z.unknown().optional(), "excludeProducts": z.unknown().optional(), "fallbackType": z.unknown().optional(), "includeCategories": z.unknown().optional(), "isOutOfStockIncluded": z.unknown().optional(), "priceFrom": z.unknown().optional(), "purchaseExclusionDays": z.unknown().optional(), "recencyMonths": z.unknown().optional(), "type": z.unknown().optional()}).passthrough().optional(), "rows": z.array(z.unknown()).optional(), "settings": z.object({"backgroundType": z.unknown().optional(), "customFonts": z.unknown().optional(), "dynamicList": z.unknown().optional(), "excludeProducts": z.unknown().optional(), "filter": z.unknown().optional(), "isColumnStackDisabled": z.unknown().optional(), "isOutOfStockHidden": z.unknown().optional(), "isProductImagesFitted": z.unknown().optional(), "sideBySideProductLayout": z.unknown().optional(), "universalLayoutID": z.unknown().optional()}).passthrough().optional(), "styleProperties": z.object({"alignment": z.unknown().optional(), "backgroundColor": z.unknown().optional(), "backgroundImageID": z.unknown().optional(), "backgroundPosition": z.unknown().optional(), "backgroundRepeat": z.unknown().optional(), "backgroundSize": z.unknown().optional(), "border": z.unknown().optional(), "borderRadius": z.unknown().optional(), "color": z.unknown().optional(), "dividerColor": z.unknown().optional(), "fontFamily": z.unknown().optional(), "fontSize": z.unknown().optional(), "fontStyle": z.unknown().optional(), "fontWeight": z.unknown().optional(), "innerPadding": z.unknown().optional(), "innerPaddingBottom": z.unknown().optional(), "innerPaddingLeft": z.unknown().optional(), "innerPaddingRight": z.unknown().optional(), "innerPaddingTop": z.unknown().optional(), "isBackgroundPaddingsExcluded": z.unknown().optional(), "letterSpacing": z.unknown().optional(), "lineHeight": z.unknown().optional(), "linkColor": z.unknown().optional(), "padding": z.unknown().optional(), "paddingBottom": z.unknown().optional(), "paddingLeft": z.unknown().optional(), "paddingRight": z.unknown().optional(), "paddingTop": z.unknown().optional(), "priceColor": z.unknown().optional(), "secondaryColor": z.unknown().optional(), "textBackgroundColor": z.unknown().optional(), "textDecoration": z.unknown().optional(), "verticalAlign": z.unknown().optional()}).passthrough().optional(), "type": z.enum(["products_listing", "product_recommender", "product_cart_recovery", "product_back_in_stock", "badge", "preheader", "dynamic_list", "universal_layout", ""]).optional(), "visibility": z.object({"isDesktopVisible": z.unknown().optional(), "isMobileVisible": z.unknown().optional()}).passthrough().optional()}).passthrough()).optional(), "updatedAt": z.string().optional()}).passthrough();
+
+const action = createAction({
+    description: 'Get email template',
+    version: '1.0.0',
+    // Omnisend API docs: https://api-docs.omnisend.com/v2026-03-15/reference/
+    endpoint: {
+        method: 'GET',
+        path: '/omnisend/getEmailTemplatesId',
+        group: 'EmailTemplates'
+    },
+    input,
+    output,
+    exec: async (nango, requestInput) => output.parse(
+    (await callOmnisend(nango, 'GET', '/email-templates/{id}', requestInput as Record<string, unknown>)).data
+    )
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
