@@ -7,7 +7,8 @@
         "content": "Hello, world!"
       }
     ],
-    "stream": false
+    "stream": false,
+    "max_completion_tokens": 128
   },
   "output": {
     "id": "chatcmpl-DhYLGSorC1kLzZWxina1MuaFLrrv4",
@@ -106,7 +107,7 @@
           "set-cookie": "__cf_bm=vTX3CK2zv.Uqr7ZDZfKS51shqbhSoDFOSplZendwHNQ-1779272486.3990293-1.0.1.1-UISC2uZuKKtCzl0q1dEQnF_ASBeQZBT7Y8BiZam7uXzSmexcmaYYSXQnuUK5f.AnC4FXVzH.3VqvdKngwSn_gGoPbAtAzzhOUqV9kvTWWInAErzCRJifuCtseD8bVySt; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 10:51:27 GMT",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "b20cbdf5a537592eab72e53f86d020ed37034727",
+        "hash": "cf15bc34e3d7b597b0d616e2a72b60741f9b7609",
         "request": {
           "data": {
             "model": "gpt-4o-mini",
@@ -116,7 +117,8 @@
                 "content": "Hello, world!"
               }
             ],
-            "stream": false
+            "stream": false,
+            "max_completion_tokens": 128
           }
         }
       }
