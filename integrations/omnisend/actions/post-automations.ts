@@ -19,44 +19,66 @@ const input = z
                                 .optional(),
                             action: z
                                 .object({
-                                    addTag: z.object({ value: z.unknown() }).passthrough().optional(),
-                                    removeTag: z.object({ value: z.unknown() }).passthrough().optional(),
+                                    addTag: z
+                                        .object({ value: z.string().min(1).max(250) })
+                                        .passthrough()
+                                        .optional(),
+                                    removeTag: z
+                                        .object({ value: z.string().min(1).max(250) })
+                                        .passthrough()
+                                        .optional(),
                                     sendEmail: z
                                         .object({
-                                            isSkipAllowed: z.unknown().optional(),
-                                            language: z.unknown(),
-                                            preheader: z.unknown(),
-                                            replyToEmail: z.unknown().optional(),
-                                            senderEmail: z.unknown().optional(),
-                                            senderName: z.unknown(),
-                                            subject: z.unknown(),
-                                            templateID: z.unknown()
+                                            isSkipAllowed: z.boolean().optional(),
+                                            language: z.string().min(1),
+                                            preheader: z.string(),
+                                            replyToEmail: z.string().optional(),
+                                            senderEmail: z.string().optional(),
+                                            senderName: z.string().min(1),
+                                            subject: z.string().min(1),
+                                            templateID: z.string().min(1)
                                         })
                                         .passthrough()
                                         .optional(),
                                     sendPush: z
                                         .object({
-                                            body: z.unknown(),
-                                            clickUrl: z.unknown(),
-                                            iconID: z.unknown().optional(),
-                                            imageID: z.unknown().optional(),
-                                            isSkipAllowed: z.unknown().optional(),
-                                            title: z.unknown()
+                                            body: z.string().min(1),
+                                            clickUrl: z.string().min(1),
+                                            iconID: z.string().optional(),
+                                            imageID: z.string().optional(),
+                                            isSkipAllowed: z.boolean().optional(),
+                                            title: z.string().min(1)
                                         })
                                         .passthrough()
                                         .optional(),
                                     sendSms: z
                                         .object({
-                                            compliance: z.unknown(),
-                                            imageID: z.unknown().optional(),
-                                            isLinkShorteningEnabled: z.unknown().optional(),
-                                            isSkipAllowed: z.unknown().optional(),
-                                            message: z.unknown()
+                                            compliance: z
+                                                .object({
+                                                    isStopKeywordIncluded: z.boolean().optional(),
+                                                    isUnsubscribeLinkIncluded: z.boolean().optional(),
+                                                    stopKeywordText: z.string().optional(),
+                                                    unsubscribeLinkText: z.string().optional()
+                                                })
+                                                .passthrough(),
+                                            imageID: z.string().optional(),
+                                            isLinkShorteningEnabled: z.boolean().optional(),
+                                            isSkipAllowed: z.boolean().optional(),
+                                            message: z.string().min(1)
                                         })
                                         .passthrough()
                                         .optional(),
                                     sendWebhook: z
-                                        .object({ body: z.unknown(), callbackUrl: z.unknown(), headers: z.unknown().optional() })
+                                        .object({
+                                            body: z.string().min(1).max(65_536),
+                                            callbackUrl: z
+                                                .string()
+                                                .url()
+                                                .refine((value) => value.startsWith('https://'), 'callbackUrl must use HTTPS'),
+                                            headers: z
+                                                .array(z.object({ key: z.string().min(1).max(256), value: z.string().max(10_000) }).passthrough())
+                                                .optional()
+                                        })
                                         .passthrough()
                                         .optional(),
                                     type: z.enum(['sendEmail', 'sendPush', 'sendSms', 'sendWebhook', 'addTag', 'removeTag'])

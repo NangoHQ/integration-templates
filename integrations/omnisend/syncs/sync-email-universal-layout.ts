@@ -27,7 +27,7 @@ const record = z.object({
                         .array(
                             z
                                 .object({
-                                    columns: z.array(z.unknown()).optional(),
+                                    columns: z.unknown().optional(),
                                     id: z.string().max(24).optional(),
                                     styleProperties: z
                                         .object({

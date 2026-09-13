@@ -120,6 +120,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
+    checkpoint: z.object({ after: z.string().min(1) }),
     metadata: z.void(),
     models: { OmnisendCampaign: record },
     exec: async (nango) =>

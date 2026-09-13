@@ -7,7 +7,7 @@ const input = z
         body: z
             .object({
                 endpoint: z.enum(['products', 'contacts', 'events', 'categories']),
-                items: z.array(z.unknown()),
+                items: z.array(z.unknown()).min(1).max(100),
                 method: z.enum(['POST', 'PUT']),
                 origin: z.string().optional()
             })

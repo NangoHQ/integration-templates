@@ -60,13 +60,12 @@ const input = z
                         state: z.string().max(100).optional(),
                         tags: z.array(z.string()).optional()
                     })
-                    .passthrough()
-                    .optional(),
+                    .passthrough(),
                 eventID: z.string().optional(),
-                eventName: z.string().optional(),
+                eventName: z.string().min(1),
                 eventTime: z.string().optional(),
                 eventVersion: z.string().optional(),
-                origin: z.string().optional(),
+                origin: z.string().min(1),
                 properties: z.record(z.string(), z.unknown()).optional()
             })
             .passthrough()

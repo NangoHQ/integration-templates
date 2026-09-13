@@ -15,15 +15,21 @@ const input = z
                                     .object({ from: z.string().optional(), interval: z.string().optional(), to: z.string().optional() })
                                     .passthrough()
                                     .optional(),
-                                dimensions: z.array(z.object({ granularity: z.unknown().optional(), name: z.unknown().optional() }).passthrough()).optional(),
+                                dimensions: z
+                                    .array(z.object({ granularity: z.string().min(1).optional(), name: z.string().min(1).optional() }).passthrough())
+                                    .optional(),
                                 filters: z
                                     .array(
                                         z
-                                            .object({ name: z.unknown().optional(), operator: z.unknown().optional(), values: z.unknown().optional() })
+                                            .object({
+                                                name: z.string().min(1).optional(),
+                                                operator: z.string().min(1).optional(),
+                                                values: z.unknown().optional()
+                                            })
                                             .passthrough()
                                     )
                                     .optional(),
-                                metrics: z.array(z.object({ name: z.unknown().optional() }).passthrough()).optional()
+                                metrics: z.array(z.object({ name: z.string().min(1).optional() }).passthrough()).optional()
                             })
                             .passthrough()
                     )

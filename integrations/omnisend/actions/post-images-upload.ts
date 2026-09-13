@@ -2,7 +2,21 @@ import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
-const input = z.object({ body: z.object({ file: z.string(), name: z.string().optional() }).passthrough() }).passthrough();
+const base64File = z
+    .string()
+    .min(1)
+    .refine((value) => {
+        if (!/^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/.test(value)) return false;
+        // @allowTryCatch: Zod validates this before normal Action execution; keep transport boundary fail-closed.
+        try {
+            const decoded = Buffer.from(value, 'base64');
+            return decoded.length > 0 && decoded.toString('base64') === value;
+        } catch {
+            return false;
+        }
+    }, 'file must be valid base64');
+
+const input = z.object({ body: z.object({ file: base64File, name: z.string().optional() }).passthrough() }).passthrough();
 const output = z
     .object({
         createdAt: z.string().optional(),

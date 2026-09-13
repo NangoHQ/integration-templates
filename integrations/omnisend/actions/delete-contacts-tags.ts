@@ -6,10 +6,10 @@ const input = z
     .object({
         body: z
             .object({
-                contactIDs: z.array(z.string()).optional(),
-                emails: z.array(z.string()).optional(),
-                phones: z.array(z.string()).optional(),
-                segmentID: z.string().optional(),
+                contactIDs: z.array(z.string().min(1)).optional(),
+                emails: z.array(z.string().min(1)).optional(),
+                phones: z.array(z.string().min(1)).optional(),
+                segmentID: z.string().min(1).optional(),
                 tags: z.array(z.string()).min(1)
             })
             .passthrough()

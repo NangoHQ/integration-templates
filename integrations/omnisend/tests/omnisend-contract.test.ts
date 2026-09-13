@@ -4,6 +4,7 @@ import { describe, expect, it } from 'vitest';
 
 import getAutomations from '../actions/get-automations.js';
 import getBatches from '../actions/get-batches.js';
+import getBatchItems from '../actions/get-batches-batch-i-d-items.js';
 import getCampaigns from '../actions/get-campaigns.js';
 import getContacts from '../actions/get-contacts.js';
 import getContactsId from '../actions/get-contacts-id.js';
@@ -15,6 +16,9 @@ import getSegments from '../actions/get-segments.js';
 import patchContacts from '../actions/patch-contacts.js';
 import patchContactsId from '../actions/patch-contacts-id.js';
 import postContacts from '../actions/post-contacts.js';
+import postContactsTags from '../actions/post-contacts-tags.js';
+import postEvents from '../actions/post-events.js';
+import postImagesUpload from '../actions/post-images-upload.js';
 import { callOmnisend, runCollectionSync } from '../shared.js';
 
 type ProxyCall = Record<string, unknown>;
@@ -33,6 +37,7 @@ describe('Omnisend shared request and sync contracts', () => {
     it('accepts nullable collection fields observed in live GET responses', () => {
         expect(() => getAutomations.output.parse({ automations: [], paging: { cursors: { after: null, before: null } } })).not.toThrow();
         expect(() => getBatches.output.parse({ batches: [], paging: { next: null, previous: null } })).not.toThrow();
+        expect(() => getBatchItems.output.parse({ batchID: 'batch-1', errors: [], responses: [], status: 'finished', totalCount: 0 })).not.toThrow();
         expect(() => getCampaigns.output.parse({ campaigns: [{ sendingSettings: { strategy: '' } }], paging: { cursors: { after: null, before: null } } })).not.toThrow();
         expect(() => getContacts.output.parse({ contacts: [{ customProperties: null, gender: '' }], paging: { cursors: { after: null, before: null } } })).not.toThrow();
         expect(() => getContactsId.output.parse({ customProperties: null, gender: '' })).not.toThrow();
@@ -48,6 +53,25 @@ describe('Omnisend shared request and sync contracts', () => {
         expect(() => postContacts.output.parse(response)).not.toThrow();
         expect(() => patchContacts.output.parse(response)).not.toThrow();
         expect(() => patchContactsId.output.parse(response)).not.toThrow();
+    });
+
+    it('requires contact, eventName, and origin', () => {
+        expect(() => postEvents.input.parse({ body: { contact: { email: 'draft@example.com' }, eventName: 'draft-event', origin: 'api' } })).not.toThrow();
+        expect(() => postEvents.input.parse({ body: { eventName: 'draft-event', origin: 'api' } })).toThrow();
+        expect(() => postEvents.input.parse({ body: { contact: { email: 'draft@example.com' }, origin: 'api' } })).toThrow();
+        expect(() => postEvents.input.parse({ body: { contact: { email: 'draft@example.com' }, eventName: 'draft-event' } })).toThrow();
+    });
+
+    it('requires non-empty tag targets and tag values', () => {
+        expect(() => postContactsTags.input.parse({ body: { emails: ['draft@example.com'], tags: ['draft-tag'] } })).not.toThrow();
+        expect(() => postContactsTags.input.parse({ body: { emails: [''], tags: ['draft-tag'] } })).toThrow();
+        expect(() => postContactsTags.input.parse({ body: { emails: ['draft@example.com'], tags: [''] } })).toThrow();
+        expect(() => postContactsTags.input.parse({ body: { tags: ['draft-tag'] } })).toThrow();
+    });
+
+    it('rejects malformed image base64 before building multipart data', () => {
+        expect(() => postImagesUpload.input.parse({ body: { file: 'a-not-base64-value' } })).toThrow();
+        expect(() => postImagesUpload.input.parse({ body: { file: Buffer.from('image-bytes').toString('base64') } })).not.toThrow();
     });
 
     it('uses the fixed API prefix, version header, and three retries', async () => {
@@ -131,17 +155,13 @@ describe('Omnisend shared request and sync contracts', () => {
     it('resumes campaign cursors from a checkpoint and clears it after completion', async () => {
         const requests: unknown[] = [];
         const events: string[] = [];
-        let page = 0;
         const nango = {
-            getCheckpoint: async () => null,
+            getCheckpoint: async () => ({ after: 'resume-cursor' }),
             saveCheckpoint: async () => { events.push('checkpoint-save'); },
             clearCheckpoint: async () => { events.push('checkpoint-clear'); },
             proxy: async (config: ProxyCall) => {
                 requests.push(config.params);
-                page += 1;
-                return { data: page === 1
-                    ? { campaigns: [{ id: 'a' }], paging: { hasMore: true, cursors: { after: 'next' } } }
-                    : { campaigns: [], paging: { hasMore: false } } };
+                return { data: { campaigns: [{ id: 'a' }], paging: { hasMore: false } } };
             },
             trackDeletesStart: async () => { events.push('start'); },
             batchSave: async () => { events.push('save'); },
@@ -152,8 +172,8 @@ describe('Omnisend shared request and sync contracts', () => {
             method: 'GET', path: '/campaigns', model: 'OmnisendCampaign', collectionKey: 'campaigns', idField: 'id', pagination: 'cursor', checkpoint: true
         });
 
-        expect(requests).toEqual([{ limit: 100 }, { limit: 100, after: 'next' }]);
-        expect(events).toEqual(['start', 'save', 'checkpoint-save', 'checkpoint-clear', 'end']);
+        expect(requests).toEqual([{ limit: 100, after: 'resume-cursor' }]);
+        expect(events).toEqual(['save', 'checkpoint-clear']);
     });
 
     it('encodes image uploads as multipart FormData', async () => {
@@ -168,7 +188,7 @@ describe('Omnisend shared request and sync contracts', () => {
         expect(form.get('file')).toBeInstanceOf(Blob);
     });
 
-    it('does not end delete tracking after an incomplete cursor page', async () => {
+    it('does not start delete tracking after an incomplete cursor page', async () => {
         const events: string[] = [];
         let page = 0;
         const nango = {
@@ -186,7 +206,7 @@ describe('Omnisend shared request and sync contracts', () => {
         await expect(runCollectionSync(nango as never, {
             method: 'GET', path: '/campaigns', model: 'OmnisendCampaign', collectionKey: 'campaigns', idField: 'id'
         })).rejects.toThrow('missing next cursor');
-        expect(events).toEqual(['start', 'save']);
+        expect(events).toEqual([]);
     });
 
     it('does not end delete tracking after a repeated cursor or page limit', async () => {
@@ -207,13 +227,33 @@ describe('Omnisend shared request and sync contracts', () => {
             await expect(runCollectionSync(nango as never, {
                 method: 'GET', path: '/campaigns', model: 'OmnisendCampaign', collectionKey: 'campaigns', idField: 'id'
             })).rejects.toThrow(mode === 'repeated' ? 'repeated cursor' : 'maximum page limit reached');
-            expect(events[0]).toBe('start');
+            expect(events).toEqual([]);
             expect(events).not.toContain('end');
             if (mode === 'repeated') {
-                expect(events).toEqual(['start', 'save', 'save']);
+                expect(events).toEqual([]);
             } else {
-                expect(events).toHaveLength(1_001);
+                expect(events).toHaveLength(0);
             }
+        }
+    });
+
+    it('rejects malformed offset continuations before delete tracking starts', async () => {
+        for (const [next, expectedError] of [
+            ['/api/products?limit=100', 'invalid next offset'],
+            ['/api/products?limit=100&offset=0', 'repeated offset']
+        ] as const) {
+            const events: string[] = [];
+            const nango = {
+                proxy: async () => ({ data: { products: [{ id: 'p1' }], paging: { next } } }),
+                trackDeletesStart: async () => { events.push('start'); },
+                batchSave: async () => { events.push('save'); },
+                trackDeletesEnd: async () => { events.push('end'); }
+            };
+
+            await expect(runCollectionSync(nango as never, {
+                method: 'GET', path: '/products', model: 'OmnisendProduct', collectionKey: 'products', idField: 'id', pagination: 'offset'
+            })).rejects.toThrow(expectedError);
+            expect(events).toEqual([]);
         }
     });
 });

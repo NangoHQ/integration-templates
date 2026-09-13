@@ -3,14 +3,18 @@ import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
 const input = z
-    .object({ offset: z.number().int().optional(), limit: z.number().int().optional(), sort: z.enum(['date', 'updatedAt', 'createdAt']).optional() })
+    .object({
+        offset: z.number().int().min(0).optional(),
+        limit: z.number().int().min(1).max(250).optional(),
+        sort: z.enum(['date', 'updatedAt', 'createdAt']).optional()
+    })
     .passthrough();
 const output = z
     .object({
         paging: z
             .object({
                 limit: z.number().int().optional(),
-                next: z.string().optional(),
+                next: z.string().nullable().optional(),
                 offset: z.number().int().optional(),
                 previous: z.string().nullable().optional()
             })
@@ -40,7 +44,7 @@ const output = z
                                         defaultImageUrl: z.string().max(1000).optional(),
                                         description: z.string().max(1000).optional(),
                                         id: z.string().max(100),
-                                        images: z.array(z.unknown()).optional(),
+                                        images: z.array(z.string()).optional(),
                                         price: z.number(),
                                         sku: z.string().max(255).optional(),
                                         status: z.enum(['inStock', 'outOfStock', 'notAvailable']).optional(),

@@ -6,11 +6,11 @@ const input = z
     .object({
         body: z
             .object({
-                contactIDs: z.array(z.string()).optional(),
-                emails: z.array(z.string()).optional(),
-                phones: z.array(z.string()).optional(),
-                segmentID: z.string().optional(),
-                tags: z.array(z.string()).min(1)
+                contactIDs: z.array(z.string().min(1)).optional(),
+                emails: z.array(z.string().min(1)).optional(),
+                phones: z.array(z.string().min(1)).optional(),
+                segmentID: z.string().min(1).optional(),
+                tags: z.array(z.string().min(1)).min(1)
             })
             .passthrough()
             .superRefine((body, ctx) => {

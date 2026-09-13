@@ -3,7 +3,11 @@ import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
 const input = z
-    .object({ offset: z.number().int().optional(), limit: z.number().int().optional(), sort: z.enum(['title', 'updatedAt', 'createdAt']).optional() })
+    .object({
+        offset: z.number().int().min(0).optional(),
+        limit: z.number().int().min(1).max(250).optional(),
+        sort: z.enum(['title', 'updatedAt', 'createdAt']).optional()
+    })
     .passthrough();
 const output = z
     .object({
@@ -22,7 +26,7 @@ const output = z
         paging: z
             .object({
                 limit: z.number().int().optional(),
-                next: z.string().optional(),
+                next: z.string().nullable().optional(),
                 offset: z.number().int().optional(),
                 previous: z.string().nullable().optional()
             })
