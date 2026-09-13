@@ -10,6 +10,7 @@ import getKpisDiscountCodes from '../actions/get-kpis-discount-codes.js';
 import getKpisNvrChannel from '../actions/get-kpis-nvr-channel.js';
 import getKpisNvr from '../actions/get-kpis-nvr.js';
 import getKpisOverview from '../actions/get-kpis-overview.js';
+import { savePayload } from '../shared.js';
 import syncKpisChannels from '../syncs/kpis-channels.js';
 import syncKpisDiscountCodes from '../syncs/kpis-discount-codes.js';
 import syncKpisNvr from '../syncs/kpis-nvr.js';
@@ -169,5 +170,24 @@ describe('Tracify Analytics public templates', () => {
                 data: { date: '2026-09-10', new_vs_returning: 'total', channel: 'google' }
             })
         ).not.toThrow();
+    });
+
+    it('uses stable collision-resistant IDs for different payloads', async () => {
+        const records: { id: string }[] = [];
+        const nango = {
+            batchSave: async (saved: { id: string }[]) => records.push(...saved),
+            log: async () => undefined
+        };
+
+        await savePayload(nango as never, 'TracifyKpiOverview', 'kpis-overview', [{ value: 1 }, { value: 2 }]);
+        const firstIds = records.map((record) => record.id);
+        records.length = 0;
+        await savePayload(nango as never, 'TracifyKpiOverview', 'kpis-overview', [{ value: 1 }, { value: 2 }]);
+        const secondIds = records.map((record) => record.id);
+
+        expect(firstIds).toEqual(secondIds);
+        expect(new Set(firstIds).size).toBe(2);
+        expect(firstIds[0]).toBe('kpis-overview:0:80f740a06675f958bda81a7b');
+        expect(firstIds[1]).toMatch(/^kpis-overview:1:[0-9a-f]{24}$/);
     });
 });
