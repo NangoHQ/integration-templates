@@ -101,6 +101,17 @@ export const campaignSchema = z
                     })
                     .passthrough()
                     .optional(),
+                push: z
+                    .object({
+                        body: z.string().optional(),
+                        clickUrl: z.string().optional(),
+                        iconID: z.string().optional(),
+                        imageID: z.string().optional(),
+                        isSkipAllowed: z.boolean().optional(),
+                        title: z.string().optional()
+                    })
+                    .passthrough()
+                    .optional(),
                 sms: z
                     .object({
                         compliance: z.object({ stopKeywordText: z.string().optional(), unsubscribeLinkText: z.string().optional() }).passthrough().optional(),

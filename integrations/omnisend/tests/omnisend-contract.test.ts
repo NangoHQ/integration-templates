@@ -26,12 +26,20 @@ import postImagesUpload from '../actions/post-images-upload.js';
 import postAutomations from '../actions/post-automations.js';
 import postAutomationsTestEmail from '../actions/post-automations-id-blocks-block-i-d-test-email.js';
 import postCampaigns from '../actions/post-campaigns.js';
+import postCampaignsCopy from '../actions/post-campaigns-id-copy.js';
+import postCampaignsTestEmail from '../actions/post-campaigns-id-test-email.js';
 import postCampaignWinner from '../actions/post-campaigns-id-ab-test-winner.js';
 import postBrandsCurrent from '../actions/post-brands-current.js';
 import postProductCategories from '../actions/post-product-categories.js';
 import postEmailTemplatesRender from '../actions/post-email-templates-id-render.js';
 import postEmailUniversalLayouts from '../actions/post-email-universal-layouts.js';
+import putEmailContent from '../actions/put-email-content-id.js';
+import putEmailUniversalLayouts from '../actions/put-email-universal-layouts-id.js';
 import putAutomationsBlocks from '../actions/put-automations-id-blocks.js';
+import { campaignSchema } from '../schemas/campaign.js';
+import { emailContentSchema } from '../schemas/email-content.js';
+import { emailTemplateSchema } from '../schemas/email-template.js';
+import { emailUniversalLayoutSchema } from '../schemas/email-universal-layout.js';
 import { callOmnisend, runCollectionSync } from '../shared.js';
 
 type ProxyCall = Record<string, unknown>;
@@ -104,10 +112,31 @@ describe('Omnisend shared request and sync contracts', () => {
         expect(() => postBrandsCurrent.output.parse([])).toThrow();
         expect(() => postEmailTemplatesRender.output.parse({ html: { nested: true } })).toThrow();
         expect(() => postCampaigns.input.parse({ body: { channel: 'push', type: 'regular', content: { push: { body: 1, clickUrl: 'https://example.test', title: 'draft' } } } })).toThrow();
+        expect(() => postCampaigns.input.parse({ body: { channel: 'push', type: 'regular', content: { push: { body: '', clickUrl: '', title: '' } } } })).toThrow();
         expect(() => postAutomations.input.parse({ body: { name: 'draft', trigger: { condition: { event: 'draft' } }, blocks: [{ temporaryID: 'b-1', type: 'action' }] } })).toThrow();
         expect(() => putAutomationsBlocks.input.parse({ id: 'automation-1', body: { blocks: [{ temporaryID: 'b-1', type: 'action', action: { type: 'sendWebhook', sendWebhook: { body: 'draft', callbackUrl: 'http://insecure.test' } } }] } })).toThrow();
+        expect(() => putAutomationsBlocks.input.parse({ id: 'automation-1', body: { blocks: [{ temporaryID: 'b-1', type: 'action', action: { type: 'sendWebhook', sendWebhook: { body: 'draft', callbackUrl: `https://example.test/${'a'.repeat(2000)}` } } }] } })).toThrow();
         expect(() => postEmailUniversalLayouts.input.parse({ body: { content: { settings: { customFonts: [{ id: 42 }] } } } })).toThrow();
+        expect(() => putEmailUniversalLayouts.input.parse({ id: 'layout-1', body: { content: { settings: { customFonts: [{ id: 42 }] } } } })).toThrow();
+        expect(() => postCampaignsTestEmail.input.parse({ id: 'campaign-1', body: { recipients: [] } })).toThrow();
+        expect(() => postCampaignsTestEmail.input.parse({ id: 'campaign-1', body: { recipients: ['not-an-email'] } })).toThrow();
         expect(() => postEmailTemplatesRender.output.parse({ html: 'draft' })).not.toThrow();
+    });
+
+    it('shares campaign, email content, template, and universal layout contracts', () => {
+        const campaign = { content: { push: { body: 'draft', clickUrl: 'https://example.test', title: 'draft' } } };
+        const content = { generalSettings: { buttonPresets: [{ styles: { color: 'red' } }] } };
+        const layout = { content: { settings: { customFonts: [{ id: 'font-1' }] } } };
+
+        expect(() => campaignSchema.parse(campaign)).not.toThrow();
+        expect(() => postCampaigns.output.parse(campaign)).not.toThrow();
+        expect(() => postCampaignsCopy.output.parse(campaign)).not.toThrow();
+        expect(() => emailContentSchema.parse(content)).not.toThrow();
+        expect(() => putEmailContent.input.parse({ id: 'content-1', body: content })).not.toThrow();
+        expect(() => emailTemplateSchema.parse({ ...content, name: 'draft' })).not.toThrow();
+        expect(() => emailUniversalLayoutSchema.parse(layout)).not.toThrow();
+        expect(() => postEmailUniversalLayouts.input.parse({ body: layout })).not.toThrow();
+        expect(() => putEmailUniversalLayouts.input.parse({ id: 'layout-1', body: layout })).not.toThrow();
     });
 
     it('uses the fixed API prefix, version header, and three retries', async () => {
@@ -252,7 +281,7 @@ describe('Omnisend shared request and sync contracts', () => {
         expect(form.get('file')).toBeInstanceOf(Blob);
     });
 
-    it('does not start delete tracking after an incomplete cursor page', async () => {
+    it('does not end delete tracking after an incomplete cursor page', async () => {
         const events: string[] = [];
         let page = 0;
         const nango = {
@@ -302,7 +331,7 @@ describe('Omnisend shared request and sync contracts', () => {
         }
     });
 
-    it('rejects malformed offset continuations before delete tracking starts', async () => {
+    it('does not end delete tracking after malformed offset continuations', async () => {
         for (const [next, expectedError] of [
             ['/api/products?limit=100', 'invalid next offset'],
             ['/api/products?limit=100&offset=0', 'repeated offset']

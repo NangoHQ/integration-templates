@@ -62,6 +62,7 @@ const input = z
                                             callbackUrl: z
                                                 .string()
                                                 .url()
+                                                .max(2000)
                                                 .refine((value) => value.startsWith('https://'), 'callbackUrl must use HTTPS'),
                                             headers: z
                                                 .array(z.object({ key: z.string().min(1).max(256), value: z.string().max(10_000) }).passthrough())
