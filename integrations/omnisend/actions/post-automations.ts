@@ -1,0 +1,533 @@
+import { createAction } from 'nango';
+import * as z from 'zod';
+import { callOmnisend } from '../shared.js';
+
+const input = z
+    .object({
+        body: z
+            .object({
+                blocks: z.array(
+                    z
+                        .object({
+                            abTesting: z
+                                .object({
+                                    aBlocks: z.array(z.unknown()).optional(),
+                                    aBlocksPercentage: z.number().int().min(0).max(100),
+                                    bBlocks: z.array(z.unknown()).optional()
+                                })
+                                .passthrough()
+                                .optional(),
+                            action: z
+                                .object({
+                                    addTag: z
+                                        .object({ value: z.string().min(1).max(250) })
+                                        .passthrough()
+                                        .optional(),
+                                    removeTag: z
+                                        .object({ value: z.string().min(1).max(250) })
+                                        .passthrough()
+                                        .optional(),
+                                    sendEmail: z
+                                        .object({
+                                            isSkipAllowed: z.boolean().optional(),
+                                            language: z.string().min(1),
+                                            preheader: z.string(),
+                                            replyToEmail: z.string().optional(),
+                                            senderEmail: z.string().optional(),
+                                            senderName: z.string().min(1),
+                                            subject: z.string().min(1),
+                                            templateID: z.string().min(1)
+                                        })
+                                        .passthrough()
+                                        .optional(),
+                                    sendPush: z
+                                        .object({
+                                            body: z.string().min(1),
+                                            clickUrl: z.string().min(1),
+                                            iconID: z.string().optional(),
+                                            imageID: z.string().optional(),
+                                            isSkipAllowed: z.boolean().optional(),
+                                            title: z.string().min(1)
+                                        })
+                                        .passthrough()
+                                        .optional(),
+                                    sendSms: z
+                                        .object({
+                                            compliance: z
+                                                .object({
+                                                    isStopKeywordIncluded: z.boolean().optional(),
+                                                    isUnsubscribeLinkIncluded: z.boolean().optional(),
+                                                    stopKeywordText: z.string().optional(),
+                                                    unsubscribeLinkText: z.string().optional()
+                                                })
+                                                .passthrough(),
+                                            imageID: z.string().optional(),
+                                            isLinkShorteningEnabled: z.boolean().optional(),
+                                            isSkipAllowed: z.boolean().optional(),
+                                            message: z.string().min(1)
+                                        })
+                                        .passthrough()
+                                        .optional(),
+                                    sendWebhook: z
+                                        .object({
+                                            body: z.string().min(1).max(65_536),
+                                            callbackUrl: z
+                                                .string()
+                                                .url()
+                                                .refine((value) => value.startsWith('https://'), 'callbackUrl must use HTTPS'),
+                                            headers: z
+                                                .array(z.object({ key: z.string().min(1).max(256), value: z.string().max(10_000) }).passthrough())
+                                                .optional()
+                                        })
+                                        .passthrough()
+                                        .optional(),
+                                    type: z.enum(['sendEmail', 'sendPush', 'sendSms', 'sendWebhook', 'addTag', 'removeTag'])
+                                })
+                                .passthrough()
+                                .optional(),
+                            delay: z
+                                .object({
+                                    allowedWeekdays: z.array(z.unknown()).optional(),
+                                    duration: z.object({ amount: z.unknown(), units: z.unknown() }).passthrough().optional(),
+                                    mode: z.enum(['duration', 'immediate', 'specificTime']),
+                                    time: z.string().optional()
+                                })
+                                .passthrough()
+                                .optional(),
+                            split: z
+                                .object({
+                                    falseBlocks: z.array(z.unknown()).optional(),
+                                    filterGroup: z.object({ filters: z.unknown(), logicalOperator: z.unknown() }).passthrough(),
+                                    trueBlocks: z.array(z.unknown()).optional()
+                                })
+                                .passthrough()
+                                .optional(),
+                            temporaryID: z.string().max(36),
+                            type: z.enum(['delay', 'action', 'split', 'abTesting'])
+                        })
+                        .passthrough()
+                        .superRefine((block, ctx) => {
+                            if (block.type !== 'action') return;
+                            if (!block.action) {
+                                ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['action'], message: 'action is required for action blocks' });
+                                return;
+                            }
+                            const hasPayload =
+                                (block.action.type === 'sendEmail' && block.action.sendEmail !== undefined) ||
+                                (block.action.type === 'sendPush' && block.action.sendPush !== undefined) ||
+                                (block.action.type === 'sendSms' && block.action.sendSms !== undefined) ||
+                                (block.action.type === 'sendWebhook' && block.action.sendWebhook !== undefined) ||
+                                (block.action.type === 'addTag' && block.action.addTag !== undefined) ||
+                                (block.action.type === 'removeTag' && block.action.removeTag !== undefined);
+                            if (!hasPayload) {
+                                ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['action'], message: `payload for ${block.action.type} is required` });
+                            }
+                        })
+                ),
+                exitConditions: z
+                    .array(
+                        z
+                            .object({
+                                event: z.string(),
+                                filterGroup: z
+                                    .object({ filters: z.array(z.unknown()), logicalOperator: z.enum(['and', 'or']) })
+                                    .passthrough()
+                                    .optional(),
+                                origin: z.string().optional()
+                            })
+                            .passthrough()
+                    )
+                    .optional(),
+                name: z.string(),
+                settings: z
+                    .object({
+                        frequencyLimiter: z
+                            .object({
+                                duration: z
+                                    .object({ amount: z.number().int(), units: z.enum(['h', 'd', 'w']) })
+                                    .passthrough()
+                                    .optional(),
+                                mode: z.enum(['once', 'interval'])
+                            })
+                            .passthrough()
+                            .optional(),
+                        overlapLimiter: z
+                            .object({
+                                automationIDs: z.array(z.string()),
+                                mode: z.enum(['currentlyIn', 'recentlyIn']),
+                                withinDays: z.number().int().min(1).max(7).optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        sendingThresholds: z
+                            .object({ email: z.enum(['subscribed', 'nonSubscribed', 'all']), sms: z.enum(['subscribed', 'nonSubscribed', 'all']) })
+                            .passthrough()
+                            .optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                trigger: z
+                    .object({
+                        audienceFilterGroup: z
+                            .object({
+                                filters: z.array(z.object({ field: z.unknown(), operator: z.unknown(), value: z.unknown() }).passthrough()),
+                                logicalOperator: z.enum(['and', 'or'])
+                            })
+                            .passthrough()
+                            .optional(),
+                        condition: z
+                            .object({
+                                event: z.string(),
+                                filterGroups: z.array(z.object({ filters: z.unknown(), logicalOperator: z.unknown() }).passthrough()).optional(),
+                                origin: z.string().optional()
+                            })
+                            .passthrough(),
+                        inactivitySettings: z
+                            .object({ duration: z.object({ amount: z.number().int(), units: z.enum(['m', 'h', 'd', 'w']) }).passthrough() })
+                            .passthrough()
+                            .optional()
+                    })
+                    .passthrough()
+            })
+            .passthrough()
+    })
+    .passthrough();
+const output = z
+    .object({
+        blocks: z
+            .array(
+                z
+                    .object({
+                        abTesting: z
+                            .object({
+                                aBlocks: z
+                                    .array(
+                                        z
+                                            .object({
+                                                abTesting: z.unknown().optional(),
+                                                action: z.unknown().optional(),
+                                                delay: z.unknown().optional(),
+                                                id: z.unknown().optional(),
+                                                split: z.unknown().optional(),
+                                                type: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                    )
+                                    .optional(),
+                                aBlocksPercentage: z.number().int().min(0).max(100).optional(),
+                                bBlocks: z
+                                    .array(
+                                        z
+                                            .object({
+                                                abTesting: z.unknown().optional(),
+                                                action: z.unknown().optional(),
+                                                delay: z.unknown().optional(),
+                                                id: z.unknown().optional(),
+                                                split: z.unknown().optional(),
+                                                type: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                    )
+                                    .optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        action: z
+                            .object({
+                                addTag: z
+                                    .object({ value: z.string().max(250).optional() })
+                                    .passthrough()
+                                    .optional(),
+                                removeTag: z
+                                    .object({ value: z.string().max(250).optional() })
+                                    .passthrough()
+                                    .optional(),
+                                sendEmail: z
+                                    .object({
+                                        contentID: z.string().optional(),
+                                        isSkipAllowed: z.boolean().optional(),
+                                        language: z.string().max(10).optional(),
+                                        preheader: z.string().max(250).optional(),
+                                        replyToEmail: z.string().max(250).optional(),
+                                        senderEmail: z.string().max(250).optional(),
+                                        senderName: z.string().max(250).optional(),
+                                        subject: z.string().max(250).optional()
+                                    })
+                                    .passthrough()
+                                    .optional(),
+                                sendPush: z
+                                    .object({
+                                        body: z.string().max(250).optional(),
+                                        clickUrl: z.string().max(2000).optional(),
+                                        iconID: z.string().optional(),
+                                        imageID: z.string().optional(),
+                                        isSkipAllowed: z.boolean().optional(),
+                                        title: z.string().max(250).optional()
+                                    })
+                                    .passthrough()
+                                    .optional(),
+                                sendSms: z
+                                    .object({
+                                        compliance: z
+                                            .object({
+                                                isStopKeywordIncluded: z.unknown().optional(),
+                                                isUnsubscribeLinkIncluded: z.unknown().optional(),
+                                                stopKeywordText: z.unknown().optional(),
+                                                unsubscribeLinkText: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                            .optional(),
+                                        discountSettings: z
+                                            .object({
+                                                combinesWith: z.unknown().optional(),
+                                                expiry: z.unknown().optional(),
+                                                isItemsOnSaleExcluded: z.unknown().optional(),
+                                                scope: z.unknown().optional(),
+                                                type: z.unknown().optional(),
+                                                value: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                            .optional(),
+                                        imageID: z.string().optional(),
+                                        isLinkShorteningEnabled: z.boolean().optional(),
+                                        isSkipAllowed: z.boolean().optional(),
+                                        message: z.string().max(1600).optional()
+                                    })
+                                    .passthrough()
+                                    .optional(),
+                                sendWebhook: z
+                                    .object({
+                                        body: z.string().max(65536).optional(),
+                                        callbackUrl: z.string().max(2000).optional(),
+                                        headers: z.array(z.unknown()).optional()
+                                    })
+                                    .passthrough()
+                                    .optional(),
+                                type: z.enum(['sendEmail', 'sendSms', 'sendPush', 'sendWebhook', 'addTag', 'removeTag']).optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        delay: z
+                            .object({
+                                allowedWeekdays: z.array(z.enum(['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'])).optional(),
+                                duration: z
+                                    .object({ amount: z.number().int().optional(), units: z.enum(['m', 'h', 'd', 'w', 'M']).optional() })
+                                    .passthrough()
+                                    .optional(),
+                                mode: z.enum(['duration', 'immediate', 'specificTime']).optional(),
+                                time: z.string().optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        id: z.string().max(36).optional(),
+                        split: z
+                            .object({
+                                falseBlocks: z
+                                    .array(
+                                        z
+                                            .object({
+                                                abTesting: z.unknown().optional(),
+                                                action: z.unknown().optional(),
+                                                delay: z.unknown().optional(),
+                                                id: z.unknown().optional(),
+                                                split: z.unknown().optional(),
+                                                type: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                    )
+                                    .optional(),
+                                filterGroup: z
+                                    .object({ filters: z.array(z.unknown()).optional(), logicalOperator: z.enum(['and', 'or']).optional() })
+                                    .passthrough()
+                                    .optional(),
+                                trueBlocks: z
+                                    .array(
+                                        z
+                                            .object({
+                                                abTesting: z.unknown().optional(),
+                                                action: z.unknown().optional(),
+                                                delay: z.unknown().optional(),
+                                                id: z.unknown().optional(),
+                                                split: z.unknown().optional(),
+                                                type: z.unknown().optional()
+                                            })
+                                            .passthrough()
+                                    )
+                                    .optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        type: z.enum(['delay', 'action', 'split', 'abTesting']).optional()
+                    })
+                    .passthrough()
+            )
+            .optional(),
+        brandID: z.string().optional(),
+        createdAt: z.string().optional(),
+        disabledAt: z.string().nullable().optional(),
+        enabledAt: z.string().nullable().optional(),
+        exitConditions: z
+            .array(
+                z
+                    .object({
+                        event: z.string().optional(),
+                        filterGroup: z
+                            .object({
+                                filters: z
+                                    .array(
+                                        z
+                                            .object({ field: z.unknown().optional(), operator: z.unknown().optional(), value: z.unknown().optional() })
+                                            .passthrough()
+                                    )
+                                    .optional(),
+                                logicalOperator: z.enum(['and', 'or']).optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        origin: z.string().optional()
+                    })
+                    .passthrough()
+            )
+            .optional(),
+        id: z.string().optional(),
+        isEnabled: z.boolean().optional(),
+        name: z.string().optional(),
+        settings: z
+            .object({
+                discount: z
+                    .object({
+                        combinesWith: z
+                            .object({
+                                isOrderCompatible: z.boolean().optional(),
+                                isProductCompatible: z.boolean().optional(),
+                                isShippingCompatible: z.boolean().optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        expiry: z
+                            .object({
+                                dateFormat: z.string().optional(),
+                                expirationText: z.string().optional(),
+                                expiresInDays: z.number().int().min(1).optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        isItemsOnSaleExcluded: z.boolean().optional(),
+                        scope: z
+                            .object({
+                                collectionID: z.number().int().optional(),
+                                collectionType: z.enum(['smart', 'custom']).optional(),
+                                conditions: z.enum(['allOrders', 'minimumOrderAmount', 'collection']).optional(),
+                                minimumOrderAmount: z.string().optional()
+                            })
+                            .passthrough()
+                            .optional(),
+                        type: z.enum(['percentage', 'fixedAmount', 'freeShipping']).optional(),
+                        value: z.string().optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                frequencyLimiter: z
+                    .object({
+                        duration: z
+                            .object({ amount: z.number().int().optional(), units: z.enum(['h', 'd', 'w']).optional() })
+                            .passthrough()
+                            .optional(),
+                        mode: z.enum(['once', 'interval']).optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                overlapLimiter: z
+                    .object({
+                        automationIDs: z.array(z.string()).optional(),
+                        mode: z.enum(['currentlyIn', 'recentlyIn']).optional(),
+                        withinDays: z.number().int().min(1).max(7).optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                sendingThresholds: z
+                    .object({
+                        email: z.enum(['subscribed', 'nonSubscribed', 'all']).optional(),
+                        sms: z.enum(['subscribed', 'nonSubscribed', 'all']).optional()
+                    })
+                    .passthrough()
+                    .optional()
+            })
+            .passthrough()
+            .optional(),
+        trigger: z
+            .object({
+                audienceFilterGroup: z
+                    .object({
+                        filters: z
+                            .array(
+                                z
+                                    .object({
+                                        field: z.string().optional(),
+                                        operator: z
+                                            .enum([
+                                                'eq',
+                                                'neq',
+                                                'gt',
+                                                'gte',
+                                                'lt',
+                                                'lte',
+                                                'contains',
+                                                'notContains',
+                                                'startsWith',
+                                                'endsWith',
+                                                'exists',
+                                                'notExists',
+                                                'any'
+                                            ])
+                                            .optional(),
+                                        value: z.unknown().optional()
+                                    })
+                                    .passthrough()
+                            )
+                            .optional(),
+                        logicalOperator: z.enum(['and', 'or']).optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                condition: z
+                    .object({
+                        event: z.string().optional(),
+                        filterGroups: z
+                            .array(z.object({ filters: z.array(z.unknown()).optional(), logicalOperator: z.enum(['and', 'or']).optional() }).passthrough())
+                            .optional(),
+                        origin: z.string().optional()
+                    })
+                    .passthrough()
+                    .optional(),
+                inactivitySettings: z
+                    .object({
+                        duration: z
+                            .object({ amount: z.number().int().optional(), units: z.enum(['m', 'h', 'd', 'w', 'M']).optional() })
+                            .passthrough()
+                            .optional()
+                    })
+                    .passthrough()
+                    .optional()
+            })
+            .passthrough()
+            .optional(),
+        updatedAt: z.string().optional()
+    })
+    .passthrough();
+
+const action = createAction({
+    description: 'Create automation workflow',
+    version: '1.0.0',
+    endpoint: {
+        method: 'POST',
+        path: '/omnisend/postAutomations',
+        group: 'Automations'
+    },
+    input,
+    output,
+    exec: async (nango, requestInput) => output.parse((await callOmnisend(nango, 'POST', '/automations', requestInput)).data)
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;
