@@ -1,0 +1,63 @@
+{
+    "url": "https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml",
+    "sha256": "a4e7919d8d2b390cdc1db4e9a6c14f58ec68946962513fd186985d367ed29f3b",
+    "retrievedAt": "2026-09-11",
+    "operations": [
+        {
+            "action": "send-email",
+            "method": "POST",
+            "path": "/emails",
+            "operationId": "emails/send",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-email",
+            "method": "GET",
+            "path": "/emails/{email_id}",
+            "operationId": "emails/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-emails",
+            "method": "GET",
+            "path": "/emails",
+            "operationId": "emails/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "cancel-email",
+            "method": "POST",
+            "path": "/emails/{email_id}/cancel",
+            "operationId": "emails/cancel",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-domains",
+            "method": "GET",
+            "path": "/domains",
+            "operationId": "domains/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-domain",
+            "method": "GET",
+            "path": "/domains/{domain_id}",
+            "operationId": "domains/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-domain",
+            "method": "POST",
+            "path": "/domains",
+            "operationId": "domains/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "verify-domain",
+            "method": "POST",
+            "path": "/domains/{domain_id}/verify",
+            "operationId": "domains/verify",
+            "omittedQueryParameters": []
+        }
+    ]
+}

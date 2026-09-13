@@ -5143,6 +5143,16 @@ import './recruiterflow/actions/candidate-activities-stage-movements.js';
 import './recruiterflow/actions/candidate-scorecards.js';
 import './recruiterflow/actions/job-pipelines.js';
 
+// -- Integration: resend
+import './resend/actions/cancel-email.js';
+import './resend/actions/create-domain.js';
+import './resend/actions/get-domain.js';
+import './resend/actions/get-email.js';
+import './resend/actions/list-domains.js';
+import './resend/actions/list-emails.js';
+import './resend/actions/send-email.js';
+import './resend/actions/verify-domain.js';
+
 // -- Integration: ring-central
 import './ring-central/syncs/contacts.js';
 import './ring-central/syncs/users.js';
