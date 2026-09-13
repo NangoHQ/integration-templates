@@ -1,0 +1,94 @@
+{
+    "url": "https://api.incident.io/v1/openapiV3.json",
+    "sha256": "902219d13dabe548fb4985e763456b899769eba4f5f0b4c1c5ff0c71f5fae09b",
+    "retrievedAt": "2026-09-11",
+    "operations": [
+        {
+            "action": "list-incidents",
+            "method": "GET",
+            "path": "/v2/incidents",
+            "operationId": "Incidents V2#List",
+            "omittedQueryParameters": [
+                "status",
+                "status_category",
+                "created_at",
+                "updated_at",
+                "severity",
+                "incident_type",
+                "incident_role",
+                "custom_field",
+                "mode"
+            ]
+        },
+        {
+            "action": "get-incident",
+            "method": "GET",
+            "path": "/v2/incidents/{id}",
+            "operationId": "Incidents V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-incident",
+            "method": "POST",
+            "path": "/v2/incidents",
+            "operationId": "Incidents V2#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-follow-ups",
+            "method": "GET",
+            "path": "/v3/follow_ups",
+            "operationId": "Follow-ups V3#List",
+            "omittedQueryParameters": ["created_at", "updated_at"]
+        },
+        {
+            "action": "get-follow-up",
+            "method": "GET",
+            "path": "/v3/follow_ups/{id}",
+            "operationId": "Follow-ups V3#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-follow-up",
+            "method": "POST",
+            "path": "/v3/follow_ups",
+            "operationId": "Follow-ups V3#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-follow-up",
+            "method": "PUT",
+            "path": "/v3/follow_ups/{id}",
+            "operationId": "Follow-ups V3#Update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-actions",
+            "method": "GET",
+            "path": "/v3/actions",
+            "operationId": "Actions V3#List",
+            "omittedQueryParameters": ["created_at", "updated_at"]
+        },
+        {
+            "action": "get-action",
+            "method": "GET",
+            "path": "/v3/actions/{id}",
+            "operationId": "Actions V3#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-severities",
+            "method": "GET",
+            "path": "/v1/severities",
+            "operationId": "Severities V1#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-statuses",
+            "method": "GET",
+            "path": "/v1/incident_statuses",
+            "operationId": "Incident Statuses V1#List",
+            "omittedQueryParameters": []
+        }
+    ]
+}
