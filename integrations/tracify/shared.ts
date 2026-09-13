@@ -1,5 +1,3 @@
-import { createHash } from 'node:crypto';
-
 import type { ProxyConfiguration } from 'nango';
 import * as z from 'zod';
 
@@ -310,21 +308,7 @@ interface NangoSync {
     log(message: string): unknown;
 }
 
-type QueryValue = string | number | string[] | number[];
-type QueryParams = Record<string, QueryValue>;
-
-function append(params: QueryParams, name: string, value: unknown): QueryParams {
-    if (value === undefined || value === null) return params;
-    if (Array.isArray(value)) {
-        return { ...params, [name]: value.map(String) };
-    }
-    if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
-        return { ...params, [name]: String(value) };
-    }
-    return params;
-}
-
-export function toParams(input: Record<string, unknown>): QueryParams {
+export function toParams(input: Record<string, unknown>): string {
     const parameterValues: [string, unknown][] = [
         ['csids', input['siteIds']],
         ['preset_id', input['presetId']],
@@ -348,7 +332,16 @@ export function toParams(input: Record<string, unknown>): QueryParams {
         ['breakdown_dimensions', input['breakdownDimensions']],
         ['export_format', input['exportFormat']]
     ];
-    return parameterValues.reduce((params, [name, value]) => append(params, name, value), {});
+    const params = new URLSearchParams();
+    for (const [name, value] of parameterValues) {
+        if (value === undefined || value === null) continue;
+        if (Array.isArray(value)) {
+            for (const item of value) params.append(name, String(item));
+        } else if (typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean') {
+            params.append(name, String(value));
+        }
+    }
+    return params.toString();
 }
 
 export async function getJson(nango: NangoProxy, path: string, input: Record<string, unknown>): Promise<unknown> {
@@ -396,8 +389,13 @@ export async function connectionKpiQuery(nango: NangoSync, windowDays = 30): Pro
 }
 
 function stableId(endpointName: string, value: unknown, index: number): string {
-    const raw = JSON.stringify(value) ?? 'null';
-    const digest = createHash('sha256').update(`${endpointName}:${raw}`).digest('hex').slice(0, 24);
+    const raw = `${endpointName}:${JSON.stringify(value) ?? 'null'}`;
+    let hash = 2166136261;
+    for (let offset = 0; offset < raw.length; offset += 1) {
+        hash ^= raw.charCodeAt(offset);
+        hash = Math.imul(hash, 16777619);
+    }
+    const digest = (hash >>> 0).toString(16).padStart(8, '0');
     return `${endpointName}:${index}:${digest}`;
 }
 

@@ -72,9 +72,9 @@ describe('Tracify Analytics public templates', () => {
     it('exposes eight GET-only KPI retrieval actions with the documented provider routes', async () => {
         for (const [name, action, expectedPath, extraInput] of actions) {
             const input = action.input.parse({ ...baseInput, ...extraInput });
-            const calls: { endpoint: string; method?: string; retries?: number; params?: Record<string, unknown> }[] = [];
+            const calls: { endpoint: string; method?: string; retries?: number; params?: string }[] = [];
             const nango = {
-                proxy: async (request: { endpoint: string; method?: string; retries?: number; params?: Record<string, unknown> }) => {
+                proxy: async (request: { endpoint: string; method?: string; retries?: number; params?: string }) => {
                     calls.push(request);
                     return { data: actionResponses[name] };
                 }
@@ -86,10 +86,11 @@ describe('Tracify Analytics public templates', () => {
             expect(calls[0]?.method, name).toBe('GET');
             expect(calls[0]?.retries, name).toBe(3);
             expect(calls[0]?.endpoint, name).toBe(expectedPath);
-            expect(calls[0]?.params?.['csids'], name).toEqual([siteId]);
-            expect(calls[0]?.params?.['preset_id'], name).toBe(name === 'channel-export-status' ? undefined : 'preset-test');
+            const params = new URLSearchParams(calls[0]?.params);
+            expect(params.getAll('csids'), name).toEqual([siteId]);
+            expect(params.get('preset_id'), name).toBe(name === 'channel-export-status' ? null : 'preset-test');
             if (name === 'channels') {
-                expect(calls[0]?.params?.['channels'], name).toEqual(['google']);
+                expect(params.getAll('channels'), name).toEqual(['google']);
             }
         }
     });

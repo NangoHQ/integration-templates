@@ -1,6 +1,6 @@
 import { createSync } from 'nango';
 import * as z from 'zod';
-import { connectionKpiQuery, getJsonSync, nvrResponse, savePayload } from '../shared.js';
+import { connectionKpiQuery, getJsonSync, nvrQuery, nvrResponse, savePayload } from '../shared.js';
 
 const record = z.object({
     id: z.string(),
@@ -19,7 +19,10 @@ const sync = createSync({
     models: { TracifyKpiNvr: record },
     exec: async (nango) => {
         await nango.trackDeletesStart('TracifyKpiNvr');
-        const input = await connectionKpiQuery(nango, 7);
+        const input = nvrQuery.parse({
+            ...(await connectionKpiQuery(nango, 7)),
+            nvrColumns: ['new', 'returning', 'total']
+        });
         const payload = nvrResponse.parse(await getJsonSync(nango, '/analytics/api/v1/kpis/nvr_daily_breakdown', input));
         await savePayload(nango, 'TracifyKpiNvr', 'kpis-nvr', payload);
         await nango.trackDeletesEnd('TracifyKpiNvr');
