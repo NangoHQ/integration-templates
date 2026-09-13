@@ -53,7 +53,7 @@ const output = z
     .passthrough();
 
 const action = createAction({
-    description: 'Generate report',
+    description: 'Generate statistics',
     version: '1.0.0',
     endpoint: {
         method: 'POST',

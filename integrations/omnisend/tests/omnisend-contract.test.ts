@@ -1,10 +1,12 @@
 import { access, readFile } from 'node:fs/promises';
 
 import { describe, expect, it } from 'vitest';
+import * as z from 'zod';
 
 import getAutomations from '../actions/get-automations.js';
 import getBatches from '../actions/get-batches.js';
 import getBatchItems from '../actions/get-batches-batch-i-d-items.js';
+import getBrandsCurrent from '../actions/get-brands-current.js';
 import getCampaigns from '../actions/get-campaigns.js';
 import getContacts from '../actions/get-contacts.js';
 import getContactsId from '../actions/get-contacts-id.js';
@@ -15,10 +17,21 @@ import getProducts from '../actions/get-products.js';
 import getSegments from '../actions/get-segments.js';
 import patchContacts from '../actions/patch-contacts.js';
 import patchContactsId from '../actions/patch-contacts-id.js';
+import postAnalyticsReports from '../actions/post-analytics-reports.js';
 import postContacts from '../actions/post-contacts.js';
 import postContactsTags from '../actions/post-contacts-tags.js';
+import deleteContactsTags from '../actions/delete-contacts-tags.js';
 import postEvents from '../actions/post-events.js';
 import postImagesUpload from '../actions/post-images-upload.js';
+import postAutomations from '../actions/post-automations.js';
+import postAutomationsTestEmail from '../actions/post-automations-id-blocks-block-i-d-test-email.js';
+import postCampaigns from '../actions/post-campaigns.js';
+import postCampaignWinner from '../actions/post-campaigns-id-ab-test-winner.js';
+import postBrandsCurrent from '../actions/post-brands-current.js';
+import postProductCategories from '../actions/post-product-categories.js';
+import postEmailTemplatesRender from '../actions/post-email-templates-id-render.js';
+import postEmailUniversalLayouts from '../actions/post-email-universal-layouts.js';
+import putAutomationsBlocks from '../actions/put-automations-id-blocks.js';
 import { callOmnisend, runCollectionSync } from '../shared.js';
 
 type ProxyCall = Record<string, unknown>;
@@ -72,6 +85,29 @@ describe('Omnisend shared request and sync contracts', () => {
     it('rejects malformed image base64 before building multipart data', () => {
         expect(() => postImagesUpload.input.parse({ body: { file: 'a-not-base64-value' } })).toThrow();
         expect(() => postImagesUpload.input.parse({ body: { file: Buffer.from('image-bytes').toString('base64') } })).not.toThrow();
+    });
+
+    it('rejects malformed write payloads at the action boundary', () => {
+        expect(() => getBatches.input.parse({ offset: -1 })).toThrow();
+        expect(() => patchContacts.input.parse({ email: 'draft@example.com', body: null })).toThrow();
+        expect(() => patchContactsId.input.parse({ id: 'contact-1', body: [] })).toThrow();
+        expect(() => postContacts.input.parse({ body: { identifiers: [] } })).toThrow();
+        expect(() => deleteContactsTags.input.parse({ body: { emails: ['draft@example.com'], tags: [''] } })).toThrow();
+        expect(() => postProductCategories.input.parse({ body: { categoryID: '', title: '' } })).toThrow();
+        expect(() => postCampaignWinner.input.parse({ id: 'campaign-1', body: { variantID: '' } })).toThrow();
+        expect(() => postAutomationsTestEmail.input.parse({ id: 'automation-1', blockID: 'block-1', body: { recipients: [] } })).toThrow();
+        expect(() => postAnalyticsReports.input.parse({ body: { queries: [] } })).toThrow();
+    });
+
+    it('validates brand, render, push, webhook, and automation discriminator contracts', () => {
+        expect(() => getBrandsCurrent.output.parse('malformed')).toThrow();
+        expect(() => postBrandsCurrent.output.parse([])).toThrow();
+        expect(() => postEmailTemplatesRender.output.parse({ html: { nested: true } })).toThrow();
+        expect(() => postCampaigns.input.parse({ body: { channel: 'push', type: 'regular', content: { push: { body: 1, clickUrl: 'https://example.test', title: 'draft' } } } })).toThrow();
+        expect(() => postAutomations.input.parse({ body: { name: 'draft', trigger: { condition: { event: 'draft' } }, blocks: [{ temporaryID: 'b-1', type: 'action' }] } })).toThrow();
+        expect(() => putAutomationsBlocks.input.parse({ id: 'automation-1', body: { blocks: [{ temporaryID: 'b-1', type: 'action', action: { type: 'sendWebhook', sendWebhook: { body: 'draft', callbackUrl: 'http://insecure.test' } } }] } })).toThrow();
+        expect(() => postEmailUniversalLayouts.input.parse({ body: { content: { settings: { customFonts: [{ id: 42 }] } } } })).toThrow();
+        expect(() => postEmailTemplatesRender.output.parse({ html: 'draft' })).not.toThrow();
     });
 
     it('uses the fixed API prefix, version header, and three retries', async () => {
@@ -152,6 +188,34 @@ describe('Omnisend shared request and sync contracts', () => {
         expect(saves).toEqual([1, 1]);
     });
 
+    it('validates sync items and checkpoints the next offset after each page', async () => {
+        const checkpoints: unknown[] = [];
+        const events: string[] = [];
+        let page = 0;
+        const nango = {
+            getCheckpoint: async () => null,
+            saveCheckpoint: async (checkpoint: unknown) => { checkpoints.push(checkpoint); },
+            clearCheckpoint: async () => { events.push('clear'); },
+            proxy: async () => {
+                page += 1;
+                return { data: page === 1
+                    ? { products: [{ id: 'p1' }], paging: { next: '/api/products?offset=100' } }
+                    : { products: [{ id: 'p2' }], paging: {} } };
+            },
+            trackDeletesStart: async () => { events.push('start'); },
+            batchSave: async () => { events.push('save'); },
+            trackDeletesEnd: async () => { events.push('end'); }
+        };
+
+        await runCollectionSync(nango as never, {
+            method: 'GET', path: '/products', model: 'OmnisendProduct', collectionKey: 'products', idField: 'id', pagination: 'offset', checkpoint: true,
+            itemSchema: z.object({ id: z.string() })
+        });
+
+        expect(checkpoints).toEqual([{ offset: 100 }]);
+        expect(events).toEqual(['start', 'save', 'save', 'clear', 'end']);
+    });
+
     it('resumes campaign cursors from a checkpoint and clears it after completion', async () => {
         const requests: unknown[] = [];
         const events: string[] = [];
@@ -206,7 +270,8 @@ describe('Omnisend shared request and sync contracts', () => {
         await expect(runCollectionSync(nango as never, {
             method: 'GET', path: '/campaigns', model: 'OmnisendCampaign', collectionKey: 'campaigns', idField: 'id'
         })).rejects.toThrow('missing next cursor');
-        expect(events).toEqual([]);
+        expect(events).toEqual(['start', 'save']);
+        expect(events).not.toContain('end');
     });
 
     it('does not end delete tracking after a repeated cursor or page limit', async () => {
@@ -227,12 +292,12 @@ describe('Omnisend shared request and sync contracts', () => {
             await expect(runCollectionSync(nango as never, {
                 method: 'GET', path: '/campaigns', model: 'OmnisendCampaign', collectionKey: 'campaigns', idField: 'id'
             })).rejects.toThrow(mode === 'repeated' ? 'repeated cursor' : 'maximum page limit reached');
-            expect(events).toEqual([]);
             expect(events).not.toContain('end');
             if (mode === 'repeated') {
-                expect(events).toEqual([]);
+                expect(events).toEqual(['start', 'save', 'save']);
             } else {
-                expect(events).toHaveLength(0);
+                expect(events[0]).toBe('start');
+                expect(events.filter((event) => event === 'end')).toHaveLength(0);
             }
         }
     });
@@ -253,7 +318,8 @@ describe('Omnisend shared request and sync contracts', () => {
             await expect(runCollectionSync(nango as never, {
                 method: 'GET', path: '/products', model: 'OmnisendProduct', collectionKey: 'products', idField: 'id', pagination: 'offset'
             })).rejects.toThrow(expectedError);
-            expect(events).toEqual([]);
+            expect(events).toEqual(['start', 'save']);
+            expect(events).not.toContain('end');
         }
     });
 });

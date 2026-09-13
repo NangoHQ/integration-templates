@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
-const input = z.object({ body: z.object({ categoryID: z.string().max(100), title: z.string().max(255) }).passthrough() }).passthrough();
+const input = z.object({ body: z.object({ categoryID: z.string().min(1).max(100), title: z.string().min(1).max(255) }).passthrough() }).passthrough();
 const output = z.object({ categoryID: z.string().optional() }).passthrough();
 
 const action = createAction({

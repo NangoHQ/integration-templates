@@ -55,6 +55,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
+    checkpoint: z.object({ offset: z.number().int().min(0) }),
     metadata: z.void(),
     models: { OmnisendProduct: record },
     exec: async (nango) =>
@@ -64,7 +65,9 @@ const sync = createSync({
             model: 'OmnisendProduct',
             collectionKey: 'products',
             idField: 'id',
-            pagination: 'offset'
+            itemSchema: record.shape.data,
+            pagination: 'offset',
+            checkpoint: true
         })
 });
 

@@ -2,7 +2,9 @@ import { createAction } from 'nango';
 import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
-const input = z.object({ id: z.string().min(1), blockID: z.string().min(1), body: z.object({ recipients: z.array(z.string()) }).passthrough() }).passthrough();
+const input = z
+    .object({ id: z.string().min(1), blockID: z.string().min(1), body: z.object({ recipients: z.array(z.string().email()).min(1) }).passthrough() })
+    .passthrough();
 const output = z.unknown();
 
 const action = createAction({

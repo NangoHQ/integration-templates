@@ -184,6 +184,7 @@ const sync = createSync({
             model: 'OmnisendEmailUniversalLayout',
             collectionKey: 'universalLayouts',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor'
         })
 });

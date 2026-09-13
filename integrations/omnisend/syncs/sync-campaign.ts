@@ -130,6 +130,7 @@ const sync = createSync({
             model: 'OmnisendCampaign',
             collectionKey: 'campaigns',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor',
             checkpoint: true
         })

@@ -33,7 +33,7 @@ const input = z
                             })
                             .passthrough()
                     )
-                    .optional()
+                    .min(1)
             })
             .passthrough()
     })

@@ -237,6 +237,7 @@ const sync = createSync({
             model: 'OmnisendAutomation',
             collectionKey: 'automations',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor'
         })
 });

@@ -10,7 +10,7 @@ const input = z
                 emails: z.array(z.string().min(1)).optional(),
                 phones: z.array(z.string().min(1)).optional(),
                 segmentID: z.string().min(1).optional(),
-                tags: z.array(z.string()).min(1)
+                tags: z.array(z.string().min(1)).min(1)
             })
             .passthrough()
             .superRefine((body, ctx) => {

@@ -4,7 +4,7 @@ import { callOmnisend } from '../shared.js';
 
 const input = z
     .object({
-        offset: z.number().int().optional(),
+        offset: z.number().int().min(0).optional(),
         limit: z.number().int().min(1).max(250).optional(),
         status: z.enum(['pending', 'inProgress', 'finished', 'stopped']).optional(),
         dateFrom: z.string().optional(),

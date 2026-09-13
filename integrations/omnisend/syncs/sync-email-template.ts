@@ -31,6 +31,7 @@ const sync = createSync({
             model: 'OmnisendEmailTemplate',
             collectionKey: 'templates',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor'
         })
 });

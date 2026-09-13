@@ -28,6 +28,8 @@ export type CollectionSyncConfig = {
     collectionKey: string;
     idField: string;
     pagination?: 'cursor' | 'offset';
+    pageSize?: number;
+    itemSchema?: z.ZodTypeAny;
     checkpoint?: boolean;
 };
 
@@ -85,9 +87,25 @@ export const contactSchema = z
     })
     .passthrough();
 
+export const contactUpdateSchema = contactSchema.partial();
+
+export const brandSchema = z
+    .object({
+        brandID: z.string().optional(),
+        connected: z.boolean().optional(),
+        currency: z.string().optional(),
+        name: z.string().optional(),
+        platform: z.string().optional(),
+        timezone: z.string().optional(),
+        version: z.string().optional(),
+        website: z.string().optional()
+    })
+    .passthrough();
+
 const API_VERSION = '2026-03-15';
 const MAX_PAGES = 1_000;
 const PAGE_SIZE = 100;
+const MAX_RETRIES = 3;
 
 function encodePath(path: string, input: RequestInput): string {
     return path.replace(/\{([^}]+)\}/g, (_, key: string) => {
@@ -194,8 +212,8 @@ function pageItems(data: unknown, collectionKey: string): Array<Record<string, u
 }
 
 export async function runCollectionSync(nango: SyncClient, config: CollectionSyncConfig): Promise<void> {
+    const pageSize = config.pageSize ?? PAGE_SIZE;
     const seenCursors = new Set<string>();
-    const seenOffsets = new Set<number>([0]);
     const checkpoint = config.checkpoint ? await nango.getCheckpoint() : null;
     if (config.checkpoint && checkpoint !== null && (typeof checkpoint !== 'object' || Array.isArray(checkpoint))) {
         throw new Error(`Invalid Omnisend checkpoint for ${config.collectionKey}`);
@@ -209,94 +227,118 @@ export async function runCollectionSync(nango: SyncClient, config: CollectionSyn
     ) {
         throw new Error(`Invalid Omnisend checkpoint for ${config.collectionKey}: missing after cursor`);
     }
+    if (
+        config.checkpoint &&
+        config.pagination === 'offset' &&
+        checkpointData &&
+        checkpointData['offset'] !== undefined &&
+        (!Number.isInteger(checkpointData['offset']) || (checkpointData['offset'] as number) < 0)
+    ) {
+        throw new Error(`Invalid Omnisend checkpoint for ${config.collectionKey}: invalid offset`);
+    }
+
     let after = typeof checkpointData?.['after'] === 'string' ? checkpointData['after'] : undefined;
-    const resumed = after !== undefined;
-    let offset = 0;
+    let offset = typeof checkpointData?.['offset'] === 'number' ? checkpointData['offset'] : 0;
+    const resumed = after !== undefined || checkpointData?.['offset'] !== undefined;
+    const seenOffsets = new Set<number>([offset]);
     let complete = false;
-    const pages: Array<{ records: Array<Record<string, unknown>>; checkpointAfter?: string }> = [];
-
-    for (let page = 0; page < MAX_PAGES; page += 1) {
-        const input: RequestInput = { limit: PAGE_SIZE };
-        if (config.pagination === 'offset') {
-            input['offset'] = offset;
-        } else if (after) {
-            input['after'] = after;
+    let deleteTrackingStarted = false;
+    const retryOperation = async <T>(operation: () => MaybePromise<T>): Promise<T> => {
+        let lastError: unknown;
+        for (let attempt = 1; attempt <= MAX_RETRIES; attempt += 1) {
+            // @allowTryCatch: retry provider persistence exactly three times.
+            try {
+                return await operation();
+            } catch (error) {
+                lastError = error;
+                if (attempt === MAX_RETRIES) throw lastError;
+            }
         }
-        const response = await callOmnisend(nango, config.method, config.path, input);
-        const data = response.data;
-        const items = pageItems(data, config.collectionKey);
-        const records = items.map((item) => ({ id: stableId(item, config.idField), data: item }));
-        const paging = data && typeof data === 'object' && !Array.isArray(data) ? (data as Record<string, unknown>)['paging'] : undefined;
-        const pagingObject = paging && typeof paging === 'object' && !Array.isArray(paging) ? (paging as Record<string, unknown>) : undefined;
-        const cursors = pagingObject?.['cursors'];
-        const nextCursor = cursors && typeof cursors === 'object' && !Array.isArray(cursors) ? (cursors as Record<string, unknown>)['after'] : undefined;
-        const nextUrl = pagingObject?.['next'];
+        throw lastError;
+    };
 
-        if (config.pagination === 'offset') {
-            if (typeof nextUrl !== 'string' || nextUrl.length === 0) {
-                pages.push({ records });
+    if (!resumed) {
+        await retryOperation(() => nango.trackDeletesStart(config.model as never));
+        deleteTrackingStarted = true;
+    }
+
+    // @allowTryCatch: omit trackDeletesEnd on any fetch or persistence failure.
+    try {
+        for (let page = 0; page < MAX_PAGES; page += 1) {
+            const input: RequestInput = { limit: pageSize };
+            if (config.pagination === 'offset') {
+                input['offset'] = offset;
+            } else if (after) {
+                input['after'] = after;
+            }
+
+            const response = await callOmnisend(nango, config.method, config.path, input);
+            const data = response.data;
+            const items = pageItems(data, config.collectionKey);
+            const validatedItems = config.itemSchema ? items.map((item) => config.itemSchema!.parse(item)) : items;
+            const records = validatedItems.map((item) => ({ id: stableId(item as Record<string, unknown>, config.idField), data: item }));
+            if (records.length > 0) {
+                await retryOperation(() => nango.batchSave(records as never[], config.model as never));
+            }
+
+            const paging = data && typeof data === 'object' && !Array.isArray(data) ? (data as Record<string, unknown>)['paging'] : undefined;
+            const pagingObject = paging && typeof paging === 'object' && !Array.isArray(paging) ? (paging as Record<string, unknown>) : undefined;
+            const cursors = pagingObject?.['cursors'];
+            const nextCursor = cursors && typeof cursors === 'object' && !Array.isArray(cursors) ? (cursors as Record<string, unknown>)['after'] : undefined;
+            const nextUrl = pagingObject?.['next'];
+
+            if (config.pagination === 'offset') {
+                if (typeof nextUrl !== 'string' || nextUrl.length === 0) {
+                    complete = true;
+                    break;
+                }
+                let nextOffset: number | undefined;
+                // @allowTryCatch: malformed provider continuation must fail closed.
+                try {
+                    const nextOffsetValue = new URL(nextUrl, 'https://api.omnisend.com').searchParams.get('offset');
+                    if (nextOffsetValue === null || nextOffsetValue.length === 0) throw new Error('missing offset');
+                    nextOffset = Number(nextOffsetValue);
+                } catch {
+                    nextOffset = undefined;
+                }
+                if (nextOffset === undefined || !Number.isInteger(nextOffset) || nextOffset < 0) {
+                    throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: invalid next offset`);
+                }
+                if (seenOffsets.has(nextOffset) || nextOffset === offset) {
+                    throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: repeated offset`);
+                }
+                seenOffsets.add(nextOffset);
+                if (config.checkpoint) await retryOperation(() => nango.saveCheckpoint({ offset: nextOffset } as never));
+                offset = nextOffset;
+                continue;
+            }
+
+            if (pagingObject?.['hasMore'] !== true) {
                 complete = true;
                 break;
             }
-            let nextOffset: number | undefined;
-            // @allowTryCatch: malformed provider continuation must fail closed.
-            try {
-                const nextOffsetValue = new URL(nextUrl, 'https://api.omnisend.com').searchParams.get('offset');
-                if (nextOffsetValue === null || nextOffsetValue.length === 0) {
-                    throw new Error('missing offset');
-                }
-                nextOffset = Number(nextOffsetValue);
-            } catch {
-                nextOffset = undefined;
+            if (typeof nextCursor !== 'string' || nextCursor.length === 0) {
+                throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: missing next cursor`);
             }
-            if (nextOffset === undefined || !Number.isInteger(nextOffset) || nextOffset < 0) {
-                throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: invalid next offset`);
+            if (seenCursors.has(nextCursor) || nextCursor === after) {
+                throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: repeated cursor`);
             }
-            if (seenOffsets.has(nextOffset) || nextOffset === offset) {
-                throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: repeated offset`);
-            }
-            seenOffsets.add(nextOffset);
-            pages.push({ records });
-            offset = nextOffset;
-            continue;
+            seenCursors.add(nextCursor);
+            if (config.checkpoint) await retryOperation(() => nango.saveCheckpoint({ after: nextCursor } as never));
+            after = nextCursor;
         }
 
-        const hasMore = pagingObject?.['hasMore'] === true;
-        if (!hasMore) {
-            pages.push({ records });
-            complete = true;
-            break;
+        if (!complete) {
+            throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: maximum page limit reached`);
         }
-        if (typeof nextCursor !== 'string' || nextCursor.length === 0) {
-            throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: missing next cursor`);
+        if (config.checkpoint) await retryOperation(() => nango.clearCheckpoint());
+        if (deleteTrackingStarted) {
+            await retryOperation(() => nango.trackDeletesEnd(config.model as never));
+            deleteTrackingStarted = false;
         }
-        if (seenCursors.has(nextCursor) || nextCursor === after) {
-            throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: repeated cursor`);
-        }
-        seenCursors.add(nextCursor);
-        pages.push({ records, checkpointAfter: nextCursor });
-        after = nextCursor;
-    }
-
-    if (!complete) {
-        throw new Error(`Incomplete Omnisend pagination for ${config.collectionKey}: maximum page limit reached`);
-    }
-
-    if (!resumed) {
-        await nango.trackDeletesStart(config.model as never);
-    }
-    for (const page of pages) {
-        if (page.records.length > 0) {
-            await nango.batchSave(page.records as never[], config.model as never);
-        }
-        if (config.checkpoint && page.checkpointAfter) {
-            await nango.saveCheckpoint({ after: page.checkpointAfter } as never);
-        }
-    }
-    if (config.checkpoint) {
-        await nango.clearCheckpoint();
-    }
-    if (!resumed) {
-        await nango.trackDeletesEnd(config.model as never);
+    } catch (error) {
+        // Nango has no abort method; omitting trackDeletesEnd is the fail-closed abort.
+        deleteTrackingStarted = false;
+        throw error;
     }
 }

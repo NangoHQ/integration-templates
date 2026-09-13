@@ -29,6 +29,7 @@ const sync = createSync({
             model: 'OmnisendContact',
             collectionKey: 'contacts',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor'
         })
 });

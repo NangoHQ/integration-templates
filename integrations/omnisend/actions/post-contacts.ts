@@ -36,7 +36,7 @@ const input = z
                             })
                             .passthrough()
                     )
-                    .optional(),
+                    .min(1),
                 lastName: z.string().optional(),
                 postalCode: z.string().optional(),
                 state: z.string().optional(),

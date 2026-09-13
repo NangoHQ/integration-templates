@@ -50,6 +50,8 @@ const sync = createSync({
             model: 'OmnisendSegment',
             collectionKey: 'segments',
             idField: 'segmentID',
+            itemSchema: record.shape.data,
+            pageSize: 50,
             pagination: 'cursor'
         })
 });

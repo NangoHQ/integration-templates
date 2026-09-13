@@ -1,8 +1,8 @@
 import { createAction } from 'nango';
 import * as z from 'zod';
-import { callOmnisend, contactSchema } from '../shared.js';
+import { callOmnisend, contactUpdateSchema, contactSchema } from '../shared.js';
 
-const input = z.object({ email: z.string().email(), body: z.unknown() }).passthrough();
+const input = z.object({ email: z.string().email(), body: contactUpdateSchema }).passthrough();
 const output = contactSchema;
 
 const action = createAction({

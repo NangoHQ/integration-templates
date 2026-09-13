@@ -3,7 +3,7 @@ import * as z from 'zod';
 import { callOmnisend } from '../shared.js';
 
 const input = z.object({ id: z.string().min(1) }).passthrough();
-const output = z.object({}).passthrough();
+const output = z.record(z.string(), z.string());
 
 const action = createAction({
     description: 'Render email template',

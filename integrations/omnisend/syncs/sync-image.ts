@@ -40,6 +40,7 @@ const sync = createSync({
             model: 'OmnisendImage',
             collectionKey: 'images',
             idField: 'id',
+            itemSchema: record.shape.data,
             pagination: 'cursor'
         })
 });

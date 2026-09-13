@@ -106,6 +106,23 @@ const input = z
                             type: z.enum(['delay', 'action', 'split', 'abTesting'])
                         })
                         .passthrough()
+                        .superRefine((block, ctx) => {
+                            if (block.type !== 'action') return;
+                            if (!block.action) {
+                                ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['action'], message: 'action is required for action blocks' });
+                                return;
+                            }
+                            const hasPayload =
+                                (block.action.type === 'sendEmail' && block.action.sendEmail !== undefined) ||
+                                (block.action.type === 'sendPush' && block.action.sendPush !== undefined) ||
+                                (block.action.type === 'sendSms' && block.action.sendSms !== undefined) ||
+                                (block.action.type === 'sendWebhook' && block.action.sendWebhook !== undefined) ||
+                                (block.action.type === 'addTag' && block.action.addTag !== undefined) ||
+                                (block.action.type === 'removeTag' && block.action.removeTag !== undefined);
+                            if (!hasPayload) {
+                                ctx.addIssue({ code: z.ZodIssueCode.custom, path: ['action'], message: `payload for ${block.action.type} is required` });
+                            }
+                        })
                 ),
                 exitConditions: z
                     .array(

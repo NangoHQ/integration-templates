@@ -1,9 +1,9 @@
 import { createAction } from 'nango';
 import * as z from 'zod';
-import { callOmnisend } from '../shared.js';
+import { callOmnisend, brandSchema } from '../shared.js';
 
 const input = z.object({}).passthrough();
-const output = z.unknown();
+const output = brandSchema;
 
 const action = createAction({
     description: 'Get information about brand',

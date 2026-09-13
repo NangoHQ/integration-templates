@@ -31,6 +31,7 @@ const sync = createSync({
             model: 'OmnisendProductCategory',
             collectionKey: 'categories',
             idField: 'categoryID',
+            itemSchema: record.shape.data,
             pagination: 'offset'
         })
 });

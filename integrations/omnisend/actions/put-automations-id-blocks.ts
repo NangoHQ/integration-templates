@@ -57,7 +57,16 @@ const input = z
                                         .passthrough()
                                         .optional(),
                                     sendWebhook: z
-                                        .object({ body: z.unknown(), callbackUrl: z.unknown(), headers: z.unknown().optional() })
+                                        .object({
+                                            body: z.string().min(1).max(65_536),
+                                            callbackUrl: z
+                                                .string()
+                                                .url()
+                                                .refine((value) => value.startsWith('https://'), 'callbackUrl must use HTTPS'),
+                                            headers: z
+                                                .array(z.object({ key: z.string().min(1).max(256), value: z.string().max(10_000) }).passthrough())
+                                                .optional()
+                                        })
                                         .passthrough()
                                         .optional(),
                                     type: z.enum(['sendEmail', 'sendPush', 'sendSms', 'sendWebhook', 'addTag', 'removeTag'])
