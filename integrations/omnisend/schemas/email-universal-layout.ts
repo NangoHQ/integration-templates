@@ -23,57 +23,9 @@ export const emailUniversalLayoutSchema = z
                     .array(
                         z
                             .object({
-                                columns: z
-                                    .array(
-                                        z
-                                            .object({
-                                                blocks: z.unknown().optional(),
-                                                id: z.unknown().optional(),
-                                                styleProperties: z.unknown().optional(),
-                                                width: z.unknown().optional()
-                                            })
-                                            .passthrough()
-                                    )
-                                    .optional(),
+                                columns: z.array(z.unknown()).optional(),
                                 id: z.string().max(24).optional(),
-                                styleProperties: z
-                                    .object({
-                                        alignment: z.string().optional(),
-                                        backgroundColor: z.string().optional(),
-                                        backgroundImageID: z.string().max(24).optional(),
-                                        backgroundPosition: z.string().optional(),
-                                        backgroundRepeat: z.string().optional(),
-                                        backgroundSize: z.string().optional(),
-                                        border: z.string().optional(),
-                                        borderRadius: z.string().optional(),
-                                        color: z.string().optional(),
-                                        dividerColor: z.string().optional(),
-                                        fontFamily: z.string().optional(),
-                                        fontSize: z.string().optional(),
-                                        fontStyle: z.string().optional(),
-                                        fontWeight: z.string().optional(),
-                                        innerPadding: z.string().optional(),
-                                        innerPaddingBottom: z.string().optional(),
-                                        innerPaddingLeft: z.string().optional(),
-                                        innerPaddingRight: z.string().optional(),
-                                        innerPaddingTop: z.string().optional(),
-                                        isBackgroundPaddingsExcluded: z.boolean().optional(),
-                                        letterSpacing: z.string().optional(),
-                                        lineHeight: z.string().optional(),
-                                        linkColor: z.string().optional(),
-                                        padding: z.string().optional(),
-                                        paddingBottom: z.string().optional(),
-                                        paddingLeft: z.string().optional(),
-                                        paddingRight: z.string().optional(),
-                                        paddingTop: z.string().optional(),
-                                        priceColor: z.string().optional(),
-                                        secondaryColor: z.string().optional(),
-                                        textBackgroundColor: z.string().optional(),
-                                        textDecoration: z.string().optional(),
-                                        verticalAlign: z.string().optional()
-                                    })
-                                    .passthrough()
-                                    .optional()
+                                styleProperties: z.unknown().optional()
                             })
                             .passthrough()
                     )
@@ -95,13 +47,7 @@ export const emailUniversalLayoutSchema = z
                         filter: z
                             .object({
                                 operator: z.string().optional(),
-                                rules: z
-                                    .array(
-                                        z
-                                            .object({ operator: z.unknown().optional(), property: z.unknown().optional(), value: z.unknown().optional() })
-                                            .passthrough()
-                                    )
-                                    .optional()
+                                rules: z.array(z.unknown()).optional()
                             })
                             .passthrough()
                             .optional(),

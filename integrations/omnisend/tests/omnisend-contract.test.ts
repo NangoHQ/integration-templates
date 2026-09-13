@@ -41,6 +41,7 @@ import { emailContentSchema } from '../schemas/email-content.js';
 import { emailTemplateSchema } from '../schemas/email-template.js';
 import { emailUniversalLayoutSchema } from '../schemas/email-universal-layout.js';
 import { callOmnisend, runCollectionSync } from '../shared.js';
+import syncCampaign from '../syncs/sync-campaign.js';
 
 type ProxyCall = Record<string, unknown>;
 
@@ -124,11 +125,20 @@ describe('Omnisend shared request and sync contracts', () => {
     });
 
     it('shares campaign, email content, template, and universal layout contracts', () => {
-        const campaign = { content: { push: { body: 'draft', clickUrl: 'https://example.test', title: 'draft' } } };
+        const campaign = {
+            abTest: { variants: { a: { content: { email: 'provider-defined-email' } } } },
+            content: { push: { body: 'draft', clickUrl: 'https://example.test', title: 'draft' } }
+        };
         const content = { generalSettings: { buttonPresets: [{ styles: { color: 'red' } }] } };
-        const layout = { content: { settings: { customFonts: [{ id: 'font-1' }] } } };
+        const layout = {
+            content: {
+                rows: [{ columns: ['provider-defined-column'], styleProperties: 'provider-defined-row-style' }],
+                settings: { customFonts: [{ id: 'font-1' }], filter: { rules: ['provider-defined-rule'] } }
+            }
+        };
 
         expect(() => campaignSchema.parse(campaign)).not.toThrow();
+        expect(() => syncCampaign.models.OmnisendCampaign.parse({ id: 'campaign-1', data: campaign })).not.toThrow();
         expect(() => postCampaigns.output.parse(campaign)).not.toThrow();
         expect(() => postCampaignsCopy.output.parse(campaign)).not.toThrow();
         expect(() => emailContentSchema.parse(content)).not.toThrow();

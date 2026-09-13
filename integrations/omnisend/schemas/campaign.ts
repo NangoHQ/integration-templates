@@ -23,44 +23,14 @@ export const campaignSchema = z
                     .object({
                         a: z
                             .object({
-                                content: z
-                                    .object({
-                                        email: z
-                                            .object({
-                                                contentID: z.unknown().optional(),
-                                                preheader: z.unknown().optional(),
-                                                replyToEmail: z.unknown().optional(),
-                                                senderEmail: z.unknown().optional(),
-                                                senderName: z.unknown().optional(),
-                                                subject: z.unknown().optional()
-                                            })
-                                            .passthrough()
-                                            .optional()
-                                    })
-                                    .passthrough()
-                                    .optional(),
+                                content: z.object({ email: z.unknown().optional() }).passthrough().optional(),
                                 id: z.string().optional()
                             })
                             .passthrough()
                             .optional(),
                         b: z
                             .object({
-                                content: z
-                                    .object({
-                                        email: z
-                                            .object({
-                                                contentID: z.unknown().optional(),
-                                                preheader: z.unknown().optional(),
-                                                replyToEmail: z.unknown().optional(),
-                                                senderEmail: z.unknown().optional(),
-                                                senderName: z.unknown().optional(),
-                                                subject: z.unknown().optional()
-                                            })
-                                            .passthrough()
-                                            .optional()
-                                    })
-                                    .passthrough()
-                                    .optional(),
+                                content: z.object({ email: z.unknown().optional() }).passthrough().optional(),
                                 id: z.string().optional()
                             })
                             .passthrough()
