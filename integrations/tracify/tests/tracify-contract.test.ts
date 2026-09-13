@@ -184,10 +184,14 @@ describe('Tracify Analytics public templates', () => {
         records.length = 0;
         await savePayload(nango as never, 'TracifyKpiOverview', 'kpis-overview', [{ value: 1 }, { value: 2 }]);
         const secondIds = records.map((record) => record.id);
+        records.length = 0;
+        await savePayload(nango as never, 'TracifyKpiOverview', 'kpis-overview', [{ value: 3 }, { value: 4 }]);
+        const differentIds = records.map((record) => record.id);
 
         expect(firstIds).toEqual(secondIds);
         expect(new Set(firstIds).size).toBe(2);
         expect(firstIds[0]).toBe('kpis-overview:0:80f740a06675f958bda81a7b');
         expect(firstIds[1]).toMatch(/^kpis-overview:1:[0-9a-f]{24}$/);
+        expect(differentIds).not.toEqual(firstIds);
     });
 });
