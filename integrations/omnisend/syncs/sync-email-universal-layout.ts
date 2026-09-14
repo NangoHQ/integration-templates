@@ -14,9 +14,15 @@ const sync = createSync({
     syncType: 'full',
     metadata: z.void(),
     models: { OmnisendEmailUniversalLayout: record },
-    exec: async (nango) => runCollectionSync(nango, {
-        method: 'GET', path: '/email-universal-layouts', model: 'OmnisendEmailUniversalLayout', collectionKey: 'universalLayouts', idField: 'id', itemSchema: record.shape.data
-    })
+    exec: async (nango) =>
+        runCollectionSync(nango, {
+            method: 'GET',
+            path: '/email-universal-layouts',
+            model: 'OmnisendEmailUniversalLayout',
+            collectionKey: 'universalLayouts',
+            idField: 'id',
+            itemSchema: record.shape.data
+        })
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];

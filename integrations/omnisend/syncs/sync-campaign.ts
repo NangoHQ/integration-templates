@@ -15,16 +15,17 @@ const sync = createSync({
     checkpoint: z.object({ after: z.string().min(1) }),
     metadata: z.void(),
     models: { OmnisendCampaign: record },
-    exec: async (nango) => runCollectionSync(nango, {
-        method: 'GET',
-        path: '/campaigns',
-        model: 'OmnisendCampaign',
-        collectionKey: 'campaigns',
-        idField: 'id',
-        itemSchema: record.shape.data,
-        pagination: 'cursor',
-        checkpoint: true
-    })
+    exec: async (nango) =>
+        runCollectionSync(nango, {
+            method: 'GET',
+            path: '/campaigns',
+            model: 'OmnisendCampaign',
+            collectionKey: 'campaigns',
+            idField: 'id',
+            itemSchema: record.shape.data,
+            pagination: 'cursor',
+            checkpoint: true
+        })
 });
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
