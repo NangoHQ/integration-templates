@@ -1,7 +1,14 @@
 {
   "input": {
     "prompt": "A simple test image of a red circle on white background",
-    "model": "gpt-image-1"
+    "model": "gpt-image-1",
+    "output_format": "webp",
+    "output_compression": 80,
+    "background": "transparent",
+    "moderation": "low",
+    "quality": "high",
+    "size": "1536x1024",
+    "user": "user_123"
   },
   "output": {
     "created": 1779275643,
@@ -69,11 +76,18 @@
           "set-cookie": "__cf_bm=LSZ595PcD6wJiSaqFAL5hvhSczD.fE5UXjQDWY48Wdc-1779275630.752193-1.0.1.1-wpJBMO2FxjSGs8wv4st0Qsi__xN0a9yS6cappeAodR8Qi7TaHDg0laKyEaRe7pUxp2Mdx_5sQfTXDi78N8162s.Ff7cQ3dGOaxRyaapVjJwk3PQsHBrNccVq5xGTQNps; HttpOnly; SameSite=None; Secure; Path=/; Domain=api.openai.com; Expires=Wed, 20 May 2026 11:44:03 GMT",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "6d6d83d847d663ad0009fe81a6b66024b726f080",
+        "hash": "39a08e78890045ee68934a5aac69fea53bd56ac4",
         "request": {
           "data": {
             "prompt": "A simple test image of a red circle on white background",
-            "model": "gpt-image-1"
+            "model": "gpt-image-1",
+            "output_format": "webp",
+            "output_compression": 80,
+            "background": "transparent",
+            "moderation": "low",
+            "quality": "high",
+            "size": "1536x1024",
+            "user": "user_123"
           }
         }
       }
