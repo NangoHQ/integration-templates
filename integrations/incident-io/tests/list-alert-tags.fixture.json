@@ -1,0 +1,19 @@
+{
+    "input": {
+        "page_size": 25,
+        "after": "01GW2G3V0S59R238FAHPDS1R66",
+        "search": "noisy"
+    },
+    "response": {
+        "alert_tags": [
+            {
+                "id": "01GW2G3V0S59R238FAHPDS1R66",
+                "name": "noisy"
+            }
+        ],
+        "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+        }
+    }
+}
