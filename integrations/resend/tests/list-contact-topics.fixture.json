@@ -1,0 +1,9 @@
+{
+    "input": {
+        "contact_id": "example",
+        "limit": 1,
+        "after": "example",
+        "before": "example"
+    },
+    "response": {}
+}

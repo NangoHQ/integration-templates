@@ -1,0 +1,12 @@
+{
+    "input": {
+        "id": "00000000-0000-4000-8000-000000000001",
+        "type": "sent",
+        "email": "example",
+        "bounce_type": "permanent",
+        "limit": 1,
+        "after": "example",
+        "before": "example"
+    },
+    "response": {}
+}

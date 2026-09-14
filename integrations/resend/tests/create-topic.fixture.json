@@ -1,0 +1,9 @@
+{
+    "input": {
+        "body": {
+            "name": "example",
+            "default_subscription": "opt_in"
+        }
+    },
+    "response": {}
+}

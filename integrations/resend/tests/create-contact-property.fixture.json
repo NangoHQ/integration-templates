@@ -1,0 +1,9 @@
+{
+    "input": {
+        "body": {
+            "key": "example",
+            "type": "string"
+        }
+    },
+    "response": {}
+}

@@ -1,0 +1,9 @@
+{
+    "input": {
+        "contact_id": "example",
+        "body": {
+            "topics": []
+        }
+    },
+    "response": {}
+}

@@ -1,34 +1,223 @@
 {
     "url": "https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml",
     "sha256": "a4e7919d8d2b390cdc1db4e9a6c14f58ec68946962513fd186985d367ed29f3b",
-    "retrievedAt": "2026-09-11",
+    "retrievedAt": "2026-09-14",
     "operations": [
         {
-            "action": "send-email",
-            "method": "POST",
-            "path": "/emails",
-            "operationId": "emails/send",
-            "omittedQueryParameters": []
-        },
-        {
-            "action": "get-email",
+            "action": "list-audiences",
             "method": "GET",
-            "path": "/emails/{email_id}",
-            "operationId": "emails/get",
+            "path": "/audiences",
+            "operationId": "audiences/list",
             "omittedQueryParameters": []
         },
         {
-            "action": "list-emails",
-            "method": "GET",
-            "path": "/emails",
-            "operationId": "emails/list",
-            "omittedQueryParameters": []
-        },
-        {
-            "action": "cancel-email",
+            "action": "create-audience",
             "method": "POST",
-            "path": "/emails/{email_id}/cancel",
-            "operationId": "emails/cancel",
+            "path": "/audiences",
+            "operationId": "audiences/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-audience",
+            "method": "GET",
+            "path": "/audiences/{id}",
+            "operationId": "audiences/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-audience",
+            "method": "DELETE",
+            "path": "/audiences/{id}",
+            "operationId": "audiences/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-broadcasts",
+            "method": "GET",
+            "path": "/broadcasts",
+            "operationId": "broadcasts/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-broadcast",
+            "method": "POST",
+            "path": "/broadcasts",
+            "operationId": "broadcasts/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-broadcast",
+            "method": "GET",
+            "path": "/broadcasts/{id}",
+            "operationId": "broadcasts/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-broadcast",
+            "method": "PATCH",
+            "path": "/broadcasts/{id}",
+            "operationId": "broadcasts/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-broadcast",
+            "method": "DELETE",
+            "path": "/broadcasts/{id}",
+            "operationId": "broadcasts/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "cancel-broadcast",
+            "method": "POST",
+            "path": "/broadcasts/{id}/cancel",
+            "operationId": "broadcasts/cancel",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-broadcast-clicked-links",
+            "method": "GET",
+            "path": "/broadcasts/{id}/clicked-links",
+            "operationId": "broadcasts/list-clicked-links",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-broadcast-recipients",
+            "method": "GET",
+            "path": "/broadcasts/{id}/recipients",
+            "operationId": "broadcasts/recipients",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "send-broadcast",
+            "method": "POST",
+            "path": "/broadcasts/{id}/send",
+            "operationId": "broadcasts/send",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-contact-properties",
+            "method": "GET",
+            "path": "/contact-properties",
+            "operationId": "contact-properties/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-contact-property",
+            "method": "POST",
+            "path": "/contact-properties",
+            "operationId": "contact-properties/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-contact-property",
+            "method": "GET",
+            "path": "/contact-properties/{id}",
+            "operationId": "contact-properties/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-contact-property",
+            "method": "PATCH",
+            "path": "/contact-properties/{id}",
+            "operationId": "contact-properties/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-contact-property",
+            "method": "DELETE",
+            "path": "/contact-properties/{id}",
+            "operationId": "contact-properties/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-contacts",
+            "method": "GET",
+            "path": "/contacts",
+            "operationId": "contacts/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-contact",
+            "method": "POST",
+            "path": "/contacts",
+            "operationId": "contacts/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-contact-imports",
+            "method": "GET",
+            "path": "/contacts/imports",
+            "operationId": "contacts/list-imports",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-contact-import",
+            "method": "POST",
+            "path": "/contacts/imports",
+            "operationId": "contacts/create-import",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-contact-import",
+            "method": "GET",
+            "path": "/contacts/imports/{id}",
+            "operationId": "contacts/get-import",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-contact-segments",
+            "method": "GET",
+            "path": "/contacts/{contact_id}/segments",
+            "operationId": "contacts/list-segments",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "add-contact-to-segment",
+            "method": "POST",
+            "path": "/contacts/{contact_id}/segments/{segment_id}",
+            "operationId": "contacts/add-segment",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "remove-contact-from-segment",
+            "method": "DELETE",
+            "path": "/contacts/{contact_id}/segments/{segment_id}",
+            "operationId": "contacts/remove-segment",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-contact-topics",
+            "method": "GET",
+            "path": "/contacts/{contact_id}/topics",
+            "operationId": "contacts/list-topics",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-contact-topics",
+            "method": "PATCH",
+            "path": "/contacts/{contact_id}/topics",
+            "operationId": "contacts/update-topics",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-contact",
+            "method": "GET",
+            "path": "/contacts/{id}",
+            "operationId": "contacts/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-contact",
+            "method": "PATCH",
+            "path": "/contacts/{id}",
+            "operationId": "contacts/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-contact",
+            "method": "DELETE",
+            "path": "/contacts/{id}",
+            "operationId": "contacts/remove",
             "omittedQueryParameters": []
         },
         {
@@ -39,13 +228,6 @@
             "omittedQueryParameters": []
         },
         {
-            "action": "get-domain",
-            "method": "GET",
-            "path": "/domains/{domain_id}",
-            "operationId": "domains/get",
-            "omittedQueryParameters": []
-        },
-        {
             "action": "create-domain",
             "method": "POST",
             "path": "/domains",
@@ -53,10 +235,332 @@
             "omittedQueryParameters": []
         },
         {
+            "action": "create-domain-claim",
+            "method": "POST",
+            "path": "/domains/claim",
+            "operationId": "domains/create-claim",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-domain",
+            "method": "GET",
+            "path": "/domains/{domain_id}",
+            "operationId": "domains/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-domain",
+            "method": "PATCH",
+            "path": "/domains/{domain_id}",
+            "operationId": "domains/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-domain",
+            "method": "DELETE",
+            "path": "/domains/{domain_id}",
+            "operationId": "domains/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-domain-claim",
+            "method": "GET",
+            "path": "/domains/{domain_id}/claim",
+            "operationId": "domains/get-claim",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "verify-domain-claim",
+            "method": "POST",
+            "path": "/domains/{domain_id}/claim/verify",
+            "operationId": "domains/verify-claim",
+            "omittedQueryParameters": []
+        },
+        {
             "action": "verify-domain",
             "method": "POST",
             "path": "/domains/{domain_id}/verify",
             "operationId": "domains/verify",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-emails",
+            "method": "GET",
+            "path": "/emails",
+            "operationId": "emails/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "send-email",
+            "method": "POST",
+            "path": "/emails",
+            "operationId": "emails/send",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "send-email-batch",
+            "method": "POST",
+            "path": "/emails/batch",
+            "operationId": "emails/send-batch",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-email-metrics",
+            "method": "GET",
+            "path": "/emails/metrics",
+            "operationId": "emails/metrics",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-received-emails",
+            "method": "GET",
+            "path": "/emails/receiving",
+            "operationId": "emails/list-receiving",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-received-email",
+            "method": "GET",
+            "path": "/emails/receiving/{email_id}",
+            "operationId": "emails/get-receiving",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-received-email-attachments",
+            "method": "GET",
+            "path": "/emails/receiving/{email_id}/attachments",
+            "operationId": "emails/list-receiving-attachments",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-received-email-attachment",
+            "method": "GET",
+            "path": "/emails/receiving/{email_id}/attachments/{attachment_id}",
+            "operationId": "emails/get-receiving-attachment",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-email",
+            "method": "GET",
+            "path": "/emails/{email_id}",
+            "operationId": "emails/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-email",
+            "method": "PATCH",
+            "path": "/emails/{email_id}",
+            "operationId": "emails/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-email-attachments",
+            "method": "GET",
+            "path": "/emails/{email_id}/attachments",
+            "operationId": "emails/list-attachments",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-email-attachment",
+            "method": "GET",
+            "path": "/emails/{email_id}/attachments/{attachment_id}",
+            "operationId": "emails/get-attachment",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "cancel-email",
+            "method": "POST",
+            "path": "/emails/{email_id}/cancel",
+            "operationId": "emails/cancel",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "share-email",
+            "method": "POST",
+            "path": "/emails/{email_id}/share",
+            "operationId": "emails/share",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-segments",
+            "method": "GET",
+            "path": "/segments",
+            "operationId": "segments/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-segment",
+            "method": "POST",
+            "path": "/segments",
+            "operationId": "segments/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-segment",
+            "method": "GET",
+            "path": "/segments/{id}",
+            "operationId": "segments/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-segment",
+            "method": "PATCH",
+            "path": "/segments/{id}",
+            "operationId": "segments/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-segment",
+            "method": "DELETE",
+            "path": "/segments/{id}",
+            "operationId": "segments/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-templates",
+            "method": "GET",
+            "path": "/templates",
+            "operationId": "templates/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-template",
+            "method": "POST",
+            "path": "/templates",
+            "operationId": "templates/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-template",
+            "method": "GET",
+            "path": "/templates/{id}",
+            "operationId": "templates/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-template",
+            "method": "PATCH",
+            "path": "/templates/{id}",
+            "operationId": "templates/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-template",
+            "method": "DELETE",
+            "path": "/templates/{id}",
+            "operationId": "templates/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "duplicate-template",
+            "method": "POST",
+            "path": "/templates/{id}/duplicate",
+            "operationId": "templates/duplicate",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "publish-template",
+            "method": "POST",
+            "path": "/templates/{id}/publish",
+            "operationId": "templates/publish",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-topics",
+            "method": "GET",
+            "path": "/topics",
+            "operationId": "topics/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-topic",
+            "method": "POST",
+            "path": "/topics",
+            "operationId": "topics/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-topic",
+            "method": "GET",
+            "path": "/topics/{id}",
+            "operationId": "topics/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-topic",
+            "method": "PATCH",
+            "path": "/topics/{id}",
+            "operationId": "topics/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-topic",
+            "method": "DELETE",
+            "path": "/topics/{id}",
+            "operationId": "topics/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-webhooks",
+            "method": "GET",
+            "path": "/webhooks",
+            "operationId": "webhooks/list",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-webhook",
+            "method": "POST",
+            "path": "/webhooks",
+            "operationId": "webhooks/create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-webhook",
+            "method": "GET",
+            "path": "/webhooks/{webhook_id}",
+            "operationId": "webhooks/get",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-webhook",
+            "method": "PATCH",
+            "path": "/webhooks/{webhook_id}",
+            "operationId": "webhooks/update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-webhook",
+            "method": "DELETE",
+            "path": "/webhooks/{webhook_id}",
+            "operationId": "webhooks/remove",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-webhook-events",
+            "method": "GET",
+            "path": "/webhooks/{webhook_id}/events",
+            "operationId": "webhooks/list-events",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-webhook-event",
+            "method": "GET",
+            "path": "/webhooks/{webhook_id}/events/{event_id}",
+            "operationId": "webhooks/get-event",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-webhook-event-attempts",
+            "method": "GET",
+            "path": "/webhooks/{webhook_id}/events/{event_id}/attempts",
+            "operationId": "webhooks/list-event-attempts",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "replay-webhook-event",
+            "method": "POST",
+            "path": "/webhooks/{webhook_id}/events/{event_id}/replay",
+            "operationId": "webhooks/replay-event",
             "omittedQueryParameters": []
         }
     ]

@@ -1,0 +1,7 @@
+{
+    "input": {
+        "idempotency_key": "example",
+        "body": []
+    },
+    "response": {}
+}
