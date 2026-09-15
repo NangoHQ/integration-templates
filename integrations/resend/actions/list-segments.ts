@@ -4,7 +4,10 @@ import { z } from 'zod';
 
 // Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
 // Operation: segments/list
-const InputSchema = z.object({ limit: z.number().int().min(1).max(100).optional(), after: z.string().optional(), before: z.string().optional() }).passthrough();
+const InputSchema = z
+    .object({ limit: z.number().int().min(1).max(100).optional(), after: z.string().optional(), before: z.string().optional() })
+    .passthrough()
+    .refine((input) => input.after === undefined || input.before === undefined, { message: 'Use either after or before, not both' });
 
 const ProviderResponseSchema = z
     .object({
@@ -22,7 +25,8 @@ const ProviderResponseSchema = z
 const OutputSchema = ProviderResponseSchema.extend({ next_cursor: z.string().optional() });
 
 const action = createAction({
-    description: 'Retrieve a list of segments in Resend. Returns one page; pass next_cursor as after to continue.',
+    description:
+        'Retrieve a list of segments in Resend. Returns one page; pass next_cursor back as after, or as before when paginating backwards, to continue.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -40,7 +44,8 @@ const action = createAction({
         };
         const response = await nango.get(config);
         const data = ProviderResponseSchema.parse(response.data);
-        return { ...data, next_cursor: data.has_more ? data.data?.at(-1)?.id : undefined };
+        const nextCursor = input['before'] !== undefined ? data.data?.[0]?.id : data.data?.at(-1)?.id;
+        return { ...data, next_cursor: data.has_more ? nextCursor : undefined };
     }
 });
 

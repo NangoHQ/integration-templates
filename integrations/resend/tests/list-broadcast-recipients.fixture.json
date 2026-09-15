@@ -1,12 +1,11 @@
 {
     "input": {
         "id": "00000000-0000-4000-8000-000000000001",
-        "type": "sent",
+        "type": "bounced",
         "email": "example",
         "bounce_type": "permanent",
         "limit": 1,
-        "after": "example",
-        "before": "example"
+        "after": "example"
     },
     "response": {}
 }

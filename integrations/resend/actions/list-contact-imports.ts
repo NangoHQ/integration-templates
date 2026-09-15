@@ -11,7 +11,8 @@ const InputSchema = z
         after: z.string().optional(),
         before: z.string().optional()
     })
-    .passthrough();
+    .passthrough()
+    .refine((input) => input.after === undefined || input.before === undefined, { message: 'Use either after or before, not both' });
 
 const ProviderResponseSchema = z
     .object({
@@ -45,7 +46,8 @@ const ProviderResponseSchema = z
 const OutputSchema = ProviderResponseSchema.extend({ next_cursor: z.string().optional() });
 
 const action = createAction({
-    description: 'Retrieve a list of contact imports in Resend. Returns one page; pass next_cursor as after to continue.',
+    description:
+        'Retrieve a list of contact imports in Resend. Returns one page; pass next_cursor back as after, or as before when paginating backwards, to continue.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -64,7 +66,8 @@ const action = createAction({
         };
         const response = await nango.get(config);
         const data = ProviderResponseSchema.parse(response.data);
-        return { ...data, next_cursor: data.has_more ? data.data?.at(-1)?.id : undefined };
+        const nextCursor = input['before'] !== undefined ? data.data?.[0]?.id : data.data?.at(-1)?.id;
+        return { ...data, next_cursor: data.has_more ? nextCursor : undefined };
     }
 });
 

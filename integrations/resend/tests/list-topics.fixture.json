@@ -1,8 +1,7 @@
 {
     "input": {
         "limit": 1,
-        "after": "example",
-        "before": "example"
+        "after": "example"
     },
     "response": {}
 }
