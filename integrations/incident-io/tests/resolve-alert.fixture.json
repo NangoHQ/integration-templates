@@ -4,9 +4,7 @@
     },
     "response": {
         "alert": {
-            "alert_group_ids": [
-                "01GW2G3V0S59R238FAHPDS1R66"
-            ],
+            "alert_group_ids": ["01GW2G3V0S59R238FAHPDS1R66"],
             "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
             "attributes": [
                 {
@@ -46,7 +44,7 @@
             "id": "01GW2G3V0S59R238FAHPDS1R66",
             "resolved_at": "2021-08-17T14:28:57.801578Z",
             "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
-            "status": "firing",
+            "status": "resolved",
             "tags": [
                 {
                     "id": "01GW2G3V0S59R238FAHPDS1R66",
@@ -54,7 +52,7 @@
                 }
             ],
             "title": "*errors.withMessage: PG::Error failed to connect",
-            "updated_at": "2021-08-17T13:28:57.801578Z"
+            "updated_at": "2021-08-17T14:28:57.801578Z"
         }
     }
 }
