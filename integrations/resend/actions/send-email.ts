@@ -38,7 +38,7 @@ const InputSchema = z
                     })
                 )
                 .optional(),
-            tags: z.array(z.object({ name: z.string().optional(), value: z.string().optional() })).optional(),
+            tags: z.array(z.object({ name: z.string(), value: z.string() })).optional(),
             topic_id: z.string().optional()
         })
     })
@@ -57,16 +57,26 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
+        if (input.idempotency_key !== undefined) {
+            const keyedConfig: ProxyConfiguration = {
+                // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
+                endpoint: `/emails`,
+                retries: 3,
+                data: input.body,
+                headers: { 'Idempotency-Key': input.idempotency_key }
+            };
+            const response = await nango.post(keyedConfig);
+            return ProviderResponseSchema.parse(response.data);
+        }
+        const unkeyedConfig: ProxyConfiguration = {
             // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
             endpoint: `/emails`,
-            retries: input.idempotency_key ? 3 : 0,
-            data: input.body,
-            headers: input.idempotency_key ? { 'Idempotency-Key': input.idempotency_key } : {}
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Without an idempotency key a retried send can deliver the email twice.
+            retries: 0,
+            data: input.body
         };
-        const response = await nango.post(config);
-        const data = ProviderResponseSchema.parse(response.data);
-        return data;
+        const response = await nango.post(unkeyedConfig);
+        return ProviderResponseSchema.parse(response.data);
     }
 });
 
