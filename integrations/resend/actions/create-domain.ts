@@ -5,20 +5,26 @@ import { z } from 'zod';
 // Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
 // Operation: domains/create
 const InputSchema = z.object({
-    body: z.object({
-        name: z.string(),
-        region: z.enum(['us-east-1', 'eu-west-1', 'sa-east-1', 'ap-northeast-1']).optional(),
-        custom_return_path: z.string().optional(),
-        open_tracking: z.boolean().optional(),
-        click_tracking: z.boolean().optional(),
-        tls: z.enum(['opportunistic', 'enforced']).optional(),
-        capabilities: z.object({ sending: z.enum(['enabled', 'disabled']).optional(), receiving: z.enum(['enabled', 'disabled']).optional() }).optional(),
-        tracking_subdomain: z.string().optional()
-    })
+    body: z
+        .object({
+            name: z.string(),
+            region: z.enum(['us-east-1', 'eu-west-1', 'sa-east-1', 'ap-northeast-1']).optional(),
+            custom_return_path: z.string().optional(),
+            open_tracking: z.boolean().optional(),
+            click_tracking: z.boolean().optional(),
+            tls: z.enum(['opportunistic', 'enforced']).optional(),
+            capabilities: z
+                .object({ sending: z.enum(['enabled', 'disabled']).optional(), receiving: z.enum(['enabled', 'disabled']).optional() })
+                .passthrough()
+                .optional(),
+            tracking_subdomain: z.string().optional()
+        })
+        .passthrough()
 });
 
 const ProviderResponseSchema = z
     .object({
+        object: z.string().optional(),
         id: z.string().optional(),
         name: z.string().optional(),
         created_at: z.string().optional(),

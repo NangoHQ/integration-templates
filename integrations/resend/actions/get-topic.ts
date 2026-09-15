@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 // Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
 // Operation: topics/get
-const InputSchema = z.object({ id: z.string() }).passthrough();
+const InputSchema = z.object({ id: z.string().describe('The topic ID. Example: "b6d24b8e-af0b-4c3c-be0c-359bbd97381e"') }).passthrough();
 
 const ProviderResponseSchema = z
     .object({

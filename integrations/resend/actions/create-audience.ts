@@ -10,7 +10,7 @@ const ProviderResponseSchema = z.object({ id: z.string().optional(), object: z.s
 const OutputSchema = ProviderResponseSchema;
 
 const action = createAction({
-    description: 'Create a list of contacts in Resend.',
+    description: 'Create an audience in Resend.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,

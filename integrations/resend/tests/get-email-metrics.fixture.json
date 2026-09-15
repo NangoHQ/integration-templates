@@ -1,14 +1,11 @@
 {
     "input": {
-        "start_date": "example",
-        "end_date": "example",
-        "timezone": "example",
-        "granularity": "hourly",
-        "metrics": [],
-        "dimensions": [],
-        "domain_id": [],
-        "email_id": [],
-        "broadcast_id": []
+        "start_date": "2026-09-01",
+        "end_date": "2026-09-15",
+        "timezone": "UTC",
+        "granularity": "daily",
+        "metrics": ["sent", "delivered"],
+        "dimensions": ["period"]
     },
     "response": {}
 }

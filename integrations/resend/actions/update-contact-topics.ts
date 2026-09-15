@@ -7,9 +7,7 @@ import { z } from 'zod';
 const InputSchema = z
     .object({
         contact_id: z.string(),
-        body: z
-            .object({ topics: z.array(z.object({ id: z.string().optional(), subscription: z.enum(['opt_in', 'opt_out']).optional() }).passthrough()) })
-            .passthrough()
+        body: z.object({ topics: z.array(z.object({ id: z.string(), subscription: z.enum(['opt_in', 'opt_out']) }).passthrough()) }).passthrough()
     })
     .passthrough();
 

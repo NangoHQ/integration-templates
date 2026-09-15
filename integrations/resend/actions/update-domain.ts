@@ -11,7 +11,7 @@ const InputSchema = z
             .object({
                 open_tracking: z.boolean().optional(),
                 click_tracking: z.boolean().optional(),
-                tls: z.string().optional(),
+                tls: z.enum(['opportunistic', 'enforced']).optional(),
                 capabilities: z
                     .object({ sending: z.enum(['enabled', 'disabled']).optional(), receiving: z.enum(['enabled', 'disabled']).optional() })
                     .passthrough()

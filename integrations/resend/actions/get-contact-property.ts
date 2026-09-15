@@ -9,9 +9,9 @@ const InputSchema = z.object({ id: z.string() }).passthrough();
 const ProviderResponseSchema = z
     .object({
         object: z.string().optional(),
-        id: z.string().optional(),
-        key: z.string().optional(),
-        type: z.string().optional(),
+        id: z.string(),
+        key: z.string(),
+        type: z.enum(['string', 'number']),
         fallback_value: z.union([z.string(), z.number()]).optional(),
         created_at: z.string().optional()
     })

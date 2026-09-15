@@ -86,14 +86,11 @@ const action = createAction({
         if (input['timezone'] !== undefined) params['timezone'] = Array.isArray(input['timezone']) ? input['timezone'].join(',') : String(input['timezone']);
         if (input['granularity'] !== undefined)
             params['granularity'] = Array.isArray(input['granularity']) ? input['granularity'].join(',') : String(input['granularity']);
-        if (input['metrics'] !== undefined) params['metrics'] = Array.isArray(input['metrics']) ? input['metrics'].join(',') : String(input['metrics']);
-        if (input['dimensions'] !== undefined)
-            params['dimensions'] = Array.isArray(input['dimensions']) ? input['dimensions'].join(',') : String(input['dimensions']);
-        if (input['domain_id'] !== undefined)
-            params['domain_id'] = Array.isArray(input['domain_id']) ? input['domain_id'].join(',') : String(input['domain_id']);
-        if (input['email_id'] !== undefined) params['email_id'] = Array.isArray(input['email_id']) ? input['email_id'].join(',') : String(input['email_id']);
-        if (input['broadcast_id'] !== undefined)
-            params['broadcast_id'] = Array.isArray(input['broadcast_id']) ? input['broadcast_id'].join(',') : String(input['broadcast_id']);
+        if (input['metrics'] !== undefined && input['metrics'].length > 0) params['metrics'] = input['metrics'].join(',');
+        if (input['dimensions'] !== undefined && input['dimensions'].length > 0) params['dimensions'] = input['dimensions'].join(',');
+        if (input['domain_id'] !== undefined && input['domain_id'].length > 0) params['domain_id'] = input['domain_id'].join(',');
+        if (input['email_id'] !== undefined && input['email_id'].length > 0) params['email_id'] = input['email_id'].join(',');
+        if (input['broadcast_id'] !== undefined && input['broadcast_id'].length > 0) params['broadcast_id'] = input['broadcast_id'].join(',');
         const config: ProxyConfiguration = {
             // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
             endpoint: `/emails/metrics`,
