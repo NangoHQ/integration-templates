@@ -1,4 +1,3 @@
-import { randomBytes } from 'crypto';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 import { z } from 'zod';
@@ -53,7 +52,7 @@ const action = createAction({
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // A random boundary per request keeps CSV contents from being parsed as additional form parts.
-        const boundary = `----NangoResendContactImport${randomBytes(16).toString('hex')}`;
+        const boundary = `----NangoResendContactImport${globalThis.crypto.randomUUID().replace(/-/g, '')}`;
         const filename = (input.body.filename ?? 'contacts.csv').replace(/["\r\n]/g, '_');
         let body =
             `--${boundary}\r\n` +
