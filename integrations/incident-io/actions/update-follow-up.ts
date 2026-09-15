@@ -7,8 +7,8 @@ import { z } from 'zod';
 const InputSchema = z.object({
     id: z.string(),
     body: z.object({
-        assignee_id: z.string().optional(),
-        assignee_team_id: z.string().optional(),
+        assignee_id: z.string().nullable().optional(),
+        assignee_team_id: z.string().nullable().optional(),
         description: z.string().optional(),
         follow_up_category_id: z.string().optional(),
         follow_up_priority_option_id: z.string().optional(),

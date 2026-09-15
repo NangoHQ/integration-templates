@@ -8,7 +8,11 @@ const InputSchema = z
     .object({
         id: z.string(),
         body: z
-            .object({ assignee_id: z.string().optional(), description: z.string(), status: z.enum(['outstanding', 'completed', 'deleted', 'not_doing']) })
+            .object({
+                assignee_id: z.string().nullable().optional(),
+                description: z.string(),
+                status: z.enum(['outstanding', 'completed', 'deleted', 'not_doing'])
+            })
             .passthrough()
     })
     .passthrough();
