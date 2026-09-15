@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { OrganizationDomainSchema } from '../helpers/schemas.js';
+
 const DomainDataSchema = z.object({ domain: z.string(), state: z.enum(['verified', 'pending']) });
 const InputSchema = z.object({
     name: z.string().min(1).describe('Descriptive organization name.'),
@@ -14,7 +16,7 @@ const OrganizationSchema = z
         id: z.string(),
         name: z.string(),
         allow_profiles_outside_organization: z.boolean(),
-        domains: z.array(z.record(z.string(), z.unknown())),
+        domains: z.array(OrganizationDomainSchema),
         stripe_customer_id: z.string().nullable().optional(),
         created_at: z.string(),
         updated_at: z.string(),

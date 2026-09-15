@@ -1,26 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { OrganizationDomainSchema } from '../helpers/schemas.js';
+
 const InputSchema = z.object({ organization_id: z.string().min(1).describe('WorkOS organization ID. Example: "org_01H..."') });
-const DomainSchema = z.object({
-    object: z.literal('organization_domain'),
-    id: z.string(),
-    domain: z.string(),
-    organization_id: z.string(),
-    state: z.string(),
-    verification_token: z.string().optional(),
-    verification_strategy: z.string(),
-    verification_prefix: z.string().optional(),
-    created_at: z.string(),
-    updated_at: z.string()
-});
 const OrganizationSchema = z
     .object({
         object: z.literal('organization'),
         id: z.string(),
         name: z.string(),
         allow_profiles_outside_organization: z.boolean(),
-        domains: z.array(DomainSchema),
+        domains: z.array(OrganizationDomainSchema),
         stripe_customer_id: z.string().nullable().optional(),
         created_at: z.string(),
         updated_at: z.string(),

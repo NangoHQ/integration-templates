@@ -1,20 +1,29 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    user_id: z.string().min(1).describe('WorkOS user ID. Example: "user_01H..."'),
-    email: z.string().email().optional(),
-    name: z.string().optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email_verified: z.boolean().optional(),
-    password: z.string().optional(),
-    password_hash: z.string().optional(),
-    password_hash_type: z.enum(['bcrypt', 'firebase-scrypt', 'ssha', 'scrypt', 'argon2']).optional(),
-    external_id: z.string().optional(),
-    locale: z.string().optional(),
-    metadata: z.record(z.string(), z.string().nullable()).optional()
-});
+const InputSchema = z
+    .object({
+        user_id: z.string().min(1).describe('WorkOS user ID. Example: "user_01H..."'),
+        email: z.string().email().optional(),
+        name: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        email_verified: z.boolean().optional(),
+        password: z.string().optional(),
+        password_hash: z.string().optional(),
+        password_hash_type: z.enum(['bcrypt', 'firebase-scrypt', 'ssha', 'scrypt', 'argon2']).optional(),
+        external_id: z.string().optional(),
+        locale: z.string().optional(),
+        metadata: z.record(z.string(), z.string().nullable()).optional()
+    })
+    .refine((input) => !(input.password !== undefined && input.password_hash !== undefined), {
+        message: 'Provide either password or password_hash, not both.',
+        path: ['password_hash']
+    })
+    .refine((input) => !(input.password_hash_type !== undefined && input.password_hash === undefined), {
+        message: 'password_hash_type requires password_hash.',
+        path: ['password_hash_type']
+    });
 const UserSchema = z
     .object({
         object: z.literal('user'),

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({ directory_user_id: z.string() });
+const InputSchema = z.object({ directory_user_id: z.string().min(1).describe('WorkOS directory user ID. Example: "directory_user_01H..."') });
 const GroupSchema = z
     .object({
         id: z.string(),
@@ -24,19 +24,21 @@ const ResourceSchema = z
         first_name: z.string().nullable(),
         last_name: z.string().nullable(),
         email: z.string().nullable(),
-        state: z.enum(['active', 'inactive']),
+        state: z.enum(['active', 'inactive', 'suspended']),
         role: z.record(z.string(), z.unknown()).optional(),
         roles: z.array(z.record(z.string(), z.unknown())).optional(),
         raw_attributes: z.record(z.string(), z.unknown()),
         custom_attributes: z.record(z.string(), z.unknown()).optional(),
-        groups: z.array(GroupSchema),
+        // `groups` is deprecated on the WorkOS directory user resource and may be omitted.
+        // Prefer List Directory Groups with the `user` filter to fetch memberships.
+        groups: z.array(GroupSchema).optional(),
         created_at: z.string(),
         updated_at: z.string()
     })
     .passthrough();
 const OutputSchema = ResourceSchema;
 const action = createAction({
-    description: 'Get a WorkOS directory user and their groups.',
+    description: 'Get a WorkOS directory user.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,

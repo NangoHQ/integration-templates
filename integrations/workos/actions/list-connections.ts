@@ -5,7 +5,7 @@ const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
     cursor_direction: z.enum(['after', 'before']).optional().describe('Direction for the cursor. Defaults to after.'),
     limit: z.number().int().min(1).max(100).optional(),
-    order: z.enum(['asc', 'desc']).optional(),
+    order: z.enum(['asc', 'desc', 'normal']).optional(),
     connection_type: z.string().optional(),
     domain: z.string().optional(),
     organization_id: z.string().optional(),

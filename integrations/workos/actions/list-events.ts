@@ -1,16 +1,21 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
-    cursor_direction: z.enum(['after', 'before']).optional().describe('Direction for the cursor. Defaults to after.'),
-    limit: z.number().int().min(1).max(100).optional(),
-    order: z.enum(['asc', 'desc']).optional(),
-    events: z.array(z.string()).min(1),
-    range_start: z.string().optional(),
-    range_end: z.string().optional(),
-    organization_id: z.string().optional()
-});
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
+        cursor_direction: z.enum(['after', 'before']).optional().describe('Direction for the cursor. Defaults to after.'),
+        limit: z.number().int().min(1).max(100).optional(),
+        order: z.enum(['asc', 'desc']).optional(),
+        events: z.array(z.string()).min(1),
+        range_start: z.string().optional(),
+        range_end: z.string().optional(),
+        organization_id: z.string().optional()
+    })
+    .refine((input) => !(input.cursor !== undefined && input.range_start !== undefined), {
+        message: 'cursor and range_start are mutually exclusive; provide only one.',
+        path: ['range_start']
+    });
 const ResourceSchema = z
     .object({
         id: z.string(),

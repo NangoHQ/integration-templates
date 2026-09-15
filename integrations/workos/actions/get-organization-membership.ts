@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({ membership_id: z.string() });
+const InputSchema = z.object({ membership_id: z.string().min(1).describe('WorkOS organization membership ID. Example: "om_01H..."') });
 const ResourceSchema = z
     .object({
         object: z.literal('organization_membership'),

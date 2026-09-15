@@ -1,52 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const KeyPairSchema = z.object({ key: z.string(), cert: z.string() });
-const AttributeMapsSchema = z.object({
-    standard_attributes: z
-        .object({
-            idp_id: z.string().optional(),
-            email: z.string().optional(),
-            first_name: z.string().optional(),
-            last_name: z.string().optional(),
-            groups: z.string().nullable().optional(),
-            name: z.string().nullable().optional()
-        })
-        .optional(),
-    custom_attributes: z.record(z.string(), z.string()).optional()
-});
-const SamlOptionsSchema = z.object({
-    idp_metadata_url: z.string().url().optional(),
-    acs_url: z.string().url().optional(),
-    sp_entity_id: z.string().optional(),
-    idp_entity_id: z.string().optional(),
-    idp_sso_url: z.string().url().optional(),
-    idp_signing_certs: z.array(z.string()).optional(),
-    sp_signing_key_pair: KeyPairSchema.optional(),
-    sp_encryption_key_pairs: z.array(KeyPairSchema).optional()
-});
-const OidcOptionsSchema = z.object({
-    discovery_endpoint: z.string().url(),
-    client_id: z.string(),
-    client_secret: z.string().optional(),
-    redirect_uri: z.string().url().optional(),
-    pkce: z.boolean().optional(),
-    token_authentication_method: z.enum(['client_secret_post', 'client_secret_basic', 'private_key_jwt']).optional(),
-    jwt_signing_key_pair: KeyPairSchema.optional(),
-    id_token_signature_algorithm: z
-        .enum(['ES256', 'ES384', 'ES512', 'EdDSA', 'HS256', 'HS384', 'HS512', 'PS256', 'PS384', 'PS512', 'RS256', 'RS384', 'RS512'])
-        .optional(),
-    fetch_user_info: z.boolean().optional()
-});
+import { AttributeMapsSchema, ExternalIdSchema, OidcOptionsSchema, SamlOptionsSchema } from '../helpers/schemas.js';
+
 const InputSchema = z
     .object({
         organization_id: z.string(),
         name: z.string().optional(),
-        external_id: z
-            .string()
-            .max(128)
-            .refine((value) => Array.from(value).every((character) => character.charCodeAt(0) <= 127), 'External ID must contain only ASCII characters.')
-            .optional(),
+        external_id: ExternalIdSchema.optional(),
         connection_type: z.string().optional(),
         attribute_maps: AttributeMapsSchema.optional(),
         saml_options: SamlOptionsSchema.optional(),

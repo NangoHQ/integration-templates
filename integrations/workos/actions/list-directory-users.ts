@@ -1,16 +1,21 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
-    cursor_direction: z.enum(['after', 'before']).optional().describe('Direction for the cursor. Defaults to after.'),
-    limit: z.number().int().min(1).max(100).optional(),
-    order: z.enum(['asc', 'desc']).optional(),
-    directory: z.string().optional().describe('Filter users by directory ID.'),
-    group: z.string().optional().describe('Filter users by directory group ID.'),
-    idp_id: z.string().optional().describe('Filter users by the identity provider user ID.'),
-    email: z.string().email().optional().describe('Filter users by email address.')
-});
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
+        cursor_direction: z.enum(['after', 'before']).optional().describe('Direction for the cursor. Defaults to after.'),
+        limit: z.number().int().min(1).max(100).optional(),
+        order: z.enum(['asc', 'desc']).optional(),
+        directory: z.string().optional().describe('Filter users by directory ID.'),
+        group: z.string().optional().describe('Filter users by directory group ID.'),
+        idp_id: z.string().optional().describe('Filter users by the identity provider user ID.'),
+        email: z.string().email().optional().describe('Filter users by email address.')
+    })
+    .refine((input) => !((input.idp_id !== undefined || input.email !== undefined) && input.directory === undefined), {
+        message: 'directory is required when filtering by idp_id or email.',
+        path: ['directory']
+    });
 const DirectoryGroupSchema = z
     .object({
         id: z.string(),
@@ -33,12 +38,14 @@ const DirectoryUserSchema = z
         first_name: z.string().nullable(),
         last_name: z.string().nullable(),
         email: z.string().nullable(),
-        state: z.enum(['active', 'inactive']),
+        state: z.enum(['active', 'inactive', 'suspended']),
         role: z.record(z.string(), z.unknown()).optional(),
         roles: z.array(z.record(z.string(), z.unknown())).optional(),
         raw_attributes: z.record(z.string(), z.unknown()),
         custom_attributes: z.record(z.string(), z.unknown()).optional(),
-        groups: z.array(DirectoryGroupSchema),
+        // `groups` is deprecated on the WorkOS directory user resource and may be omitted.
+        // Prefer List Directory Groups with the `user` filter to fetch memberships.
+        groups: z.array(DirectoryGroupSchema).optional(),
         created_at: z.string(),
         updated_at: z.string()
     })

@@ -2,21 +2,30 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const PasswordHashTypeSchema = z.enum(['bcrypt', 'firebase-scrypt', 'ssha', 'scrypt', 'argon2']);
-const InputSchema = z.object({
-    email: z.string().email().describe('Email address for the user.'),
-    password: z.string().optional().describe('Plaintext password for the user.'),
-    password_hash: z.string().optional().describe('Pre-hashed password. Use with password_hash_type.'),
-    password_hash_type: PasswordHashTypeSchema.optional(),
-    name: z.string().optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    email_verified: z.boolean().optional(),
-    external_id: z.string().optional(),
-    metadata: z.record(z.string(), z.string()).optional(),
-    ip_address: z.string().optional(),
-    user_agent: z.string().optional(),
-    signals_id: z.string().optional()
-});
+const InputSchema = z
+    .object({
+        email: z.string().email().describe('Email address for the user.'),
+        password: z.string().optional().describe('Plaintext password for the user.'),
+        password_hash: z.string().optional().describe('Pre-hashed password. Use with password_hash_type.'),
+        password_hash_type: PasswordHashTypeSchema.optional(),
+        name: z.string().optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        email_verified: z.boolean().optional(),
+        external_id: z.string().optional(),
+        metadata: z.record(z.string(), z.string()).optional(),
+        ip_address: z.string().optional(),
+        user_agent: z.string().optional(),
+        signals_id: z.string().optional()
+    })
+    .refine((input) => !(input.password !== undefined && input.password_hash !== undefined), {
+        message: 'Provide either password or password_hash, not both.',
+        path: ['password_hash']
+    })
+    .refine((input) => !(input.password_hash_type !== undefined && input.password_hash === undefined), {
+        message: 'password_hash_type requires password_hash.',
+        path: ['password_hash_type']
+    });
 const UserSchema = z
     .object({
         object: z.literal('user'),

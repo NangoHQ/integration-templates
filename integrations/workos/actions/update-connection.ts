@@ -1,11 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { AttributeMapsSchema, ExternalIdSchema, OidcOptionsSchema, SamlOptionsSchema } from '../helpers/schemas.js';
+
 const InputSchema = z.object({
     connection_id: z.string(),
     name: z.string().optional(),
-    external_id: z.string().max(128).nullable().optional(),
-    connection_type: z.string().optional()
+    external_id: ExternalIdSchema.nullable().optional(),
+    connection_type: z.string().optional(),
+    attribute_maps: AttributeMapsSchema.optional(),
+    saml_options: SamlOptionsSchema.optional(),
+    oidc_options: OidcOptionsSchema.optional()
 });
 const ResourceSchema = z
     .object({
@@ -35,7 +40,10 @@ const action = createAction({
             data: {
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.external_id !== undefined && { external_id: input.external_id }),
-                ...(input.connection_type !== undefined && { connection_type: input.connection_type })
+                ...(input.connection_type !== undefined && { connection_type: input.connection_type }),
+                ...(input.attribute_maps !== undefined && { attribute_maps: input.attribute_maps }),
+                ...(input.saml_options !== undefined && { saml_options: input.saml_options }),
+                ...(input.oidc_options !== undefined && { oidc_options: input.oidc_options })
             },
             retries: 3
         });
