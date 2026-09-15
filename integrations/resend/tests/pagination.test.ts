@@ -13,6 +13,7 @@ import send from '../actions/send-email.js';
 import sendBatch from '../actions/send-email-batch.js';
 import getEmail from '../actions/get-email.js';
 import listContacts from '../actions/list-contacts.js';
+import listDomains from '../actions/list-domains.js';
 import listBroadcastRecipients from '../actions/list-broadcast-recipients.js';
 import createContactImport from '../actions/create-contact-import.js';
 describe('Resend request and pagination behavior', () => {
@@ -35,6 +36,18 @@ describe('Resend request and pagination behavior', () => {
         expect((await listContacts.exec(nango, { after: 'contact-previous' })).next_cursor).toBe('contact-last');
         nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'contact-first' }], has_more: false } });
         expect((await listContacts.exec(nango, { before: 'contact-previous' })).next_cursor).toBeUndefined();
+    });
+    it('derives a direction-aware cursor for domains', async () => {
+        const nango = mock('list-domains');
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'domain-first' }, { id: 'domain-last' }], has_more: true } });
+        expect((await listDomains.exec(nango, { before: 'domain-previous' })).next_cursor).toBe('domain-first');
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ params: { before: 'domain-previous' } }));
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'domain-first' }, { id: 'domain-last' }], has_more: true } });
+        expect((await listDomains.exec(nango, { after: 'domain-previous' })).next_cursor).toBe('domain-last');
+        expect(nango.get).toHaveBeenLastCalledWith(expect.objectContaining({ params: { after: 'domain-previous' } }));
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'domain-first' }], has_more: false } });
+        expect((await listDomains.exec(nango, { after: 'domain-previous' })).next_cursor).toBeUndefined();
+        expect(() => listDomains.input.parse({ after: 'a', before: 'b' })).toThrow();
     });
     it('accepts null recipient lists on sent emails', async () => {
         const nango = mock('get-email');
@@ -82,6 +95,8 @@ describe('Resend request and pagination behavior', () => {
         expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ data: body, headers: { 'Idempotency-Key': 'batch-once' }, retries: 3 }));
         await sendBatch.exec(nango, sendBatch.input.parse({ body }));
         expect(nango.post).toHaveBeenLastCalledWith(expect.objectContaining({ retries: 0 }));
+        expect(() => sendBatch.input.parse({ body, idempotency_key: '' })).toThrow();
+        expect(() => send.input.parse({ body: body[0], idempotency_key: '' })).toThrow();
     });
     it('encodes email identifiers', async () => {
         const nango = mock('get-email');
