@@ -6,8 +6,8 @@ import { z } from 'zod';
 // Operation: Follow-ups V3#Delete
 const InputSchema = z.object({ id: z.string() }).passthrough();
 
-const ProviderResponseSchema = z.object({}).passthrough();
-const OutputSchema = ProviderResponseSchema;
+// The provider answers 204 No Content, so there is no body to validate.
+const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Delete follow up in incident.io.',
@@ -21,9 +21,8 @@ const action = createAction({
             endpoint: `/v3/follow_ups/${encodeURIComponent(input['id'])}`,
             retries: 3
         };
-        const response = await nango.delete(config);
-        const data = ProviderResponseSchema.parse(response.data);
-        return data;
+        await nango.delete(config);
+        return {};
     }
 });
 
