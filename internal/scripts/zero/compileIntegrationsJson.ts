@@ -41,6 +41,7 @@ const SYMLINKS: Record<string, string> = {
     'ramp-sandbox': 'ramp',
     'ring-central-sandbox': 'ring-central',
     'salesforce-sandbox': 'salesforce',
+    snowflake: 'snowflake-jwt',
     'squareup-sandbox': 'squareup',
     'stripe-app-sandbox': 'stripe-app'
 };
