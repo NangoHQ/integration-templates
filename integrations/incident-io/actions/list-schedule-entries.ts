@@ -4,7 +4,19 @@ import { z } from 'zod';
 
 // Contract derived from https://api.incident.io/v1/openapiV3.json
 // Operation: Schedules V2#ListScheduleEntries
-const InputSchema = z.object({ schedule_id: z.string(), entry_window_start: z.string().optional(), entry_window_end: z.string().optional() }).passthrough();
+const InputSchema = z
+    .object({
+        schedule_id: z.string(),
+        entry_window_start: z.string().optional(),
+        entry_window_end: z.string().optional(),
+        after: z
+            .string()
+            .optional()
+            .describe(
+                'Cursor from next_cursor. The provider continues a window by re-issuing the request with entry_window_start set to this value, so it replaces entry_window_start when present; keep entry_window_end unchanged.'
+            )
+    })
+    .passthrough();
 
 const ProviderResponseSchema = z
     .object({
@@ -93,10 +105,9 @@ const action = createAction({
         const params: Record<string, string> = {};
         if (input['schedule_id'] !== undefined)
             params['schedule_id'] = Array.isArray(input['schedule_id']) ? input['schedule_id'].join(',') : String(input['schedule_id']);
-        if (input['entry_window_start'] !== undefined)
-            params['entry_window_start'] = Array.isArray(input['entry_window_start'])
-                ? input['entry_window_start'].join(',')
-                : String(input['entry_window_start']);
+        const entryWindowStart = input['after'] ?? input['entry_window_start'];
+        if (entryWindowStart !== undefined)
+            params['entry_window_start'] = Array.isArray(entryWindowStart) ? entryWindowStart.join(',') : String(entryWindowStart);
         if (input['entry_window_end'] !== undefined)
             params['entry_window_end'] = Array.isArray(input['entry_window_end']) ? input['entry_window_end'].join(',') : String(input['entry_window_end']);
         const config: ProxyConfiguration = {
