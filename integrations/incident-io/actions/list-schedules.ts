@@ -4,7 +4,7 @@ import { z } from 'zod';
 
 // Contract derived from https://api.incident.io/v1/openapiV3.json
 // Operation: Schedules V2#List
-const InputSchema = z.object({ page_size: z.number().int().min(1).max(10000).optional(), after: z.string().optional() }).passthrough();
+const InputSchema = z.object({ page_size: z.number().int().min(1).max(250).optional(), after: z.string().optional() }).passthrough();
 
 const ProviderResponseSchema = z
     .object({

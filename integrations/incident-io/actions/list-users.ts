@@ -9,7 +9,7 @@ const InputSchema = z
         email: z.string().optional(),
         slack_user_id: z.string().optional(),
         include_inactive: z.boolean().optional(),
-        page_size: z.number().int().min(1).max(10000).optional(),
+        page_size: z.number().int().min(1).max(250).optional(),
         after: z.string().optional()
     })
     .passthrough();

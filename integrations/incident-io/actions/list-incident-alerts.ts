@@ -5,7 +5,12 @@ import { z } from 'zod';
 // Contract derived from https://api.incident.io/v1/openapiV3.json
 // Operation: Alerts V2#ListIncidentAlerts
 const InputSchema = z
-    .object({ page_size: z.number().int().min(1).max(50), after: z.string().optional(), alert_id: z.string().optional(), incident_id: z.string().optional() })
+    .object({
+        page_size: z.number().int().min(1).max(50).optional(),
+        after: z.string().optional(),
+        alert_id: z.string().optional(),
+        incident_id: z.string().optional()
+    })
     .passthrough();
 
 const ProviderResponseSchema = z

@@ -5,7 +5,12 @@ import { z } from 'zod';
 // Contract derived from https://api.incident.io/v1/openapiV3.json
 // Operation: Catalog V3#ListEntries
 const InputSchema = z
-    .object({ catalog_type_id: z.string(), page_size: z.number().int().min(1).max(250), after: z.string().optional(), identifier: z.string().optional() })
+    .object({
+        catalog_type_id: z.string(),
+        page_size: z.number().int().min(1).max(250).optional(),
+        after: z.string().optional(),
+        identifier: z.string().optional()
+    })
     .passthrough();
 
 const ProviderResponseSchema = z
