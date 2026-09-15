@@ -43,7 +43,7 @@ const BatchEmailSchema = z
 
 const InputSchema = z
     .object({
-        idempotency_key: z.string().max(256).optional(),
+        idempotency_key: z.string().min(1).max(256).optional(),
         body: z.array(BatchEmailSchema).min(1).max(100)
     })
     .passthrough();

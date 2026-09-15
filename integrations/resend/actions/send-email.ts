@@ -6,7 +6,7 @@ import { z } from 'zod';
 // Operation: emails/send
 const InputSchema = z
     .object({
-        idempotency_key: z.string().max(256).optional(),
+        idempotency_key: z.string().min(1).max(256).optional(),
         body: z.object({
             from: z.string(),
             to: z.union([z.string(), z.array(z.string()).min(1).max(50)]),
