@@ -16,13 +16,13 @@ const ProviderResponseSchema = z
                     .object({
                         id: z.string().optional(),
                         name: z.string().optional(),
-                        audience_id: z.string().optional(),
-                        segment_id: z.string().optional(),
+                        audience_id: z.string().nullable().optional(),
+                        segment_id: z.string().nullable().optional(),
                         status: z.string().optional(),
                         created_at: z.string().optional(),
-                        scheduled_at: z.string().optional(),
-                        sent_at: z.string().optional(),
-                        topic_id: z.string().optional()
+                        scheduled_at: z.string().nullable().optional(),
+                        sent_at: z.string().nullable().optional(),
+                        topic_id: z.string().nullable().optional()
                     })
                     .passthrough()
             )

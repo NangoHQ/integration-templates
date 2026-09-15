@@ -15,11 +15,11 @@ const ProviderResponseSchema = z
         from: z.string().optional(),
         created_at: z.string().optional(),
         subject: z.string().optional(),
-        html: z.string().optional(),
-        text: z.string().optional(),
-        bcc: z.array(z.string()).optional(),
-        cc: z.array(z.string()).optional(),
-        reply_to: z.array(z.string()).optional(),
+        html: z.string().nullable().optional(),
+        text: z.string().nullable().optional(),
+        bcc: z.array(z.string()).nullable().optional(),
+        cc: z.array(z.string()).nullable().optional(),
+        reply_to: z.array(z.string()).nullable().optional(),
         last_event: z
             .enum([
                 'bounced',
