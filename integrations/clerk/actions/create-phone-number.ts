@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    user_id: z.string(),
+    user_id: z.string().min(1),
     phone_number: z.string(),
     verified: z.boolean().optional(),
     primary: z.boolean().optional(),

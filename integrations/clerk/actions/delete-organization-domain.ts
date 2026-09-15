@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({ organization_id: z.string(), domain_id: z.string() });
+const InputSchema = z.object({ organization_id: z.string().min(1), domain_id: z.string().min(1) });
 const OutputSchema = z.object({ id: z.string(), success: z.boolean() });
 const action = createAction({
     description: 'Delete a verified domain from a Clerk organization.',

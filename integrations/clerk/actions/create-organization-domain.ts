@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const EnrollmentModeSchema = z.enum(['manual_invitation', 'automatic_invitation', 'automatic_suggestion', 'enterprise_sso']);
-const InputSchema = z.object({ organization_id: z.string(), name: z.string(), enrollment_mode: EnrollmentModeSchema, verified: z.boolean().optional() });
+const InputSchema = z.object({ organization_id: z.string().min(1), name: z.string(), enrollment_mode: EnrollmentModeSchema, verified: z.boolean().optional() });
 const ResourceSchema = z
     .object({
         id: z.string(),
@@ -10,8 +10,8 @@ const ResourceSchema = z
         organization_id: z.string().optional(),
         name: z.string(),
         enrollment_mode: EnrollmentModeSchema.optional(),
-        affiliation_verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().optional(),
-        verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().optional(),
+        affiliation_verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().nullable().optional(),
+        verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().nullable().optional(),
         verified: z.boolean().optional(),
         created_at: z.number().optional(),
         updated_at: z.number().optional()

@@ -2,8 +2,8 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    organization_id: z.string(),
-    user_id: z.string(),
+    organization_id: z.string().min(1),
+    user_id: z.string().min(1),
     role: z.string(),
     public_metadata: z.record(z.string(), z.unknown()).optional(),
     private_metadata: z.record(z.string(), z.unknown()).optional()

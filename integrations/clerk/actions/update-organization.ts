@@ -5,7 +5,8 @@ const InputSchema = z.object({
     name: z.string().min(1).optional(),
     slug: z.string().optional(),
     admin_delete_enabled: z.boolean().optional(),
-    max_allowed_memberships: z.number().int().min(0).optional()
+    max_allowed_memberships: z.number().int().min(0).optional(),
+    public_metadata: z.record(z.string(), z.unknown()).optional()
 });
 const OrganizationSchema = z
     .object({
@@ -40,7 +41,8 @@ const action = createAction({
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.slug !== undefined && { slug: input.slug }),
                 ...(input.admin_delete_enabled !== undefined && { admin_delete_enabled: input.admin_delete_enabled }),
-                ...(input.max_allowed_memberships !== undefined && { max_allowed_memberships: input.max_allowed_memberships })
+                ...(input.max_allowed_memberships !== undefined && { max_allowed_memberships: input.max_allowed_memberships }),
+                ...(input.public_metadata !== undefined && { public_metadata: input.public_metadata })
             },
             retries: 3
         });

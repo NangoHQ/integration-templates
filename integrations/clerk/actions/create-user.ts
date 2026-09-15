@@ -17,6 +17,8 @@ const InputSchema = z.object({
     public_metadata: z.record(z.string(), z.unknown()).optional(),
     private_metadata: z.record(z.string(), z.unknown()).optional(),
     unsafe_metadata: z.record(z.string(), z.unknown()).optional()
+}).refine((value) => (value.email_address?.length ?? 0) > 0 || (value.phone_number?.length ?? 0) > 0 || value.username !== undefined || value.password !== undefined, {
+    message: 'Provide at least one of email_address, phone_number, username, or password.'
 });
 const UserSchema = z
     .object({

@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({ organization_role_id: z.string(), permission_id: z.string() });
+const InputSchema = z.object({ organization_role_id: z.string().min(1), permission_id: z.string().min(1) });
 const OutputSchema = z.object({ id: z.string(), success: z.boolean() });
 const action = createAction({
     description: 'Remove a permission from a Clerk organization role.',

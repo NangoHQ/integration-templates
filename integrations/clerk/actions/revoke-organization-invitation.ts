@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({ organization_id: z.string(), invitation_id: z.string(), requesting_user_id: z.string().optional() });
+const InputSchema = z.object({ organization_id: z.string().min(1), invitation_id: z.string().min(1), requesting_user_id: z.string().optional() });
 const ResourceSchema = z
     .object({
         id: z.string(),

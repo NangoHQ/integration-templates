@@ -103,12 +103,31 @@ describe('Clerk priority actions', () => {
     it('manages organization domains', async () => {
         const listNango = mockNango({ data: [domain], total_count: 1 });
         await listOrganizationDomains.exec(listNango, { organization_id: 'org_123', verified: false });
-        expect(listNango.get).toHaveBeenCalledWith(expect.objectContaining({ params: expect.objectContaining({ verified: 'false' }) }));
+        expect(listNango.get).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v1/organizations/org_123/domains',
+                params: expect.objectContaining({ offset: '0', verified: 'false' }),
+                retries: 3
+            })
+        );
 
         const nango = mockNango(domain);
         await createOrganizationDomain.exec(nango, { organization_id: 'org_123', name: 'example.com', enrollment_mode: 'automatic_invitation' });
+        expect(nango.post).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v1/organizations/org_123/domains',
+                data: { name: 'example.com', enrollment_mode: 'automatic_invitation' },
+                retries: 3
+            })
+        );
         await updateOrganizationDomain.exec(nango, { organization_id: 'org_123', domain_id: 'orgdmn_123', verified: true });
+        expect(nango.patch).toHaveBeenCalledWith(
+            expect.objectContaining({ endpoint: '/v1/organizations/org_123/domains/orgdmn_123', data: { verified: true }, retries: 3 })
+        );
         await verifyOrganizationDomain.exec(nango, { organization_id: 'org_123', domain_id: 'orgdmn_123' });
+        expect(nango.post).toHaveBeenLastCalledWith(
+            expect.objectContaining({ endpoint: '/v1/organizations/org_123/domains/orgdmn_123/verify_ownership', data: {}, retries: 3 })
+        );
 
         const deleteNango = mockNango();
         await expect(deleteOrganizationDomain.exec(deleteNango, { organization_id: 'org_123', domain_id: 'orgdmn_123' })).resolves.toEqual({
@@ -117,11 +136,33 @@ describe('Clerk priority actions', () => {
         });
     });
 
+    it('accepts null verification fields on unverified domains', async () => {
+        const unverified = { ...domain, verification: null, affiliation_verification: null };
+        const nango = mockNango(unverified);
+        await expect(verifyOrganizationDomain.exec(nango, { organization_id: 'org_123', domain_id: 'orgdmn_123' })).resolves.toMatchObject(unverified);
+        await expect(updateOrganizationDomain.exec(nango, { organization_id: 'org_123', domain_id: 'orgdmn_123', verified: false })).resolves.toMatchObject(
+            unverified
+        );
+    });
+
     it('lists, gets, and revokes sessions', async () => {
-        const listNango = mockNango({ data: [session], total_count: 1 });
-        await expect(listSessions.exec(listNango, { user_id: 'user_123', status: 'active' })).resolves.toEqual({ items: [session], total: 1 });
+        // GET /v1/sessions returns a plain array without a total count.
+        const listNango = mockNango([session]);
+        await expect(listSessions.exec(listNango, { user_id: 'user_123', status: 'active' })).resolves.toEqual({ items: [session] });
+        expect(listNango.get).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v1/sessions',
+                params: { offset: '0', limit: '10', user_id: 'user_123', status: 'active' },
+                retries: 3
+            })
+        );
+
+        const pagedNango = mockNango([session]);
+        await expect(listSessions.exec(pagedNango, { user_id: 'user_123', limit: 1 })).resolves.toEqual({ items: [session], next_cursor: '1' });
+
         const nango = mockNango(session);
         await getSession.exec(nango, { session_id: 'sess/123' });
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/sessions/sess%2F123', retries: 3 }));
         await revokeSession.exec(nango, { session_id: 'sess/123' });
         expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/sessions/sess%2F123/revoke', data: {} }));
     });
@@ -129,8 +170,16 @@ describe('Clerk priority actions', () => {
     it('manages email addresses', async () => {
         const nango = mockNango(emailAddress);
         await createEmailAddress.exec(nango, { user_id: 'user_123', email_address: 'ada@example.com', primary: true });
+        expect(nango.post).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v1/email_addresses',
+                data: { user_id: 'user_123', email_address: 'ada@example.com', primary: true },
+                retries: 3
+            })
+        );
         await getEmailAddress.exec(nango, { email_address_id: 'idn/123' });
         await updateEmailAddress.exec(nango, { email_address_id: 'idn_123', verified: true });
+        expect(nango.patch).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/email_addresses/idn_123', data: { verified: true }, retries: 3 }));
         const deleteNango = mockNango();
         await expect(deleteEmailAddress.exec(deleteNango, { email_address_id: 'idn_123' })).resolves.toEqual({ id: 'idn_123', success: true });
         expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/email_addresses/idn%2F123' }));
@@ -139,11 +188,29 @@ describe('Clerk priority actions', () => {
     it('manages phone numbers', async () => {
         const nango = mockNango(phoneNumber);
         await createPhoneNumber.exec(nango, { user_id: 'user_123', phone_number: '+15555550100', reserved_for_second_factor: true });
+        expect(nango.post).toHaveBeenCalledWith(
+            expect.objectContaining({
+                endpoint: '/v1/phone_numbers',
+                data: { user_id: 'user_123', phone_number: '+15555550100', reserved_for_second_factor: true },
+                retries: 3
+            })
+        );
         await getPhoneNumber.exec(nango, { phone_number_id: 'idn/456' });
         await updatePhoneNumber.exec(nango, { phone_number_id: 'idn_456', primary: true });
+        expect(nango.patch).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/phone_numbers/idn_456', data: { primary: true }, retries: 3 }));
         const deleteNango = mockNango();
         await expect(deletePhoneNumber.exec(deleteNango, { phone_number_id: 'idn_456' })).resolves.toEqual({ id: 'idn_456', success: true });
         expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/phone_numbers/idn%2F456' }));
+    });
+
+    it('rejects malformed cursors', async () => {
+        const nango = mockNango();
+        await expect(listOrganizationMemberships.exec(nango, { organization_id: 'org_123', cursor: '1.5' })).rejects.toThrow();
+        await expect(listOrganizationInvitations.exec(nango, { organization_id: 'org_123', cursor: '12abc' })).rejects.toThrow();
+        await expect(listOrganizationDomains.exec(nango, { organization_id: 'org_123', cursor: '-1' })).rejects.toThrow();
+        await expect(listOrganizationRoles.exec(nango, { cursor: '0x10' })).rejects.toThrow();
+        await expect(listSessions.exec(nango, { user_id: 'user_123', cursor: '1e2' })).rejects.toThrow();
+        expect(nango.get).not.toHaveBeenCalled();
     });
 
     it('manages organization roles and permissions', async () => {

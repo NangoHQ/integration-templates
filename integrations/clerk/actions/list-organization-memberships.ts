@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
     limit: z.number().int().min(1).max(500).optional(),
-    organization_id: z.string(),
+    organization_id: z.string().min(1),
     user_id: z.array(z.string()).optional(),
     email_address: z.array(z.string()).optional(),
     phone_number: z.array(z.string()).optional(),
@@ -43,8 +43,8 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor === undefined ? 0 : Number.parseInt(input.cursor, 10);
-        if (!Number.isInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
+        const offset = input.cursor === undefined ? 0 : /^\d+$/.test(input.cursor) ? Number(input.cursor) : Number.NaN;
+        if (!Number.isSafeInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
         const response = await nango.get({
             // https://clerk.com/docs/reference/backend-api/tag/Organization-Memberships#operation/ListOrganizationMemberships
             endpoint: `/v1/organizations/${encodeURIComponent(input.organization_id)}/memberships`,

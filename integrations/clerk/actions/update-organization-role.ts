@@ -2,11 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    organization_role_id: z.string(),
+    organization_role_id: z.string().min(1),
     name: z.string().optional(),
     key: z.string().optional(),
     description: z.string().optional(),
     permissions: z.array(z.string()).optional()
+}).refine((value) => value.name !== undefined || value.key !== undefined || value.description !== undefined || value.permissions !== undefined, {
+    message: 'Provide at least one of name, key, description, or permissions.'
 });
 const ResourceSchema = z
     .object({

@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    email_address_id: z.string(),
+    email_address_id: z.string().min(1),
     verified: z.boolean().optional(),
     primary: z.boolean().optional(),
     notify_primary_email_address_changed: z.boolean().optional()

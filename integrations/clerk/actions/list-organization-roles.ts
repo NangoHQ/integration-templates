@@ -28,8 +28,8 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor === undefined ? 0 : Number.parseInt(input.cursor, 10);
-        if (!Number.isInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
+        const offset = input.cursor === undefined ? 0 : /^\d+$/.test(input.cursor) ? Number(input.cursor) : Number.NaN;
+        if (!Number.isSafeInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
         const response = await nango.get({
             // https://clerk.com/docs/reference/backend-api/tag/Organization-Roles#operation/ListOrganizationRoles
             endpoint: '/v1/organization_roles',

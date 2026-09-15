@@ -30,11 +30,24 @@ function mockNango(data: unknown = {}) {
 
 describe('Clerk actions', () => {
     it('lists users with offset cursor pagination', async () => {
-        const nango = mockNango({ data: [user], total_count: 2 });
+        // GET /v1/users returns a plain array; the total comes from GET /v1/users/count.
+        const nango = mockNango();
+        nango.get.mockImplementation(({ endpoint }: { endpoint: string }) =>
+            endpoint === '/v1/users/count' ? Promise.resolve({ data: { object: 'total_count', total_count: 2 } }) : Promise.resolve({ data: [user] })
+        );
         await expect(listUsers.exec(nango, { cursor: '0', limit: 1, query: 'ada' })).resolves.toEqual({ items: [user], next_cursor: '1', total: 2 });
         expect(nango.get).toHaveBeenCalledWith(
             expect.objectContaining({ endpoint: '/v1/users', params: expect.objectContaining({ offset: '0', limit: '1', query: 'ada' }), retries: 3 })
         );
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v1/users/count', params: { query: 'ada' }, retries: 3 }));
+    });
+
+    it('rejects malformed cursors', async () => {
+        const nango = mockNango();
+        await expect(listUsers.exec(nango, { cursor: '1.5' })).rejects.toThrow();
+        await expect(listUsers.exec(nango, { cursor: '1abc' })).rejects.toThrow();
+        await expect(listOrganizations.exec(nango, { cursor: '-1' })).rejects.toThrow();
+        expect(nango.get).not.toHaveBeenCalled();
     });
 
     it('gets and creates users', async () => {

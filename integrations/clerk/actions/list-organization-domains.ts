@@ -5,7 +5,7 @@ const EnrollmentModeSchema = z.enum(['manual_invitation', 'automatic_invitation'
 const InputSchema = z.object({
     cursor: z.string().optional().describe('Pagination cursor returned by a previous request. Omit for the first page.'),
     limit: z.number().int().min(1).max(500).optional(),
-    organization_id: z.string(),
+    organization_id: z.string().min(1),
     verified: z.boolean().optional(),
     enrollment_mode: EnrollmentModeSchema.optional()
 });
@@ -16,8 +16,8 @@ const ResourceSchema = z
         organization_id: z.string().optional(),
         name: z.string(),
         enrollment_mode: EnrollmentModeSchema.optional(),
-        affiliation_verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().optional(),
-        verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().optional(),
+        affiliation_verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().nullable().optional(),
+        verification: z.object({ attempts: z.number().optional(), status: z.string().optional() }).passthrough().nullable().optional(),
         verified: z.boolean().optional(),
         created_at: z.number().optional(),
         updated_at: z.number().optional()
@@ -32,8 +32,8 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor === undefined ? 0 : Number.parseInt(input.cursor, 10);
-        if (!Number.isInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
+        const offset = input.cursor === undefined ? 0 : /^\d+$/.test(input.cursor) ? Number(input.cursor) : Number.NaN;
+        if (!Number.isSafeInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
         const response = await nango.get({
             // https://clerk.com/docs/reference/backend-api/tag/Organization-Domains#operation/ListOrganizationDomains
             endpoint: `/v1/organizations/${encodeURIComponent(input.organization_id)}/domains`,
