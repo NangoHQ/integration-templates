@@ -75,6 +75,8 @@ interface ActionCase {
     method: Method;
     path: string;
     hasBody: boolean;
+    /** Inputs the action renames before sending them as query parameters. */
+    queryAliases?: Record<string, string>;
     action: { input: z.ZodTypeAny; output: z.ZodTypeAny; exec(nango: NangoActionMock, input: unknown): Promise<unknown> };
 }
 
@@ -126,7 +128,14 @@ const cases: ActionCase[] = [
     { name: 'create-incident', method: 'post', path: '/v2/incidents', hasBody: true, action: createIncident },
     { name: 'get-incident', method: 'get', path: '/v2/incidents/{id}', hasBody: false, action: getIncident },
     { name: 'update-incident', method: 'post', path: '/v2/incidents/{id}/actions/edit', hasBody: true, action: updateIncident },
-    { name: 'list-schedule-entries', method: 'get', path: '/v2/schedule_entries', hasBody: false, action: listScheduleEntries },
+    {
+        name: 'list-schedule-entries',
+        method: 'get',
+        path: '/v2/schedule_entries',
+        hasBody: false,
+        queryAliases: { after: 'entry_window_start' },
+        action: listScheduleEntries
+    },
     { name: 'list-schedule-overrides', method: 'get', path: '/v2/schedule_overrides', hasBody: false, action: listScheduleOverrides },
     { name: 'get-schedule-override', method: 'get', path: '/v2/schedule_overrides/{id}', hasBody: false, action: getScheduleOverride },
     { name: 'list-schedules', method: 'get', path: '/v2/schedules', hasBody: false, action: listSchedules },
@@ -196,12 +205,14 @@ for (const spec of cases) {
             expect(nango[spec.method]).toHaveBeenCalledOnce();
             expect(nango[spec.method]).toHaveBeenCalledWith(expect.objectContaining({ endpoint }));
             if (spec.hasBody) expect(nango[spec.method]).toHaveBeenCalledWith(expect.objectContaining({ data: input.body }));
-            // Every input that is neither a path segment nor the body must reach the provider as a query parameter, unchanged.
+            // Every input that is neither a path segment nor the body must reach the provider as a query parameter,
+            // under its own name or the alias the action documents for it.
+            const aliases = spec.queryAliases ?? {};
             const queryKeys = Object.keys(fixture.input).filter((key) => key !== 'body' && !keys.includes(key));
             if (queryKeys.length > 0) {
                 const config: { params?: Record<string, unknown> } | undefined = nango[spec.method].mock.calls[0]?.[0];
                 const sent = Object.fromEntries(Object.entries(config?.params ?? {}).map(([key, value]) => [key, String(value)]));
-                const expected = Object.fromEntries(queryKeys.map((key) => [key, String(fixture.input[key])]));
+                const expected = Object.fromEntries(queryKeys.map((key) => [aliases[key] ?? key, String(fixture.input[key])]));
                 expect(sent).toEqual(expected);
             }
         });
