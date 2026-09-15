@@ -1,13 +1,17 @@
 {
   "input": {
     "input_file_id": "file-test123",
-    "endpoint": "/v1/chat/completions",
-    "completion_window": "24h"
+    "endpoint": "/v1/images/generations",
+    "completion_window": "24h",
+    "output_expires_after": {
+      "anchor": "created_at",
+      "seconds": 86400
+    }
   },
   "output": {
     "id": "batch_6a0d8d09fa608190b103c4e29a603f97",
     "object": "batch",
-    "endpoint": "/v1/chat/completions",
+    "endpoint": "/v1/images/generations",
     "input_file_id": "file-test123",
     "completion_window": "24h",
     "status": "validating",
@@ -26,7 +30,7 @@
         "response": {
           "id": "batch_6a0d8d09fa608190b103c4e29a603f97",
           "object": "batch",
-          "endpoint": "/v1/chat/completions",
+          "endpoint": "/v1/images/generations",
           "model": null,
           "errors": null,
           "input_file_id": "file-test123",
@@ -91,12 +95,16 @@
           "cf-ray": "9feaa91e1d51147f-PDX",
           "alt-svc": "h3=\":443\"; ma=86400"
         },
-        "hash": "e5112955c43fe5657e911e9086198f40029de173",
+        "hash": "026f38bd65fa7affdb8b76cd1108dc6c104b6592",
         "request": {
           "data": {
             "input_file_id": "file-test123",
-            "endpoint": "/v1/chat/completions",
-            "completion_window": "24h"
+            "endpoint": "/v1/images/generations",
+            "completion_window": "24h",
+            "output_expires_after": {
+              "anchor": "created_at",
+              "seconds": 86400
+            }
           }
         }
       }
