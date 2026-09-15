@@ -43,9 +43,14 @@ const ProviderResponseSchema = z
                         slack_user_id: z.string().optional()
                     })
                     .passthrough()
+                    .nullable()
                     .optional(),
-                assignee_team: z.object({ id: z.string(), name: z.string() }).passthrough().optional(),
-                category: z.object({ description: z.string().optional(), id: z.string(), name: z.string(), rank: z.number().int() }).passthrough().optional(),
+                assignee_team: z.object({ id: z.string(), name: z.string() }).passthrough().nullable().optional(),
+                category: z
+                    .object({ description: z.string().optional(), id: z.string(), name: z.string(), rank: z.number().int() })
+                    .passthrough()
+                    .nullable()
+                    .optional(),
                 completed_at: z.string().optional(),
                 created_at: z.string(),
                 creator: z
@@ -87,11 +92,16 @@ const ProviderResponseSchema = z
                         ])
                     })
                     .passthrough()
+                    .nullable()
                     .optional(),
                 id: z.string(),
                 incident_id: z.string(),
                 labels: z.array(z.string()),
-                priority: z.object({ description: z.string().optional(), id: z.string(), name: z.string(), rank: z.number().int() }).passthrough().optional(),
+                priority: z
+                    .object({ description: z.string().optional(), id: z.string(), name: z.string(), rank: z.number().int() })
+                    .passthrough()
+                    .nullable()
+                    .optional(),
                 status: z.enum(['outstanding', 'completed', 'deleted', 'not_doing']),
                 title: z.string(),
                 updated_at: z.string()

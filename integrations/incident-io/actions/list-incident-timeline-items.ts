@@ -11,7 +11,7 @@ const ProviderResponseSchema = z
         incident_timeline_items: z.array(
             z
                 .object({
-                    activity_log_id: z.string().optional(),
+                    activity_log_id: z.string().nullable().optional(),
                     created_at: z.string(),
                     creator: z
                         .object({

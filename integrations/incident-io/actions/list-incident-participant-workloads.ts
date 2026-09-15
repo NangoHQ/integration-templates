@@ -33,7 +33,7 @@ const ProviderResponseSchema = z
                 })
                 .passthrough()
         ),
-        metadata: z.object({ data_synced_at: z.string().optional() }).passthrough()
+        metadata: z.object({ data_synced_at: z.string().nullable().optional() }).passthrough()
     })
     .passthrough();
 const OutputSchema = ProviderResponseSchema;

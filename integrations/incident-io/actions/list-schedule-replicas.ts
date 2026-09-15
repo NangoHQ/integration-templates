@@ -13,8 +13,8 @@ const ProviderResponseSchema = z
                 .object({
                     created_at: z.string(),
                     id: z.string(),
-                    last_sync_error: z.string().optional(),
-                    last_synced_at: z.string().optional(),
+                    last_sync_error: z.string().nullable().optional(),
+                    last_synced_at: z.string().nullable().optional(),
                     mirror_window_days: z.number().int().min(1).max(90).optional(),
                     replica_fallback_user_id: z.string(),
                     replica_provider: z.enum(['native', 'pagerduty', 'opsgenie', 'jsm']),
@@ -22,7 +22,7 @@ const ProviderResponseSchema = z
                     schedule_id: z.string(),
                     sources: z.array(z.object({ layer_id: z.string(), rotation_id: z.string() }).passthrough()),
                     updated_at: z.string(),
-                    user_statuses: z.array(z.object({ external_user_id: z.string().optional(), user_id: z.string() }).passthrough())
+                    user_statuses: z.array(z.object({ external_user_id: z.string().nullable().optional(), user_id: z.string() }).passthrough())
                 })
                 .passthrough()
         )
