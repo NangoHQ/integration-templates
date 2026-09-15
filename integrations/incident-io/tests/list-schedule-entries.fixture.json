@@ -2,7 +2,7 @@
     "input": {
         "schedule_id": "01FDAG4SAP5TYPT98WGR2N7W91",
         "entry_window_end": "2021-01-01T00:00:00Z",
-        "after": "2021-01-01T00:00:00Z"
+        "after": "2020-12-31T12:00:00Z"
     },
     "response": {
         "pagination_meta": {
