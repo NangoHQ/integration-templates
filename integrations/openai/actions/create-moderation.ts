@@ -8,6 +8,8 @@ const ModerationCategorySchema = z.object({
     'self-harm': z.boolean(),
     'sexual/minors': z.boolean(),
     'hate/threatening': z.boolean(),
+    illicit: z.boolean().nullable(),
+    'illicit/violent': z.boolean().nullable(),
     'violence/graphic': z.boolean(),
     'self-harm/intent': z.boolean(),
     'self-harm/instructions': z.boolean(),
@@ -22,6 +24,8 @@ const ModerationCategoryScoresSchema = z.object({
     'self-harm': z.number(),
     'sexual/minors': z.number(),
     'hate/threatening': z.number(),
+    illicit: z.number().nullable(),
+    'illicit/violent': z.number().nullable(),
     'violence/graphic': z.number(),
     'self-harm/intent': z.number(),
     'self-harm/instructions': z.number(),
@@ -41,9 +45,27 @@ const ProviderModerationResponseSchema = z.object({
     results: z.array(ModerationResultSchema)
 });
 
+const ModerationMultiModalInputSchema = z.discriminatedUnion('type', [
+    z.object({
+        type: z.literal('text'),
+        text: z.string().describe('Text to classify. Example: "I want to hurt someone."')
+    }),
+    z.object({
+        type: z.literal('image_url'),
+        image_url: z.object({
+            url: z.string().describe('Image URL or base64-encoded data URL to classify.')
+        })
+    })
+]);
+
 const InputSchema = z.object({
-    input: z.union([z.string(), z.array(z.string())]).describe('Text or array of text strings to classify. Example: "I want to hurt someone."'),
-    model: z.string().optional().describe('Model to use for moderation. Defaults to "omni-moderation-latest". Other option: "text-moderation-latest".')
+    input: z
+        .union([z.string(), z.array(z.string()), z.array(ModerationMultiModalInputSchema)])
+        .describe('A string, array of strings, or array of text and image input objects to classify.'),
+    model: z
+        .enum(['omni-moderation-latest', 'omni-moderation-2024-09-26', 'text-moderation-latest', 'text-moderation-stable'])
+        .optional()
+        .describe('Moderation model. Defaults to "omni-moderation-latest".')
 });
 
 const OutputSchema = z.object({
@@ -52,15 +74,15 @@ const OutputSchema = z.object({
     results: z.array(
         z.object({
             flagged: z.boolean(),
-            categories: z.record(z.string(), z.boolean()),
-            category_scores: z.record(z.string(), z.number())
+            categories: z.record(z.string(), z.boolean().nullable()),
+            category_scores: z.record(z.string(), z.number().nullable())
         })
     )
 });
 
 const action = createAction({
     description: 'Classify whether text or images violate OpenAI usage policies',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['model.request'],
