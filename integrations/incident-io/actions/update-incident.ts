@@ -242,10 +242,10 @@ const ProviderResponseSchema = z
                     })
                     .passthrough()
                     .optional(),
-                slack_channel_id: z.string(),
+                slack_channel_id: z.string().optional(),
                 slack_channel_name: z.string().optional(),
                 slack_channel_url: z.string().optional(),
-                slack_team_id: z.string(),
+                slack_team_id: z.string().optional(),
                 summary: z.string().optional(),
                 team_ids: z.array(z.string()),
                 updated_at: z.string(),

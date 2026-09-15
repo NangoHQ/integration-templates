@@ -79,6 +79,8 @@ Inputs use provider parameter names. JSON request payloads are nested under `bod
 
 GET, PUT, PATCH, and DELETE requests use three retries. The delete actions return an empty object because the provider answers 204 No Content. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. `create-incident`, `create-incident-update`, and `create-incident-timeline-item` require a body `idempotency_key`, so they retry three times.
 
+Incident responses may omit `slack_channel_id` and `slack_team_id`. The Slack channel is sometimes created asynchronously, Microsoft Teams workspaces have no Slack channel, and the team id is only set for Slack Enterprise Grid. `create-incident`, `get-incident`, `list-incidents`, and `update-incident` therefore accept both fields as optional even though the OpenAPI source lists them as required.
+
 ## Contract provenance and validation
 
 Schemas were extracted from the official OpenAPI source recorded in `schema-source.json`, including required fields, enums, nullable fields, and numeric/array bounds. Reference objects are expanded locally so every action is independently usable. Provider response objects preserve unknown fields for forward compatibility. Review upstream API documentation when changing an action: OpenAPI examples and required flags can lag actual behavior.

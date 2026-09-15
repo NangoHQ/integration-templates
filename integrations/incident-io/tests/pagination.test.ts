@@ -18,6 +18,7 @@ import incidents from '../actions/list-incidents.js';
 import followUps from '../actions/list-follow-ups.js';
 import actions from '../actions/list-actions.js';
 import getIncident from '../actions/get-incident.js';
+import createIncident from '../actions/create-incident.js';
 import listAlerts from '../actions/list-alerts.js';
 import listCatalogEntries from '../actions/list-catalog-entries.js';
 import listUsers from '../actions/list-users.js';
@@ -110,6 +111,18 @@ describe('incident.io versions, nullability, and pagination', () => {
         nango.get.mockResolvedValue({ data: fixture('list-actions').response });
         await actions.exec(nango, { page_size: 10 });
         expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/v3/actions' }));
+    });
+    it('accepts incidents without Slack channel or team ids', async () => {
+        const nango = mock('create-incident');
+        const { input, response } = fixture('create-incident');
+        delete response.incident.slack_channel_id;
+        delete response.incident.slack_team_id;
+        nango.post.mockResolvedValue({ data: response });
+        const created = await createIncident.exec(nango, input);
+        expect(created.incident.slack_channel_id).toBeUndefined();
+        expect(created.incident.slack_team_id).toBeUndefined();
+        expect(getIncident.output.safeParse(response).success).toBe(true);
+        expect(incidents.output.safeParse({ incidents: [response.incident], pagination_meta: { page_size: 25 } }).success).toBe(true);
     });
     it('encodes incident IDs', async () => {
         const nango = mock('get-incident');
