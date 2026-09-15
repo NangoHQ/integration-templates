@@ -10,7 +10,11 @@ function mock(name: string) {
 
 import emails from '../actions/list-emails.js';
 import send from '../actions/send-email.js';
+import sendBatch from '../actions/send-email-batch.js';
 import getEmail from '../actions/get-email.js';
+import listContacts from '../actions/list-contacts.js';
+import listBroadcastRecipients from '../actions/list-broadcast-recipients.js';
+import createContactImport from '../actions/create-contact-import.js';
 describe('Resend request and pagination behavior', () => {
     it('derives the next cursor only when has_more is true', async () => {
         const nango = mock('list-emails');
@@ -22,6 +26,42 @@ describe('Resend request and pagination behavior', () => {
         nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [], has_more: false } });
         expect((await emails.exec(nango, {})).next_cursor).toBeUndefined();
     });
+    it('returns the first item as the cursor when paginating backwards', async () => {
+        const nango = mock('list-contacts');
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'contact-first' }, { id: 'contact-last' }], has_more: true } });
+        expect((await listContacts.exec(nango, { before: 'contact-previous' })).next_cursor).toBe('contact-first');
+        expect(nango.get).toHaveBeenCalledWith(expect.objectContaining({ params: { before: 'contact-previous' } }));
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'contact-first' }, { id: 'contact-last' }], has_more: true } });
+        expect((await listContacts.exec(nango, { after: 'contact-previous' })).next_cursor).toBe('contact-last');
+        nango.get.mockResolvedValueOnce({ data: { object: 'list', data: [{ id: 'contact-first' }], has_more: false } });
+        expect((await listContacts.exec(nango, { before: 'contact-previous' })).next_cursor).toBeUndefined();
+    });
+    it('accepts null recipient lists on sent emails', async () => {
+        const nango = mock('get-email');
+        nango.get.mockResolvedValue({ data: { object: 'email', id: 'email-1', bcc: null, cc: null, reply_to: null, text: null, html: '<p>Hi</p>' } });
+        const email = await getEmail.exec(nango, { email_id: 'email-1' });
+        expect(email.bcc).toBeNull();
+        expect(email.reply_to).toBeNull();
+        expect(email.text).toBeNull();
+    });
+    it('sends contact imports as multipart form data', async () => {
+        const nango = mock('create-contact-import');
+        nango.post.mockResolvedValue({ data: { object: 'contact_import', id: 'import-1' } });
+        const input = createContactImport.input.parse({
+            body: { file: 'email\nsteve@example.com\n', filename: 'people.csv', on_conflict: 'skip', topics: [{ id: 'topic-1', subscription: 'opt_in' }] }
+        });
+        await createContactImport.exec(nango, input);
+        const config = nango.post.mock.calls[0]?.[0];
+        expect(config.retries).toBe(0);
+        expect(config.headers['Content-Type']).toMatch(/^multipart\/form-data; boundary=/);
+        expect(config.data).toContain('Content-Disposition: form-data; name="file"; filename="people.csv"');
+        expect(config.data).toContain('email\nsteve@example.com\n');
+        expect(config.data).toContain('Content-Disposition: form-data; name="on_conflict"\r\n\r\nskip');
+        expect(config.data).toContain('Content-Disposition: form-data; name="topics"\r\n\r\n[{"id":"topic-1","subscription":"opt_in"}]');
+        expect(config.data).not.toContain('name="column_map"');
+        expect(createContactImport.input.safeParse({ body: { file: '' } }).success).toBe(false);
+        expect(createContactImport.input.safeParse({}).success).toBe(false);
+    });
     it('forwards idempotency keys and preserves custom email headers', async () => {
         const nango = mock('send-email');
         nango.post.mockResolvedValue({ data: { id: 'sent' } });
@@ -29,6 +69,18 @@ describe('Resend request and pagination behavior', () => {
         await send.exec(nango, send.input.parse({ body, idempotency_key: 'send-once' }));
         expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ data: body, headers: { 'Idempotency-Key': 'send-once' }, retries: 3 }));
         await send.exec(nango, send.input.parse({ body }));
+        expect(nango.post).toHaveBeenLastCalledWith(expect.objectContaining({ retries: 0 }));
+        expect(nango.post).not.toHaveBeenLastCalledWith(
+            expect.objectContaining({ headers: expect.objectContaining({ 'Idempotency-Key': expect.anything() }) })
+        );
+    });
+    it('applies the same idempotency and retry contract to batch sends', async () => {
+        const nango = mock('send-email-batch');
+        nango.post.mockResolvedValue({ data: { data: [{ id: 'sent' }] } });
+        const body = [{ from: 'sender@example.com', to: 'recipient@example.com', subject: 'Hello', text: 'Hello' }];
+        await sendBatch.exec(nango, sendBatch.input.parse({ body, idempotency_key: 'batch-once' }));
+        expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ data: body, headers: { 'Idempotency-Key': 'batch-once' }, retries: 3 }));
+        await sendBatch.exec(nango, sendBatch.input.parse({ body }));
         expect(nango.post).toHaveBeenLastCalledWith(expect.objectContaining({ retries: 0 }));
     });
     it('encodes email identifiers', async () => {
@@ -47,5 +99,17 @@ describe('Resend request and pagination behavior', () => {
             }).success
         ).toBe(false);
         expect(send.input.safeParse({ body: { from: 'sender@example.com', to: [], subject: 'Hello', text: 'Hello' } }).success).toBe(false);
+        expect(
+            send.input.safeParse({ body: { from: 'sender@example.com', to: 'r@example.com', subject: 'Hello', text: 'Hello', tags: [{ name: 'x' }] } }).success
+        ).toBe(false);
+        const batchItem = { from: 'sender@example.com', to: 'recipient@example.com', subject: 'Hello', text: 'Hello' };
+        expect(sendBatch.input.safeParse({ body: [] }).success).toBe(false);
+        expect(sendBatch.input.safeParse({ body: Array.from({ length: 101 }, () => batchItem) }).success).toBe(false);
+        expect(sendBatch.input.safeParse({ body: Array.from({ length: 100 }, () => batchItem) }).success).toBe(true);
+        expect(sendBatch.input.safeParse({ body: [{ from: 'sender@example.com', to: 'recipient@example.com', subject: 'Hello' }] }).success).toBe(false);
+        expect(sendBatch.input.safeParse({ body: [{ ...batchItem, template: { id: 'template' } }] }).success).toBe(false);
+        expect(listContacts.input.safeParse({ after: 'a', before: 'b' }).success).toBe(false);
+        expect(listBroadcastRecipients.input.safeParse({ id: 'b', type: 'sent', bounce_type: 'permanent' }).success).toBe(false);
+        expect(listBroadcastRecipients.input.safeParse({ id: 'b', type: 'bounced', bounce_type: 'permanent' }).success).toBe(true);
     });
 });
