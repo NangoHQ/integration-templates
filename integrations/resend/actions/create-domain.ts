@@ -16,6 +16,9 @@ const InputSchema = z.object({
             capabilities: z
                 .object({ sending: z.enum(['enabled', 'disabled']).optional(), receiving: z.enum(['enabled', 'disabled']).optional() })
                 .passthrough()
+                .refine((capabilities) => capabilities.sending !== 'disabled' || capabilities.receiving !== 'disabled', {
+                    message: 'At least one capability must be enabled'
+                })
                 .optional(),
             tracking_subdomain: z.string().optional()
         })

@@ -16,6 +16,9 @@ import listContacts from '../actions/list-contacts.js';
 import listDomains from '../actions/list-domains.js';
 import listBroadcastRecipients from '../actions/list-broadcast-recipients.js';
 import createContactImport from '../actions/create-contact-import.js';
+import createContactProperty from '../actions/create-contact-property.js';
+import createDomain from '../actions/create-domain.js';
+import shareEmail from '../actions/share-email.js';
 describe('Resend request and pagination behavior', () => {
     it('derives the next cursor only when has_more is true', async () => {
         const nango = mock('list-emails');
@@ -74,6 +77,46 @@ describe('Resend request and pagination behavior', () => {
         expect(config.data).not.toContain('name="column_map"');
         expect(createContactImport.input.safeParse({ body: { file: '' } }).success).toBe(false);
         expect(createContactImport.input.safeParse({}).success).toBe(false);
+    });
+    it('encodes boolean custom property mappings in the column map', async () => {
+        const nango = mock('create-contact-import');
+        nango.post.mockResolvedValue({ data: { object: 'contact_import', id: 'import-2' } });
+        const column_map = { email: 'Email', properties: { active: { column: 'Active', type: 'boolean' } } };
+        await createContactImport.exec(nango, createContactImport.input.parse({ body: { file: 'Email,Active\nsteve@example.com,true\n', column_map } }));
+        const config = nango.post.mock.calls[0]?.[0];
+        expect(config.data).toContain(`Content-Disposition: form-data; name="column_map"\r\n\r\n${JSON.stringify(column_map)}`);
+        expect(
+            createContactImport.input.safeParse({ body: { file: 'x\n', column_map: { properties: { active: { column: 'Active', type: 'date' } } } } }).success
+        ).toBe(false);
+    });
+    it('constrains contact property keys and matches fallback values to the type', () => {
+        expect(createContactProperty.input.safeParse({ body: { key: 'plan_tier', type: 'string', fallback_value: 'free' } }).success).toBe(true);
+        expect(createContactProperty.input.safeParse({ body: { key: 'seats', type: 'number', fallback_value: 1 } }).success).toBe(true);
+        expect(createContactProperty.input.safeParse({ body: { key: 'seats', type: 'number', fallback_value: '1' } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: 'plan', type: 'string', fallback_value: 1 } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: 'plan', type: 'boolean' } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: 'plan-tier', type: 'string' } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: '', type: 'string' } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: 'a'.repeat(51), type: 'string' } }).success).toBe(false);
+        expect(createContactProperty.input.safeParse({ body: { key: 'a'.repeat(50), type: 'string' } }).success).toBe(true);
+    });
+    it('requires at least one enabled domain capability', () => {
+        expect(createDomain.input.safeParse({ body: { name: 'example.com', capabilities: { sending: 'disabled', receiving: 'disabled' } } }).success).toBe(
+            false
+        );
+        expect(createDomain.input.safeParse({ body: { name: 'example.com', capabilities: { sending: 'disabled', receiving: 'enabled' } } }).success).toBe(true);
+        expect(createDomain.input.safeParse({ body: { name: 'example.com', capabilities: { sending: 'disabled' } } }).success).toBe(true);
+        expect(createDomain.input.safeParse({ body: { name: 'example.com', capabilities: {} } }).success).toBe(true);
+        expect(createDomain.input.safeParse({ body: { name: 'example.com' } }).success).toBe(true);
+    });
+    it('shares an email without a body when no expiration is given', async () => {
+        const nango = mock('share-email');
+        nango.post.mockResolvedValue({ data: { object: 'email_share', id: 'share-1', url: 'https://resend.com/share/share-1' } });
+        await shareEmail.exec(nango, shareEmail.input.parse({ email_id: 'email-1' }));
+        expect(nango.post).toHaveBeenCalledWith(expect.objectContaining({ endpoint: '/emails/email-1/share', retries: 0 }));
+        expect(nango.post.mock.calls[0]?.[0]).not.toHaveProperty('data');
+        await shareEmail.exec(nango, shareEmail.input.parse({ email_id: 'email-1', body: { expires_in: '1 day' } }));
+        expect(nango.post).toHaveBeenLastCalledWith(expect.objectContaining({ data: { expires_in: '1 day' } }));
     });
     it('forwards idempotency keys and preserves custom email headers', async () => {
         const nango = mock('send-email');

@@ -4,7 +4,20 @@ import { z } from 'zod';
 
 // Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
 // Operation: emails/share
-const InputSchema = z.object({ email_id: z.string(), body: z.object({ expires_in: z.string().optional() }).passthrough() }).passthrough();
+const InputSchema = z
+    .object({
+        email_id: z.string(),
+        body: z
+            .object({
+                expires_in: z
+                    .string()
+                    .optional()
+                    .describe('How long the link stays valid, as a duration such as "10m", "2 hours", or "1 day". Defaults to 48h and cannot exceed 48 hours.')
+            })
+            .passthrough()
+            .optional()
+    })
+    .passthrough();
 
 const ProviderResponseSchema = z.object({ object: z.string().optional(), id: z.string().optional(), url: z.string().optional() }).passthrough();
 const OutputSchema = ProviderResponseSchema;
@@ -21,7 +34,7 @@ const action = createAction({
             endpoint: `/emails/${encodeURIComponent(input['email_id'])}/share`,
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Retrying a non-idempotent POST can duplicate side effects.
             retries: 0,
-            data: input.body
+            ...(input.body !== undefined && { data: input.body })
         };
         const response = await nango.post(config);
         const data = ProviderResponseSchema.parse(response.data);

@@ -15,7 +15,8 @@ const ProviderResponseSchema = z
 const OutputSchema = ProviderResponseSchema;
 
 const action = createAction({
-    description: 'Retrieve a list of audiences in Resend.',
+    description:
+        'Retrieve a list of audiences in Resend. Deprecated by the provider in favour of Segments: prefer list-segments. The endpoint still works but will be removed in the future.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,

@@ -18,7 +18,7 @@ const InputSchema = z.object({
                 first_name: z.string().optional(),
                 last_name: z.string().optional(),
                 unsubscribed: z.string().optional(),
-                properties: z.record(z.string(), z.object({ column: z.string(), type: z.enum(['string', 'number']) }).passthrough()).optional()
+                properties: z.record(z.string(), z.object({ column: z.string(), type: z.enum(['string', 'number', 'boolean']) }).passthrough()).optional()
             })
             .passthrough()
             .optional()

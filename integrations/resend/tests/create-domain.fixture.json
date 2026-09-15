@@ -2,7 +2,8 @@
     "input": {
         "body": {
             "name": "example.com",
-            "region": "us-east-1"
+            "region": "us-east-1",
+            "capabilities": { "sending": "enabled", "receiving": "disabled" }
         }
     },
     "response": {

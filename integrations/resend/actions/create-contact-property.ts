@@ -4,9 +4,18 @@ import { z } from 'zod';
 
 // Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
 // Operation: contact-properties/create
+// The provider allows at most 50 alphanumeric or underscore characters, and the fallback value must match the declared type.
+const KeySchema = z
+    .string()
+    .max(50)
+    .regex(/^[A-Za-z0-9_]+$/, { message: 'Only alphanumeric characters and underscores are allowed' })
+    .describe('Property key of up to 50 alphanumeric or underscore characters. Example: "plan"');
 const InputSchema = z
     .object({
-        body: z.object({ key: z.string(), type: z.enum(['string', 'number']), fallback_value: z.union([z.string(), z.number()]).optional() }).passthrough()
+        body: z.discriminatedUnion('type', [
+            z.object({ key: KeySchema, type: z.literal('string'), fallback_value: z.string().optional() }).passthrough(),
+            z.object({ key: KeySchema, type: z.literal('number'), fallback_value: z.number().optional() }).passthrough()
+        ])
     })
     .passthrough();
 

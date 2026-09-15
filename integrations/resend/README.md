@@ -93,6 +93,8 @@ Inputs use provider parameter names. JSON request payloads are nested under `bod
 
 GET, PUT, PATCH, and DELETE requests use three retries. POST requests without a provider idempotency contract use zero retries to avoid duplicate side effects. Email and batch sending retry only with an explicit `idempotency_key`.
 
+The audience endpoints are deprecated by the provider in favour of Segments and will be removed; `list-audiences` says so in its description. Prefer the segment actions for new work.
+
 `create-contact-import` takes the CSV contents as text in `body.file` and sends them as the provider's `multipart/form-data` upload; `column_map`, `segments`, and `topics` are JSON-encoded form parts, and `on_conflict` is a plain text form field. Keep the CSV within the action input size limits.
 
 ## Contract provenance and validation

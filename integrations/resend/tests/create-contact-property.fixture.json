@@ -2,7 +2,8 @@
     "input": {
         "body": {
             "key": "example",
-            "type": "string"
+            "type": "string",
+            "fallback_value": "none"
         }
     },
     "response": {}
