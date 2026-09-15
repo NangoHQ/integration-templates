@@ -1,25 +1,31 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({
-    external_id: z.string().optional(),
-    email_address: z.array(z.string().email()).max(100).optional(),
-    phone_number: z.array(z.string()).max(100).optional(),
-    username: z.string().optional(),
-    password: z.string().min(8).optional(),
-    first_name: z.string().optional(),
-    last_name: z.string().optional(),
-    locale: z.string().optional().describe('BCP-47 locale. Example: "en-US"'),
-    skip_password_checks: z.boolean().optional(),
-    skip_password_requirement: z.boolean().optional(),
-    banned: z.boolean().optional(),
-    locked: z.boolean().optional(),
-    public_metadata: z.record(z.string(), z.unknown()).optional(),
-    private_metadata: z.record(z.string(), z.unknown()).optional(),
-    unsafe_metadata: z.record(z.string(), z.unknown()).optional()
-}).refine((value) => (value.email_address?.length ?? 0) > 0 || (value.phone_number?.length ?? 0) > 0 || value.username !== undefined || value.password !== undefined, {
-    message: 'Provide at least one of email_address, phone_number, username, or password.'
-});
+const InputSchema = z
+    .object({
+        external_id: z.string().optional(),
+        email_address: z.array(z.string().email()).max(100).optional(),
+        phone_number: z.array(z.string()).max(100).optional(),
+        username: z.string().optional(),
+        password: z.string().min(8).optional(),
+        first_name: z.string().optional(),
+        last_name: z.string().optional(),
+        locale: z.string().optional().describe('BCP-47 locale. Example: "en-US"'),
+        skip_password_checks: z.boolean().optional(),
+        skip_password_requirement: z.boolean().optional(),
+        banned: z.boolean().optional(),
+        locked: z.boolean().optional(),
+        public_metadata: z.record(z.string(), z.unknown()).optional(),
+        private_metadata: z.record(z.string(), z.unknown()).optional(),
+        unsafe_metadata: z.record(z.string(), z.unknown()).optional()
+    })
+    .refine(
+        (value) =>
+            (value.email_address?.length ?? 0) > 0 || (value.phone_number?.length ?? 0) > 0 || value.username !== undefined || value.password !== undefined,
+        {
+            message: 'Provide at least one of email_address, phone_number, username, or password.'
+        }
+    );
 const UserSchema = z
     .object({
         id: z.string(),

@@ -37,7 +37,8 @@ const action = createAction({
     scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor === undefined ? 0 : /^\d+$/.test(input.cursor) ? Number(input.cursor) : Number.NaN;
-        if (!Number.isSafeInteger(offset) || offset < 0) throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
+        if (!Number.isSafeInteger(offset) || offset < 0)
+            throw new nango.ActionError({ type: 'invalid_cursor', message: 'Cursor must be a non-negative integer.' });
         const limit = input.limit ?? 10;
         const response = await nango.get({
             // https://clerk.com/docs/reference/backend-api/tag/Sessions#operation/GetSessionList
