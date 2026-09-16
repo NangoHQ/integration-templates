@@ -23,7 +23,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/
         await nango.delete({

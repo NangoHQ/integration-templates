@@ -169,7 +169,7 @@ const action = createAction({
             total: z.number().int().nullable().optional().describe('Total number of matching incidents. Null unless total=true was requested.')
         })
         .describe('Output from listing PagerDuty incidents.'),
-    scopes: [],
+    scopes: ['incidents.read'],
 
     exec: async (nango, input) => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
@@ -180,55 +180,72 @@ const action = createAction({
             });
         }
 
-        const params: Record<string, string | number | string[]> = {
-            limit: input.limit ?? 25,
-            offset: offset
-        };
+        // PagerDuty requires array-valued filters as repeated bracketed keys, e.g.
+        // service_ids[]=A&service_ids[]=B. ProxyConfiguration.params only accepts
+        // string | Record<string, string | number>, so array values can't be passed
+        // through the params object (the proxy would collapse them into a single
+        // comma-joined value, which PagerDuty rejects/ignores). Build the query string
+        // manually instead and pass it as a raw string.
+        const searchParams = new URLSearchParams();
+        searchParams.set('limit', String(input.limit ?? 25));
+        searchParams.set('offset', String(offset));
 
         if (input.service_ids !== undefined && input.service_ids.length > 0) {
-            params['service_ids'] = input.service_ids;
+            for (const id of input.service_ids) {
+                searchParams.append('service_ids[]', id);
+            }
         }
         if (input.team_ids !== undefined && input.team_ids.length > 0) {
-            params['team_ids'] = input.team_ids;
+            for (const id of input.team_ids) {
+                searchParams.append('team_ids[]', id);
+            }
         }
         if (input.user_ids !== undefined && input.user_ids.length > 0) {
-            params['user_ids'] = input.user_ids;
+            for (const id of input.user_ids) {
+                searchParams.append('user_ids[]', id);
+            }
         }
         if (input.statuses !== undefined && input.statuses.length > 0) {
-            params['statuses'] = input.statuses;
+            for (const status of input.statuses) {
+                searchParams.append('statuses[]', status);
+            }
         }
         if (input.urgencies !== undefined && input.urgencies.length > 0) {
-            params['urgencies'] = input.urgencies;
+            for (const urgency of input.urgencies) {
+                searchParams.append('urgencies[]', urgency);
+            }
         }
         if (input.since !== undefined) {
-            params['since'] = input.since;
+            searchParams.set('since', input.since);
         }
         if (input.until !== undefined) {
-            params['until'] = input.until;
+            searchParams.set('until', input.until);
         }
         if (input.date_range !== undefined) {
-            params['date_range'] = input.date_range;
+            searchParams.set('date_range', input.date_range);
         }
         if (input.incident_key !== undefined) {
-            params['incident_key'] = input.incident_key;
+            searchParams.set('incident_key', input.incident_key);
         }
         if (input.time_zone !== undefined) {
-            params['time_zone'] = input.time_zone;
+            searchParams.set('time_zone', input.time_zone);
         }
         if (input.sort_by !== undefined) {
-            params['sort_by'] = input.sort_by;
+            searchParams.set('sort_by', input.sort_by);
         }
         if (input.include !== undefined && input.include.length > 0) {
-            params['include'] = input.include;
+            for (const inc of input.include) {
+                searchParams.append('include[]', inc);
+            }
         }
         if (input.total !== undefined) {
-            params['total'] = input.total ? 'true' : 'false';
+            searchParams.set('total', input.total ? 'true' : 'false');
         }
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEwMg-list-incidents
             endpoint: '/incidents',
-            params: params,
+            params: searchParams.toString(),
             retries: 3
         });
 

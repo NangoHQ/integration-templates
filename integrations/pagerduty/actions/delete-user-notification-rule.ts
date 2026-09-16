@@ -17,7 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty response confirming the notification rule was deleted.'),
-    scopes: ['users:write'],
+    scopes: ['users:contact_methods.write'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D~1notification_rules~1%7Bnotification_rule_id%7D/delete

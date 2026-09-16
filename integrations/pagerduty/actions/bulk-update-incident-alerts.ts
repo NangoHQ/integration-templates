@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const AlertUpdateIncidentReferenceInputSchema = z.object({
     id: z.string().describe('The ID of the target incident to associate the alert with.'),
@@ -21,7 +21,12 @@ const InputSchema = z
             .describe('An array of alerts to update, including the parameters to change for each alert. Maximum 250 alerts per request.'),
         limit: z.number().optional().describe('The number of results per page in the response.'),
         offset: z.number().optional().describe('Offset to start pagination search results.'),
-        total: z.boolean().optional().describe('Set to true to populate the total field in the pagination response.')
+        total: z.boolean().optional().describe('Set to true to populate the total field in the pagination response.'),
+        from: z
+            .string()
+            .email()
+            .optional()
+            .describe('The email address of the user performing the update. If omitted, the current connection user email is fetched automatically.')
     })
     .describe('Input for bulk updating incident alerts.');
 
@@ -115,6 +120,24 @@ const action = createAction({
             params['total'] = input.total ? 'true' : 'false';
         }
 
+        let fromEmail = input.from;
+        if (!fromEmail) {
+            const userConfig: ProxyConfiguration = {
+                // https://developer.pagerduty.com/api-reference/e8b6f95f7030f-get-current-user
+                endpoint: '/users/me',
+                retries: 3
+            };
+            const userResponse = await nango.get(userConfig);
+            const userData = z
+                .object({
+                    user: z.object({
+                        email: z.string()
+                    })
+                })
+                .parse(userResponse.data);
+            fromEmail = userData.user.email;
+        }
+
         // https://developer.pagerduty.com/api-reference/YXBpOjI3NDgyNjQ-pager-duty-api-incident-alerts-manage-alert
         const response = await nango.put({
             endpoint: `/incidents/${encodeURIComponent(input.incident_id)}/alerts`,
@@ -123,7 +146,7 @@ const action = createAction({
                 alerts: input.alerts
             },
             headers: {
-                From: 'api@nango.dev'
+                From: fromEmail
             },
             retries: 3
         });

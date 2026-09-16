@@ -50,40 +50,55 @@ const action = createAction({
     scopes: ['incidents.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number | string[] | number[]> = {};
+        // PagerDuty requires array-valued filters as repeated bracketed keys, e.g.
+        // service_ids[]=A&service_ids[]=B. ProxyConfiguration.params only accepts
+        // string | Record<string, string | number>, so array values can't be passed
+        // through the params object (the proxy would collapse them into a single
+        // comma-joined value, which PagerDuty rejects). Build the query string manually.
+        const searchParams = new URLSearchParams();
 
         if (input.service_ids !== undefined && input.service_ids.length > 0) {
-            params['service_ids[]'] = input.service_ids;
+            for (const id of input.service_ids) {
+                searchParams.append('service_ids[]', id);
+            }
         }
         if (input.team_ids !== undefined && input.team_ids.length > 0) {
-            params['team_ids[]'] = input.team_ids;
+            for (const id of input.team_ids) {
+                searchParams.append('team_ids[]', id);
+            }
         }
         if (input.statuses !== undefined && input.statuses.length > 0) {
-            params['statuses[]'] = input.statuses;
+            for (const status of input.statuses) {
+                searchParams.append('statuses[]', status);
+            }
         }
         if (input.date_range !== undefined) {
-            params['date_range'] = input.date_range;
+            searchParams.set('date_range', input.date_range);
         }
         if (input.since !== undefined) {
-            params['since'] = input.since;
+            searchParams.set('since', input.since);
         }
         if (input.until !== undefined) {
-            params['until'] = input.until;
+            searchParams.set('until', input.until);
         }
         if (input.incident_key !== undefined) {
-            params['incident_key'] = input.incident_key;
+            searchParams.set('incident_key', input.incident_key);
         }
         if (input.user_ids !== undefined && input.user_ids.length > 0) {
-            params['user_ids[]'] = input.user_ids;
+            for (const id of input.user_ids) {
+                searchParams.append('user_ids[]', id);
+            }
         }
         if (input.urgencies !== undefined && input.urgencies.length > 0) {
-            params['urgencies[]'] = input.urgencies;
+            for (const urgency of input.urgencies) {
+                searchParams.append('urgencies[]', urgency);
+            }
         }
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/e650352f3c366-count-incidents
             endpoint: '/incidents/count',
-            params,
+            params: searchParams.toString(),
             retries: 3
         });
 

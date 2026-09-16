@@ -53,7 +53,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['users:contact_methods.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/e210330b7a2fb-get-a-user-s-contact-method

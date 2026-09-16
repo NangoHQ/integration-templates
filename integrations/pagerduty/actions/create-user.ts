@@ -52,7 +52,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['users.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/cf713fd3c3b1c-create-a-user
         const response = await nango.post({

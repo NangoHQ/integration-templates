@@ -17,7 +17,7 @@ const ProviderTeamSchema = z.object({
     html_url: z.string().optional(),
     name: z.string(),
     description: z.string().nullable().optional(),
-    default_role: z.string().optional(),
+    default_role: z.string().nullable().optional(),
     parent: z
         .object({
             id: z.string(),
@@ -68,7 +68,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['teams'],
+    scopes: ['teams.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -91,7 +91,7 @@ const action = createAction({
             id: providerTeam.id,
             name: providerTeam.name,
             ...(providerTeam.description != null && { description: providerTeam.description }),
-            ...(providerTeam.default_role !== undefined && { default_role: providerTeam.default_role }),
+            ...(providerTeam.default_role != null && { default_role: providerTeam.default_role }),
             ...(providerTeam.type !== undefined && { type: providerTeam.type }),
             ...(providerTeam.summary !== undefined && { summary: providerTeam.summary }),
             ...(providerTeam.self !== undefined && { self: providerTeam.self }),

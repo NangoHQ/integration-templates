@@ -309,6 +309,11 @@ const sync = createSync({
             const proxyConfig: ProxyConfiguration = {
                 // https://developer.pagerduty.com/api-reference/
                 endpoint: '/incidents',
+                params: {
+                    // Without this, PagerDuty defaults `since`/`until` to the last month and
+                    // silently omits older incidents, which would make trackDeletesEnd() delete them.
+                    date_range: 'all'
+                },
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'offset',
@@ -334,41 +339,51 @@ const sync = createSync({
                 since: syncStartTime,
                 last_full_refresh_at: syncStartTime
             });
-
         } else {
             if (!present(checkpoint)) {
                 throw new Error('Checkpoint unexpectedly null during incremental sync');
             }
 
             const since = checkpoint['since'];
-            const params: Record<string, string> = {
-                until: syncStartTime
-            };
-            if (present(since)) {
-                params['since'] = since;
-            }
 
-            const proxyConfig: ProxyConfiguration = {
+            // PagerDuty's /incidents `since`/`until` filters incidents by created_at, so an
+            // incident created before the window that was later acknowledged or resolved would
+            // never be re-fetched. /log_entries instead filters by when the *event* happened, and
+            // include[]=incidents embeds the incident's current state on each entry, so it is used
+            // here as the changed-record source for incremental runs.
+            const logEntryProxyConfig: ProxyConfiguration = {
                 // https://developer.pagerduty.com/api-reference/
-                endpoint: '/incidents',
-                params: params,
+                endpoint: '/log_entries',
+                params: {
+                    since,
+                    until: syncStartTime,
+                    'include[]': 'incidents'
+                },
                 paginate: {
                     type: 'offset',
                     offset_name_in_request: 'offset',
                     limit_name_in_request: 'limit',
-                    response_path: 'incidents',
+                    response_path: 'log_entries',
                     limit: 100
                 },
                 retries: 3
             };
 
-            for await (const page of nango.paginate(proxyConfig)) {
-                const parsedPage = z.array(ProviderIncidentSchema).parse(page);
-                const incidents = parsedPage.map(mapProviderIncident);
+            const changedIncidents = new Map<string, z.infer<typeof ProviderIncidentSchema>>();
 
-                if (incidents.length > 0) {
-                    await nango.batchSave(incidents, 'Incident');
+            for await (const page of nango.paginate(logEntryProxyConfig)) {
+                const parsedPage = z.array(z.object({ incident: ProviderIncidentSchema.nullish() })).parse(page);
+
+                for (const entry of parsedPage) {
+                    if (present(entry.incident)) {
+                        changedIncidents.set(entry.incident.id, entry.incident);
+                    }
                 }
+            }
+
+            if (changedIncidents.size > 0) {
+                const incidents = Array.from(changedIncidents.values()).map(mapProviderIncident);
+                await nango.batchSave(incidents, 'Incident');
             }
 
             await nango.saveCheckpoint({

@@ -96,7 +96,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: ['incidents.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;

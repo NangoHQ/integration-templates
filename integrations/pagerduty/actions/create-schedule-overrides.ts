@@ -49,7 +49,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['schedules.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/36d6ebb690805-create-overrides-request
         const response = await nango.post({

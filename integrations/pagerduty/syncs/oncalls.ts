@@ -10,7 +10,8 @@ const ProviderReferenceSchema = z.object({
 });
 
 const ProviderOnCallSchema = z.object({
-    user: ProviderReferenceSchema,
+    // PagerDuty's Oncall schema does not mark any field as required, and in practice `user` can be omitted/null.
+    user: ProviderReferenceSchema.nullable().optional(),
     escalation_policy: ProviderReferenceSchema.nullable().optional(),
     escalation_level: z.number().int().nullable().optional(),
     schedule: ProviderReferenceSchema.nullable().optional(),
@@ -77,35 +78,43 @@ const sync = createSync({
         };
 
         for await (const page of nango.paginate(proxyConfig)) {
-            const oncalls = page.map((record: unknown) => {
-                const parsed = ProviderOnCallSchema.safeParse(record);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse on-call record: ${parsed.error.message}`);
-                }
+            const oncalls = page
+                .map((record: unknown) => {
+                    const parsed = ProviderOnCallSchema.safeParse(record);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse on-call record: ${parsed.error.message}`);
+                    }
 
-                const data = parsed.data;
-                const user = data.user;
-                const ep = data.escalation_policy;
-                const schedule = data.schedule;
+                    const data = parsed.data;
+                    const user = data.user;
+                    const ep = data.escalation_policy;
+                    const schedule = data.schedule;
 
-                const id = [user.id, ep?.id ?? 'no-ep', schedule?.id ?? 'no-schedule', data.start, data.end].join(':');
+                    // The OnCall model requires user_id; an entry with no user on-call cannot be represented and
+                    // would crash on `user.id` below, so it is skipped rather than emitted or force-parsed.
+                    if (user == null) {
+                        return undefined;
+                    }
 
-                return {
-                    id,
-                    user_id: user.id,
-                    ...(user.summary !== undefined && { user_summary: user.summary }),
-                    ...(ep?.id !== undefined && { escalation_policy_id: ep.id }),
-                    ...(ep?.summary !== undefined && { escalation_policy_summary: ep.summary }),
-                    ...(data.escalation_level !== null &&
-                        data.escalation_level !== undefined && {
-                            escalation_level: data.escalation_level
-                        }),
-                    ...(schedule?.id !== undefined && { schedule_id: schedule.id }),
-                    ...(schedule?.summary !== undefined && { schedule_summary: schedule.summary }),
-                    ...(data.start !== null && { start: data.start }),
-                    ...(data.end !== null && { end: data.end })
-                };
-            });
+                    const id = [user.id, ep?.id ?? 'no-ep', schedule?.id ?? 'no-schedule', data.start, data.end].join(':');
+
+                    return {
+                        id,
+                        user_id: user.id,
+                        ...(user.summary !== undefined && { user_summary: user.summary }),
+                        ...(ep?.id !== undefined && { escalation_policy_id: ep.id }),
+                        ...(ep?.summary !== undefined && { escalation_policy_summary: ep.summary }),
+                        ...(data.escalation_level !== null &&
+                            data.escalation_level !== undefined && {
+                                escalation_level: data.escalation_level
+                            }),
+                        ...(schedule?.id !== undefined && { schedule_id: schedule.id }),
+                        ...(schedule?.summary !== undefined && { schedule_summary: schedule.summary }),
+                        ...(data.start !== null && { start: data.start }),
+                        ...(data.end !== null && { end: data.end })
+                    };
+                })
+                .filter((oncall): oncall is NonNullable<typeof oncall> => oncall !== undefined);
 
             if (oncalls.length > 0) {
                 await nango.batchSave(oncalls, 'OnCall');

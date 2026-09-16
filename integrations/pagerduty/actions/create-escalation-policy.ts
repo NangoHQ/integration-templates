@@ -72,7 +72,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['escalation_policies.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.pagerduty.com/api-reference/7b1d83b7f17e9-create-an-escalation-policy

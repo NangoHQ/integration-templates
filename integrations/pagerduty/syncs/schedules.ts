@@ -14,7 +14,10 @@ const ScheduleLayerUserSchema = z
 const ScheduleLayerSchema = z
     .object({
         id: z.string().describe('The unique identifier of the schedule layer'),
-        type: z.string().describe('The type of the schedule layer object'),
+        // PagerDuty's ScheduleLayer object does not include a `type` field (confirmed against the live API and the
+        // official OpenAPI spec), so this must stay optional or every layer fails to parse once schedule_layers is
+        // actually populated (see the `include[]=schedule_layers` param added below).
+        type: z.string().optional().describe('The type of the schedule layer object, if present.'),
         start: z.string().describe('The start date and time of the schedule layer in ISO 8601 format'),
         end: z.string().nullable().optional().describe('The end date and time of the schedule layer, null if ongoing'),
         rotation_virtual_start: z.string().describe('The effective start date and time of the rotation for this layer'),
@@ -97,6 +100,9 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules/get
             endpoint: '/schedules',
+            // Without this, PagerDuty returns base schedules only, omitting schedule_layers (and thus the assigned
+            // users) that this sync promises to sync.
+            params: { 'include[]': 'schedule_layers' },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',

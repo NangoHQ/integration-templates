@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
@@ -10,7 +10,11 @@ const InputSchema = z
             .min(1)
             .max(604800)
             .describe('The number of seconds to snooze the incident for. After this period the incident will return to the triggered state.'),
-        from: z.string().email().optional().describe('The email address of the user performing the snooze action. Defaults to api@nango.dev if omitted.')
+        from: z
+            .string()
+            .email()
+            .optional()
+            .describe('The email address of the user performing the snooze action. If omitted, the current connection user email is fetched automatically.')
     })
     .describe('Input for snoozing a PagerDuty incident.');
 
@@ -49,6 +53,24 @@ const action = createAction({
     scopes: ['incidents.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let fromEmail = input.from;
+        if (!fromEmail) {
+            const userConfig: ProxyConfiguration = {
+                // https://developer.pagerduty.com/api-reference/e8b6f95f7030f-get-current-user
+                endpoint: '/users/me',
+                retries: 3
+            };
+            const userResponse = await nango.get(userConfig);
+            const userData = z
+                .object({
+                    user: z.object({
+                        email: z.string()
+                    })
+                })
+                .parse(userResponse.data);
+            fromEmail = userData.user.email;
+        }
+
         // https://developer.pagerduty.com/api-reference/4c0934f83db89-snooze-an-incident
         const response = await nango.post({
             endpoint: `/incidents/${encodeURIComponent(input.incident_id)}/snooze`,
@@ -56,7 +78,7 @@ const action = createAction({
                 duration: input.duration
             },
             headers: {
-                From: input.from ?? 'api@nango.dev'
+                From: fromEmail
             },
             retries: 3
         });

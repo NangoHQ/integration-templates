@@ -21,25 +21,25 @@ const InputSchema = z
 const ProviderServiceReferenceSchema = z.object({
     id: z.string(),
     type: z.string().optional(),
-    summary: z.string().optional(),
-    self: z.string().optional(),
-    html_url: z.string().optional()
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
 });
 
 const ProviderUserReferenceSchema = z.object({
     id: z.string(),
     type: z.string().optional(),
-    summary: z.string().optional(),
-    self: z.string().optional(),
-    html_url: z.string().optional()
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
 });
 
 const ProviderTeamReferenceSchema = z.object({
     id: z.string(),
     type: z.string().optional(),
-    summary: z.string().optional(),
-    self: z.string().optional(),
-    html_url: z.string().optional()
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
 });
 
 const ProviderMaintenanceWindowSchema = z.object({
@@ -101,7 +101,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.pagerduty.com/api-reference/a450bc9b9ea6f-create-a-maintenance-window
@@ -139,18 +139,18 @@ const action = createAction({
             ...(providerMw.description != null && { description: providerMw.description }),
             services: providerMw.services.map((s) => ({
                 id: s.id,
-                ...(s.summary !== undefined && { summary: s.summary })
+                ...(s.summary != null && { summary: s.summary })
             })),
             ...(providerMw.created_by !== undefined && {
                 created_by: {
                     id: providerMw.created_by.id,
-                    ...(providerMw.created_by.summary !== undefined && { summary: providerMw.created_by.summary })
+                    ...(providerMw.created_by.summary != null && { summary: providerMw.created_by.summary })
                 }
             }),
             ...(providerMw.teams !== undefined && {
                 teams: providerMw.teams.map((t) => ({
                     id: t.id,
-                    ...(t.summary !== undefined && { summary: t.summary })
+                    ...(t.summary != null && { summary: t.summary })
                 }))
             })
         };

@@ -10,9 +10,9 @@ const InputSchema = z
 const TagSchema = z.object({
     id: z.string().describe('The unique identifier of the tag.'),
     type: z.string().describe('The type of object. Always "tag" for tags.'),
-    summary: z.string().nullable().describe('A short-form, server-generated string that provides succinct information about the tag.'),
-    self: z.string().nullable().describe('The API show URL at which the object is accessible.'),
-    html_url: z.string().nullable().describe('A URL at which the entity is uniquely displayed in the PagerDuty web app.'),
+    summary: z.string().nullable().optional().describe('A short-form, server-generated string that provides succinct information about the tag.'),
+    self: z.string().nullable().optional().describe('The API show URL at which the object is accessible.'),
+    html_url: z.string().nullable().optional().describe('A URL at which the entity is uniquely displayed in the PagerDuty web app.'),
     label: z.string().describe('The label of the tag.')
 });
 

@@ -4,7 +4,13 @@ import { createAction } from 'nango';
 const ListTeamMembersInputSchema = z
     .object({
         team_id: z.string().describe('The unique identifier of the team. Example: "PRVALT5"'),
-        limit: z.number().optional().describe('Maximum number of members to return per page. Defaults to the provider limit.'),
+        limit: z
+            .number()
+            .int()
+            .min(1)
+            .max(100)
+            .optional()
+            .describe('Maximum number of members to return per page. Defaults to the provider limit. Must be between 1 and 100.'),
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input to list the members of a PagerDuty team.');
@@ -52,13 +58,14 @@ const action = createAction({
     scopes: ['teams.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListTeamMembersOutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (input.cursor && isNaN(offset)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a numeric offset string.'
+                message: 'cursor must be a non-negative integer offset string.'
             });
         }
+
+        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/

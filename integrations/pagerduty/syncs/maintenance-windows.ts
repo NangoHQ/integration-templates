@@ -21,9 +21,9 @@ const ProviderMaintenanceWindowSchema = z.object({
     start_time: z.string(),
     end_time: z.string(),
     description: z.string().nullable().optional(),
-    created_by: ProviderReferenceSchema.optional(),
-    services: z.array(ProviderReferenceSchema).optional(),
-    teams: z.array(ProviderReferenceSchema).optional()
+    created_by: ProviderReferenceSchema.nullable().optional(),
+    services: z.array(ProviderReferenceSchema).nullable().optional(),
+    teams: z.array(ProviderReferenceSchema).nullable().optional()
 });
 
 // --- Public model schemas (every root and field needs .describe) ---

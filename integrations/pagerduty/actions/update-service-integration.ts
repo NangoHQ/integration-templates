@@ -41,17 +41,17 @@ const InputSchema = z
 const ServiceReferenceSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string(),
-    self: z.string(),
-    html_url: z.string().nullable()
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
 });
 
 const VendorReferenceSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string(),
-    self: z.string(),
-    html_url: z.string().nullable()
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
 });
 
 const ProviderResponseSchema = z.object({
@@ -59,13 +59,13 @@ const ProviderResponseSchema = z.object({
         id: z.string(),
         type: z.string(),
         summary: z.string(),
-        self: z.string(),
-        html_url: z.string().nullable(),
+        self: z.string().nullable().optional(),
+        html_url: z.string().nullable().optional(),
         name: z.string(),
         service: ServiceReferenceSchema,
         created_at: z.string(),
         vendor: VendorReferenceSchema.nullable().optional(),
-        integration_key: z.string(),
+        integration_key: z.string().nullable().optional(),
         integration_email: z.string().optional(),
         email_incident_creation: z.string().optional(),
         email_filter_mode: z.string().optional(),
@@ -80,15 +80,15 @@ const OutputSchema = z
         type: z.string().describe('The integration type.'),
         name: z.string().describe('The name of the integration.'),
         summary: z.string().describe('A short summary of the integration.'),
-        self: z.string().describe('The API URL of the integration.'),
-        html_url: z.string().nullable().describe('The PagerDuty web URL of the integration.'),
+        self: z.string().optional().describe('The API URL of the integration.'),
+        html_url: z.string().optional().describe('The PagerDuty web URL of the integration.'),
         service: z
             .object({
                 id: z.string().describe('The ID of the parent service.'),
                 type: z.string().describe('The type of the parent service reference.'),
-                summary: z.string().describe('A short summary of the parent service.'),
-                self: z.string().describe('The API URL of the parent service.'),
-                html_url: z.string().nullable().describe('The PagerDuty web URL of the parent service.')
+                summary: z.string().optional().describe('A short summary of the parent service.'),
+                self: z.string().optional().describe('The API URL of the parent service.'),
+                html_url: z.string().optional().describe('The PagerDuty web URL of the parent service.')
             })
             .describe('The service this integration belongs to.'),
         created_at: z.string().describe('The date/time when this integration was created.'),
@@ -96,14 +96,13 @@ const OutputSchema = z
             .object({
                 id: z.string().describe('The ID of the vendor.'),
                 type: z.string().describe('The type of the vendor reference.'),
-                summary: z.string().describe('A short summary of the vendor.'),
-                self: z.string().describe('The API URL of the vendor.'),
-                html_url: z.string().nullable().describe('The PagerDuty web URL of the vendor.')
+                summary: z.string().optional().describe('A short summary of the vendor.'),
+                self: z.string().optional().describe('The API URL of the vendor.'),
+                html_url: z.string().optional().describe('The PagerDuty web URL of the vendor.')
             })
-            .nullable()
             .optional()
             .describe('The vendor associated with this integration.'),
-        integration_key: z.string().describe('The unique key used to send events to this integration.'),
+        integration_key: z.string().optional().describe('The unique key used to send events to this integration. Absent for integrations such as email that do not use a key.'),
         integration_email: z.string().optional().describe('The email address for generic email inbound integrations.'),
         email_incident_creation: z.string().optional().describe('How incidents should be created from incoming emails.'),
         email_filter_mode: z.string().optional().describe('The filter mode for incoming emails.'),
@@ -153,26 +152,26 @@ const action = createAction({
             type: integration.type,
             name: integration.name,
             summary: integration.summary,
-            self: integration.self,
-            html_url: integration.html_url,
+            ...(integration.self != null && { self: integration.self }),
+            ...(integration.html_url != null && { html_url: integration.html_url }),
             service: {
                 id: integration.service.id,
                 type: integration.service.type,
-                summary: integration.service.summary,
-                self: integration.service.self,
-                html_url: integration.service.html_url
+                ...(integration.service.summary != null && { summary: integration.service.summary }),
+                ...(integration.service.self != null && { self: integration.service.self }),
+                ...(integration.service.html_url != null && { html_url: integration.service.html_url })
             },
             created_at: integration.created_at,
-            vendor: integration.vendor
-                ? {
-                      id: integration.vendor.id,
-                      type: integration.vendor.type,
-                      summary: integration.vendor.summary,
-                      self: integration.vendor.self,
-                      html_url: integration.vendor.html_url
-                  }
-                : undefined,
-            integration_key: integration.integration_key,
+            ...(integration.vendor != null && {
+                vendor: {
+                    id: integration.vendor.id,
+                    type: integration.vendor.type,
+                    ...(integration.vendor.summary != null && { summary: integration.vendor.summary }),
+                    ...(integration.vendor.self != null && { self: integration.vendor.self }),
+                    ...(integration.vendor.html_url != null && { html_url: integration.vendor.html_url })
+                }
+            }),
+            ...(integration.integration_key != null && { integration_key: integration.integration_key }),
             ...(integration.integration_email !== undefined && { integration_email: integration.integration_email }),
             ...(integration.email_incident_creation !== undefined && { email_incident_creation: integration.email_incident_creation }),
             ...(integration.email_filter_mode !== undefined && { email_filter_mode: integration.email_filter_mode }),

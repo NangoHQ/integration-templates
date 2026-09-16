@@ -11,17 +11,17 @@ const InputSchema = z
 const ProviderContactMethodSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string().optional()
+    summary: z.string().nullable().optional()
 });
 
 const ProviderNotificationRuleSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string().optional(),
+    summary: z.string().nullable().optional(),
     start_delay_in_minutes: z.number(),
     contact_method: ProviderContactMethodSchema,
     urgency: z.string().optional(),
-    self: z.string().optional(),
+    self: z.string().nullable().optional(),
     html_url: z.string().nullable().optional()
 });
 
@@ -53,7 +53,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: ['users:contact_methods.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D~1notification_rules~1%7Bnotification_rule_id%7D/get
@@ -84,15 +84,15 @@ const action = createAction({
         return {
             id: providerRule.id,
             type: providerRule.type,
-            ...(providerRule.summary !== undefined && { summary: providerRule.summary }),
+            ...(providerRule.summary != null && { summary: providerRule.summary }),
             start_delay_in_minutes: providerRule.start_delay_in_minutes,
             contact_method: {
                 id: providerRule.contact_method.id,
                 type: providerRule.contact_method.type,
-                ...(providerRule.contact_method.summary !== undefined && { summary: providerRule.contact_method.summary })
+                ...(providerRule.contact_method.summary != null && { summary: providerRule.contact_method.summary })
             },
             ...(providerRule.urgency !== undefined && { urgency: providerRule.urgency }),
-            ...(providerRule.self !== undefined && { self: providerRule.self }),
+            ...(providerRule.self != null && { self: providerRule.self }),
             ...(providerRule.html_url !== undefined && providerRule.html_url !== null && { html_url: providerRule.html_url })
         };
     }

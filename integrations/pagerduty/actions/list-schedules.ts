@@ -15,7 +15,7 @@ const InputSchema = z
         since: z.string().optional().describe('Start of the date range over which to show schedule entries. ISO 8601 format.'),
         until: z.string().optional().describe('End of the date range over which to show schedule entries. ISO 8601 format.'),
         team_ids: z.array(z.string()).optional().describe('Array of team IDs to filter schedules by team membership.'),
-        limit: z.number().optional().describe('Number of results per page. Defaults to 25.'),
+        limit: z.number().int().min(1).max(100).optional().describe('Number of results per page. Defaults to 25. Must be between 1 and 100.'),
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
         total: z.boolean().optional().describe('If true, the total count of results will be included in the response.')
     })
@@ -67,6 +67,13 @@ const action = createAction({
     scopes: ['schedules.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
+
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
         const limit = input.limit ?? DEFAULT_LIMIT;
 

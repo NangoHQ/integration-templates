@@ -44,7 +44,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['vendors.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/1ef4016b11d99-get-a-vendor

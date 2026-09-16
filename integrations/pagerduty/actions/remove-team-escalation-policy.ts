@@ -20,7 +20,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: ['teams.write'],
 
     exec: async (nango, input) => {
         // https://developer.pagerduty.com/api-reference/e65eafb4e8c5f-remove-team-escalation-policy

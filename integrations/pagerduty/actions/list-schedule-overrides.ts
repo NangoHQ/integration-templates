@@ -24,9 +24,11 @@ const UserReferenceSchema = z.object({
 
 const OverrideSchema = z.object({
     id: z.string().describe('The unique identifier of the override.'),
-    start: z.string().describe('The start date and time of the override in ISO 8601 format.'),
-    end: z.string().describe('The end date and time of the override in ISO 8601 format.'),
-    user: UserReferenceSchema.describe('The user who is on-call during this override.'),
+    // When editable=true is passed, PagerDuty returns a leaner shape containing only `id` for each override,
+    // so start/end/user must be optional to avoid rejecting every result in that mode.
+    start: z.string().optional().describe('The start date and time of the override in ISO 8601 format. Omitted when editable=true is requested.'),
+    end: z.string().optional().describe('The end date and time of the override in ISO 8601 format. Omitted when editable=true is requested.'),
+    user: UserReferenceSchema.optional().describe('The user who is on-call during this override. Omitted when editable=true is requested.'),
     summary: z.string().optional().describe('A short summary or display name of the override.'),
     type: z.string().optional().describe('The type of the override object.'),
     self: z.string().optional().describe('The API URL of the override resource.'),

@@ -179,9 +179,20 @@ const sync = createSync({
         // from the saved offset after an interrupted run.
         await nango.trackDeletesStart('Service');
 
+        // ProxyConfiguration.params only accepts a string or Record<string, string | number> -
+        // arrays are not a valid param value even though PagerDuty expects repeated
+        // include[]=... query entries. offset-type pagination also mutates `params` in place
+        // on every page to inject offset/limit, which requires `params` to stay a plain object,
+        // so the two include[] values are appended to the endpoint's query string directly
+        // (constant across pages) to embed the escalation-policy and integration details this
+        // sync's description promises, leaving `params` free for the paginator's own offset/limit.
+        const includeParams = new URLSearchParams();
+        includeParams.append('include[]', 'escalation_policies');
+        includeParams.append('include[]', 'integrations');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.pagerduty.com/api-reference/
-            endpoint: '/services',
+            endpoint: `/services?${includeParams.toString()}`,
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',

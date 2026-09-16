@@ -107,7 +107,11 @@ const sync = createSync({
             retries: 3
         };
 
-        await nango.trackDeletesStart('BusinessService');
+        // Only open the delete-tracking window once a page has actually been fetched and
+        // validated. Calling trackDeletesStart unconditionally before the request means a
+        // request or validation failure on the very first page throws before
+        // trackDeletesEnd ever runs, leaving the window open with nothing saved.
+        let deletesTracked = false;
 
         for await (const page of nango.paginate(proxyConfig)) {
             const services = [];
@@ -120,6 +124,11 @@ const sync = createSync({
                 services.push(mapBusinessService(parsed.data));
             }
 
+            if (!deletesTracked) {
+                await nango.trackDeletesStart('BusinessService');
+                deletesTracked = true;
+            }
+
             if (services.length > 0) {
                 await nango.batchSave(services, 'BusinessService');
             }
@@ -130,7 +139,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('BusinessService');
+        if (deletesTracked) {
+            await nango.trackDeletesEnd('BusinessService');
+        }
     }
 });
 

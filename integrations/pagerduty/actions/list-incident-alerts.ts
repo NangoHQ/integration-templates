@@ -53,6 +53,68 @@ const AlertSchema = z.object({
         .describe('A JSON object containing data describing the alert.')
 });
 
+// PagerDuty can legitimately send explicit `null` (not just omit the field) for
+// optional/reference fields such as service, first_trigger_log_entry, incident,
+// integration, body, suppressed, and severity. AlertSchema above only allows
+// `undefined` for these (via `.optional()`), so parsing directly against it throws
+// on a `null`. Parse against this nullable "provider" schema first, then normalize
+// nulls into the strict output shape below. Mirrors the pattern in get-incident-alert.ts.
+const ProviderReferenceSchema = z
+    .object({
+        id: z.string(),
+        type: z.string(),
+        summary: z.string().nullish(),
+        self: z.string().nullish(),
+        html_url: z.string().nullish()
+    })
+    .passthrough();
+
+const ProviderAlertSchema = z
+    .object({
+        id: z.string(),
+        type: z.string(),
+        summary: z.string().nullish(),
+        self: z.string().nullish(),
+        html_url: z.string().nullish(),
+        created_at: z.string(),
+        status: z.enum(['triggered', 'resolved']),
+        alert_key: z.string(),
+        service: ProviderReferenceSchema.nullish(),
+        first_trigger_log_entry: ProviderReferenceSchema.nullish(),
+        incident: ProviderReferenceSchema.nullish(),
+        suppressed: z.boolean().nullish(),
+        severity: z.enum(['info', 'warning', 'error', 'critical']).nullish(),
+        integration: ProviderReferenceSchema.nullish(),
+        body: z
+            .object({
+                type: z.string().nullish(),
+                contexts: z.array(z.unknown()).nullish(),
+                details: z.unknown().nullish()
+            })
+            .nullish()
+    })
+    .passthrough();
+
+function stripNulls(value: unknown): unknown {
+    if (value === null) {
+        return undefined;
+    }
+    if (Array.isArray(value)) {
+        return value.map(stripNulls).filter((v): v is unknown => v !== undefined);
+    }
+    if (typeof value === 'object' && value !== undefined) {
+        const result: Record<string, unknown> = {};
+        for (const [key, val] of Object.entries(value)) {
+            const stripped = stripNulls(val);
+            if (stripped !== undefined) {
+                result[key] = stripped;
+            }
+        }
+        return result;
+    }
+    return value;
+}
+
 const OutputSchema = z
     .object({
         alerts: z.array(AlertSchema).describe('The list of alerts attached to the incident.'),
@@ -85,18 +147,40 @@ const action = createAction({
             });
         }
 
+        // PagerDuty requires array-valued filters as repeated bracketed keys, e.g.
+        // statuses[]=triggered&statuses[]=resolved. ProxyConfiguration.params only accepts
+        // string | Record<string, string | number>, so array values can't be passed through
+        // the params object directly (the proxy would collapse them into a single
+        // comma-joined value, which PagerDuty rejects). Build the query string manually.
+        const searchParams = new URLSearchParams();
+        if (input.limit !== undefined) {
+            searchParams.set('limit', String(input.limit));
+        }
+        searchParams.set('offset', String(offset));
+        if (input.total !== undefined) {
+            searchParams.set('total', String(input.total));
+        }
+        if (input.statuses !== undefined && input.statuses.length > 0) {
+            for (const status of input.statuses) {
+                searchParams.append('statuses[]', status);
+            }
+        }
+        if (input.alert_key !== undefined) {
+            searchParams.set('alert_key', input.alert_key);
+        }
+        if (input.include !== undefined && input.include.length > 0) {
+            for (const inc of input.include) {
+                searchParams.append('include[]', inc);
+            }
+        }
+        if (input.sort_by !== undefined) {
+            searchParams.set('sort_by', input.sort_by);
+        }
+
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/7e2620d8f92e6-list-alerts-for-an-incident
             endpoint: `/incidents/${encodeURIComponent(input.incident_id)}/alerts`,
-            params: {
-                ...(input.limit !== undefined && { limit: input.limit }),
-                offset,
-                ...(input.total !== undefined && { total: String(input.total) }),
-                ...(input.statuses !== undefined && input.statuses.length > 0 && { 'statuses[]': input.statuses }),
-                ...(input.alert_key !== undefined && { alert_key: input.alert_key }),
-                ...(input.include !== undefined && input.include.length > 0 && { 'include[]': input.include }),
-                ...(input.sort_by !== undefined && { sort_by: input.sort_by })
-            },
+            params: searchParams.toString(),
             retries: 3
         });
 
@@ -109,7 +193,11 @@ const action = createAction({
         });
 
         const parsed = ListResponseSchema.parse(response.data);
-        const alerts = parsed.alerts.map((alert: unknown) => AlertSchema.parse(alert));
+        const alerts = parsed.alerts.map((alert: unknown) => {
+            const providerAlert = ProviderAlertSchema.parse(alert);
+            const stripped = stripNulls(providerAlert);
+            return AlertSchema.parse(stripped);
+        });
 
         return {
             alerts,

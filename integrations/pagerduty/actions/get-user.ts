@@ -67,14 +67,18 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['users.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const includeParams = buildIncludeParams(input.include);
+
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1users~1%7Bid%7D/get
             endpoint: `/users/${encodeURIComponent(input.id)}`,
-            params: {
-                ...(input.include !== undefined && input.include.length > 0 && { include: input.include })
-            },
+            // PagerDuty requires repeated `include[]=` entries for multi-value includes; a plain
+            // `include=` (or a comma-joined value) is rejected with "Include must be a Array."
+            // params only supports string | Record<string, string | number>, so an array value
+            // cannot be passed directly and the query string must be built manually.
+            ...(includeParams !== undefined && { params: includeParams }),
             retries: 3
         });
 
@@ -104,6 +108,24 @@ const action = createAction({
         };
     }
 });
+
+/**
+ * Builds a query string for the `include` filter using the repeated `include[]=` form
+ * PagerDuty requires for array-valued query params. `ProxyConfiguration.params` is typed
+ * `string | Record<string, string | number>`, so an array cannot be passed as a param value;
+ * a plain `include=` key (or a comma-joined value) is rejected by PagerDuty with
+ * "Include must be a Array."
+ */
+function buildIncludeParams(include: string[] | undefined): string | undefined {
+    if (include === undefined || include.length === 0) {
+        return undefined;
+    }
+    const qs = new URLSearchParams();
+    for (const value of include) {
+        qs.append('include[]', value);
+    }
+    return qs.toString();
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

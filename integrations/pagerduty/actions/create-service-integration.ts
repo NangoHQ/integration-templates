@@ -32,7 +32,7 @@ const ProviderIntegrationSchema = z.object({
     html_url: z.string().optional(),
     service: ProviderServiceRefSchema,
     created_at: z.string().optional(),
-    vendor: ProviderVendorRefSchema.optional(),
+    vendor: ProviderVendorRefSchema.nullable().optional(),
     integration_key: z.string().optional(),
     integration_email: z.string().optional()
 });
@@ -98,7 +98,7 @@ const action = createAction({
             ...(integration.summary !== undefined && { summary: integration.summary }),
             ...(integration.html_url !== undefined && { html_url: integration.html_url }),
             ...(integration.created_at !== undefined && { created_at: integration.created_at }),
-            ...(integration.vendor !== undefined && { vendor_id: integration.vendor.id }),
+            ...(integration.vendor != null && { vendor_id: integration.vendor.id }),
             ...(integration.integration_key !== undefined && { integration_key: integration.integration_key }),
             ...(integration.integration_email !== undefined && { integration_email: integration.integration_email })
         };

@@ -23,7 +23,7 @@ const ProviderTeamSchema = z.object({
     html_url: z.string().optional(),
     name: z.string(),
     description: z.string().nullable().optional(),
-    default_role: z.string().optional(),
+    default_role: z.string().nullable().optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
 });
@@ -52,7 +52,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['teams.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
             // https://developer.pagerduty.com/api-reference/b3A6Mjc0ODEzMg-update-a-team
@@ -78,7 +78,7 @@ const action = createAction({
             ...(providerTeam.html_url !== undefined && { html_url: providerTeam.html_url }),
             name: providerTeam.name,
             ...(providerTeam.description != null && { description: providerTeam.description }),
-            ...(providerTeam.default_role !== undefined && { default_role: providerTeam.default_role }),
+            ...(providerTeam.default_role != null && { default_role: providerTeam.default_role }),
             ...(providerTeam.created_at !== undefined && { created_at: providerTeam.created_at }),
             ...(providerTeam.updated_at !== undefined && { updated_at: providerTeam.updated_at })
         };

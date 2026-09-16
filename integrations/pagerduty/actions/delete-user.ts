@@ -17,7 +17,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty response indicating the user was deleted successfully.'),
-
+    scopes: ['users.write'],
     exec: async (nango, input): Promise<null> => {
         const response = await nango.delete({
             // https://developer.pagerduty.com/api-reference/

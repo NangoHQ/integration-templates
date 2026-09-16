@@ -127,7 +127,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['schedules.write'],
+    scopes: ['schedules.read', 'schedules.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/f245f13fbd6e2-get-a-schedule

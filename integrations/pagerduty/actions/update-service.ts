@@ -15,6 +15,18 @@ const ProviderIntegrationSchema = z.object({
     html_url: z.string().optional()
 });
 
+const ProviderIncidentUrgencyLeafSchema = z.object({
+    type: z.string(),
+    urgency: z.string().optional()
+});
+
+const ProviderIncidentUrgencyRuleSchema = z.object({
+    type: z.string(),
+    urgency: z.string().optional(),
+    during_support_hours: ProviderIncidentUrgencyLeafSchema.optional(),
+    outside_support_hours: ProviderIncidentUrgencyLeafSchema.optional()
+});
+
 const ProviderServiceSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -24,7 +36,7 @@ const ProviderServiceSchema = z.object({
     updated_at: z.string(),
     html_url: z.string(),
     escalation_policy: ProviderEscalationPolicySchema,
-    incident_urgency_rule: z.object({ type: z.string(), urgency: z.string() }).optional(),
+    incident_urgency_rule: ProviderIncidentUrgencyRuleSchema.nullable().optional(),
     acknowledgement_timeout: z.number().nullable().optional(),
     auto_resolve_timeout: z.number().nullable().optional(),
     alert_creation: z.string().optional(),
@@ -87,8 +99,22 @@ const OutputSchema = z
             .describe('The escalation policy assigned to this service.'),
         incident_urgency_rule: z
             .object({
-                type: z.string().describe('The type of incident urgency rule.'),
-                urgency: z.string().describe('The urgency level.')
+                type: z.string().describe('The type of incident urgency rule, e.g. "constant" or "use_support_hours".'),
+                urgency: z.string().optional().describe('The urgency level, present when type is "constant".'),
+                during_support_hours: z
+                    .object({
+                        type: z.string().describe('The urgency rule type applied during support hours.'),
+                        urgency: z.string().optional().describe('The urgency level applied during support hours.')
+                    })
+                    .optional()
+                    .describe('The urgency rule applied during support hours, present when type is "use_support_hours".'),
+                outside_support_hours: z
+                    .object({
+                        type: z.string().describe('The urgency rule type applied outside support hours.'),
+                        urgency: z.string().optional().describe('The urgency level applied outside support hours.')
+                    })
+                    .optional()
+                    .describe('The urgency rule applied outside support hours, present when type is "use_support_hours".')
             })
             .optional()
             .describe('The incident urgency rule configuration.'),
@@ -145,7 +171,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {
             type: 'service'
@@ -204,7 +230,16 @@ const action = createAction({
                 ...(providerService.escalation_policy.summary != null && { summary: providerService.escalation_policy.summary })
             },
             ...(providerService.incident_urgency_rule != null && {
-                incident_urgency_rule: providerService.incident_urgency_rule
+                incident_urgency_rule: {
+                    type: providerService.incident_urgency_rule.type,
+                    ...(providerService.incident_urgency_rule.urgency != null && { urgency: providerService.incident_urgency_rule.urgency }),
+                    ...(providerService.incident_urgency_rule.during_support_hours != null && {
+                        during_support_hours: providerService.incident_urgency_rule.during_support_hours
+                    }),
+                    ...(providerService.incident_urgency_rule.outside_support_hours != null && {
+                        outside_support_hours: providerService.incident_urgency_rule.outside_support_hours
+                    })
+                }
             }),
             ...(providerService.acknowledgement_timeout != null && {
                 acknowledgement_timeout: providerService.acknowledgement_timeout

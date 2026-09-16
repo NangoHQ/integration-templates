@@ -11,7 +11,13 @@ const InputSchema = z
             .string()
             .email()
             .optional()
-            .describe('The email address of the user creating the incident. If omitted, the current connection user email is fetched automatically.')
+            .describe('The email address of the user creating the incident. If omitted, the current connection user email is fetched automatically.'),
+        incident_key: z
+            .string()
+            .optional()
+            .describe(
+                'A de-duplication key for the incident. If an open incident already exists with this key, PagerDuty merges into it instead of creating a duplicate. Strongly recommended so retries of this action are idempotent.'
+            )
     })
     .describe('Input to create a new PagerDuty incident against a service.');
 
@@ -97,7 +103,8 @@ const action = createAction({
                             type: 'incident_body',
                             details: input.body
                         }
-                    })
+                    }),
+                    ...(input.incident_key !== undefined && { incident_key: input.incident_key })
                 }
             },
             retries: 3

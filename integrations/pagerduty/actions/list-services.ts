@@ -73,9 +73,18 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        let offset = 0;
+        if (input.cursor !== undefined) {
+            if (!/^\d+$/.test(input.cursor)) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a non-negative integer offset string'
+                });
+            }
+            offset = parseInt(input.cursor, 10);
+        }
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/e544c1de0c22f-list-services

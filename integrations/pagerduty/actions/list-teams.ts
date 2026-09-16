@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.'),
-        limit: z.number().optional().describe('Maximum number of teams to return per page.'),
+        limit: z.number().int().min(1).max(100).optional().describe('Maximum number of teams to return per page. Must be between 1 and 100.'),
         query: z.string().optional().describe('Query string to filter teams by name.')
     })
     .describe('Input for listing teams on the PagerDuty account.');
@@ -41,9 +41,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['teams.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
+
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         // https://developer.pagerduty.com/api-reference/e68b1455cc9bd-list-teams

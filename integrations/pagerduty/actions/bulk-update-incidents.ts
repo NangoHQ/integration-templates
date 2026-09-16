@@ -158,7 +158,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['incidents.write'],
     exec: async (nango, input) => {
         const response = await nango.put({
             // https://developer.pagerduty.com/api-reference/incidents/bulk-update-incidents/

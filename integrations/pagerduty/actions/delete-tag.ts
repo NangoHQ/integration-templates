@@ -19,7 +19,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: ['tags.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1tags~1%7Bid%7D/delete

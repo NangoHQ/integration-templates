@@ -19,6 +19,18 @@ const TeamReferenceSchema = z.object({
     html_url: z.string().optional().describe('The PagerDuty web URL of the team.')
 });
 
+const ProviderBusinessServiceSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    type: z.literal('business_service'),
+    description: z.string().nullable().optional(),
+    point_of_contact: z.string().nullable().optional(),
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional(),
+    team: TeamReferenceSchema.nullable().optional()
+});
+
 const OutputSchema = z
     .object({
         id: z.string().describe('The unique identifier of the business service.'),
@@ -42,7 +54,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/3c0b757b83e2a-update-a-business-service
         const response = await nango.put({
@@ -60,12 +72,23 @@ const action = createAction({
         });
 
         const ProviderResponseSchema = z.object({
-            business_service: OutputSchema
+            business_service: ProviderBusinessServiceSchema
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
+        const bs = parsed.business_service;
 
-        return parsed.business_service;
+        return {
+            id: bs.id,
+            name: bs.name,
+            type: bs.type,
+            ...(bs.description != null && { description: bs.description }),
+            ...(bs.point_of_contact !== undefined && { point_of_contact: bs.point_of_contact }),
+            ...(bs.summary != null && { summary: bs.summary }),
+            ...(bs.self != null && { self: bs.self }),
+            ...(bs.html_url !== undefined && { html_url: bs.html_url }),
+            ...(bs.team !== undefined && { team: bs.team })
+        };
     }
 });
 

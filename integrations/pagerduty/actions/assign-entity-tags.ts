@@ -1,11 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const TagAddSchema = z.object({
-    type: z.enum(['tag_reference', 'tag']).describe("Use 'tag_reference' to add an existing tag by id, or 'tag' to create and add a new tag by label."),
-    id: z.string().optional().describe('Tag id. Required when type is tag_reference.'),
-    label: z.string().optional().describe('Tag label. Required when type is tag.')
-});
+const TagAddSchema = z.discriminatedUnion('type', [
+    z.object({
+        type: z.literal('tag_reference').describe('Add an existing tag by id.'),
+        id: z.string().describe('Tag id of the existing tag to add.')
+    }),
+    z.object({
+        type: z.literal('tag').describe('Create (if needed) and add a tag by label.'),
+        label: z.string().describe('Tag label. An existing tag with this label is reused; otherwise a new tag is created.')
+    })
+]);
 
 const TagRemoveSchema = z.object({
     type: z.enum(['tag_reference']).describe("Tag reference type. Must be 'tag_reference'."),
@@ -53,6 +58,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['tags.read', 'tags.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {};

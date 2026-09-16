@@ -119,8 +119,15 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['services.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string'
+            });
+        }
+
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/
             endpoint: '/maintenance_windows',

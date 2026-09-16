@@ -89,17 +89,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['users.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/e960cca4c580e-list-users
             endpoint: '/users',
-            params: {
-                ...(input.query !== undefined && { query: input.query }),
-                ...(input.team_ids !== undefined && { 'team_ids[]': input.team_ids }),
-                ...(input.limit !== undefined && { limit: input.limit }),
-                ...(input.cursor !== undefined && { offset: input.cursor })
-            },
+            // PagerDuty rejects a single (or comma-joined) `team_ids[]` value with
+            // "Team ids must be a Array."; it requires one repeated `team_ids[]=` entry per id.
+            // params only supports string | Record<string, string | number>, so an array value
+            // cannot be passed directly and the query string must be built manually.
+            params: buildListUsersParams(input),
             retries: 3
         });
 
@@ -152,6 +151,30 @@ const action = createAction({
         };
     }
 });
+
+/**
+ * Builds the query string for GET /users. `team_ids` must be sent as repeated
+ * `team_ids[]=` entries; PagerDuty rejects a single or comma-joined value with
+ * "Team ids must be a Array."
+ */
+function buildListUsersParams(input: z.infer<typeof InputSchema>): string {
+    const qs = new URLSearchParams();
+    if (input.query !== undefined) {
+        qs.append('query', input.query);
+    }
+    if (input.team_ids !== undefined) {
+        for (const teamId of input.team_ids) {
+            qs.append('team_ids[]', teamId);
+        }
+    }
+    if (input.limit !== undefined) {
+        qs.append('limit', String(input.limit));
+    }
+    if (input.cursor !== undefined) {
+        qs.append('offset', input.cursor);
+    }
+    return qs.toString();
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

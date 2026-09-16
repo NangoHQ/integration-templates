@@ -61,7 +61,11 @@ const ScheduleLayerEntrySchema = z.object({
 const SubScheduleSchema = z.object({
     name: z.string().describe('Name of the subschedule. Example: "Final Schedule" or "Overrides".'),
     rendered_schedule_entries: z.array(ScheduleLayerEntrySchema).describe('Computed on-call entries for the current time range.'),
-    rendered_coverage_percentage: z.number().nullable().describe('Percentage of the time range covered by this schedule. Null unless since or until are set.')
+    rendered_coverage_percentage: z
+        .number()
+        .nullable()
+        .optional()
+        .describe('Percentage of the time range covered by this schedule. Null or omitted unless since or until are set.')
 });
 
 const RestrictionOutputSchema = z.object({
@@ -88,7 +92,11 @@ const ScheduleLayerOutputSchema = z.object({
         .describe('Ordered list of users on this layer.'),
     restrictions: z.array(RestrictionOutputSchema).optional().describe('Restrictions for this layer.'),
     rendered_schedule_entries: z.array(ScheduleLayerEntrySchema).describe('Computed entries for this layer in the preview window.'),
-    rendered_coverage_percentage: z.number().nullable().describe('Percentage of the time range covered by this layer.')
+    rendered_coverage_percentage: z
+        .number()
+        .nullable()
+        .optional()
+        .describe('Percentage of the time range covered by this layer. Null or omitted unless since or until are set.')
 });
 
 const ScheduleOutputSchema = z.object({
@@ -128,7 +136,12 @@ const action = createAction({
             // https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json#/paths/~1schedules~1preview/post
             endpoint: '/schedules/preview',
             data: {
-                schedule: input.schedule
+                // PagerDuty's Schedule schema requires `type`; the input schema allows callers to omit it, so it must
+                // always be populated on the outgoing request regardless of what the caller supplied.
+                schedule: {
+                    ...input.schedule,
+                    type: 'schedule'
+                }
             },
             params: {
                 ...(input.since !== undefined && { since: input.since }),

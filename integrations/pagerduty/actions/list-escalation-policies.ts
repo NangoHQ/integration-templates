@@ -128,17 +128,17 @@ const action = createAction({
     version: '1.0.0',
     input: ListEscalationPoliciesInput,
     output: ListEscalationPoliciesOutput,
-    scopes: [],
+    scopes: ['escalation_policies.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListEscalationPoliciesOutput>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-
-        if (input.cursor && isNaN(offset)) {
+        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
-                message: 'cursor must be a valid numeric offset string.'
+                message: 'cursor must be a non-negative integer offset string.'
             });
         }
+
+        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies/get

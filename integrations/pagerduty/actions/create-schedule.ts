@@ -94,7 +94,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['schedules.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1schedules/post

@@ -37,7 +37,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users.read'],
+    scopes: ['users:contact_methods.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/e67a1c6089e1a-list-a-user-s-contact-methods

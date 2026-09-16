@@ -12,7 +12,7 @@ const ProviderBusinessServiceSchema = z.object({
     name: z.string(),
     type: z.string(),
     self: z.string().optional(),
-    description: z.string().optional(),
+    description: z.string().nullable().optional(),
     team: z
         .object({
             id: z.string(),
@@ -61,7 +61,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['services.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.pagerduty.com/api-reference/
@@ -77,7 +77,7 @@ const action = createAction({
             name: raw.name,
             type: raw.type,
             ...(raw.self !== undefined && { self: raw.self }),
-            ...(raw.description !== undefined && { description: raw.description }),
+            ...(raw.description != null && { description: raw.description }),
             ...(raw.team !== undefined && { team: raw.team }),
             ...(raw.point_of_contact !== undefined && { point_of_contact: raw.point_of_contact }),
             ...(raw.summary !== undefined && { summary: raw.summary }),

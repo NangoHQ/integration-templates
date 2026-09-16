@@ -33,7 +33,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['vendors.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 25;
         const offset = input.cursor ? parseInt(input.cursor, 10) : 0;

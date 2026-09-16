@@ -27,8 +27,8 @@ const InputSchema = z
 const ProviderContactMethodSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string().optional(),
-    self: z.string().optional(),
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
     html_url: z.string().nullable().optional(),
     label: z.string().optional(),
     address: z.string().optional(),
@@ -41,8 +41,8 @@ const ProviderResponseSchema = z.object({
     notification_rule: z.object({
         id: z.string(),
         type: z.string(),
-        summary: z.string().optional(),
-        self: z.string().optional(),
+        summary: z.string().nullable().optional(),
+        self: z.string().nullable().optional(),
         html_url: z.string().nullable().optional(),
         start_delay_in_minutes: z.number().int(),
         contact_method: ProviderContactMethodSchema.optional(),
@@ -84,7 +84,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['users:contact_methods.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://developer.pagerduty.com/api-reference/
@@ -111,8 +111,8 @@ const action = createAction({
                 ? {
                       id: rule.contact_method.id,
                       type: rule.contact_method.type,
-                      ...(rule.contact_method.summary !== undefined && { summary: rule.contact_method.summary }),
-                      ...(rule.contact_method.self !== undefined && { self: rule.contact_method.self }),
+                      ...(rule.contact_method.summary != null && { summary: rule.contact_method.summary }),
+                      ...(rule.contact_method.self != null && { self: rule.contact_method.self }),
                       ...(rule.contact_method.label !== undefined && { label: rule.contact_method.label }),
                       ...(rule.contact_method.address !== undefined && { address: rule.contact_method.address }),
                       ...(rule.contact_method.send_short_email !== undefined && { send_short_email: rule.contact_method.send_short_email }),
@@ -124,8 +124,8 @@ const action = createAction({
         return {
             id: rule.id,
             type: rule.type,
-            ...(rule.summary !== undefined && { summary: rule.summary }),
-            ...(rule.self !== undefined && { self: rule.self }),
+            ...(rule.summary != null && { summary: rule.summary }),
+            ...(rule.self != null && { self: rule.self }),
             start_delay_in_minutes: rule.start_delay_in_minutes,
             ...(contactMethod !== undefined && { contact_method: contactMethod }),
             urgency: rule.urgency

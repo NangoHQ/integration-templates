@@ -1,11 +1,16 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
         incident_id: z.string().describe('The ID of the incident containing the note.'),
         note_id: z.string().describe('The ID of the note to update.'),
-        content: z.string().describe('The new content for the note.')
+        content: z.string().describe('The new content for the note.'),
+        from: z
+            .string()
+            .email()
+            .optional()
+            .describe('The email address of the user performing the update. If omitted, the current connection user email is fetched automatically.')
     })
     .describe('Input parameters for updating an incident note.');
 
@@ -87,6 +92,24 @@ const action = createAction({
     scopes: ['incidents.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        let fromEmail = input.from;
+        if (!fromEmail) {
+            const userConfig: ProxyConfiguration = {
+                // https://developer.pagerduty.com/api-reference/e8b6f95f7030f-get-current-user
+                endpoint: '/users/me',
+                retries: 3
+            };
+            const userResponse = await nango.get(userConfig);
+            const userData = z
+                .object({
+                    user: z.object({
+                        email: z.string()
+                    })
+                })
+                .parse(userResponse.data);
+            fromEmail = userData.user.email;
+        }
+
         const response = await nango.put({
             // https://developer.pagerduty.com/api-reference/0e330d2b5fbf2-update-a-note-on-an-incident
             endpoint: `/incidents/${encodeURIComponent(input.incident_id)}/notes/${encodeURIComponent(input.note_id)}`,
@@ -96,7 +119,7 @@ const action = createAction({
                 }
             },
             headers: {
-                From: 'api@nango.dev'
+                From: fromEmail
             },
             retries: 3
         });

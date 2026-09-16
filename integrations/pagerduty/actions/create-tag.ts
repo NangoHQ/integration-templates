@@ -10,8 +10,8 @@ const InputSchema = z
 const ProviderTagSchema = z.object({
     id: z.string(),
     type: z.string(),
-    summary: z.string().optional(),
-    self: z.string().optional(),
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
     html_url: z.string().nullable().optional(),
     label: z.string()
 });
@@ -36,7 +36,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: ['tags.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -56,8 +56,8 @@ const action = createAction({
         return {
             id: providerTag.id,
             type: providerTag.type,
-            ...(providerTag.summary !== undefined && { summary: providerTag.summary }),
-            ...(providerTag.self !== undefined && { self: providerTag.self }),
+            ...(providerTag.summary != null && { summary: providerTag.summary }),
+            ...(providerTag.self != null && { self: providerTag.self }),
             ...(providerTag.html_url != null && { html_url: providerTag.html_url }),
             label: providerTag.label
         };

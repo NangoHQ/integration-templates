@@ -42,7 +42,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['incidents.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let offset = 0;
@@ -57,33 +57,41 @@ const action = createAction({
             offset = parsed;
         }
 
-        const params: Record<string, string | number | string[]> = {};
+        // PagerDuty requires the array-valued `include` filter as repeated bracketed keys,
+        // e.g. include[]=channels&include[]=services, and rejects a plain `include` key
+        // outright ("Include must be a Array"). ProxyConfiguration.params only accepts
+        // string | Record<string, string | number>, so array values can't be passed through
+        // the params object (the proxy would collapse them into a single comma-joined
+        // value). Build the query string manually instead.
+        const searchParams = new URLSearchParams();
         if (offset > 0) {
-            params['offset'] = offset;
+            searchParams.set('offset', String(offset));
         }
         if (input.limit !== undefined) {
-            params['limit'] = input.limit;
+            searchParams.set('limit', String(input.limit));
         }
         if (input.time_zone !== undefined) {
-            params['time_zone'] = input.time_zone;
+            searchParams.set('time_zone', input.time_zone);
         }
         if (input.since !== undefined) {
-            params['since'] = input.since;
+            searchParams.set('since', input.since);
         }
         if (input.until !== undefined) {
-            params['until'] = input.until;
+            searchParams.set('until', input.until);
         }
         if (input.is_overview !== undefined) {
-            params['is_overview'] = input.is_overview ? 'true' : 'false';
+            searchParams.set('is_overview', input.is_overview ? 'true' : 'false');
         }
         if (input.include !== undefined && input.include.length > 0) {
-            params['include'] = input.include;
+            for (const inc of input.include) {
+                searchParams.append('include[]', inc);
+            }
         }
 
         // https://developer.pagerduty.com/api-reference/
         const response = await nango.get({
             endpoint: `/incidents/${encodeURIComponent(input.incident_id)}/log_entries`,
-            params,
+            params: searchParams.toString(),
             retries: 3
         });
 

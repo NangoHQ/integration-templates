@@ -46,41 +46,77 @@ const OutputSchema = z
     })
     .describe('The updated PagerDuty escalation policy returned by the provider.');
 
+const ProviderResponseSchema = z.object({
+    escalation_policy: z.object({
+        id: z.string(),
+        type: z.string(),
+        summary: z.string().optional(),
+        name: z.string(),
+        description: z.string().nullable().optional(),
+        escalation_rules: z.array(
+            z.object({
+                id: z.string(),
+                escalation_delay_in_minutes: z.number(),
+                targets: z.array(
+                    z.object({
+                        id: z.string(),
+                        type: z.string(),
+                        summary: z.string().optional()
+                    })
+                )
+            })
+        )
+    })
+});
+
 /**
- * @tags: [write]
- * @tagReason: Sends a PUT request to modify an existing escalation policy on the provider.
+ * @tags: [read, write]
+ * @tagReason: Reads the existing escalation policy before sending a PUT request, since PagerDuty's PUT requires the complete resource (name and escalation_rules) and rejects a payload that only carries the fields the caller wants to change.
  */
 const action = createAction({
     description: "Update an escalation policy's name, description, or rules.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-
+    scopes: ['escalation_policies.read', 'escalation_policies.write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies~1%7Bid%7D/get
+        const getResponse = await nango.get({
+            endpoint: `/escalation_policies/${encodeURIComponent(input.id)}`,
+            retries: 3
+        });
+
+        const existingParsed = ProviderResponseSchema.parse(getResponse.data);
+        const existing = existingParsed.escalation_policy;
+
         const body: {
             escalation_policy: {
                 type: string;
-                name?: string;
+                name: string;
                 description?: string | null;
-                escalation_rules?: Array<{
+                escalation_rules: Array<{
                     escalation_delay_in_minutes: number;
                     targets: Array<{ id: string; type: string }>;
                 }>;
             };
         } = {
             escalation_policy: {
-                type: 'escalation_policy'
+                type: 'escalation_policy',
+                name: input.name !== undefined ? input.name : existing.name,
+                escalation_rules:
+                    input.escalation_rules !== undefined
+                        ? input.escalation_rules
+                        : existing.escalation_rules.map((rule) => ({
+                              escalation_delay_in_minutes: rule.escalation_delay_in_minutes,
+                              targets: rule.targets.map((target) => ({ id: target.id, type: target.type }))
+                          }))
             }
         };
 
-        if (input.name !== undefined) {
-            body.escalation_policy.name = input.name;
-        }
         if (input.description !== undefined) {
             body.escalation_policy.description = input.description;
-        }
-        if (input.escalation_rules !== undefined) {
-            body.escalation_policy.escalation_rules = input.escalation_rules;
+        } else if (existing.description !== undefined) {
+            body.escalation_policy.description = existing.description;
         }
 
         // https://developer.pagerduty.com/api-reference/reference/REST/openapiv3.json/paths/~1escalation_policies~1%7Bid%7D/put
@@ -88,29 +124,6 @@ const action = createAction({
             endpoint: `/escalation_policies/${encodeURIComponent(input.id)}`,
             data: body,
             retries: 10
-        });
-
-        const ProviderResponseSchema = z.object({
-            escalation_policy: z.object({
-                id: z.string(),
-                type: z.string(),
-                summary: z.string().optional(),
-                name: z.string(),
-                description: z.string().nullable().optional(),
-                escalation_rules: z.array(
-                    z.object({
-                        id: z.string(),
-                        escalation_delay_in_minutes: z.number(),
-                        targets: z.array(
-                            z.object({
-                                id: z.string(),
-                                type: z.string(),
-                                summary: z.string().optional()
-                            })
-                        )
-                    })
-                )
-            })
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

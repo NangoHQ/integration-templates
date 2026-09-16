@@ -18,7 +18,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Empty response indicating successful association.'),
-    scopes: ['teams:write'],
+    scopes: ['teams.write'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developer.pagerduty.com/api-reference/YXBjOjI3NDgyNTQ-teams-add-escalation-policy

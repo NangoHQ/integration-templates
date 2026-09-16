@@ -16,7 +16,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: z.null().describe('Null response confirming the business service was deleted successfully.'),
-
+    scopes: ['services.write'],
     exec: async (nango, input): Promise<null> => {
         await nango.delete({
             // https://developer.pagerduty.com/api-reference/
