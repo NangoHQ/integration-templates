@@ -102,7 +102,10 @@ const OutputSchema = z
             })
             .optional()
             .describe('The vendor associated with this integration.'),
-        integration_key: z.string().optional().describe('The unique key used to send events to this integration. Absent for integrations such as email that do not use a key.'),
+        integration_key: z
+            .string()
+            .optional()
+            .describe('The unique key used to send events to this integration. Absent for integrations such as email that do not use a key.'),
         integration_email: z.string().optional().describe('The email address for generic email inbound integrations.'),
         email_incident_creation: z.string().optional().describe('How incidents should be created from incoming emails.'),
         email_filter_mode: z.string().optional().describe('The filter mode for incoming emails.'),

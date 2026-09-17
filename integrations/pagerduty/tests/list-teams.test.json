@@ -1,0 +1,150 @@
+{
+  "input": {},
+  "output": {
+    "teams": [
+      {
+        "id": "P1P4L57",
+        "name": "Nango Dryrun Test Team",
+        "description": "Updated description via dryrun"
+      },
+      {
+        "id": "PDBN32D",
+        "name": "Nango Test Team",
+        "description": "Test team created by Nango action"
+      },
+      {
+        "id": "PWY4LUU",
+        "name": "Nango Test Team 2",
+        "description": "Temporary team for testing remove-team-escalation-policy"
+      },
+      {
+        "id": "PEV95L9",
+        "name": "Nango Test Team Add EP",
+        "description": "Temporary team for testing add-team-escalation-policy"
+      },
+      {
+        "id": "PQ1134G",
+        "name": "Nango Test Team Add EP 2",
+        "description": "Temporary team for testing add-team-escalation-policy"
+      },
+      {
+        "id": "PP7209N",
+        "name": "Nango Test Team Save",
+        "description": "Test team created by Nango action"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/teams": {
+        "response": {
+          "teams": [
+            {
+              "id": "P1P4L57",
+              "name": "Nango Dryrun Test Team",
+              "description": "Updated description via dryrun",
+              "type": "team",
+              "summary": "Nango Dryrun Test Team",
+              "self": "https://api.pagerduty.com/teams/P1P4L57",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/P1P4L57",
+              "default_role": "manager",
+              "parent": null
+            },
+            {
+              "id": "PDBN32D",
+              "name": "Nango Test Team",
+              "description": "Test team created by Nango action",
+              "type": "team",
+              "summary": "Nango Test Team",
+              "self": "https://api.pagerduty.com/teams/PDBN32D",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/PDBN32D",
+              "default_role": "manager",
+              "parent": null
+            },
+            {
+              "id": "PWY4LUU",
+              "name": "Nango Test Team 2",
+              "description": "Temporary team for testing remove-team-escalation-policy",
+              "type": "team",
+              "summary": "Nango Test Team 2",
+              "self": "https://api.pagerduty.com/teams/PWY4LUU",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/PWY4LUU",
+              "default_role": "manager",
+              "parent": null
+            },
+            {
+              "id": "PEV95L9",
+              "name": "Nango Test Team Add EP",
+              "description": "Temporary team for testing add-team-escalation-policy",
+              "type": "team",
+              "summary": "Nango Test Team Add EP",
+              "self": "https://api.pagerduty.com/teams/PEV95L9",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9",
+              "default_role": "manager",
+              "parent": null
+            },
+            {
+              "id": "PQ1134G",
+              "name": "Nango Test Team Add EP 2",
+              "description": "Temporary team for testing add-team-escalation-policy",
+              "type": "team",
+              "summary": "Nango Test Team Add EP 2",
+              "self": "https://api.pagerduty.com/teams/PQ1134G",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/PQ1134G",
+              "default_role": "manager",
+              "parent": null
+            },
+            {
+              "id": "PP7209N",
+              "name": "Nango Test Team Save",
+              "description": "Test team created by Nango action",
+              "type": "team",
+              "summary": "Nango Test Team Save",
+              "self": "https://api.pagerduty.com/teams/PP7209N",
+              "html_url": "https://dev-nangodev.pagerduty.com/teams/PP7209N",
+              "default_role": "manager",
+              "parent": null
+            }
+          ],
+          "limit": 25,
+          "offset": 0,
+          "total": null,
+          "more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:31:26 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1967",
+          "x-ratelimit-reset": "1789554729",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"15a1c4066d4195d9d2b77b55305ddc4f\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "706df6a12594871b547c288effb680ec",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "939",
+          "ratelimit-reset": "34",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "233c36df4a327165d2400f9114c3f2960e86438c",
+        "request": {}
+      }
+    }
+  }
+}
