@@ -1,0 +1,228 @@
+{
+  "input": {
+    "schedule_id": "P6ZJIRU"
+  },
+  "output": {
+    "users": [
+      {
+        "id": "PJB72P3",
+        "type": "user",
+        "summary": "Nango Developer",
+        "self": "https://api.pagerduty.com/users/PJB72P3",
+        "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3",
+        "name": "Nango Developer",
+        "email": "api@nango.dev",
+        "role": "owner",
+        "job_title": "Updated Job Title",
+        "time_zone": "Africa/Nairobi",
+        "description": null,
+        "color": "purple",
+        "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+        "invitation_sent": false,
+        "billed": true,
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          },
+          {
+            "id": "PQ1134G",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP 2",
+            "self": "https://api.pagerduty.com/teams/PQ1134G",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PQ1134G"
+          },
+          {
+            "id": "P1UYHLB",
+            "type": "team_reference",
+            "summary": "Nango Test Team 3",
+            "self": "https://api.pagerduty.com/teams/P1UYHLB",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/P1UYHLB"
+          }
+        ],
+        "created_via_sso": false,
+        "contact_methods": [
+          {
+            "id": "PT1VCZU",
+            "type": "email_contact_method_reference",
+            "summary": "Default",
+            "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PT1VCZU",
+            "html_url": null
+          },
+          {
+            "id": "PTONJTZ",
+            "type": "email_contact_method_reference",
+            "summary": "Temp for delete test 2",
+            "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PTONJTZ",
+            "html_url": null
+          },
+          {
+            "id": "PBWB6DJ",
+            "type": "email_contact_method_reference",
+            "summary": "Test Email 2",
+            "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PBWB6DJ",
+            "html_url": null
+          },
+          {
+            "id": "PUO25P6",
+            "type": "email_contact_method_reference",
+            "summary": "Updated Test Email 3",
+            "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PUO25P6",
+            "html_url": null
+          },
+          {
+            "id": "P0XWQKU",
+            "type": "email_contact_method_reference",
+            "summary": "Test Email",
+            "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/P0XWQKU",
+            "html_url": null
+          }
+        ],
+        "notification_rules": [
+          {
+            "id": "PNC6YQY",
+            "type": "assignment_notification_rule_reference",
+            "summary": "0 minutes: channel PT1VCZU",
+            "self": "https://api.pagerduty.com/users/PJB72P3/notification_rules/PNC6YQY",
+            "html_url": null
+          }
+        ],
+        "locale": "en-US"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/schedules/P6ZJIRU/users": {
+        "response": {
+          "users": [
+            {
+              "name": "Nango Developer",
+              "email": "api@nango.dev",
+              "time_zone": "Africa/Nairobi",
+              "color": "purple",
+              "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+              "billed": true,
+              "role": "owner",
+              "description": null,
+              "invitation_sent": false,
+              "job_title": "Updated Job Title",
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                },
+                {
+                  "id": "PQ1134G",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP 2",
+                  "self": "https://api.pagerduty.com/teams/PQ1134G",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PQ1134G"
+                },
+                {
+                  "id": "P1UYHLB",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team 3",
+                  "self": "https://api.pagerduty.com/teams/P1UYHLB",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/P1UYHLB"
+                }
+              ],
+              "created_via_sso": false,
+              "contact_methods": [
+                {
+                  "id": "PT1VCZU",
+                  "type": "email_contact_method_reference",
+                  "summary": "Default",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PT1VCZU",
+                  "html_url": null
+                },
+                {
+                  "id": "PTONJTZ",
+                  "type": "email_contact_method_reference",
+                  "summary": "Temp for delete test 2",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PTONJTZ",
+                  "html_url": null
+                },
+                {
+                  "id": "PBWB6DJ",
+                  "type": "email_contact_method_reference",
+                  "summary": "Test Email 2",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PBWB6DJ",
+                  "html_url": null
+                },
+                {
+                  "id": "PUO25P6",
+                  "type": "email_contact_method_reference",
+                  "summary": "Updated Test Email 3",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PUO25P6",
+                  "html_url": null
+                },
+                {
+                  "id": "P0XWQKU",
+                  "type": "email_contact_method_reference",
+                  "summary": "Test Email",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/P0XWQKU",
+                  "html_url": null
+                }
+              ],
+              "notification_rules": [
+                {
+                  "id": "PNC6YQY",
+                  "type": "assignment_notification_rule_reference",
+                  "summary": "0 minutes: channel PT1VCZU",
+                  "self": "https://api.pagerduty.com/users/PJB72P3/notification_rules/PNC6YQY",
+                  "html_url": null
+                }
+              ],
+              "locale": "en-US",
+              "id": "PJB72P3",
+              "type": "user",
+              "summary": "Nango Developer",
+              "self": "https://api.pagerduty.com/users/PJB72P3",
+              "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:36:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1981",
+          "x-ratelimit-reset": "1789555031",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"1ae16071ee116c73481830a92a0bcc63\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "f260a36909f2d9dab6ba41a3cf6a869b",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "952",
+          "ratelimit-reset": "31",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "ef072c483d4da150dc36664a6d99e9396b394571",
+        "request": {}
+      }
+    }
+  }
+}

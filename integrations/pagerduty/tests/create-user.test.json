@@ -1,0 +1,112 @@
+{
+  "input": {
+    "name": "Nango Create User Test",
+    "email": "nango-create-user-test2@nango.dev",
+    "role": "user"
+  },
+  "output": {
+    "id": "PH2UB4W",
+    "name": "Nango Create User Test",
+    "email": "nango-create-user-test2@nango.dev",
+    "role": "user",
+    "time_zone": "Africa/Nairobi",
+    "invitation_sent": true,
+    "html_url": "https://dev-nangodev.pagerduty.com/users/PH2UB4W",
+    "self": "https://api.pagerduty.com/users/PH2UB4W"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/users": {
+        "response": {
+          "user": {
+            "name": "Nango Create User Test",
+            "email": "nango-create-user-test2@nango.dev",
+            "time_zone": "Africa/Nairobi",
+            "color": "green",
+            "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+            "billed": true,
+            "role": "user",
+            "description": null,
+            "invitation_sent": true,
+            "job_title": null,
+            "teams": [],
+            "created_via_sso": false,
+            "contact_methods": [
+              {
+                "id": "PWKYK5M",
+                "type": "email_contact_method_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/users/PH2UB4W/contact_methods/PWKYK5M",
+                "html_url": null
+              }
+            ],
+            "notification_rules": [
+              {
+                "id": "PO0LFZF",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PWKYK5M",
+                "self": "https://api.pagerduty.com/users/PH2UB4W/notification_rules/PO0LFZF",
+                "html_url": null
+              },
+              {
+                "id": "PRA9GP5",
+                "type": "assignment_notification_rule_reference",
+                "summary": "0 minutes: channel PWKYK5M",
+                "self": "https://api.pagerduty.com/users/PH2UB4W/notification_rules/PRA9GP5",
+                "html_url": null
+              }
+            ],
+            "coordinated_incidents": [],
+            "locale": "en-US",
+            "id": "PH2UB4W",
+            "type": "user",
+            "summary": "Nango Create User Test",
+            "self": "https://api.pagerduty.com/users/PH2UB4W",
+            "html_url": "https://dev-nangodev.pagerduty.com/users/PH2UB4W"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:27:25 GMT",
+          "content-type": "application/json",
+          "content-length": "1150",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1939",
+          "x-ratelimit-reset": "1789554487",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"09f91e04698c9e9efff7f5508e159dca\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "4e4a62fe878636ef3a7851d15dd8c58b",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "939",
+          "ratelimit-reset": "37",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "68f01c8c8bcc3f9f42cb213b919e76b9c68dabc7",
+        "request": {
+          "data": {
+            "user": {
+              "type": "user",
+              "name": "Nango Create User Test",
+              "email": "nango-create-user-test2@nango.dev",
+              "role": "user"
+            }
+          }
+        }
+      }
+    }
+  }
+}

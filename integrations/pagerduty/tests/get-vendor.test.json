@@ -1,0 +1,80 @@
+{
+  "input": {
+    "id": "PZQ6AUS"
+  },
+  "output": {
+    "id": "PZQ6AUS",
+    "type": "vendor",
+    "name": "Amazon CloudWatch",
+    "summary": "Amazon CloudWatch",
+    "website_url": "https://aws.amazon.com/cloudwatch",
+    "logo_url": "https://s3.amazonaws.com/pdpartner/aws.png",
+    "self": "https://api.pagerduty.com/vendors/PZQ6AUS"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/vendors/PZQ6AUS": {
+        "response": {
+          "vendor": {
+            "id": "PZQ6AUS",
+            "type": "vendor",
+            "summary": "Amazon CloudWatch",
+            "self": "https://api.pagerduty.com/vendors/PZQ6AUS",
+            "html_url": null,
+            "name": "Amazon CloudWatch",
+            "website_url": "https://aws.amazon.com/cloudwatch",
+            "long_name": "Amazon CloudWatch AWS CloudSearch DynamoDB EBS EC2 ECS ElastiCac",
+            "logo_url": "https://s3.amazonaws.com/pdpartner/aws.png",
+            "thumbnail_url": "https://s3.amazonaws.com/pdpartner/aws.png",
+            "description": "Amazon Web Services CloudWatch provides monitoring for AWS cloud resources and customer-run applications. \r\n\r\nThis integration supports alarms from CloudSearch, DynamoDB, EBS, EC2, ECS, ElastiCache, ELB, ES, Kinesis, Lambda, ML, Redshift, RDS, Route53, SNS, SQS, S3, SWF, StorageGateway",
+            "integration_guide_url": "http://www.pagerduty.com/docs/guides/aws-cloudwatch-integration-guide/",
+            "connectable": false,
+            "generic_service_type": "api",
+            "alert_creation_default": "create_alerts_and_incidents",
+            "alert_creation_editable": true,
+            "is_pd_cef": false,
+            "is_pd_change_event": false,
+            "developer_name": "",
+            "support_portal": "",
+            "support_email": "",
+            "documentation_url": "",
+            "emits_change_events": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:28:32 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1930",
+          "x-ratelimit-reset": "1789554547",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"c0c1567a4355dbcc31f965db524c5799\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "3acd6c9f2f16ba04127ef59d2ec209f0",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "931",
+          "ratelimit-reset": "28",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "18ebafe029a749713c4680ded72cf889b8d3ef59",
+        "request": {}
+      }
+    }
+  }
+}
