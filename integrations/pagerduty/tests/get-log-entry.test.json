@@ -1,0 +1,115 @@
+{
+  "input": {
+    "id": "R93K23WSQL15W7QIUD6W0M077W"
+  },
+  "output": {
+    "id": "R93K23WSQL15W7QIUD6W0M077W",
+    "type": "status_update_log_entry",
+    "summary": "Nango Developer updated the status of the incident through the API.",
+    "self": "https://api.pagerduty.com/log_entries/R93K23WSQL15W7QIUD6W0M077W",
+    "html_url": null,
+    "created_at": "2026-09-16T10:27:11Z",
+    "channel": {
+      "type": "api"
+    },
+    "agent": {
+      "id": "PJB72P3",
+      "type": "user_reference",
+      "summary": "Nango Developer",
+      "self": "https://api.pagerduty.com/users/PJB72P3",
+      "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+    },
+    "contexts": [],
+    "service": {
+      "id": "PZW5AR6",
+      "type": "service_reference",
+      "summary": "Nango Test Service",
+      "self": null,
+      "html_url": null
+    },
+    "incident": {
+      "id": "Q0YLGGHWAI1DDT",
+      "type": "incident_reference",
+      "summary": "[#2] Updated Nango Test Incident",
+      "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+      "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+    },
+    "teams": [],
+    "message": "Status update test from nango dryrun"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/log_entries/R93K23WSQL15W7QIUD6W0M077W": {
+        "response": {
+          "log_entry": {
+            "id": "R93K23WSQL15W7QIUD6W0M077W",
+            "type": "status_update_log_entry",
+            "summary": "Nango Developer updated the status of the incident through the API.",
+            "self": "https://api.pagerduty.com/log_entries/R93K23WSQL15W7QIUD6W0M077W",
+            "html_url": null,
+            "created_at": "2026-09-16T10:27:11Z",
+            "agent": {
+              "id": "PJB72P3",
+              "type": "user_reference",
+              "summary": "Nango Developer",
+              "self": "https://api.pagerduty.com/users/PJB72P3",
+              "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+            },
+            "channel": {
+              "type": "api"
+            },
+            "service": {
+              "id": "PZW5AR6",
+              "type": "service_reference",
+              "summary": "Nango Test Service",
+              "self": null,
+              "html_url": null
+            },
+            "incident": {
+              "id": "Q0YLGGHWAI1DDT",
+              "type": "incident_reference",
+              "summary": "[#2] Updated Nango Test Incident",
+              "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+              "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+            },
+            "teams": [],
+            "contexts": [],
+            "message": "Status update test from nango dryrun"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:29:05 GMT",
+          "content-type": "application/json",
+          "content-length": "929",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1850",
+          "x-ratelimit-reset": "1789554547",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"16b07c64d0e4ec291ceb88c74952adce\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "25f89653484a000fd5f99086b3f0d8c8",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "957",
+          "ratelimit-reset": "55",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "fc2e919fc3f0a2bda59a65c661ba853b67694376",
+        "request": {}
+      }
+    }
+  }
+}

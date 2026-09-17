@@ -1,0 +1,125 @@
+{
+  "input": {
+    "id": "PWD5K9E",
+    "description": "Updated description via Nango action"
+  },
+  "output": {
+    "id": "PWD5K9E",
+    "type": "maintenance_window",
+    "summary": "Updated description via Nango action",
+    "self": "https://api.pagerduty.com/maintenance_windows/PWD5K9E",
+    "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PWD5K9E",
+    "sequence_number": 7,
+    "start_time": "2026-09-16T13:34:27+03:00",
+    "end_time": "2026-09-16T17:00:00+03:00",
+    "description": "Updated description via Nango action",
+    "services": [
+      {
+        "id": "PNST598",
+        "type": "service_reference",
+        "summary": "Nango Prerequisite Service 1789554843",
+        "self": "https://api.pagerduty.com/services/PNST598",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PNST598"
+      }
+    ],
+    "teams": [
+      {
+        "id": "PEV95L9",
+        "type": "team_reference",
+        "summary": "Nango Test Team Add EP",
+        "self": "https://api.pagerduty.com/teams/PEV95L9",
+        "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+      }
+    ],
+    "created_by": {
+      "id": "PJB72P3",
+      "type": "user_reference",
+      "summary": "Nango Developer",
+      "self": "https://api.pagerduty.com/users/PJB72P3",
+      "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/maintenance_windows/PWD5K9E": {
+        "response": {
+          "maintenance_window": {
+            "id": "PWD5K9E",
+            "type": "maintenance_window",
+            "summary": "Updated description via Nango action",
+            "self": "https://api.pagerduty.com/maintenance_windows/PWD5K9E",
+            "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PWD5K9E",
+            "sequence_number": 7,
+            "start_time": "2026-09-16T13:34:27+03:00",
+            "end_time": "2026-09-16T17:00:00+03:00",
+            "description": "Updated description via Nango action",
+            "services": [
+              {
+                "id": "PNST598",
+                "type": "service_reference",
+                "summary": "Nango Prerequisite Service 1789554843",
+                "self": "https://api.pagerduty.com/services/PNST598",
+                "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PNST598"
+              }
+            ],
+            "created_by": {
+              "id": "PJB72P3",
+              "type": "user_reference",
+              "summary": "Nango Developer",
+              "self": "https://api.pagerduty.com/users/PJB72P3",
+              "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+            },
+            "teams": [
+              {
+                "id": "PEV95L9",
+                "type": "team_reference",
+                "summary": "Nango Test Team Add EP",
+                "self": "https://api.pagerduty.com/teams/PEV95L9",
+                "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:34:50 GMT",
+          "content-type": "application/json",
+          "content-length": "1049",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1942",
+          "x-ratelimit-reset": "1789554910",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"ae58f507848c0be421d37da9365d54ba\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "11065e7cb657bc207f882267fb5cc170",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "929",
+          "ratelimit-reset": "10",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "f6d9d06e8c87f3e2f5a4f49fe5d24bb409131ab9",
+        "request": {
+          "data": {
+            "maintenance_window": {
+              "type": "maintenance_window",
+              "description": "Updated description via Nango action"
+            }
+          }
+        }
+      }
+    }
+  }
+}
