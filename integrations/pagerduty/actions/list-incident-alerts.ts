@@ -139,8 +139,8 @@ const action = createAction({
     scopes: ['incidents.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
-        if (isNaN(offset)) {
+        const offset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (input.cursor !== undefined && (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(offset))) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a valid integer string'

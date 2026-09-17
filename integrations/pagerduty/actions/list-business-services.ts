@@ -17,19 +17,19 @@ const InputSchema = z
 const ProviderTeamSchema = z.object({
     id: z.string(),
     type: z.string(),
-    self: z.string().optional(),
-    summary: z.string().optional()
+    self: z.string().nullable().optional(),
+    summary: z.string().nullable().optional()
 });
 
 const ProviderBusinessServiceSchema = z.object({
     id: z.string(),
     name: z.string(),
     type: z.string(),
-    summary: z.string().optional(),
+    summary: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     point_of_contact: z.string().nullable().optional(),
     team: ProviderTeamSchema.nullable().optional(),
-    self: z.string().optional(),
+    self: z.string().nullable().optional(),
     html_url: z.string().nullable().optional(),
     created_at: z.string().optional(),
     updated_at: z.string().optional()
@@ -85,13 +85,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let offset = 0;
         if (input.cursor !== undefined) {
-            if (!/^\d+$/.test(input.cursor)) {
+            const parsedOffset = Number(input.cursor);
+            if (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(parsedOffset)) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a non-negative integer offset string'
                 });
             }
-            offset = parseInt(input.cursor, 10);
+            offset = parsedOffset;
         }
         const limit = input.limit ?? 25;
 

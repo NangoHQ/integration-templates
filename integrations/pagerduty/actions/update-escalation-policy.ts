@@ -50,7 +50,7 @@ const ProviderResponseSchema = z.object({
     escalation_policy: z.object({
         id: z.string(),
         type: z.string(),
-        summary: z.string().optional(),
+        summary: z.string().nullable().optional(),
         name: z.string(),
         description: z.string().nullable().optional(),
         escalation_rules: z.array(
@@ -61,7 +61,7 @@ const ProviderResponseSchema = z.object({
                     z.object({
                         id: z.string(),
                         type: z.string(),
-                        summary: z.string().optional()
+                        summary: z.string().nullable().optional()
                     })
                 )
             })
@@ -132,7 +132,7 @@ const action = createAction({
         return {
             id: policy.id,
             type: policy.type,
-            summary: policy.summary,
+            ...(policy.summary != null && { summary: policy.summary }),
             name: policy.name,
             description: policy.description,
             escalation_rules: policy.escalation_rules.map((rule) => ({
@@ -141,7 +141,7 @@ const action = createAction({
                 targets: rule.targets.map((target) => ({
                     id: target.id,
                     type: target.type,
-                    summary: target.summary
+                    ...(target.summary != null && { summary: target.summary })
                 }))
             }))
         };

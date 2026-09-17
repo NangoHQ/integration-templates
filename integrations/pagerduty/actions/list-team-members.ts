@@ -58,14 +58,15 @@ const action = createAction({
     scopes: ['teams.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListTeamMembersOutputSchema>> => {
-        if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {
+        const parsedOffset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (input.cursor !== undefined && (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(parsedOffset))) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a non-negative integer offset string.'
             });
         }
 
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = parsedOffset;
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/

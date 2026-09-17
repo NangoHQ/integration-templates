@@ -19,6 +19,14 @@ const TeamReferenceSchema = z.object({
     html_url: z.string().optional().describe('The PagerDuty web URL of the team.')
 });
 
+const ProviderTeamReferenceSchema = z.object({
+    id: z.string(),
+    type: z.string(),
+    summary: z.string().nullable().optional(),
+    self: z.string().nullable().optional(),
+    html_url: z.string().nullable().optional()
+});
+
 const ProviderBusinessServiceSchema = z.object({
     id: z.string(),
     name: z.string(),
@@ -28,7 +36,7 @@ const ProviderBusinessServiceSchema = z.object({
     summary: z.string().nullable().optional(),
     self: z.string().nullable().optional(),
     html_url: z.string().nullable().optional(),
-    team: TeamReferenceSchema.nullable().optional()
+    team: ProviderTeamReferenceSchema.nullable().optional()
 });
 
 const OutputSchema = z
@@ -87,7 +95,18 @@ const action = createAction({
             ...(bs.summary != null && { summary: bs.summary }),
             ...(bs.self != null && { self: bs.self }),
             ...(bs.html_url !== undefined && { html_url: bs.html_url }),
-            ...(bs.team !== undefined && { team: bs.team })
+            ...(bs.team !== undefined && {
+                team:
+                    bs.team === null
+                        ? null
+                        : {
+                              id: bs.team.id,
+                              type: bs.team.type,
+                              ...(bs.team.summary != null && { summary: bs.team.summary }),
+                              ...(bs.team.self != null && { self: bs.team.self }),
+                              ...(bs.team.html_url != null && { html_url: bs.team.html_url })
+                          }
+            })
         };
     }
 });

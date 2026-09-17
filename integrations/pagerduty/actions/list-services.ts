@@ -77,13 +77,14 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let offset = 0;
         if (input.cursor !== undefined) {
-            if (!/^\d+$/.test(input.cursor)) {
+            const parsedOffset = Number(input.cursor);
+            if (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(parsedOffset)) {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message: 'cursor must be a non-negative integer offset string'
                 });
             }
-            offset = parseInt(input.cursor, 10);
+            offset = parsedOffset;
         }
 
         const response = await nango.get({

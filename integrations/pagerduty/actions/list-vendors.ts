@@ -36,7 +36,13 @@ const action = createAction({
     scopes: ['vendors.read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 25;
-        const offset = input.cursor ? parseInt(input.cursor, 10) : 0;
+        const offset = input.cursor !== undefined ? Number(input.cursor) : 0;
+        if (input.cursor !== undefined && (!/^\d+$/.test(input.cursor) || !Number.isSafeInteger(offset))) {
+            throw new nango.ActionError({
+                type: 'invalid_cursor',
+                message: 'cursor must be a non-negative integer offset string.'
+            });
+        }
 
         const response = await nango.get({
             // https://developer.pagerduty.com/api-reference/
