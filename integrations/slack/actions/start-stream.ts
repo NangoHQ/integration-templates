@@ -1,6 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+interface SlackStartStreamResponse {
+    ok: boolean;
+    channel?: string;
+    ts?: string;
+    error?: string;
+}
+
 const InputSchema = z.object({
     channel: z.string().describe('Channel or IM channel ID to start the stream in. Example: "D1234567890"'),
     thread_ts: z
@@ -21,9 +28,9 @@ const InputSchema = z.object({
         ),
     recipient_team_id: z.string().optional().describe('Team ID of the recipient. See recipient_user_id note.'),
     task_display_mode: z.enum(['timeline', 'plan']).optional().describe('How tasks display. Defaults to "timeline" if omitted.'),
-    icon_emoji: z.string().optional().describe('Emoji to use as the message icon. Example: ":robot_face:"'),
-    icon_url: z.string().optional().describe('Image URL to use as the message icon.'),
-    username: z.string().optional().describe('Bot display name to use for this message.')
+    icon_emoji: z.string().optional().describe('Emoji to use as the message icon. Requires the chat:write.customize scope. Example: ":robot_face:"'),
+    icon_url: z.string().optional().describe('Image URL to use as the message icon. Requires the chat:write.customize scope.'),
+    username: z.string().optional().describe('Bot display name to use for this message. Requires the chat:write.customize scope.')
 });
 
 const OutputSchema = z.object({
@@ -39,10 +46,10 @@ const action = createAction({
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['chat:write'],
+    scopes: ['chat:write', 'chat:write.customize'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (input.markdown_text && input.chunks) {
+        if (input.markdown_text !== undefined && input.chunks !== undefined) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'markdown_text and chunks are mutually exclusive - provide only one.'
@@ -54,17 +61,17 @@ const action = createAction({
             thread_ts: input.thread_ts
         };
 
-        if (input.markdown_text) payload['markdown_text'] = input.markdown_text;
-        if (input.chunks) payload['chunks'] = input.chunks;
-        if (input.recipient_user_id) payload['recipient_user_id'] = input.recipient_user_id;
-        if (input.recipient_team_id) payload['recipient_team_id'] = input.recipient_team_id;
-        if (input.task_display_mode) payload['task_display_mode'] = input.task_display_mode;
-        if (input.icon_emoji) payload['icon_emoji'] = input.icon_emoji;
-        if (input.icon_url) payload['icon_url'] = input.icon_url;
-        if (input.username) payload['username'] = input.username;
+        if (input.markdown_text !== undefined) payload['markdown_text'] = input.markdown_text;
+        if (input.chunks !== undefined) payload['chunks'] = input.chunks;
+        if (input.recipient_user_id !== undefined) payload['recipient_user_id'] = input.recipient_user_id;
+        if (input.recipient_team_id !== undefined) payload['recipient_team_id'] = input.recipient_team_id;
+        if (input.task_display_mode !== undefined) payload['task_display_mode'] = input.task_display_mode;
+        if (input.icon_emoji !== undefined) payload['icon_emoji'] = input.icon_emoji;
+        if (input.icon_url !== undefined) payload['icon_url'] = input.icon_url;
+        if (input.username !== undefined) payload['username'] = input.username;
 
         // https://docs.slack.dev/reference/methods/chat.startStream
-        const response = await nango.post({
+        const response = await nango.post<SlackStartStreamResponse>({
             endpoint: 'chat.startStream',
             data: payload,
             retries: 3
@@ -77,10 +84,16 @@ const action = createAction({
                 error: response.data.error
             });
         }
+        if (!response.data.ts) {
+            throw new nango.ActionError({
+                type: 'slack_api_error',
+                message: 'Slack returned ok:true with no message ts for chat.startStream.'
+            });
+        }
 
         return {
             ok: response.data.ok,
-            channel: response.data.channel,
+            channel: response.data.channel ?? input.channel,
             ts: response.data.ts
         };
     }

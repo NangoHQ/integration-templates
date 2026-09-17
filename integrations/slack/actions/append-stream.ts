@@ -1,6 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+interface SlackAppendStreamResponse {
+    ok: boolean;
+    channel?: string;
+    ts?: string;
+    error?: string;
+}
+
 const InputSchema = z.object({
     channel: z.string().describe('Channel or IM channel ID the stream is in. Must match the channel used in start-stream. Example: "D1234567890"'),
     ts: z.string().describe('Timestamp of the streamed message, as returned by start-stream. Example: "1234567890.123456"'),
@@ -28,10 +35,19 @@ const action = createAction({
     scopes: ['chat:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (input.markdown_text && input.chunks) {
+        const hasMarkdownText = input.markdown_text !== undefined;
+        const hasChunks = input.chunks !== undefined;
+
+        if (hasMarkdownText && hasChunks) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'markdown_text and chunks are mutually exclusive - provide only one.'
+            });
+        }
+        if (!hasMarkdownText && !hasChunks) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'One of markdown_text or chunks is required - there is no content to append otherwise.'
             });
         }
 
@@ -40,11 +56,11 @@ const action = createAction({
             ts: input.ts
         };
 
-        if (input.markdown_text) payload['markdown_text'] = input.markdown_text;
-        if (input.chunks) payload['chunks'] = input.chunks;
+        if (hasMarkdownText) payload['markdown_text'] = input.markdown_text;
+        if (hasChunks) payload['chunks'] = input.chunks;
 
         // https://docs.slack.dev/reference/methods/chat.appendStream
-        const response = await nango.post({
+        const response = await nango.post<SlackAppendStreamResponse>({
             endpoint: 'chat.appendStream',
             data: payload,
             retries: 3
@@ -60,8 +76,8 @@ const action = createAction({
 
         return {
             ok: response.data.ok,
-            channel: response.data.channel,
-            ts: response.data.ts
+            channel: response.data.channel ?? input.channel,
+            ts: response.data.ts ?? input.ts
         };
     }
 });
