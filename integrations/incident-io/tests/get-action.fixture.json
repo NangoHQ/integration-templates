@@ -1,0 +1,44 @@
+{
+    "input": {
+        "id": "01FCNDV6P870EA6S7TK1DSYD5H"
+    },
+    "response": {
+        "action": {
+            "assignee": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+                "alert": {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "title": "*errors.withMessage: PG::Error failed to connect"
+                },
+                "api_key": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My test API key"
+                },
+                "user": {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                },
+                "workflow": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My little workflow"
+                }
+            },
+            "description": "Call the fire brigade",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "status": "outstanding",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+        }
+    }
+}
