@@ -1,0 +1,9 @@
+{
+    "input": {
+        "contact_id": "example",
+        "body": {
+            "topics": [{ "id": "059ac693-2fc8-4c13-8b27-01350d638a17", "subscription": "opt_in" }]
+        }
+    },
+    "response": {}
+}

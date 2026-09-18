@@ -1,0 +1,17 @@
+{
+    "input": {
+        "idempotency_key": "example",
+        "body": [
+            {
+                "from": "Acme <onboarding@resend.dev>",
+                "to": ["delivered@resend.dev"],
+                "subject": "Hello World",
+                "text": "Example email body",
+                "tags": [{ "name": "category", "value": "confirm_email" }]
+            }
+        ]
+    },
+    "response": {
+        "data": [{ "id": "ae2014de-c168-4c61-8267-70d2662a1ce1" }]
+    }
+}
