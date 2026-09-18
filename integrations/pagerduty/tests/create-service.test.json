@@ -1,0 +1,114 @@
+{
+  "input": {
+    "name": "Nango Test Service Dryrun Save",
+    "escalation_policy_id": "P3V8JYU",
+    "description": "Test service created by dryrun for save"
+  },
+  "output": {
+    "id": "P37MDAO",
+    "name": "Nango Test Service Dryrun Save",
+    "description": "Test service created by dryrun for save",
+    "status": "active",
+    "escalation_policy_id": "P3V8JYU",
+    "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P37MDAO",
+    "created_at": "2026-09-16T13:27:05+03:00"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/services": {
+        "response": {
+          "service": {
+            "id": "P37MDAO",
+            "name": "Nango Test Service Dryrun Save",
+            "description": "Test service created by dryrun for save",
+            "created_at": "2026-09-16T13:27:05+03:00",
+            "updated_at": "2026-09-16T13:27:05+03:00",
+            "status": "active",
+            "teams": [
+              {
+                "id": "PEV95L9",
+                "type": "team_reference",
+                "summary": "Nango Test Team Add EP",
+                "self": "https://api.pagerduty.com/teams/PEV95L9",
+                "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+              }
+            ],
+            "alert_creation": "create_alerts_and_incidents",
+            "addons": [],
+            "scheduled_actions": [],
+            "support_hours": null,
+            "last_incident_timestamp": null,
+            "escalation_policy": {
+              "id": "P3V8JYU",
+              "type": "escalation_policy_reference",
+              "summary": "Default",
+              "self": "https://api.pagerduty.com/escalation_policies/P3V8JYU",
+              "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P3V8JYU"
+            },
+            "incident_urgency_rule": {
+              "type": "constant",
+              "urgency": "high"
+            },
+            "acknowledgement_timeout": null,
+            "auto_resolve_timeout": null,
+            "alert_grouping": null,
+            "alert_grouping_timeout": null,
+            "alert_grouping_parameters": {
+              "type": null,
+              "config": null
+            },
+            "integrations": [],
+            "type": "service",
+            "summary": "Nango Test Service Dryrun Save",
+            "self": "https://api.pagerduty.com/services/P37MDAO",
+            "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P37MDAO"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:27:05 GMT",
+          "content-type": "application/json",
+          "content-length": "1220",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1903",
+          "x-ratelimit-reset": "1789554426",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"d22d194e3947ecca0d051243a2c644b7\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "d2181ebedadb74c5b6127927ae66fe3a",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "955",
+          "ratelimit-reset": "55",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "6751500687d85ad33ad98c3b14d7b16883fc27da",
+        "request": {
+          "data": {
+            "service": {
+              "type": "service",
+              "name": "Nango Test Service Dryrun Save",
+              "escalation_policy": {
+                "id": "P3V8JYU",
+                "type": "escalation_policy_reference"
+              },
+              "description": "Test service created by dryrun for save"
+            }
+          }
+        }
+      }
+    }
+  }
+}

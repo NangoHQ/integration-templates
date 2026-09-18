@@ -1,0 +1,194 @@
+{
+  "input": {
+    "incident_id": "Q0YLGGHWAI1DDT",
+    "requester_id": "PJB72P3",
+    "message": "Please help with this incident",
+    "responder_request_targets": [
+      {
+        "responder_request_target": {
+          "id": "PJB72P3",
+          "type": "user_reference"
+        }
+      }
+    ]
+  },
+  "output": {
+    "responder_request": {
+      "id": "P8DOLQ3",
+      "incident": {
+        "id": "Q0YLGGHWAI1DDT",
+        "type": "incident_reference",
+        "summary": "[#2] Updated Nango Test Incident",
+        "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+        "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+      },
+      "requester": {
+        "id": "PJB72P3",
+        "type": "user_reference",
+        "summary": "Nango Developer",
+        "self": "https://api.pagerduty.com/users/PJB72P3",
+        "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+      },
+      "requested_at": "2026-09-16T13:33:14+03:00",
+      "message": "Please help with this incident",
+      "responder_request_targets": [
+        {
+          "responder_request_target": {
+            "type": "user",
+            "id": "PJB72P3",
+            "summary": null,
+            "incidents_responders": [
+              {
+                "state": "pending",
+                "user": {
+                  "id": "PJB72P3",
+                  "type": "user_reference",
+                  "summary": "Nango Developer",
+                  "self": "https://api.pagerduty.com/users/PJB72P3",
+                  "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+                },
+                "incident": {
+                  "id": "Q0YLGGHWAI1DDT",
+                  "type": "incident_reference",
+                  "summary": "[#2] Updated Nango Test Incident",
+                  "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                  "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+                },
+                "updated_at": "2026-09-16T08:46:02Z",
+                "message": "Please help with this incident",
+                "requester": {
+                  "id": "PJB72P3",
+                  "type": "user_reference",
+                  "summary": "Nango Developer",
+                  "self": "https://api.pagerduty.com/users/PJB72P3",
+                  "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+                },
+                "requested_at": "2026-09-16T08:46:02Z"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/incidents/Q0YLGGHWAI1DDT/responder_requests": {
+        "response": {
+          "responder_request": {
+            "id": "P8DOLQ3",
+            "incident": {
+              "id": "Q0YLGGHWAI1DDT",
+              "type": "incident_reference",
+              "summary": "[#2] Updated Nango Test Incident",
+              "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+              "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+            },
+            "requester": {
+              "id": "PJB72P3",
+              "type": "user_reference",
+              "summary": "Nango Developer",
+              "self": "https://api.pagerduty.com/users/PJB72P3",
+              "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+            },
+            "requested_at": "2026-09-16T13:33:14+03:00",
+            "message": "Please help with this incident",
+            "responder_request_targets": [
+              {
+                "responder_request_target": {
+                  "type": "user",
+                  "id": "PJB72P3",
+                  "summary": null,
+                  "incidents_responders": [
+                    {
+                      "state": "pending",
+                      "user": {
+                        "id": "PJB72P3",
+                        "type": "user_reference",
+                        "summary": "Nango Developer",
+                        "self": "https://api.pagerduty.com/users/PJB72P3",
+                        "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3",
+                        "color": "purple",
+                        "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+                        "job_title": "Updated Job Title"
+                      },
+                      "incident": {
+                        "id": "Q0YLGGHWAI1DDT",
+                        "type": "incident_reference",
+                        "summary": "[#2] Updated Nango Test Incident",
+                        "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                        "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+                      },
+                      "updated_at": "2026-09-16T08:46:02Z",
+                      "message": "Please help with this incident",
+                      "requester": {
+                        "id": "PJB72P3",
+                        "type": "user_reference",
+                        "summary": "Nango Developer",
+                        "self": "https://api.pagerduty.com/users/PJB72P3",
+                        "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3",
+                        "color": "purple",
+                        "avatar_url": "https://pd-static-assets.pagerduty.com/users/blank-avatar.png",
+                        "job_title": "Updated Job Title"
+                      },
+                      "requested_at": "2026-09-16T08:46:02Z",
+                      "errors": [
+                        "No channels available to send invitation"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:33:14 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1979",
+          "x-ratelimit-reset": "1789554850",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"903e84f172536138008399253deff4bb\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "6a183feedc6b8ad9b2f4c22832c82dfc",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "942",
+          "ratelimit-reset": "46",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "b60bcccf3316b73ac423f13deb40df34eef4ead7",
+        "request": {
+          "data": {
+            "requester_id": "PJB72P3",
+            "message": "Please help with this incident",
+            "responder_request_targets": [
+              {
+                "responder_request_target": {
+                  "id": "PJB72P3",
+                  "type": "user_reference"
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

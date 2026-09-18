@@ -1,0 +1,230 @@
+{
+  "input": {
+    "schedule": {
+      "name": "Preview Test Schedule",
+      "time_zone": "America/New_York",
+      "schedule_layers": [
+        {
+          "name": "Layer 1",
+          "start": "2026-09-16T00:00:00-04:00",
+          "rotation_virtual_start": "2026-09-16T00:00:00-04:00",
+          "rotation_turn_length_seconds": 86400,
+          "users": [
+            {
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "since": "2026-09-16T00:00:00Z",
+    "until": "2026-09-23T00:00:00Z",
+    "overflow": false
+  },
+  "output": {
+    "schedule": {
+      "id": null,
+      "type": "schedule",
+      "summary": "Preview Test Schedule",
+      "self": null,
+      "html_url": null,
+      "name": "Preview Test Schedule",
+      "time_zone": "America/New_York",
+      "description": null,
+      "schedule_layers": [
+        {
+          "id": "pd-layer-id-0",
+          "name": "Layer 1",
+          "start": "2026-09-16T06:35:09-04:00",
+          "rotation_virtual_start": "2026-09-16T00:00:00-04:00",
+          "rotation_turn_length_seconds": 86400,
+          "users": [
+            {
+              "user": null
+            }
+          ],
+          "restrictions": [],
+          "rendered_schedule_entries": [
+            {
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": "2026-09-16T06:35:09-04:00",
+              "end": "2026-09-22T20:00:00-04:00"
+            }
+          ],
+          "rendered_coverage_percentage": 93.7
+        }
+      ],
+      "final_schedule": {
+        "name": "Final Schedule",
+        "rendered_schedule_entries": [
+          {
+            "user": {
+              "id": "PJB72P3",
+              "type": "user_reference",
+              "summary": "Nango Developer",
+              "self": "https://api.pagerduty.com/users/PJB72P3",
+              "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+            },
+            "start": "2026-09-16T06:35:09-04:00",
+            "end": "2026-09-22T20:00:00-04:00"
+          }
+        ],
+        "rendered_coverage_percentage": 93.7
+      },
+      "overrides_subschedule": {
+        "name": "Overrides",
+        "rendered_schedule_entries": [],
+        "rendered_coverage_percentage": 0
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/schedules/preview": {
+        "response": {
+          "schedule": {
+            "description": null,
+            "escalation_policies": [],
+            "final_schedule": {
+              "name": "Final Schedule",
+              "rendered_coverage_percentage": 93.7,
+              "rendered_schedule_entries": [
+                {
+                  "end": "2026-09-22T20:00:00-04:00",
+                  "id": null,
+                  "start": "2026-09-16T06:35:09-04:00",
+                  "user": {
+                    "color": "purple",
+                    "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3",
+                    "id": "PJB72P3",
+                    "self": "https://api.pagerduty.com/users/PJB72P3",
+                    "summary": "Nango Developer",
+                    "type": "user_reference"
+                  }
+                }
+              ]
+            },
+            "html_url": null,
+            "http_cal_url": null,
+            "id": null,
+            "name": "Preview Test Schedule",
+            "overrides_subschedule": {
+              "name": "Overrides",
+              "rendered_coverage_percentage": 0,
+              "rendered_schedule_entries": []
+            },
+            "personal_http_cal_url": null,
+            "personal_web_cal_url": null,
+            "schedule_layers": [
+              {
+                "end": null,
+                "id": "pd-layer-id-0",
+                "name": "Layer 1",
+                "rendered_coverage_percentage": 93.7,
+                "rendered_schedule_entries": [
+                  {
+                    "end": "2026-09-22T20:00:00-04:00",
+                    "id": null,
+                    "start": "2026-09-16T06:35:09-04:00",
+                    "user": {
+                      "color": "purple",
+                      "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3",
+                      "id": "PJB72P3",
+                      "self": "https://api.pagerduty.com/users/PJB72P3",
+                      "summary": "Nango Developer",
+                      "type": "user_reference"
+                    }
+                  }
+                ],
+                "restrictions": [],
+                "rotation_turn_length_seconds": 86400,
+                "rotation_virtual_start": "2026-09-16T00:00:00-04:00",
+                "start": "2026-09-16T06:35:09-04:00",
+                "users": [
+                  {
+                    "user": null
+                  }
+                ]
+              }
+            ],
+            "self": null,
+            "summary": "Preview Test Schedule",
+            "time_zone": "America/New_York",
+            "type": "schedule",
+            "users": [],
+            "web_cal_url": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:35:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1910",
+          "x-ratelimit-reset": "1789554910",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "aeafa9a47e6683a24f6f821cf11c2d9a",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "951",
+          "ratelimit-reset": "51",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "575ad498f168a88179293c34dd92a0bb99f7f28b",
+        "request": {
+          "params": {
+            "overflow": "false",
+            "since": "2026-09-16T00:00:00Z",
+            "until": "2026-09-23T00:00:00Z"
+          },
+          "data": {
+            "schedule": {
+              "name": "Preview Test Schedule",
+              "time_zone": "America/New_York",
+              "schedule_layers": [
+                {
+                  "name": "Layer 1",
+                  "start": "2026-09-16T00:00:00-04:00",
+                  "rotation_virtual_start": "2026-09-16T00:00:00-04:00",
+                  "rotation_turn_length_seconds": 86400,
+                  "users": [
+                    {
+                      "user": {
+                        "id": "PJB72P3",
+                        "type": "user_reference"
+                      }
+                    }
+                  ]
+                }
+              ],
+              "type": "schedule"
+            }
+          }
+        }
+      }
+    }
+  }
+}
