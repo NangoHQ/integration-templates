@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  aws-sts:
+    build: .
+    ports:
+      - "3055:3000"
+    environment:
+      - PORT=3000
+      - AWS_REGION=${AWS_REGION}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - STS_SHARED_API_KEY=${STS_SHARED_API_KEY}
+    env_file:
+      - .env
