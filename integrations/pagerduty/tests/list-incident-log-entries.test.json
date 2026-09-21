@@ -1,0 +1,472 @@
+{
+  "input": {
+    "incident_id": "Q0YLGGHWAI1DDT",
+    "limit": 5
+  },
+  "output": {
+    "log_entries": [
+      {
+        "id": "RPBH2HCUC43ZWH97GKO1UJH373",
+        "type": "subscriber_unsubscribe_log_entry",
+        "summary": "Nango Developer unsubscribed from this incident through the website.",
+        "self": "https://api.pagerduty.com/log_entries/RPBH2HCUC43ZWH97GKO1UJH373",
+        "html_url": null,
+        "created_at": "2026-09-16T10:31:36Z",
+        "agent": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channel": {
+          "type": "website"
+        },
+        "service": {
+          "id": "PZW5AR6",
+          "type": "service_reference",
+          "summary": "Nango Test Service",
+          "self": null,
+          "html_url": null
+        },
+        "incident": {
+          "id": "Q0YLGGHWAI1DDT",
+          "type": "incident_reference",
+          "summary": "[#2] Updated Nango Test Incident",
+          "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+          "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+        },
+        "teams": [],
+        "contexts": [],
+        "subscriber": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "R251OZR6T5NCB9JVVJX6AHBV1C",
+        "type": "annotate_log_entry",
+        "summary": "Note added by Nango Developer.",
+        "self": "https://api.pagerduty.com/log_entries/R251OZR6T5NCB9JVVJX6AHBV1C",
+        "html_url": null,
+        "created_at": "2026-09-16T10:31:26Z",
+        "agent": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channel": {
+          "type": "note",
+          "summary": "Original note for update test"
+        },
+        "service": {
+          "id": "PZW5AR6",
+          "type": "service_reference",
+          "summary": "Nango Test Service",
+          "self": null,
+          "html_url": null
+        },
+        "incident": {
+          "id": "Q0YLGGHWAI1DDT",
+          "type": "incident_reference",
+          "summary": "[#2] Updated Nango Test Incident",
+          "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+          "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+        },
+        "teams": [],
+        "contexts": []
+      },
+      {
+        "id": "R498SOLQZ6HLUM5FVMFOJHNEY5",
+        "type": "responder_request_log_entry",
+        "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+        "self": "https://api.pagerduty.com/log_entries/R498SOLQZ6HLUM5FVMFOJHNEY5",
+        "html_url": null,
+        "created_at": "2026-09-16T10:29:12Z",
+        "agent": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channel": {
+          "type": "api"
+        },
+        "service": {
+          "id": "PZW5AR6",
+          "type": "service_reference",
+          "summary": "Nango Test Service",
+          "self": null,
+          "html_url": null
+        },
+        "incident": {
+          "id": "Q0YLGGHWAI1DDT",
+          "type": "incident_reference",
+          "summary": "[#2] Updated Nango Test Incident",
+          "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+          "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+        },
+        "teams": [],
+        "contexts": [],
+        "message": "Please help with this incident",
+        "responder": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channels": "email"
+      },
+      {
+        "id": "R3V1ALIU7OXGC7T2UP7U2NO6N8",
+        "type": "responder_request_log_entry",
+        "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+        "self": "https://api.pagerduty.com/log_entries/R3V1ALIU7OXGC7T2UP7U2NO6N8",
+        "html_url": null,
+        "created_at": "2026-09-16T10:29:06Z",
+        "agent": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channel": {
+          "type": "api"
+        },
+        "service": {
+          "id": "PZW5AR6",
+          "type": "service_reference",
+          "summary": "Nango Test Service",
+          "self": null,
+          "html_url": null
+        },
+        "incident": {
+          "id": "Q0YLGGHWAI1DDT",
+          "type": "incident_reference",
+          "summary": "[#2] Updated Nango Test Incident",
+          "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+          "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+        },
+        "teams": [],
+        "contexts": [],
+        "message": "Please help with this incident",
+        "responder": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channels": "email"
+      },
+      {
+        "id": "R86HU5R4T3KJOGDIM4WVCB6V0D",
+        "type": "responder_request_log_entry",
+        "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+        "self": "https://api.pagerduty.com/log_entries/R86HU5R4T3KJOGDIM4WVCB6V0D",
+        "html_url": null,
+        "created_at": "2026-09-16T10:28:23Z",
+        "agent": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channel": {
+          "type": "api"
+        },
+        "service": {
+          "id": "PZW5AR6",
+          "type": "service_reference",
+          "summary": "Nango Test Service",
+          "self": null,
+          "html_url": null
+        },
+        "incident": {
+          "id": "Q0YLGGHWAI1DDT",
+          "type": "incident_reference",
+          "summary": "[#2] Updated Nango Test Incident",
+          "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+          "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+        },
+        "teams": [],
+        "contexts": [],
+        "message": "Please help with this incident",
+        "responder": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "channels": "email"
+      }
+    ],
+    "next_offset": 5
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/incidents/Q0YLGGHWAI1DDT/log_entries": {
+        "response": {
+          "log_entries": [
+            {
+              "id": "RPBH2HCUC43ZWH97GKO1UJH373",
+              "type": "subscriber_unsubscribe_log_entry",
+              "summary": "Nango Developer unsubscribed from this incident through the website.",
+              "self": "https://api.pagerduty.com/log_entries/RPBH2HCUC43ZWH97GKO1UJH373",
+              "html_url": null,
+              "created_at": "2026-09-16T10:31:36Z",
+              "agent": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channel": {
+                "type": "website"
+              },
+              "service": {
+                "id": "PZW5AR6",
+                "type": "service_reference",
+                "summary": "Nango Test Service",
+                "self": null,
+                "html_url": null
+              },
+              "incident": {
+                "id": "Q0YLGGHWAI1DDT",
+                "type": "incident_reference",
+                "summary": "[#2] Updated Nango Test Incident",
+                "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+              },
+              "teams": [],
+              "contexts": [],
+              "subscriber": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              }
+            },
+            {
+              "id": "R251OZR6T5NCB9JVVJX6AHBV1C",
+              "type": "annotate_log_entry",
+              "summary": "Note added by Nango Developer.",
+              "self": "https://api.pagerduty.com/log_entries/R251OZR6T5NCB9JVVJX6AHBV1C",
+              "html_url": null,
+              "created_at": "2026-09-16T10:31:26Z",
+              "agent": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channel": {
+                "type": "note",
+                "summary": "Original note for update test"
+              },
+              "service": {
+                "id": "PZW5AR6",
+                "type": "service_reference",
+                "summary": "Nango Test Service",
+                "self": null,
+                "html_url": null
+              },
+              "incident": {
+                "id": "Q0YLGGHWAI1DDT",
+                "type": "incident_reference",
+                "summary": "[#2] Updated Nango Test Incident",
+                "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+              },
+              "teams": [],
+              "contexts": []
+            },
+            {
+              "id": "R498SOLQZ6HLUM5FVMFOJHNEY5",
+              "type": "responder_request_log_entry",
+              "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+              "self": "https://api.pagerduty.com/log_entries/R498SOLQZ6HLUM5FVMFOJHNEY5",
+              "html_url": null,
+              "created_at": "2026-09-16T10:29:12Z",
+              "agent": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channel": {
+                "type": "api"
+              },
+              "service": {
+                "id": "PZW5AR6",
+                "type": "service_reference",
+                "summary": "Nango Test Service",
+                "self": null,
+                "html_url": null
+              },
+              "incident": {
+                "id": "Q0YLGGHWAI1DDT",
+                "type": "incident_reference",
+                "summary": "[#2] Updated Nango Test Incident",
+                "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+              },
+              "teams": [],
+              "contexts": [],
+              "message": "Please help with this incident",
+              "responder": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channels": "email"
+            },
+            {
+              "id": "R3V1ALIU7OXGC7T2UP7U2NO6N8",
+              "type": "responder_request_log_entry",
+              "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+              "self": "https://api.pagerduty.com/log_entries/R3V1ALIU7OXGC7T2UP7U2NO6N8",
+              "html_url": null,
+              "created_at": "2026-09-16T10:29:06Z",
+              "agent": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channel": {
+                "type": "api"
+              },
+              "service": {
+                "id": "PZW5AR6",
+                "type": "service_reference",
+                "summary": "Nango Test Service",
+                "self": null,
+                "html_url": null
+              },
+              "incident": {
+                "id": "Q0YLGGHWAI1DDT",
+                "type": "incident_reference",
+                "summary": "[#2] Updated Nango Test Incident",
+                "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+              },
+              "teams": [],
+              "contexts": [],
+              "message": "Please help with this incident",
+              "responder": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channels": "email"
+            },
+            {
+              "id": "R86HU5R4T3KJOGDIM4WVCB6V0D",
+              "type": "responder_request_log_entry",
+              "summary": "Responder requested by Nango Developer through the website to Nango Developer.",
+              "self": "https://api.pagerduty.com/log_entries/R86HU5R4T3KJOGDIM4WVCB6V0D",
+              "html_url": null,
+              "created_at": "2026-09-16T10:28:23Z",
+              "agent": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channel": {
+                "type": "api"
+              },
+              "service": {
+                "id": "PZW5AR6",
+                "type": "service_reference",
+                "summary": "Nango Test Service",
+                "self": null,
+                "html_url": null
+              },
+              "incident": {
+                "id": "Q0YLGGHWAI1DDT",
+                "type": "incident_reference",
+                "summary": "[#2] Updated Nango Test Incident",
+                "self": "https://api.pagerduty.com/incidents/Q0YLGGHWAI1DDT",
+                "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q0YLGGHWAI1DDT"
+              },
+              "teams": [],
+              "contexts": [],
+              "message": "Please help with this incident",
+              "responder": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "channels": "email"
+            }
+          ],
+          "limit": 5,
+          "offset": 0,
+          "more": true,
+          "total": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:31:46 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1920",
+          "x-ratelimit-reset": "1789554729",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"4bc5ff6661f698a7430f62652727c26c\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "526ce8f32e1a9e054a8005b0c8974e93",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "919",
+          "ratelimit-reset": "15",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "1f52f0afb2a7c1eb478b76f4b3fa1d1e113dbbba",
+        "request": {
+          "params": {
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}
