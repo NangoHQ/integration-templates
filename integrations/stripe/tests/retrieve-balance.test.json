@@ -1,0 +1,54 @@
+{
+  "input": {},
+  "output": {
+    "object": "balance",
+    "available": [
+      {
+        "amount": 512340,
+        "currency": "usd",
+        "source_types": {
+          "card": 512340
+        }
+      }
+    ],
+    "pending": [
+      {
+        "amount": 83200,
+        "currency": "usd",
+        "source_types": {
+          "card": 83200
+        }
+      }
+    ],
+    "livemode": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/balance": {
+        "response": {
+          "object": "balance",
+          "available": [
+            {
+              "amount": 512340,
+              "currency": "usd",
+              "source_types": {
+                "card": 512340
+              }
+            }
+          ],
+          "pending": [
+            {
+              "amount": 83200,
+              "currency": "usd",
+              "source_types": {
+                "card": 83200
+              }
+            }
+          ],
+          "livemode": false
+        }
+      }
+    }
+  }
+}

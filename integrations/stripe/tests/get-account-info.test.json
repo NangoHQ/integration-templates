@@ -1,0 +1,76 @@
+{
+  "input": {},
+  "output": {
+    "id": "acct_1032D82eZvKYlo2C",
+    "object": "account",
+    "business_profile": {
+      "mcc": null,
+      "name": "Nango Test Account",
+      "product_description": null,
+      "support_address": null,
+      "support_email": null,
+      "support_phone": null,
+      "support_url": null,
+      "url": "https://example.com"
+    },
+    "business_type": "company",
+    "capabilities": {
+      "card_payments": "active",
+      "transfers": "active"
+    },
+    "charges_enabled": true,
+    "country": "US",
+    "created": 1385798567,
+    "default_currency": "usd",
+    "details_submitted": true,
+    "email": "site@stripe.com",
+    "payouts_enabled": true,
+    "settings": {
+      "dashboard": {
+        "display_name": "Nango Test Account",
+        "timezone": "US/Pacific"
+      }
+    },
+    "type": "standard"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/account": {
+        "response": {
+          "id": "acct_1032D82eZvKYlo2C",
+          "object": "account",
+          "business_profile": {
+            "mcc": null,
+            "name": "Nango Test Account",
+            "product_description": null,
+            "support_address": null,
+            "support_email": null,
+            "support_phone": null,
+            "support_url": null,
+            "url": "https://example.com"
+          },
+          "business_type": "company",
+          "capabilities": {
+            "card_payments": "active",
+            "transfers": "active"
+          },
+          "charges_enabled": true,
+          "country": "US",
+          "created": 1385798567,
+          "default_currency": "usd",
+          "details_submitted": true,
+          "email": "site@stripe.com",
+          "payouts_enabled": true,
+          "settings": {
+            "dashboard": {
+              "display_name": "Nango Test Account",
+              "timezone": "US/Pacific"
+            }
+          },
+          "type": "standard"
+        }
+      }
+    }
+  }
+}
