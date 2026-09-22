@@ -18,9 +18,7 @@ const action = createAction({
             retries: 3
         });
 
-        const items = z
-            .object({ items: z.array(z.record(z.string(), z.unknown())) })
-            .parse(response.data).items;
+        const { items } = OutputSchema.parse(response.data);
         return { items };
     }
 });
