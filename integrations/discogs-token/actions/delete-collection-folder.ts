@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
-const InputSchema = z.object({ folder_id: z.number() });
+const InputSchema = z.object({ folder_id: z.number().int().nonnegative() });
 const OutputSchema = z.object({ success: z.boolean() });
 
 const action = createAction({

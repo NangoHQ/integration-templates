@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
@@ -8,6 +8,7 @@ const UserListSchema = z.object({
     name: z.string(),
     description: z.string().optional(),
     public: z.boolean().optional(),
+    date_added: z.string().optional(),
     date_changed: z.string().optional(),
     resource_url: z.string().optional()
 });
@@ -15,10 +16,15 @@ const UserListSchema = z.object({
 const ListItemSchema = z.object({
     id: z.string(),
     list_id: z.number(),
+    item_id: z.number(),
+    type: z.string(),
     release_id: z.number().optional(),
-    position: z.number().optional(),
+    position: z.number(),
+    display_title: z.string().optional(),
     comment: z.string().optional(),
-    basic_information: z.record(z.string(), z.unknown()).optional()
+    uri: z.string().optional(),
+    resource_url: z.string().optional(),
+    image_url: z.string().optional()
 });
 
 const ProviderUserListSchema = z.object({
@@ -26,6 +32,7 @@ const ProviderUserListSchema = z.object({
     name: z.string(),
     description: z.string().nullish(),
     public: z.boolean().nullish(),
+    date_added: z.string().nullish(),
     date_changed: z.string().nullish(),
     resource_url: z.string().nullish()
 });
@@ -33,11 +40,18 @@ const ProviderUserListSchema = z.object({
 const ProviderListItemSchema = z
     .object({
         id: z.number(),
-        position: z.number().nullish(),
+        type: z.string(),
+        display_title: z.string().nullish(),
         comment: z.string().nullish(),
-        basic_information: z.record(z.string(), z.unknown()).optional()
+        uri: z.string().nullish(),
+        resource_url: z.string().nullish(),
+        image_url: z.string().nullish()
     })
     .passthrough();
+
+const ProviderListDetailSchema = z.object({
+    items: z.array(ProviderListItemSchema)
+});
 
 const ProviderListsPageSchema = z.object({
     lists: z.array(ProviderUserListSchema),
@@ -92,6 +106,7 @@ const sync = createSync({
                     name: list.name,
                     ...(list.description != null && { description: list.description }),
                     ...(list.public != null && { public: list.public }),
+                    ...(list.date_added != null && { date_added: list.date_added }),
                     ...(list.date_changed != null && { date_changed: list.date_changed }),
                     ...(list.resource_url != null && { resource_url: list.resource_url })
                 });
@@ -116,35 +131,30 @@ const sync = createSync({
         }
 
         for (const list of userLists) {
-            const itemsProxy: ProxyConfiguration = {
-                // https://www.discogs.com/developers#page:user-list,header-user-list-list
+            // https://www.discogs.com/developers#page:user-lists,header-user-lists-list
+            // This endpoint is not paginated: it returns every item in the list at once.
+            const response = await nango.get({
                 endpoint: `/lists/${list.list_id}`,
-                retries: 3,
-                paginate: {
-                    type: 'offset',
-                    offset_name_in_request: 'page',
-                    offset_start_value: 1,
-                    offset_calculation_method: 'per-page',
-                    response_path: 'items',
-                    limit_name_in_request: 'per_page',
-                    limit: 100
-                }
-            };
+                retries: 3
+            });
 
-            for await (const page of nango.paginate(itemsProxy)) {
-                const items = z.array(ProviderListItemSchema).parse(page);
-                const records = items.map((item) => ({
-                    id: `${list.list_id}-${item.id}`,
-                    list_id: list.list_id,
-                    release_id: item.id,
-                    ...(item.position != null && { position: item.position }),
-                    ...(item.comment != null && { comment: item.comment }),
-                    ...(item.basic_information !== undefined && { basic_information: item.basic_information })
-                }));
+            const { items } = ProviderListDetailSchema.parse(response.data);
+            const records = items.map((item, index) => ({
+                id: `${list.list_id}-${item.type}-${item.id}`,
+                list_id: list.list_id,
+                item_id: item.id,
+                type: item.type,
+                ...(item.type === 'release' && { release_id: item.id }),
+                position: index + 1,
+                ...(item.display_title != null && { display_title: item.display_title }),
+                ...(item.comment != null && { comment: item.comment }),
+                ...(item.uri != null && { uri: item.uri }),
+                ...(item.resource_url != null && { resource_url: item.resource_url }),
+                ...(item.image_url != null && { image_url: item.image_url })
+            }));
 
-                if (records.length > 0) {
-                    await nango.batchSave(records, 'ListItem');
-                }
+            if (records.length > 0) {
+                await nango.batchSave(records, 'ListItem');
             }
         }
         await nango.trackDeletesEnd('UserList');

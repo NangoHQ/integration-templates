@@ -2,7 +2,7 @@ import { createAction } from 'nango';
 import { z } from 'zod';
 
 const InputSchema = z.object({
-    listing_id: z.number(),
+    listing_id: z.number().int().positive(),
     condition: z.string().optional(),
     sleeve_condition: z.string().optional(),
     price: z.number().optional(),

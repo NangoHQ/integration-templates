@@ -1,8 +1,11 @@
 import { createAction } from 'nango';
 import { z } from 'zod';
 
-const InputSchema = z.object({ price: z.number(), currency: z.string().optional() });
-const OutputSchema = z.record(z.string(), z.unknown());
+const InputSchema = z.object({
+    price: z.number().positive(),
+    currency: z.enum(['USD', 'GBP', 'EUR', 'CAD', 'AUD', 'JPY', 'CHF', 'MXN', 'BRL', 'NZD', 'SEK', 'ZAR']).optional()
+});
+const OutputSchema = z.object({ value: z.number(), currency: z.string() });
 
 const action = createAction({
     description: 'Calculate the marketplace fee for a listing price.',
@@ -12,17 +15,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input) => {
-        const params: Record<string, string | number> = { price: input.price };
-        if (input.currency !== undefined) params['currency'] = input.currency;
-
         // https://www.discogs.com/developers#page:marketplace,header-marketplace-fee
         const response = await nango.get({
-            endpoint: `/marketplace/fee/${input.price}`,
-            params,
+            endpoint: `/marketplace/fee/${input.price.toFixed(2)}/${input.currency ?? 'USD'}`,
             retries: 3
         });
 
-        return z.record(z.string(), z.unknown()).parse(response.data ?? {});
+        return OutputSchema.parse(response.data);
     }
 });
 

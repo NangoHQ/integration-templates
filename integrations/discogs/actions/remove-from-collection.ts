@@ -3,9 +3,9 @@ import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
 const InputSchema = z.object({
-    folder_id: z.number(),
-    release_id: z.number(),
-    instance_id: z.number()
+    folder_id: z.number().int().nonnegative(),
+    release_id: z.number().int().positive(),
+    instance_id: z.number().int().positive()
 });
 
 const OutputSchema = z.object({ success: z.boolean() });

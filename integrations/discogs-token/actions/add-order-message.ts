@@ -1,7 +1,8 @@
 import { createAction } from 'nango';
 import { z } from 'zod';
+import { OrderStatusSchema } from '../helpers/order-status.js';
 
-const InputSchema = z.object({ order_id: z.string(), message: z.string(), status: z.string().optional() });
+const InputSchema = z.object({ order_id: z.string(), message: z.string(), status: OrderStatusSchema.optional() });
 const OutputSchema = z.record(z.string(), z.unknown());
 
 const action = createAction({

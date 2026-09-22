@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
@@ -35,6 +35,16 @@ const ProviderContributionSchema = z
     })
     .passthrough();
 
+const ProviderContributionsPageSchema = z.object({
+    contributions: z.array(ProviderContributionSchema),
+    pagination: z
+        .object({
+            page: z.number(),
+            pages: z.number()
+        })
+        .passthrough()
+});
+
 const sync = createSync({
     description: 'Sync release contributions for the authenticated user.',
     version: '1.0.0',
@@ -48,26 +58,21 @@ const sync = createSync({
     exec: async (nango) => {
         const username = await getDiscogsUsername(nango);
 
-        await nango.trackDeletesStart('Contribution');
+        const endpoint = `/users/${encodeURIComponent(username)}/contributions`;
+        const perPage = 100;
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.discogs.com/developers#page:user-contributions,header-user-contributions-contributions
-            endpoint: `/users/${encodeURIComponent(username)}/contributions`,
-            retries: 3,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                response_path: 'contributions',
-                limit_name_in_request: 'per_page',
-                limit: 100
-            }
+        const fetchPage = async (page: number) => {
+            const response = await nango.get({
+                // https://www.discogs.com/developers#page:user-identity,header-user-identity-user-contributions
+                endpoint,
+                params: { page, per_page: perPage },
+                retries: 3
+            });
+            return ProviderContributionsPageSchema.parse(response.data);
         };
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const releases = z.array(ProviderContributionSchema).parse(page);
-            const records = releases.map((release) => ({
+        const toRecords = (releases: z.infer<typeof ProviderContributionSchema>[]) =>
+            releases.map((release) => ({
                 id: String(release.id),
                 release_id: release.id,
                 ...(release.title != null && { title: release.title }),
@@ -83,10 +88,24 @@ const sync = createSync({
                 ...(release.anv != null && { anv: release.anv })
             }));
 
+        // Validate the first page before opening the delete-tracking window.
+        const firstPage = await fetchPage(1);
+
+        await nango.trackDeletesStart('Contribution');
+
+        const firstRecords = toRecords(firstPage.contributions);
+        if (firstRecords.length > 0) {
+            await nango.batchSave(firstRecords, 'Contribution');
+        }
+
+        for (let page = 2; page <= firstPage.pagination.pages; page++) {
+            const parsed = await fetchPage(page);
+            const records = toRecords(parsed.contributions);
             if (records.length > 0) {
                 await nango.batchSave(records, 'Contribution');
             }
         }
+
         await nango.trackDeletesEnd('Contribution');
     }
 });

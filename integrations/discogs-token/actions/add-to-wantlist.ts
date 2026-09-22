@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { getDiscogsUsername } from '../helpers/get-discogs-username.js';
 
 const InputSchema = z.object({
-    release_id: z.number(),
+    release_id: z.number().int().positive(),
     notes: z.string().optional(),
     rating: z.number().int().min(1).max(5).optional()
 });
