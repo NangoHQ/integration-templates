@@ -18,29 +18,36 @@ const FromSchema = z.object({
         .optional()
 });
 
+const RecipientSchema = z.object({
+    emailAddress: z
+        .object({
+            name: z.string().optional(),
+            address: z.string().optional()
+        })
+        .optional()
+});
+
+const BodySchema = z.object({
+    contentType: z.string().optional(),
+    content: z.string().optional()
+});
+
 const ProviderMessageSchema = z.object({
     id: z.string(),
     subject: z.string().nullable().optional(),
     receivedDateTime: z.string().optional(),
     sentDateTime: z.string().optional(),
     from: FromSchema.optional(),
-    toRecipients: z
-        .array(
-            z.object({
-                emailAddress: z
-                    .object({
-                        name: z.string().optional(),
-                        address: z.string().optional()
-                    })
-                    .optional()
-            })
-        )
-        .optional(),
+    toRecipients: z.array(RecipientSchema).optional(),
+    ccRecipients: z.array(RecipientSchema).optional(),
+    bccRecipients: z.array(RecipientSchema).optional(),
     isRead: z.boolean().optional(),
     importance: z.string().optional(),
     conversationId: z.string().optional(),
     internetMessageId: z.string().optional(),
-    bodyPreview: z.string().optional()
+    hasAttachments: z.boolean().optional(),
+    bodyPreview: z.string().optional(),
+    body: BodySchema.nullable().optional()
 });
 
 const ProviderListResponseSchema = z.object({
@@ -54,23 +61,16 @@ const MessageSchema = z.object({
     receivedDateTime: z.string().optional(),
     sentDateTime: z.string().optional(),
     from: FromSchema.optional(),
-    toRecipients: z
-        .array(
-            z.object({
-                emailAddress: z
-                    .object({
-                        name: z.string().optional(),
-                        address: z.string().optional()
-                    })
-                    .optional()
-            })
-        )
-        .optional(),
+    toRecipients: z.array(RecipientSchema).optional(),
+    ccRecipients: z.array(RecipientSchema).optional(),
+    bccRecipients: z.array(RecipientSchema).optional(),
     isRead: z.boolean().optional(),
     importance: z.string().optional(),
     conversationId: z.string().optional(),
     internetMessageId: z.string().optional(),
-    bodyPreview: z.string().optional()
+    hasAttachments: z.boolean().optional(),
+    bodyPreview: z.string().optional(),
+    body: BodySchema.optional()
 });
 
 const OutputSchema = z.object({
@@ -80,7 +80,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List messages from a mail folder.',
-    version: '1.0.1',
+    version: '1.1.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read'],
@@ -127,11 +127,15 @@ const action = createAction({
             ...(msg.sentDateTime !== undefined && { sentDateTime: msg.sentDateTime }),
             ...(msg.from !== undefined && { from: msg.from }),
             ...(msg.toRecipients !== undefined && { toRecipients: msg.toRecipients }),
+            ...(msg.ccRecipients !== undefined && { ccRecipients: msg.ccRecipients }),
+            ...(msg.bccRecipients !== undefined && { bccRecipients: msg.bccRecipients }),
             ...(msg.isRead !== undefined && { isRead: msg.isRead }),
             ...(msg.importance !== undefined && { importance: msg.importance }),
             ...(msg.conversationId !== undefined && { conversationId: msg.conversationId }),
             ...(msg.internetMessageId !== undefined && { internetMessageId: msg.internetMessageId }),
-            ...(msg.bodyPreview !== undefined && { bodyPreview: msg.bodyPreview })
+            ...(msg.hasAttachments !== undefined && { hasAttachments: msg.hasAttachments }),
+            ...(msg.bodyPreview !== undefined && { bodyPreview: msg.bodyPreview }),
+            ...(msg.body != null && { body: msg.body })
         }));
 
         return {

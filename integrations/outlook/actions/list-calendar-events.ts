@@ -18,6 +18,13 @@ const ProviderEventSchema = z.object({
     id: z.string(),
     subject: z.string().nullable().optional(),
     bodyPreview: z.string().nullable().optional(),
+    body: z
+        .object({
+            contentType: z.string().nullable().optional(),
+            content: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
     start: z
         .object({
             dateTime: z.string(),
@@ -46,6 +53,8 @@ const EventSchema = z.object({
     id: z.string(),
     subject: z.string().optional(),
     body_preview: z.string().optional(),
+    body_content_type: z.string().optional(),
+    body_content: z.string().optional(),
     start_date_time: z.string().optional(),
     start_time_zone: z.string().optional(),
     end_date_time: z.string().optional(),
@@ -65,7 +74,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List events from a calendar or date window.',
-    version: '1.0.1',
+    version: '1.1.0',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['Calendars.Read'],
@@ -111,6 +120,10 @@ const action = createAction({
             ...(event.subject != null && { subject: event.subject }),
             ...(event.bodyPreview != null && {
                 body_preview: event.bodyPreview
+            }),
+            ...(event.body != null && {
+                body_content_type: event.body.contentType ?? undefined,
+                body_content: event.body.content ?? undefined
             }),
             ...(event.start != null && {
                 start_date_time: event.start.dateTime,
