@@ -27,11 +27,6 @@ const RecipientSchema = z.object({
         .optional()
 });
 
-const BodySchema = z.object({
-    contentType: z.string().optional(),
-    content: z.string().optional()
-});
-
 const ProviderMessageSchema = z.object({
     id: z.string(),
     subject: z.string().nullable().optional(),
@@ -46,8 +41,7 @@ const ProviderMessageSchema = z.object({
     conversationId: z.string().optional(),
     internetMessageId: z.string().optional(),
     hasAttachments: z.boolean().optional(),
-    bodyPreview: z.string().optional(),
-    body: BodySchema.nullable().optional()
+    bodyPreview: z.string().optional()
 });
 
 const ProviderListResponseSchema = z.object({
@@ -69,8 +63,7 @@ const MessageSchema = z.object({
     conversationId: z.string().optional(),
     internetMessageId: z.string().optional(),
     hasAttachments: z.boolean().optional(),
-    bodyPreview: z.string().optional(),
-    body: BodySchema.optional()
+    bodyPreview: z.string().optional()
 });
 
 const OutputSchema = z.object({
@@ -134,8 +127,7 @@ const action = createAction({
             ...(msg.conversationId !== undefined && { conversationId: msg.conversationId }),
             ...(msg.internetMessageId !== undefined && { internetMessageId: msg.internetMessageId }),
             ...(msg.hasAttachments !== undefined && { hasAttachments: msg.hasAttachments }),
-            ...(msg.bodyPreview !== undefined && { bodyPreview: msg.bodyPreview }),
-            ...(msg.body != null && { body: msg.body })
+            ...(msg.bodyPreview !== undefined && { bodyPreview: msg.bodyPreview })
         }));
 
         return {
