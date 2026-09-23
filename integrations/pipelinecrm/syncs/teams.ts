@@ -1,4 +1,4 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 const PermissionsSchema = z.record(z.string(), z.unknown());
@@ -27,35 +27,64 @@ const TeamSchema = z.object({
     depth: z.number().optional()
 });
 
+const CheckpointSchema = z.object({
+    page: z.number().int().min(1)
+});
+
 const sync = createSync({
     description: 'Sync teams in this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Team: TeamSchema
     },
 
     exec: async (nango) => {
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.nullable().safeParse(rawCheckpoint ?? null);
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+
+        const nextPage = checkpointResult.data?.page ?? 1;
+
         await nango.trackDeletesStart('Team');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://app.pipelinecrm.com/api/docs/introduction
-            endpoint: '/api/v3/admin/teams',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                response_path: 'entries'
-            },
-            retries: 3
-        };
+        let currentPage = nextPage;
+        let hasMore = true;
 
-        for await (const page of nango.paginate(proxyConfig)) {
-            const teams = page.map((record: unknown) => {
+        while (hasMore) {
+            const response = await nango.get({
+                // https://app.pipelinecrm.com/api/docs/introduction
+                endpoint: '/api/v3/admin/teams',
+                params: {
+                    page: currentPage,
+                    per_page: 100
+                },
+                retries: 3
+            });
+
+            const listResult = z
+                .object({
+                    entries: z.array(z.unknown()),
+                    pagination: z
+                        .object({
+                            page: z.number(),
+                            pages: z.number(),
+                            per_page: z.number(),
+                            total: z.number()
+                        })
+                        .optional()
+                })
+                .safeParse(response.data);
+
+            if (!listResult.success) {
+                throw new Error(`Failed to parse teams list response: ${listResult.error.message}`);
+            }
+
+            const teams = listResult.data.entries.map((record: unknown) => {
                 const parsed = ProviderTeamSchema.safeParse(record);
                 if (!parsed.success) {
                     throw new Error(`Failed to parse team: ${parsed.error.message}`);
@@ -78,8 +107,19 @@ const sync = createSync({
             if (teams.length > 0) {
                 await nango.batchSave(teams, 'Team');
             }
+
+            await nango.saveCheckpoint({ page: currentPage + 1 });
+            currentPage++;
+
+            const totalPages = listResult.data.pagination?.pages;
+            if (typeof totalPages === 'number' && currentPage > totalPages) {
+                hasMore = false;
+            } else if (listResult.data.entries.length === 0) {
+                hasMore = false;
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Team');
     }
 });

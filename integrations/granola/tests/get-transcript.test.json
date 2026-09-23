@@ -1,0 +1,353 @@
+{
+  "input": {
+    "note_id": "not_IBuThyr2eJgage"
+  },
+  "output": {
+    "transcript": [
+      {
+        "text": "Hey, my name is Sam and in the next two minutes I'm going to show you how to use Granola to transcribe your meetings and turn your short scrappy notes into something much more beautiful and useful.",
+        "start_time": "2026-08-31T11:16:04.143Z",
+        "end_time": "2026-08-31T11:16:11.903Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "This is Granola on the right. It looks and behaves a lot like a regular text editor, but it does a few extra clever things which I want to show you now.",
+        "start_time": "2026-08-31T11:16:13.103Z",
+        "end_time": "2026-08-31T11:16:20.143Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "At the bottom of your screen, you should see some green dancing bars. Click those green dancing bars now.",
+        "start_time": "2026-08-31T11:16:21.743Z",
+        "end_time": "2026-08-31T11:16:26.063Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "In there, you should see my voice coming in. This is the transcript and it runs in real time anytime you're having a meeting with Granola.",
+        "start_time": "2026-08-31T11:16:27.663Z",
+        "end_time": "2026-08-31T11:16:34.223Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "Okay, you can close the transcript. And now I want you to try taking one or two lines of notes in the notepad. Just write something short like Granola AI, for example. So the way to think about the notepad is that Granola is transcribing in the background anyway. So you can relax about writing every little detail. Instead, just write the things that really matter to you or things that are in your head that wouldn't have made it into the transcript.",
+        "start_time": "2026-08-31T11:16:35.503Z",
+        "end_time": "2026-08-31T11:16:58.543Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "At the end of the meeting, Granola will take any notes you write as guidance and turn those into much more fleshed out, much more useful notes that you can share with your team or have as a record going forward.",
+        "start_time": "2026-08-31T11:16:59.823Z",
+        "end_time": "2026-08-31T11:17:09.983Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "Great, that's the basics. I'm going to stick around and I'm going to show you one or two more things if you like, but feel free to end the meeting at this point. Just click the red X and you'll see Granola flesh out your notes. Yeah, with that, I'm going to share my screen and I'm going to show you one or two extra things.",
+        "start_time": "2026-08-31T11:17:11.903Z",
+        "end_time": "2026-08-31T11:17:26.543Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "Okay, so you should be looking at my notepad, which should look somewhat similar to yours on the right side of your screen.",
+        "start_time": "2026-08-31T11:17:30.143Z",
+        "end_time": "2026-08-31T11:17:35.263Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "You can see that I took some notes here about kind of specific things that were mentioned in the video that I thought were interesting. This is a great way to use Granola, just writing short scrappy notes about the stuff that stands out to you. One extra thing I want to show you that you could do in this notepad is as well as writing specific one-off things like this. I can also instruct Granola to capture notes on kind of broader topics or headings. And you can do that with this notation here. So if I do a little hashtag and a space and I'm going to say features of Granola, I'll do another one that's like steps to use Granola.",
+        "start_time": "2026-08-31T11:17:36.223Z",
+        "end_time": "2026-08-31T11:18:12.863Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "This notation will be familiar if you use markdown. It's the same notation as a heading in markdown. And the idea is you're instructing Granola to turn this into a heading and collect notes underneath that, which you'll see now. I'm going to hit the enhanced note button and we'll see Granola do its thing.",
+        "start_time": "2026-08-31T11:18:13.823Z",
+        "end_time": "2026-08-31T11:18:28.143Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "Great. And you can see, so now Granola has written some notes for me. This is a mix of the specific things that I wrote, stuff that I didn't write, but the Granola thought was worth putting in. And it's used those headings that I wrote earlier to group stuff underneath, as well as a few extras that it's sort of useful.",
+        "start_time": "2026-08-31T11:18:34.303Z",
+        "end_time": "2026-08-31T11:18:48.703Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "If you go back, you can see the specific stuff I wrote, the headings I wrote.",
+        "start_time": "2026-08-31T11:18:49.983Z",
+        "end_time": "2026-08-31T11:18:53.023Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "And then the output from Granola.",
+        "start_time": "2026-08-31T11:18:54.703Z",
+        "end_time": "2026-08-31T11:18:56.223Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "What's it?",
+        "start_time": "2026-08-31T11:18:57.103Z",
+        "end_time": "2026-08-31T11:18:57.583Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "Okay, the final thing. This is like automatic template that gets applied after every meeting. But if you want something more specific out of your notes, we have a bunch of other templates here. You can see like these are the default ones, but we also have a bunch more in this menu here.",
+        "start_time": "2026-08-31T11:18:58.783Z",
+        "end_time": "2026-08-31T11:19:14.703Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "The idea here is you predefine a structure for the notes that you want. So I have this user interview one which breaks down notes into like the user's goal and their pain points and current solutions blah blah blah. I'll apply this and let's see what happens.",
+        "start_time": "2026-08-31T11:19:15.663Z",
+        "end_time": "2026-08-31T11:19:28.383Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      },
+      {
+        "text": "So you can see like Granola's kind of taking that template as instructions and produce the set of notes in that structure. I find this especially useful for situations like recruiting is a good one where I want consistent notes for every candidate I'm talking to so I can make comparisons easily. All right, that's it. I think that's enough. I will let you go exploring from here on out and I hope that Granola is just super useful for you over the coming weeks. Thank you very much.",
+        "start_time": "2026-08-31T11:19:34.143Z",
+        "end_time": "2026-08-31T11:19:59.423Z",
+        "speaker": {
+          "source": "speaker",
+          "attribution": "them"
+        }
+      }
+    ],
+    "hasMore": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/notes/not_IBuThyr2eJgage/transcript": {
+        "response": {
+          "transcript": [
+            {
+              "text": "Hey, my name is Sam and in the next two minutes I'm going to show you how to use Granola to transcribe your meetings and turn your short scrappy notes into something much more beautiful and useful.",
+              "start_time": "2026-08-31T11:16:04.143Z",
+              "end_time": "2026-08-31T11:16:11.903Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "This is Granola on the right. It looks and behaves a lot like a regular text editor, but it does a few extra clever things which I want to show you now.",
+              "start_time": "2026-08-31T11:16:13.103Z",
+              "end_time": "2026-08-31T11:16:20.143Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "At the bottom of your screen, you should see some green dancing bars. Click those green dancing bars now.",
+              "start_time": "2026-08-31T11:16:21.743Z",
+              "end_time": "2026-08-31T11:16:26.063Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "In there, you should see my voice coming in. This is the transcript and it runs in real time anytime you're having a meeting with Granola.",
+              "start_time": "2026-08-31T11:16:27.663Z",
+              "end_time": "2026-08-31T11:16:34.223Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "Okay, you can close the transcript. And now I want you to try taking one or two lines of notes in the notepad. Just write something short like Granola AI, for example. So the way to think about the notepad is that Granola is transcribing in the background anyway. So you can relax about writing every little detail. Instead, just write the things that really matter to you or things that are in your head that wouldn't have made it into the transcript.",
+              "start_time": "2026-08-31T11:16:35.503Z",
+              "end_time": "2026-08-31T11:16:58.543Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "At the end of the meeting, Granola will take any notes you write as guidance and turn those into much more fleshed out, much more useful notes that you can share with your team or have as a record going forward.",
+              "start_time": "2026-08-31T11:16:59.823Z",
+              "end_time": "2026-08-31T11:17:09.983Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "Great, that's the basics. I'm going to stick around and I'm going to show you one or two more things if you like, but feel free to end the meeting at this point. Just click the red X and you'll see Granola flesh out your notes. Yeah, with that, I'm going to share my screen and I'm going to show you one or two extra things.",
+              "start_time": "2026-08-31T11:17:11.903Z",
+              "end_time": "2026-08-31T11:17:26.543Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "Okay, so you should be looking at my notepad, which should look somewhat similar to yours on the right side of your screen.",
+              "start_time": "2026-08-31T11:17:30.143Z",
+              "end_time": "2026-08-31T11:17:35.263Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "You can see that I took some notes here about kind of specific things that were mentioned in the video that I thought were interesting. This is a great way to use Granola, just writing short scrappy notes about the stuff that stands out to you. One extra thing I want to show you that you could do in this notepad is as well as writing specific one-off things like this. I can also instruct Granola to capture notes on kind of broader topics or headings. And you can do that with this notation here. So if I do a little hashtag and a space and I'm going to say features of Granola, I'll do another one that's like steps to use Granola.",
+              "start_time": "2026-08-31T11:17:36.223Z",
+              "end_time": "2026-08-31T11:18:12.863Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "This notation will be familiar if you use markdown. It's the same notation as a heading in markdown. And the idea is you're instructing Granola to turn this into a heading and collect notes underneath that, which you'll see now. I'm going to hit the enhanced note button and we'll see Granola do its thing.",
+              "start_time": "2026-08-31T11:18:13.823Z",
+              "end_time": "2026-08-31T11:18:28.143Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "Great. And you can see, so now Granola has written some notes for me. This is a mix of the specific things that I wrote, stuff that I didn't write, but the Granola thought was worth putting in. And it's used those headings that I wrote earlier to group stuff underneath, as well as a few extras that it's sort of useful.",
+              "start_time": "2026-08-31T11:18:34.303Z",
+              "end_time": "2026-08-31T11:18:48.703Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "If you go back, you can see the specific stuff I wrote, the headings I wrote.",
+              "start_time": "2026-08-31T11:18:49.983Z",
+              "end_time": "2026-08-31T11:18:53.023Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "And then the output from Granola.",
+              "start_time": "2026-08-31T11:18:54.703Z",
+              "end_time": "2026-08-31T11:18:56.223Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "What's it?",
+              "start_time": "2026-08-31T11:18:57.103Z",
+              "end_time": "2026-08-31T11:18:57.583Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "Okay, the final thing. This is like automatic template that gets applied after every meeting. But if you want something more specific out of your notes, we have a bunch of other templates here. You can see like these are the default ones, but we also have a bunch more in this menu here.",
+              "start_time": "2026-08-31T11:18:58.783Z",
+              "end_time": "2026-08-31T11:19:14.703Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "The idea here is you predefine a structure for the notes that you want. So I have this user interview one which breaks down notes into like the user's goal and their pain points and current solutions blah blah blah. I'll apply this and let's see what happens.",
+              "start_time": "2026-08-31T11:19:15.663Z",
+              "end_time": "2026-08-31T11:19:28.383Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            },
+            {
+              "text": "So you can see like Granola's kind of taking that template as instructions and produce the set of notes in that structure. I find this especially useful for situations like recruiting is a good one where I want consistent notes for every candidate I'm talking to so I can make comparisons easily. All right, that's it. I think that's enough. I will let you go exploring from here on out and I hope that Granola is just super useful for you over the coming weeks. Thank you very much.",
+              "start_time": "2026-08-31T11:19:34.143Z",
+              "end_time": "2026-08-31T11:19:59.423Z",
+              "speaker": {
+                "source": "speaker",
+                "attribution": "them"
+              }
+            }
+          ],
+          "hasMore": false,
+          "cursor": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 01 Sep 2026 14:59:53 GMT",
+          "content-type": "application/json",
+          "content-length": "6572",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1788274831",
+          "server": "awselb/2.0",
+          "etag": "W/\"19ac-LQwtwJzk2ahfdozN5FzB/FX/Fb8\""
+        },
+        "hash": "b43e2141cfcb87980e1a20a1aea7b930ce1250b9",
+        "request": {}
+      }
+    }
+  }
+}

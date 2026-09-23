@@ -18,16 +18,28 @@ const RawWarehouseSchema = z
     })
     .passthrough();
 
+const CheckpointSchema = z.object({
+    $skip: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync warehouses.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Warehouse: WarehouseSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let nextSkip = checkpoint?.['$skip'] ?? 0;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Warehouse');
+
         const proxyConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
             endpoint: '/data/Warehouses',
@@ -37,23 +49,21 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: '$skip',
-                offset_start_value: 0,
+                offset_start_value: nextSkip,
                 offset_calculation_method: 'per-page',
                 limit_name_in_request: '$top',
                 limit: 100,
-                response_path: 'value'
+                response_path: 'value',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'number') {
+                        nextSkip = nextPageParam;
+                    }
+                }
             },
             retries: 3
         };
 
-        let trackingStarted = false;
-
         for await (const page of nango.paginate(proxyConfig)) {
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('Warehouse');
-                trackingStarted = true;
-            }
-
             const rawItems = z.array(z.unknown()).parse(page);
             const warehouses = rawItems.map((raw) => {
                 const record = RawWarehouseSchema.parse(raw);
@@ -70,11 +80,12 @@ const sync = createSync({
             if (warehouses.length > 0) {
                 await nango.batchSave(warehouses, 'Warehouse');
             }
+
+            await nango.saveCheckpoint({ $skip: nextSkip });
         }
 
-        if (trackingStarted) {
-            await nango.trackDeletesEnd('Warehouse');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Warehouse');
     }
 });
 

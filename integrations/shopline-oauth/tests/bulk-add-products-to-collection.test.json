@@ -1,0 +1,56 @@
+{
+  "input": {
+    "collection_id": "12276844465855355996481755",
+    "product_ids": [
+      "16076844436209679787371755",
+      "16076844437586921417701755"
+    ]
+  },
+  "output": null,
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/products/custom_collections/12276844465855355996481755/products.json": {
+        "response": {},
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:54:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1848",
+          "x-ratelimit-reset": "1788357273",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982a8000000000081335e7566a06ca",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=q_duOaZYkn99rgoP1vtyM6r7uUtARvFApdWaUM94WdE-1788357248.065458-1.0.1.1-yU0ldXWK_vcL.xCltG0qsk5yI51Srue4FvKPfuK4TxAOr_BVy_dT8gSh_BlbjKq_N4aLnI3Denx_kQpF1sesERNOOAjD2Zh84AAJ3lpqkhwItPqWixR7GbHnStyN7JEd; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:24:08 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IHyVoO%2BBYdQmQsKPb9OQ1fTOgSuQc5L0Bc3NZboLZTnTJXjJ9mI%2FFgTasegG06C3rPgUfAG2h6sq%2BBdUKU4h0ARs8ze5a8TfSLTK91M%2FSdrkDaab2g9JhDMpMoN2QnTQ6kWlht4PPuF9\"}]}",
+          "cf-ray": "a34d01406f1d816e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\""
+        },
+        "hash": "cb442c7e1f64715a32bb53bc84af2024a271b25a",
+        "request": {
+          "data": {
+            "product_ids": [
+              "16076844436209679787371755",
+              "16076844437586921417701755"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

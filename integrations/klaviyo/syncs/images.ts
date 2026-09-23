@@ -37,11 +37,16 @@ const ImageSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    next_cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync images.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Image: ImageSchema
     },
@@ -49,10 +54,19 @@ const sync = createSync({
     exec: async (nango) => {
         // Blocker: provider only exposes /api/images with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor.
+        const checkpoint = await nango.getCheckpoint();
+        let cursor: string | undefined;
+        if (checkpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
+            if (!parsedCheckpoint.success) {
+                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
+            }
+            cursor = parsedCheckpoint.data.next_cursor || undefined;
+        }
+
         await nango.trackDeletesStart('Image');
 
         let hasMore = true;
-        let cursor: string | undefined;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -94,6 +108,7 @@ const sync = createSync({
                 const nextCursor = url.searchParams.get('page[cursor]');
                 if (nextCursor && nextCursor !== '') {
                     cursor = nextCursor;
+                    await nango.saveCheckpoint({ next_cursor: cursor });
                 } else {
                     hasMore = false;
                 }
@@ -102,6 +117,7 @@ const sync = createSync({
             }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Image');
     }
 });

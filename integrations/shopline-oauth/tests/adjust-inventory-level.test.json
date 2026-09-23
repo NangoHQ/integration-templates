@@ -1,0 +1,69 @@
+{
+  "input": {
+    "inventory_item_id": "7684452058850661608",
+    "location_id": "7683107397838218873",
+    "available_adjustment": 5
+  },
+  "output": {
+    "inventory_level": {
+      "inventory_item_id": "7684452058850661608",
+      "location_id": "7683107397838218873",
+      "available": 15,
+      "update_at": "2026-09-02T21:54:18+08:00",
+      "variant_id": "18076844520580789126261755"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/inventory_levels/adjust.json": {
+        "response": {
+          "inventory_level": {
+            "available": 15,
+            "inventory_item_id": "7684452058850661608",
+            "location_id": "7683107397838218873",
+            "update_at": "2026-09-02T21:54:18+08:00",
+            "variant_id": "18076844520580789126261755"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:54:18 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1820",
+          "x-ratelimit-reset": "1788357273",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982a8a000000006f7814b716d4eb62",
+          "http_status_code": "0",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=z4_Gy8IOYlhwP.GcKW.haE_RxsxZZ25zL6oDs6xTNtY-1788357258.188272-1.0.1.1-ZguxEoi9a3QR7JevE2xaavNsdemKCbzs3En4K4elUKe48MJsizDnD3ULtC_ahcyPcN2bvnnflcFHSpt_2tIJ32gK3h0Ai2RWA49u9nulrLv8_nRb9EbyhpwD22wYRMy3; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:24:18 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=VBzAqCuaEyrdbhCbqsG5CpkExAkqnT4uNIV1z81qXQFTqLXPZBiKpLsoIiYI%2BcaJCrzAgsPkOpEOJxtQr3luhhEN7ZmczJgg9Cl0U7H4sEymvzHXAvL1K2raR1RJnhEBT2CrHgvjWPN%2F\"}]}",
+          "cf-ray": "a34d017fa8f058c2-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "453b2f6145a57deeaabc82c4e3e25fb6a465222f",
+        "request": {
+          "data": {
+            "inventory_item_id": "7684452058850661608",
+            "location_id": "7683107397838218873",
+            "available_adjustment": 5
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "input": {
+    "smart_collection_id": "12276844533775566162711755"
+  },
+  "output": {
+    "id": "12276844533775566162711755",
+    "title": "Nango Test Smart Collection",
+    "handle": "nango-test-smart-collection",
+    "rules": [
+      {
+        "relation": "contains",
+        "column": "title",
+        "condition": "test",
+        "condition_object_id": null
+      }
+    ],
+    "disjunctive": false,
+    "sort_order": "manual",
+    "published_scope": "web",
+    "published_at": "2026-09-02T21:53:42+08:00",
+    "created_at": "2026-09-02T21:53:42+08:00",
+    "updated_at": "2026-09-02T21:53:42+08:00",
+    "template_path": "templates/collection.json"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/products/smart_collections/12276844533775566162711755.json": {
+        "response": {
+          "smart_collection": {
+            "body_html": null,
+            "disjunctive": false,
+            "banner": null,
+            "title": "Nango Test Smart Collection",
+            "updated_at": "2026-09-02T21:53:42+08:00",
+            "handle": "nango-test-smart-collection",
+            "published_scope": "web",
+            "path": "/collections/nango-test-smart-collection",
+            "published_at": "2026-09-02T21:53:42+08:00",
+            "sort_order": "manual",
+            "image": null,
+            "rules": [
+              {
+                "relation": "contains",
+                "column": "title",
+                "condition": "test",
+                "condition_object_id": null
+              }
+            ],
+            "created_at": "2026-09-02T21:53:42+08:00",
+            "id": "12276844533775566162711755",
+            "template_path": "templates/collection.json"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:54:47 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1788357333",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982aa700000000685f37c14515c61b",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=aimGgzy6Uwn5lJDg933c5albAF_e8WDFp6bq2w8t1Qs-1788357287.3558774-1.0.1.1-VzCdrVaBnS1_TcxW7uVx4yEkIZTvIw7PVWSSRmGXL2uxQuhER6mOLS4P7HGEfvGv5BBrPJbkBFp_uefvMPcyv9y0FlFq_MQnU4wii0fh.JYQoyUvstW_qrzbQUTVSTMZ; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:24:47 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=galzkdipzGdo39cB8U0Q4YckzzhalIxIJRdfQvw0Qejgg57JmU3GkU2r99oNXv%2FAIHPbkWZAj8rXY9W%2BrqBwlJ2UoZNTIrD2M6jS%2ByEOlvrwVBg55V7700Y75gc2PZf3o5oDpUfSGIfS\"}]}",
+          "cf-ray": "a34d0235f8cf5ef5-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "325149003dbc3b6c91e8dadbb25054aa64f10a80",
+        "request": {}
+      }
+    }
+  }
+}

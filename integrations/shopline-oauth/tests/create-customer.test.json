@@ -1,0 +1,103 @@
+{
+  "input": {
+    "email": "nango-create-test-20260902-2@example.com",
+    "first_name": "Nango",
+    "last_name": "Test"
+  },
+  "output": {
+    "id": "2791748138",
+    "email": "nango-create-test-20260902-2@example.com",
+    "first_name": "Nango",
+    "last_name": "Test",
+    "gender": "others",
+    "state": 1,
+    "email_subscribe_flag": 2,
+    "mobile_subscribe_flag": 2,
+    "created_at": "2026-09-02T21:58:35+08:00",
+    "updated_at": "2026-09-02T21:58:35+08:00",
+    "total_spent": "0",
+    "addresses": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/customers.json": {
+        "response": {
+          "customer": {
+            "total_spent": "0",
+            "accepts_mobile_marketing": false,
+            "state": 1,
+            "email_subscribe_flag": 2,
+            "first_name": "Nango",
+            "id": "2791748138",
+            "default_address": null,
+            "tags": null,
+            "language": null,
+            "last_order_name": null,
+            "currency": "USD",
+            "mobile_subscribe_flag": 2,
+            "email": "nango-create-test-20260902-2@example.com",
+            "last_order_id": null,
+            "created_at": "2026-09-02T21:58:35+08:00",
+            "email_marketing_consent": null,
+            "multipass_identifier": null,
+            "orders_count": null,
+            "accepts_marketing": false,
+            "birthday": null,
+            "asid": null,
+            "accepts_mobile_marketing_updated_at": null,
+            "verified_email": false,
+            "phone": null,
+            "addresses": [],
+            "accepts_marketing_updated_at": null,
+            "social_customer": null,
+            "note": null,
+            "sms_marketing_consent": null,
+            "gender": "others",
+            "last_name": "Test",
+            "updated_at": "2026-09-02T21:58:35+08:00"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:58:35 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1897",
+          "x-ratelimit-reset": "1788357521",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982b8b000000001ac3764f92d2ec0d",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=86rT88cgwXRJqV0fpppkxQpR2HMduW8lbKjeq.5_rO8-1788357515.2128124-1.0.1.1-1oTF.aK12rbVx8.d56CV5RriIBYz4QMzvYZ1DV5ZcoOostQmQ.k6d7RXGOA0AJUsYdZY0Vpf7eJGTEw5VSxARhV1fb2dLUY0Ma03KA5nzi13.zS3FNcxbVyfvnbLzFIb; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:28:35 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rgM00s0DyCNfBXXQQqhceVB2slJ9DHI%2FeH3vjCE3iZQw%2BGnGFwm5eFJ74pVOIiYMsV4q2pLkQWLcI0fcFhe%2ByVHj5SoDkeektEFdUcVJQjgDVnoktRrTB2FocTr5rKZuzo2EOR3bLWfe\"}]}",
+          "cf-ray": "a34d07c61b7e816e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "8a40bed33a3490f4f4d2c0ba15934f3705359b44",
+        "request": {
+          "data": {
+            "customer": {
+              "email": "nango-create-test-20260902-2@example.com",
+              "first_name": "Nango",
+              "last_name": "Test"
+            }
+          }
+        }
+      }
+    }
+  }
+}

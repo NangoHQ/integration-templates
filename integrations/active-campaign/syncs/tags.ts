@@ -18,11 +18,16 @@ const TagSchema = z.object({
     cdate: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync tags from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
@@ -37,6 +42,11 @@ const sync = createSync({
         // Blocker: The GET /3/tags endpoint does not support updated_after, modified_since,
         // cursor, or since_id parameters. The response only includes cdate (creation date),
         // not an updated timestamp, so incremental sync is not possible.
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
+        const startOffset = checkpointResult.success ? checkpointResult.data.offset : 0;
+        let nextOffset: number | undefined = startOffset;
+
         await nango.trackDeletesStart('Tag');
 
         const proxyConfig: ProxyConfiguration = {
@@ -45,10 +55,14 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: startOffset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
-                response_path: 'tags'
+                response_path: 'tags',
+                on_page: async ({ nextPageParam }) => {
+                    nextOffset = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
@@ -71,8 +85,13 @@ const sync = createSync({
             if (tags.length > 0) {
                 await nango.batchSave(tags, 'Tag');
             }
+
+            if (nextOffset !== undefined) {
+                await nango.saveCheckpoint({ offset: nextOffset });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Tag');
     }
 });

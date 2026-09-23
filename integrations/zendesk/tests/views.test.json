@@ -1025,7 +1025,7 @@
                 "id": 46406147126033,
                 "title": "Approval status",
                 "type": "tagger",
-                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                 "filterable": true,
                 "sortable": true
               },
@@ -1085,7 +1085,7 @@
                 "id": 46406147126033,
                 "title": "Approval status",
                 "type": "tagger",
-                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                 "filterable": true,
                 "sortable": true
               }
@@ -1143,7 +1143,7 @@
                 "id": 46406147126033,
                 "title": "Approval status",
                 "type": "tagger",
-                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                 "filterable": true,
                 "sortable": true
               },
@@ -1215,7 +1215,7 @@
                 "id": 46406147126033,
                 "title": "Approval status",
                 "type": "tagger",
-                "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                 "filterable": true,
                 "sortable": true
               }
@@ -1235,7 +1235,7 @@
         "response": {
           "views": [
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158347537.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158347537.json",
               "id": 46406158347537,
               "title": "Your unsolved tickets",
               "active": true,
@@ -1365,7 +1365,7 @@
               "raw_title": "{{zd.your_unsolved_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158351377.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158351377.json",
               "id": 46406158351377,
               "title": "Unassigned tickets",
               "active": true,
@@ -1477,7 +1477,7 @@
               "raw_title": "{{zd.unassigned_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158349713.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158349713.json",
               "id": 46406158349713,
               "title": "All unsolved tickets",
               "active": true,
@@ -1602,7 +1602,7 @@
               "raw_title": "{{zd.all_unsolved_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146633361.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406146633361.json",
               "id": 46406146633361,
               "title": "Recently updated tickets",
               "active": true,
@@ -1732,7 +1732,7 @@
               "raw_title": "{{zd.recently_updated_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146641425.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406146641425.json",
               "id": 46406146641425,
               "title": "Current tasks",
               "active": false,
@@ -1862,7 +1862,7 @@
               "raw_title": "{{zd.current_tasks}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158355473.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158355473.json",
               "id": 46406158355473,
               "title": "Overdue tasks",
               "active": false,
@@ -1992,7 +1992,7 @@
               "raw_title": "{{zd.overdue_tasks}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406146639633.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406146639633.json",
               "id": 46406146639633,
               "title": "Pending tickets",
               "active": true,
@@ -2117,7 +2117,7 @@
               "raw_title": "{{zd.pending_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158348433.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158348433.json",
               "id": 46406158348433,
               "title": "Recently solved tickets",
               "active": true,
@@ -2242,7 +2242,7 @@
               "raw_title": "{{zd.recently_solved_tickets}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406147277457.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406147277457.json",
               "id": 46406147277457,
               "title": "Your tickets with approval requested",
               "active": false,
@@ -2263,7 +2263,7 @@
                     "id": 46406147126033,
                     "title": "Approval status",
                     "type": "tagger",
-                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                     "filterable": true,
                     "sortable": true
                   },
@@ -2323,7 +2323,7 @@
                     "id": 46406147126033,
                     "title": "Approval status",
                     "type": "tagger",
-                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                     "filterable": true,
                     "sortable": true
                   }
@@ -2353,7 +2353,7 @@
               "raw_title": "{{zd.tickets_with_approval_requested}}"
             },
             {
-              "url": "https://nango-1049.zendesk.com/api/v2/views/46406158928785.json",
+              "url": "https://d3v-nango-1049.zendesk.com/api/v2/views/46406158928785.json",
               "id": 46406158928785,
               "title": "Tickets with pending approvals",
               "active": false,
@@ -2374,7 +2374,7 @@
                     "id": 46406147126033,
                     "title": "Approval status",
                     "type": "tagger",
-                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                     "filterable": true,
                     "sortable": true
                   },
@@ -2446,7 +2446,7 @@
                     "id": 46406147126033,
                     "title": "Approval status",
                     "type": "tagger",
-                    "url": "https://nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
+                    "url": "https://d3v-nango-1049.zendesk.com/api/v2/ticket_fields/46406147126033.json",
                     "filterable": true,
                     "sortable": true
                   }
@@ -2492,7 +2492,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Wed, 06 May 2026 08:49:16 GMT",
+          "date": "Mon, 24 Aug 2026 08:30:39 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -2501,28 +2501,31 @@
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
           "strict-transport-security": "max-age=31536000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
-          "access-control-expose-headers": "X-Zendesk-API-Warn,X-Zendesk-User-Id,X-Zendesk-User-Session-Expires-At",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4943",
-          "x-ratelimit-reset": "1778057383",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1799",
+          "x-ratelimit-reset": "1787560241",
+          "server": "cloudflare",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=GR6%2FOyafhdVcNbvNz6gwt2DUlf1dPBXgJfZsXYg%2BN1EMspkewr76BLr3SMJxkOsScUNWvIukob6Z0Fgd8ZvYTGOCWY1Fsquxb7j3DsD0GDjwUXsg%2Bd%2BRDxusBnMgr0LIJyHse6bDCpEeUggO\"}]}",
           "x-zendesk-api-version": "v2",
-          "x-zendesk-application-version": "v25703",
-          "x-rate-limit": "400",
-          "ratelimit-limit": "400",
-          "x-rate-limit-remaining": "391",
-          "ratelimit-remaining": "391",
-          "ratelimit-reset": "44",
-          "etag": "W/\"b2a326dcda91a5970c51c3cabc19da36\"",
+          "x-zendesk-application-version": "v26458",
+          "x-rate-limit": "700",
+          "ratelimit-limit": "700",
+          "x-rate-limit-remaining": "691",
+          "ratelimit-remaining": "691",
+          "ratelimit-reset": "21",
+          "etag": "W/\"4704692b3822a4f101822ad5afaa52f9\"",
           "cache-control": "max-age=0, private, must-revalidate",
-          "zendesk-route": "/api/v2/views",
-          "set-cookie": "<redacted>",
-          "x-zendesk-origin-server": "classic-app-server-69d49c4b9b-fjtwg",
-          "x-request-id": "9f76bb0afb2c8736-DUB",
-          "x-runtime": "0.139447",
-          "x-envoy-upstream-service-time": "144",
+          "set-cookie": "_zendesk_cookie=BAhJIhl7ImRldmljZV90b2tlbnMiOnt9fQY6BkVU--0bf2100788cb010d0183feca16aaf88ccaf719ca; path=/; expires=Tue, 24 Aug 2027 07:05:41 GMT; secure; HttpOnly; SameSite=None, __cf_bm=dfcJ4EhDwYeq25TjaVAyvbfRYhPTiwXMo1lyuu2e_BE-1787560238.832092-1.0.1.1-Q5edQ9QAaCWBwWRuFqQG22AcmpzSIoj0q28099ZcQisaJxU3SSdeTsrZR_WKRMlLZACjRkMmBt866mlr0Wze718XYx79VltYlDBN3cB4JtotjXy52b_MvlFAtirCtXib; HttpOnly; SameSite=None; Secure; Path=/; Domain=d3v-nango-1049.zendesk.com; Expires=Mon, 24 Aug 2026 09:00:39 GMT, _cfuvid=I0WWWGwqa7oxGN4pjzOvEIaAmpAEtKFE.Ie4nNY3ajY-1787560238.832092-1.0.1.1-plpHq2xr49_sVVDUzaBfh3WE2gn_YasTNOYEu4k.CxY; HttpOnly; SameSite=None; Secure; Path=/; Domain=d3v-nango-1049.zendesk.com",
+          "x-zendesk-origin-server": "classic-app-server-7dbc8fb9b9-lbcnf",
+          "x-request-id": "a300ff04bf9afefe-DUB",
+          "x-runtime": "0.276300",
+          "x-envoy-upstream-service-time": "290",
           "x-openapi-route-path": "/api/v2/views",
           "zendesk-service": "classic",
           "x-zendesk-zorg": "yes",
@@ -2530,10 +2533,7 @@
           "via": "zorg",
           "x-envoy-decorator-operation": "/api/v2/views",
           "cf-cache-status": "DYNAMIC",
-          "report-to": "{\"endpoints\":[{\"url\":\"https:\\/\\/a.nel.cloudflare.com\\/report\\/v4?s=PODA9tYEsBsauiQDdImLv%2FKvaqRls%2BsGKXsKWE321cucwoMxo5322MBbKZ6GWDV7tUosXhpvtOpHLSfx6VuIiaTxqXwoby2Hkm6ylVbw7vvgznkiS8D7MQYdrcBXoL1ltKVDCinUixM%3D\"}],\"group\":\"cf-nel\",\"max_age\":604800}",
-          "nel": "{\"success_fraction\":0.01,\"report_to\":\"cf-nel\",\"max_age\":604800}",
-          "server": "cloudflare",
-          "cf-ray": "9f76bb0afb2c8736-PDX"
+          "cf-ray": "a300ff04bf9afefe-PDX"
         },
         "hash": "fce663a355bef3b97b7ddc29a901730d8cd378c9",
         "request": {

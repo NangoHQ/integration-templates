@@ -1,0 +1,79 @@
+{
+  "input": {
+    "custom_collection_id": "12276844464740342190251755",
+    "title": "Nango Disposable Delete Test Updated"
+  },
+  "output": {
+    "id": "12276844464740342190251755",
+    "title": "Nango Disposable Delete Test Updated",
+    "body_html": "Temporary collection for delete action validation",
+    "handle": "nango-disposable-delete-test",
+    "sort_order": "manual",
+    "published_scope": "web",
+    "template_path": "templates/collection.json",
+    "updated_at": "2026-09-02T21:56:08+08:00",
+    "created_at": "2026-09-02T21:46:51+08:00",
+    "published_at": "2026-09-02T21:46:51+08:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/products/custom_collections/12276844464740342190251755.json": {
+        "response": {
+          "custom_collection": {
+            "body_html": "Temporary collection for delete action validation",
+            "image": null,
+            "published_at": "2026-09-02T21:46:51+08:00",
+            "published_scope": "web",
+            "template_path": "templates/collection.json",
+            "title": "Nango Disposable Delete Test Updated",
+            "created_at": "2026-09-02T21:46:51+08:00",
+            "handle": "nango-disposable-delete-test",
+            "sort_order": "manual",
+            "updated_at": "2026-09-02T21:56:08+08:00",
+            "banner": null,
+            "id": "12276844464740342190251755"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:56:08 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "script-src 'unsafe-inline' 'unsafe-eval'; report-uri https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=hFhli6qLbiZQD56MFG79TNxe3IIhoVBOCAPnLVH.XZQ-1788357368.1566763-1.0.1.1-2NH1CcESLkBm2Opk79YlRzR4ppe2mMoP8JOUwIZYvOGdvaVKUIqLgT3Gqj7ZU9HZHlS6ETEau.1kNQ3UuCIlkGqT.mKAoZJyAKa.Z2ygEak2PErLB5apONW5wffBdu9fHbIngFY.SBSN6E4ou53dlxd.M1YKYi0lQrmVxcnl9GFJ6v.EC4TQxohh_y8Mjkoi; report-to cf-csp-endpoint",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1788357395",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982af8000000003a6886b1e632ef46",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=PpzrhEhiyAKFEthwt0.3dYDq3tUjhZ826qWWdvznIYU-1788357368.1566763-1.0.1.1-N_kihI6H9UTKXg5qvtwpilE2F_1M6TS16dGT5k8lDe1RypsNRDEVe4iydPTIrSBxJdJzYyuQU434_sAqVHFuoE75gb2MngOWZsAKzIK6KY7XAtAQf.1gn3uqKNJij0hz; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:26:08 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=hOV0nTHcaLn2ZhfhF38JagQ5qpoQ3dbUJFpN85TG3PkmqtkrRqZqqNZd4g%2FIzmZh1t5Kn5K9vzRhu4rtQzg8zEMnkEfBXi0Hp0qihjyFrBlNOzL5iIPRmm%2F4fF0Zr3FLQ0rjQZwexo4R\"}]}, {\"group\":\"cf-csp-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=hFhli6qLbiZQD56MFG79TNxe3IIhoVBOCAPnLVH.XZQ-1788357368.1566763-1.0.1.1-2NH1CcESLkBm2Opk79YlRzR4ppe2mMoP8JOUwIZYvOGdvaVKUIqLgT3Gqj7ZU9HZHlS6ETEau.1kNQ3UuCIlkGqT.mKAoZJyAKa.Z2ygEak2PErLB5apONW5wffBdu9fHbIngFY.SBSN6E4ou53dlxd.M1YKYi0lQrmVxcnl9GFJ6v.EC4TQxohh_y8Mjkoi\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "reporting-endpoints": "cf-csp-endpoint=\"https://csp-reporting.cloudflare.com/cdn-cgi/script_monitor/report?m=hFhli6qLbiZQD56MFG79TNxe3IIhoVBOCAPnLVH.XZQ-1788357368.1566763-1.0.1.1-2NH1CcESLkBm2Opk79YlRzR4ppe2mMoP8JOUwIZYvOGdvaVKUIqLgT3Gqj7ZU9HZHlS6ETEau.1kNQ3UuCIlkGqT.mKAoZJyAKa.Z2ygEak2PErLB5apONW5wffBdu9fHbIngFY.SBSN6E4ou53dlxd.M1YKYi0lQrmVxcnl9GFJ6v.EC4TQxohh_y8Mjkoi\"",
+          "cf-ray": "a34d042efbb3d82e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "b83ab8566b57ee7856bb22629772d9f3ebdc4d1a",
+        "request": {
+          "data": {
+            "custom_collection": {
+              "title": "Nango Disposable Delete Test Updated"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -59,11 +59,16 @@ const ProviderCampaignSchema = z.object({
     source: z.string().nullable().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync campaigns from ActiveCampaign.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Campaign: CampaignSchema
     },
@@ -75,6 +80,10 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
+        let offset = checkpointResult.success ? (checkpointResult.data.offset ?? 0) : 0;
+
         // Blocker: provider only exposes GET /3/campaigns with no changed-since filter,
         // no deleted-record endpoint, and no resumable cursor. Pagination is limit/offset only.
         await nango.trackDeletesStart('Campaign');
@@ -85,6 +94,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
+                offset_start_value: offset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
@@ -134,8 +144,12 @@ const sync = createSync({
             if (campaigns.length > 0) {
                 await nango.batchSave(campaigns, 'Campaign');
             }
+
+            offset += page.length;
+            await nango.saveCheckpoint({ offset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Campaign');
     }
 });

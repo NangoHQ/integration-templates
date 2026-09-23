@@ -1,0 +1,166 @@
+{
+  "input": {
+    "id": "2791641345",
+    "note": "Nango test note"
+  },
+  "output": {
+    "id": "2791641345",
+    "first_name": "Jerry",
+    "last_name": "Frank",
+    "email": "support02@shopline.com",
+    "phone": "0085253657436",
+    "gender": "unknown",
+    "note": "Nango test note",
+    "verified_email": false,
+    "email_marketing_consent": {
+      "state": "1",
+      "opt_in_level": "1",
+      "consent_updated_at": "2026-09-01T23:36:38+08:00"
+    },
+    "sms_marketing_consent": {
+      "state": "1",
+      "opt_in_level": "1",
+      "consent_updated_at": "2026-09-01T23:36:38+08:00"
+    },
+    "addresses": [
+      {
+        "id": "SL201UA7683107423792406419",
+        "customer_id": "2791641345",
+        "first_name": "Jerry",
+        "last_name": "Frank",
+        "company": "Sunny Ltd.",
+        "address1": "Australia",
+        "address2": "Australia apartment",
+        "province": "Australian Capital Territory",
+        "country": "Australia",
+        "zip": "1246768",
+        "province_code": "1500001",
+        "country_code": "AU",
+        "default": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/admin/openapi/v20260601/customers/2791641345.json": {
+        "response": {
+          "customer": {
+            "asid": null,
+            "default_address": {
+              "id": "SL201UA7683107423792406419",
+              "address1": "Australia",
+              "first_name": "Jerry",
+              "company": "Sunny Ltd.",
+              "country_code": "AU",
+              "province": "Australian Capital Territory",
+              "address2": "Australia apartment",
+              "phone": null,
+              "customer_id": "2791641345",
+              "default": true,
+              "province_code": "1500001",
+              "province_code_v2": "ACT",
+              "country": "Australia",
+              "last_name": "Frank",
+              "city": null,
+              "zip": "1246768"
+            },
+            "note": "Nango test note",
+            "addresses": [
+              {
+                "last_name": "Frank",
+                "phone": null,
+                "address1": "Australia",
+                "company": "Sunny Ltd.",
+                "zip": "1246768",
+                "default": true,
+                "province_code": "1500001",
+                "province_code_v2": "ACT",
+                "address2": "Australia apartment",
+                "first_name": "Jerry",
+                "province": "Australian Capital Territory",
+                "id": "SL201UA7683107423792406419",
+                "city": null,
+                "country": "Australia",
+                "customer_id": "2791641345",
+                "country_code": "AU"
+              }
+            ],
+            "email_marketing_consent": {
+              "consent_collected_from": null,
+              "consent_updated_at": "2026-09-01T23:36:38+08:00",
+              "opt_in_level": 1,
+              "state": 1
+            },
+            "gender": "unknown",
+            "phone": "0085253657436",
+            "id": "2791641345",
+            "sms_marketing_consent": {
+              "consent_updated_at": "2026-09-01T23:36:38+08:00",
+              "opt_in_level": 1,
+              "state": 1,
+              "consent_collected_from": null
+            },
+            "currency": "USD",
+            "accepts_marketing": true,
+            "updated_at": "2026-09-02T22:00:12+08:00",
+            "email": "support02@shopline.com",
+            "verified_email": false,
+            "email_subscribe_flag": 1,
+            "last_name": "Frank",
+            "tags": null,
+            "total_spent": "7000021.00",
+            "accepts_mobile_marketing_updated_at": "2026-09-01T23:36:38+08:00",
+            "last_order_id": "21076844576373085746324631",
+            "state": 1,
+            "created_at": "2026-09-01T23:36:37+08:00",
+            "last_order_name": "1026",
+            "first_name": "Jerry",
+            "multipass_identifier": null,
+            "mobile_subscribe_flag": 1,
+            "accepts_phone_marketing": true,
+            "orders_count": 11,
+            "accepts_marketing_updated_at": "2026-09-01T23:36:38+08:00"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:00:12 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1983",
+          "x-ratelimit-reset": "1788357646",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982beb000000007c23f42416c15684",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=3DTfuNLHAPWsVEaqiV46jZEPQXMQeUmFrR_qxI4EIh4-1788357612.259191-1.0.1.1-KLMkqu8aZHoo1LCoAldQOPTz6Yq8PI9Zx2VfbX0Ah9bjzQEIP21QCwyeS9WjI6oCt0bOTDCfEptYiZCkp33DzPsM202cfOVKlaD8iV2RL.yETMfQsM36gn2NqC8ii.rc; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:30:12 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=WpPMOfY98mdYS3fjd9Z9CBmYVohTI8bQ5nEYRBVayOdLgqknkhMk1i%2FyK6CdHfmNz%2FxVguxP5nyvSRxV0GkLLkLGg%2F%2F%2BA%2F9iaXG2sajJh5LxJ5ys2M3quRjgVCEiH%2BWM1nv7bbDhXroZ\"}]}",
+          "cf-ray": "a34d0a249b80d82e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "95ad04b97cf49dcca1de13f8215a7e25b5e7afde",
+        "request": {
+          "data": {
+            "customer": {
+              "note": "Nango test note"
+            }
+          }
+        }
+      }
+    }
+  }
+}

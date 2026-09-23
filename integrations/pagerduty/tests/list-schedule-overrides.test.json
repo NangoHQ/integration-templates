@@ -1,0 +1,131 @@
+{
+  "input": {
+    "schedule_id": "PVHH9ZB",
+    "since": "2026-09-16T10:00:00.000Z",
+    "until": "2026-09-16T13:00:00.000Z"
+  },
+  "output": {
+    "overrides": [
+      {
+        "id": "Q0F6N3CRUJZK09",
+        "start": "2026-09-16T12:00:00Z",
+        "end": "2026-09-16T13:00:00Z",
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "Q35IQTN4E4H8TT",
+        "start": "2026-09-16T12:00:00Z",
+        "end": "2026-09-16T13:00:00Z",
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "Q3AP54YC8WVPME",
+        "start": "2026-09-16T11:32:20Z",
+        "end": "2026-09-16T12:32:20Z",
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/schedules/PVHH9ZB/overrides": {
+        "response": {
+          "total": 3,
+          "overrides": [
+            {
+              "start": "2026-09-16T12:00:00Z",
+              "end": "2026-09-16T13:00:00Z",
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "id": "Q0F6N3CRUJZK09"
+            },
+            {
+              "start": "2026-09-16T12:00:00Z",
+              "end": "2026-09-16T13:00:00Z",
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "id": "Q35IQTN4E4H8TT"
+            },
+            {
+              "start": "2026-09-16T11:32:20Z",
+              "end": "2026-09-16T12:32:20Z",
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "id": "Q3AP54YC8WVPME"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:33:36 GMT",
+          "content-type": "application/json",
+          "content-length": "838",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1909",
+          "x-ratelimit-reset": "1789554850",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"e91cd52f324ca013079aa6a8937ecd76\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "d31bfc1f969b3f6755225b55a467eade",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "921",
+          "ratelimit-reset": "24",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "a524102e8296a02feb1f673663dab0660eec0937",
+        "request": {
+          "params": {
+            "since": "2026-09-16T10:00:00.000Z",
+            "until": "2026-09-16T13:00:00.000Z"
+          }
+        }
+      }
+    }
+  }
+}

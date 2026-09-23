@@ -1,0 +1,78 @@
+{
+  "input": {
+    "id": "7683107397838218873"
+  },
+  "output": {
+    "id": "7683107397838218873",
+    "name": "Default",
+    "address1": "This is the location created automatically by SHOPLINE.",
+    "city": "Washington",
+    "province": "District of Columbia",
+    "country": "United States",
+    "phone": "1",
+    "is_default": true,
+    "active": true,
+    "legacy": false,
+    "created_at": "2026-09-01T23:36:36+08:00",
+    "updated_at": "2026-09-02T21:14:37+08:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/locations/7683107397838218873.json": {
+        "response": {
+          "location": {
+            "legacy": false,
+            "address1": "This is the location created automatically by SHOPLINE.",
+            "city": "Washington",
+            "is_default": true,
+            "name": "Default",
+            "zip": null,
+            "phone_code": "",
+            "province": "District of Columbia",
+            "id": "7683107397838218873",
+            "country": "United States",
+            "province_code": "4200010",
+            "active": true,
+            "created_at": "2026-09-01T23:36:36+08:00",
+            "updated_at": "2026-09-02T21:14:37+08:00",
+            "address2": null,
+            "phone": "1",
+            "country_code": "US"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:52:13 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1884",
+          "x-ratelimit-reset": "1788357151",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982a0d000000003fe267379e771a87",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=Mk0qaygeAPvfhIzaas605ILfVfW8eJv__tTY8jYivSE-1788357133.536287-1.0.1.1-jieEkP0ikUTHxKntFI6jBcNs4unwIAf58j3kTXojlYlZs8_SbZEfOg1.0wBHioFMtc1dwa6LwV0geeFGyx1YgRqyA603q9RQUiwpCzVtj9CStsz1l_R7_Rz6LuJr.mMu; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:22:13 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Ceyc6Awgi5mB6Vdve0msScmxiKmW0MvwmVJU8RP9V3slNxwE5gW5FO0KOXb4xAueychz4cG49hSPAY9LPCKiZdlf0x4TIjGKqzcCWT7LZVLpMsicMWb9rDtfRRx4i2lIf829oGPhlY8B\"}]}",
+          "cf-ray": "a34cfe7498de69d5-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9c225dde508fe7a4ea5d7d4f1333ebea603239d3",
+        "request": {}
+      }
+    }
+  }
+}

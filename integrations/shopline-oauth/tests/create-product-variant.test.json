@@ -1,0 +1,309 @@
+{
+  "input": {
+    "product_id": "16076844681887345597251755",
+    "price": "9.99",
+    "sku": "SKU-BLUE-005",
+    "option1": "Blue"
+  },
+  "output": {
+    "id": "18076844683852964224501755",
+    "product_id": "16076844681887345597251755",
+    "price": "9.99",
+    "sku": "SKU-BLUE-005",
+    "option1": "Blue",
+    "inventory_policy": "deny",
+    "inventory_tracker": false,
+    "required_shipping": true,
+    "taxable": true,
+    "created_at": "2026-09-02T22:08:37+08:00",
+    "updated_at": "2026-09-02T22:08:37+08:00"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/products/16076844681887345597251755.json": {
+        "response": {
+          "product": {
+            "combined_listing": null,
+            "images": [],
+            "published_scope": "web",
+            "is_gift_card": false,
+            "published_at": "2026-09-02T22:08:25+08:00",
+            "tags": null,
+            "title": "Temp product for variant test save",
+            "id": "16076844681887345597251755",
+            "image": null,
+            "spu": null,
+            "subtitle": null,
+            "template_path": "templates/product.json",
+            "updated_at": "2026-09-02T22:08:25+08:00",
+            "variants": [
+              {
+                "id": "18076844681887681141581755",
+                "product_id": "16076844681887345597251755",
+                "image": null,
+                "option2": null,
+                "option5": null,
+                "option3": null,
+                "weight_unit": null,
+                "option4": null,
+                "require_shipping": true,
+                "title": null,
+                "option1": null,
+                "taxable": true,
+                "inventory_item_id": "7684468188818450033",
+                "inventory_tracker": false,
+                "inventory_quantity": 0,
+                "price": "0.00",
+                "weight": null,
+                "compare_at_price": null,
+                "sku": null,
+                "barcode": null,
+                "inventory_policy": "deny"
+              }
+            ],
+            "featured_media": null,
+            "product_category": null,
+            "created_at": "2026-09-02T22:08:25+08:00",
+            "options": [],
+            "standard_category_id": "",
+            "body_html": null,
+            "handle": "temp-product-for-variant-test-save",
+            "path": "/products/temp-product-for-variant-test-save",
+            "vendor": null,
+            "product_type": "NORMAL",
+            "media": [],
+            "status": "draft",
+            "combined_listing_role": null,
+            "product_behavior": ""
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:08:36 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1788358167",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982de4000000004879fb1077190095",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=lOk%2Bw5hrtxCqJezib5hUvZHqvymr53MdRr2CpEQWP2mZ4WrxieK6vf5S1f2d2dBOIzJ9zXlDN1HQvDbi8lTZA%2F05tA7x85miJvIYZ1LvyJV4wKTBzATe4Joy8sZ5JCMd5UDW0dt%2F0sIi\"}]}",
+          "cf-ray": "a34d16755e6de8e9-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "8c13d32f18f5a744df06c2f92fd833d058b9159c",
+        "request": {}
+      }
+    },
+    "put": {
+      "/admin/openapi/v20260601/products/16076844681887345597251755.json": {
+        "response": {
+          "product": {
+            "created_at": "2026-09-02T22:08:25+08:00",
+            "media": [],
+            "options": [
+              {
+                "option_value": [
+                  {
+                    "id": "16276844683811188956611755",
+                    "value": "Default"
+                  }
+                ],
+                "product_id": "16076844681887345597251755",
+                "values": [
+                  "Default"
+                ],
+                "values_colors": {},
+                "values_images": {},
+                "id": "16176844683811188956601755",
+                "name": "Option 1"
+              }
+            ],
+            "published_scope": "web",
+            "updated_at": "2026-09-02T22:08:37+08:00",
+            "vendor": null,
+            "product_behavior": "",
+            "standard_category_id": "",
+            "spu": null,
+            "status": "draft",
+            "template_path": "templates/product.json",
+            "title": "Temp product for variant test save",
+            "handle": "temp-product-for-variant-test-save",
+            "image": null,
+            "product_category": null,
+            "product_type": "NORMAL",
+            "id": "16076844681887345597251755",
+            "tags": null,
+            "variants": [
+              {
+                "title": "Default",
+                "image": null,
+                "created_at": "2026-09-02T22:08:25+08:00",
+                "id": "18076844681887681141581755",
+                "price": "0.00",
+                "barcode": null,
+                "required_shipping": true,
+                "weight_unit": null,
+                "compare_at_price": null,
+                "option2": null,
+                "option4": null,
+                "inventory_policy": "deny",
+                "sku": null,
+                "inventory_item_id": "7684468188818450033",
+                "option5": null,
+                "taxable": true,
+                "inventory_tracker": false,
+                "option1": "Default",
+                "updated_at": "2026-09-02T22:08:25+08:00",
+                "weight": null,
+                "product_id": "16076844681887345597251755",
+                "inventory_quantity": 0,
+                "option3": null
+              }
+            ],
+            "featured_media": null,
+            "subtitle": null,
+            "body_html": null,
+            "images": [],
+            "published_at": "2026-09-02T22:08:25+08:00"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:08:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1788358167",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982de4000000005fb48f0a7c21247f",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=h8NXPmpU5eCL0Y7Od9WeBMdN0PUzwGiCpPQJRdrpgx%2BkPrkB7By1QrSRm%2Fq9ZomVGXLyhU84xuxEKRB6K2of4rqWGA4LZ96kR82gdNjr%2BPY5k6Z7q0QZzzWchVHSzSDHn%2FNoSv%2Br4Ut%2B\"}]}",
+          "cf-ray": "a34d16769f8e816e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9be47ed48181103d07dd88a2667a8e3efef09aaf",
+        "request": {
+          "data": {
+            "product": {
+              "options": [
+                {
+                  "name": "Option 1",
+                  "values": [
+                    "Blue"
+                  ]
+                }
+              ],
+              "variants": [
+                {
+                  "id": "18076844681887681141581755",
+                  "option1": "Default"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "post": {
+      "/admin/openapi/v20260601/products/16076844681887345597251755/variants.json": {
+        "response": {
+          "variant": {
+            "sku": "SKU-BLUE-005",
+            "compare_at_price": null,
+            "product_id": "16076844681887345597251755",
+            "created_at": "2026-09-02T22:08:37+08:00",
+            "inventory_tracker": false,
+            "updated_at": "2026-09-02T22:08:37+08:00",
+            "weight": null,
+            "required_shipping": true,
+            "barcode": null,
+            "option3": null,
+            "inventory_item_id": "7684468385430642967",
+            "inventory_policy": "deny",
+            "option2": null,
+            "option4": null,
+            "taxable": true,
+            "price": "9.99",
+            "option5": null,
+            "image": null,
+            "option1": "Blue",
+            "weight_unit": null,
+            "id": "18076844683852964224501755",
+            "inventory_quantity": 0
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:08:37 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1788358167",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982de5000000003b936e98230a041b",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=B2LMXtwmmvGAwYHg8iDdfa2qkJr6vcLDgvqrR5pB4OMAa4gKTx5iSrubZa7iEXBtkGXrU5TdxJShguRRSZ%2BMGhMdBMNIippI345%2BBkORW2n5I1Mq313losmt1qOLdRFxdm5zgOBA1j9g\"}]}",
+          "cf-ray": "a34d16797e40121f-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "5830a7c2aa931b4146a994cac3508e30ce597577",
+        "request": {
+          "data": {
+            "variant": {
+              "price": "9.99",
+              "sku": "SKU-BLUE-005",
+              "option1": "Blue"
+            }
+          }
+        }
+      }
+    }
+  }
+}

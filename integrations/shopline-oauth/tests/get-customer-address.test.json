@@ -1,0 +1,84 @@
+{
+  "input": {
+    "customer_id": "2791641345",
+    "address_id": "SL201UA7683107423792406419"
+  },
+  "output": {
+    "id": "SL201UA7683107423792406419",
+    "customer_id": "2791641345",
+    "first_name": "Jerry",
+    "last_name": "Frank",
+    "address1": "Australia",
+    "address2": "Australia apartment",
+    "province": "Australian Capital Territory",
+    "country": "Australia",
+    "zip": "1246768",
+    "phone": "(+852)53657436",
+    "company": "Sunny Ltd.",
+    "def": true,
+    "address_type": "0"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/customers/2791641345/addresses/SL201UA7683107423792406419.json": {
+        "response": {
+          "customer_address": {
+            "customer_id": "2791641345",
+            "address1": "Australia",
+            "first_name": "Jerry",
+            "country_code": "AU",
+            "address_type": 0,
+            "city_code": null,
+            "province": "Australian Capital Territory",
+            "last_name": "Frank",
+            "zip": "1246768",
+            "city": null,
+            "district": null,
+            "phone": "(+852)53657436",
+            "province_code": "1500001",
+            "town": null,
+            "address2": "Australia apartment",
+            "company": "Sunny Ltd.",
+            "id": "SL201UA7683107423792406419",
+            "country": "Australia",
+            "def": true,
+            "district_code": null,
+            "province_code_v2": "ACT"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:57:38 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1879",
+          "x-ratelimit-reset": "1788357461",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982b52000000004e7f63fc64aa4590",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=nH5TxhxjPgJM5a3wmsQxVl4aVX.fgIKHT6Sz2Sf4XsQ-1788357458.092257-1.0.1.1-UmoHw9wqywHQ8YkeE_TMI0a7pzZs1yZU.4_UvpplSQOQceA5_0ODevX7ZSZC8CHINdCW89IYW5kBcEO7l8gqxYb4vLOY7BJ4dGKRuOruQ82QnLuirsElIA3kVC.7Ehy7; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:27:38 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=7M%2ByGHeJ%2BNAHBLhbIW8Nsq8EfQUU2mRGShP6DVlQm9eIg09ZzLEX5WQcS38GkGdZoqA4jYt%2F0Ajhqk2LVf8EqcLfbutrbcyUulHpYuLyurtDi8HcD7B%2BMR6P%2Faa49bZCG9OJcbpXl2dj\"}]}",
+          "cf-ray": "a34d06611b68c654-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "4bb88c8222a5c5ef46592261c88bd88785d3e97c",
+        "request": {}
+      }
+    }
+  }
+}

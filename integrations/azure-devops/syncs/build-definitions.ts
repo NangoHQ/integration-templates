@@ -38,12 +38,18 @@ const MetadataSchema = z.object({
     projects: z.array(z.string())
 });
 
+const CheckpointSchema = z.object({
+    project: z.string(),
+    continuationToken: z.string()
+});
+
 const sync = createSync({
     description: 'Sync classic pipeline (build) definitions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
     models: {
         BuildDefinition: BuildDefinitionSchema
     },
@@ -55,19 +61,43 @@ const sync = createSync({
             throw new Error('projects array is required in metadata');
         }
 
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+        const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : { project: '', continuationToken: '' };
+
         await nango.trackDeletesStart('BuildDefinition');
 
-        for (const project of metadata.data.projects) {
-            let continuationToken: string | undefined;
+        const projects = metadata.data.projects;
+        let startIndex = 0;
+        let resumeContinuationToken = '';
+        if (checkpoint.project !== '') {
+            const idx = projects.indexOf(checkpoint.project);
+            if (idx !== -1) {
+                startIndex = idx;
+                resumeContinuationToken = checkpoint.continuationToken;
+            }
+        }
+
+        for (let i = startIndex; i < projects.length; i++) {
+            const project = projects[i];
+            if (project === undefined) {
+                throw new Error(`Project at index ${i} is undefined`);
+            }
+            let continuationToken: string | undefined = i === startIndex && resumeContinuationToken !== '' ? resumeContinuationToken : undefined;
+
             do {
                 // https://learn.microsoft.com/en-us/rest/api/azure/devops/build/definitions/list?view=azure-devops-rest-7.2
+                const params: Record<string, string | number> = {
+                    'api-version': '7.2-preview.7',
+                    $top: LIMIT
+                };
+                if (continuationToken !== undefined) {
+                    params['continuationToken'] = continuationToken;
+                }
+
                 const response = await nango.get({
                     endpoint: `/${encodeURIComponent(project)}/_apis/build/definitions`,
-                    params: {
-                        'api-version': '7.2-preview.7',
-                        ...(continuationToken && { continuationToken }),
-                        $top: LIMIT
-                    },
+                    params,
                     retries: 3
                 });
 
@@ -92,15 +122,27 @@ const sync = createSync({
                 }
 
                 const headerValue = response.headers['x-ms-continuationtoken'];
+                let nextToken: string | undefined;
                 if (typeof headerValue === 'string') {
                     const trimmed = headerValue.trim();
-                    continuationToken = trimmed.length > 0 ? trimmed : undefined;
+                    nextToken = trimmed.length > 0 ? trimmed : undefined;
+                }
+
+                if (nextToken) {
+                    const token = nextToken;
+                    await nango.saveCheckpoint({ project, continuationToken: token });
+                    continuationToken = token;
                 } else {
+                    const nextProject = projects[i + 1];
+                    if (nextProject) {
+                        await nango.saveCheckpoint({ project: nextProject, continuationToken: '' });
+                    }
                     continuationToken = undefined;
                 }
-            } while (typeof continuationToken !== 'undefined');
+            } while (continuationToken !== undefined);
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('BuildDefinition');
     }
 });

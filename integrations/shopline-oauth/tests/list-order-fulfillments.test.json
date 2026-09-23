@@ -1,0 +1,255 @@
+{
+  "input": {
+    "order_id": "21076844538384771008630862"
+  },
+  "output": {
+    "fulfillments": [
+      {
+        "id": "22076844546781433430580862",
+        "order_id": "21076844538384771008630862",
+        "status": "success",
+        "shipment_status": null,
+        "tracking_number": "TRACK123456",
+        "tracking_numbers": [
+          "TRACK123456"
+        ],
+        "tracking_url": "",
+        "tracking_urls": [],
+        "tracking_company": "TestCarrier",
+        "tracking_info_list": [
+          {
+            "tracking_number": "TRACK123456",
+            "tracking_url": "",
+            "tracking_company": "TestCarrier"
+          }
+        ],
+        "name": "#1012.1",
+        "created_at": "2026-09-02T21:55:00+08:00",
+        "updated_at": "2026-09-02T21:55:00+08:00",
+        "line_items": [
+          {
+            "id": 459465,
+            "sku": "209001YellowS",
+            "requires_shipping": true,
+            "taxable": true,
+            "variant_id": "18076831074843245979951755",
+            "name": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+            "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+            "product_id": "16076831074833682966241755",
+            "quantity": 1,
+            "price": "1000000.0",
+            "fulfillment_status": "fulfilled",
+            "variant_title": "Yellow / S",
+            "location_id": "7683107397838218873",
+            "total_discount": "0.0",
+            "price_set": {
+              "shop_money": {
+                "amount": "1000000.0",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "amount": "1000000.0",
+                "currency_code": "USD"
+              }
+            },
+            "total_discount_set": {
+              "shop_money": {
+                "amount": "0.0",
+                "currency_code": "USD"
+              },
+              "presentment_money": {
+                "amount": "0.0",
+                "currency_code": "USD"
+              }
+            },
+            "tax_lines": [
+              {
+                "name": null,
+                "price": "0.0",
+                "title": "VAT",
+                "rate": null,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.0",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.0",
+                    "currency_code": "USD"
+                  }
+                }
+              },
+              {
+                "name": null,
+                "price": "0.0",
+                "title": "VAT",
+                "rate": null,
+                "price_set": {
+                  "presentment_money": {
+                    "amount": "0.0",
+                    "currency_code": "USD"
+                  },
+                  "shop_money": {
+                    "amount": "0.0",
+                    "currency_code": "USD"
+                  }
+                }
+              }
+            ],
+            "fulfillment_quantity": 1,
+            "grams": 0,
+            "fulfillable_quantity": 0,
+            "bundle_parent_item": null,
+            "properties": null,
+            "version": "0",
+            "vendor": null
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/orders/21076844538384771008630862/fulfillments.json": {
+        "response": {
+          "fulfillments": [
+            {
+              "created_at": "2026-09-02T21:55:00+08:00",
+              "line_items": [
+                {
+                  "requires_shipping": true,
+                  "fulfillment_quantity": 1,
+                  "tax_lines": [
+                    {
+                      "rate": null,
+                      "title": "VAT",
+                      "name": null,
+                      "price": "0.0",
+                      "price_set": {
+                        "presentment_money": {
+                          "amount": "0.0",
+                          "currency_code": "USD"
+                        },
+                        "shop_money": {
+                          "amount": "0.0",
+                          "currency_code": "USD"
+                        }
+                      }
+                    },
+                    {
+                      "name": null,
+                      "price": "0.0",
+                      "price_set": {
+                        "presentment_money": {
+                          "amount": "0.0",
+                          "currency_code": "USD"
+                        },
+                        "shop_money": {
+                          "amount": "0.0",
+                          "currency_code": "USD"
+                        }
+                      },
+                      "rate": null,
+                      "title": "VAT"
+                    }
+                  ],
+                  "product_id": "16076831074833682966241755",
+                  "total_discount_set": {
+                    "shop_money": {
+                      "amount": "0.0",
+                      "currency_code": "USD"
+                    },
+                    "presentment_money": {
+                      "amount": "0.0",
+                      "currency_code": "USD"
+                    }
+                  },
+                  "quantity": 1,
+                  "variant_title": "Yellow / S",
+                  "grams": 0,
+                  "name": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+                  "taxable": true,
+                  "total_discount": "0.0",
+                  "fulfillable_quantity": 0,
+                  "fulfillment_status": "fulfilled",
+                  "price": "1000000.0",
+                  "bundle_parent_item": null,
+                  "id": 459465,
+                  "properties": null,
+                  "price_set": {
+                    "presentment_money": {
+                      "amount": "1000000.0",
+                      "currency_code": "USD"
+                    },
+                    "shop_money": {
+                      "amount": "1000000.0",
+                      "currency_code": "USD"
+                    }
+                  },
+                  "location_id": "7683107397838218873",
+                  "sku": "209001YellowS",
+                  "version": "0",
+                  "vendor": null,
+                  "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+                  "variant_id": "18076831074843245979951755"
+                }
+              ],
+              "order_id": "21076844538384771008630862",
+              "shipment_status": null,
+              "tracking_number": "TRACK123456",
+              "status": "success",
+              "tracking_info_list": [
+                {
+                  "tracking_company": "TestCarrier",
+                  "tracking_number": "TRACK123456",
+                  "tracking_url": ""
+                }
+              ],
+              "tracking_numbers": [
+                "TRACK123456"
+              ],
+              "id": "22076844546781433430580862",
+              "name": "#1012.1",
+              "tracking_company": "TestCarrier",
+              "tracking_url": "",
+              "tracking_urls": [],
+              "updated_at": "2026-09-02T21:55:00+08:00"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:59:16 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1933",
+          "x-ratelimit-reset": "1788357583",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982bb400000000682b3f1c1707f8eb",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=FW33qXzeWaVRUXh.XsxmZZjvcHIzf2n8KfKW8z8rPgQ-1788357556.2980459-1.0.1.1-9lnKklZccG9mT8ZeiuieNOv5zc_XanI8A6t2XtfidDgW5Dg7rkJXwxxipQpagh_.cXBovB1P1q4pHttrmfxfooxKjEmJRs5qmIK3vOXC9uZxdx7oTWOrKdqIgkx90Jw6; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:29:16 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=nMsVu%2BvLb0HNUSiaaLJn3y74%2FW9cCEyC7ZoOJZ3%2Fk1Sw6jDM6gepUUloXp3tHNP5na%2B2%2FBKqHsmUKSeHvnqAmJi6mVMXEbBg3hRpl99hiJbkg2apixau7TlZ9Iv8Qkm%2BYhCFAqYeW5uo\"}]}",
+          "cf-ray": "a34d08c6d82ab84b-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "443bdb9d069ad807f7a9554c316217028f4ef294",
+        "request": {}
+      }
+    }
+  }
+}

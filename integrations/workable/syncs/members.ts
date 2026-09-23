@@ -21,11 +21,16 @@ const MemberSchema = z.object({
     collaboration_rules: z.array(z.unknown()).optional()
 });
 
+const CheckpointSchema = z.object({
+    next_page: z.string()
+});
+
 const sync = createSync({
     description: 'Sync account members.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Member: MemberSchema
     },
@@ -34,23 +39,41 @@ const sync = createSync({
         // Blocker: /members has no updated_after/modified_since filter.
         // since_id only filters by ID order, not modification time,
         // so edits and deactivations of existing members would be missed.
-        // Only start tracking once the first page has actually been fetched and validated, so a
-        // failure on the very first request doesn't leave delete-tracking started with nothing
-        // enumerated.
-        let deletesStarted = false;
+        // A pagination checkpoint is used so an interrupted full refresh can resume.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { next_page: '' });
+        let nextPage = checkpoint.next_page;
+
+        // Safe to call every execution: trackDeletesStart() will not overwrite the
+        // start of a delete-tracking window this refresh already opened.
+        await nango.trackDeletesStart('Member');
+
+        const params: Record<string, string | number> = {
+            status: 'all'
+        };
+        if (nextPage) {
+            const nextUrl = new URL(nextPage);
+            for (const [key, value] of nextUrl.searchParams.entries()) {
+                params[key] = value;
+            }
+            if (!('limit' in params)) {
+                params['limit'] = 100;
+            }
+        }
 
         const proxyConfig: ProxyConfiguration = {
             // https://workable.readme.io/reference/members.md
             endpoint: '/spi/v3/members',
-            params: {
-                status: 'all'
-            },
+            params,
             paginate: {
                 type: 'link',
                 link_path_in_response_body: 'paging.next',
                 response_path: 'members',
                 limit_name_in_request: 'limit',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextPage = typeof nextPageParam === 'string' && nextPageParam.length > 0 ? nextPageParam : '';
+                }
             },
             retries: 3
         };
@@ -79,20 +102,22 @@ const sync = createSync({
                 });
             }
 
-            // The page above parsed successfully, so enumeration is confirmed to proceed.
-            if (!deletesStarted) {
-                await nango.trackDeletesStart('Member');
-                deletesStarted = true;
-            }
-
             if (members.length > 0) {
                 await nango.batchSave(members, 'Member');
             }
+
+            // Save pagination progress after every page. Without this, a run that
+            // exceeds the execution window restarts from page 1 next time instead of
+            // resuming where it left off.
+            if (nextPage !== '') {
+                await nango.saveCheckpoint({ next_page: nextPage });
+            }
         }
 
-        if (deletesStarted) {
-            await nango.trackDeletesEnd('Member');
-        }
+        // Clear the checkpoint only after the last page has been saved, then close the
+        // delete-tracking window opened by trackDeletesStart().
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Member');
     }
 });
 

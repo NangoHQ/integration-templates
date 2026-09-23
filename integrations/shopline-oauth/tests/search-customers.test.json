@@ -1,0 +1,114 @@
+{
+  "input": {
+    "limit": 1
+  },
+  "output": {
+    "customers": [
+      {
+        "id": "2791748177",
+        "email": "nango-cancel-test4@example.com",
+        "first_name": "Cancel4",
+        "last_name": "Test",
+        "state": 1,
+        "verified_email": false,
+        "orders_count": 1,
+        "total_spent": "0.00",
+        "created_at": "2026-09-02T21:59:21+08:00",
+        "updated_at": "2026-09-02T21:59:21+08:00",
+        "accepts_marketing": false,
+        "accepts_mobile_marketing": false,
+        "currency": "USD",
+        "addresses": [],
+        "email_subscribe_flag": 2,
+        "gender": "others",
+        "last_order_id": "21076844590622646016331632",
+        "last_order_name": "1028",
+        "mobile_subscribe_flag": 2,
+        "nick_name": "Cancel4 Test"
+      }
+    ],
+    "next_page_info": "eyJxdWVyeVBhcmFtU3RyaW5nIjoie1wic2NlbmVcIjpcIk9QRU5BUElfSU5JVF9MSVNUXCIsXCJzaXplXCI6MSxcInNvcnRcIjpbXCJ1aWQ6ZGVzY1wiXSxcInN0b3JlSWRcIjpcIjE3ODgyNzc0NTk4OThcIixcInVpZFwiOlwiMFwifSIsInNpbmNlIjpudWxsLCJzaW5jZUlkTGlzdCI6WyIyNzkxNzQ4MTc3Il0sInBhZ2UiOjIsInNpemUiOjEsImluaXRTb3J0IjpbInVpZDpkZXNjIl0sInNvcnQiOlsidWlkOmRlc2MiXSwiZGlyZWN0aW9uIjoibmV4dCJ9"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/customers/v2/search.json": {
+        "response": {
+          "customers": [
+            {
+              "created_at": "2026-09-02T21:59:21+08:00",
+              "phone": null,
+              "accepts_mobile_marketing_updated_at": null,
+              "email_marketing_consent": null,
+              "total_spent": "0.00",
+              "last_name": "Test",
+              "accepts_mobile_marketing": false,
+              "asid": null,
+              "last_order_id": "21076844590622646016331632",
+              "mobile_subscribe_flag": 2,
+              "email": "nango-cancel-test4@example.com",
+              "multipass_identifier": null,
+              "social_customer": null,
+              "state": 1,
+              "accepts_marketing_updated_at": null,
+              "id": "2791748177",
+              "email_subscribe_flag": 2,
+              "tags": null,
+              "verified_email": false,
+              "note": null,
+              "default_address": null,
+              "nick_name": "Cancel4 Test",
+              "birthday": null,
+              "accepts_marketing": false,
+              "sms_marketing_consent": null,
+              "currency": "USD",
+              "updated_at": "2026-09-02T21:59:21+08:00",
+              "addresses": [],
+              "gender": "others",
+              "first_name": "Cancel4",
+              "language": null,
+              "orders_count": 1,
+              "last_order_name": "1028"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 07 Sep 2026 13:20:49 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1788787300",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a9eba31000000003bcd645cd33c3997",
+          "link": "<https://nangodev.myshopline.com/admin/openapi/v20260601/customers/v2/search.json?limit=1&page_info=eyJxdWVyeVBhcmFtU3RyaW5nIjoie1wic2NlbmVcIjpcIk9QRU5BUElfSU5JVF9MSVNUXCIsXCJzaXplXCI6MSxcInNvcnRcIjpbXCJ1aWQ6ZGVzY1wiXSxcInN0b3JlSWRcIjpcIjE3ODgyNzc0NTk4OThcIixcInVpZFwiOlwiMFwifSIsInNpbmNlIjpudWxsLCJzaW5jZUlkTGlzdCI6WyIyNzkxNzQ4MTc3Il0sInBhZ2UiOjIsInNpemUiOjEsImluaXRTb3J0IjpbInVpZDpkZXNjIl0sInNvcnQiOlsidWlkOmRlc2MiXSwiZGlyZWN0aW9uIjoibmV4dCJ9>; rel=\"next\"",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=zMfE1MvvoXgGCCNJIxGNakRYQfzaJ9c9HEqtu6NTPg4-1788787249.3925934-1.0.1.1-YcRI3EN6e1agPqpAGpP3NmtV2QXSQgyW6AiceaaT8TuWPUdPORY7V.tGdSHe0dGu0TdYrWcvT1KjXN5jNDcyPgbd4.w1gtBmmjJVzi8Ptu50QITvI8G979K3ygJ05Thv; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Mon, 07 Sep 2026 13:50:49 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=PrUPgq4Tx50uh4N84shQC8SxUiyOO1eMHlCvTsH1DQ1S%2BCjDDkQITQ4H4OUK%2BskKv8dbT7kXQyaABgrqNWSbPtUAUeGcvFiyyxYue03KevFoVAPzvg6hsAXxykhWYVv8dw7KwdCgzO63\"}]}",
+          "cf-ray": "a3760354be385509-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "d52fbe8e0b5b2549e8da8496c7e6a59e49e09acd",
+        "request": {
+          "params": {
+            "limit": "1"
+          }
+        }
+      }
+    }
+  }
+}

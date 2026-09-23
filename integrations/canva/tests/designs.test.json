@@ -3,45 +3,23 @@
     "batchSave": {
       "Design": [
         {
-          "id": "DAHNA_PdHKQ",
-          "created_at": 1781868253,
-          "updated_at": 1781868253,
+          "id": "DAHNBM5ZewM",
+          "title": "Nango API Test",
+          "created_at": 1781871499,
+          "updated_at": 1781871500,
           "page_count": 1,
           "owner": {
             "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
             "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
           },
-          "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ.._juh5TVcdVpPoqAP.xVU1rD4TnTDrjynmbU7RrRCH_jUDkF3zMBm58xEpGg9KAkjG2FBkwamjBbePBOTNEZJ-lkTu8BAI2JrRrZku9ZtTXzYVhNggs5AhFA2G7l7v2A4.AxlVzejmRVqTf7Usi5ztOQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8d92e435-b3bc-4330-b1d0-65607935628a&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ.._juh5TVcdVpPoqAP.xVU1rD4TnTDrjynmbU7RrRCH_jUDkF3zMBm58xEpGg9KAkjG2FBkwamjBbePBOTNEZJ-lkTu8BAI2JrRrZku9ZtTXzYVhNggs5AhFA2G7l7v2A4.AxlVzejmRVqTf7Usi5ztOQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=647928e8-419f-4276-bee5-bb19e85ce123&utm_campaign=public_api_list_design_clicked_hyperlink"
-          }
-        },
-        {
-          "id": "DAHNA1cELUM",
-          "created_at": 1781868146,
-          "updated_at": 1781868146,
-          "page_count": 1,
-          "owner": {
-            "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-            "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
+          "thumbnail": {
+            "width": 595,
+            "height": 335,
+            "url": "https://media.canva.com/v2/document-image/hash:-746865768/height:335/id:DAHNBM5ZewM/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAEO-aBRKSa4yVcITs18wTFZj_LLtZGph311Z5T-B0Yjx&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F5ZewM%2FDAHNBM5ZewM%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T190426Z%26X-Amz-Expires%3D52103%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAANACV6aZStAcgRcKblddcH6SCxTfw-YkbEDRZFm-joI4&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..sbLpSiTbaIeE5qYC.RblgbQGZo-4FtBqd9ZR-QEpa1eNQKWYX3JFuPfjziMKGlpLqxMzN0TE1NIZ5CoT1JITzHKcdbIfwCb5RRGnMb0_AJSP0qhwa-VpxyEVlsvBKFkE.q3oxa0u1FfFkF9JOODOIng/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1e004371-983f-4587-8535-8c8426192a7b&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..sbLpSiTbaIeE5qYC.RblgbQGZo-4FtBqd9ZR-QEpa1eNQKWYX3JFuPfjziMKGlpLqxMzN0TE1NIZ5CoT1JITzHKcdbIfwCb5RRGnMb0_AJSP0qhwa-VpxyEVlsvBKFkE.q3oxa0u1FfFkF9JOODOIng/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0de37d67-08b0-4032-93dd-be3264ecc301&utm_campaign=public_api_list_design_clicked_hyperlink"
-          }
-        },
-        {
-          "id": "DAHNA4pDLYQ",
-          "created_at": 1781868153,
-          "updated_at": 1781868153,
-          "page_count": 1,
-          "owner": {
-            "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-            "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-          },
-          "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..eHpnfT6fik9sVP-P.MbSmgC3qqAXDevAfgbaVlEgAkxrzOk2S16Rjh0fn50RuHM4YVOFjvI32Onj5itxKDhUk44fFYJjRys4lffqZNHERg4W95DP0f0c30oiviX_-h2s.cbtKbj5bwIEoKWNtUtaZTA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8d600720-77ab-4174-9689-b696ffa640eb&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..eHpnfT6fik9sVP-P.MbSmgC3qqAXDevAfgbaVlEgAkxrzOk2S16Rjh0fn50RuHM4YVOFjvI32Onj5itxKDhUk44fFYJjRys4lffqZNHERg4W95DP0f0c30oiviX_-h2s.cbtKbj5bwIEoKWNtUtaZTA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=e2b56c51-19bc-4fdd-8b5a-f60f155abac2&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..hi0SWhuIjNjPDa6f.PfBllRsUDLA3EEwp2cD2q6eMydOj9JwCsueZRjk1QNMYgWhUVUBSvQf3pKz-yHTvGyxn9O8w2hvOedQWBVv7ekoH2aXzMlc6eTXu4pvp-aDjCME.U7Tc5R8Q75inZ4qK7xN-aQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=10c08956-bdb5-4afd-a2c3-64f0b2f16e98&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..hi0SWhuIjNjPDa6f.PfBllRsUDLA3EEwp2cD2q6eMydOj9JwCsueZRjk1QNMYgWhUVUBSvQf3pKz-yHTvGyxn9O8w2hvOedQWBVv7ekoH2aXzMlc6eTXu4pvp-aDjCME.U7Tc5R8Q75inZ4qK7xN-aQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=040ce7b1-fc23-4ad4-b830-ad735c44ae27&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -57,11 +35,11 @@
           "thumbnail": {
             "width": 595,
             "height": 335,
-            "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:1881880238/height:335/id:DAHNA4vfOCY/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAALcK79GrddOC6pd8AK1AhEJ6yMoxlDQWOON09f4hqFIs&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FvfOCY%2FDAHNA4vfOCY%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T002658Z%26X-Amz-Expires%3D32751%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAIrb6PgcJ0VpwZ8N0DAfIxNjhdSswG_0FBBXbSSLBaJv&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FJGUFUxiSdRVCGP.r7g-R4ADgxPE68ZgJroGH3yOGScPBtNKePyYDz1F3wDlH-o5EwTFvfmw5NpoXG4QWcCTkVZhft6I4mKR_zEBiqQZWl3wR3HlVoeDWpUDrPQjUZg.nwB9cUveq1kV_7UBkBk1UQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8306eba6-9dd3-4a7b-9466-ce3400e45ad1&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FJGUFUxiSdRVCGP.r7g-R4ADgxPE68ZgJroGH3yOGScPBtNKePyYDz1F3wDlH-o5EwTFvfmw5NpoXG4QWcCTkVZhft6I4mKR_zEBiqQZWl3wR3HlVoeDWpUDrPQjUZg.nwB9cUveq1kV_7UBkBk1UQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f9cb2f44-ce44-41ed-a34a-3a9edad71289&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..oJh0kIRWHDgY63Ht.x8Z7Camh1L6Q-hVYXmpU92o8vY2MYHNzWZgCVc_63SnpNtZ97ypCREgjFyLuzEqxenIg9gYX3E_IUbOkcsU3x_67Ml96nqviI2NiR3RWafGK5KI.f5yaBIi1XPiSlsEgP52H2A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8a9351a3-3af3-4a11-8f21-1058a16ed163&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..oJh0kIRWHDgY63Ht.x8Z7Camh1L6Q-hVYXmpU92o8vY2MYHNzWZgCVc_63SnpNtZ97ypCREgjFyLuzEqxenIg9gYX3E_IUbOkcsU3x_67Ml96nqviI2NiR3RWafGK5KI.f5yaBIi1XPiSlsEgP52H2A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=447139f9-8ab6-43fc-b379-d8b1b1e5c055&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -77,39 +55,11 @@
           "thumbnail": {
             "width": 595,
             "height": 335,
-            "url": "https://document-export.canva.com/L6_Mo/DAHNAzL6_Mo/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T073219Z&X-Amz-Expires=22467&X-Amz-Signature=d791e8d7e5ee17dc8951413aabc9eefe5821d4ac0583ac2a5d98205f30c797f1&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A46%3A46%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:1708933489/height:335/id:DAHNAzL6_Mo/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAADw_rJJ__KYug0RjpS-ACSxS0l8B43-10wtmGyiuoryC&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FL6_Mo%2FDAHNAzL6_Mo%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T073219Z%26X-Amz-Expires%3D7230%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAFChoFfxaeId9N6jc8KLlWUOuzyeyC59Z6GSQK0MEUob&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..lxkQ39OZyfGY568j.qfOZNu6zia18LT_79CMDtjZXRQvyoJabtxhzRhoAJkLNDx4Lv5IZleO1Q6wzsBxUrsatAdLRO1ihSgh0ljJYxJqeNU3NZD1hjY5x8hURNvIfJVA.tbkteDABUZXbGuCRpr0k-g/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=888d99ad-d052-484a-a173-1c77a6a2e375&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..lxkQ39OZyfGY568j.qfOZNu6zia18LT_79CMDtjZXRQvyoJabtxhzRhoAJkLNDx4Lv5IZleO1Q6wzsBxUrsatAdLRO1ihSgh0ljJYxJqeNU3NZD1hjY5x8hURNvIfJVA.tbkteDABUZXbGuCRpr0k-g/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=eb848750-8269-429f-964c-1e12b4be585a&utm_campaign=public_api_list_design_clicked_hyperlink"
-          }
-        },
-        {
-          "id": "DAHNApcdkhk",
-          "created_at": 1781865427,
-          "updated_at": 1781865427,
-          "page_count": 1,
-          "owner": {
-            "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-            "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-          },
-          "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..wpAJW9SOoCQj28qI.mDECNf99n3TljTOZFfm_teVKHYFIfEtHQN2f7eVGIUnbsk7d_GQb-I7xid5asxL_vJvE3QD0gAJNcaHP_XIyBIeAw4pEGR8Ssto_fzFPVWYFa_c.mcyploKS-b1T8aRsyR2h4g/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8003b65c-e427-4c12-8c0f-6deed75d56cf&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..wpAJW9SOoCQj28qI.mDECNf99n3TljTOZFfm_teVKHYFIfEtHQN2f7eVGIUnbsk7d_GQb-I7xid5asxL_vJvE3QD0gAJNcaHP_XIyBIeAw4pEGR8Ssto_fzFPVWYFa_c.mcyploKS-b1T8aRsyR2h4g/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=71a2f165-180e-4795-8923-d98f9afde3c5&utm_campaign=public_api_list_design_clicked_hyperlink"
-          }
-        },
-        {
-          "id": "DAHNAJoy69Y",
-          "created_at": 1781858327,
-          "updated_at": 1781858327,
-          "page_count": 1,
-          "owner": {
-            "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-            "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-          },
-          "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..6ITcH5Dwl399QZ2K.IsI7HA-9jbCvH3_MnU5SMTYF4wWNDXS8qHGfksqFYKWIyyi36GVMlW7IpDKSv5B5P7aGNnR3e42UdNks2mQmlTHq_A7pNk4WQNUhp9aqK_sVQj0.yUXy0NayGPkWIpc5I29Xuw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=34af2d81-4f4b-49cc-a96a-79d52f229f7f&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..6ITcH5Dwl399QZ2K.IsI7HA-9jbCvH3_MnU5SMTYF4wWNDXS8qHGfksqFYKWIyyi36GVMlW7IpDKSv5B5P7aGNnR3e42UdNks2mQmlTHq_A7pNk4WQNUhp9aqK_sVQj0.yUXy0NayGPkWIpc5I29Xuw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=ecdc3d09-cf91-4e36-be7f-130c7767aa77&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..s_5zXa20n8905BIG.IkKT-RE7cJynHix2ZC71lRKQfPs29T4ZMtJeb6aXVybPZpWUK0myR6D3ho8IA-TTgB709JkalUkviQndGcVFVmBv5E_5uSNSejwX8UJR4tsIs2I.0ruxrQs0TkyWUmC5iU2vYA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=2125ada9-012e-4067-8482-4c9c35ed9146&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..s_5zXa20n8905BIG.IkKT-RE7cJynHix2ZC71lRKQfPs29T4ZMtJeb6aXVybPZpWUK0myR6D3ho8IA-TTgB709JkalUkviQndGcVFVmBv5E_5uSNSejwX8UJR4tsIs2I.0ruxrQs0TkyWUmC5iU2vYA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=40c59813-6288-4c6a-ba56-f58d875c0aec&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -125,11 +75,11 @@
           "thumbnail": {
             "width": 376,
             "height": 531,
-            "url": "https://document-export.canva.com/YapYI/DAHNA0YapYI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T190838Z&X-Amz-Expires=65228&X-Amz-Signature=7a9829b191b2140351ee52f1f566e412f6837b21d6331feac9bb46cb11e1ad0f&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A15%3A46%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:-81070450/height:531/id:DAHNA0YapYI/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAACQtrSgtV5IA5GGukhKxzNsGihJ2S0iVgqCfRjwiB20F&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FYapYI%2FDAHNA0YapYI%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T190838Z%26X-Amz-Expires%3D51851%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAADP3QQEfmiLqXYe83RNIC1fDUHckrZmQV_5DOrdOr1Ag&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..ieTxOkJo0E39iUy7.7D5j_KglPTzB876N3NFU4KWj7sgTG0rxKQLh0KS_mELrshUdMNh1J7eTpM3YQZUsyC91Pk_1AHZObS4ehT9L8zviSL4q7SnYZ0FPTiC5zniXqAU.xbofyDvB-mUpXROFm3gAag/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=7349cdec-3d04-49a2-a4a9-bdd69020c77d&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..ieTxOkJo0E39iUy7.7D5j_KglPTzB876N3NFU4KWj7sgTG0rxKQLh0KS_mELrshUdMNh1J7eTpM3YQZUsyC91Pk_1AHZObS4ehT9L8zviSL4q7SnYZ0FPTiC5zniXqAU.xbofyDvB-mUpXROFm3gAag/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=a8bd6274-72d6-461b-96ce-3f8de7d55254&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..U_i_9IhfJhrwlDst.x-g_kayKf5GxiUDlW3qbNZ-Xoe3ZvHIAi5nBDgvG26wwvFloCWOMROYKjTX__jz8X38wc6RBDRSwGDpFwmUhTPGrCY7V_nlF0zNOJSEo1fnE5dw.9YwAbXunC-o6-hZK5leBkQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0d19a3af-9793-4817-8efc-e742df405dbe&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..U_i_9IhfJhrwlDst.x-g_kayKf5GxiUDlW3qbNZ-Xoe3ZvHIAi5nBDgvG26wwvFloCWOMROYKjTX__jz8X38wc6RBDRSwGDpFwmUhTPGrCY7V_nlF0zNOJSEo1fnE5dw.9YwAbXunC-o6-hZK5leBkQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=e798aac2-38a6-464d-bdc9-0805d324d9a2&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -145,11 +95,11 @@
           "thumbnail": {
             "width": 376,
             "height": 531,
-            "url": "https://document-export.canva.com/hXRo4/DAHNA3hXRo4/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T131515Z&X-Amz-Expires=88351&X-Amz-Signature=fb039b2e323cc6bf91954b192fe86f4d45983643f765dda251df47295918d209&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A47%3A46%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:613911885/height:531/id:DAHNA3hXRo4/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAJHGNVEPTwA_sQBkZEgQpwnh3ZK9Q4yawg8tHnjlPhU5&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FhXRo4%2FDAHNA3hXRo4%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T131515Z%26X-Amz-Expires%3D73054%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAOkwRCRYcNbfmnObp0ec-tTvyW09m1cYaEyXeoFY5apc&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..7fXPOCk0a8MauhXz.aOzqHLvW-KSRpAf4VXIQswAGkrHn6f0gcY-fuAj0_hDb_NgVIAEAAMEk4AOoeDmAQfCVvSJn051-6bdbB8-n3XlWTgphW2KVcC13byVw7lAhLIs.hksMIV0YLPe2uzK1So-pDw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=352943b1-0dca-4d53-8d4a-7a1ff5cbd09f&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..7fXPOCk0a8MauhXz.aOzqHLvW-KSRpAf4VXIQswAGkrHn6f0gcY-fuAj0_hDb_NgVIAEAAMEk4AOoeDmAQfCVvSJn051-6bdbB8-n3XlWTgphW2KVcC13byVw7lAhLIs.hksMIV0YLPe2uzK1So-pDw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=499494fc-daec-451b-bfb9-7f28e96a6ab3&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..-39yaxkn9-KScmcH.FwINuXs444LGhTHWthMH7kGPbQd14N7Y_gJlr3cYVea7kNs9zjnm3nxPFFKixze7kBNb4K1_6y9YyOw3i0Dp_O8JVcayGe9SIEjgx1FG6_lTnv4.p6ebdHdHrxcNO0jdsNgKOQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1a2e3570-b9fe-4f8e-b999-431bb7e3c69e&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..-39yaxkn9-KScmcH.FwINuXs444LGhTHWthMH7kGPbQd14N7Y_gJlr3cYVea7kNs9zjnm3nxPFFKixze7kBNb4K1_6y9YyOw3i0Dp_O8JVcayGe9SIEjgx1FG6_lTnv4.p6ebdHdHrxcNO0jdsNgKOQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=12efaab7-217d-4368-8ba4-560a6a8f2772&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -165,11 +115,11 @@
           "thumbnail": {
             "width": 376,
             "height": 531,
-            "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=54384&X-Amz-Signature=7a53244a33a16117e27fdeb854f757a286326958db4b4a4e0efe7f49d13e5029&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2012%3A56%3A22%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:-1285114812/height:531/id:DAHNAcCQaUI/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAADgPG7Sjveq54HxEL_T7xFIpSlPHIdZQGJG852C-OPLX&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FCQaUI%2FDAHNAcCQaUI%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T214958Z%26X-Amz-Expires%3D42171%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAANhBDW1MxxRVEu3RwbryjOccrHfmFsinfGj4b0LFiZG5&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..-Pum2aTi3u2EE7uT.ZRjinF-7rW0ZAeQRChTuTwd9AQgg0maXFysq9Owaas0DdotY7Z_VmDRPk0zOe2yhKpZI7aCnw1Qkm6YkGbzMfC0ySAEXqiUZ2jueqISUN-p5R0c.gLpIcV8h8zD0568eHej01Q/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=44b85024-c44f-4c01-86c7-b1a2d8bf6650&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..-Pum2aTi3u2EE7uT.ZRjinF-7rW0ZAeQRChTuTwd9AQgg0maXFysq9Owaas0DdotY7Z_VmDRPk0zOe2yhKpZI7aCnw1Qkm6YkGbzMfC0ySAEXqiUZ2jueqISUN-p5R0c.gLpIcV8h8zD0568eHej01Q/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d50f6820-e1eb-45db-99f2-8ccfba86daf5&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..K6Bf33xdzQ3LSHIB.BDIGva9MWO15dlAZf-bKcswi5VRvZi54HJRLb2Zo9WDcwlJw9O-fAObUQnEY28NINUKkfQ6SS-sqJ1Yj-VvoPrWlZR_HleuoohPjJPnfSLsbwQM.mYvYXlE3y5rQe5twxSOVHg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f53484fc-baf5-4314-a189-759d02375ab4&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..K6Bf33xdzQ3LSHIB.BDIGva9MWO15dlAZf-bKcswi5VRvZi54HJRLb2Zo9WDcwlJw9O-fAObUQnEY28NINUKkfQ6SS-sqJ1Yj-VvoPrWlZR_HleuoohPjJPnfSLsbwQM.mYvYXlE3y5rQe5twxSOVHg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d3695274-92cd-439a-8d06-aec1bb665efe&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -185,11 +135,11 @@
           "thumbnail": {
             "width": 393,
             "height": 508,
-            "url": "https://document-export.canva.com/FNMNM/DAHNAdFNMNM/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T025803Z&X-Amz-Expires=38447&X-Amz-Signature=099a613b26fe49b6d5a5fa4eb7d5780f7a61fb9af68fa12b91c9d8ef79376b72&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A50%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:1288782428/height:508/id:DAHNAdFNMNM/type:B/width:393?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAJhbWky23QMVLGeI3kxu9pXQ0-ME_nATApSunJ6ZTRxh&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FFNMNM%2FDAHNAdFNMNM%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T025803Z%26X-Amz-Expires%3D23686%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAE1cPS75pnaHM6OHH776c7bxqNHHIomj29kEgNaJ8xEa&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FdIE9tUtGl-uJbY.lQpgrki4C1ThEPWytTWS0vqvba8ixfjAznCU1FZtexPpoopPBLv6DZ8WiofKuLZZOWtwO9ldhsJBmJp0W4EG8fYBaJcYB4zdFhje3hjLzpcYRpk.8kSROe7uyIAKFMjPmdX9uA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=26668ccf-33e6-4742-801b-0e0b71e2293d&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FdIE9tUtGl-uJbY.lQpgrki4C1ThEPWytTWS0vqvba8ixfjAznCU1FZtexPpoopPBLv6DZ8WiofKuLZZOWtwO9ldhsJBmJp0W4EG8fYBaJcYB4zdFhje3hjLzpcYRpk.8kSROe7uyIAKFMjPmdX9uA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=04169c70-7eb0-462e-812a-dd3485b7968e&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..bfDo-Cz7ZSwabmyO.v6YKBuDyDPK7HanpvBEFHAJqNMZrgxDvD0PBfaIrB3D4mSyd8emE6ocS9sukapAFYnr8u1hJrSePaa66zDxqsTgClaeYTzrNrZwr2r6VGpA58D0.e2PpGxTZR1tvMM_1CJUxZA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=5d632a6d-3f84-4eba-98e3-f7a1c180c26b&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..bfDo-Cz7ZSwabmyO.v6YKBuDyDPK7HanpvBEFHAJqNMZrgxDvD0PBfaIrB3D4mSyd8emE6ocS9sukapAFYnr8u1hJrSePaa66zDxqsTgClaeYTzrNrZwr2r6VGpA58D0.e2PpGxTZR1tvMM_1CJUxZA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=eedb9db6-5fd4-4a94-997c-9d4c6f043277&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -205,11 +155,11 @@
           "thumbnail": {
             "width": 393,
             "height": 508,
-            "url": "https://document-export.canva.com/wXeH0/DAHNAZwXeH0/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T024631Z&X-Amz-Expires=39301&X-Amz-Signature=8d6f1a22b1a8444b585b483a076b5ab57eecea2cc087846b54d71309539f3390&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A41%3A32%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:2091211374/height:508/id:DAHNAZwXeH0/type:B/width:393?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAHFgM5zxaX7Bdbmgtn-V0qsEVtRgqW-whW5yJcL1bnI8&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FwXeH0%2FDAHNAZwXeH0%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T024631Z%26X-Amz-Expires%3D24378%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAPY01mAY5TLwoShttRZW0lVXJfksKSYwkxjX0FXyYIpD&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..qH9ma6nCiTUxRWra.MKlIsDm2PX4IBqWFwno6DaaajWoECUJwl7MYnTfvClnVcjz3Q3RJ0pYlETtqTTqNBLitLdnEaSjJHdCb_wvbwXX8vyZeKQktaMYX1ttrX5LuY_o.oO6gIiRedlNu1cq1gtLuLQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=85dd1bfd-3992-41b9-bb67-05248839f09a&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..qH9ma6nCiTUxRWra.MKlIsDm2PX4IBqWFwno6DaaajWoECUJwl7MYnTfvClnVcjz3Q3RJ0pYlETtqTTqNBLitLdnEaSjJHdCb_wvbwXX8vyZeKQktaMYX1ttrX5LuY_o.oO6gIiRedlNu1cq1gtLuLQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=697a53dc-18d0-4bb4-a964-ef60a0b93b34&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..rAO83ZxkyQJeCxut.-u0ZeYtIi2tBkRH35e-NgDTp1n_LN0qAz5knRWvLeAJhlbo1PGJLs9xQfvK4EV3lDdzlLK4kVdoKuEVh5aB3jjV7UqSPziHgoaj9m47TXdJpmsg.vqEoLUodKsTpsWKa-V3mHw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=ef405b5a-30fa-40ed-8056-c4826de45471&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..rAO83ZxkyQJeCxut.-u0ZeYtIi2tBkRH35e-NgDTp1n_LN0qAz5knRWvLeAJhlbo1PGJLs9xQfvK4EV3lDdzlLK4kVdoKuEVh5aB3jjV7UqSPziHgoaj9m47TXdJpmsg.vqEoLUodKsTpsWKa-V3mHw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=63226c87-8025-4acb-929e-ab7e8ea9fcb1&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -225,11 +175,11 @@
           "thumbnail": {
             "width": 376,
             "height": 531,
-            "url": "https://document-export.canva.com/4MgFc/DAHNAU4MgFc/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T052713Z&X-Amz-Expires=28623&X-Amz-Signature=2d119c2331ae35de7f17766c01bfbbcb93513f7526cd654b92c02b29e5ea7307&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A24%3A16%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:-1833707238/height:531/id:DAHNAU4MgFc/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAPEitdtqqcJvnuko-XOzvwm4AnzL61XlQRzuhk1E2-m_&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F4MgFc%2FDAHNAU4MgFc%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T052713Z%26X-Amz-Expires%3D14736%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAM2-wCcyD0SwID43H3u_Z-dIHkj-LTEZZqUkw1DFEqSx&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..kS8gdwLRTaUiXy6E.YoR-7QMQFmovpNG7l_8o0J_yotlqfEQQ76GHf0Ih3p2Xz4fTUJH7u0jYz7_NxDwkBGV1iIYI9I7HDNcwIDqSq7u8rAW-mAVh169y9dWSCBvf678.eHoGlRtGKGuDYwsJ5X4zmg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=c44b8a33-0cca-4086-a20e-8c1ba7d848e1&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..kS8gdwLRTaUiXy6E.YoR-7QMQFmovpNG7l_8o0J_yotlqfEQQ76GHf0Ih3p2Xz4fTUJH7u0jYz7_NxDwkBGV1iIYI9I7HDNcwIDqSq7u8rAW-mAVh169y9dWSCBvf678.eHoGlRtGKGuDYwsJ5X4zmg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=bd9207f2-d390-48a0-beaa-342dfdc1279a&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..ysYnwnvhZ-1gB8f5.jPH0sHGg5J9WATW-BHyS8FySFJLhQpV_FHxZmbzV1t5yUhKfPctvFsRKMNQdp9T1VwxdnEqC_6GbT2FX8KxRm1ULI9jEm4HAiWIOrFiVxHeQaiM.KzA-LNVTgYy7YW1CJJFrAQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=984746ed-89e8-4695-b50c-e9104fcdbada&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..ysYnwnvhZ-1gB8f5.jPH0sHGg5J9WATW-BHyS8FySFJLhQpV_FHxZmbzV1t5yUhKfPctvFsRKMNQdp9T1VwxdnEqC_6GbT2FX8KxRm1ULI9jEm4HAiWIOrFiVxHeQaiM.KzA-LNVTgYy7YW1CJJFrAQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=652b2e98-04f4-4184-b7ad-50a6a96d03dd&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         },
         {
@@ -245,11 +195,11 @@
           "thumbnail": {
             "width": 376,
             "height": 531,
-            "url": "https://document-export.canva.com/0QuzE/DAHNAQ0QuzE/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T085511Z&X-Amz-Expires=17001&X-Amz-Signature=fb6001915c691815b9aa29e198bfae14a896b789cfd943c7b311a25146398f86&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A32%20GMT"
+            "url": "https://media.canva.com/v2/document-image/hash:-1601132701/height:531/id:DAHNAQ0QuzE/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAHbuxnxVZAD86Azi6_NDulxNkxvYWQGLMj1uRyr2Qgcd&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F0QuzE%2FDAHNAQ0QuzE%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T085511Z%26X-Amz-Expires%3D88658%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAIdTJRAit4vNp__ruFpjJvVg8EuFM8FvzYr7o7MnbROY&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
           },
           "urls": {
-            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..0Bj-jfP0buhLWsCd.VTU5I5PN1MP7nmAj8tw8FkkcXPNlzqtDgEHGCZqOz4aWqdH5b52ARxc_B6soyE47YZkKO4y33u8dZr60DojhfJydKDZMzDzFQF_XDqICLOjUDlY.HgIwnIThTLLqVOTqc7PKqA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=b0ee15ec-1647-4a83-b57e-99a073e4c2ef&utm_campaign=public_api_list_design_clicked_hyperlink",
-            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..0Bj-jfP0buhLWsCd.VTU5I5PN1MP7nmAj8tw8FkkcXPNlzqtDgEHGCZqOz4aWqdH5b52ARxc_B6soyE47YZkKO4y33u8dZr60DojhfJydKDZMzDzFQF_XDqICLOjUDlY.HgIwnIThTLLqVOTqc7PKqA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0e189fbe-392a-478c-b145-934a6e3906f7&utm_campaign=public_api_list_design_clicked_hyperlink"
+            "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..JVZIz6NxNTZw5Wrz.WWc5hRaeqAbJvSb7QYPYAH1ydgeK6cG-48jRoCunq5KUtF9GsW2LPI-gLBXa4qapTyoct4L0tbnaJkvpbIefwxFjrZXxAjeqJ-3z48duM0chTX0.QE6U9FV5cxTsEnCC1Y_94A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=3ee8103a-9697-4460-8b72-3b142793a278&utm_campaign=public_api_list_design_clicked_hyperlink",
+            "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..JVZIz6NxNTZw5Wrz.WWc5hRaeqAbJvSb7QYPYAH1ydgeK6cG-48jRoCunq5KUtF9GsW2LPI-gLBXa4qapTyoct4L0tbnaJkvpbIefwxFjrZXxAjeqJ-3z48duM0chTX0.QE6U9FV5cxTsEnCC1Y_94A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=c8bbfab9-2b17-43e1-aa41-69a9c1f49531&utm_campaign=public_api_list_design_clicked_hyperlink"
           }
         }
       ]
@@ -264,54 +214,26 @@
         "response": {
           "items": [
             {
-              "id": "DAHNA_PdHKQ",
+              "id": "DAHNBM5ZewM",
+              "title": "Nango API Test",
               "owner": {
                 "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
                 "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
               },
-              "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ.._juh5TVcdVpPoqAP.xVU1rD4TnTDrjynmbU7RrRCH_jUDkF3zMBm58xEpGg9KAkjG2FBkwamjBbePBOTNEZJ-lkTu8BAI2JrRrZku9ZtTXzYVhNggs5AhFA2G7l7v2A4.AxlVzejmRVqTf7Usi5ztOQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8d92e435-b3bc-4330-b1d0-65607935628a&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ.._juh5TVcdVpPoqAP.xVU1rD4TnTDrjynmbU7RrRCH_jUDkF3zMBm58xEpGg9KAkjG2FBkwamjBbePBOTNEZJ-lkTu8BAI2JrRrZku9ZtTXzYVhNggs5AhFA2G7l7v2A4.AxlVzejmRVqTf7Usi5ztOQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=647928e8-419f-4276-bee5-bb19e85ce123&utm_campaign=public_api_list_design_clicked_hyperlink"
+              "thumbnail": {
+                "width": 595,
+                "height": 335,
+                "url": "https://media.canva.com/v2/document-image/hash:-746865768/height:335/id:DAHNBM5ZewM/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAEO-aBRKSa4yVcITs18wTFZj_LLtZGph311Z5T-B0Yjx&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F5ZewM%2FDAHNBM5ZewM%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T190426Z%26X-Amz-Expires%3D52103%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAANACV6aZStAcgRcKblddcH6SCxTfw-YkbEDRZFm-joI4&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
-              "created_at": 1781868253,
-              "updated_at": 1781868253,
+              "urls": {
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..hi0SWhuIjNjPDa6f.PfBllRsUDLA3EEwp2cD2q6eMydOj9JwCsueZRjk1QNMYgWhUVUBSvQf3pKz-yHTvGyxn9O8w2hvOedQWBVv7ekoH2aXzMlc6eTXu4pvp-aDjCME.U7Tc5R8Q75inZ4qK7xN-aQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=10c08956-bdb5-4afd-a2c3-64f0b2f16e98&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..hi0SWhuIjNjPDa6f.PfBllRsUDLA3EEwp2cD2q6eMydOj9JwCsueZRjk1QNMYgWhUVUBSvQf3pKz-yHTvGyxn9O8w2hvOedQWBVv7ekoH2aXzMlc6eTXu4pvp-aDjCME.U7Tc5R8Q75inZ4qK7xN-aQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=040ce7b1-fc23-4ad4-b830-ad735c44ae27&utm_campaign=public_api_list_design_clicked_hyperlink"
+              },
+              "created_at": 1781871499,
+              "updated_at": 1781871500,
               "page_count": 1,
               "design_types": [
                 "presentation"
-              ]
-            },
-            {
-              "id": "DAHNA1cELUM",
-              "owner": {
-                "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-                "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-              },
-              "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..sbLpSiTbaIeE5qYC.RblgbQGZo-4FtBqd9ZR-QEpa1eNQKWYX3JFuPfjziMKGlpLqxMzN0TE1NIZ5CoT1JITzHKcdbIfwCb5RRGnMb0_AJSP0qhwa-VpxyEVlsvBKFkE.q3oxa0u1FfFkF9JOODOIng/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1e004371-983f-4587-8535-8c8426192a7b&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..sbLpSiTbaIeE5qYC.RblgbQGZo-4FtBqd9ZR-QEpa1eNQKWYX3JFuPfjziMKGlpLqxMzN0TE1NIZ5CoT1JITzHKcdbIfwCb5RRGnMb0_AJSP0qhwa-VpxyEVlsvBKFkE.q3oxa0u1FfFkF9JOODOIng/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0de37d67-08b0-4032-93dd-be3264ecc301&utm_campaign=public_api_list_design_clicked_hyperlink"
-              },
-              "created_at": 1781868146,
-              "updated_at": 1781868146,
-              "page_count": 1,
-              "design_types": [
-                "custom"
-              ]
-            },
-            {
-              "id": "DAHNA4pDLYQ",
-              "owner": {
-                "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-                "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-              },
-              "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..eHpnfT6fik9sVP-P.MbSmgC3qqAXDevAfgbaVlEgAkxrzOk2S16Rjh0fn50RuHM4YVOFjvI32Onj5itxKDhUk44fFYJjRys4lffqZNHERg4W95DP0f0c30oiviX_-h2s.cbtKbj5bwIEoKWNtUtaZTA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8d600720-77ab-4174-9689-b696ffa640eb&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..eHpnfT6fik9sVP-P.MbSmgC3qqAXDevAfgbaVlEgAkxrzOk2S16Rjh0fn50RuHM4YVOFjvI32Onj5itxKDhUk44fFYJjRys4lffqZNHERg4W95DP0f0c30oiviX_-h2s.cbtKbj5bwIEoKWNtUtaZTA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=e2b56c51-19bc-4fdd-8b5a-f60f155abac2&utm_campaign=public_api_list_design_clicked_hyperlink"
-              },
-              "created_at": 1781868153,
-              "updated_at": 1781868153,
-              "page_count": 1,
-              "design_types": [
-                "custom"
               ]
             },
             {
@@ -324,11 +246,11 @@
               "thumbnail": {
                 "width": 595,
                 "height": 335,
-                "url": "https://document-export.canva.com/vfOCY/DAHNA4vfOCY/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T002658Z&X-Amz-Expires=46839&X-Amz-Signature=afdfc8d5e31e7beaff9bbe946fd7f2fadbcb5e765dbf8dcb282440f6292e4696&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A27%3A37%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:1881880238/height:335/id:DAHNA4vfOCY/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAALcK79GrddOC6pd8AK1AhEJ6yMoxlDQWOON09f4hqFIs&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FvfOCY%2FDAHNA4vfOCY%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T002658Z%26X-Amz-Expires%3D32751%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAIrb6PgcJ0VpwZ8N0DAfIxNjhdSswG_0FBBXbSSLBaJv&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FJGUFUxiSdRVCGP.r7g-R4ADgxPE68ZgJroGH3yOGScPBtNKePyYDz1F3wDlH-o5EwTFvfmw5NpoXG4QWcCTkVZhft6I4mKR_zEBiqQZWl3wR3HlVoeDWpUDrPQjUZg.nwB9cUveq1kV_7UBkBk1UQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8306eba6-9dd3-4a7b-9466-ce3400e45ad1&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FJGUFUxiSdRVCGP.r7g-R4ADgxPE68ZgJroGH3yOGScPBtNKePyYDz1F3wDlH-o5EwTFvfmw5NpoXG4QWcCTkVZhft6I4mKR_zEBiqQZWl3wR3HlVoeDWpUDrPQjUZg.nwB9cUveq1kV_7UBkBk1UQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f9cb2f44-ce44-41ed-a34a-3a9edad71289&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..oJh0kIRWHDgY63Ht.x8Z7Camh1L6Q-hVYXmpU92o8vY2MYHNzWZgCVc_63SnpNtZ97ypCREgjFyLuzEqxenIg9gYX3E_IUbOkcsU3x_67Ml96nqviI2NiR3RWafGK5KI.f5yaBIi1XPiSlsEgP52H2A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8a9351a3-3af3-4a11-8f21-1058a16ed163&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..oJh0kIRWHDgY63Ht.x8Z7Camh1L6Q-hVYXmpU92o8vY2MYHNzWZgCVc_63SnpNtZ97ypCREgjFyLuzEqxenIg9gYX3E_IUbOkcsU3x_67Ml96nqviI2NiR3RWafGK5KI.f5yaBIi1XPiSlsEgP52H2A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=447139f9-8ab6-43fc-b379-d8b1b1e5c055&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781868131,
               "updated_at": 1781868132,
@@ -347,51 +269,17 @@
               "thumbnail": {
                 "width": 595,
                 "height": 335,
-                "url": "https://document-export.canva.com/L6_Mo/DAHNAzL6_Mo/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T073219Z&X-Amz-Expires=22467&X-Amz-Signature=d791e8d7e5ee17dc8951413aabc9eefe5821d4ac0583ac2a5d98205f30c797f1&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A46%3A46%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:1708933489/height:335/id:DAHNAzL6_Mo/type:B/width:595?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAADw_rJJ__KYug0RjpS-ACSxS0l8B43-10wtmGyiuoryC&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FL6_Mo%2FDAHNAzL6_Mo%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T073219Z%26X-Amz-Expires%3D7230%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAFChoFfxaeId9N6jc8KLlWUOuzyeyC59Z6GSQK0MEUob&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..lxkQ39OZyfGY568j.qfOZNu6zia18LT_79CMDtjZXRQvyoJabtxhzRhoAJkLNDx4Lv5IZleO1Q6wzsBxUrsatAdLRO1ihSgh0ljJYxJqeNU3NZD1hjY5x8hURNvIfJVA.tbkteDABUZXbGuCRpr0k-g/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=888d99ad-d052-484a-a173-1c77a6a2e375&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..lxkQ39OZyfGY568j.qfOZNu6zia18LT_79CMDtjZXRQvyoJabtxhzRhoAJkLNDx4Lv5IZleO1Q6wzsBxUrsatAdLRO1ihSgh0ljJYxJqeNU3NZD1hjY5x8hURNvIfJVA.tbkteDABUZXbGuCRpr0k-g/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=eb848750-8269-429f-964c-1e12b4be585a&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..s_5zXa20n8905BIG.IkKT-RE7cJynHix2ZC71lRKQfPs29T4ZMtJeb6aXVybPZpWUK0myR6D3ho8IA-TTgB709JkalUkviQndGcVFVmBv5E_5uSNSejwX8UJR4tsIs2I.0ruxrQs0TkyWUmC5iU2vYA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=2125ada9-012e-4067-8482-4c9c35ed9146&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..s_5zXa20n8905BIG.IkKT-RE7cJynHix2ZC71lRKQfPs29T4ZMtJeb6aXVybPZpWUK0myR6D3ho8IA-TTgB709JkalUkviQndGcVFVmBv5E_5uSNSejwX8UJR4tsIs2I.0ruxrQs0TkyWUmC5iU2vYA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=40c59813-6288-4c6a-ba56-f58d875c0aec&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781868125,
               "updated_at": 1781868126,
               "page_count": 1,
               "design_types": [
                 "presentation"
-              ]
-            },
-            {
-              "id": "DAHNApcdkhk",
-              "owner": {
-                "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-                "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-              },
-              "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..wpAJW9SOoCQj28qI.mDECNf99n3TljTOZFfm_teVKHYFIfEtHQN2f7eVGIUnbsk7d_GQb-I7xid5asxL_vJvE3QD0gAJNcaHP_XIyBIeAw4pEGR8Ssto_fzFPVWYFa_c.mcyploKS-b1T8aRsyR2h4g/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=8003b65c-e427-4c12-8c0f-6deed75d56cf&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..wpAJW9SOoCQj28qI.mDECNf99n3TljTOZFfm_teVKHYFIfEtHQN2f7eVGIUnbsk7d_GQb-I7xid5asxL_vJvE3QD0gAJNcaHP_XIyBIeAw4pEGR8Ssto_fzFPVWYFa_c.mcyploKS-b1T8aRsyR2h4g/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=71a2f165-180e-4795-8923-d98f9afde3c5&utm_campaign=public_api_list_design_clicked_hyperlink"
-              },
-              "created_at": 1781865427,
-              "updated_at": 1781865427,
-              "page_count": 1,
-              "design_types": [
-                "presentation"
-              ]
-            },
-            {
-              "id": "DAHNAJoy69Y",
-              "owner": {
-                "user_id": "oUYuuEIQQhvU4U2WP_v8DU",
-                "team_id": "oBYuuCsqjFP_8QlU9OaSZ0"
-              },
-              "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..6ITcH5Dwl399QZ2K.IsI7HA-9jbCvH3_MnU5SMTYF4wWNDXS8qHGfksqFYKWIyyi36GVMlW7IpDKSv5B5P7aGNnR3e42UdNks2mQmlTHq_A7pNk4WQNUhp9aqK_sVQj0.yUXy0NayGPkWIpc5I29Xuw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=34af2d81-4f4b-49cc-a96a-79d52f229f7f&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..6ITcH5Dwl399QZ2K.IsI7HA-9jbCvH3_MnU5SMTYF4wWNDXS8qHGfksqFYKWIyyi36GVMlW7IpDKSv5B5P7aGNnR3e42UdNks2mQmlTHq_A7pNk4WQNUhp9aqK_sVQj0.yUXy0NayGPkWIpc5I29Xuw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=ecdc3d09-cf91-4e36-be7f-130c7767aa77&utm_campaign=public_api_list_design_clicked_hyperlink"
-              },
-              "created_at": 1781858327,
-              "updated_at": 1781858327,
-              "page_count": 1,
-              "design_types": [
-                "doc"
               ]
             },
             {
@@ -404,11 +292,11 @@
               "thumbnail": {
                 "width": 376,
                 "height": 531,
-                "url": "https://document-export.canva.com/YapYI/DAHNA0YapYI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T190838Z&X-Amz-Expires=65228&X-Amz-Signature=7a9829b191b2140351ee52f1f566e412f6837b21d6331feac9bb46cb11e1ad0f&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A15%3A46%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:-81070450/height:531/id:DAHNA0YapYI/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAACQtrSgtV5IA5GGukhKxzNsGihJ2S0iVgqCfRjwiB20F&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FYapYI%2FDAHNA0YapYI%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T190838Z%26X-Amz-Expires%3D51851%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAADP3QQEfmiLqXYe83RNIC1fDUHckrZmQV_5DOrdOr1Ag&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..ieTxOkJo0E39iUy7.7D5j_KglPTzB876N3NFU4KWj7sgTG0rxKQLh0KS_mELrshUdMNh1J7eTpM3YQZUsyC91Pk_1AHZObS4ehT9L8zviSL4q7SnYZ0FPTiC5zniXqAU.xbofyDvB-mUpXROFm3gAag/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=7349cdec-3d04-49a2-a4a9-bdd69020c77d&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..ieTxOkJo0E39iUy7.7D5j_KglPTzB876N3NFU4KWj7sgTG0rxKQLh0KS_mELrshUdMNh1J7eTpM3YQZUsyC91Pk_1AHZObS4ehT9L8zviSL4q7SnYZ0FPTiC5zniXqAU.xbofyDvB-mUpXROFm3gAag/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=a8bd6274-72d6-461b-96ce-3f8de7d55254&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..U_i_9IhfJhrwlDst.x-g_kayKf5GxiUDlW3qbNZ-Xoe3ZvHIAi5nBDgvG26wwvFloCWOMROYKjTX__jz8X38wc6RBDRSwGDpFwmUhTPGrCY7V_nlF0zNOJSEo1fnE5dw.9YwAbXunC-o6-hZK5leBkQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0d19a3af-9793-4817-8efc-e742df405dbe&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..U_i_9IhfJhrwlDst.x-g_kayKf5GxiUDlW3qbNZ-Xoe3ZvHIAi5nBDgvG26wwvFloCWOMROYKjTX__jz8X38wc6RBDRSwGDpFwmUhTPGrCY7V_nlF0zNOJSEo1fnE5dw.9YwAbXunC-o6-hZK5leBkQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=e798aac2-38a6-464d-bdc9-0805d324d9a2&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781868182,
               "updated_at": 1781868183,
@@ -427,11 +315,11 @@
               "thumbnail": {
                 "width": 376,
                 "height": 531,
-                "url": "https://document-export.canva.com/hXRo4/DAHNA3hXRo4/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T131515Z&X-Amz-Expires=88351&X-Amz-Signature=fb039b2e323cc6bf91954b192fe86f4d45983643f765dda251df47295918d209&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A47%3A46%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:613911885/height:531/id:DAHNA3hXRo4/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAJHGNVEPTwA_sQBkZEgQpwnh3ZK9Q4yawg8tHnjlPhU5&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FhXRo4%2FDAHNA3hXRo4%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T131515Z%26X-Amz-Expires%3D73054%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAOkwRCRYcNbfmnObp0ec-tTvyW09m1cYaEyXeoFY5apc&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..7fXPOCk0a8MauhXz.aOzqHLvW-KSRpAf4VXIQswAGkrHn6f0gcY-fuAj0_hDb_NgVIAEAAMEk4AOoeDmAQfCVvSJn051-6bdbB8-n3XlWTgphW2KVcC13byVw7lAhLIs.hksMIV0YLPe2uzK1So-pDw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=352943b1-0dca-4d53-8d4a-7a1ff5cbd09f&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..7fXPOCk0a8MauhXz.aOzqHLvW-KSRpAf4VXIQswAGkrHn6f0gcY-fuAj0_hDb_NgVIAEAAMEk4AOoeDmAQfCVvSJn051-6bdbB8-n3XlWTgphW2KVcC13byVw7lAhLIs.hksMIV0YLPe2uzK1So-pDw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=499494fc-daec-451b-bfb9-7f28e96a6ab3&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..-39yaxkn9-KScmcH.FwINuXs444LGhTHWthMH7kGPbQd14N7Y_gJlr3cYVea7kNs9zjnm3nxPFFKixze7kBNb4K1_6y9YyOw3i0Dp_O8JVcayGe9SIEjgx1FG6_lTnv4.p6ebdHdHrxcNO0jdsNgKOQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=1a2e3570-b9fe-4f8e-b999-431bb7e3c69e&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..-39yaxkn9-KScmcH.FwINuXs444LGhTHWthMH7kGPbQd14N7Y_gJlr3cYVea7kNs9zjnm3nxPFFKixze7kBNb4K1_6y9YyOw3i0Dp_O8JVcayGe9SIEjgx1FG6_lTnv4.p6ebdHdHrxcNO0jdsNgKOQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=12efaab7-217d-4368-8ba4-560a6a8f2772&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781868116,
               "updated_at": 1781868117,
@@ -450,11 +338,11 @@
               "thumbnail": {
                 "width": 376,
                 "height": 531,
-                "url": "https://document-export.canva.com/CQaUI/DAHNAcCQaUI/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260618%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260618T214958Z&X-Amz-Expires=54384&X-Amz-Signature=7a53244a33a16117e27fdeb854f757a286326958db4b4a4e0efe7f49d13e5029&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2012%3A56%3A22%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:-1285114812/height:531/id:DAHNAcCQaUI/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAADgPG7Sjveq54HxEL_T7xFIpSlPHIdZQGJG852C-OPLX&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FCQaUI%2FDAHNAcCQaUI%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T214958Z%26X-Amz-Expires%3D42171%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAANhBDW1MxxRVEu3RwbryjOccrHfmFsinfGj4b0LFiZG5&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..-Pum2aTi3u2EE7uT.ZRjinF-7rW0ZAeQRChTuTwd9AQgg0maXFysq9Owaas0DdotY7Z_VmDRPk0zOe2yhKpZI7aCnw1Qkm6YkGbzMfC0ySAEXqiUZ2jueqISUN-p5R0c.gLpIcV8h8zD0568eHej01Q/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=44b85024-c44f-4c01-86c7-b1a2d8bf6650&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..-Pum2aTi3u2EE7uT.ZRjinF-7rW0ZAeQRChTuTwd9AQgg0maXFysq9Owaas0DdotY7Z_VmDRPk0zOe2yhKpZI7aCnw1Qkm6YkGbzMfC0ySAEXqiUZ2jueqISUN-p5R0c.gLpIcV8h8zD0568eHej01Q/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d50f6820-e1eb-45db-99f2-8ccfba86daf5&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..K6Bf33xdzQ3LSHIB.BDIGva9MWO15dlAZf-bKcswi5VRvZi54HJRLb2Zo9WDcwlJw9O-fAObUQnEY28NINUKkfQ6SS-sqJ1Yj-VvoPrWlZR_HleuoohPjJPnfSLsbwQM.mYvYXlE3y5rQe5twxSOVHg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=f53484fc-baf5-4314-a189-759d02375ab4&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..K6Bf33xdzQ3LSHIB.BDIGva9MWO15dlAZf-bKcswi5VRvZi54HJRLb2Zo9WDcwlJw9O-fAObUQnEY28NINUKkfQ6SS-sqJ1Yj-VvoPrWlZR_HleuoohPjJPnfSLsbwQM.mYvYXlE3y5rQe5twxSOVHg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=d3695274-92cd-439a-8d06-aec1bb665efe&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781860683,
               "updated_at": 1781860684,
@@ -473,11 +361,11 @@
               "thumbnail": {
                 "width": 393,
                 "height": 508,
-                "url": "https://document-export.canva.com/FNMNM/DAHNAdFNMNM/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T025803Z&X-Amz-Expires=38447&X-Amz-Signature=099a613b26fe49b6d5a5fa4eb7d5780f7a61fb9af68fa12b91c9d8ef79376b72&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A50%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:1288782428/height:508/id:DAHNAdFNMNM/type:B/width:393?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAJhbWky23QMVLGeI3kxu9pXQ0-ME_nATApSunJ6ZTRxh&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FFNMNM%2FDAHNAdFNMNM%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T025803Z%26X-Amz-Expires%3D23686%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAE1cPS75pnaHM6OHH776c7bxqNHHIomj29kEgNaJ8xEa&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FdIE9tUtGl-uJbY.lQpgrki4C1ThEPWytTWS0vqvba8ixfjAznCU1FZtexPpoopPBLv6DZ8WiofKuLZZOWtwO9ldhsJBmJp0W4EG8fYBaJcYB4zdFhje3hjLzpcYRpk.8kSROe7uyIAKFMjPmdX9uA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=26668ccf-33e6-4742-801b-0e0b71e2293d&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..3FdIE9tUtGl-uJbY.lQpgrki4C1ThEPWytTWS0vqvba8ixfjAznCU1FZtexPpoopPBLv6DZ8WiofKuLZZOWtwO9ldhsJBmJp0W4EG8fYBaJcYB4zdFhje3hjLzpcYRpk.8kSROe7uyIAKFMjPmdX9uA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=04169c70-7eb0-462e-812a-dd3485b7968e&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..bfDo-Cz7ZSwabmyO.v6YKBuDyDPK7HanpvBEFHAJqNMZrgxDvD0PBfaIrB3D4mSyd8emE6ocS9sukapAFYnr8u1hJrSePaa66zDxqsTgClaeYTzrNrZwr2r6VGpA58D0.e2PpGxTZR1tvMM_1CJUxZA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=5d632a6d-3f84-4eba-98e3-f7a1c180c26b&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..bfDo-Cz7ZSwabmyO.v6YKBuDyDPK7HanpvBEFHAJqNMZrgxDvD0PBfaIrB3D4mSyd8emE6ocS9sukapAFYnr8u1hJrSePaa66zDxqsTgClaeYTzrNrZwr2r6VGpA58D0.e2PpGxTZR1tvMM_1CJUxZA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=eedb9db6-5fd4-4a94-997c-9d4c6f043277&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781860677,
               "updated_at": 1781860678,
@@ -496,11 +384,11 @@
               "thumbnail": {
                 "width": 393,
                 "height": 508,
-                "url": "https://document-export.canva.com/wXeH0/DAHNAZwXeH0/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T024631Z&X-Amz-Expires=39301&X-Amz-Signature=8d6f1a22b1a8444b585b483a076b5ab57eecea2cc087846b54d71309539f3390&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A41%3A32%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:2091211374/height:508/id:DAHNAZwXeH0/type:B/width:393?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAHFgM5zxaX7Bdbmgtn-V0qsEVtRgqW-whW5yJcL1bnI8&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2FwXeH0%2FDAHNAZwXeH0%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T024631Z%26X-Amz-Expires%3D24378%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAPY01mAY5TLwoShttRZW0lVXJfksKSYwkxjX0FXyYIpD&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..qH9ma6nCiTUxRWra.MKlIsDm2PX4IBqWFwno6DaaajWoECUJwl7MYnTfvClnVcjz3Q3RJ0pYlETtqTTqNBLitLdnEaSjJHdCb_wvbwXX8vyZeKQktaMYX1ttrX5LuY_o.oO6gIiRedlNu1cq1gtLuLQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=85dd1bfd-3992-41b9-bb67-05248839f09a&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..qH9ma6nCiTUxRWra.MKlIsDm2PX4IBqWFwno6DaaajWoECUJwl7MYnTfvClnVcjz3Q3RJ0pYlETtqTTqNBLitLdnEaSjJHdCb_wvbwXX8vyZeKQktaMYX1ttrX5LuY_o.oO6gIiRedlNu1cq1gtLuLQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=697a53dc-18d0-4bb4-a964-ef60a0b93b34&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..rAO83ZxkyQJeCxut.-u0ZeYtIi2tBkRH35e-NgDTp1n_LN0qAz5knRWvLeAJhlbo1PGJLs9xQfvK4EV3lDdzlLK4kVdoKuEVh5aB3jjV7UqSPziHgoaj9m47TXdJpmsg.vqEoLUodKsTpsWKa-V3mHw/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=ef405b5a-30fa-40ed-8056-c4826de45471&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..rAO83ZxkyQJeCxut.-u0ZeYtIi2tBkRH35e-NgDTp1n_LN0qAz5knRWvLeAJhlbo1PGJLs9xQfvK4EV3lDdzlLK4kVdoKuEVh5aB3jjV7UqSPziHgoaj9m47TXdJpmsg.vqEoLUodKsTpsWKa-V3mHw/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=63226c87-8025-4acb-929e-ab7e8ea9fcb1&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781860664,
               "updated_at": 1781860664,
@@ -519,11 +407,11 @@
               "thumbnail": {
                 "width": 376,
                 "height": 531,
-                "url": "https://document-export.canva.com/4MgFc/DAHNAU4MgFc/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T052713Z&X-Amz-Expires=28623&X-Amz-Signature=2d119c2331ae35de7f17766c01bfbbcb93513f7526cd654b92c02b29e5ea7307&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A24%3A16%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:-1833707238/height:531/id:DAHNAU4MgFc/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAPEitdtqqcJvnuko-XOzvwm4AnzL61XlQRzuhk1E2-m_&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F4MgFc%2FDAHNAU4MgFc%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260824T052713Z%26X-Amz-Expires%3D14736%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAM2-wCcyD0SwID43H3u_Z-dIHkj-LTEZZqUkw1DFEqSx&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..kS8gdwLRTaUiXy6E.YoR-7QMQFmovpNG7l_8o0J_yotlqfEQQ76GHf0Ih3p2Xz4fTUJH7u0jYz7_NxDwkBGV1iIYI9I7HDNcwIDqSq7u8rAW-mAVh169y9dWSCBvf678.eHoGlRtGKGuDYwsJ5X4zmg/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=c44b8a33-0cca-4086-a20e-8c1ba7d848e1&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..kS8gdwLRTaUiXy6E.YoR-7QMQFmovpNG7l_8o0J_yotlqfEQQ76GHf0Ih3p2Xz4fTUJH7u0jYz7_NxDwkBGV1iIYI9I7HDNcwIDqSq7u8rAW-mAVh169y9dWSCBvf678.eHoGlRtGKGuDYwsJ5X4zmg/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=bd9207f2-d390-48a0-beaa-342dfdc1279a&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..ysYnwnvhZ-1gB8f5.jPH0sHGg5J9WATW-BHyS8FySFJLhQpV_FHxZmbzV1t5yUhKfPctvFsRKMNQdp9T1VwxdnEqC_6GbT2FX8KxRm1ULI9jEm4HAiWIOrFiVxHeQaiM.KzA-LNVTgYy7YW1CJJFrAQ/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=984746ed-89e8-4695-b50c-e9104fcdbada&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..ysYnwnvhZ-1gB8f5.jPH0sHGg5J9WATW-BHyS8FySFJLhQpV_FHxZmbzV1t5yUhKfPctvFsRKMNQdp9T1VwxdnEqC_6GbT2FX8KxRm1ULI9jEm4HAiWIOrFiVxHeQaiM.KzA-LNVTgYy7YW1CJJFrAQ/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=652b2e98-04f4-4184-b7ad-50a6a96d03dd&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781860503,
               "updated_at": 1781860504,
@@ -542,11 +430,11 @@
               "thumbnail": {
                 "width": 376,
                 "height": 531,
-                "url": "https://document-export.canva.com/0QuzE/DAHNAQ0QuzE/1/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWEOTUD6Q%2F20260619%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260619T085511Z&X-Amz-Expires=17001&X-Amz-Signature=fb6001915c691815b9aa29e198bfae14a896b789cfd943c7b311a25146398f86&X-Amz-SignedHeaders=host&response-expires=Fri%2C%2019%20Jun%202026%2013%3A38%3A32%20GMT"
+                "url": "https://media.canva.com/v2/document-image/hash:-1601132701/height:531/id:DAHNAQ0QuzE/type:B/width:376?brand=BAHNAJZAbK4&csig=AAAAAAAAAAAAAAAAAAAAAHbuxnxVZAD86Azi6_NDulxNkxvYWQGLMj1uRyr2Qgcd&disableexport=T&exp=1787563969&fallback=https%3A%2F%2Fs3.amazonaws.com%2Fdocument-export.canva.com%2F0QuzE%2FDAHNAQ0QuzE%2F1%2Fthumbnail%2F0001.png%3FX-Amz-Algorithm%3DAWS4-HMAC-SHA256%26X-Amz-Credential%3D%3CREDACTED%3E%26X-Amz-Date%3D20260823T085511Z%26X-Amz-Expires%3D88658%26X-Amz-Signature%3D%3CREDACTED%3E%26X-Amz-SignedHeaders%3Dhost%26response-expires%3DMon%252C%252024%2520Aug%25202026%252009%253A32%253A49%2520GMT&osig=AAAAAAAAAAAAAAAAAAAAAIdTJRAit4vNp__ruFpjJvVg8EuFM8FvzYr7o7MnbROY&page=1&signed=brand%2Cdisableexport%2Cfallback%2Cpage%2Cversion&signer=document-rpc&version=1"
               },
               "urls": {
-                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..0Bj-jfP0buhLWsCd.VTU5I5PN1MP7nmAj8tw8FkkcXPNlzqtDgEHGCZqOz4aWqdH5b52ARxc_B6soyE47YZkKO4y33u8dZr60DojhfJydKDZMzDzFQF_XDqICLOjUDlY.HgIwnIThTLLqVOTqc7PKqA/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=b0ee15ec-1647-4a83-b57e-99a073e4c2ef&utm_campaign=public_api_list_design_clicked_hyperlink",
-                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzg0NDYxOTA2NTQyfQ..0Bj-jfP0buhLWsCd.VTU5I5PN1MP7nmAj8tw8FkkcXPNlzqtDgEHGCZqOz4aWqdH5b52ARxc_B6soyE47YZkKO4y33u8dZr60DojhfJydKDZMzDzFQF_XDqICLOjUDlY.HgIwnIThTLLqVOTqc7PKqA/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=0e189fbe-392a-478c-b145-934a6e3906f7&utm_campaign=public_api_list_design_clicked_hyperlink"
+                "edit_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..JVZIz6NxNTZw5Wrz.WWc5hRaeqAbJvSb7QYPYAH1ydgeK6cG-48jRoCunq5KUtF9GsW2LPI-gLBXa4qapTyoct4L0tbnaJkvpbIefwxFjrZXxAjeqJ-3z48duM0chTX0.QE6U9FV5cxTsEnCC1Y_94A/edit?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=3ee8103a-9697-4460-8b72-3b142793a278&utm_campaign=public_api_list_design_clicked_hyperlink",
+                "view_url": "https://www.canva.com/api/design/eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIiwiZXhwaXJ5IjoxNzkwMTUyMzY5MjU0fQ..JVZIz6NxNTZw5Wrz.WWc5hRaeqAbJvSb7QYPYAH1ydgeK6cG-48jRoCunq5KUtF9GsW2LPI-gLBXa4qapTyoct4L0tbnaJkvpbIefwxFjrZXxAjeqJ-3z48duM0chTX0.QE6U9FV5cxTsEnCC1Y_94A/view?utm_source=OC-AZ7e-80owiQa&utm_medium=referral&utm_term=c8bbfab9-2b17-43e1-aa41-69a9c1f49531&utm_campaign=public_api_list_design_clicked_hyperlink"
               },
               "created_at": 1781860497,
               "updated_at": 1781860498,
@@ -559,24 +447,35 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 19 Jun 2026 11:51:46 GMT",
+          "date": "Mon, 24 Aug 2026 08:32:49 GMT",
           "content-type": "application/json;charset=utf-8",
-          "content-length": "18952",
+          "transfer-encoding": "chunked",
           "connection": "keep-alive",
-          "x-xss-protection": "0",
+          "x-xss-protection": "1; mode=block",
           "x-content-type-options": "nosniff",
           "x-download-options": "noopen",
           "x-frame-options": "SAMEORIGIN",
           "x-dns-prefetch-control": "off",
-          "strict-transport-security": "max-age=5184000; includeSubDomains",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com;font-src 'self' https://*.googleapis.com https://*.gstatic.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://www.youtube.com https://*.stripe.com;img-src 'self' data: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://chat.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4985",
-          "x-ratelimit-reset": "1781869912",
-          "x-request-id": "a0e252e2ff03fff0",
-          "etag": "W/\"4a08-pir6v86H03Mk4XKtSPzvGhvgqMs\""
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1787560424",
+          "cf-ray": "a3010232ba72c12a-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "no-cache,no-store",
+          "expires": "Thu, 1 Jan 1970 00:00:00 GMT",
+          "server": "cloudflare",
+          "vary": "Origin, Accept-Encoding",
+          "pragma": "No-cache",
+          "accept-ch": "Sec-CH-UA-Platform-Version",
+          "x-request-id": "a3010232ba72c12a",
+          "set-cookie": "__cf_bm=.s7ZjImMji1KIwsVEr.Jnezs2.34OorI6pgReM6l3Os-1787560369.072046-1.0.1.1-q2KBq9v6xh.kAZoVX_KmDjF8grwlzV.f5qUMTqDxoFBZdC.fw0Dd9Go.Fn.RFg0gTWBR8Tzed65xwwP9kA8L6R1awOmuTujykZtQyOkLBtBHKhop6qlFzl6cYPmHHrVg96a4tcdWgdJjWF56xq6S3Lp1emd1j5c6hXjmux6R78c; HttpOnly; SameSite=None; Secure; Path=/; Domain=canva.com; Expires=Mon, 24 Aug 2026 09:02:49 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=T2KTelE3uCU1J8Hcct70BK%2FKUVrwUuM0DCCifigA%2BDTN8Un5LbvZeFcb3CBDFipPhbe0A0X1dQVl9%2BLCpOzKkob%2FFQ8L%2BsbO8nwCaJne1e3l1BWZum88DKO%2BmVvnqq4%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}"
         },
         "hash": "8d521b101c4358a652405b93921710d44bcc8b0a",
         "request": {

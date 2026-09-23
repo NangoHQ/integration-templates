@@ -1,4 +1,5 @@
-import { createSync } from 'nango';
+import { createHash } from 'crypto';
+import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 const GitHubCommitSchema = z.object({
@@ -33,31 +34,60 @@ const BranchSchema = z
     })
     .describe('A git branch in a GitHub repository.');
 
+const CheckpointSchema = z.object({
+    repo_index: z.number().int().nonnegative(),
+    repositories_fingerprint: z.string(),
+    branch_page: z.number().int().positive()
+});
+
 const sync = createSync({
     description: 'Sync branches for a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Branch: BranchSchema
     },
 
     exec: async (nango) => {
+        const checkpointRaw = await nango.getCheckpoint();
+        const parsedCheckpoint = checkpointRaw != null ? CheckpointSchema.safeParse(checkpointRaw) : undefined;
+        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
+
         // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
+        // repo_index addresses the complete repository list, so always rebuild that list
+        // from page 1 before applying the saved index.
+        let repoPage = 1;
         const repositories: Array<{ owner: string; name: string }> = [];
-        for await (const page of nango.paginate({
-            endpoint: '/installation/repositories',
-            paginate: {
-                limit_name_in_request: 'per_page',
-                limit: 100,
-                response_path: 'repositories'
-            },
-            retries: 3
-        })) {
-            for (const raw of page) {
-                const parsed = GitHubRepositorySchema.parse(raw);
-                repositories.push({ owner: parsed.owner.login, name: parsed.name });
+        while (true) {
+            const repoResponse = await nango.get({
+                endpoint: '/installation/repositories',
+                params: {
+                    per_page: 100,
+                    ...(repoPage > 1 ? { page: repoPage } : {})
+                },
+                retries: 3
+            });
+
+            const batch = z.array(z.unknown()).parse(repoResponse.data.repositories);
+            if (batch.length === 0) {
+                break;
             }
+
+            for (const raw of batch) {
+                const parsed = GitHubRepositorySchema.safeParse(raw);
+                if (!parsed.success) {
+                    throw new Error(`Failed to parse repository: ${parsed.error.message}`);
+                }
+                repositories.push({ owner: parsed.data.owner.login, name: parsed.data.name });
+            }
+
+            if (batch.length < 100) {
+                break;
+            }
+
+            repoPage++;
         }
 
         if (repositories.length === 0) {
@@ -67,19 +97,51 @@ const sync = createSync({
             return;
         }
 
+        const repositoriesFingerprint = createHash('sha256').update(JSON.stringify(repositories)).digest('hex');
+        const resumeCheckpoint =
+            checkpoint?.repositories_fingerprint === repositoriesFingerprint && checkpoint.repo_index <= repositories.length ? checkpoint : undefined;
+
+        if (checkpointRaw != null && resumeCheckpoint == null) {
+            await nango.log('The accessible repository set changed or the checkpoint is obsolete; restarting repository enumeration.', { level: 'warn' });
+        }
+
         await nango.trackDeletesStart('Branch');
 
-        for (const { owner, name: repo } of repositories) {
-            // https://docs.github.com/en/rest/branches/branches#list-branches
-            for await (const page of nango.paginate({
-                endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/branches`,
+        const startIndex = resumeCheckpoint?.repo_index ?? 0;
+
+        for (let i = startIndex; i < repositories.length; i++) {
+            const repo = repositories[i];
+            if (repo == null) {
+                throw new Error(`Repository index ${i} is out of bounds`);
+            }
+            const owner = repo.owner;
+            const repoName = repo.name;
+            let nextBranchPage: number | undefined;
+
+            const branchesConfig: ProxyConfiguration = {
+                // https://docs.github.com/en/rest/branches/branches#list-branches
+                endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/branches`,
+                params: {
+                    per_page: 100,
+                    ...(resumeCheckpoint != null && resumeCheckpoint.branch_page > 1 && i === startIndex ? { page: resumeCheckpoint.branch_page } : {})
+                },
                 paginate: {
                     type: 'link',
                     limit_name_in_request: 'per_page',
-                    limit: 100
+                    limit: 100,
+                    on_page: async (paginationState) => {
+                        if (typeof paginationState.nextPageParam === 'string') {
+                            const url = new URL(paginationState.nextPageParam);
+                            nextBranchPage = Number(url.searchParams.get('page'));
+                        } else {
+                            nextBranchPage = undefined;
+                        }
+                    }
                 },
                 retries: 3
-            })) {
+            };
+
+            for await (const page of nango.paginate(branchesConfig)) {
                 if (!Array.isArray(page)) {
                     throw new Error('Unexpected non-array page from paginate');
                 }
@@ -92,10 +154,10 @@ const sync = createSync({
                     }
 
                     branches.push({
-                        id: `${owner}/${repo}/${parsed.data.name}`,
+                        id: `${owner}/${repoName}/${parsed.data.name}`,
                         name: parsed.data.name,
                         repo_owner: owner,
-                        repo_name: repo,
+                        repo_name: repoName,
                         commit_sha: parsed.data.commit.sha,
                         commit_url: parsed.data.commit.url,
                         protected: parsed.data.protected,
@@ -106,9 +168,20 @@ const sync = createSync({
                 if (branches.length > 0) {
                     await nango.batchSave(branches, 'Branch');
                 }
+
+                if (nextBranchPage !== undefined) {
+                    await nango.saveCheckpoint({
+                        repo_index: i,
+                        repositories_fingerprint: repositoriesFingerprint,
+                        branch_page: nextBranchPage
+                    });
+                }
             }
+
+            await nango.saveCheckpoint({ repo_index: i + 1, repositories_fingerprint: repositoriesFingerprint, branch_page: 1 });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Branch');
     }
 });

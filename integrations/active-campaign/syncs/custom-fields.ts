@@ -43,12 +43,17 @@ const CustomFieldSchema = z.object({
     links: z.record(z.string(), z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().nonnegative()
+});
+
 const sync = createSync({
     description: 'Sync contact custom fields from ActiveCampaign',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/custom-fields' }],
+    checkpoint: CheckpointSchema,
     models: {
         CustomField: CustomFieldSchema
     },
@@ -57,6 +62,10 @@ const sync = createSync({
         // Blocker: GET /3/fields only documents pagination and perstag filtering.
         // The API does not expose an updated-since filter or cursor, so this sync
         // must do a full refresh with deletion tracking.
+        const checkpointRaw = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(checkpointRaw);
+        let currentOffset = checkpointResult.success ? checkpointResult.data.offset : 0;
+
         await nango.trackDeletesStart('CustomField');
 
         for await (const page of nango.paginate({
@@ -65,7 +74,7 @@ const sync = createSync({
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
-                offset_start_value: 0,
+                offset_start_value: currentOffset,
                 offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'limit',
                 limit: 100,
@@ -145,8 +154,12 @@ const sync = createSync({
             if (fields.length > 0) {
                 await nango.batchSave(fields, 'CustomField');
             }
+
+            currentOffset += page.length;
+            await nango.saveCheckpoint({ offset: currentOffset });
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('CustomField');
     }
 });

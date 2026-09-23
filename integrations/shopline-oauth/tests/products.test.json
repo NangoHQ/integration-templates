@@ -1,0 +1,2565 @@
+{
+  "nango": {
+    "batchSave": {
+      "Product": [
+        {
+          "id": "16076831074833682966241755",
+          "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+          "created_at": "2026-09-01T23:36:41+08:00",
+          "updated_at": "2026-09-02T21:47:27+08:00",
+          "handle": "contrast-tie-dye-loose-three-quarter-sleeve-suit",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "spu": "1606189329479262806329409501",
+          "subtitle": "",
+          "path": "/products/contrast-tie-dye-loose-three-quarter-sleeve-suit",
+          "product_behavior": "",
+          "image": {
+            "id": "7683107482646881881",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024"
+          },
+          "featured_media": {
+            "id": "7683107482646881881",
+            "content_type": "IMAGE",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024"
+          },
+          "media": [
+            {
+              "id": "7683107482646881881",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482646881882",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+            },
+            {
+              "id": "7684450817521227469",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150"
+            },
+            {
+              "id": "7684450989252814739",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150"
+            }
+          ],
+          "images": [
+            {
+              "id": "7683107482646881881",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482646881882",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+            },
+            {
+              "id": "7684450817521227469",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150"
+            },
+            {
+              "id": "7684450989252814739",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150"
+            }
+          ],
+          "options": [
+            {
+              "id": "16176831074843245979971755",
+              "name": "Color",
+              "product_id": "16076831074833682966241755",
+              "values": [
+                "Yellow",
+                "Pink"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843245979981755",
+                  "value": "Yellow"
+                },
+                {
+                  "id": "16276831074843245980121755",
+                  "value": "Pink"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            },
+            {
+              "id": "16176831074843245980001755",
+              "name": "Size",
+              "product_id": "16076831074833682966241755",
+              "values": [
+                "S",
+                "XL",
+                "M"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843245980011755",
+                  "value": "S"
+                },
+                {
+                  "id": "16276831074843245980071755",
+                  "value": "XL"
+                },
+                {
+                  "id": "16276831074843245980141755",
+                  "value": "M"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076831074843245979951755",
+              "product_id": "16076831074833682966241755",
+              "title": "Yellow · S",
+              "sku": "209001YellowS",
+              "price": "1000000.00",
+              "compare_at_price": "10000.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 1,
+              "inventory_policy": "continue",
+              "inventory_quantity": 52,
+              "inventory_item_id": "7683107486941858849",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Yellow",
+              "option2": "S",
+              "image": {
+                "id": "7683107482646881882",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+              }
+            },
+            {
+              "id": "18076831074843245980041755",
+              "product_id": "16076831074833682966241755",
+              "title": "Yellow · XL",
+              "sku": "209001YellowXL-31",
+              "price": "1000000.00",
+              "compare_at_price": "10000.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 2,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107486941858847",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Yellow",
+              "option2": "XL",
+              "image": {
+                "id": "7683107482646881882",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+              }
+            },
+            {
+              "id": "18076831074843245980101755",
+              "product_id": "16076831074833682966241755",
+              "title": "Pink · M",
+              "sku": "209001PinkM-46",
+              "price": "1000000.00",
+              "compare_at_price": "10000.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 3,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107486941858851",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Pink",
+              "option2": "M"
+            }
+          ]
+        },
+        {
+          "id": "16076831074834689599241755",
+          "title": "Long Sleeve Sweatshirt with letter",
+          "body_html": "<p>oversize long sleeve with big logo in front of the chest&nbsp;</p><p>two color: black &amp; grey&nbsp;</p><p>for both wowen and men</p><p>Classic</p><p>Adopting the soft and good texture, with elegant and classic design, perfect to wear, gives you more confidence, a nice design to attract more attention</p>",
+          "created_at": "2026-09-01T23:36:41+08:00",
+          "updated_at": "2026-09-01T23:36:50+08:00",
+          "published_at": "2026-09-01T23:36:41+08:00",
+          "handle": "long-sleeve-sweatshirt-with-letter",
+          "status": "active",
+          "tags": "Hot Sale",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "subtitle": "",
+          "path": "/products/long-sleeve-sweatshirt-with-letter",
+          "product_behavior": "",
+          "image": {
+            "id": "7683107482395219903",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024"
+          },
+          "featured_media": {
+            "id": "7683107482395219903",
+            "content_type": "IMAGE",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024"
+          },
+          "media": [
+            {
+              "id": "7683107482395219903",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024"
+            }
+          ],
+          "images": [
+            {
+              "id": "7683107482395219903",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024"
+            }
+          ],
+          "options": [
+            {
+              "id": "16176831074843078207371755",
+              "name": "Color",
+              "product_id": "16076831074834689599241755",
+              "values": [
+                "black",
+                "grey"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843078207381755",
+                  "value": "black"
+                },
+                {
+                  "id": "16276831074843245979741755",
+                  "value": "grey"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            },
+            {
+              "id": "16176831074843078207401755",
+              "name": "Size",
+              "product_id": "16076831074834689599241755",
+              "values": [
+                "S",
+                "M",
+                "L"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843078207411755",
+                  "value": "S"
+                },
+                {
+                  "id": "16276831074843078207471755",
+                  "value": "M"
+                },
+                {
+                  "id": "16276831074843245979691755",
+                  "value": "L"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076831074843078207351755",
+              "product_id": "16076831074834689599241755",
+              "title": "black · S",
+              "sku": "240",
+              "barcode": "273847",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "500.00",
+              "weight_unit": "g",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 98,
+              "inventory_item_id": "7683107486925081623",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "black",
+              "option2": "S"
+            },
+            {
+              "id": "18076831074843078207441755",
+              "product_id": "16076831074834689599241755",
+              "title": "black · M",
+              "sku": "242",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 2,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7683107486925081627",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "black",
+              "option2": "M"
+            },
+            {
+              "id": "18076831074843078207501755",
+              "product_id": "16076831074834689599241755",
+              "title": "black · L",
+              "sku": "244",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "700.00",
+              "weight_unit": "g",
+              "position": 3,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7683107486925081629",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "black",
+              "option2": "L"
+            },
+            {
+              "id": "18076831074843245979721755",
+              "product_id": "16076831074834689599241755",
+              "title": "grey · S",
+              "sku": "241",
+              "barcode": "666768",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "600.00",
+              "weight_unit": "g",
+              "position": 4,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7683107486925081619",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "grey",
+              "option2": "S"
+            },
+            {
+              "id": "18076831074843245979781755",
+              "product_id": "16076831074834689599241755",
+              "title": "grey · M",
+              "sku": "243",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 5,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7683107486925081625",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "grey",
+              "option2": "M"
+            },
+            {
+              "id": "18076831074843245979831755",
+              "product_id": "16076831074834689599241755",
+              "title": "grey · L",
+              "sku": "245",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "500.00",
+              "weight_unit": "g",
+              "position": 6,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7683107486925081621",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "grey",
+              "option2": "L"
+            }
+          ]
+        },
+        {
+          "id": "16076831074834689634591755",
+          "title": "Multi-color stitching dress",
+          "body_html": "<div class=\"xxkkk2\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; line-height: 1.7; letter-spacing: 1px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(45, 45, 45); font-size: 14px;\">\n<div class=\"xxkkk2\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; line-height: 1.7;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Style:</span> Cozy<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif;'></span></div>\n<div class=\"xxkkk\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; line-height: 1.7;\"><div class=\"xxkkk20\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif; line-height: 1.7;'>\n<p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Occasion:Casual &amp; Street</span></span></p>\n<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Material:Polyester</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Length:</span> Medium<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Sleeves Length:Long Sleeves</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Pattern Type:Mixed Color</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Material Stretch:Slight Stretch</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Season:</span> Fall<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>With Belt:No</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Weight:0.310kg</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Package:</span> 1 x Dress</span>\n</div></div>\n<div class=\"xxkkk20\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif; line-height: 1.7;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"></span></div>\n</div><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; line-height: 1.7; letter-spacing: 1px; white-space: normal; color: rgb(45, 45, 45); font-size: 14px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><br style=\"margin: 0px; padding: 0px; box-sizing: border-box;\">Please Note:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p><div id=\"ext_statement\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; white-space: normal; color: rgb(45, 45, 45); font-size: 14px;\">\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; line-height: 20px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">Due to possible physical differences between different monitors (e.g. models, settings, color gamut, panel type, screen glare, etc), the product photography is illustrative only and may not precisely reflect the actual color of the item received.<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p></div>\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>\n<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>Style and Fit Disclaimer:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; line-height: 20px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">We can guarantee that the overall style displayed in the photography is accurate, however there may be differences in how the style appears during wear. This depends on other physical variables, e.g. personal body size, body shape, limb proportion, height, etc.<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>Instruction:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p>\n</div>\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">There may be 1 - 3cm differ due to manual measurement. Please choose the right one according to your actual situation.</span></div>\n</div><p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 20px;'><br style=\"margin: 0px; padding: 0px; box-sizing: border-box; color: rgb(51, 51, 51); font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\"></p><p><br></p>",
+          "created_at": "2026-09-01T23:36:41+08:00",
+          "updated_at": "2026-09-01T23:36:50+08:00",
+          "published_at": "2026-09-01T23:36:41+08:00",
+          "handle": "multi-color-stitching-dress",
+          "status": "archived",
+          "tags": "Hot Sale",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "subtitle": "",
+          "path": "/products/multi-color-stitching-dress",
+          "product_behavior": "",
+          "image": {
+            "id": "7683107482579773016",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+          },
+          "featured_media": {
+            "id": "7683107482579773016",
+            "content_type": "IMAGE",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+          },
+          "media": [
+            {
+              "id": "7683107482579773016",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+            }
+          ],
+          "images": [
+            {
+              "id": "7683107482579773016",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+            }
+          ],
+          "options": [
+            {
+              "id": "16176831074843917103571755",
+              "name": "Color",
+              "product_id": "16076831074834689634591755",
+              "values": [
+                "Yellow",
+                "black",
+                "grey"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843917103581755",
+                  "value": "Yellow"
+                },
+                {
+                  "id": "16276831074843917103721755",
+                  "value": "black"
+                },
+                {
+                  "id": "16276831074843917103791755",
+                  "value": "grey"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            },
+            {
+              "id": "16176831074843917103601755",
+              "name": "Size",
+              "product_id": "16076831074834689634591755",
+              "values": [
+                "S",
+                "M",
+                "L"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074843917103611755",
+                  "value": "S"
+                },
+                {
+                  "id": "16276831074843917103671755",
+                  "value": "M"
+                },
+                {
+                  "id": "16276831074843917103741755",
+                  "value": "L"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076831074843917103551755",
+              "product_id": "16076831074834689634591755",
+              "title": "Yellow · S",
+              "sku": "240",
+              "barcode": "273847",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "500.00",
+              "weight_unit": "g",
+              "position": 1,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487008967094",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Yellow",
+              "option2": "S"
+            },
+            {
+              "id": "18076831074843917103641755",
+              "product_id": "16076831074834689634591755",
+              "title": "Yellow · M",
+              "sku": "242",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 2,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487008967098",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Yellow",
+              "option2": "M"
+            },
+            {
+              "id": "18076831074843917103701755",
+              "product_id": "16076831074834689634591755",
+              "title": "black · L",
+              "sku": "244",
+              "barcode": "273847",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "700.00",
+              "weight_unit": "g",
+              "position": 3,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487008967100",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "black",
+              "option2": "L"
+            },
+            {
+              "id": "18076831074843917103771755",
+              "product_id": "16076831074834689634591755",
+              "title": "grey · S",
+              "sku": "241",
+              "barcode": "273847",
+              "price": "1000000.00",
+              "compare_at_price": "56.00",
+              "weight": "700.00",
+              "weight_unit": "g",
+              "position": 4,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487008967096",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "grey",
+              "option2": "S"
+            }
+          ]
+        },
+        {
+          "id": "16076831074835696267591755",
+          "title": "Early Autumn Denim Canvas Shoes",
+          "body_html": "<p>The new product is inspired by the classic miners' jeans and uses raw denim fabric to hand wash out ancient and natural traces. It combines antique handmade embroidery techniques, and each fabric is hand-cut to retain the traces of old-fashioned fabric time, creating a unique charm during daily wear.</p> ",
+          "created_at": "2026-09-01T23:36:41+08:00",
+          "updated_at": "2026-09-01T23:36:50+08:00",
+          "published_at": "2026-09-01T23:36:41+08:00",
+          "handle": "early-autumn-denim-canvas-shoes",
+          "status": "active",
+          "tags": "Hot Sale,shoes",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "path": "/products/early-autumn-denim-canvas-shoes",
+          "product_behavior": "",
+          "image": {
+            "id": "7683107482445551552",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+          },
+          "featured_media": {
+            "id": "7683107482445551552",
+            "content_type": "IMAGE",
+            "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+          },
+          "media": [
+            {
+              "id": "7683107482445551552",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482445551553",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482445551554",
+              "content_type": "IMAGE",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024"
+            }
+          ],
+          "images": [
+            {
+              "id": "7683107482445551552",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482445551553",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024"
+            },
+            {
+              "id": "7683107482445551554",
+              "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024"
+            }
+          ],
+          "options": [
+            {
+              "id": "16176831074844084876061755",
+              "name": "Color",
+              "product_id": "16076831074835696267591755",
+              "values": [
+                "black",
+                "blue"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074844084876071755",
+                  "value": "black"
+                },
+                {
+                  "id": "16276831074844084876151755",
+                  "value": "blue"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            },
+            {
+              "id": "16176831074844084876091755",
+              "name": "Size",
+              "product_id": "16076831074835696267591755",
+              "values": [
+                "6.5",
+                "7.5"
+              ],
+              "option_values": [
+                {
+                  "id": "16276831074844084876101755",
+                  "value": "6.5"
+                },
+                {
+                  "id": "16276831074844084876171755",
+                  "value": "7.5"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076831074844084876041755",
+              "product_id": "16076831074835696267591755",
+              "title": "black · 6.5",
+              "sku": "400",
+              "barcode": "273847",
+              "price": "1000000.00",
+              "compare_at_price": "40.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 1,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487143185463",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "black",
+              "option2": "6.5",
+              "image": {
+                "id": "7683107482445551553",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024"
+              }
+            },
+            {
+              "id": "18076831074844084876131755",
+              "product_id": "16076831074835696267591755",
+              "title": "blue · 7.5",
+              "sku": "403",
+              "price": "1000000.00",
+              "compare_at_price": "40.00",
+              "weight": "0.00",
+              "weight_unit": "g",
+              "position": 2,
+              "inventory_policy": "continue",
+              "inventory_quantity": 100,
+              "inventory_item_id": "7683107487143185465",
+              "inventory_tracker": true,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "blue",
+              "option2": "7.5",
+              "image": {
+                "id": "7683107482445551554",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024"
+              }
+            }
+          ]
+        },
+        {
+          "id": "16076844436209679787371755",
+          "title": "Nango Temporary Test Product",
+          "created_at": "2026-09-02T21:44:01+08:00",
+          "updated_at": "2026-09-02T21:44:16+08:00",
+          "published_at": "2026-09-02T21:44:01+08:00",
+          "handle": "nango-temporary-test-product",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/nango-temporary-test-product",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [],
+          "variants": [
+            {
+              "id": "18076844436210015331701755",
+              "product_id": "16076844436209679787371755",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684443621253194676",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true
+            }
+          ]
+        },
+        {
+          "id": "16076844437586921417701755",
+          "title": "Nango Disposable Test Product",
+          "body_html": "Test product for variant deletion",
+          "created_at": "2026-09-02T21:44:09+08:00",
+          "updated_at": "2026-09-02T21:44:09+08:00",
+          "published_at": "2026-09-02T21:44:09+08:00",
+          "handle": "nango-disposable-test-product",
+          "status": "draft",
+          "vendor": "Nango",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/nango-disposable-test-product",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [],
+          "variants": [
+            {
+              "id": "18076844437587089189871755",
+              "product_id": "16076844437586921417701755",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684443758708921623",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true
+            }
+          ]
+        },
+        {
+          "id": "16076844441455579686611755",
+          "title": "Nango Temporary Test Product",
+          "created_at": "2026-09-02T21:44:32+08:00",
+          "updated_at": "2026-09-02T21:44:45+08:00",
+          "published_at": "2026-09-02T21:44:32+08:00",
+          "handle": "nango-temporary-test-product-1",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/nango-temporary-test-product-1",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [],
+          "variants": [
+            {
+              "id": "18076844441455915230941755",
+              "product_id": "16076844441455579686611755",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684444145977403053",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true
+            }
+          ]
+        },
+        {
+          "id": "16076844535654614387581755",
+          "title": "Temp product for variant test",
+          "created_at": "2026-09-02T21:53:54+08:00",
+          "updated_at": "2026-09-02T22:00:30+08:00",
+          "published_at": "2026-09-02T21:53:54+08:00",
+          "handle": "temp-product-for-variant-test",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/temp-product-for-variant-test",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [
+            {
+              "id": "16176844602087859841381755",
+              "name": "Option 1",
+              "product_id": "16076844535654614387581755",
+              "values": [
+                "Blue",
+                "Red"
+              ],
+              "option_values": [
+                {
+                  "id": "16276844602087859841391755",
+                  "value": "Blue"
+                },
+                {
+                  "id": "16276844641016705239221755",
+                  "value": "Red"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076844535654949931911755",
+              "product_id": "16076844535654614387581755",
+              "title": "Blue",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684453566166083456",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Blue"
+            },
+            {
+              "id": "18076844641016537467031755",
+              "product_id": "16076844535654614387581755",
+              "title": "Red",
+              "sku": "SKU-RED-001",
+              "price": "9.99",
+              "position": 2,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684464101821522965",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Red"
+            }
+          ]
+        },
+        {
+          "id": "16076844655259890508421755",
+          "title": "Temp product for variant test 2",
+          "created_at": "2026-09-02T22:05:47+08:00",
+          "updated_at": "2026-09-02T22:05:57+08:00",
+          "published_at": "2026-09-02T22:05:47+08:00",
+          "handle": "temp-product-for-variant-test-2",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/temp-product-for-variant-test-2",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [
+            {
+              "id": "16176844656954053809681755",
+              "name": "Option 1",
+              "product_id": "16076844655259890508421755",
+              "values": [
+                "Blue",
+                "Red"
+              ],
+              "option_values": [
+                {
+                  "id": "16276844656954053809691755",
+                  "value": "Blue"
+                },
+                {
+                  "id": "16276844669160820600691755",
+                  "value": "Red"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076844655260226052751755",
+              "product_id": "16076844655259890508421755",
+              "title": "Blue",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684465526391710296",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Blue"
+            },
+            {
+              "id": "18076844669160652828501755",
+              "product_id": "16076844655259890508421755",
+              "title": "Red",
+              "sku": "SKU-RED-003",
+              "price": "9.99",
+              "position": 2,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684466916048508267",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Red"
+            }
+          ]
+        },
+        {
+          "id": "16076844677880946382741755",
+          "title": "Temp product for variant test 3",
+          "created_at": "2026-09-02T22:08:01+08:00",
+          "updated_at": "2026-09-02T22:08:11+08:00",
+          "published_at": "2026-09-02T22:08:01+08:00",
+          "handle": "temp-product-for-variant-test-3",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/temp-product-for-variant-test-3",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [
+            {
+              "id": "16176844679580646168551755",
+              "name": "Option 1",
+              "product_id": "16076844677880946382741755",
+              "values": [
+                "Default",
+                "Blue"
+              ],
+              "option_values": [
+                {
+                  "id": "16276844679580646168561755",
+                  "value": "Default"
+                },
+                {
+                  "id": "16276844679621750316211755",
+                  "value": "Blue"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076844677881281927071755",
+              "product_id": "16076844677880946382741755",
+              "title": "Default",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684467788497298391",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Default"
+            },
+            {
+              "id": "18076844679621582544021755",
+              "product_id": "16076844677880946382741755",
+              "title": "Blue",
+              "sku": "SKU-BLUE-004",
+              "price": "9.99",
+              "position": 2,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684467962678353955",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Blue"
+            }
+          ]
+        },
+        {
+          "id": "16076844681887345597251755",
+          "title": "Temp product for variant test save",
+          "created_at": "2026-09-02T22:08:25+08:00",
+          "updated_at": "2026-09-02T22:08:37+08:00",
+          "published_at": "2026-09-02T22:08:25+08:00",
+          "handle": "temp-product-for-variant-test-save",
+          "status": "draft",
+          "product_type": "NORMAL",
+          "published_scope": "web",
+          "template_path": "templates/product.json",
+          "path": "/products/temp-product-for-variant-test-save",
+          "product_behavior": "",
+          "media": [],
+          "images": [],
+          "options": [
+            {
+              "id": "16176844683811188956601755",
+              "name": "Option 1",
+              "product_id": "16076844681887345597251755",
+              "values": [
+                "Default",
+                "Blue"
+              ],
+              "option_values": [
+                {
+                  "id": "16276844683811188956611755",
+                  "value": "Default"
+                },
+                {
+                  "id": "16276844683853131996691755",
+                  "value": "Blue"
+                }
+              ],
+              "values_colors": {},
+              "values_images": {}
+            }
+          ],
+          "variants": [
+            {
+              "id": "18076844681887681141581755",
+              "product_id": "16076844681887345597251755",
+              "title": "Default",
+              "price": "0.00",
+              "position": 1,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684468188818450033",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Default"
+            },
+            {
+              "id": "18076844683852964224501755",
+              "product_id": "16076844681887345597251755",
+              "title": "Blue",
+              "sku": "SKU-BLUE-005",
+              "price": "9.99",
+              "position": 2,
+              "inventory_policy": "deny",
+              "inventory_quantity": 0,
+              "inventory_item_id": "7684468385430642967",
+              "inventory_tracker": false,
+              "taxable": true,
+              "required_shipping": true,
+              "option1": "Blue"
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Product": []
+    }
+  },
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/products/products.json": {
+        "response": {
+          "products": [
+            {
+              "product_type": "NORMAL",
+              "template_path": null,
+              "combined_listing": null,
+              "options": [
+                {
+                  "name": "Color",
+                  "option_values": [
+                    {
+                      "id": "16276831074843245979981755",
+                      "value": "Yellow"
+                    },
+                    {
+                      "id": "16276831074843245980121755",
+                      "value": "Pink"
+                    }
+                  ],
+                  "product_id": "16076831074833682966241755",
+                  "values": [
+                    "Yellow",
+                    "Pink"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843245979971755"
+                },
+                {
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843245980001755",
+                  "name": "Size",
+                  "option_values": [
+                    {
+                      "value": "S",
+                      "id": "16276831074843245980011755"
+                    },
+                    {
+                      "id": "16276831074843245980071755",
+                      "value": "XL"
+                    },
+                    {
+                      "id": "16276831074843245980141755",
+                      "value": "M"
+                    }
+                  ],
+                  "product_id": "16076831074833682966241755",
+                  "values": [
+                    "S",
+                    "XL",
+                    "M"
+                  ]
+                }
+              ],
+              "path": "/products/contrast-tie-dye-loose-three-quarter-sleeve-suit",
+              "updated_at": "2026-09-02T21:47:27+08:00",
+              "handle": "contrast-tie-dye-loose-three-quarter-sleeve-suit",
+              "published_scope": null,
+              "spu": "1606189329479262806329409501",
+              "variants": [
+                {
+                  "title": "Yellow · S",
+                  "inventory_quantity": 52,
+                  "weight": "0.00",
+                  "barcode": null,
+                  "price": "1000000.00",
+                  "weight_unit": "g",
+                  "id": "18076831074843245979951755",
+                  "option2": "S",
+                  "product_id": "16076831074833682966241755",
+                  "position": 1,
+                  "inventory_policy": "continue",
+                  "option3": null,
+                  "inventory_tracker": true,
+                  "option1": "Yellow",
+                  "option4": null,
+                  "option5": null,
+                  "image": {
+                    "alt": null,
+                    "id": "7683107482646881882",
+                    "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+                  },
+                  "taxable": true,
+                  "inventory_item_id": "7683107486941858849",
+                  "required_shipping": true,
+                  "compare_at_price": "10000.00",
+                  "sku": "209001YellowS"
+                },
+                {
+                  "inventory_policy": "continue",
+                  "option3": null,
+                  "product_id": "16076831074833682966241755",
+                  "inventory_quantity": 100,
+                  "barcode": null,
+                  "inventory_tracker": true,
+                  "required_shipping": true,
+                  "compare_at_price": "10000.00",
+                  "sku": "209001YellowXL-31",
+                  "option5": null,
+                  "image": {
+                    "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024",
+                    "alt": null,
+                    "id": "7683107482646881882"
+                  },
+                  "taxable": true,
+                  "weight_unit": "g",
+                  "inventory_item_id": "7683107486941858847",
+                  "option1": "Yellow",
+                  "option2": "XL",
+                  "option4": null,
+                  "position": 2,
+                  "weight": "0.00",
+                  "price": "1000000.00",
+                  "id": "18076831074843245980041755",
+                  "title": "Yellow · XL"
+                },
+                {
+                  "required_shipping": true,
+                  "sku": "209001PinkM-46",
+                  "inventory_quantity": 100,
+                  "barcode": null,
+                  "price": "1000000.00",
+                  "option3": null,
+                  "id": "18076831074843245980101755",
+                  "inventory_item_id": "7683107486941858851",
+                  "inventory_tracker": true,
+                  "option1": "Pink",
+                  "option5": null,
+                  "weight": "0.00",
+                  "option2": "M",
+                  "product_id": "16076831074833682966241755",
+                  "option4": null,
+                  "image": null,
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "weight_unit": "g",
+                  "compare_at_price": "10000.00",
+                  "title": "Pink · M",
+                  "position": 3
+                }
+              ],
+              "images": [
+                {
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024",
+                  "alt": null,
+                  "id": "7683107482646881881"
+                },
+                {
+                  "alt": null,
+                  "id": "7683107482646881882",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+                },
+                {
+                  "alt": null,
+                  "id": "7684450817521227469",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150"
+                },
+                {
+                  "id": "7684450989252814739",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150",
+                  "alt": null
+                }
+              ],
+              "is_gift_card": false,
+              "body_html": null,
+              "created_at": "2026-09-01T23:36:41+08:00",
+              "published_at": null,
+              "subtitle": "",
+              "tags": null,
+              "vendor": null,
+              "status": "draft",
+              "combined_listing_role": null,
+              "id": "16076831074833682966241755",
+              "product_category": null,
+              "title": "Contrast Tie Dye Loose Three Quarter Sleeve Suit - Updated",
+              "image": {
+                "id": "7683107482646881881",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024",
+                "alt": null
+              },
+              "media": [
+                {
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024",
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482646881881"
+                },
+                {
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482646881882",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-light-9bf8a7d6-18db-44f1-9e75-377f98c13bf8.png?w=1024&h=1024"
+                },
+                {
+                  "id": "7684450817521227469",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150",
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE"
+                },
+                {
+                  "id": "7684450989252814739",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/150x150.png?w=150&h=150",
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE"
+                }
+              ],
+              "product_behavior": "",
+              "standard_category_id": "",
+              "featured_media": {
+                "preview_image": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Young-European-and-American-teenage-girl-wearing-red-c-9f5dd6db-7352-498f-a09c-92ebb6d2aaf1.png?w=1024&h=1024",
+                "alt": null,
+                "caption": null,
+                "content_type": "IMAGE",
+                "id": "7683107482646881881"
+              }
+            },
+            {
+              "path": "/products/long-sleeve-sweatshirt-with-letter",
+              "created_at": "2026-09-01T23:36:41+08:00",
+              "subtitle": "",
+              "spu": null,
+              "media": [
+                {
+                  "id": "7683107482395219903",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024",
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE"
+                }
+              ],
+              "standard_category_id": "",
+              "combined_listing": null,
+              "combined_listing_role": null,
+              "body_html": "<p>oversize long sleeve with big logo in front of the chest&nbsp;</p><p>two color: black &amp; grey&nbsp;</p><p>for both wowen and men</p><p>Classic</p><p>Adopting the soft and good texture, with elegant and classic design, perfect to wear, gives you more confidence, a nice design to attract more attention</p>",
+              "published_scope": "web",
+              "status": "active",
+              "title": "Long Sleeve Sweatshirt with letter",
+              "images": [
+                {
+                  "alt": null,
+                  "id": "7683107482395219903",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024"
+                }
+              ],
+              "template_path": null,
+              "featured_media": {
+                "caption": null,
+                "content_type": "IMAGE",
+                "id": "7683107482395219903",
+                "preview_image": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024",
+                "alt": null
+              },
+              "id": "16076831074834689599241755",
+              "is_gift_card": false,
+              "product_category": null,
+              "product_type": "NORMAL",
+              "vendor": null,
+              "handle": "long-sleeve-sweatshirt-with-letter",
+              "options": [
+                {
+                  "product_id": "16076831074834689599241755",
+                  "values": [
+                    "black",
+                    "grey"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843078207371755",
+                  "name": "Color",
+                  "option_values": [
+                    {
+                      "id": "16276831074843078207381755",
+                      "value": "black"
+                    },
+                    {
+                      "id": "16276831074843245979741755",
+                      "value": "grey"
+                    }
+                  ]
+                },
+                {
+                  "values": [
+                    "S",
+                    "M",
+                    "L"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843078207401755",
+                  "name": "Size",
+                  "option_values": [
+                    {
+                      "id": "16276831074843078207411755",
+                      "value": "S"
+                    },
+                    {
+                      "value": "M",
+                      "id": "16276831074843078207471755"
+                    },
+                    {
+                      "id": "16276831074843245979691755",
+                      "value": "L"
+                    }
+                  ],
+                  "product_id": "16076831074834689599241755"
+                }
+              ],
+              "published_at": "2026-09-01T23:36:41+08:00",
+              "tags": "Hot Sale",
+              "updated_at": "2026-09-01T23:36:50+08:00",
+              "variants": [
+                {
+                  "taxable": true,
+                  "inventory_item_id": "7683107486925081623",
+                  "product_id": "16076831074834689599241755",
+                  "image": null,
+                  "barcode": "273847",
+                  "price": "1000000.00",
+                  "weight_unit": "g",
+                  "required_shipping": true,
+                  "compare_at_price": "56.00",
+                  "option4": null,
+                  "option3": null,
+                  "id": "18076831074843078207351755",
+                  "inventory_tracker": true,
+                  "option1": "black",
+                  "title": "black · S",
+                  "option5": null,
+                  "inventory_policy": "deny",
+                  "weight": "500.00",
+                  "option2": "S",
+                  "sku": "240",
+                  "position": 1,
+                  "inventory_quantity": 98
+                },
+                {
+                  "inventory_tracker": true,
+                  "required_shipping": true,
+                  "option5": null,
+                  "position": 2,
+                  "price": "1000000.00",
+                  "id": "18076831074843078207441755",
+                  "option1": "black",
+                  "option4": null,
+                  "inventory_policy": "deny",
+                  "inventory_quantity": 0,
+                  "barcode": null,
+                  "option3": null,
+                  "product_id": "16076831074834689599241755",
+                  "compare_at_price": "56.00",
+                  "sku": "242",
+                  "image": null,
+                  "taxable": true,
+                  "weight_unit": "g",
+                  "inventory_item_id": "7683107486925081627",
+                  "option2": "M",
+                  "title": "black · M",
+                  "weight": "0.00"
+                },
+                {
+                  "id": "18076831074843078207501755",
+                  "inventory_item_id": "7683107486925081629",
+                  "inventory_tracker": true,
+                  "option2": "L",
+                  "weight": "700.00",
+                  "weight_unit": "g",
+                  "product_id": "16076831074834689599241755",
+                  "required_shipping": true,
+                  "title": "black · L",
+                  "option5": null,
+                  "position": 3,
+                  "price": "1000000.00",
+                  "sku": "244",
+                  "taxable": true,
+                  "barcode": null,
+                  "option1": "black",
+                  "compare_at_price": "56.00",
+                  "option4": null,
+                  "image": null,
+                  "inventory_policy": "deny",
+                  "inventory_quantity": 0,
+                  "option3": null
+                },
+                {
+                  "image": null,
+                  "weight": "600.00",
+                  "price": "1000000.00",
+                  "id": "18076831074843245979721755",
+                  "taxable": true,
+                  "option2": "S",
+                  "product_id": "16076831074834689599241755",
+                  "sku": "241",
+                  "inventory_policy": "deny",
+                  "inventory_quantity": 0,
+                  "barcode": "666768",
+                  "inventory_tracker": true,
+                  "title": "grey · S",
+                  "option5": null,
+                  "weight_unit": "g",
+                  "option3": null,
+                  "inventory_item_id": "7683107486925081619",
+                  "option1": "grey",
+                  "required_shipping": true,
+                  "compare_at_price": "56.00",
+                  "option4": null,
+                  "position": 4
+                },
+                {
+                  "sku": "243",
+                  "weight_unit": "g",
+                  "compare_at_price": "56.00",
+                  "title": "grey · M",
+                  "option4": null,
+                  "taxable": true,
+                  "weight": "0.00",
+                  "barcode": null,
+                  "inventory_item_id": "7683107486925081625",
+                  "inventory_tracker": true,
+                  "option5": null,
+                  "position": 5,
+                  "inventory_quantity": 0,
+                  "price": "1000000.00",
+                  "option1": "grey",
+                  "option2": "M",
+                  "required_shipping": true,
+                  "image": null,
+                  "inventory_policy": "deny",
+                  "option3": null,
+                  "id": "18076831074843245979781755",
+                  "product_id": "16076831074834689599241755"
+                },
+                {
+                  "option4": null,
+                  "position": 6,
+                  "inventory_quantity": 0,
+                  "id": "18076831074843245979831755",
+                  "product_id": "16076831074834689599241755",
+                  "option5": null,
+                  "taxable": true,
+                  "price": "1000000.00",
+                  "option2": "L",
+                  "sku": "245",
+                  "image": null,
+                  "inventory_policy": "deny",
+                  "weight_unit": "g",
+                  "option3": null,
+                  "inventory_item_id": "7683107486925081621",
+                  "option1": "grey",
+                  "required_shipping": true,
+                  "title": "grey · L",
+                  "weight": "500.00",
+                  "barcode": null,
+                  "inventory_tracker": true,
+                  "compare_at_price": "56.00"
+                }
+              ],
+              "image": {
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-20-year-old-European-and-American-model-wearing-monogr-ecdd7a84-868b-4434-8368-3c79a9a4bdad.png?w=1024&h=1024",
+                "alt": null,
+                "id": "7683107482395219903"
+              },
+              "product_behavior": ""
+            },
+            {
+              "id": "16076831074834689634591755",
+              "is_gift_card": false,
+              "published_at": "2026-09-01T23:36:41+08:00",
+              "vendor": null,
+              "variants": [
+                {
+                  "option1": "Yellow",
+                  "position": 1,
+                  "price": "1000000.00",
+                  "weight_unit": "g",
+                  "inventory_item_id": "7683107487008967094",
+                  "inventory_tracker": true,
+                  "required_shipping": true,
+                  "compare_at_price": "56.00",
+                  "title": "Yellow · S",
+                  "image": null,
+                  "inventory_quantity": 100,
+                  "id": "18076831074843917103551755",
+                  "option2": "S",
+                  "product_id": "16076831074834689634591755",
+                  "sku": "240",
+                  "option5": null,
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "weight": "500.00",
+                  "option4": null,
+                  "barcode": "273847",
+                  "option3": null
+                },
+                {
+                  "compare_at_price": "56.00",
+                  "option4": null,
+                  "option5": null,
+                  "barcode": null,
+                  "option2": "M",
+                  "product_id": "16076831074834689634591755",
+                  "required_shipping": true,
+                  "title": "Yellow · M",
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "price": "1000000.00",
+                  "weight_unit": "g",
+                  "inventory_item_id": "7683107487008967098",
+                  "sku": "242",
+                  "image": null,
+                  "weight": "0.00",
+                  "id": "18076831074843917103641755",
+                  "inventory_tracker": true,
+                  "position": 2,
+                  "inventory_quantity": 100,
+                  "option3": null,
+                  "option1": "Yellow"
+                },
+                {
+                  "required_shipping": true,
+                  "sku": "244",
+                  "position": 3,
+                  "image": null,
+                  "inventory_quantity": 100,
+                  "weight_unit": "g",
+                  "option2": "L",
+                  "option5": null,
+                  "weight": "700.00",
+                  "inventory_item_id": "7683107487008967100",
+                  "inventory_tracker": true,
+                  "product_id": "16076831074834689634591755",
+                  "title": "black · L",
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "barcode": "273847",
+                  "option3": null,
+                  "id": "18076831074843917103701755",
+                  "compare_at_price": "56.00",
+                  "option4": null,
+                  "price": "1000000.00",
+                  "option1": "black"
+                },
+                {
+                  "option5": null,
+                  "image": null,
+                  "inventory_policy": "continue",
+                  "price": "1000000.00",
+                  "position": 4,
+                  "inventory_quantity": 100,
+                  "taxable": true,
+                  "weight": "700.00",
+                  "barcode": "273847",
+                  "weight_unit": "g",
+                  "option3": null,
+                  "option1": "grey",
+                  "id": "18076831074843917103771755",
+                  "inventory_item_id": "7683107487008967096",
+                  "product_id": "16076831074834689634591755",
+                  "required_shipping": true,
+                  "compare_at_price": "56.00",
+                  "sku": "241",
+                  "option4": null,
+                  "inventory_tracker": true,
+                  "option2": "S",
+                  "title": "grey · S"
+                }
+              ],
+              "standard_category_id": "",
+              "template_path": null,
+              "combined_listing_role": null,
+              "path": "/products/multi-color-stitching-dress",
+              "subtitle": "",
+              "updated_at": "2026-09-01T23:36:50+08:00",
+              "published_scope": "web",
+              "combined_listing": null,
+              "product_category": null,
+              "tags": "Hot Sale",
+              "handle": "multi-color-stitching-dress",
+              "status": "archived",
+              "title": "Multi-color stitching dress",
+              "product_behavior": "",
+              "options": [
+                {
+                  "name": "Color",
+                  "option_values": [
+                    {
+                      "id": "16276831074843917103581755",
+                      "value": "Yellow"
+                    },
+                    {
+                      "id": "16276831074843917103721755",
+                      "value": "black"
+                    },
+                    {
+                      "id": "16276831074843917103791755",
+                      "value": "grey"
+                    }
+                  ],
+                  "product_id": "16076831074834689634591755",
+                  "values": [
+                    "Yellow",
+                    "black",
+                    "grey"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843917103571755"
+                },
+                {
+                  "values": [
+                    "S",
+                    "M",
+                    "L"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074843917103601755",
+                  "name": "Size",
+                  "option_values": [
+                    {
+                      "id": "16276831074843917103611755",
+                      "value": "S"
+                    },
+                    {
+                      "id": "16276831074843917103671755",
+                      "value": "M"
+                    },
+                    {
+                      "id": "16276831074843917103741755",
+                      "value": "L"
+                    }
+                  ],
+                  "product_id": "16076831074834689634591755"
+                }
+              ],
+              "body_html": "<div class=\"xxkkk2\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; line-height: 1.7; letter-spacing: 1px; white-space: normal; background-color: rgb(255, 255, 255); color: rgb(45, 45, 45); font-size: 14px;\">\n<div class=\"xxkkk2\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; line-height: 1.7;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Style:</span> Cozy<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif;'></span></div>\n<div class=\"xxkkk\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; line-height: 1.7;\"><div class=\"xxkkk20\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif; line-height: 1.7;'>\n<p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Occasion:Casual &amp; Street</span></span></p>\n<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Material:Polyester</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Length:</span> Medium<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Sleeves Length:Long Sleeves</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Pattern Type:Mixed Color</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Material Stretch:Slight Stretch</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Season:</span> Fall<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>With Belt:No</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Weight:0.310kg</span><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 1.7;'>Package:</span> 1 x Dress</span>\n</div></div>\n<div class=\"xxkkk20\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: \"Noto Serif\", \"Noto Sans\", serif; line-height: 1.7;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"></span></div>\n</div><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; line-height: 1.7; letter-spacing: 1px; white-space: normal; color: rgb(45, 45, 45); font-size: 14px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><br style=\"margin: 0px; padding: 0px; box-sizing: border-box;\">Please Note:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p><div id=\"ext_statement\" style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: ProximaNova-Regular; white-space: normal; color: rgb(45, 45, 45); font-size: 14px;\">\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; line-height: 20px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">Due to possible physical differences between different monitors (e.g. models, settings, color gamut, panel type, screen glare, etc), the product photography is illustrative only and may not precisely reflect the actual color of the item received.<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p></div>\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>\n<span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\"><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>Style and Fit Disclaimer:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span><p style=\"margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; line-height: 20px;\"><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">We can guarantee that the overall style displayed in the photography is accurate, however there may be differences in how the style appears during wear. This depends on other physical variables, e.g. personal body size, body shape, limb proportion, height, etc.<br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><strong style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'>Instruction:</strong><br style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'></span></p>\n</div>\n<div class=\"xxKKK2\" style='margin: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif;'><span style=\"margin: 0px; padding: 0px; box-sizing: border-box; font-family: Arial;\">There may be 1 - 3cm differ due to manual measurement. Please choose the right one according to your actual situation.</span></div>\n</div><p style='margin-top: 0px; margin-bottom: 0px; padding: 0px; box-sizing: border-box; font-family: andy-money, \"Noto Sans TC\", system-ui, -apple-system, \"Segoe UI\", Roboto, Ubuntu, Cantarell, \"Noto Sans\", sans-serif; line-height: 20px;'><br style=\"margin: 0px; padding: 0px; box-sizing: border-box; color: rgb(51, 51, 51); font-size: 14px; white-space: normal; background-color: rgb(255, 255, 255);\"></p><p><br></p>",
+              "created_at": "2026-09-01T23:36:41+08:00",
+              "product_type": "NORMAL",
+              "spu": null,
+              "image": {
+                "alt": null,
+                "id": "7683107482579773016",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+              },
+              "images": [
+                {
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024",
+                  "alt": null,
+                  "id": "7683107482579773016"
+                }
+              ],
+              "media": [
+                {
+                  "alt": null,
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482579773016",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024"
+                }
+              ],
+              "featured_media": {
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-A-young-20-year-old-European-and-American-girl-wearing-419899a9-4f73-42a4-b3ff-57107ee49ae3.png?w=1024&h=1024",
+                "alt": null,
+                "caption": null,
+                "content_type": "IMAGE",
+                "id": "7683107482579773016",
+                "preview_image": null
+              }
+            },
+            {
+              "images": [
+                {
+                  "alt": null,
+                  "id": "7683107482445551552",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+                },
+                {
+                  "alt": null,
+                  "id": "7683107482445551553",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024"
+                },
+                {
+                  "alt": null,
+                  "id": "7683107482445551554",
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024"
+                }
+              ],
+              "template_path": null,
+              "is_gift_card": false,
+              "product_category": null,
+              "body_html": "<p>The new product is inspired by the classic miners' jeans and uses raw denim fabric to hand wash out ancient and natural traces. It combines antique handmade embroidery techniques, and each fabric is hand-cut to retain the traces of old-fashioned fabric time, creating a unique charm during daily wear.</p> ",
+              "published_at": "2026-09-01T23:36:41+08:00",
+              "tags": "Hot Sale,shoes",
+              "combined_listing": null,
+              "id": "16076831074835696267591755",
+              "product_type": "NORMAL",
+              "subtitle": null,
+              "updated_at": "2026-09-01T23:36:50+08:00",
+              "handle": "early-autumn-denim-canvas-shoes",
+              "variants": [
+                {
+                  "option2": "6.5",
+                  "product_id": "16076831074835696267591755",
+                  "required_shipping": true,
+                  "option4": null,
+                  "option5": null,
+                  "price": "1000000.00",
+                  "compare_at_price": "40.00",
+                  "sku": "400",
+                  "image": {
+                    "alt": null,
+                    "id": "7683107482445551553",
+                    "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024"
+                  },
+                  "weight": "0.00",
+                  "barcode": "273847",
+                  "weight_unit": "g",
+                  "option1": "black",
+                  "title": "black · 6.5",
+                  "position": 1,
+                  "inventory_quantity": 100,
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "option3": null,
+                  "id": "18076831074844084876041755",
+                  "inventory_item_id": "7683107487143185463",
+                  "inventory_tracker": true
+                },
+                {
+                  "price": "1000000.00",
+                  "product_id": "16076831074835696267591755",
+                  "compare_at_price": "40.00",
+                  "title": "blue · 7.5",
+                  "inventory_quantity": 100,
+                  "weight": "0.00",
+                  "weight_unit": "g",
+                  "id": "18076831074844084876131755",
+                  "inventory_tracker": true,
+                  "sku": "403",
+                  "inventory_policy": "continue",
+                  "taxable": true,
+                  "barcode": null,
+                  "option3": null,
+                  "inventory_item_id": "7683107487143185465",
+                  "option2": "7.5",
+                  "required_shipping": true,
+                  "option5": null,
+                  "image": {
+                    "id": "7683107482445551554",
+                    "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024",
+                    "alt": null
+                  },
+                  "option1": "blue",
+                  "option4": null,
+                  "position": 2
+                }
+              ],
+              "options": [
+                {
+                  "option_values": [
+                    {
+                      "id": "16276831074844084876071755",
+                      "value": "black"
+                    },
+                    {
+                      "value": "blue",
+                      "id": "16276831074844084876151755"
+                    }
+                  ],
+                  "product_id": "16076831074835696267591755",
+                  "values": [
+                    "black",
+                    "blue"
+                  ],
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074844084876061755",
+                  "name": "Color"
+                },
+                {
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176831074844084876091755",
+                  "name": "Size",
+                  "option_values": [
+                    {
+                      "value": "6.5",
+                      "id": "16276831074844084876101755"
+                    },
+                    {
+                      "value": "7.5",
+                      "id": "16276831074844084876171755"
+                    }
+                  ],
+                  "product_id": "16076831074835696267591755",
+                  "values": [
+                    "6.5",
+                    "7.5"
+                  ]
+                }
+              ],
+              "created_at": "2026-09-01T23:36:41+08:00",
+              "vendor": null,
+              "published_scope": "web",
+              "spu": null,
+              "status": "active",
+              "image": {
+                "alt": null,
+                "id": "7683107482445551552",
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+              },
+              "media": [
+                {
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482445551552",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024",
+                  "alt": null
+                },
+                {
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482445551553",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-Blue-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-ligh-45e732c4-0407-4b1c-ad4f-e613087209e6.png?w=1024&h=1024",
+                  "alt": null
+                },
+                {
+                  "caption": null,
+                  "content_type": "IMAGE",
+                  "id": "7683107482445551554",
+                  "preview_image": null,
+                  "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-03533ced-c22d-484b-a548-4a912be4d5a5.png?w=1024&h=1024",
+                  "alt": null
+                }
+              ],
+              "product_behavior": "",
+              "standard_category_id": "",
+              "combined_listing_role": null,
+              "featured_media": {
+                "alt": null,
+                "caption": null,
+                "content_type": "IMAGE",
+                "id": "7683107482445551552",
+                "preview_image": null,
+                "src": "https://img-va.myshopline.com/image/store/1788277459898/harperwu-black-Early-Autumn-Denim-Canvas-Shoes-in-the-clean-lig-4f8f3eee-7619-41c2-8c40-7217322ce4ab.png?w=1024&h=1024"
+              },
+              "path": "/products/early-autumn-denim-canvas-shoes",
+              "title": "Early Autumn Denim Canvas Shoes"
+            },
+            {
+              "subtitle": null,
+              "images": [],
+              "standard_category_id": "",
+              "options": [],
+              "tags": null,
+              "updated_at": "2026-09-02T21:44:16+08:00",
+              "published_scope": "web",
+              "variants": [
+                {
+                  "image": null,
+                  "inventory_quantity": 0,
+                  "weight": null,
+                  "option3": null,
+                  "option2": null,
+                  "sku": null,
+                  "option5": null,
+                  "position": 1,
+                  "inventory_item_id": "7684443621253194676",
+                  "option1": null,
+                  "required_shipping": true,
+                  "taxable": true,
+                  "barcode": null,
+                  "price": "0.00",
+                  "id": "18076844436210015331701755",
+                  "product_id": "16076844436209679787371755",
+                  "inventory_policy": "deny",
+                  "weight_unit": null,
+                  "inventory_tracker": false,
+                  "compare_at_price": null,
+                  "title": null,
+                  "option4": null
+                }
+              ],
+              "media": [],
+              "id": "16076844436209679787371755",
+              "is_gift_card": false,
+              "path": "/products/nango-temporary-test-product",
+              "body_html": null,
+              "created_at": "2026-09-02T21:44:01+08:00",
+              "vendor": null,
+              "title": "Nango Temporary Test Product",
+              "featured_media": null,
+              "product_category": null,
+              "published_at": "2026-09-02T21:44:01+08:00",
+              "handle": "nango-temporary-test-product",
+              "spu": null,
+              "status": "draft",
+              "image": null,
+              "product_behavior": "",
+              "template_path": "templates/product.json",
+              "combined_listing": null,
+              "combined_listing_role": null,
+              "product_type": "NORMAL"
+            },
+            {
+              "path": "/products/nango-disposable-test-product",
+              "product_category": null,
+              "updated_at": "2026-09-02T21:44:09+08:00",
+              "title": "Nango Disposable Test Product",
+              "standard_category_id": "",
+              "combined_listing_role": null,
+              "id": "16076844437586921417701755",
+              "created_at": "2026-09-02T21:44:09+08:00",
+              "subtitle": null,
+              "vendor": "Nango",
+              "image": null,
+              "images": [],
+              "media": [],
+              "featured_media": null,
+              "body_html": "Test product for variant deletion",
+              "product_type": "NORMAL",
+              "published_at": "2026-09-02T21:44:09+08:00",
+              "tags": null,
+              "handle": "nango-disposable-test-product",
+              "published_scope": "web",
+              "spu": null,
+              "combined_listing": null,
+              "is_gift_card": false,
+              "status": "draft",
+              "variants": [
+                {
+                  "weight": null,
+                  "barcode": null,
+                  "price": "0.00",
+                  "weight_unit": null,
+                  "sku": null,
+                  "option4": null,
+                  "option5": null,
+                  "option3": null,
+                  "inventory_item_id": "7684443758708921623",
+                  "inventory_tracker": false,
+                  "option1": null,
+                  "option2": null,
+                  "product_id": "16076844437586921417701755",
+                  "position": 1,
+                  "taxable": true,
+                  "id": "18076844437587089189871755",
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "title": null,
+                  "image": null,
+                  "inventory_policy": "deny",
+                  "inventory_quantity": 0
+                }
+              ],
+              "product_behavior": "",
+              "template_path": "templates/product.json",
+              "options": []
+            },
+            {
+              "id": "16076844441455579686611755",
+              "is_gift_card": false,
+              "body_html": null,
+              "vendor": null,
+              "published_scope": "web",
+              "standard_category_id": "",
+              "combined_listing_role": null,
+              "featured_media": null,
+              "product_category": null,
+              "created_at": "2026-09-02T21:44:32+08:00",
+              "updated_at": "2026-09-02T21:44:45+08:00",
+              "spu": null,
+              "status": "draft",
+              "media": [],
+              "options": [],
+              "handle": "nango-temporary-test-product-1",
+              "images": [],
+              "product_behavior": "",
+              "path": "/products/nango-temporary-test-product-1",
+              "product_type": "NORMAL",
+              "published_at": "2026-09-02T21:44:32+08:00",
+              "subtitle": null,
+              "tags": null,
+              "title": "Nango Temporary Test Product",
+              "variants": [
+                {
+                  "taxable": true,
+                  "id": "18076844441455915230941755",
+                  "inventory_item_id": "7684444145977403053",
+                  "product_id": "16076844441455579686611755",
+                  "option4": null,
+                  "image": null,
+                  "inventory_quantity": 0,
+                  "weight": null,
+                  "barcode": null,
+                  "option1": null,
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "option5": null,
+                  "weight_unit": null,
+                  "option3": null,
+                  "inventory_tracker": false,
+                  "option2": null,
+                  "title": null,
+                  "price": "0.00",
+                  "sku": null,
+                  "position": 1,
+                  "inventory_policy": "deny"
+                }
+              ],
+              "image": null,
+              "template_path": "templates/product.json",
+              "combined_listing": null
+            },
+            {
+              "created_at": "2026-09-02T21:53:54+08:00",
+              "published_at": "2026-09-02T21:53:54+08:00",
+              "tags": null,
+              "variants": [
+                {
+                  "image": null,
+                  "compare_at_price": null,
+                  "option4": null,
+                  "weight": null,
+                  "barcode": null,
+                  "price": "0.00",
+                  "option2": null,
+                  "weight_unit": null,
+                  "option3": null,
+                  "id": "18076844535654949931911755",
+                  "inventory_item_id": "7684453566166083456",
+                  "option1": "Blue",
+                  "product_id": "16076844535654614387581755",
+                  "required_shipping": true,
+                  "sku": null,
+                  "position": 1,
+                  "inventory_policy": "deny",
+                  "inventory_quantity": 0,
+                  "taxable": true,
+                  "inventory_tracker": false,
+                  "title": "Blue",
+                  "option5": null
+                },
+                {
+                  "image": null,
+                  "taxable": true,
+                  "weight": null,
+                  "inventory_item_id": "7684464101821522965",
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "sku": "SKU-RED-001",
+                  "inventory_policy": "deny",
+                  "price": "9.99",
+                  "inventory_tracker": false,
+                  "option2": null,
+                  "option5": null,
+                  "position": 2,
+                  "inventory_quantity": 0,
+                  "barcode": null,
+                  "weight_unit": null,
+                  "id": "18076844641016537467031755",
+                  "option1": "Red",
+                  "product_id": "16076844535654614387581755",
+                  "option4": null,
+                  "option3": null,
+                  "title": "Red"
+                }
+              ],
+              "product_behavior": "",
+              "combined_listing": null,
+              "combined_listing_role": null,
+              "featured_media": null,
+              "id": "16076844535654614387581755",
+              "is_gift_card": false,
+              "options": [
+                {
+                  "values_images": {},
+                  "id": "16176844602087859841381755",
+                  "name": "Option 1",
+                  "option_values": [
+                    {
+                      "id": "16276844602087859841391755",
+                      "value": "Blue"
+                    },
+                    {
+                      "id": "16276844641016705239221755",
+                      "value": "Red"
+                    }
+                  ],
+                  "product_id": "16076844535654614387581755",
+                  "values": [
+                    "Blue",
+                    "Red"
+                  ],
+                  "values_colors": {}
+                }
+              ],
+              "product_category": null,
+              "updated_at": "2026-09-02T22:00:30+08:00",
+              "handle": "temp-product-for-variant-test",
+              "body_html": null,
+              "subtitle": null,
+              "vendor": null,
+              "status": "draft",
+              "image": null,
+              "images": [],
+              "media": [],
+              "standard_category_id": "",
+              "path": "/products/temp-product-for-variant-test",
+              "product_type": "NORMAL",
+              "published_scope": "web",
+              "spu": null,
+              "title": "Temp product for variant test",
+              "template_path": "templates/product.json"
+            },
+            {
+              "id": "16076844655259890508421755",
+              "body_html": null,
+              "updated_at": "2026-09-02T22:05:57+08:00",
+              "spu": null,
+              "title": "Temp product for variant test 2",
+              "image": null,
+              "combined_listing": null,
+              "is_gift_card": false,
+              "path": "/products/temp-product-for-variant-test-2",
+              "product_type": "NORMAL",
+              "images": [],
+              "standard_category_id": "",
+              "template_path": "templates/product.json",
+              "created_at": "2026-09-02T22:05:47+08:00",
+              "subtitle": null,
+              "tags": null,
+              "handle": "temp-product-for-variant-test-2",
+              "variants": [
+                {
+                  "compare_at_price": null,
+                  "title": "Blue",
+                  "inventory_policy": "deny",
+                  "weight": null,
+                  "barcode": null,
+                  "price": "0.00",
+                  "option3": null,
+                  "option4": null,
+                  "option5": null,
+                  "position": 1,
+                  "id": "18076844655260226052751755",
+                  "inventory_item_id": "7684465526391710296",
+                  "inventory_tracker": false,
+                  "sku": null,
+                  "image": null,
+                  "taxable": true,
+                  "weight_unit": null,
+                  "option2": null,
+                  "product_id": "16076844655259890508421755",
+                  "inventory_quantity": 0,
+                  "option1": "Blue",
+                  "required_shipping": true
+                },
+                {
+                  "price": "9.99",
+                  "id": "18076844669160652828501755",
+                  "product_id": "16076844655259890508421755",
+                  "title": "Red",
+                  "option5": null,
+                  "image": null,
+                  "inventory_policy": "deny",
+                  "option3": null,
+                  "option1": "Red",
+                  "option2": null,
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "position": 2,
+                  "inventory_quantity": 0,
+                  "weight_unit": null,
+                  "inventory_tracker": false,
+                  "option4": null,
+                  "taxable": true,
+                  "weight": null,
+                  "inventory_item_id": "7684466916048508267",
+                  "sku": "SKU-RED-003",
+                  "barcode": null
+                }
+              ],
+              "product_behavior": "",
+              "featured_media": null,
+              "options": [
+                {
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176844656954053809681755",
+                  "name": "Option 1",
+                  "option_values": [
+                    {
+                      "value": "Blue",
+                      "id": "16276844656954053809691755"
+                    },
+                    {
+                      "id": "16276844669160820600691755",
+                      "value": "Red"
+                    }
+                  ],
+                  "product_id": "16076844655259890508421755",
+                  "values": [
+                    "Blue",
+                    "Red"
+                  ]
+                }
+              ],
+              "product_category": null,
+              "published_at": "2026-09-02T22:05:47+08:00",
+              "vendor": null,
+              "published_scope": "web",
+              "status": "draft",
+              "media": [],
+              "combined_listing_role": null
+            },
+            {
+              "published_scope": "web",
+              "spu": null,
+              "status": "draft",
+              "variants": [
+                {
+                  "product_id": "16076844677880946382741755",
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "title": "Default",
+                  "image": null,
+                  "inventory_quantity": 0,
+                  "price": "0.00",
+                  "id": "18076844677881281927071755",
+                  "inventory_item_id": "7684467788497298391",
+                  "option1": "Default",
+                  "option4": null,
+                  "barcode": null,
+                  "inventory_tracker": false,
+                  "option2": null,
+                  "option5": null,
+                  "weight": null,
+                  "weight_unit": null,
+                  "sku": null,
+                  "position": 1,
+                  "inventory_policy": "deny",
+                  "taxable": true,
+                  "option3": null
+                },
+                {
+                  "price": "9.99",
+                  "weight_unit": null,
+                  "inventory_item_id": "7684467962678353955",
+                  "inventory_tracker": false,
+                  "required_shipping": true,
+                  "image": null,
+                  "barcode": null,
+                  "option2": null,
+                  "compare_at_price": null,
+                  "sku": "SKU-BLUE-004",
+                  "title": "Blue",
+                  "position": 2,
+                  "option3": null,
+                  "id": "18076844679621582544021755",
+                  "option4": null,
+                  "inventory_policy": "deny",
+                  "option1": "Blue",
+                  "product_id": "16076844677880946382741755",
+                  "option5": null,
+                  "inventory_quantity": 0,
+                  "taxable": true,
+                  "weight": null
+                }
+              ],
+              "product_behavior": "",
+              "standard_category_id": "",
+              "body_html": null,
+              "subtitle": null,
+              "tags": null,
+              "updated_at": "2026-09-02T22:08:11+08:00",
+              "vendor": null,
+              "handle": "temp-product-for-variant-test-3",
+              "combined_listing": null,
+              "combined_listing_role": null,
+              "options": [
+                {
+                  "id": "16176844679580646168551755",
+                  "name": "Option 1",
+                  "option_values": [
+                    {
+                      "id": "16276844679580646168561755",
+                      "value": "Default"
+                    },
+                    {
+                      "id": "16276844679621750316211755",
+                      "value": "Blue"
+                    }
+                  ],
+                  "product_id": "16076844677880946382741755",
+                  "values": [
+                    "Default",
+                    "Blue"
+                  ],
+                  "values_colors": {},
+                  "values_images": {}
+                }
+              ],
+              "product_type": "NORMAL",
+              "published_at": "2026-09-02T22:08:01+08:00",
+              "images": [],
+              "template_path": "templates/product.json",
+              "featured_media": null,
+              "id": "16076844677880946382741755",
+              "is_gift_card": false,
+              "path": "/products/temp-product-for-variant-test-3",
+              "title": "Temp product for variant test 3",
+              "image": null,
+              "media": [],
+              "product_category": null,
+              "created_at": "2026-09-02T22:08:01+08:00"
+            },
+            {
+              "product_behavior": "",
+              "options": [
+                {
+                  "values_colors": {},
+                  "values_images": {},
+                  "id": "16176844683811188956601755",
+                  "name": "Option 1",
+                  "option_values": [
+                    {
+                      "id": "16276844683811188956611755",
+                      "value": "Default"
+                    },
+                    {
+                      "id": "16276844683853131996691755",
+                      "value": "Blue"
+                    }
+                  ],
+                  "product_id": "16076844681887345597251755",
+                  "values": [
+                    "Default",
+                    "Blue"
+                  ]
+                }
+              ],
+              "product_category": null,
+              "product_type": "NORMAL",
+              "vendor": null,
+              "template_path": "templates/product.json",
+              "combined_listing_role": null,
+              "is_gift_card": false,
+              "published_at": "2026-09-02T22:08:25+08:00",
+              "updated_at": "2026-09-02T22:08:37+08:00",
+              "handle": "temp-product-for-variant-test-save",
+              "published_scope": "web",
+              "title": "Temp product for variant test save",
+              "images": [],
+              "media": [],
+              "standard_category_id": "",
+              "tags": null,
+              "variants": [
+                {
+                  "inventory_policy": "deny",
+                  "taxable": true,
+                  "weight": null,
+                  "option2": null,
+                  "required_shipping": true,
+                  "sku": null,
+                  "barcode": null,
+                  "option1": "Default",
+                  "compare_at_price": null,
+                  "position": 1,
+                  "image": null,
+                  "weight_unit": null,
+                  "option3": null,
+                  "id": "18076844681887681141581755",
+                  "inventory_item_id": "7684468188818450033",
+                  "inventory_tracker": false,
+                  "product_id": "16076844681887345597251755",
+                  "option5": null,
+                  "inventory_quantity": 0,
+                  "price": "0.00",
+                  "title": "Default",
+                  "option4": null
+                },
+                {
+                  "image": null,
+                  "inventory_quantity": 0,
+                  "taxable": true,
+                  "inventory_item_id": "7684468385430642967",
+                  "option1": "Blue",
+                  "option5": null,
+                  "position": 2,
+                  "barcode": null,
+                  "weight_unit": null,
+                  "id": "18076844683852964224501755",
+                  "option2": null,
+                  "product_id": "16076844681887345597251755",
+                  "required_shipping": true,
+                  "compare_at_price": null,
+                  "sku": "SKU-BLUE-005",
+                  "title": "Blue",
+                  "inventory_policy": "deny",
+                  "weight": null,
+                  "option3": null,
+                  "inventory_tracker": false,
+                  "option4": null,
+                  "price": "9.99"
+                }
+              ],
+              "image": null,
+              "combined_listing": null,
+              "featured_media": null,
+              "id": "16076844681887345597251755",
+              "path": "/products/temp-product-for-variant-test-save",
+              "body_html": null,
+              "created_at": "2026-09-02T22:08:25+08:00",
+              "subtitle": null,
+              "spu": null,
+              "status": "draft"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 14:17:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1928",
+          "x-ratelimit-reset": "1788358692",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a9830160000000035c653be620ce145",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "<redacted>",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=8QEB7lhqFkDo82HKnH8Rf6igW8VYyzhNS5%2BIXrt5wtILhRjr0RrOMT4mhxRRUK1lFkmhqJZn4UFvTJECyMxBE0sr%2Bnp9guiZ0yZAK1uQ3EweedZRe8Dnm1w%2F%2FT2QsF9tbk26fuGGGK5s\"}]}",
+          "cf-ray": "a34d242a5901884d-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "9c0fbfc17c7c8ef5920715f43bbe4ec966398c46",
+        "request": {
+          "params": {
+            "limit": "50"
+          }
+        }
+      }
+    }
+  }
+}

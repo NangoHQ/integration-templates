@@ -31,11 +31,16 @@ const RecordSchema = z.object({
     permissions: z.array(z.string()).optional()
 });
 
+const CheckpointSchema = z.object({
+    bookmark: z.string()
+});
+
 const sync = createSync({
     description: 'Sync ad accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         AdAccount: RecordSchema
     },
@@ -43,21 +48,37 @@ const sync = createSync({
     exec: async (nango) => {
         // Accessible ad accounts can change as the connected user's permissions change.
         // Keep this as a full crawl with delete tracking so removals are reconciled correctly.
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpointResult = CheckpointSchema.safeParse(rawCheckpoint ?? { bookmark: '' });
+        if (!checkpointResult.success) {
+            throw new Error(`Invalid checkpoint: ${checkpointResult.error.message}`);
+        }
+        const checkpoint = checkpointResult.data;
+
+        await nango.trackDeletesStart('AdAccount');
+
+        let nextBookmark: string | undefined = checkpoint.bookmark !== '' ? checkpoint.bookmark : undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developers.pinterest.com/docs/api/v5/#operation/ad_accounts/list
             endpoint: '/v5/ad_accounts',
+            params: {
+                ...(nextBookmark && { bookmark: nextBookmark }),
+                page_size: 100
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'bookmark',
                 cursor_path_in_response: 'bookmark',
                 response_path: 'items',
                 limit_name_in_request: 'page_size',
-                limit: 100
+                limit: 100,
+                on_page: async ({ nextPageParam }) => {
+                    nextBookmark = typeof nextPageParam === 'string' ? nextPageParam : undefined;
+                }
             },
             retries: 3
         };
-
-        await nango.trackDeletesStart('AdAccount');
 
         for await (const page of nango.paginate(proxyConfig)) {
             const parsedPage = z.array(z.unknown()).safeParse(page);
@@ -90,8 +111,13 @@ const sync = createSync({
             if (accounts.length > 0) {
                 await nango.batchSave(accounts, 'AdAccount');
             }
+
+            if (nextBookmark !== undefined) {
+                await nango.saveCheckpoint({ bookmark: nextBookmark });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('AdAccount');
     }
 });

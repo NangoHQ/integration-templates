@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { createSync } from 'nango';
 import { z } from 'zod';
 
@@ -89,14 +90,22 @@ const ChannelsListResponseSchema = z.object({
             resultsPerPage: z.number()
         })
         .optional(),
-    items: z.array(ChannelItemSchema)
+    items: z.array(ChannelItemSchema),
+    nextPageToken: z.string().optional()
 });
 
 type ChannelItem = z.infer<typeof ChannelItemSchema>;
 
+const CheckpointSchema = z.object({
+    phase: z.string(),
+    page_token: z.string(),
+    handle_index: z.number().int().nonnegative(),
+    source_fingerprint: z.string()
+});
+
 const sync = createSync({
     description: 'Sync one or more YouTube channels in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -108,6 +117,7 @@ const sync = createSync({
             path: '/syncs/channels'
         }
     ],
+    checkpoint: CheckpointSchema,
 
     exec: async (nango) => {
         // Get channel identifiers from connection metadata or use defaults
@@ -155,19 +165,52 @@ const sync = createSync({
             };
         }
 
-        await nango.trackDeletesStart('Channel');
+        // Read and validate checkpoint before constructing the first provider request
+        const rawCheckpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
+        const sourceFingerprint = createHash('sha256')
+            .update(JSON.stringify({ channelIds: channelIds ?? [], handles: handles ?? [], mine }))
+            .digest('hex');
+        const checkpoint = parsedCheckpoint?.success && parsedCheckpoint.data.source_fingerprint === sourceFingerprint ? parsedCheckpoint.data : null;
 
-        const allChannels: Array<z.infer<typeof ChannelSchema>> = [];
-        try {
-            // Fetch channels by ID
-            if (channelIds && channelIds.length > 0) {
+        if (rawCheckpoint != null && checkpoint == null) {
+            await nango.log('The configured channel sources changed or the checkpoint is obsolete; restarting from the first source.', { level: 'warn' });
+        }
+
+        const shouldFetchIds = channelIds && channelIds.length > 0;
+        const shouldFetchHandles = handles && handles.length > 0;
+        const shouldFetchMine = mine;
+
+        // Determine starting phase from checkpoint or default to ids
+        let phase = checkpoint?.phase ?? 'ids';
+        if (phase === 'ids' && !shouldFetchIds) {
+            phase = shouldFetchHandles ? 'handles' : shouldFetchMine ? 'mine' : 'done';
+        }
+        if (phase === 'handles' && !shouldFetchHandles) {
+            phase = shouldFetchMine ? 'mine' : 'done';
+        }
+        if (phase === 'mine' && !shouldFetchMine) {
+            phase = 'done';
+        }
+
+        // Start delete tracking for full refresh
+        await nango.trackDeletesStart('Channel');
+        let checkpointSaved = false;
+        const hadExistingCheckpoint = rawCheckpoint != null;
+
+        // Fetch channels by ID with pagination resume
+        if (phase === 'ids' && shouldFetchIds) {
+            let pageToken = checkpoint?.phase === 'ids' ? checkpoint.page_token : undefined;
+
+            while (true) {
                 // https://developers.google.com/youtube/v3/docs/channels/list
                 const idResponse = await nango.get({
                     endpoint: '/youtube/v3/channels',
                     params: {
                         part: 'snippet,statistics,status',
                         id: channelIds.join(','),
-                        maxResults: '50'
+                        maxResults: '50',
+                        ...(pageToken && { pageToken })
                     },
                     retries: 3
                 });
@@ -179,21 +222,54 @@ const sync = createSync({
                     throw new Error('Failed to parse channels response');
                 }
 
-                const idChannels = parsedIdResponse.data.items.map(mapChannelItem);
-                allChannels.push(...idChannels);
+                const items = parsedIdResponse.data.items;
+                if (items.length > 0) {
+                    await nango.batchSave(items.map(mapChannelItem), 'Channel');
+                }
+
+                const nextPageToken = parsedIdResponse.data.nextPageToken;
+                if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
+                    await nango.saveCheckpoint({ phase: 'ids', page_token: nextPageToken, handle_index: 0, source_fingerprint: sourceFingerprint });
+                    checkpointSaved = true;
+                    pageToken = nextPageToken;
+                    continue;
+                }
+
+                break;
             }
 
-            // Fetch channels by handle
-            if (handles && handles.length > 0) {
-                // YouTube handles are used with the forHandle parameter
-                for (const handle of handles) {
+            // Save checkpoint for the next phase so completed work is not repeated
+            if (shouldFetchHandles) {
+                await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
+                checkpointSaved = true;
+            } else if (shouldFetchMine) {
+                await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
+                checkpointSaved = true;
+            }
+
+            phase = shouldFetchHandles ? 'handles' : shouldFetchMine ? 'mine' : 'done';
+        }
+
+        // Fetch channels by handle with pagination resume
+        if (phase === 'handles' && shouldFetchHandles) {
+            const handleIndex = checkpoint?.phase === 'handles' ? (checkpoint.handle_index ?? 0) : 0;
+
+            for (let i = handleIndex; i < handles.length; i++) {
+                const handle = handles[i];
+                if (typeof handle !== 'string') {
+                    continue;
+                }
+                let pageToken = checkpoint?.phase === 'handles' && checkpoint.handle_index === i ? checkpoint.page_token : undefined;
+
+                while (true) {
                     // https://developers.google.com/youtube/v3/docs/channels/list
                     const handleResponse = await nango.get({
                         endpoint: '/youtube/v3/channels',
                         params: {
                             part: 'snippet,statistics,status',
                             forHandle: handle.startsWith('@') ? handle : `@${handle}`,
-                            maxResults: '5'
+                            maxResults: '5',
+                            ...(pageToken && { pageToken })
                         },
                         retries: 3
                     });
@@ -205,20 +281,53 @@ const sync = createSync({
                         throw new Error('Failed to parse channels response');
                     }
 
-                    const handleChannels = parsedHandleResponse.data.items.map(mapChannelItem);
-                    allChannels.push(...handleChannels);
+                    const items = parsedHandleResponse.data.items;
+                    if (items.length > 0) {
+                        await nango.batchSave(items.map(mapChannelItem), 'Channel');
+                    }
+
+                    const nextPageToken = parsedHandleResponse.data.nextPageToken;
+                    if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
+                        await nango.saveCheckpoint({
+                            phase: 'handles',
+                            handle_index: i,
+                            page_token: nextPageToken,
+                            source_fingerprint: sourceFingerprint
+                        });
+                        checkpointSaved = true;
+                        pageToken = nextPageToken;
+                        continue;
+                    }
+
+                    break;
+                }
+
+                // Save checkpoint for the next handle or the next phase
+                if (i + 1 < handles.length) {
+                    await nango.saveCheckpoint({ phase: 'handles', page_token: '', handle_index: i + 1, source_fingerprint: sourceFingerprint });
+                    checkpointSaved = true;
+                } else if (shouldFetchMine) {
+                    await nango.saveCheckpoint({ phase: 'mine', page_token: '', handle_index: 0, source_fingerprint: sourceFingerprint });
+                    checkpointSaved = true;
                 }
             }
 
-            // Fetch the authenticated user's channel(s)
-            if (mine) {
+            phase = shouldFetchMine ? 'mine' : 'done';
+        }
+
+        // Fetch the authenticated user's channel(s) with pagination resume
+        if (phase === 'mine' && shouldFetchMine) {
+            let pageToken = checkpoint?.phase === 'mine' ? checkpoint.page_token : undefined;
+
+            while (true) {
                 // https://developers.google.com/youtube/v3/docs/channels/list
                 const mineResponse = await nango.get({
                     endpoint: '/youtube/v3/channels',
                     params: {
                         part: 'snippet,statistics,status',
                         mine: 'true',
-                        maxResults: '5'
+                        maxResults: '5',
+                        ...(pageToken && { pageToken })
                     },
                     retries: 3
                 });
@@ -230,19 +339,29 @@ const sync = createSync({
                     throw new Error('Failed to parse channels response');
                 }
 
-                const mineChannels = parsedMineResponse.data.items.map(mapChannelItem);
-                allChannels.push(...mineChannels);
-            }
+                const items = parsedMineResponse.data.items;
+                if (items.length > 0) {
+                    await nango.batchSave(items.map(mapChannelItem), 'Channel');
+                }
 
-            // Remove duplicates by ID
-            const uniqueChannels = Array.from(new Map(allChannels.map((c) => [c.id, c])).values());
+                const nextPageToken = parsedMineResponse.data.nextPageToken;
+                if (typeof nextPageToken === 'string' && nextPageToken.length > 0) {
+                    await nango.saveCheckpoint({ phase: 'mine', page_token: nextPageToken, handle_index: 0, source_fingerprint: sourceFingerprint });
+                    checkpointSaved = true;
+                    pageToken = nextPageToken;
+                    continue;
+                }
 
-            if (uniqueChannels.length > 0) {
-                await nango.batchSave(uniqueChannels, 'Channel');
+                break;
             }
-        } finally {
-            await nango.trackDeletesEnd('Channel');
         }
+
+        // Clear the checkpoint only after the last page has been saved,
+        // then close the delete-tracking window opened by trackDeletesStart().
+        if (checkpointSaved || hadExistingCheckpoint) {
+            await nango.clearCheckpoint();
+        }
+        await nango.trackDeletesEnd('Channel');
     }
 });
 

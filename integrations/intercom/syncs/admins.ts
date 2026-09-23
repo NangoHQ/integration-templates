@@ -21,14 +21,30 @@ const AdminSchema = z.object({
 
 const AdminListSchema = z.object({
     type: z.string().optional(),
-    admins: z.array(AdminSchema).optional()
+    admins: z.array(AdminSchema).optional(),
+    pages: z
+        .object({
+            next: z
+                .object({
+                    starting_after: z.string()
+                })
+                .nullable()
+                .optional()
+        })
+        .nullable()
+        .optional()
+});
+
+const CheckpointSchema = z.object({
+    starting_after: z.string()
 });
 
 const sync = createSync({
     description: 'Sync admin users from Intercom',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Admin: AdminSchema
     },
@@ -40,14 +56,32 @@ const sync = createSync({
     ],
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        let startingAfter: string | undefined;
+        if (checkpoint) {
+            const checkpointParsed = CheckpointSchema.safeParse(checkpoint);
+            if (!checkpointParsed.success) {
+                throw new Error(`Invalid checkpoint: ${checkpointParsed.error.message}`);
+            }
+            startingAfter = checkpointParsed.data.starting_after;
+        }
+
         await nango.trackDeletesStart('Admin');
-        try {
+
+        let hasMore = true;
+        while (hasMore) {
+            const params: Record<string, string> = {};
+            if (startingAfter) {
+                params['starting_after'] = startingAfter;
+            }
+
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/admins/listadmins
             const response = await nango.get({
                 endpoint: '/admins',
                 headers: {
                     'Intercom-Version': '2.11'
                 },
+                params,
                 retries: 3
             });
 
@@ -75,9 +109,18 @@ const sync = createSync({
             if (mappedAdmins.length > 0) {
                 await nango.batchSave(mappedAdmins, 'Admin');
             }
-        } finally {
-            await nango.trackDeletesEnd('Admin');
+
+            const nextCursor = parsed.data.pages?.next?.starting_after;
+            if (nextCursor) {
+                startingAfter = nextCursor;
+                await nango.saveCheckpoint({ starting_after: nextCursor });
+            } else {
+                hasMore = false;
+            }
         }
+
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('Admin');
     }
 });
 

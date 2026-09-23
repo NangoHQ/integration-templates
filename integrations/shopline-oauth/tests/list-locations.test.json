@@ -1,0 +1,149 @@
+{
+  "input": {},
+  "output": {
+    "locations": [
+      {
+        "id": "7683107397838218873",
+        "name": "Default",
+        "address1": "This is the location created automatically by SHOPLINE.",
+        "city": "Washington",
+        "province": "District of Columbia",
+        "country": "United States",
+        "phone": "1",
+        "is_default": true,
+        "active": true,
+        "created_at": "2026-09-01T23:36:36+08:00",
+        "updated_at": "2026-09-01T23:36:36+08:00"
+      },
+      {
+        "id": "7683107420286130462",
+        "name": "Location2",
+        "address1": "Location2 Address",
+        "address2": "Singapore",
+        "city": "",
+        "province": "",
+        "country": "Singapore",
+        "zip": "018915",
+        "phone": "3155437",
+        "is_default": false,
+        "active": true,
+        "created_at": "2026-09-01T23:36:37+08:00",
+        "updated_at": "2026-09-01T23:36:37+08:00"
+      },
+      {
+        "id": "7683107425705173272",
+        "name": "Location1",
+        "address1": "Location1 Address",
+        "address2": "New York",
+        "city": "New York",
+        "province": "阿拉斯加州",
+        "country": "the USA",
+        "zip": "10125",
+        "phone": "654757442",
+        "is_default": false,
+        "active": true,
+        "created_at": "2026-09-01T23:36:37+08:00",
+        "updated_at": "2026-09-01T23:36:37+08:00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/locations/list.json": {
+        "response": {
+          "locations": [
+            {
+              "name": "Default",
+              "address1": "This is the location created automatically by SHOPLINE.",
+              "id": "7683107397838218873",
+              "province": "District of Columbia",
+              "is_default": true,
+              "active": true,
+              "country_code": "US",
+              "created_at": "2026-09-01T23:36:36+08:00",
+              "province_code": "4200010",
+              "updated_at": "2026-09-01T23:36:36+08:00",
+              "zip": null,
+              "address2": null,
+              "country": "United States",
+              "phone": "1",
+              "phone_code": "",
+              "city": "Washington",
+              "legacy": false
+            },
+            {
+              "zip": "018915",
+              "legacy": false,
+              "id": "7683107420286130462",
+              "phone_code": "",
+              "country_code": "SG",
+              "created_at": "2026-09-01T23:36:37+08:00",
+              "updated_at": "2026-09-01T23:36:37+08:00",
+              "city": "",
+              "country": "Singapore",
+              "province": "",
+              "name": "Location2",
+              "address2": "Singapore",
+              "is_default": false,
+              "active": true,
+              "phone": "3155437",
+              "address1": "Location2 Address",
+              "province_code": ""
+            },
+            {
+              "country": "the USA",
+              "is_default": false,
+              "phone": "654757442",
+              "created_at": "2026-09-01T23:36:37+08:00",
+              "address2": "New York",
+              "zip": "10125",
+              "phone_code": "",
+              "country_code": "US",
+              "name": "Location1",
+              "province_code": "4200002",
+              "updated_at": "2026-09-01T23:36:37+08:00",
+              "city": "New York",
+              "legacy": false,
+              "active": true,
+              "address1": "Location1 Address",
+              "id": "7683107425705173272",
+              "province": "阿拉斯加州"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:55:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1891",
+          "x-ratelimit-reset": "1788357333",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "vary": "Accept-Encoding",
+          "server": "cloudflare",
+          "traceid": "6a982ab9000000003e826f7ca9f3e4d8",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=Hmjt9BSArt_Ffs2.JcJZ6QqVWZeLXVTikNk0b6MB2CE-1788357305.8887434-1.0.1.1-8WCVwbr03r_HR7VmSbs3rzbeYwnUazI6vBS9zTPDTo0Jc9NYR8USXliK.AaHQSg2rWTkQJOokE1E5s_oaPNVDjyrGju9w2r8uW8GhG7DiTL5oRaS0Nv3tcUDhE5lqE9A; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:25:05 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=joCqMgvwW7EX1B%2FpAa9qgZY9oAmbYfvU%2FzVUaYw0oijiUyJbVsQeuoZr7HgHQwbF3s34CZynqDjD4vhU90TUgDb4PuXIVfm52wxua1BNhH0OvUv0gzVrsZQ3hhPiPF2hj8nLhbN60Dl9\"}]}",
+          "cf-ray": "a34d02a9c9cc5ef5-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400"
+        },
+        "hash": "03849dadb4d209ed3214fe2ff38d8113f473b39b",
+        "request": {}
+      }
+    }
+  }
+}

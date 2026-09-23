@@ -1,0 +1,53 @@
+{
+  "input": {
+    "order_id": "21076844557258971340774076"
+  },
+  "output": {
+    "transaction_list": []
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/admin/openapi/v20260601/transactions/query.json": {
+        "response": {
+          "transaction_list": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:56:22 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "23",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1918",
+          "x-ratelimit-reset": "1788357395",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982b06000000002521c61a7a186276",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=HtyoM9A0hDsOAdJp5GbOWT_DRyOp34mDMwc.0JWzPus-1788357382.4224598-1.0.1.1-tl6lq2_.XyjvfxG_fRfbI7doLTf.iV8x4GAEgvrVjT2RshM1FOlEu4fvJyifaruha2rj0XtENBE3VBKcd1i1F5T6JduU7vGBZMHgCTcBITC86ylNGqjVx4R9iIKXOyoD; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:26:22 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=c%2BXhlPxeE0vJtH%2B4QkaX%2FcjBJ4j8eCGekaXg0Nmis0LPTniil1zvJifINLhxFAQx3QtpSFaIlFPRK0HWvNDHA80C6Qk0A2ect5U%2FyWWUwkCjnxSGK7zjcGhPEWiUHNIS7SmdFU2wlKUS\"}]}",
+          "cf-ray": "a34d04882e28ad66-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"17-gJDy2vGV6f3Q4eg8Ooh3GK0pAQk\""
+        },
+        "hash": "087c70b30660902b2b04659117a088b70c79799c",
+        "request": {
+          "data": {
+            "order_id": "21076844557258971340774076"
+          }
+        }
+      }
+    }
+  }
+}

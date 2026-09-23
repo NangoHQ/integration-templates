@@ -41,20 +41,26 @@ const FormSchema = z.object({
     updated_at: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    next_cursor: z.string()
+});
+
 const sync = createSync({
     description: 'Sync forms.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Form: FormSchema
     },
 
     exec: async (nango) => {
-        await nango.trackDeletesStart('Form');
-
-        let nextCursor: string | undefined;
+        const checkpoint = await nango.getCheckpoint();
+        let nextCursor: string | undefined = checkpoint?.next_cursor;
         const limit = 100;
+
+        await nango.trackDeletesStart('Form');
 
         do {
             // https://developers.klaviyo.com/en/reference/get_forms
@@ -99,8 +105,13 @@ const sync = createSync({
             } else {
                 nextCursor = undefined;
             }
+
+            if (nextCursor !== undefined) {
+                await nango.saveCheckpoint({ next_cursor: nextCursor });
+            }
         } while (nextCursor !== undefined);
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Form');
     }
 });

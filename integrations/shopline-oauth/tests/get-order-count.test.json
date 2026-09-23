@@ -1,0 +1,47 @@
+{
+  "input": {},
+  "output": {
+    "count": 7
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/admin/openapi/v20260601/orders/count.json": {
+        "response": {
+          "count": 7
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 02 Sep 2026 13:54:02 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=15552000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1870",
+          "x-ratelimit-reset": "1788357273",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.01,\"max_age\":604800}",
+          "server": "cloudflare",
+          "traceid": "6a982a7a0000000053b6928de22dbcc6",
+          "cf-cache-status": "DYNAMIC",
+          "set-cookie": "__cf_bm=wZHpgeES0MyLTaNUm1fjOQyfRvf8apmMfRd5yaALQLo-1788357242.1574347-1.0.1.1-shs05oIp3AvACcT0P39NIO3lzYLV_uhnTKXW32zARgwUJN7Nucgy6kyhvJBpeJAXpTYF3Vu0SElfE_oqccyXtU6P_jZR0YeruNiL_59WnZClfTNs6CMWcEXMznB.5m_.; HttpOnly; SameSite=None; Secure; Path=/; Domain=myshopline.com; Expires=Wed, 02 Sep 2026 14:24:02 GMT",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=DROXAI0Fm%2BVdF49UqpROUVUKw0vSTu6sPdCZ%2BrKZQ7GRzybd3ObYQYqmaUo72IHLele1c%2BWrLRNUZMbnPO5ZP7IMM82AkxZqEJPeom52lGT1alincvxlL1FtJiG60HiAAUCPzREjnpFf\"}]}",
+          "cf-ray": "a34d011b7893816e-PDX",
+          "alt-svc": "h3=\":443\"; ma=86400",
+          "etag": "W/\"b-LYQo7C+Cfn2hLLvi2NIxPZK57JA\""
+        },
+        "hash": "e84f24df2147cbd047a5af2022622a39b1772640",
+        "request": {}
+      }
+    }
+  }
+}

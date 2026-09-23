@@ -23,26 +23,54 @@ const ContactSchema = z.object({
     isInactive: z.boolean().optional()
 });
 
+const CheckpointSchema = z.object({
+    from: z.number()
+});
+
+const DEFAULT_CHECKPOINT = {
+    from: 0
+};
+
 const sync = createSync({
     description: 'Sync contacts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
     },
 
     exec: async (nango) => {
+        const checkpoint = await nango.getCheckpoint();
+        const parsedCheckpoint = CheckpointSchema.parse({
+            ...DEFAULT_CHECKPOINT,
+            ...(checkpoint ?? {})
+        });
+        const startFrom = parsedCheckpoint['from'];
+
+        await nango.trackDeletesStart('Contact');
+
+        let nextFrom: number | undefined;
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.tripletex.no/docs/documentation/topic-3/openapi/
             endpoint: 'v2/contact',
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'from',
-                offset_start_value: 0,
+                offset_start_value: startFrom,
+                offset_calculation_method: 'by-response-size',
                 limit_name_in_request: 'count',
                 limit: 100,
-                response_path: 'values'
+                response_path: 'values',
+                on_page: async ({ nextPageParam }) => {
+                    if (typeof nextPageParam === 'number') {
+                        nextFrom = nextPageParam;
+                    } else {
+                        nextFrom = undefined;
+                    }
+                }
             },
             retries: 3
         };
@@ -63,27 +91,22 @@ const sync = createSync({
             });
         }
 
-        // Fetch and validate the first page before starting delete tracking, so a failed/malformed
-        // initial response never leaves tracking open without a matching trackDeletesEnd.
-        const paginator = nango.paginate(proxyConfig);
-        const first = await paginator.next();
-        const firstContacts = first.done ? [] : parsePage(first.value);
+        for await (const pageResults of nango.paginate(proxyConfig)) {
+            if (!Array.isArray(pageResults)) {
+                throw new Error('Expected paginate page to be an array');
+            }
 
-        await nango.trackDeletesStart('Contact');
-
-        if (firstContacts.length > 0) {
-            await nango.batchSave(firstContacts, 'Contact');
-        }
-
-        let result = await paginator.next();
-        while (!result.done) {
-            const contacts = parsePage(result.value);
+            const contacts = parsePage(pageResults);
             if (contacts.length > 0) {
                 await nango.batchSave(contacts, 'Contact');
             }
-            result = await paginator.next();
+
+            if (nextFrom !== undefined) {
+                await nango.saveCheckpoint({ from: nextFrom });
+            }
         }
 
+        await nango.clearCheckpoint();
         await nango.trackDeletesEnd('Contact');
     }
 });

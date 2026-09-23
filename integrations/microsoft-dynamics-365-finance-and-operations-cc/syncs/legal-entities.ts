@@ -56,11 +56,16 @@ const LegalEntitySchema = z.object({
     addressValidTo: z.string().optional()
 });
 
+const CheckpointSchema = z.object({
+    offset: z.number().int().min(0)
+});
+
 const sync = createSync({
     description: 'Sync legal entities (companies/data areas).',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         LegalEntity: LegalEntitySchema
     },
@@ -69,11 +74,13 @@ const sync = createSync({
         // Blocker: LegalEntities exposes no modified-timestamp field in this environment,
         // so we must use full-refresh with delete tracking.
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
-        let trackingStarted = false;
+        const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        let offset = checkpoint.success ? checkpoint.data.offset : 0;
 
         const limit = 1000;
-        let skip = 0;
         let hasMore = true;
+
+        await nango.trackDeletesStart('LegalEntity');
 
         while (hasMore) {
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata
@@ -81,7 +88,7 @@ const sync = createSync({
                 endpoint: '/data/LegalEntities',
                 params: {
                     $top: String(limit),
-                    $skip: String(skip)
+                    $skip: String(offset)
                 },
                 retries: 3
             });
@@ -91,16 +98,7 @@ const sync = createSync({
                 throw new Error('Unexpected response shape from LegalEntities endpoint');
             }
 
-            if (!trackingStarted) {
-                await nango.trackDeletesStart('LegalEntity');
-                trackingStarted = true;
-            }
-
             const page = rawData.value;
-            if (page.length === 0) {
-                hasMore = false;
-                break;
-            }
 
             const legalEntities = page.map((raw: unknown) => {
                 const parsed = ProviderLegalEntitySchema.safeParse(raw);
@@ -142,15 +140,16 @@ const sync = createSync({
                 await nango.batchSave(legalEntities, 'LegalEntity');
             }
 
-            skip += limit;
+            offset += limit;
+            await nango.saveCheckpoint({ offset });
+
             if (page.length < limit) {
                 hasMore = false;
             }
         }
 
-        if (trackingStarted) {
-            await nango.trackDeletesEnd('LegalEntity');
-        }
+        await nango.clearCheckpoint();
+        await nango.trackDeletesEnd('LegalEntity');
     }
 });
 
