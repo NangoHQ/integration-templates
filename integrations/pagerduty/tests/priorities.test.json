@@ -1,0 +1,187 @@
+{
+  "nango": {
+    "batchSave": {
+      "Priority": [
+        {
+          "id": "PR1PJ2H",
+          "summary": "P1",
+          "type": "priority",
+          "self": "https://api.pagerduty.com/priorities/PR1PJ2H",
+          "name": "P1",
+          "description": "",
+          "color": "a8171c",
+          "order": 500000000
+        },
+        {
+          "id": "PNS1IQU",
+          "summary": "P2",
+          "type": "priority",
+          "self": "https://api.pagerduty.com/priorities/PNS1IQU",
+          "name": "P2",
+          "description": "",
+          "color": "eb6016",
+          "order": 400000000
+        },
+        {
+          "id": "P6FDHB4",
+          "summary": "P3",
+          "type": "priority",
+          "self": "https://api.pagerduty.com/priorities/P6FDHB4",
+          "name": "P3",
+          "description": "",
+          "color": "f9b406",
+          "order": 300000000
+        },
+        {
+          "id": "P36SGLE",
+          "summary": "P4",
+          "type": "priority",
+          "self": "https://api.pagerduty.com/priorities/P36SGLE",
+          "name": "P4",
+          "description": "",
+          "color": "555555",
+          "order": 200000000
+        },
+        {
+          "id": "PM2BH8L",
+          "summary": "P5",
+          "type": "priority",
+          "self": "https://api.pagerduty.com/priorities/PM2BH8L",
+          "name": "P5",
+          "description": "",
+          "color": "555555",
+          "order": 100000000
+        }
+      ]
+    },
+    "batchDelete": {
+      "Priority": []
+    }
+  },
+  "api": {
+    "get": {
+      "/priorities": {
+        "response": {
+          "priorities": [
+            {
+              "id": "PR1PJ2H",
+              "type": "priority",
+              "summary": "P1",
+              "self": "https://api.pagerduty.com/priorities/PR1PJ2H",
+              "html_url": null,
+              "account_id": "P54WKDZ",
+              "color": "a8171c",
+              "created_at": "2026-09-16T11:27:31+03:00",
+              "description": "",
+              "name": "P1",
+              "order": 500000000,
+              "schema_version": 0,
+              "updated_at": "2026-09-16T11:27:31+03:00"
+            },
+            {
+              "id": "PNS1IQU",
+              "type": "priority",
+              "summary": "P2",
+              "self": "https://api.pagerduty.com/priorities/PNS1IQU",
+              "html_url": null,
+              "account_id": "P54WKDZ",
+              "color": "eb6016",
+              "created_at": "2026-09-16T11:27:31+03:00",
+              "description": "",
+              "name": "P2",
+              "order": 400000000,
+              "schema_version": 0,
+              "updated_at": "2026-09-16T11:27:31+03:00"
+            },
+            {
+              "id": "P6FDHB4",
+              "type": "priority",
+              "summary": "P3",
+              "self": "https://api.pagerduty.com/priorities/P6FDHB4",
+              "html_url": null,
+              "account_id": "P54WKDZ",
+              "color": "f9b406",
+              "created_at": "2026-09-16T11:27:31+03:00",
+              "description": "",
+              "name": "P3",
+              "order": 300000000,
+              "schema_version": 0,
+              "updated_at": "2026-09-16T11:27:31+03:00"
+            },
+            {
+              "id": "P36SGLE",
+              "type": "priority",
+              "summary": "P4",
+              "self": "https://api.pagerduty.com/priorities/P36SGLE",
+              "html_url": null,
+              "account_id": "P54WKDZ",
+              "color": "555555",
+              "created_at": "2026-09-16T11:27:31+03:00",
+              "description": "",
+              "name": "P4",
+              "order": 200000000,
+              "schema_version": 0,
+              "updated_at": "2026-09-16T11:27:31+03:00"
+            },
+            {
+              "id": "PM2BH8L",
+              "type": "priority",
+              "summary": "P5",
+              "self": "https://api.pagerduty.com/priorities/PM2BH8L",
+              "html_url": null,
+              "account_id": "P54WKDZ",
+              "color": "555555",
+              "created_at": "2026-09-16T11:27:31+03:00",
+              "description": "",
+              "name": "P5",
+              "order": 100000000,
+              "schema_version": 0,
+              "updated_at": "2026-09-16T11:27:31+03:00"
+            }
+          ],
+          "limit": 25,
+          "offset": 0,
+          "more": false,
+          "total": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 09:41:52 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1789551764",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"8a42c61e7689f80fc14c8e284f9ad885\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "a3649097cb15a8db24b0445a654a4805",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "958",
+          "ratelimit-reset": "8",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "24c50a2f125da68387f79258a83dc24d6021b9fd",
+        "request": {
+          "params": {
+            "limit": "25",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}

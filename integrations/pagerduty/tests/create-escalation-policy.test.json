@@ -1,0 +1,138 @@
+{
+  "input": {
+    "escalation_policy": {
+      "type": "escalation_policy",
+      "name": "Nango Test Escalation Policy 1789554449",
+      "escalation_rules": [
+        {
+          "escalation_delay_in_minutes": 15,
+          "targets": [
+            {
+              "id": "PJB72P3",
+              "type": "user_reference"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "output": {
+    "escalation_policy": {
+      "id": "PSPYLRX",
+      "type": "escalation_policy",
+      "summary": "Nango Test Escalation Policy 1789554449",
+      "self": "https://api.pagerduty.com/escalation_policies/PSPYLRX",
+      "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PSPYLRX",
+      "name": "Nango Test Escalation Policy 1789554449",
+      "escalation_rules": [
+        {
+          "id": "P8QK6SI",
+          "escalation_delay_in_minutes": 15,
+          "targets": [
+            {
+              "id": "PJB72P3",
+              "type": "user_reference",
+              "summary": "Nango Developer"
+            }
+          ]
+        }
+      ],
+      "services": [],
+      "num_loops": 0,
+      "teams": [],
+      "description": null,
+      "on_call_handoff_notifications": "if_has_services",
+      "privilege": null
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/escalation_policies": {
+        "response": {
+          "escalation_policy": {
+            "id": "PSPYLRX",
+            "type": "escalation_policy",
+            "summary": "Nango Test Escalation Policy 1789554449",
+            "self": "https://api.pagerduty.com/escalation_policies/PSPYLRX",
+            "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PSPYLRX",
+            "name": "Nango Test Escalation Policy 1789554449",
+            "escalation_rules": [
+              {
+                "id": "P8QK6SI",
+                "escalation_delay_in_minutes": 15,
+                "targets": [
+                  {
+                    "id": "PJB72P3",
+                    "type": "user_reference",
+                    "summary": "Nango Developer",
+                    "self": "https://api.pagerduty.com/users/PJB72P3",
+                    "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+                  }
+                ]
+              }
+            ],
+            "services": [],
+            "num_loops": 0,
+            "teams": [],
+            "description": null,
+            "on_call_handoff_notifications": "if_has_services",
+            "send_ochons_through_level": null,
+            "privilege": null,
+            "created_at": "2026-09-16T13:27:33+03:00",
+            "updated_at": "2026-09-16T13:27:33+03:00"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:27:34 GMT",
+          "content-type": "application/json",
+          "content-length": "808",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1913",
+          "x-ratelimit-reset": "1789554487",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"44f3de7829be825662e7d6f2b1595dc2\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "caa250add419c4a61a1909b9a919c7c8",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "929",
+          "ratelimit-reset": "27",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "d29da2378b65a47402e1df16ead4f08550f04ca3",
+        "request": {
+          "data": {
+            "escalation_policy": {
+              "type": "escalation_policy",
+              "name": "Nango Test Escalation Policy 1789554449",
+              "escalation_rules": [
+                {
+                  "escalation_delay_in_minutes": 15,
+                  "targets": [
+                    {
+                      "id": "PJB72P3",
+                      "type": "user_reference"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

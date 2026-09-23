@@ -1,0 +1,170 @@
+{
+  "input": {
+    "incident_id": "Q2W79LMUAT32HM",
+    "alert_id": "Q0OZCO7GELFUF7"
+  },
+  "output": {
+    "alert": {
+      "id": "Q0OZCO7GELFUF7",
+      "type": "alert",
+      "summary": "Nango Test Alert",
+      "self": "https://api.pagerduty.com/alerts/Q0OZCO7GELFUF7",
+      "html_url": "https://dev-nangodev.pagerduty.com/alerts/Q0OZCO7GELFUF7",
+      "created_at": "2026-09-16T13:38:39+03:00",
+      "status": "triggered",
+      "alert_key": "70f0d874e6a949518e6b14d8666a7608",
+      "service": {
+        "id": "P58PZ0B",
+        "summary": "Nango Prerequisite Service",
+        "type": "service_reference",
+        "self": "https://api.pagerduty.com/services/P58PZ0B",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P58PZ0B"
+      },
+      "first_trigger_log_entry": {
+        "id": "R06JQRSVSY6CWB2CT63DYM9P1C",
+        "summary": "Triggered through the API.",
+        "type": "trigger_log_entry_reference",
+        "self": "https://api.pagerduty.com/log_entries/R06JQRSVSY6CWB2CT63DYM9P1C",
+        "html_url": "https://dev-nangodev.pagerduty.com/alerts/Q0OZCO7GELFUF7/log_entries/R06JQRSVSY6CWB2CT63DYM9P1C"
+      },
+      "incident": {
+        "id": "Q2W79LMUAT32HM",
+        "summary": "[#21] Nango Test Alert",
+        "type": "incident_reference",
+        "self": "https://api.pagerduty.com/incidents/Q2W79LMUAT32HM",
+        "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q2W79LMUAT32HM"
+      },
+      "suppressed": false,
+      "severity": "critical",
+      "integration": {
+        "id": "P8R7KS6",
+        "summary": "Nango Test Integration",
+        "type": "events_api_v2_inbound_integration_reference",
+        "self": "https://api.pagerduty.com/services/P58PZ0B/integrations/P8R7KS6",
+        "html_url": "https://dev-nangodev.pagerduty.com/services/P58PZ0B/integrations/P8R7KS6"
+      },
+      "body": {
+        "type": "alert_body",
+        "contexts": [],
+        "details": {},
+        "cef_details": {
+          "dedup_key": "70f0d874e6a949518e6b14d8666a7608",
+          "description": "Nango Test Alert",
+          "message": "Nango Test Alert",
+          "mutations": [],
+          "severity": "critical",
+          "source_origin": "nango-test",
+          "version": "1.0"
+        }
+      }
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/incidents/Q2W79LMUAT32HM/alerts/Q0OZCO7GELFUF7": {
+        "response": {
+          "alert": {
+            "id": "Q0OZCO7GELFUF7",
+            "status": "triggered",
+            "type": "alert",
+            "self": "https://api.pagerduty.com/alerts/Q0OZCO7GELFUF7",
+            "service": {
+              "id": "P58PZ0B",
+              "type": "service_reference",
+              "self": "https://api.pagerduty.com/services/P58PZ0B",
+              "summary": "Nango Prerequisite Service",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P58PZ0B"
+            },
+            "body": {
+              "type": "alert_body",
+              "details": {},
+              "contexts": [],
+              "cef_details": {
+                "client": null,
+                "client_url": null,
+                "contexts": null,
+                "creation_time": null,
+                "dedup_key": "70f0d874e6a949518e6b14d8666a7608",
+                "description": "Nango Test Alert",
+                "details": null,
+                "event_class": null,
+                "message": "Nango Test Alert",
+                "mutations": [],
+                "priority": null,
+                "reporter_component": null,
+                "reporter_location": null,
+                "service_group": null,
+                "severity": "critical",
+                "source_component": null,
+                "source_location": null,
+                "source_origin": "nango-test",
+                "urgency": null,
+                "version": "1.0"
+              }
+            },
+            "severity": "critical",
+            "alert_key": "70f0d874e6a949518e6b14d8666a7608",
+            "suppressed": false,
+            "created_at": "2026-09-16T13:38:39+03:00",
+            "resolved_at": null,
+            "summary": "Nango Test Alert",
+            "html_url": "https://dev-nangodev.pagerduty.com/alerts/Q0OZCO7GELFUF7",
+            "first_trigger_log_entry": {
+              "id": "R06JQRSVSY6CWB2CT63DYM9P1C",
+              "type": "trigger_log_entry_reference",
+              "self": "https://api.pagerduty.com/log_entries/R06JQRSVSY6CWB2CT63DYM9P1C",
+              "summary": "Triggered through the API.",
+              "html_url": "https://dev-nangodev.pagerduty.com/alerts/Q0OZCO7GELFUF7/log_entries/R06JQRSVSY6CWB2CT63DYM9P1C"
+            },
+            "incident": {
+              "id": "Q2W79LMUAT32HM",
+              "type": "incident_reference",
+              "self": "https://api.pagerduty.com/incidents/Q2W79LMUAT32HM",
+              "summary": "[#21] Nango Test Alert",
+              "html_url": "https://dev-nangodev.pagerduty.com/incidents/Q2W79LMUAT32HM"
+            },
+            "integration": {
+              "id": "P8R7KS6",
+              "type": "events_api_v2_inbound_integration_reference",
+              "self": "https://api.pagerduty.com/services/P58PZ0B/integrations/P8R7KS6",
+              "summary": "Nango Test Integration",
+              "html_url": "https://dev-nangodev.pagerduty.com/services/P58PZ0B/integrations/P8R7KS6"
+            },
+            "privilege": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:40:42 GMT",
+          "content-type": "application/json",
+          "content-length": "1955",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1789555299",
+          "server": "nginx",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "f428e225969808ba54f91574e169779f",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "956",
+          "ratelimit-reset": "19",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'",
+          "etag": "W/\"7a3-vxSXppz7vr0uNIcsmqc77rJsgQE\""
+        },
+        "hash": "13b872c33f077860dcae4618d13f757c4fbfb988",
+        "request": {}
+      }
+    }
+  }
+}

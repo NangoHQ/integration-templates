@@ -1,0 +1,71 @@
+{
+  "input": {
+    "id": "Q0YLGGHWAI1DDT"
+  },
+  "output": {
+    "subscribers": [
+      {
+        "subscriber_id": "PJB72P3",
+        "subscriber_type": "user",
+        "has_indirect_subscription": false
+      }
+    ],
+    "limit": 100,
+    "offset": 100,
+    "more": false,
+    "total": 1,
+    "account_id": "P54WKDZ"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/incidents/Q0YLGGHWAI1DDT/status_updates/subscribers": {
+        "response": {
+          "more": false,
+          "offset": 100,
+          "total": 1,
+          "account_id": "P54WKDZ",
+          "limit": 100,
+          "subscribers": [
+            {
+              "subscriber_id": "PJB72P3",
+              "subscriber_type": "user",
+              "subscribed_via": null,
+              "has_indirect_subscription": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:29:48 GMT",
+          "content-type": "application/vnd.pagerduty+json; charset=UTF-8",
+          "content-length": "197",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1868",
+          "x-ratelimit-reset": "1789554607",
+          "server": "nginx",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "7001d49c5bb4a5761ad4ecb0afe92b08",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "905",
+          "ratelimit-reset": "12",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'",
+          "etag": "W/\"c5-qfcleBKVnlBoyV7XIwHmHgG0ew4\""
+        },
+        "hash": "94eb7141ca129671bddd22894591e9c0f4ce934b",
+        "request": {}
+      }
+    }
+  }
+}

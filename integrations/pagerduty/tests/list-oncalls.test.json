@@ -1,0 +1,257 @@
+{
+  "input": {},
+  "output": {
+    "oncalls": [
+      {
+        "escalation_policy": {
+          "id": "P3V8JYU",
+          "type": "escalation_policy_reference",
+          "summary": "Default",
+          "self": "https://api.pagerduty.com/escalation_policies/P3V8JYU",
+          "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P3V8JYU"
+        },
+        "escalation_level": 1,
+        "schedule": null,
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "start": null,
+        "end": null
+      },
+      {
+        "escalation_policy": {
+          "id": "P83MJMH",
+          "type": "escalation_policy_reference",
+          "summary": "Nango Test EP for Team",
+          "self": "https://api.pagerduty.com/escalation_policies/P83MJMH",
+          "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P83MJMH"
+        },
+        "escalation_level": 1,
+        "schedule": null,
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "start": null,
+        "end": null
+      },
+      {
+        "escalation_policy": {
+          "id": "PT144TZ",
+          "type": "escalation_policy_reference",
+          "summary": "Nango Test Escalation Policy",
+          "self": "https://api.pagerduty.com/escalation_policies/PT144TZ",
+          "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PT144TZ"
+        },
+        "escalation_level": 1,
+        "schedule": null,
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "start": null,
+        "end": null
+      },
+      {
+        "escalation_policy": {
+          "id": "P1WJ1A6",
+          "type": "escalation_policy_reference",
+          "summary": "Nango Test Escalation Policy 1789554438",
+          "self": "https://api.pagerduty.com/escalation_policies/P1WJ1A6",
+          "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P1WJ1A6"
+        },
+        "escalation_level": 1,
+        "schedule": null,
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "start": null,
+        "end": null
+      },
+      {
+        "escalation_policy": {
+          "id": "PSPYLRX",
+          "type": "escalation_policy_reference",
+          "summary": "Nango Test Escalation Policy 1789554449",
+          "self": "https://api.pagerduty.com/escalation_policies/PSPYLRX",
+          "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PSPYLRX"
+        },
+        "escalation_level": 1,
+        "schedule": null,
+        "user": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        },
+        "start": null,
+        "end": null
+      }
+    ],
+    "limit": 25,
+    "offset": 0,
+    "more": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/oncalls": {
+        "response": {
+          "oncalls": [
+            {
+              "escalation_policy": {
+                "id": "P3V8JYU",
+                "type": "escalation_policy_reference",
+                "summary": "Default",
+                "self": "https://api.pagerduty.com/escalation_policies/P3V8JYU",
+                "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P3V8JYU"
+              },
+              "escalation_level": 1,
+              "schedule": null,
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": null,
+              "end": null
+            },
+            {
+              "escalation_policy": {
+                "id": "P83MJMH",
+                "type": "escalation_policy_reference",
+                "summary": "Nango Test EP for Team",
+                "self": "https://api.pagerduty.com/escalation_policies/P83MJMH",
+                "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P83MJMH"
+              },
+              "escalation_level": 1,
+              "schedule": null,
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": null,
+              "end": null
+            },
+            {
+              "escalation_policy": {
+                "id": "PT144TZ",
+                "type": "escalation_policy_reference",
+                "summary": "Nango Test Escalation Policy",
+                "self": "https://api.pagerduty.com/escalation_policies/PT144TZ",
+                "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PT144TZ"
+              },
+              "escalation_level": 1,
+              "schedule": null,
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": null,
+              "end": null
+            },
+            {
+              "escalation_policy": {
+                "id": "P1WJ1A6",
+                "type": "escalation_policy_reference",
+                "summary": "Nango Test Escalation Policy 1789554438",
+                "self": "https://api.pagerduty.com/escalation_policies/P1WJ1A6",
+                "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/P1WJ1A6"
+              },
+              "escalation_level": 1,
+              "schedule": null,
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": null,
+              "end": null
+            },
+            {
+              "escalation_policy": {
+                "id": "PSPYLRX",
+                "type": "escalation_policy_reference",
+                "summary": "Nango Test Escalation Policy 1789554449",
+                "self": "https://api.pagerduty.com/escalation_policies/PSPYLRX",
+                "html_url": "https://dev-nangodev.pagerduty.com/escalation_policies/PSPYLRX"
+              },
+              "escalation_level": 1,
+              "schedule": null,
+              "user": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "start": null,
+              "end": null
+            }
+          ],
+          "limit": 25,
+          "offset": 0,
+          "more": false,
+          "total": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:33:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1894",
+          "x-ratelimit-reset": "1789554790",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"8c41d014e8fb0b53460a235d36c7bff4\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "bcc7fef37f5d1054c675c349acffda20",
+          "ratelimit-limit": "125",
+          "ratelimit-remaining": "123",
+          "ratelimit-reset": "51",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "2b8de4a28e89034cd01cd27a511add93d234d14b",
+        "request": {}
+      }
+    }
+  }
+}
