@@ -6,11 +6,17 @@ import { z } from 'zod';
 
 const DEFAULT_BACKFILL_MS = 30 * 24 * 60 * 60 * 1000;
 
+const BodySchema = z.object({
+    contentType: z.string().optional(),
+    content: z.string().optional()
+});
+
 const MessageSchema = z.object({
     id: z.string(),
     folderId: z.string(),
     subject: z.string().optional(),
     bodyPreview: z.string().optional(),
+    body: BodySchema.optional(),
     importance: z.string().optional(),
     conversationId: z.string().optional(),
     receivedDateTime: z.string().optional(),
@@ -70,6 +76,7 @@ const DeltaMessageSchema = z.object({
     '@removed': z.object({ reason: z.string() }).optional(),
     subject: z.string().optional(),
     bodyPreview: z.string().optional(),
+    body: BodySchema.nullable().optional(),
     importance: z.string().optional(),
     conversationId: z.string().optional(),
     receivedDateTime: z.string().optional(),
@@ -130,6 +137,7 @@ function toMessage(message: DeltaMessage, folderId: string): Message {
         folderId,
         subject: message.subject,
         bodyPreview: message.bodyPreview,
+        body: message.body ?? undefined,
         importance: message.importance,
         conversationId: message.conversationId,
         receivedDateTime: message.receivedDateTime,
@@ -148,7 +156,7 @@ function toMessage(message: DeltaMessage, folderId: string): Message {
 
 const sync = createSync<{ Message: typeof MessageSchema }, typeof MetadataSchema, typeof CheckpointSchema>({
     description: 'Sync folder-scoped messages with delta tokens',
-    version: '1.0.1',
+    version: '1.1.0',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
