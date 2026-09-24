@@ -22,10 +22,16 @@ const AttachmentSchema = z.object({
     size: z.number().optional()
 });
 
+const BodySchema = z.object({
+    contentType: z.string().optional(),
+    content: z.string().optional()
+});
+
 const ProviderMessageSchema = z.object({
     id: z.string(),
     subject: z.string().nullable().optional(),
     bodyPreview: z.string().nullable().optional(),
+    body: BodySchema.nullable().optional(),
     createdDateTime: z.string().optional(),
     receivedDateTime: z.string().optional(),
     sentDateTime: z.string().optional(),
@@ -44,6 +50,7 @@ const OutputSchema = z.object({
     id: z.string(),
     subject: z.string().optional(),
     bodyPreview: z.string().optional(),
+    body: BodySchema.optional(),
     createdDateTime: z.string().optional(),
     receivedDateTime: z.string().optional(),
     sentDateTime: z.string().optional(),
@@ -60,7 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a message by ID.',
-    version: '1.0.1',
+    version: '1.1.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Mail.Read'],
@@ -93,6 +100,7 @@ const action = createAction({
             id: message.id,
             ...(message.subject != null && { subject: message.subject }),
             ...(message.bodyPreview != null && { bodyPreview: message.bodyPreview }),
+            ...(message.body != null && { body: message.body }),
             ...(message.createdDateTime !== undefined && { createdDateTime: message.createdDateTime }),
             ...(message.receivedDateTime !== undefined && { receivedDateTime: message.receivedDateTime }),
             ...(message.sentDateTime !== undefined && { sentDateTime: message.sentDateTime }),

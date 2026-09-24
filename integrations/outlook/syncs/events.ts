@@ -16,6 +16,8 @@ const EventSchema = z.object({
     id: z.string(),
     subject: z.string().optional(),
     bodyPreview: z.string().optional(),
+    bodyContentType: z.string().optional(),
+    bodyContent: z.string().optional(),
     start: DateTimeTimeZoneSchema.optional(),
     end: DateTimeTimeZoneSchema.optional(),
     location: z.string().optional(),
@@ -54,6 +56,13 @@ const ProviderEventSchema = z.object({
     '@removed': z.object({ reason: z.string() }).optional(),
     subject: z.string().optional(),
     bodyPreview: z.string().optional(),
+    body: z
+        .object({
+            contentType: z.string().nullable().optional(),
+            content: z.string().nullable().optional()
+        })
+        .nullable()
+        .optional(),
     start: DateTimeTimeZoneSchema.optional(),
     end: DateTimeTimeZoneSchema.optional(),
     location: z.object({ displayName: z.string().optional() }).optional(),
@@ -91,7 +100,7 @@ const DeltaPageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync events in a bounded calendar view with delta tokens.',
-    version: '3.0.1',
+    version: '3.1.0',
     endpoints: [{ method: 'POST', path: '/syncs/events' }],
     frequency: 'every hour',
     autoStart: true,
@@ -153,6 +162,8 @@ const sync = createSync({
                     id: event.id,
                     subject: event.subject,
                     bodyPreview: event.bodyPreview,
+                    bodyContentType: event.body?.contentType ?? undefined,
+                    bodyContent: event.body?.content ?? undefined,
                     start: event.start,
                     end: event.end,
                     location: event.location?.displayName,

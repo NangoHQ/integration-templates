@@ -1,0 +1,77 @@
+{
+  "input": {
+    "channel": "D0C2BDQN7PY",
+    "ts": "1789637406.219129",
+    "markdown_text": "\n\nAppended via dryrun save"
+  },
+  "output": {
+    "ok": true,
+    "channel": "D0C2BDQN7PY",
+    "ts": "1789637406.219129"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/chat.appendStream": {
+        "response": {
+          "ok": true,
+          "channel": "D0C2BDQN7PY",
+          "ts": "1789637406.219129",
+          "warning": "missing_charset",
+          "response_metadata": {
+            "warnings": [
+              "missing_charset"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 17 Sep 2026 09:31:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "141",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1789637570",
+          "server": "Apache",
+          "vary": "Accept-Encoding",
+          "x-slack-req-id": "f92c67f7b8c7d01d879136408f75fc99",
+          "pragma": "no-cache",
+          "cache-control": "private, no-cache, no-store, must-revalidate",
+          "expires": "Sat, 26 Jul 1997 05:00:00 GMT",
+          "x-accepted-oauth-scopes": "chat:write",
+          "x-oauth-scopes": "app_mentions:read,canvases:write,channels:join,channels:manage,channels:write.invites,channels:write.topic,chat:write,chat:write.customize,chat:write.public,conversations.connect:read,conversations.connect:write,files:write,groups:write,groups:write.invites,groups:write.topic,im:write,im:write.topic,links.embed:write,links:write,mpim:write,mpim:write.topic,pins:write,reactions:write,assistant:write,calls:write,commands,reminders:write,triggers:read,triggers:write,usergroups:write,users:write,workflow.steps:execute,remote_files:share,remote_files:write,workflows.templates:read,workflows.templates:write,bookmarks:read,bookmarks:write,calls:read,dnd:read,emoji:read,reminders:read,remote_files:read,team.billing:read,team.preferences:read,team:read,usergroups:read,users.profile:read,users:read,users:read.email,canvases:read,channels:history,channels:read,files:read,groups:history,groups:read,im:history,im:read,links:read,metadata.message:read,mpim:history,mpim:read,pins:read,reactions:read,incoming-webhook",
+          "x-slack-unique-id": "aquziaOdiL05ZO-y6FIndgAAEBw",
+          "via": "1.1 slack-prod.tinyspeck.com, ingress-www-iad-external-prod-03a146385a5ab6719,ingress-edge-pdx-prod-0829ecb085f96dcd7",
+          "x-envoy-upstream-service-time": "172",
+          "x-backend": "api_canary_with_overflow",
+          "x-server": "slack-www-hhvm-canary-api-iad-6mm02y4ce4ea",
+          "x-slack-shared-secret-outcome": "no-match",
+          "x-edge-backend": "envoy-www",
+          "timing-allow-origin": "*",
+          "alt-svc": "h3=\":443\"; ma=2592000, h3-29=\":443\"; ma=2592000, quic=\":443\"; ma=2592000",
+          "x-slack-edge-shared-secret-outcome": "no-match",
+          "etag": "W/\"8d-1I+vQNe7H6e0xqi00KEb0sk5ITo\""
+        },
+        "hash": "87b01329655ac4eade993f38afca78d38fc88e3d",
+        "request": {
+          "data": {
+            "channel": "D0C2BDQN7PY",
+            "ts": "1789637406.219129",
+            "markdown_text": "\n\nAppended via dryrun save"
+          }
+        }
+      }
+    }
+  }
+}

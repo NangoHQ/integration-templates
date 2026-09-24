@@ -1,0 +1,474 @@
+{
+  "input": {},
+  "output": {
+    "maintenance_windows": [
+      {
+        "id": "PI9Y5SJ",
+        "type": "maintenance_window",
+        "summary": "Dryrun test maintenance window",
+        "self": "https://api.pagerduty.com/maintenance_windows/PI9Y5SJ",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PI9Y5SJ",
+        "start_time": "2026-09-16T13:30:31+03:00",
+        "end_time": "2026-09-16T13:31:15+03:00",
+        "description": "Dryrun test maintenance window",
+        "sequence_number": 6,
+        "services": [
+          {
+            "id": "PBKGHIU",
+            "type": "service_reference",
+            "summary": "Nango Test Service For Maintenance Window"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "P6YL6XS",
+        "type": "maintenance_window",
+        "summary": "Dryrun test maintenance window",
+        "self": "https://api.pagerduty.com/maintenance_windows/P6YL6XS",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/P6YL6XS",
+        "start_time": "2026-09-16T13:30:25+03:00",
+        "end_time": "2026-09-16T13:31:15+03:00",
+        "description": "Dryrun test maintenance window",
+        "sequence_number": 5,
+        "services": [
+          {
+            "id": "PBKGHIU",
+            "type": "service_reference",
+            "summary": "Nango Test Service For Maintenance Window"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "PUTI8BV",
+        "type": "maintenance_window",
+        "self": "https://api.pagerduty.com/maintenance_windows/PUTI8BV",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PUTI8BV",
+        "start_time": "2026-09-16T13:30:11+03:00",
+        "end_time": "2026-09-16T13:30:19+03:00",
+        "sequence_number": 4,
+        "services": [
+          {
+            "id": "P9OQZQ0",
+            "type": "service_reference",
+            "summary": "Nango Temp Service 1789554611355188",
+            "self": "https://api.pagerduty.com/services/P9OQZQ0",
+            "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P9OQZQ0"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "PFOFNFY",
+        "type": "maintenance_window",
+        "self": "https://api.pagerduty.com/maintenance_windows/PFOFNFY",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PFOFNFY",
+        "start_time": "2026-09-16T13:29:52+03:00",
+        "end_time": "2026-09-16T13:30:01+03:00",
+        "sequence_number": 3,
+        "services": [
+          {
+            "id": "PERJCIG",
+            "type": "service_reference",
+            "summary": "Nango Temp Service 1789554591926367",
+            "self": "https://api.pagerduty.com/services/PERJCIG",
+            "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PERJCIG"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "PV5QRDX",
+        "type": "maintenance_window",
+        "self": "https://api.pagerduty.com/maintenance_windows/PV5QRDX",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PV5QRDX",
+        "start_time": "2026-09-16T13:28:28+03:00",
+        "end_time": "2026-09-16T13:28:44+03:00",
+        "sequence_number": 2,
+        "services": [
+          {
+            "id": "PCH47PZ",
+            "type": "service_reference",
+            "summary": "Nango Temp Service",
+            "self": "https://api.pagerduty.com/services/PCH47PZ",
+            "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PCH47PZ"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      },
+      {
+        "id": "P4PAUM6",
+        "type": "maintenance_window",
+        "summary": "Test maintenance window",
+        "self": "https://api.pagerduty.com/maintenance_windows/P4PAUM6",
+        "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/P4PAUM6",
+        "start_time": "2026-09-16T13:28:25+03:00",
+        "end_time": "2026-09-16T13:31:16+03:00",
+        "description": "Test maintenance window",
+        "sequence_number": 1,
+        "services": [
+          {
+            "id": "PBKGHIU",
+            "type": "service_reference",
+            "summary": "Nango Test Service For Maintenance Window"
+          }
+        ],
+        "teams": [
+          {
+            "id": "PEV95L9",
+            "type": "team_reference",
+            "summary": "Nango Test Team Add EP",
+            "self": "https://api.pagerduty.com/teams/PEV95L9",
+            "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+          }
+        ],
+        "created_by": {
+          "id": "PJB72P3",
+          "type": "user_reference",
+          "summary": "Nango Developer",
+          "self": "https://api.pagerduty.com/users/PJB72P3",
+          "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/maintenance_windows": {
+        "response": {
+          "maintenance_windows": [
+            {
+              "id": "PI9Y5SJ",
+              "type": "maintenance_window",
+              "summary": "Dryrun test maintenance window",
+              "self": "https://api.pagerduty.com/maintenance_windows/PI9Y5SJ",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PI9Y5SJ",
+              "sequence_number": 6,
+              "start_time": "2026-09-16T13:30:31+03:00",
+              "end_time": "2026-09-16T13:31:15+03:00",
+              "description": "Dryrun test maintenance window",
+              "services": [
+                {
+                  "id": "PBKGHIU",
+                  "type": "service_reference",
+                  "summary": "Nango Test Service For Maintenance Window",
+                  "self": null,
+                  "html_url": null
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            },
+            {
+              "id": "P6YL6XS",
+              "type": "maintenance_window",
+              "summary": "Dryrun test maintenance window",
+              "self": "https://api.pagerduty.com/maintenance_windows/P6YL6XS",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/P6YL6XS",
+              "sequence_number": 5,
+              "start_time": "2026-09-16T13:30:25+03:00",
+              "end_time": "2026-09-16T13:31:15+03:00",
+              "description": "Dryrun test maintenance window",
+              "services": [
+                {
+                  "id": "PBKGHIU",
+                  "type": "service_reference",
+                  "summary": "Nango Test Service For Maintenance Window",
+                  "self": null,
+                  "html_url": null
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            },
+            {
+              "id": "PUTI8BV",
+              "type": "maintenance_window",
+              "summary": null,
+              "self": "https://api.pagerduty.com/maintenance_windows/PUTI8BV",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PUTI8BV",
+              "sequence_number": 4,
+              "start_time": "2026-09-16T13:30:11+03:00",
+              "end_time": "2026-09-16T13:30:19+03:00",
+              "description": null,
+              "services": [
+                {
+                  "id": "P9OQZQ0",
+                  "type": "service_reference",
+                  "summary": "Nango Temp Service 1789554611355188",
+                  "self": "https://api.pagerduty.com/services/P9OQZQ0",
+                  "html_url": "https://dev-nangodev.pagerduty.com/service-directory/P9OQZQ0"
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            },
+            {
+              "id": "PFOFNFY",
+              "type": "maintenance_window",
+              "summary": null,
+              "self": "https://api.pagerduty.com/maintenance_windows/PFOFNFY",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PFOFNFY",
+              "sequence_number": 3,
+              "start_time": "2026-09-16T13:29:52+03:00",
+              "end_time": "2026-09-16T13:30:01+03:00",
+              "description": null,
+              "services": [
+                {
+                  "id": "PERJCIG",
+                  "type": "service_reference",
+                  "summary": "Nango Temp Service 1789554591926367",
+                  "self": "https://api.pagerduty.com/services/PERJCIG",
+                  "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PERJCIG"
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            },
+            {
+              "id": "PV5QRDX",
+              "type": "maintenance_window",
+              "summary": null,
+              "self": "https://api.pagerduty.com/maintenance_windows/PV5QRDX",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/PV5QRDX",
+              "sequence_number": 2,
+              "start_time": "2026-09-16T13:28:28+03:00",
+              "end_time": "2026-09-16T13:28:44+03:00",
+              "description": null,
+              "services": [
+                {
+                  "id": "PCH47PZ",
+                  "type": "service_reference",
+                  "summary": "Nango Temp Service",
+                  "self": "https://api.pagerduty.com/services/PCH47PZ",
+                  "html_url": "https://dev-nangodev.pagerduty.com/service-directory/PCH47PZ"
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            },
+            {
+              "id": "P4PAUM6",
+              "type": "maintenance_window",
+              "summary": "Test maintenance window",
+              "self": "https://api.pagerduty.com/maintenance_windows/P4PAUM6",
+              "html_url": "https://dev-nangodev.pagerduty.com/service-directory/maintenance-windows/P4PAUM6",
+              "sequence_number": 1,
+              "start_time": "2026-09-16T13:28:25+03:00",
+              "end_time": "2026-09-16T13:31:16+03:00",
+              "description": "Test maintenance window",
+              "services": [
+                {
+                  "id": "PBKGHIU",
+                  "type": "service_reference",
+                  "summary": "Nango Test Service For Maintenance Window",
+                  "self": null,
+                  "html_url": null
+                }
+              ],
+              "created_by": {
+                "id": "PJB72P3",
+                "type": "user_reference",
+                "summary": "Nango Developer",
+                "self": "https://api.pagerduty.com/users/PJB72P3",
+                "html_url": "https://dev-nangodev.pagerduty.com/users/PJB72P3"
+              },
+              "teams": [
+                {
+                  "id": "PEV95L9",
+                  "type": "team_reference",
+                  "summary": "Nango Test Team Add EP",
+                  "self": "https://api.pagerduty.com/teams/PEV95L9",
+                  "html_url": "https://dev-nangodev.pagerduty.com/teams/PEV95L9"
+                }
+              ]
+            }
+          ],
+          "limit": 25,
+          "offset": 0,
+          "total": null,
+          "more": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 10:33:13 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1983",
+          "x-ratelimit-reset": "1789554850",
+          "server": "nginx",
+          "vary": "Accept-Encoding",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"03af2484d7198a90b652bf14a842b229\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "2ebff7db8cfb25fee49f039a7cfc7b3c",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "943",
+          "ratelimit-reset": "47",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "4aedc17e2e85a5aed86739197ac377b0abdc0ba6",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "input": {
+    "user_id": "PJB72P3",
+    "notification_rule_id": "P72IXB8"
+  },
+  "output": {
+    "id": "P72IXB8",
+    "type": "assignment_notification_rule",
+    "summary": "0 minutes: channel PT1VCZU",
+    "start_delay_in_minutes": 0,
+    "contact_method": {
+      "id": "PT1VCZU",
+      "type": "email_contact_method",
+      "summary": "Default"
+    },
+    "urgency": "high",
+    "self": "https://api.pagerduty.com/users/PJB72P3/notification_rules/P72IXB8"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/users/PJB72P3/notification_rules/P72IXB8": {
+        "response": {
+          "notification_rule": {
+            "id": "P72IXB8",
+            "type": "assignment_notification_rule",
+            "summary": "0 minutes: channel PT1VCZU",
+            "self": "https://api.pagerduty.com/users/PJB72P3/notification_rules/P72IXB8",
+            "html_url": null,
+            "start_delay_in_minutes": 0,
+            "contact_method": {
+              "id": "PT1VCZU",
+              "type": "email_contact_method",
+              "summary": "Default",
+              "self": "https://api.pagerduty.com/users/PJB72P3/contact_methods/PT1VCZU",
+              "html_url": null,
+              "label": "Default",
+              "address": "api@nango.dev",
+              "send_short_email": false,
+              "send_html_email": true,
+              "enabled": true
+            },
+            "urgency": "high"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 16 Sep 2026 09:32:28 GMT",
+          "content-type": "application/json",
+          "content-length": "531",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block, 1; mode=block",
+          "x-content-type-options": "nosniff, nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1930",
+          "x-ratelimit-reset": "1789551165",
+          "server": "nginx",
+          "x-permitted-cross-domain-policies": "none",
+          "etag": "W/\"6c8831bac88bba2fe2eb6810638f2bf9\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "3cf99bb63c82ed5679bcc04ceaf9efad",
+          "ratelimit-limit": "960",
+          "ratelimit-remaining": "947",
+          "ratelimit-reset": "32",
+          "feature-policy": "accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'"
+        },
+        "hash": "5a57301bce1e978c8a9714267ff511c8a1a142f6",
+        "request": {}
+      }
+    }
+  }
+}
