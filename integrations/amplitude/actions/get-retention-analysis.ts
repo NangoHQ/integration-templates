@@ -97,6 +97,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
+
         const params: Record<string, string> = {
             se: JSON.stringify(input.startEvent),
             re: JSON.stringify(input.returnEvent),
@@ -128,6 +132,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/api/2/retention',
             params,
+            baseUrlOverride,
             retries: 3
         });
 

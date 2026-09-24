@@ -17,7 +17,11 @@ const ProviderDataSchema = z.object({
 });
 
 const DailyValueSchema = z.object({
-    date: z.string().describe('Date in YYYY-MM-DD format.'),
+    date: z
+        .string()
+        .describe(
+            'Date string as returned by the Amplitude API, formatted as YYYY-MM-DDT00:00:00 (includes a T00:00:00 suffix despite the API docs showing plain YYYY-MM-DD).'
+        ),
     average_session_length_seconds: z.number().describe('Average session length in seconds for this date.')
 });
 
@@ -39,6 +43,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
+
         // https://amplitude.com/docs/apis/analytics/dashboard-rest#get-average-session-length
         const response = await nango.get({
             endpoint: '/api/2/sessions/average',
@@ -46,6 +54,7 @@ const action = createAction({
                 start: input.start,
                 end: input.end
             },
+            baseUrlOverride,
             retries: 3
         });
 

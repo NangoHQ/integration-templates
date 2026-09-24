@@ -7,6 +7,7 @@ const InputSchema = z
         offset: z.number().optional().describe('Zero-indexed offset from the most recent event to start returning events from.'),
         limit: z
             .number()
+            .max(1000)
             .optional()
             .describe('Number of events to return, up to 1000. The API may return more events than requested to avoid splitting sessions. Defaults to 1000.'),
         direction: z
@@ -74,6 +75,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
+
         const params: Record<string, string | number> = {
             user: input.user
         };
@@ -94,6 +99,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/api/2/useractivity',
             params,
+            baseUrlOverride,
             retries: 3
         });
 

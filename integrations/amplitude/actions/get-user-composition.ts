@@ -45,6 +45,10 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
+
         // https://amplitude.com/docs/apis/analytics/dashboard-rest
         const response = await nango.get({
             endpoint: '/api/2/composition',
@@ -53,6 +57,7 @@ const action = createAction({
                 end: input.end,
                 p: input.p
             },
+            baseUrlOverride,
             retries: 3
         });
 

@@ -39,7 +39,9 @@
     ],
     "type": "match_user_prefix"
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "get": {
       "/api/2/usersearch": {

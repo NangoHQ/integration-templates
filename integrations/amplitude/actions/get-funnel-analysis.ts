@@ -218,13 +218,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-
-        const ConnectionConfigSchema = z.object({
-            hostname: z.string().optional()
-        });
-        const parsedConfig = ConnectionConfigSchema.parse(connection.connection_config || {});
-        const hostname = parsedConfig.hostname || 'amplitude.com';
-        const baseUrlOverride = hostname === 'amplitude.com' ? undefined : `https://${hostname}`;
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
 
         const params: Record<string, string> = {
             start: input['start'],

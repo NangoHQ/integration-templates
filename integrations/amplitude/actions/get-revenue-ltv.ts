@@ -77,6 +77,10 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const connection = await nango.getConnection();
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
+
         const params: Record<string, string> = {
             start: input.start,
             end: input.end
@@ -99,6 +103,7 @@ const action = createAction({
         const response = await nango.get({
             endpoint: '/api/2/revenue/ltv',
             params,
+            baseUrlOverride,
             retries: 3
         });
 

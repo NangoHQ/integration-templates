@@ -39,7 +39,9 @@
       }
     ]
   },
-  "nango": {},
+  "nango": {
+    "getConnection": {}
+  },
   "api": {
     "get": {
       "/api/2/sessions/average": {

@@ -50,8 +50,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const rawHostname = connection.connection_config?.['hostname'];
-        const hostname = typeof rawHostname === 'string' ? rawHostname : 'amplitude.com';
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
 
         const params: Record<string, string | number> = {
             start: input.start,
@@ -74,7 +74,7 @@ const action = createAction({
         // https://amplitude.com/docs/apis/analytics/dashboard-rest#get-session-length-distribution
         const response = await nango.get({
             endpoint: '/api/2/sessions/length',
-            baseUrlOverride: `https://${hostname}`,
+            baseUrlOverride,
             params,
             retries: 3
         });

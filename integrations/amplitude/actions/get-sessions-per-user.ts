@@ -50,12 +50,8 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
-        const connectionConfig = z.object({ hostname: z.string().optional() }).safeParse(connection.connection_config);
-
-        let baseUrlOverride: string | undefined;
-        if (connectionConfig.success && connectionConfig.data.hostname && connectionConfig.data.hostname !== 'amplitude.com') {
-            baseUrlOverride = `https://${connectionConfig.data.hostname}`;
-        }
+        const hostname = connection.connection_config?.['hostname'];
+        const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
 
         // https://amplitude.com/docs/apis/analytics/dashboard-rest#get-average-sessions-per-user
         const response = await nango.get({
@@ -64,7 +60,7 @@ const action = createAction({
                 start: input.start,
                 end: input.end
             },
-            ...(baseUrlOverride && { baseUrlOverride }),
+            baseUrlOverride,
             retries: 3
         });
 
