@@ -7,6 +7,10 @@
     "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDwAAAHnHtSEqpiRFlk2OncK9A48AAAAdoIQ7AAAA",
     "subject": "Test Message for Get Action",
     "bodyPreview": "This is a test message created to validate the get-message action.",
+    "body": {
+      "contentType": "text",
+      "content": "This is a test message created to validate the get-message action."
+    },
     "createdDateTime": "2026-05-04T09:23:10Z",
     "receivedDateTime": "2026-05-04T09:23:10Z",
     "sentDateTime": "2026-05-04T09:23:10Z",

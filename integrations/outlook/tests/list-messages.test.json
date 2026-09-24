@@ -28,7 +28,10 @@
         "importance": "normal",
         "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADmbu3L6wfYQ4CwplBvha45",
         "internetMessageId": "<C85LYDND6TU4.3O4EX7CSHCON2@bl02epf00024f2f>",
-        "bodyPreview": "Microsoft account\r\nNew app(s) have access to your data\r\nNangoAPI connected to the Microsoft account ap**v@outlook.com.\r\nIf you didn't grant this access, please remove the app(s) from your account.\r\nManage your apps\r\nYou can also opt out or change where yo"
+        "bodyPreview": "Microsoft account\r\nNew app(s) have access to your data\r\nNangoAPI connected to the Microsoft account ap**v@outlook.com.\r\nIf you didn't grant this access, please remove the app(s) from your account.\r\nManage your apps\r\nYou can also opt out or change where yo",
+        "ccRecipients": [],
+        "bccRecipients": [],
+        "hasAttachments": false
       },
       {
         "id": "AQMkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoARgAAA4r_TlY6z-REqceKH8A61PsHAHnHtSEqpiRFlk2OncK9A48AAAIBDAAAAHnHtSEqpiRFlk2OncK9A48AAAAdoEGtAAAA",
@@ -53,7 +56,10 @@
         "importance": "normal",
         "conversationId": "AQQkADAwATNiZmYAZS1hZGNjAC0zNzY5LTAwAi0wMAoAEADpQ2W5USd9Q6br3oXkeGcM",
         "internetMessageId": "<HRJEJIBD6TU4.CSYS3HR4F2L11@bl02epf00024f33>",
-        "bodyPreview": "Microsoft account\r\nSecurity info was added\r\nThe following security info was recently added to the Microsoft account ap**v@outlook.com:\r\n\r\n  *   api@nango.dev\r\n\r\nIf this was you, then you can safely ignore this email.\r\nIf this wasn't you, a malicious user "
+        "bodyPreview": "Microsoft account\r\nSecurity info was added\r\nThe following security info was recently added to the Microsoft account ap**v@outlook.com:\r\n\r\n  *   api@nango.dev\r\n\r\nIf this was you, then you can safely ignore this email.\r\nIf this wasn't you, a malicious user ",
+        "ccRecipients": [],
+        "bccRecipients": [],
+        "hasAttachments": false
       }
     ],
     "next_cursor": "https://graph.microsoft.com/v1.0/me/mailFolders('inbox')/messages?%24top=2&%24skip=2"
