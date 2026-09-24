@@ -204,7 +204,7 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<stri
 
 const sync = createSync({
     description: 'Sync pull requests for one or more GitHub repositories, including status, branches, and merge state.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -212,7 +212,8 @@ const sync = createSync({
     models: {
         PullRequest: PullRequestSchema
     },
-    scopes: ['repo'],
+    // Fine-grained/GitHub App permission: "Pull requests" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
+    scopes: ['pull_requests:read'],
     endpoints: [{ path: '/syncs/pull-requests', method: 'POST' }],
 
     exec: async (nango) => {

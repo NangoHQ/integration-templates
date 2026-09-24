@@ -124,10 +124,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Edit an issue's title, body, state, assignees, labels, or milestone.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repo'],
+    // Fine-grained/GitHub App permission: "Issues" (write, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
+    scopes: ['issues:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { owner, repo, issue_number, ...updateFields } = input;

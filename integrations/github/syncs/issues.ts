@@ -204,9 +204,11 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '3.0.2',
+    version: '3.0.3',
     frequency: 'every hour',
     autoStart: true,
+    // Fine-grained/GitHub App permission: "Issues" (read, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
+    scopes: ['issues:read'],
     endpoints: [{ method: 'GET', path: '/syncs/issues' }],
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
