@@ -1,0 +1,3329 @@
+{
+  "input": {
+    "startEvent": {
+      "event_type": "_active"
+    },
+    "returnEvent": {
+      "event_type": "_all"
+    },
+    "startDate": "20260901",
+    "endDate": "20260915"
+  },
+  "output": {
+    "series": [
+      {
+        "dates": [
+          "Sep 15, 2026",
+          "Sep 14, 2026",
+          "Sep 13, 2026",
+          "Sep 12, 2026",
+          "Sep 11, 2026",
+          "Sep 10, 2026",
+          "Sep 09, 2026",
+          "Sep 08, 2026",
+          "Sep 07, 2026",
+          "Sep 06, 2026",
+          "Sep 05, 2026",
+          "Sep 04, 2026",
+          "Sep 03, 2026",
+          "Sep 02, 2026",
+          "Sep 01, 2026"
+        ],
+        "values": {
+          "Sep 15, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 14, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 13, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 12, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 11, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 10, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 09, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 08, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 07, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 06, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 05, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 04, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 03, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 02, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ],
+          "Sep 01, 2026": [
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": false
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            },
+            {
+              "count": 0,
+              "outof": 0,
+              "incomplete": true
+            }
+          ]
+        },
+        "combined": [
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": false,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": true,
+            "retainedSetId": ""
+          },
+          {
+            "count": 0,
+            "outof": 0,
+            "incomplete": true,
+            "retainedSetId": ""
+          }
+        ]
+      }
+    ],
+    "seriesMeta": [
+      {
+        "segmentIndex": 0,
+        "eventIndex": 0
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/2/retention": {
+        "response": {
+          "data": {
+            "series": [
+              {
+                "values": {
+                  "Sep 15, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 14, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 13, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 12, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 11, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 10, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 09, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 08, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 07, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 06, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 05, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 04, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 03, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 02, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ],
+                  "Sep 01, 2026": [
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": false
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    },
+                    {
+                      "count": 0,
+                      "outof": 0,
+                      "incomplete": true
+                    }
+                  ]
+                },
+                "dates": [
+                  "Sep 15, 2026",
+                  "Sep 14, 2026",
+                  "Sep 13, 2026",
+                  "Sep 12, 2026",
+                  "Sep 11, 2026",
+                  "Sep 10, 2026",
+                  "Sep 09, 2026",
+                  "Sep 08, 2026",
+                  "Sep 07, 2026",
+                  "Sep 06, 2026",
+                  "Sep 05, 2026",
+                  "Sep 04, 2026",
+                  "Sep 03, 2026",
+                  "Sep 02, 2026",
+                  "Sep 01, 2026"
+                ],
+                "datetimes": [
+                  "2026-09-15",
+                  "2026-09-14",
+                  "2026-09-13",
+                  "2026-09-12",
+                  "2026-09-11",
+                  "2026-09-10",
+                  "2026-09-09",
+                  "2026-09-08",
+                  "2026-09-07",
+                  "2026-09-06",
+                  "2026-09-05",
+                  "2026-09-04",
+                  "2026-09-03",
+                  "2026-09-02",
+                  "2026-09-01"
+                ],
+                "combined": [
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": false,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": true,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  },
+                  {
+                    "count": 0,
+                    "outof": 0,
+                    "incomplete": true,
+                    "retainedSetId": "",
+                    "dropoffSetId": ""
+                  }
+                ]
+              }
+            ],
+            "seriesLabels": [
+              ""
+            ],
+            "seriesMeta": [
+              {
+                "segmentIndex": 0,
+                "eventIndex": 0
+              }
+            ]
+          },
+          "timeComputed": 1790236571992,
+          "wasCached": true,
+          "cacheFreshness": "FRESH",
+          "allQueriesCached": true,
+          "novaRuntime": 11,
+          "novaRequestDuration": 42,
+          "wasDatasetCacheHit": false,
+          "novaCost": 0,
+          "throttleTime": 0,
+          "minSampleRate": 1,
+          "transformationIds": [],
+          "backend": "novaV2",
+          "realtimeDataMissing": false,
+          "timedOutRealtimeData": false,
+          "missedCacheAndNotComputed": false,
+          "realtimeProcessLag": {
+            "min": 337993,
+            "max": 344320,
+            "p50": 339263.1090383411,
+            "p75": 339562.55410641496,
+            "p95": 340156.24189582566,
+            "count": 600
+          },
+          "partialMergedAndNewUserInformation": false,
+          "prunedResult": false,
+          "hitChunkGroupByLimit": false,
+          "subcluster": 9,
+          "millisSinceComputed": 263224,
+          "earliestServerReceivedTime": 9223372036854776000,
+          "queryIds": [
+            "oixPfcbmeU"
+          ],
+          "numQueries": 1,
+          "numDistinctQueries": 1,
+          "novaRequestStartAndEndTimes": [
+            [
+              1790236835170,
+              1790236835212
+            ]
+          ],
+          "perQueryMetadata": [
+            {
+              "queryId": "oixPfcbmeU",
+              "queryType": "RETENTION",
+              "cached": true,
+              "cacheFreshness": "FRESH",
+              "throttleTime": 0,
+              "novaCost": 0,
+              "minSampleRate": 1,
+              "realtimeDataMissing": false,
+              "externalDataMissing": false,
+              "timedOutRealtime": false,
+              "missedCacheAndNotComputed": false,
+              "prunedResult": false,
+              "hitChunkGroupByLimit": false,
+              "novaRequestDuration": 42,
+              "novaRuntime": 11,
+              "costMetadata": {
+                "eventsInTimeRange": 23,
+                "cpuTime": 172250
+              },
+              "requestFreshness": "FRESH",
+              "qtsMetadata": {
+                "qtsRate": 1,
+                "numUsers": 0
+              }
+            }
+          ],
+          "prunedAmpIds": [],
+          "prunedApps": [],
+          "costMetadata": {
+            "cpuTime": 172250,
+            "eventsInTimeRange": 23
+          },
+          "potentialCacheMissAnomaly": false,
+          "dacResolutionStartAndEndTimes": [],
+          "dacResolutionDuration": 0,
+          "crossCacheMetadata": {
+            "crossCache": false,
+            "offset": 0,
+            "cdcRunTime": 0
+          },
+          "potentialCDCHit": false,
+          "qtsMetadata": {
+            "qtsRate": 1,
+            "numUsers": 0
+          },
+          "longTimeRangeQuery": false,
+          "timeRangeSplitCount": 0,
+          "isPeriodOverPeriod": false,
+          "wasStreamed": false,
+          "datasetPhaseTimings": {
+            "single time range": {
+              "max_time": 652,
+              "min_time": 652,
+              "all_timings": [
+                652
+              ]
+            }
+          },
+          "containsCohorts": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 24 Sep 2026 08:00:35 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4897",
+          "x-ratelimit-reset": "1790236850",
+          "etag": "W/\"4358d2b589af61450b5902e333b54ac3cd932bc1\"",
+          "server-timing": "dash;dur=908.3",
+          "x-amzn-trace-id": "Root=1-6ab4d8a2-5ab3c0310f63a3ed17ed9fad",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "6412978687193528aa0f490c6aa606ca18a533d2",
+        "request": {
+          "params": {
+            "end": "20260915",
+            "re": "{\"event_type\":\"_all\"}",
+            "se": "{\"event_type\":\"_active\"}",
+            "start": "20260901"
+          }
+        }
+      }
+    }
+  }
+}
