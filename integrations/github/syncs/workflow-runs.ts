@@ -149,10 +149,12 @@ const getRepositoriesInScope = async (nango: RepositoryScopeNango): Promise<Scop
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for one or more repositories.',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/workflow-runs' }],
     frequency: 'every hour',
     autoStart: true,
+    // Fine-grained/GitHub App permission: "Actions" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
+    scopes: ['actions:read'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

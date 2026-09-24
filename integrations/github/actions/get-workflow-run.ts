@@ -38,9 +38,11 @@ const WorkflowRunSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a workflow run with status and conclusion details.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: WorkflowRunSchema,
+    // Fine-grained/GitHub App permission: "Actions" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
+    scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof WorkflowRunSchema>> => {
         // https://docs.github.com/en/rest/actions/workflow-runs#get-a-workflow-run

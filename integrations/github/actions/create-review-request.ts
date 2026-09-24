@@ -50,9 +50,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Request reviewers or teams on an open pull request',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    // Fine-grained/GitHub App permission: "Pull requests" (write). Classic OAuth (github) connections: the 'repo' scope covers this.
     scopes: ['pull_requests:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

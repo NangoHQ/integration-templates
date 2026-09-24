@@ -85,9 +85,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Edit release metadata such as name, notes, or draft state.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Contents" permission covers this endpoint.
     scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
