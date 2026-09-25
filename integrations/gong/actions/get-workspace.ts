@@ -31,7 +31,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://help.gong.io/docs/list-all-company-workspaces
+            // https://help.gong.io/apidocs/list-all-company-workspaces-v2workspaces
             endpoint: '/v2/workspaces',
             retries: 3
         });

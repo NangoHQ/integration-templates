@@ -45,7 +45,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Dynatrace rejects continuation requests that include any parameter besides nextPageKey.
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems-api#get-problem-comments
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/get-all
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments`,
             params: {
                 ...(input.cursor !== undefined && { nextPageKey: input.cursor })

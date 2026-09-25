@@ -69,7 +69,7 @@ const action = createAction({
         const limit = input.limit ?? 50;
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/get-brands
             endpoint: '/v3/catalog/brands',
             params: {
                 page,

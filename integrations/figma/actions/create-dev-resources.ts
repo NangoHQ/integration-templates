@@ -33,10 +33,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create dev resources linked to Figma nodes',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['dev_resources:write'],
+    scopes: ['file_dev_resources:write'],
 
     exec: async (nango, input) => {
         // https://developers.figma.com/docs/rest-api/dev-resources-endpoints/

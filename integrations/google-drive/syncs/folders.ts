@@ -50,11 +50,12 @@ function makeCheckpoint(partial: {
 
 const sync = createSync({
     description: 'Sync root-level Google Drive folders from My Drive and shared drives',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/folders', group: 'Folders' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     models: {
         Folder: FolderSchema

@@ -122,7 +122,7 @@ const action = createAction({
 
         const limit = input.limit ?? 25;
 
-        // https://docs.datadoghq.com/api/latest/slo-corrections/
+        // https://docs.datadoghq.com/api/latest/service-level-objective-corrections/get-all-slo-corrections/
         const response = await nango.get({
             endpoint: 'v1/slo/correction',
             params: {

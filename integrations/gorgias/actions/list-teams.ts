@@ -53,9 +53,10 @@ const ListTeamsOutputSchema = z
  */
 const action = createAction({
     description: 'List teams.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: ListTeamsInputSchema,
     output: ListTeamsOutputSchema,
+    scopes: ['users:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListTeamsOutputSchema>> => {
         const response = await nango.get({

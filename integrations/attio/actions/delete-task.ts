@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['task:read-write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.attio.com/rest-api/tasks#delete-tasks-task-id
+        // https://docs.attio.com/rest-api/endpoint-reference/tasks/delete-a-task
         await nango.delete({
             endpoint: `/v2/tasks/${input.task_id}`,
             retries: 3

@@ -31,7 +31,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.make.com/api-documentation/scenarios/post-scenarios-scenarioid-clone
+            // https://developers.make.com/api-documentation/api-reference/scenarios
             endpoint: `/scenarios/${encodeURIComponent(String(input.scenarioId))}/clone`,
             params: {
                 organizationId: input.organizationId

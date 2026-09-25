@@ -39,7 +39,7 @@ function normalizeModified(value: string): string {
 
 const sync = createSync({
     description: 'Sync general ledger accounts as full snapshot.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -59,7 +60,7 @@ const sync = createSync({
         const checkpoint = checkpointParse.success ? checkpointParse.data : { updated_after: '' };
 
         const meResponse = await nango.get({
-            // https://start.exactonline.fr/docs/en-us/api/v1/current/Me
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
             endpoint: '/api/v1/current/Me',
             retries: 3
         });
@@ -71,7 +72,7 @@ const sync = createSync({
         const division = meResult.CurrentDivision;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://start.exactonline.fr/docs/en-us/api/v1/financial/GLAccounts
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialGLAccounts
             endpoint: `/api/v1/${encodeURIComponent(String(division))}/financial/GLAccounts`,
             params: {
                 $select: 'ID,Code,Description,Modified',

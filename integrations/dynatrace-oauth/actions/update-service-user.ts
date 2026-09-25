@@ -40,7 +40,7 @@ const action = createAction({
             });
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-management-api
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/put-service-user
         await nango.put({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users/${encodeURIComponent(input.uid)}`,
             data: {

@@ -68,7 +68,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderWorkflowSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/get-workflow
+            // https://developer.ironcladapp.com/reference/retrieve-a-workflow
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}`,
             retries: 3
         });

@@ -68,9 +68,10 @@ function encodeCheckpointState(projectId: number, taskCursor?: string | number):
 
 const sync = createSync({
     description: 'Sync tasks across all projects',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hubstaff:read'],
     checkpoint: CheckpointSchema,
     models: {
         Task: TaskModelSchema

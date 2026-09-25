@@ -3,10 +3,11 @@ import { BackgroundCheckParameterResponse, BackgroundCheckParametersInput } from
 
 const action = createAction({
     description: 'Fetch the parameters required to trigger a background check',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: BackgroundCheckParametersInput,
     output: BackgroundCheckParameterResponse,
+    scopes: ['read_write'],
 
     exec: async (nango): Promise<BackgroundCheckParameterResponse> => {
         const connection = await nango.getConnection();

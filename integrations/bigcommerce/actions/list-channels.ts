@@ -69,7 +69,7 @@ const action = createAction({
         const limit = input.limit ?? 50;
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/channels
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/channels/get-channels
             endpoint: '/v3/channels',
             params: {
                 page: page,

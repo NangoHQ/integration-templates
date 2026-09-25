@@ -28,10 +28,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Start a resumable upload session for a large file to OneDrive personal drive.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['offline_access', 'onedrive.readwrite'],
+    scopes: ['onedrive.readwrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/onedrive/developer/rest-api/api/driveitem_createuploadsession

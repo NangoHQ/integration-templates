@@ -95,7 +95,7 @@ const action = createAction({
             payload['crm_id'] = input.crm_id;
         }
 
-        // https://docs.apollo.io/reference/create-account
+        // https://docs.apollo.io/reference/create-an-account
         const response = await nango.post({
             endpoint: '/v1/accounts',
             data: payload,

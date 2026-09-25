@@ -35,7 +35,7 @@ const action = createAction({
         let organizationId = input.organization_id;
 
         if (!organizationId) {
-            // https://developer.mixpanel.com/reference/me
+            // https://docs.mixpanel.com/reference/service-accounts
             const meResponse = await nango.get({
                 endpoint: '/api/app/me',
                 retries: 3

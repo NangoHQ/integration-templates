@@ -49,7 +49,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/remove-user-from-groups
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/delete-user-groups
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodedEmail}/groups?${queryString.toString()}`,
             retries: 3
         });

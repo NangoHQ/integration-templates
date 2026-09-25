@@ -21,7 +21,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-disqualification-reasons
+            // https://workable.readme.io/reference/disqualification_reasons
             endpoint: '/spi/v3/disqualification_reasons',
             retries: 3
         });

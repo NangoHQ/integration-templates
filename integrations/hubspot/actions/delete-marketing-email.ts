@@ -13,11 +13,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a marketing email',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['crm.objects.marketing_emails.write'],
+    scopes: ['content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.hubspot.com/docs/api-reference/marketing-marketing-emails-v3/marketing-emails/delete-marketing-v3-emails-emailId

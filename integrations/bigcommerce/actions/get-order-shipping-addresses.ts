@@ -58,7 +58,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/orders/order-shipping-addresses
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/order-shipping-addresses/get-order-shipping-addresses
             endpoint: `/v2/orders/${encodeURIComponent(input.order_id)}/shipping_addresses`,
             retries: 3
         });

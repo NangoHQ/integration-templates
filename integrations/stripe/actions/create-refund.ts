@@ -48,10 +48,10 @@ const RefundSchema = z.object({
 
 const action = createAction({
     description: 'Create a refund in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: RefundSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof RefundSchema>> => {
         if (!input.payment_intent && !input.charge && !input.origin) {

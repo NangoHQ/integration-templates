@@ -47,14 +47,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List financial journals',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-journals'
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['financial'],
     exec: async (nango, input) => {
         // https://support.exactonline.com/community/s/article/All-All-DNO-Content-faq-rest-api
         const meResponse = await nango.get({

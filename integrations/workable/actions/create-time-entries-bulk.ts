@@ -46,7 +46,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://workable.readme.io/reference/create-time-entries-bulk
+            // https://workable.readme.io/reference/time-tracking-bulk-create
             endpoint: '/spi/v3/time-tracking/time-entries',
             data: {
                 time_entries: input.time_entries.map((entry) => ({

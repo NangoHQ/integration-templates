@@ -60,7 +60,7 @@ const action = createAction({
         const projectUrl = connection.connection_config?.['projectUrl'];
         const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
-        // https://supabase.com/docs/reference/api/admin-getuserbyid
+        // https://supabase.com/docs/reference/javascript/auth-admin-getuserbyid
         const response = await nango.get({
             endpoint: `/auth/v1/admin/users/${encodeURIComponent(input.userId)}`,
             baseUrlOverride,

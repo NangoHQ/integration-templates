@@ -30,12 +30,13 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync file metadata for IDs in connection metadata files, or recursively for all files under folder IDs in folders. Supports shared drives.',
-    version: '5.1.1',
+    version: '5.1.2',
     endpoints: [{ method: 'POST', path: '/syncs/documents', group: 'Documents' }],
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     models: {
         File: FileSchema

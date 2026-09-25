@@ -60,7 +60,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.make.com/api-documentation/api-reference/scenarios/post-scenarios
+            // https://developers.make.com/api-documentation/api-reference/scenarios
             endpoint: '/scenarios',
             data: {
                 teamId: input.teamId,

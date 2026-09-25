@@ -51,9 +51,10 @@ const SendAsItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync configured Gmail send-as aliases and alias settings',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
     endpoints: [
         {
             method: 'POST',

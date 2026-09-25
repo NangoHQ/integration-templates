@@ -46,9 +46,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync smart (intelligent, rule-based) collections.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_products'],
     checkpoint: CheckpointSchema,
     models: {
         SmartCollection: SmartCollectionSchema

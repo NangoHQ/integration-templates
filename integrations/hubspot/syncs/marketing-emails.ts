@@ -53,7 +53,7 @@ const sync = createSync({
         const checkpoint = parseOptional(CheckpointSchema, await nango.getCheckpoint());
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/reference/api/marketing/marketing-emails
+            // https://developers.hubspot.com/docs/api-reference/marketing-marketing-emails-v3/guide
             endpoint: '/marketing/v3/emails',
             params: {
                 limit: '100',

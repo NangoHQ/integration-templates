@@ -8,10 +8,11 @@ import * as z from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of current employees from ADP and maps them to the standard HRIS model',
-    version: '0.1.0',
+    version: '0.1.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    scopes: [],
 
     endpoints: [
         {

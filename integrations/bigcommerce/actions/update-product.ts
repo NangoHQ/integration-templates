@@ -202,7 +202,7 @@ const action = createAction({
         let response: Awaited<ReturnType<typeof nango.put>>;
         try {
             response = await nango.put({
-                // https://developer.bigcommerce.com/docs/rest-management/catalog/products#update-a-product
+                // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/update-product
                 endpoint: `/v3/catalog/products/${encodeURIComponent(String(input['product_id']))}`,
                 data: payload,
                 retries: 3

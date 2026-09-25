@@ -41,7 +41,7 @@ const sync = createSync({
     models: {
         Source: SourceSchema
     },
-    // https://developers.ashbyhq.com/reference/sourcelist
+    // https://developers.ashbyhq.com/reference/sourcelist-1
     endpoints: [
         {
             method: 'POST',
@@ -56,7 +56,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Source');
 
         do {
-            // https://developers.ashbyhq.com/reference/sourcelist
+            // https://developers.ashbyhq.com/reference/sourcelist-1
             const response = await nango.post({
                 endpoint: '/source.list',
                 data: {

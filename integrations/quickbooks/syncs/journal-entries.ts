@@ -154,7 +154,7 @@ const sync = createSync<
     typeof CheckpointSchema
 >({
     description: 'Sync QuickBooks journal entries',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -168,6 +168,7 @@ const sync = createSync<
             path: '/syncs/journal-entries'
         }
     ],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const connection = await nango.getConnection();

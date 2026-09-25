@@ -19,7 +19,7 @@ const action = createAction({
     scopes: ['channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.slack.dev/methods/conversations.leave
+        // https://api.slack.com/methods/conversations.leave
         const response = await nango.post({
             endpoint: 'conversations.leave',
             data: {

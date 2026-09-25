@@ -33,13 +33,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync ledger accounts.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         LedgerAccount: LedgerAccountSchema
     },
+    scopes: ['ledger_accounts:readonly'],
 
     exec: async (nango) => {
         // Blocker: provider only exposes GET /ledger_accounts with no changed-since filter,

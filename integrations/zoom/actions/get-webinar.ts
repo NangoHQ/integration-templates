@@ -62,7 +62,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.zoom.us/docs/api/rest/reference/zoom-api/webinars/getawebinar/
+            // https://developers.zoom.us/docs/api/meetings/#tag/Webinars/operation/webinar
             endpoint: `/webinars/${input.webinarId}`,
             retries: 3
         });

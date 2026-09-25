@@ -49,10 +49,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update document-level page and margin styling.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/documents', 'https://www.googleapis.com/auth/drive.file'],
+    scopes: ['https://www.googleapis.com/auth/documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const updateRequest: {

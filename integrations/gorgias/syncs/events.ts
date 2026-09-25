@@ -35,10 +35,11 @@ const CheckpointSchema = z
 
 const sync = createSync({
     description: "Sync the account's audit-trail events (ticket/customer/user/tag/rule/etc. lifecycle events).",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['events:read'],
     models: {
         Event: EventSchema
     },

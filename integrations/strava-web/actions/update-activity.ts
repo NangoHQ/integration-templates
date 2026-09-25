@@ -43,10 +43,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update an activity.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['activity:write'],
+    scopes: ['activity:write', 'activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body = new URLSearchParams();

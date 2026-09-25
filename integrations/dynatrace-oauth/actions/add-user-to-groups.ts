@@ -53,7 +53,7 @@ const action = createAction({
 
         const encodedEmail = encodeURIComponent(input.email);
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/iam/users/manage-group-memberships-of-a-user
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/post-user-groups
         await nango.post({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodedEmail}`,
             data: input.group_uuids,

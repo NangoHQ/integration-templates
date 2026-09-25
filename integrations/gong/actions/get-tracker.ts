@@ -49,7 +49,7 @@ const action = createAction({
 
         while (true) {
             const response = await nango.get({
-                // https://help.gong.io/docs/retrieve-tracker-details
+                // https://help.gong.io/apidocs/retrieve-tracker-details-v2settingstrackers-1
                 endpoint: '/v2/settings/trackers',
                 params: {
                     ...(cursor !== undefined && { cursor })

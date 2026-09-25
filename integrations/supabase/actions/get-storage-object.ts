@@ -65,7 +65,7 @@ const action = createAction({
             });
         }
 
-        // https://supabase.com/docs/reference/api/storage-listobjects
+        // https://supabase.com/docs/reference/javascript/file-buckets-list
         const pageSize = 100;
         let offset = 0;
         let match: z.infer<typeof ProviderListItemSchema> | undefined;

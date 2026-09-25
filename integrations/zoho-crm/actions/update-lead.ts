@@ -53,10 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a lead in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.leads.ALL', 'ZohoCRM.modules.leads.UPDATE'],
+    scopes: ['ZohoCRM.modules.leads.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { record_id, ...leadFields } = input;

@@ -23,10 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a manual journal entry in Zoho Books.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoBooks.fullaccess.ALL'],
+    scopes: ['ZohoBooks.accountants.DELETE', 'ZohoBooks.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let organizationId = input.organization_id;

@@ -37,10 +37,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Confirm the payment source for an order to move it toward payer approval, used in server-driven checkout integrations.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['openid'],
+    scopes: ['https://uri.paypal.com/services/payments/payment'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

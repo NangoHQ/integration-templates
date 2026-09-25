@@ -55,9 +55,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List teams in this organization.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['teams_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

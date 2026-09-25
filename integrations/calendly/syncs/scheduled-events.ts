@@ -60,9 +60,10 @@ function toCalendlyTimestamp(date: Date): string {
 
 const sync = createSync({
     description: 'Sync scheduled events from Calendly',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['scheduled_events:read'],
     endpoints: [
         {
             path: '/scheduled-events',

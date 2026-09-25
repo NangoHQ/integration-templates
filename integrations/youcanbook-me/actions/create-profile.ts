@@ -213,7 +213,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://api-docs.youcanbook.me (POST /v1/profiles)
+            // https://ycbm.stoplight.io/ (POST /v1/profiles)
             endpoint: '/v1/profiles',
             data: {
                 title: input.title,

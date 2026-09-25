@@ -33,7 +33,7 @@ const action = createAction({
     scopes: ['teams:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.make.com/api-documentation/teams/get-teams-teamid
+        // https://developers.make.com/api-documentation/api-reference/teams
         const response = await nango.get({
             endpoint: `/teams/${encodeURIComponent(input.teamId)}`,
             retries: 3

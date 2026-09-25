@@ -28,7 +28,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/api-reference/data-stores/get-data-store
+            // https://developers.make.com/api-documentation/api-reference/data-stores
             endpoint: `/data-stores/${encodeURIComponent(String(input.dataStoreId))}`,
             retries: 3
         });

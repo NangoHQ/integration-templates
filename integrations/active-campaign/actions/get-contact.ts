@@ -170,7 +170,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.activecampaign.com/reference/retrieve-a-contact
+            // https://developers.activecampaign.com/reference/get-contact
             endpoint: `/3/contacts/${encodeURIComponent(String(input.id))}`,
             retries: 3
         });

@@ -2,7 +2,7 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 // Apollo Mixed Companies Search API response types
-// https://docs.apollo.io/reference/mixedcompanies_search
+// https://docs.apollo.io/reference/organization-search
 
 const OrganizationSchema = z.object({
     id: z.string(),

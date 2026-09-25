@@ -94,7 +94,7 @@ const action = createAction({
         };
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-content/marketing/coupons
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/update-coupon
             endpoint: `/v2/coupons/${encodeURIComponent(input.id)}`,
             data: body,
             retries: 3

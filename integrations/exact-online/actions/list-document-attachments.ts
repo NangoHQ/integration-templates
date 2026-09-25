@@ -45,13 +45,14 @@ const ProviderAttachmentsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List document attachment metadata.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/list-document-attachments',
         method: 'GET'
     },
+    scopes: ['documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meConfig: ProxyConfiguration = {

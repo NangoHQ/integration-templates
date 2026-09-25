@@ -89,7 +89,7 @@ const action = createAction({
     scopes: ['customers:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://pennylane.readme.io/reference/get_individual_customers-id
+        // https://pennylane.readme.io/reference/getindividualcustomer
         const response = await nango.get({
             endpoint: `/individual_customers/${encodeURIComponent(input.id)}`,
             baseUrlOverride: 'https://app.pennylane.com/api/external/v2',

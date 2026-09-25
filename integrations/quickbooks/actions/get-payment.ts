@@ -102,9 +102,10 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Retrieve a payment by ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);

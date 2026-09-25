@@ -53,12 +53,13 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync punch-list items (deficiency/completion tracking) across projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     checkpoint: CheckpointSchema,
     models: {
         PunchItem: PunchItemSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

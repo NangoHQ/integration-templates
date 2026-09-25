@@ -50,9 +50,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Zendesk Help Center categories',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hc:read'],
     checkpoint: CheckpointSchema,
     models: {
         Category: CategorySchema

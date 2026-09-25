@@ -53,10 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new notebook',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['notebooks_write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody = {

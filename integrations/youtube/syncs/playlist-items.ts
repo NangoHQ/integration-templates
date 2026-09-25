@@ -61,10 +61,11 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync items from YouTube playlists in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/playlist-items' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
     models: {
         PlaylistItem: PlaylistItemSchema
     },

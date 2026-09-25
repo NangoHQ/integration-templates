@@ -37,7 +37,7 @@ const action = createAction({
 
     exec: async (nango, input) => {
         const response = await nango.post({
-            // https://developers.zoom.us/docs/api/rest/reference/user-management/users/#post-users
+            // https://developers.zoom.us/docs/api/users/#tag/Users/operation/userCreate
             endpoint: '/users',
             data: {
                 action: input.action,

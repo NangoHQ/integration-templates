@@ -61,9 +61,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List messages (lines) in a Campfire.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input) => {
         let endpoint: string;
         let baseUrlOverride: string | undefined;

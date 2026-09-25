@@ -41,7 +41,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/contacts-api-delete-contacts
+            // https://www.twilio.com/docs/sendgrid/api-reference/contacts/delete-contacts
             endpoint: '/v3/marketing/contacts',
             params,
             retries: 3

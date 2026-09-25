@@ -27,10 +27,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive an event in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.Events.DELETE'],
+    scopes: ['ZohoCRM.modules.events.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/crm/developer/docs/api/v2/delete-records.html

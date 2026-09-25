@@ -141,11 +141,11 @@ function pickBody(body: z.infer<typeof ProviderBodySchema> | undefined, format: 
 
 const action = createAction({
     description: 'List Confluence pages with pagination',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:page:confluence', 'read:space:confluence'],
+    scopes: ['read:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = ConnectionSchema.parse(await nango.getConnection());

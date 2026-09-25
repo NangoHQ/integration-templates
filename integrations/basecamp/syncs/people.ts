@@ -89,13 +89,14 @@ function parseCheckpointUrl(url: string): { baseUrlOverride: string | undefined;
 
 const sync = createSync({
     description: 'Sync people (account-wide, not scoped to any one project)',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Person: PersonSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

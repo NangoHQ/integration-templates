@@ -29,11 +29,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all account groups.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['signature', 'group_read'],
+    scopes: ['signature'],
     endpoint: {
         path: '/actions/list-groups',
         method: 'GET'
@@ -50,7 +50,7 @@ const action = createAction({
         }
         const accountId = parsedMetadata.data.accountId;
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/groups/getgroups/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/list/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups`,
             retries: 3

@@ -50,10 +50,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List videos published on a Facebook Page',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pages_read_engagement'],
+    scopes: ['pages_show_list', 'pages_read_engagement'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.facebook.com/docs/graph-api/reference/page/videos/
@@ -62,7 +62,7 @@ const action = createAction({
 
         let page: z.infer<typeof PageTokenSchema> | undefined;
         for await (const batch of nango.paginate<z.infer<typeof PageTokenSchema>>({
-            // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+            // https://developers.facebook.com/docs/graph-api/reference/page/videos/
             endpoint: '/me/accounts',
             params: { fields: 'id,access_token' },
             paginate: {

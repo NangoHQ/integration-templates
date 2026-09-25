@@ -94,7 +94,7 @@ const action = createAction({
 
             await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
 
-            // https://learn.microsoft.com/graph/api/asyncstatus-get
+            // https://learn.microsoft.com/en-us/graph/long-running-actions-overview
             const monitorResponse = await nango.get({
                 endpoint: monitorUrl,
                 baseUrlOverride: 'https://graph.microsoft.com',

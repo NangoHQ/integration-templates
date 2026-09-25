@@ -37,10 +37,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a task's summary or other fields.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tasks:read', 'tasks:write'],
+    scopes: ['hubstaff:read', 'hubstaff:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.summary === undefined && input.status === undefined && input.assignee_id === undefined && input.billable === undefined) {

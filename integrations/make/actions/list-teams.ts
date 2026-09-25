@@ -54,7 +54,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/teams/get-teams
+            // https://developers.make.com/api-documentation/api-reference/teams
             endpoint: '/teams',
             params: {
                 organizationId: input.organizationId

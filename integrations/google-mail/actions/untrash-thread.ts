@@ -41,10 +41,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a trashed Gmail thread to the mailbox.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://mail.google.com/'],
+    scopes: ['https://www.googleapis.com/auth/gmail.modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.threads/untrash

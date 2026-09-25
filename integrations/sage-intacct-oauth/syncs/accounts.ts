@@ -8,10 +8,11 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of all accounts from your sage intacct account.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
+    scopes: ['offline_access', 'openid', 'sage/ai-agents', 'token-exchange'],
 
     endpoints: [
         {

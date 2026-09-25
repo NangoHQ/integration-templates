@@ -16,7 +16,7 @@ async function withRetry<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
     throw new Error('unreachable');
 }
 
-// https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/index.html
+// https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v44.0/Human_Resources.html
 
 const LocationSchema = z.object({
     id: z.string(),

@@ -116,9 +116,10 @@ function normalizeNull<T>(value: T | null | undefined): T | undefined {
 
 const sync = createSync({
     description: 'Sync tickets with their full messages.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['tickets:read'],
     models: {
         Ticket: TicketSchema
     },

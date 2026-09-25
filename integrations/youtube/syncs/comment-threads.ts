@@ -131,9 +131,10 @@ function mapCommentThread(thread: z.infer<typeof ProviderCommentThreadSchema>): 
 
 const sync = createSync({
     description: 'Sync comment threads for YouTube videos or channels in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         CommentThread: CommentThreadSchema

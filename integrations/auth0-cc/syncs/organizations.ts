@@ -43,10 +43,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync organizations from Auth0.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read:organizations'],
     models: {
         Organization: OrganizationSchema
     },

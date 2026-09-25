@@ -118,9 +118,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List lists from ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;
@@ -136,7 +137,7 @@ const action = createAction({
             });
         } else {
             response = await nango.get({
-                // https://developer.clickup.com/reference/lists/getspacefolderlesslists
+                // https://developer.clickup.com/reference/getfolderlesslists
                 endpoint: `/api/v2/space/${encodeURIComponent(input.space_id || '')}/list`,
                 params: {
                     ...(input.archived !== undefined && { archived: String(input.archived) })

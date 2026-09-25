@@ -30,9 +30,10 @@ const LocationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync office location list values from BambooHR.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['field'],
     endpoints: [{ method: 'GET', path: '/syncs/locations' }],
     models: {
         Location: LocationSchema

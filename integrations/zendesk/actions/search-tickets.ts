@@ -92,10 +92,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search tickets with Zendesk search syntax.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read:tickets'],
+    scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.zendesk.com/api-reference/ticketing/ticket-management/search/

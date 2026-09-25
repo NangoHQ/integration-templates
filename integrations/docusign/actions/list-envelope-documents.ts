@@ -35,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List document metadata for an envelope (no binary download).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -43,6 +43,7 @@ const action = createAction({
         method: 'GET',
         path: '/actions/list-envelope-documents'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

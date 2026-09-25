@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['webhook:read-write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.attio.com/reference/delete_webhooks_webhook_id
+        // https://docs.attio.com/rest-api/endpoint-reference/webhooks/delete-a-webhook
         await nango.delete({
             endpoint: `/v2/webhooks/${input.webhook_id}`,
             retries: 3

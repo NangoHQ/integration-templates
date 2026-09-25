@@ -57,11 +57,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List shared drives the user can access, with cursor pagination and drive metadata like hidden, capabilities, and restrictions.',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/drive'],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

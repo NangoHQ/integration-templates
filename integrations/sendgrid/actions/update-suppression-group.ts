@@ -41,7 +41,7 @@ const action = createAction({
             data['description'] = input.description;
         }
 
-        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups/update-an-unsubscribe-group
+        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups/update-a-suppression-group
         const response = await nango.patch({
             endpoint: `/v3/asm/groups/${encodeURIComponent(input.group_id)}`,
             data,

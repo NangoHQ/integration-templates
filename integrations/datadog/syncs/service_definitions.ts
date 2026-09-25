@@ -13,9 +13,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Service Catalog service definitions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['apm_service_catalog_read'],
     checkpoint: CheckpointSchema,
     models: {
         ServiceDefinition: ServiceDefinitionSchema

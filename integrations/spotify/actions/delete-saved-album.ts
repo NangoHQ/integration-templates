@@ -17,7 +17,7 @@ const action = createAction({
     scopes: ['user-library-modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/remove-from-library
+        // https://developer.spotify.com/documentation/web-api/reference/remove-library-items
         await nango.delete({
             endpoint: '/v1/me/library',
             params: {

@@ -18,10 +18,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a feedback template.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['feedback_templates:write:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

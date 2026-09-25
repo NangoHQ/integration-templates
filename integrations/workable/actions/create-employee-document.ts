@@ -24,7 +24,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://workable.readme.io/reference/create-employeedocument
+            // https://workable.readme.io/reference/employeesiddocuments-1
             endpoint: `/spi/v3/employees/${encodeURIComponent(input.employee_id)}/documents`,
             data: {
                 member_id: input.member_id,

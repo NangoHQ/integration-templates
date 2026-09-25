@@ -85,7 +85,7 @@ type AsanaProject = z.infer<typeof AsanaProjectSchema>;
 
 const sync = createSync({
     description: 'Sync projects for workspaces or teams in scope.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -93,6 +93,7 @@ const sync = createSync({
     models: {
         Project: ProjectSchema
     },
+    scopes: ['workspaces:read', 'projects:read'],
     endpoints: [
         {
             method: 'GET',

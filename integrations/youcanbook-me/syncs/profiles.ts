@@ -43,7 +43,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://ycbm.stoplight.io/docs/youcanbookme-api
+        // https://ycbm.stoplight.io/
         const response = await nango.get({
             endpoint: '/v1/profiles',
             retries: 3

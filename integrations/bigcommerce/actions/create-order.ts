@@ -136,7 +136,7 @@ const action = createAction({
                 continue;
             }
 
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products#get-product-options
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variant-options/get-product-variant-options
             const optionsResponse = await nango.get({
                 endpoint: `/v3/catalog/products/${encodeURIComponent(String(product.product_id))}/options`,
                 retries: 3
@@ -167,7 +167,7 @@ const action = createAction({
             products: productsWithOptions
         };
 
-        // https://developer.bigcommerce.com/docs/rest-management/orders#create-an-order
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/create-order
         const response = await nango.post({
             endpoint: '/v2/orders',
             data: body,

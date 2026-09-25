@@ -32,7 +32,7 @@ const action = createAction({
         }
 
         await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-spam-reports/delete-spam-reports
+            // https://www.twilio.com/docs/sendgrid/api-reference/spam-reports-api/delete-spam-reports
             endpoint: '/v3/suppression/spam_reports',
             data: body,
             retries: 3

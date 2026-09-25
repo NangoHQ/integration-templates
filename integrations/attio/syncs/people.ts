@@ -55,7 +55,7 @@ const sync = createSync({
         let checkpointSaved = false;
 
         while (hasMore) {
-            // https://docs.attio.com/rest-api/endpoint-reference/records/query
+            // https://docs.attio.com/rest-api/endpoint-reference/records/list-records
             const response = await nango.post({
                 endpoint: '/v2/objects/people/records/query',
                 data: {

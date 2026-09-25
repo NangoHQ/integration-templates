@@ -25,9 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Approve or reject a pending approval.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/api/now/table/sysapproval_approver/${encodeURIComponent(input.sys_id)}`;

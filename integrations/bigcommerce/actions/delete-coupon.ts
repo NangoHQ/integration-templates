@@ -22,7 +22,7 @@ const action = createAction({
     scopes: ['store_v2_marketing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons#delete-a-coupon
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/delete-coupon
         const response = await nango.delete({
             endpoint: `/v2/coupons/${encodeURIComponent(String(input.coupon_id))}`,
             retries: 1

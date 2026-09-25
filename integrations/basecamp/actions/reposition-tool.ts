@@ -16,9 +16,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: "Change a dock tool's position in the project dock.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('Repositioning succeeds with no response body returned by the provider.'),
+    scopes: [],
 
     exec: async (nango, input): Promise<null> => {
         await nango.put({

@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['store_v2_customers'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.bigcommerce.com/docs/rest-management/customers
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/delete-customers
         const response = await nango.delete({
             endpoint: '/v3/customers',
             params: {

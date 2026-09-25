@@ -24,7 +24,7 @@ const action = createAction({
     scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.paypal.com/api/rest/subscriptions/plans/#plans_deactivate
+        // https://developer.paypal.com/api/subscriptions/v1/plans-deactivate
         await nango.post({
             endpoint: `/v1/billing/plans/${encodeURIComponent(input.plan_id)}/deactivate`,
             headers: {

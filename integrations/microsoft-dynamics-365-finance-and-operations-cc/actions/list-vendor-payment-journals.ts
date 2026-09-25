@@ -23,11 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List vendor (AP) payment journal headers.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['data.read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;

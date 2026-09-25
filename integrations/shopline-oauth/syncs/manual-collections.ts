@@ -74,9 +74,10 @@ const ManualCollectionSchema = z
 
 const sync = createSync({
     description: 'Sync manual (custom) collections from SHOPLINE',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_products'],
     checkpoint: CheckpointSchema,
     models: {
         ManualCollection: ManualCollectionSchema

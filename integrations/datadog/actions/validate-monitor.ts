@@ -10,9 +10,10 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Validate a monitor definition (type + query) without creating it.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['monitors_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -58,7 +58,7 @@ const action = createAction({
         const accountId = metadataResult.data.accountId;
 
         const config: ProxyConfiguration = {
-            // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/deletegroupusers/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groupusers/delete/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups/${encodeURIComponent(input.groupId)}/users`,
             data: {
                 users: input.users

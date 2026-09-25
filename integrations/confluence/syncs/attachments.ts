@@ -74,7 +74,7 @@ function extractCursorFromNextUrl(nextUrl: string): string {
 
 const sync = createSync({
     description: 'Sync Confluence attachment metadata across accessible content',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/attachments' }],
     frequency: 'every hour',
     autoStart: true,
@@ -83,6 +83,7 @@ const sync = createSync({
     models: {
         Attachment: AttachmentSchema
     },
+    scopes: ['read:attachment:confluence'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

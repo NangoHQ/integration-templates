@@ -44,9 +44,10 @@ type PlaylistItem = {
 
 const sync = createSync({
     description: 'Sync playlists for YouTube channels in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
     endpoints: [{ method: 'POST', path: '/syncs/channel-playlists' }],
     models: {
         ChannelPlaylist: ChannelPlaylistSchema

@@ -37,9 +37,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new service account (a non-human user identity for machine-to-machine API access).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

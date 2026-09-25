@@ -38,7 +38,7 @@ const action = createAction({
         const accountUuid = parsedMetadata.data.accountUuid;
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/users/post-user
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/post-user
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users`,
             data: {
                 email: input.email

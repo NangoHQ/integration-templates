@@ -117,10 +117,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify customers with contact, consent, and tag data.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
+    scopes: ['read_customers'],
     models: {
         Customer: CustomerSchema
     },

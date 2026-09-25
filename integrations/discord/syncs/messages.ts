@@ -89,7 +89,7 @@ function mapMessage(raw: z.infer<typeof RawMessageSchema>): z.infer<typeof Messa
 
 const sync = createSync({
     description: 'Sync messages from Discord.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
@@ -98,6 +98,7 @@ const sync = createSync({
         Message: MessageSchema
     },
     endpoints: [{ method: 'GET', path: '/syncs/messages' }],
+    scopes: ['bot'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

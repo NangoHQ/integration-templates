@@ -56,7 +56,7 @@ const action = createAction({
         const page = parsedPage;
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/get-coupons
         const response = await nango.get({
             endpoint: '/v2/coupons',
             params: {

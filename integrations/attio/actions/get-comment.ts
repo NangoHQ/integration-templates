@@ -51,13 +51,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single comment from Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['comment:read'],
+    scopes: ['comment:read', 'record_permission:read', 'object_configuration:read', 'list_configuration:read', 'list_entry:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.attio.com/reference/get_v2-comments-comment-id
+        // https://docs.attio.com/rest-api/endpoint-reference/comments/get-a-comment
         const response = await nango.get({
             endpoint: `/v2/comments/${input.comment_id}`,
             retries: 3

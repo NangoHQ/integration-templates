@@ -54,13 +54,14 @@ const ProviderIncidentSchema = z.object({
 
 const sync = createSync({
     description: 'Sync incidents',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Incident: IncidentSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

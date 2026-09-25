@@ -155,7 +155,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://workable.readme.io/reference/get-job
+            // https://workable.readme.io/reference/jobsshortcode
             endpoint: `/spi/v3/jobs/${encodeURIComponent(input.shortcode)}`,
             retries: 3
         });

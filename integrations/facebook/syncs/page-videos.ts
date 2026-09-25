@@ -44,7 +44,7 @@ type ProviderPage = z.infer<typeof ProviderPageSchema>;
 
 const sync = createSync({
     description: 'Sync videos published on Facebook Pages in scope.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -52,13 +52,14 @@ const sync = createSync({
     },
     endpoints: [{ method: 'GET', path: '/syncs/page-videos' }],
     checkpoint: CheckpointSchema,
+    scopes: ['pages_show_list', 'pages_read_engagement'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint != null ? CheckpointSchema.parse(rawCheckpoint) : undefined;
 
         const pagesConfig: ProxyConfiguration = {
-            // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+            // https://developers.facebook.com/docs/graph-api/reference/page/videos/
             endpoint: '/me/accounts',
             params: {
                 fields: 'id,access_token'

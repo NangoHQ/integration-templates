@@ -41,7 +41,7 @@ const action = createAction({
         const accountUuid = metadata.accountUuid;
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups-api/post-group
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/group-management-api/post-group
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups`,
             data: input.groups,
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries

@@ -47,10 +47,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversations from Intercom',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ path: '/syncs/conversations', method: 'POST' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     checkpoint: CheckpointSchema,
     models: {
         Conversation: ConversationSchema

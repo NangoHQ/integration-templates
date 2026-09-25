@@ -90,7 +90,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/hooks/list-hooks
+            // https://developers.make.com/api-documentation/api-reference/hooks
             endpoint: '/hooks',
             params,
             retries: 3

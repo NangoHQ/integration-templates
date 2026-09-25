@@ -50,7 +50,7 @@ const GuildMemberSchema = z.object({
 
 const sync = createSync({
     description: 'Sync guild members from Discord',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [
@@ -63,6 +63,7 @@ const sync = createSync({
     models: {
         GuildMember: GuildMemberSchema
     },
+    scopes: ['bot'],
 
     exec: async (nango) => {
         const checkpointResult = CheckpointSchema.safeParse(await nango.getCheckpoint());

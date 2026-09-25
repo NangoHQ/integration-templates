@@ -67,9 +67,10 @@ const ProviderResponseSchema = z.object({
  */
 const action = createAction({
     description: 'List satisfaction surveys, optionally filtered by ticket.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['satisfaction_survey:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

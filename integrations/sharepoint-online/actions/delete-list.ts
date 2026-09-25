@@ -22,7 +22,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://learn.microsoft.com/graph/api/list-delete
+            // https://learn.microsoft.com/en-us/graph/api/resources/list?view=graph-rest-1.0
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/lists/${encodeURIComponent(input.listId)}`,
             retries: 3
         });

@@ -74,7 +74,7 @@ const action = createAction({
         };
 
         const config: ProxyConfiguration = {
-            // https://developers.google.com/google-ads/api/rest/reference/rest/v25/geoTargetConstants/suggest
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/GeoTargetConstantService/SuggestGeoTargetConstants
             endpoint: 'v25/geoTargetConstants:suggest',
             data: requestBody,
             headers: {

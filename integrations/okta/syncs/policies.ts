@@ -36,9 +36,10 @@ function isMissingFeatureFlagError(err: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync policies.',
-    version: '1.1.1',
+    version: '1.1.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['okta.policies.read'],
     models: {
         Policy: PolicySchema
     },

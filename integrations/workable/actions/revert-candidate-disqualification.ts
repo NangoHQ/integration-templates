@@ -16,7 +16,7 @@ const action = createAction({
     scopes: ['r_candidates', 'w_candidates'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://workable.readme.io/reference/revert-candidate-disqualification
+        // https://workable.readme.io/reference/revert-disqualification-candidate
         await nango.post({
             endpoint: `/spi/v3/candidates/${encodeURIComponent(input.candidate_id)}/revert`,
             data: {

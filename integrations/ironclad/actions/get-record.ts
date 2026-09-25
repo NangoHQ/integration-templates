@@ -47,7 +47,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/getrecord
+            // https://developer.ironcladapp.com/reference/retrieve-a-record
             endpoint: `/public/api/v1/records/${encodeURIComponent(input.recordId)}`,
             retries: 3
         });

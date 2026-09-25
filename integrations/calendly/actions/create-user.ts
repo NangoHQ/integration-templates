@@ -32,9 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Invite a user to the Calendly organization.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['organizations:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.calendly.com/api-docs/3e88884a3e873-get-current-user

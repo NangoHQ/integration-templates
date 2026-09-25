@@ -78,9 +78,10 @@ function toCommentRecord(record: z.infer<typeof ProviderCommentSchema>): z.infer
 
 const sync = createSync({
     description: 'Sync comments across all known tasks and projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['data:read'],
     checkpoint: CheckpointSchema,
     models: {
         Comment: CommentSchema

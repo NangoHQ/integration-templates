@@ -141,10 +141,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an ad group in TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['adgroup.manage'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://business-api.tiktok.com/portal/docs?id=1739499616346114

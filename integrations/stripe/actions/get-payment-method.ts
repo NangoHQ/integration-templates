@@ -38,10 +38,10 @@ const PaymentMethodSchema = z
 
 const action = createAction({
     description: 'Retrieve a single payment method from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: PaymentMethodSchema,
-    scopes: [],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof PaymentMethodSchema>> => {
         const response = await nango.get({

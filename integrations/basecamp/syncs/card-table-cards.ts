@@ -137,13 +137,14 @@ const ProviderCardSchema = z.object({
 
 const sync = createSync({
     description: "Sync Kanban cards across all known projects' Card Tables.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CardTableCard: CardTableCardSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         async function discoverColumns(): Promise<Array<z.infer<typeof ColumnRefSchema>>> {

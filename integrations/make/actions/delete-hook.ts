@@ -22,7 +22,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developers.make.com/api-documentation/hooks/delete-hooks-hookid
+            // https://developers.make.com/api-documentation/api-reference/hooks
             endpoint: `/hooks/${encodeURIComponent(input.hookId)}`,
             params: {
                 confirmed: 'true'

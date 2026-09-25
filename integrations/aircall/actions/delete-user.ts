@@ -12,14 +12,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a user in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/delete-user',
         method: 'POST'
     },
-    scopes: ['users:write'],
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const userId = typeof input.id === 'number' ? String(input.id) : input.id;

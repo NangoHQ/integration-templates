@@ -21,17 +21,17 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all available order statuses.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         path: '/actions/list-order-statuses',
         method: 'GET'
     },
     input: z.object({}),
     output: OutputSchema,
-    scopes: ['store_v2_orders'],
+    scopes: ['store_v2_orders_read_only'],
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/orders#get-all-order-statuses
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/order-status/get-order-statuses
             endpoint: '/v2/order_statuses',
             retries: 3
         });

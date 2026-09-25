@@ -106,9 +106,10 @@ function buildCheckpoint(
 
 const sync = createSync({
     description: 'Sync comments on business-owned TikTok videos for moderation and analytics.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     checkpoint: CheckpointSchema,
     models: {
         Comment: CommentSchema

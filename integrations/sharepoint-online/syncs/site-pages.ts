@@ -46,12 +46,12 @@ function parseSiteUpdatedAfter(input: string): Record<string, string> {
 
 const sync = createSync({
     description: 'Sync modern site pages for selected sites.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
-    scopes: ['Sites.Read.All', 'offline_access'],
+    scopes: ['Sites.Read.All'],
     endpoints: [
         {
             method: 'GET',

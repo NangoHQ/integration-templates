@@ -62,9 +62,10 @@ const IntercomContactSchema = z
 
 const sync = createSync({
     description: 'Sync contacts (users and leads) from Intercom.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],
     checkpoint: CheckpointSchema,
     models: {

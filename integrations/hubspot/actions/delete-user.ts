@@ -23,7 +23,7 @@ const action = createAction({
     scopes: ['settings.users.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.hubspot.com/docs/api-reference/settings/users
+        // https://developers.hubspot.com/docs/api-reference/settings-user-provisioning-v3/guide
         const params: Record<string, string> = {};
         if (input.idProperty) {
             params['idProperty'] = input.idProperty;

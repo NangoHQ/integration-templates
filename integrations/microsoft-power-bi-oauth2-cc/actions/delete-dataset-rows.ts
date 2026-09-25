@@ -16,17 +16,17 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete all rows from a push-dataset table (truncate)',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Dataset.ReadWrite.All'],
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedWorkspaceId = encodeURIComponent(input.workspaceId);
         const encodedDatasetId = encodeURIComponent(input.datasetId);
         const encodedTableName = encodeURIComponent(input.tableName);
 
-        // https://learn.microsoft.com/en-us/rest/api/power-bi/datasets/delete-rows
+        // https://learn.microsoft.com/en-us/rest/api/power-bi/push-datasets/datasets-delete-rows-in-group
         await nango.delete({
             endpoint: `/v1.0/myorg/groups/${encodedWorkspaceId}/datasets/${encodedDatasetId}/tables/${encodedTableName}/rows`,
             retries: 3

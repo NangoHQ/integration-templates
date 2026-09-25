@@ -12,9 +12,10 @@ const BlockSchema = z.object({
 
 const sync = createSync({
     description: 'Sync calendar time blocks.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api-v1'],
     models: {
         Block: BlockSchema
     },
@@ -24,7 +25,7 @@ const sync = createSync({
         // cursors, or page tokens. It returns a full snapshot of all blocks.
         await nango.trackDeletesStart('Block');
 
-        // https://developers.acuityscheduling.com/reference/get-blocks
+        // https://developers.acuityscheduling.com/reference/blocks
         const response = await nango.get({
             endpoint: '/blocks',
             retries: 3

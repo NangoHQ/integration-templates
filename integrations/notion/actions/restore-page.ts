@@ -44,12 +44,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a page from trash so it returns to active workspace views.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.notion.com/reference/update-page
+        // https://developers.notion.com/reference/patch-page
         const response = await nango.patch({
             endpoint: `/v1/pages/${encodeURIComponent(input.pageId)}`,
             data: {

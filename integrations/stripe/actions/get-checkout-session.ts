@@ -96,10 +96,10 @@ const OutputSchema = CheckoutSessionSchema;
 
 const action = createAction({
     description: 'Retrieve a single checkout session from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

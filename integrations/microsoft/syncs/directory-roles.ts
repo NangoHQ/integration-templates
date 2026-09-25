@@ -46,9 +46,10 @@ function extractPathFromUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync directory roles from Microsoft',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['RoleManagement.Read.All'],
     checkpoint: CheckpointSchema,
     models: {
         DirectoryRole: DirectoryRoleSchema

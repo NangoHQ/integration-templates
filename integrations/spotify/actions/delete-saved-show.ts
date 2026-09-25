@@ -20,7 +20,7 @@ const action = createAction({
         // Convert show IDs to Spotify URIs (spotify:show:{id})
         const uris = input.ids.map((id) => `spotify:show:${id}`).join(',');
 
-        // https://developer.spotify.com/documentation/web-api/reference/remove-from-library
+        // https://developer.spotify.com/documentation/web-api/reference/remove-library-items
         await nango.delete({
             endpoint: '/v1/me/library',
             params: {

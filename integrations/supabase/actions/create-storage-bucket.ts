@@ -54,7 +54,7 @@ const action = createAction({
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.post({
-            // https://supabase.com/docs/reference/api/storage-create-bucket
+            // https://supabase.com/docs/reference/javascript/file-buckets-createbucket
             endpoint: '/storage/v1/bucket',
             baseUrlOverride,
             data: {

@@ -59,7 +59,7 @@ const action = createAction({
             params['pg[limit]'] = input.limit;
         }
 
-        // https://developers.make.com/api-documentation/api-reference/scenarios/logs/get--scenarios--scenarioid--logs
+        // https://developers.make.com/api-documentation/api-reference/scenarios/logs
         const response = await nango.get({
             endpoint: `/scenarios/${encodeURIComponent(input.scenarioId)}/logs`,
             params,

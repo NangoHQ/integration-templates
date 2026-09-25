@@ -53,13 +53,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single user from Twitter/X',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users.read'],
+    scopes: ['tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.x.com/x-api/users/user-lookup/api-reference/get-users-id
+        // https://docs.x.com/x-api/users/user-lookup-by-id
         const response = await nango.get({
             endpoint: `/2/users/${input.id}`,
             retries: 3

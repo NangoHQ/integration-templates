@@ -22,13 +22,14 @@ const ProviderWebhookSchema = z.object({
 
 const action = createAction({
     description: 'Update a webhook subscription in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderWebhookSchema,
     endpoint: {
         path: '/actions/update-webhook',
         method: 'POST'
     },
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderWebhookSchema>> => {
         const body: Record<string, unknown> = {

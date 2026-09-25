@@ -141,7 +141,7 @@ const action = createAction({
             updateBody['authentication'] = input.authentication;
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/customers
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/update-customers
         const response = await nango.put({
             endpoint: '/v3/customers',
             data: [updateBody],

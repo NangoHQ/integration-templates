@@ -59,7 +59,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://www.canva.dev/docs/connect/api-reference/comments/get-replies/
+            // https://www.canva.dev/docs/apps/rest-apis/reference/comments/list-replies
             endpoint: `/rest/v1/designs/${encodeURIComponent(input.designId)}/comments/${encodeURIComponent(input.threadId)}/replies`,
             params: {
                 ...(input.limit !== undefined && { limit: input.limit }),

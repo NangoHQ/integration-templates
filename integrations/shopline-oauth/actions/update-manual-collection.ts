@@ -134,10 +134,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Update a manual collection's fields.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_products', 'write_products'],
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({

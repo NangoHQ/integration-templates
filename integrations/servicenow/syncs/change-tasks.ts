@@ -31,7 +31,7 @@ const ChangeTaskSchema = z.object({
 
 const sync = createSync({
     description: 'Sync change tasks',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: z.object({
@@ -40,6 +40,7 @@ const sync = createSync({
     models: {
         ChangeTask: ChangeTaskSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

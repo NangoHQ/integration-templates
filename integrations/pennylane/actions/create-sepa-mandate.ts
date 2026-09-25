@@ -49,7 +49,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://pennylane.readme.io/reference/post_sepa_mandates
+            // https://pennylane.readme.io/reference/postsepamandates
             endpoint: '/api/external/v2/sepa_mandates',
             data: {
                 bic: input.bic,

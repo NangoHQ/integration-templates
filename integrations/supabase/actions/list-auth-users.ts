@@ -65,7 +65,7 @@ const action = createAction({
         const per_page = input.per_page ?? 50;
 
         const response = await nango.get({
-            // https://supabase.com/docs/reference/api/admin-listusers
+            // https://supabase.com/docs/reference/javascript/auth-admin-listusers
             endpoint: '/auth/v1/admin/users',
             params: {
                 page: String(page),

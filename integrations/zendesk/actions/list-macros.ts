@@ -85,10 +85,10 @@ function extractCursorFromUrl(url: string | null | undefined): string | undefine
 
 const action = createAction({
     description: 'List ticket macros available to the account',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['macros:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

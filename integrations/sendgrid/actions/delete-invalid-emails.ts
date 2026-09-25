@@ -32,7 +32,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-invalid-emails
+            // https://www.twilio.com/docs/sendgrid/api-reference/invalid-emails-api/delete-invalid-emails
             endpoint: '/v3/suppression/invalid_emails',
             data: input.delete_all ? { delete_all: true } : { emails: input.emails },
             retries: 3

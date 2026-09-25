@@ -69,9 +69,10 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Create an order.',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ORDERS_READ', 'ORDERS_WRITE'],
+    scopes: ['ORDERS_WRITE'],
     exec: async (nango, input) => {
         // A missing idempotency_key would make `retries` unsafe: a request that timed out after
         // Square already created the order could create a DUPLICATE order on retry. Generate one

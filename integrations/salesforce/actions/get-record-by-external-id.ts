@@ -27,9 +27,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a record by external ID field and value.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedVersion = encodeURIComponent(input.version || 'v60.0');

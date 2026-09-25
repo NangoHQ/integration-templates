@@ -108,7 +108,7 @@ const sync = createSync({
                     params['date_modified:min'] = updatedAfter;
                 }
 
-                // https://developer.bigcommerce.com/docs/rest-management/channels/channel-listings
+                // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/channels/listings/get-channel-listings
                 const response = await nango.get({
                     endpoint: `/v3/channels/${encodeURIComponent(String(channelId))}/listings`,
                     params: params,

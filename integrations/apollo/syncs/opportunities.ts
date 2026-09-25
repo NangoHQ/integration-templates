@@ -23,7 +23,7 @@ const sync = createSync({
         Opportunity: OpportunitySchema
     },
 
-    // https://docs.apollo.io/reference/opportunities
+    // https://docs.apollo.io/reference/list-all-deals
     endpoints: [{ path: '/syncs/opportunities', method: 'GET' }],
 
     exec: async (nango) => {

@@ -43,9 +43,10 @@ const ProviderResponseSchema = z.object({
  */
 const action = createAction({
     description: "Get the token owner's identity and the list of Basecamp accounts (and other 37signals products) the token can access.",
-    version: '2.0.0',
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/authentication.md

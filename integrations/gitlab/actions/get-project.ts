@@ -266,9 +266,10 @@ const ProjectSchema = z
 
 const action = createAction({
     description: 'Retrieve a single project from GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ProjectSchema,
+    scopes: ['api'],
 
     exec: async (nango, input) => {
         const config: ProxyConfiguration = {

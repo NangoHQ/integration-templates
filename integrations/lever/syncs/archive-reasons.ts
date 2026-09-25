@@ -17,13 +17,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all archive reasons configured on the account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         ArchiveReason: ArchiveReasonSchema
     },
+    scopes: ['archive_reasons:read:admin'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

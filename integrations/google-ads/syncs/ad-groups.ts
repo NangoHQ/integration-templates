@@ -250,9 +250,10 @@ function extractCustomerId(resourceName: string): string | undefined {
 
 const sync = createSync({
     description: 'Sync ad groups for customer accounts in scope.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

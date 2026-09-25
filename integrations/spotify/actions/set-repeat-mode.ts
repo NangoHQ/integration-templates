@@ -21,7 +21,7 @@ const action = createAction({
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/put-repeat-mode
+        // https://developer.spotify.com/documentation/web-api/reference/set-repeat-mode-on-users-playback
         await nango.put({
             endpoint: '/v1/me/player/repeat',
             params: {

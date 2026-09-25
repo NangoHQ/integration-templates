@@ -19,7 +19,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://auth0.com/docs/api/management/v2/organizations/delete-enabled-connection
+            // https://auth0.com/docs/api/management/v2/organizations/delete-enabled-connections-by-connection-id
             endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/enabled_connections/${encodeURIComponent(input.connection_id)}`,
             retries: 3
         });

@@ -31,11 +31,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Set the topic of a channel',
-    version: '2.0.1',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:write.topic', 'groups:write.topic'],
+    scopes: ['channels:manage', 'channels:write.topic', 'groups:write', 'groups:write.topic', 'im:write', 'im:write.topic', 'mpim:write', 'mpim:write.topic'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -101,7 +101,7 @@ const action = createAction({
         // envelope into a structured ActionError instead of letting the raw error propagate.
         try {
             response = await nango.get({
-                // https://cal.com/docs/api-reference/v2/event-types/get-all-event-types
+                // https://cal.com/docs/api-reference/v2/event-types/list-event-types
                 endpoint: '/event-types',
                 params: {
                     ...(input.username !== undefined && { username: input.username }),

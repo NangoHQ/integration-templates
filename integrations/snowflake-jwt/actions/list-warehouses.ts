@@ -69,7 +69,7 @@ const action = createAction({
     output: OutputSchema,
     scopes: [],
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.snowflake.com/en/developer-guide/sql-api/reference/api-reference-v2.html#post-api-v2-statements
+        // https://docs.snowflake.com/en/developer-guide/sql-api/reference#post-api-v2-statements
         const response = await nango.post({
             endpoint: '/api/v2/statements',
             data: {

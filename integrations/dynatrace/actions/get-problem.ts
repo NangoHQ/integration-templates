@@ -93,7 +93,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof ProblemSchema>> => {
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems/problems-api/get-problem
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problem-details
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}`,
             retries: 3
         });

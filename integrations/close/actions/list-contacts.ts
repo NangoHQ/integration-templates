@@ -35,10 +35,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts, optionally filtered by lead.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 200;

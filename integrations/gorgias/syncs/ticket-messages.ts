@@ -155,9 +155,10 @@ const TicketMessageModelSchema = z
 
 const sync = createSync({
     description: 'Sync messages across all tickets.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['tickets:read'],
     models: {
         TicketMessage: TicketMessageModelSchema
     },

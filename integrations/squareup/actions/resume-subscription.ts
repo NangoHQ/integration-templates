@@ -50,10 +50,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Resume a paused or deactivated subscription.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['SUBSCRIPTIONS_WRITE'],
+    scopes: ['CUSTOMERS_READ', 'PAYMENTS_WRITE', 'SUBSCRIPTIONS_WRITE', 'ITEMS_READ', 'ORDERS_WRITE', 'INVOICES_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

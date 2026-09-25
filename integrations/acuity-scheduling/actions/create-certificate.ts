@@ -32,9 +32,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a package or gift certificate.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.productID === undefined && input.couponID === undefined) {

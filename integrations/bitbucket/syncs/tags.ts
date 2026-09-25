@@ -47,13 +47,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync tags per repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         Tag: TagSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['account', 'repository'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

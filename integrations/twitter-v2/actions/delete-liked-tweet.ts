@@ -36,7 +36,7 @@ const action = createAction({
     scopes: ['tweet.read', 'users.read', 'like.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.x.com/x-api/users/lookup-ME#get-api-endpoint
+        // https://docs.x.com/x-api/users/get-my-user
         const userResponse = await nango.get({
             endpoint: '/2/users/me',
             retries: 3
@@ -45,7 +45,7 @@ const action = createAction({
         const userData = ProviderUserSchema.parse(userResponse.data);
         const userId = userData.data.id;
 
-        // https://docs.x.com/x-api/likes/manage-likes#delete-api-endpoint
+        // https://docs.x.com/x-api/users/unlike-post
         const response = await nango.delete({
             endpoint: `/2/users/${userId}/likes/${input.tweet_id}`,
             retries: 3

@@ -54,14 +54,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a single API key's metadata by id.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api_keys_read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.datadoghq.com/api/latest/api-keys/#get-an-api-key
+            // https://docs.datadoghq.com/api/latest/key-management/get-api-key/
             endpoint: `v2/api_keys/${encodeURIComponent(input.api_key_id)}`,
             retries: 3
         });

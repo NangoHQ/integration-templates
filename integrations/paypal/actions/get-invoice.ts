@@ -214,10 +214,10 @@ const OutputSchema = ProviderInvoiceSchema;
 
 const action = createAction({
     description: 'Retrieve an invoice.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/invoicing/invoices/read'],
+    scopes: ['https://uri.paypal.com/services/invoicing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

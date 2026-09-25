@@ -83,7 +83,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.squareup.com/reference/square/customers-api/get-customer
+            // https://developer.squareup.com/reference/square/customers-api/retrieve-customer
             endpoint: `/v2/customers/${encodeURIComponent(input.customer_id)}`,
             retries: 3
         });

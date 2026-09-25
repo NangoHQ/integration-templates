@@ -19,7 +19,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developers.asana.com/reference/delete-task
+            // https://developers.asana.com/reference/deletetask
             endpoint: `/api/1.0/tasks/${input.task_gid}`,
             retries: 1
         });

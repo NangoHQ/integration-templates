@@ -22,7 +22,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developer.bigcommerce.com/docs/rest-management/customers/subscribers#delete-a-subscriber
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/delete-subscriber
             endpoint: `/v3/customers/subscribers/${encodeURIComponent(input.subscriber_id)}`,
             retries: 3
         });

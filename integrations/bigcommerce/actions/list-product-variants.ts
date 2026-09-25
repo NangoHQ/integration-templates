@@ -136,7 +136,7 @@ const action = createAction({
 
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-catalog/product-variants
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/get-product-variants
         const response = await nango.get({
             endpoint: `/v3/catalog/products/${encodeURIComponent(String(input.product_id))}/variants`,
             params: {

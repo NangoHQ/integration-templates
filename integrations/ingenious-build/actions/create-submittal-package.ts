@@ -19,13 +19,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new submittal package for a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://api.ingenious.build/reference/createsubmittalpackagepubv2.md
+            // https://api.ingenious.build/reference/v2-create-submittal-package-1
             endpoint: '/api/v2/pub/submittal-packages',
             data: {
                 project_id: input.project_id,

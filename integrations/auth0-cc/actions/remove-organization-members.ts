@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['read:organizations', 'update:organizations'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://auth0.com/docs/api/management/v2/organizations/delete-organization-members
+        // https://auth0.com/docs/api/management/v2/organizations/delete-members
         await nango.delete({
             endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/members`,
             data: {

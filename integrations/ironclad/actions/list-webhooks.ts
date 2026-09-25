@@ -38,7 +38,7 @@ const action = createAction({
         const pageSize = input.pageSize ?? 20;
 
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/list-webhooks
+            // https://developer.ironcladapp.com/reference/list-all-webhooks
             endpoint: 'public/api/v1/webhooks',
             params: {
                 page: page,

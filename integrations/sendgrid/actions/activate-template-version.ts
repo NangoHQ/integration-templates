@@ -37,7 +37,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://www.twilio.com/docs/sendgrid/api-reference/templates/activate-a-template-version
+            // https://www.twilio.com/docs/sendgrid/api-reference/transactional-templates-versions/activate-a-transactional-template-version
             endpoint: `/v3/templates/${encodeURIComponent(input.template_id)}/versions/${encodeURIComponent(input.version_id)}/activate`,
             retries: 3
         });

@@ -71,7 +71,7 @@ const PageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Confluence pages across accessible spaces or configured space ids.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -85,6 +85,7 @@ const sync = createSync({
             path: '/syncs/pages'
         }
     ],
+    scopes: ['read:page:confluence'],
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse((await nango.getMetadata()) ?? {});

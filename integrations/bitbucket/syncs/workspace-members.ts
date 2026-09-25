@@ -57,13 +57,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync members of a workspace',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         WorkspaceMember: WorkspaceMemberSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['account'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

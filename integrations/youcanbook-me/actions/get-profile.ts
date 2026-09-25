@@ -126,7 +126,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://ycbm.stoplight.io/docs/youcanbookme-api/
+            // https://ycbm.stoplight.io/
             endpoint: `/v1/profiles/${encodeURIComponent(input.profileId)}`,
             retries: 3
         });

@@ -69,7 +69,7 @@ const action = createAction({
         };
 
         const response = await nango.post({
-            // https://developers.klaviyo.com/en/reference/query_campaign_values_report
+            // https://developers.klaviyo.com/en/reference/query_campaign_values
             endpoint: '/api/campaign-values-reports',
             headers: {
                 revision: '2026-04-15'

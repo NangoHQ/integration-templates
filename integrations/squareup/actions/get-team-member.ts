@@ -60,7 +60,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.squareup.com/reference/square/team-api/get-team-member
+            // https://developer.squareup.com/reference/square/team-api/retrieve-team-member
             endpoint: `/v2/team-members/${encodeURIComponent(input.team_member_id)}`,
             retries: 3
         });

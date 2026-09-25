@@ -82,10 +82,10 @@ const ConnectionItemSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact in Xero.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.contacts', 'accounting.invoices', 'accounting.settings'],
+    scopes: ['accounting.contacts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

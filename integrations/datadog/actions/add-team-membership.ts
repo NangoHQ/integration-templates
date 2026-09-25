@@ -43,10 +43,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a user to a team with a given role',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['teams_read', 'teams_manage'],
+    scopes: ['teams_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

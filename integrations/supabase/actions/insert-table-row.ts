@@ -32,7 +32,7 @@ const action = createAction({
             });
         }
 
-        // https://supabase.com/docs/reference/api/postgrest-v1-insert-row
+        // https://supabase.com/docs/reference/javascript/insert
         const response = await nango.post({
             endpoint: `/rest/v1/${encodeURIComponent(input.table)}`,
             data: input.row,

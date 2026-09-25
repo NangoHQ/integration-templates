@@ -25,7 +25,7 @@ const action = createAction({
         const encodedUserId = encodeURIComponent(input.user_id);
 
         const config: ProxyConfiguration = {
-            // https://supabase.com/docs/reference/api/delete-a-user
+            // https://supabase.com/docs/reference/javascript/auth-admin-deleteuser
             endpoint: `/auth/v1/admin/users/${encodedUserId}`,
             baseUrlOverride,
             retries: 3

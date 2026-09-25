@@ -24,7 +24,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.apollo.io/reference/patch_v1opportunitiesid
+        // https://docs.apollo.io/reference/update-deal
         const response = await nango.patch({
             endpoint: `/v1/opportunities/${encodeURIComponent(input.id)}`,
             data: {

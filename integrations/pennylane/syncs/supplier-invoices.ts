@@ -74,13 +74,14 @@ function normalizeSupplierInvoice(raw: z.infer<typeof RawSupplierInvoiceSchema>)
 
 const sync = createSync({
     description: 'Continuously sync supplier invoices.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         SupplierInvoice: SupplierInvoiceSchema
     },
+    scopes: ['supplier_invoices:readonly'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

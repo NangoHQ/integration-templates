@@ -149,7 +149,7 @@ const action = createAction({
             }
             cloudId = parsedResources.data[0]!.id;
 
-            // https://docs.nango.dev/reference/sdk/javascript#set-metadata
+            // https://nango.dev/docs/reference/backend/backend-sdk/node#edit-connection-metadata
             await nango.updateMetadata({ cloudId });
         }
 

@@ -30,7 +30,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://auth0.com/docs/api/management/v2/users/get-authenticators
+            // https://auth0.com/docs/api/management/v2/users/get-authentication-methods
             endpoint: `/api/v2/users/${encodeURIComponent(input.user_id)}/authenticators`,
             retries: 3
         });

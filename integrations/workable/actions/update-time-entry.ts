@@ -68,7 +68,7 @@ const action = createAction({
         }
 
         const response = await nango.patch({
-            // https://workable.readme.io/reference/patchspi-v3time-trackingemployeesidtime-entriesuuid
+            // https://workable.readme.io/reference/time-tracking-update-entry
             endpoint: `/spi/v3/time-tracking/employees/${encodeURIComponent(input.employee_id)}/time-entries/${encodeURIComponent(input.time_entry_id)}`,
             data: body,
             retries: 3

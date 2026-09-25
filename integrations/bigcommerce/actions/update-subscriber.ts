@@ -73,7 +73,7 @@ const action = createAction({
         }
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/subscribers
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/update-subscriber
             endpoint: `/v3/customers/subscribers/${encodeURIComponent(input.subscriber_id)}`,
             data: body,
             retries: 10

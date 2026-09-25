@@ -57,7 +57,7 @@ const action = createAction({
         const page = parsedPage;
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-categories
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-categories
         const response = await nango.get({
             endpoint: '/v3/catalog/categories',
             params: {

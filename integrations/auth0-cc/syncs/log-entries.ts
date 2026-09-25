@@ -31,12 +31,13 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync log entries from Auth0',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     // https://auth0.com/docs/api/management/v2/logs/get-logs
     endpoints: [{ method: 'GET', path: '/syncs/log-entries' }],
     checkpoint: CheckpointSchema,
+    scopes: ['read:logs'],
     models: {
         LogEntry: LogEntrySchema
     },

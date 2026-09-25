@@ -29,9 +29,10 @@ const FormSchema = z.object({
 
 const sync = createSync({
     description: 'Sync intake forms',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api-v1'],
     models: {
         Form: FormSchema
     },

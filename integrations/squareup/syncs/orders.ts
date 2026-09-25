@@ -78,9 +78,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync orders.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['MERCHANT_PROFILE_READ', 'ORDERS_READ'],
     checkpoint: CheckpointSchema,
     models: {
         Order: OrderSchema

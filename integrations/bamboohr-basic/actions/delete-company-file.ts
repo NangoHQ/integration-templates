@@ -12,9 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Permanently delete a company file in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['company_file.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://documentation.bamboohr.com/reference/delete-company-file

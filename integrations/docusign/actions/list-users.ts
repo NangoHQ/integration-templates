@@ -74,7 +74,7 @@ const action = createAction({
         const count = String(Math.min(parseInt(input.count || '100', 10), 100));
 
         const response = await nango.get({
-            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountusers/list/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users`,
             params: {
                 start_position: startPosition,

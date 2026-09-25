@@ -104,11 +104,11 @@ async function getCloudIdAndBaseUrl(nango: Parameters<Parameters<typeof createAc
 
 const action = createAction({
     description: 'Retrieve a Jira priority by priority ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:issue-details:jira'],
+    scopes: ['read:priority:jira'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { cloudId } = await getCloudIdAndBaseUrl(nango);

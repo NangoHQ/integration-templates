@@ -54,9 +54,10 @@ const KeyEventsCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync configured GA4 key events (formerly conversion events)',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     models: {
         KeyEvent: KeyEventSchema
     },

@@ -39,7 +39,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync lists from Twitter/X.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,14 +52,14 @@ const sync = createSync({
             path: '/syncs/lists'
         }
     ],
-    scopes: ['list.read', 'users.read'],
+    scopes: ['list.read', 'tweet.read', 'users.read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
         let paginationToken = checkpoint?.pagination_token;
 
-        // https://docs.x.com/x-api/users/user-lookup
+        // https://docs.x.com/x-api/users/get-my-user
         const userResponse = await nango.get({
             endpoint: '/2/users/me',
             retries: 3

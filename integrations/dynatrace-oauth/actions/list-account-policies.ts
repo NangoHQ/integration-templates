@@ -46,7 +46,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policies/list-account-policies
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/get-all-policies
             endpoint: `iam/v1/repo/account/${encodeURIComponent(accountUuid)}/policies`,
             retries: 3
         });

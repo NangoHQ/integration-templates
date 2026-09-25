@@ -37,9 +37,10 @@ const EventSchema = z.object({
 
 const sync = createSync({
     description: 'Sync events (deployments, alerts, custom annotations) in a time window',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['events_read'],
     checkpoint: CheckpointSchema,
     models: {
         Event: EventSchema

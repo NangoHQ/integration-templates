@@ -17,7 +17,7 @@ const action = createAction({
     scopes: ['asm.suppressions.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-global-suppressions/delete-a-globally-suppressed-email-address
+        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-global-suppressions/delete-a-global-suppression
         await nango.delete({
             endpoint: `/v3/asm/suppressions/global/${encodeURIComponent(input.email)}`,
             retries: 3

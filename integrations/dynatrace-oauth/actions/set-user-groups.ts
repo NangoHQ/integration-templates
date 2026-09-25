@@ -27,7 +27,7 @@ const action = createAction({
         }
 
         await nango.put({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/account-users-api
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/put-user-groups
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodeURIComponent(input.email)}/groups`,
             data: input.groupUuids,
             retries: 3

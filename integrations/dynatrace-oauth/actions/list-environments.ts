@@ -39,7 +39,7 @@ const action = createAction({
         const accountUuid = parsedMetadata.data.accountUuid;
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environments
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/environment-management-api/get-environments-api-v2
             endpoint: `env/v2/accounts/${encodeURIComponent(accountUuid)}/environments`,
             retries: 3
         });

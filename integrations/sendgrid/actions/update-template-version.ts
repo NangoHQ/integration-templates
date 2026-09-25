@@ -66,7 +66,7 @@ const action = createAction({
             input.generate_plain_content !== undefined ? input.generate_plain_content : input.html_content === undefined ? false : undefined;
 
         const config: ProxyConfiguration = {
-            // https://www.twilio.com/docs/sendgrid/api-reference/templates-versions/update-template-version
+            // https://www.twilio.com/docs/sendgrid/api-reference/transactional-templates-versions/edit-a-transactional-template-version
             endpoint: `/v3/templates/${encodeURIComponent(input.template_id)}/versions/${encodeURIComponent(input.version_id)}`,
             data: {
                 ...(input.active !== undefined && { active: input.active }),

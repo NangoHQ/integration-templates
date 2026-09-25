@@ -46,7 +46,7 @@ const action = createAction({
             params['limit'] = input.limit;
         }
 
-        // https://api.slack.dev/apis/files/list
+        // https://api.slack.com/methods/files.list
         const response = await nango.get({
             endpoint: 'files.list',
             params,

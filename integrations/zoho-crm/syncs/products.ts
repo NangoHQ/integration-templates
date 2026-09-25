@@ -41,13 +41,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync products from Zoho CRM.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     endpoints: [{ method: 'GET', path: '/syncs/products' }],
     checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
+    scopes: ['ZohoCRM.modules.products.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

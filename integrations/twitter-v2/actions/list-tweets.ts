@@ -126,7 +126,7 @@ const action = createAction({
             params['exclude'] = input.exclude.join(',');
         }
 
-        // https://docs.x.com/x-api/users/lookup/api-reference/get-users-id-tweets
+        // https://docs.x.com/x-api/users/get-posts
         const response = await nango.get({
             endpoint: `/2/users/${input.user_id}/tweets`,
             params,

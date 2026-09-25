@@ -68,9 +68,10 @@ type FolderChildrenCheckpoint = z.infer<typeof FolderChildrenCheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync children for selected folders',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['onedrive.readonly'],
     endpoints: [
         {
             path: '/syncs/folder-children',

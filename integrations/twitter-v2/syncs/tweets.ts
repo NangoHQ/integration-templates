@@ -74,7 +74,7 @@ type UserResponse = {
 
 const sync = createSync({
     description: 'Sync tweets from Twitter/X user timeline',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/tweets' }],
     frequency: 'every hour',
     autoStart: true,
@@ -82,6 +82,7 @@ const sync = createSync({
     models: {
         Tweet: TweetSchema
     },
+    scopes: ['tweet.read', 'users.read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -89,7 +90,7 @@ const sync = createSync({
         let paginationToken = getCheckpointValue(checkpoint, 'pagination_token');
         let maxSeenId = getCheckpointValue(checkpoint, 'max_seen_id') ?? sinceId;
 
-        // https://docs.x.com/x-api/users/user-lookup-by-me
+        // https://docs.x.com/x-api/users/get-my-user
         const userResponse = await nango.get<UserResponse>({
             endpoint: '/2/users/me',
             retries: 3

@@ -28,7 +28,7 @@ const LoadedCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspaces visible to the authenticated Asana user.',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
@@ -37,6 +37,7 @@ const sync = createSync({
     models: {
         Workspace: WorkspaceSchema
     },
+    scopes: ['workspaces:read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

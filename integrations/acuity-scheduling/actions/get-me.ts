@@ -29,10 +29,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve the authenticated user's account information.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: ['api-v1'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

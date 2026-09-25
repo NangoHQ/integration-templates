@@ -69,7 +69,7 @@ const action = createAction({
             requestData['opportunity_id'] = input.opportunity_id;
         }
 
-        // https://docs.apollo.io/reference/create-task
+        // https://docs.apollo.io/reference/create-a-task
         const response = await nango.post({
             endpoint: '/v1/tasks',
             data: requestData,

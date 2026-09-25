@@ -34,7 +34,7 @@ const TeamItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync teams for workspaces in scope.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -47,6 +47,7 @@ const sync = createSync({
         Team: TeamSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['workspaces:read', 'teams:read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

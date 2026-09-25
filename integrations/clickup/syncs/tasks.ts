@@ -210,7 +210,7 @@ type Task = z.infer<typeof TaskSchema>;
 
 const sync = createSync({
     description: 'Sync tasks from ClickUp.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -218,6 +218,7 @@ const sync = createSync({
         Task: TaskSchema
     },
     endpoints: [{ method: 'GET', path: '/syncs/tasks' }],
+    scopes: [],
 
     exec: async (nango) => {
         // Get checkpoint for incremental sync

@@ -53,7 +53,7 @@ const action = createAction({
     },
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products#get-all-products
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/get-products
             endpoint: '/v3/catalog/products',
             params: {
                 limit: input.limit ?? 50,

@@ -28,9 +28,10 @@ const ScorecardSchema = z.object({
 
 const sync = createSync({
     description: 'Sync scorecards from Gong',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:settings:scorecards:read'],
     models: {
         Scorecard: ScorecardSchema
     },

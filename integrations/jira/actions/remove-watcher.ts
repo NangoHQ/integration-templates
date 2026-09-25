@@ -18,11 +18,11 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Remove a watcher from a Jira issue',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:jira', 'write:jira'],
+    scopes: ['write:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

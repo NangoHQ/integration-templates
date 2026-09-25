@@ -17,7 +17,7 @@ const action = createAction({
     scopes: ['read:resource_servers', 'delete:resource_servers'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://auth0.com/docs/api/management/v2/resource-servers/delete-resource-server
+        // https://auth0.com/docs/api/management/v2/resource-servers/delete-resource-servers-by-id
         await nango.delete({
             endpoint: `/api/v2/resource-servers/${encodeURIComponent(input.id)}`,
             retries: 3

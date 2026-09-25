@@ -202,9 +202,10 @@ function mapRowToCampaignCriterion(row: z.infer<typeof GoogleAdsRowSchema>): z.i
 
 const sync = createSync({
     description: 'Sync campaign-level criteria (negative keywords and location targeting) for customer accounts in scope.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

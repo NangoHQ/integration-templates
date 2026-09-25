@@ -49,7 +49,7 @@ function exactDateToFilterValue(dateString: string): string {
 
 const sync = createSync({
     description: 'Sync logistics items/products with incremental updates.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -62,6 +62,7 @@ const sync = createSync({
             path: '/syncs/items'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

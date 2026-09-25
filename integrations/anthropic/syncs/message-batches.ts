@@ -77,7 +77,7 @@ const sync = createSync({
 
         while (true) {
             const response = await nango.get({
-                // https://docs.anthropic.com/en/api/message-batches
+                // https://platform.claude.com/docs/en/api/messages/batches/list
                 endpoint: '/v1/messages/batches',
                 params: {
                     ...(afterId !== undefined ? { after_id: afterId } : {}),

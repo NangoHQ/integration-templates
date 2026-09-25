@@ -37,7 +37,7 @@ const PaymentRecordSchema = z.object({
 
 const sync = createSync({
     description: 'Sync outgoing payments from the cashflow module.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -50,11 +50,12 @@ const sync = createSync({
             path: '/syncs/payments'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
 
-        // https://start.exactonline.fr/docs/services/current/Me
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -72,7 +73,7 @@ const sync = createSync({
         const division = results[0].CurrentDivision;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://start.exactonline.fr/docs/services/cashflow/Payments
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=CashflowPayments
             endpoint: `/api/v1/${encodeURIComponent(division)}/cashflow/Payments`,
             params: {
                 $select: 'ID,Account,AmountDC,Description,PaymentReference,Modified',

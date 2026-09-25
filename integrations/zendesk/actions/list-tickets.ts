@@ -105,9 +105,10 @@ const ListTicketsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List tickets in Zendesk Support',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListTicketsInputSchema,
     output: ListTicketsOutputSchema,
+    scopes: ['tickets:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListTicketsOutputSchema>> => {
         const params: Record<string, string | number> = {

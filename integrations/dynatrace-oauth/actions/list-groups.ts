@@ -69,7 +69,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups/list-groups
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/group-management-api/get-all-groups
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups`,
             retries: 3
         });

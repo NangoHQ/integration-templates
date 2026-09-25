@@ -34,8 +34,8 @@ const DeleteTweetOutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a tweet in Twitter/X',
-    version: '1.0.1',
-    scopes: ['tweet.read', 'tweet.write'],
+    version: '1.0.2',
+    scopes: ['tweet.read', 'tweet.write', 'users.read'],
     input: DeleteTweetInputSchema,
     output: DeleteTweetOutputSchema,
 

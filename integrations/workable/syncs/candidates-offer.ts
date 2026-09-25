@@ -67,7 +67,7 @@ const sync = createSync({
         await nango.trackDeletesStart('CandidateOffer');
 
         const proxyConfig: ProxyConfiguration = {
-            // https://workable.readme.io/reference/list-candidates
+            // https://workable.readme.io/reference/job-candidates-index
             endpoint: '/spi/v3/candidates',
             params,
             paginate: {

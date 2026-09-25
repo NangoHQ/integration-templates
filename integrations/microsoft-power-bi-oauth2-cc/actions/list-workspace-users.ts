@@ -33,10 +33,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List users and service principals with access to a workspace.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Workspace.Read.All'],
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

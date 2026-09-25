@@ -30,7 +30,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://pennylane.readme.io/reference/get_journals-id
+            // https://pennylane.readme.io/reference/getjournal
             endpoint: `/api/external/v2/journals/${encodeURIComponent(input.id)}`,
             retries: 3
         });

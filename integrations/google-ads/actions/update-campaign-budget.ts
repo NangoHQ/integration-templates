@@ -95,7 +95,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/reference/rest/v25/customers.campaignBudgets/mutate
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/CampaignBudgetService/MutateCampaignBudgets
             endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignBudgets:mutate`,
             data: {
                 operations: [

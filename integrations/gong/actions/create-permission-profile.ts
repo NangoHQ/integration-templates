@@ -161,7 +161,7 @@ const action = createAction({
             ...(input.aiBuilder !== undefined && { aiBuilder: input.aiBuilder })
         };
 
-        // https://help.gong.io/docs/create-permission-profile
+        // https://help.gong.io/apidocs/create-permission-profile
         let response;
         // @allowTryCatch: The Gong API returns 401 when the api:permission-profile:write scope is missing.
         // We catch this and re-throw as a descriptive ActionError so callers receive a graceful, typed failure.

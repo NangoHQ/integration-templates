@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['store_v2_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/products#delete-a-product
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/delete-product
         await nango.delete({
             endpoint: `/v3/catalog/products/${encodeURIComponent(input.product_id)}`,
             retries: 3

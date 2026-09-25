@@ -38,10 +38,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search pages, data sources, and other searchable Notion objects.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['search:read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {};

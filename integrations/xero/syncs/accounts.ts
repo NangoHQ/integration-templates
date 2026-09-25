@@ -88,11 +88,12 @@ function mapAccount(record: z.infer<typeof XeroAccountSchema>): z.infer<typeof A
 
 const sync = createSync({
     description: 'Sync accounts from the Xero chart of accounts.',
-    version: '3.1.0',
+    version: '3.1.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/accounts' }],
     checkpoint: CheckpointSchema,
+    scopes: ['accounting.settings.read'],
     models: {
         Account: AccountSchema
     },

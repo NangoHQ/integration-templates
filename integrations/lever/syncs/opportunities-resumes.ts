@@ -32,13 +32,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all resumes for every single opportunity',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         OpportunityResume: OpportunityResumeSchema
     },
+    scopes: ['resumes:read:admin'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

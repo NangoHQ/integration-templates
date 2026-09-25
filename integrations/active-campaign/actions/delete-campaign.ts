@@ -22,7 +22,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.activecampaign.com/reference/campaigns
+        // https://developers.activecampaign.com/reference/delete-a-campaign
         const response = await nango.delete({
             endpoint: `/3/campaigns/${encodeURIComponent(String(input.id))}/delete`,
             retries: 3

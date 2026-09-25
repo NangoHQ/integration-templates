@@ -90,10 +90,10 @@ const ResponseWrapperSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single item from Zoho Books',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoBooks.items.READ', 'ZohoBooks.settings.READ'],
+    scopes: ['ZohoBooks.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let organizationId = input.organization_id;

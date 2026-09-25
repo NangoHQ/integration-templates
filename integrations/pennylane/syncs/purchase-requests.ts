@@ -76,13 +76,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync purchase requests.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         PurchaseRequest: PurchaseRequestSchema
     },
+    scopes: ['purchase_requests:readonly'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

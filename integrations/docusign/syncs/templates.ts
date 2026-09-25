@@ -29,7 +29,7 @@ const ProviderEnvelopeTemplateSchema = z.object({
 
 const sync = createSync({
     description: 'Sync template metadata with full-refresh delete tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -37,6 +37,7 @@ const sync = createSync({
     models: {
         Template: TemplateSchema
     },
+    scopes: ['signature'],
     endpoints: [
         {
             method: 'GET',

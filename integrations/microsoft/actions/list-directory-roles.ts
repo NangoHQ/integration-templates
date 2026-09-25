@@ -40,7 +40,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List directory roles from Microsoft Graph. Returns activated directory roles in the tenant.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['RoleManagement.Read.Directory'],

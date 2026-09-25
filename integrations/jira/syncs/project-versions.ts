@@ -55,9 +55,10 @@ type CheckpointType = z.infer<typeof CheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync Jira project versions for projects in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read:jira-work', 'read:project-version:jira'],
     endpoints: [
         {
             method: 'GET',

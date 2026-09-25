@@ -25,7 +25,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://www.twilio.com/docs/sendgrid/api-reference/contacts/get-contacts-count
+            // https://www.twilio.com/docs/sendgrid/api-reference/contacts/get-total-contact-count
             endpoint: '/v3/marketing/contacts/count',
             retries: 3
         });

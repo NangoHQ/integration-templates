@@ -20,7 +20,7 @@ interface OrganizationUnitResponse {
 
 const sync = createSync({
     description: 'Sync all workspace org units',
-    version: '2.1.0',
+    version: '2.1.1',
     frequency: 'every 6 hours',
     autoStart: true,
     syncType: 'full',
@@ -32,7 +32,7 @@ const sync = createSync({
         }
     ],
 
-    scopes: ['https://www.googleapis.com/auth/admin.directory.orgunit.readonly', 'https://www.googleapis.com/auth/admin.directory.user.readonly'],
+    scopes: ['https://www.googleapis.com/auth/admin.directory.orgunit.readonly'],
 
     models: {
         OrganizationalUnit: OrganizationalUnit

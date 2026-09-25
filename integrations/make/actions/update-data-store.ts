@@ -52,7 +52,7 @@ const action = createAction({
             body['maxSizeMB'] = input.maxSizeMB;
         }
 
-        // https://developers.make.com/api-documentation/api-reference/data-stores/patch--data-stores--datastoreid
+        // https://developers.make.com/api-documentation/api-reference/data-stores
         const response = await nango.patch({
             endpoint: `/data-stores/${encodeURIComponent(String(input.dataStoreId))}`,
             data: body,

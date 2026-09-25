@@ -40,7 +40,7 @@ const TransactionItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync financial transaction headers with date-window checkpoints',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -53,13 +53,14 @@ const sync = createSync({
             path: '/syncs/financial-transactions'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint);
         const updatedAfter = parsedCheckpoint.success ? parsedCheckpoint.data.updated_after : undefined;
 
-        // https://start.exactonline.fr/docs/api/v1/current/Me
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -87,7 +88,7 @@ const sync = createSync({
             throw new Error('CurrentDivision not found in Me response');
         }
 
-        // https://start.exactonline.fr/docs/api/v1/financialtransaction/Transactions
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialTransactionTransactions
         for await (const page of nango.paginate({
             endpoint: `/api/v1/${encodeURIComponent(division)}/financialtransaction/Transactions`,
             params: {

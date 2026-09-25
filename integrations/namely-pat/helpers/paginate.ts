@@ -33,7 +33,7 @@ export async function* paginate(
         });
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developers.namely.com/docs/namely-api/namely-api-reference
+            // https://developers.namely.com/docs/namely-api/ZG9jOjgwMzMxNjE-introduction
             endpoint,
             params,
             retries: 10

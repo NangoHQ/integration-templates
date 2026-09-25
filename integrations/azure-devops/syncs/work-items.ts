@@ -156,7 +156,7 @@ const sync = createSync({
                     const batchIds = ids.slice(i, i + batchSize);
                     const batchIdString = batchIds.join(',');
 
-                    // https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/get-work-items?view=azure-devops-rest-7.2
+                    // https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/list?view=azure-devops-rest-7.2
                     const workItemsResponse = await nango.get({
                         endpoint: `/${encodeURIComponent(project)}/_apis/wit/workitems`,
                         params: {

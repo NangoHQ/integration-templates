@@ -55,7 +55,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync goals from ClickUp',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ path: '/syncs/goals', method: 'GET' }],
     frequency: 'every hour',
     autoStart: false,
@@ -63,6 +63,7 @@ const sync = createSync({
     models: {
         Goal: GoalSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

@@ -56,9 +56,10 @@ const ProviderEntrySchema = z.object({
 
 const action = createAction({
     description: 'List time tracking entries for an employee in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['time_tracking'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

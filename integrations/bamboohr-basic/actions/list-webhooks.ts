@@ -17,9 +17,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List webhook subscriptions in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['webhooks'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

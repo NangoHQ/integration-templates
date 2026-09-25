@@ -44,12 +44,13 @@ const DocumentSchema = z.object({
 
 const sync = createSync({
     description: 'Discover Google Docs files with a Drive search query, then sync each document content',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     endpoints: [{ method: 'GET', path: '/syncs/documents-from-drive-query' }],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     models: {
         DriveQueryDocument: DocumentSchema
     },

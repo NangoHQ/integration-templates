@@ -45,7 +45,7 @@ const action = createAction({
             headers['Prefer'] = 'return=representation';
         }
 
-        // https://supabase.com/docs/reference/api/delete-rows
+        // https://supabase.com/docs/reference/javascript/delete
         const response = await nango.delete({
             endpoint: `/rest/v1/${encodeURIComponent(input.table)}`,
             params: input.filters,

@@ -83,7 +83,7 @@ function serializeCheckpoint(
 
 const sync = createSync({
     description: 'Sync page entries from a Notion data source with properties and timestamps',
-    version: '1.1.1',
+    version: '1.1.2',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [{ path: '/syncs/data-source-entries', method: 'POST' }],
@@ -91,6 +91,7 @@ const sync = createSync({
     models: {
         DataSourceEntry: DataSourceEntrySchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

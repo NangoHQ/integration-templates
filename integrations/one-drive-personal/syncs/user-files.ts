@@ -79,9 +79,10 @@ const UserFileSchema = z.object({
 
 const sync = createSync({
     description: 'Sync file metadata from the personal OneDrive',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['onedrive.readonly'],
     checkpoint: UserFilesCheckpointSchema,
     models: {
         UserFile: UserFileSchema

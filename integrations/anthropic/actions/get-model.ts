@@ -67,7 +67,7 @@ const action = createAction({
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.anthropic.com/en/api/models-get
+        // https://platform.claude.com/docs/en/api/models/retrieve
         const response = await nango.get({
             endpoint: `/v1/models/${encodeURIComponent(input.model_id)}`,
             retries: 3

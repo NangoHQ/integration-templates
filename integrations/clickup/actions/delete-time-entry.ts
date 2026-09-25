@@ -49,10 +49,11 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a time entry in ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();
@@ -72,7 +73,7 @@ const action = createAction({
             });
         }
 
-        // https://developer.clickup.com/reference/deletetimetrackingentry
+        // https://developer.clickup.com/reference/deleteatimeentry
         const response = await nango.delete({
             endpoint: `/api/v2/team/${encodeURIComponent(teamId)}/time_entries/${encodeURIComponent(input.time_entry_id)}`,
             retries: 3

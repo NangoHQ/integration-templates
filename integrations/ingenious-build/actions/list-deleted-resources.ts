@@ -45,9 +45,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List resources that have been deleted, optionally filtered by resource type and deletion date range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         let page = 1;
@@ -93,7 +94,7 @@ const action = createAction({
             params['deleted_after'] = input.deleted_after;
         }
 
-        // https://api.ingenious.build/reference/v2-list-deleted-resources.md
+        // https://api.ingenious.build/reference/685535d3110db09adeae9514e41de01a
         const response = await nango.get({
             endpoint: '/api/v2/pub/deleted-resources',
             params,

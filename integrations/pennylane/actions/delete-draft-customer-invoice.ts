@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['customer_invoices:all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://pennylane.readme.io/reference/delete_customer_invoices-id
+        // https://pennylane.readme.io/reference/deletecustomerinvoices
         await nango.delete({
             endpoint: `/api/external/v2/customer_invoices/${encodeURIComponent(String(input.id))}`,
             retries: 1

@@ -17,7 +17,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/contactdb-lists/delete-a-list
+        // https://www.twilio.com/docs/sendgrid/api-reference/lists/delete-a-list
         await nango.delete({
             endpoint: `/v3/marketing/lists/${encodeURIComponent(input.list_id)}`,
             params: {

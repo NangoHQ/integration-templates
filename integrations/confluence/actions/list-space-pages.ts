@@ -97,11 +97,11 @@ async function getCloudId(nango: NangoActionExec): Promise<string> {
 
 const action = createAction({
     description: 'List pages in a specific Confluence space.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:page:confluence', 'read:space:confluence'],
+    scopes: ['read:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const cloudId = await getCloudId(nango);

@@ -21,7 +21,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/download-workflow-document
+            // https://developer.ironcladapp.com/reference/retrieve-a-workflow-document
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/document/${encodeURIComponent(input.documentKey)}/download`,
             responseType: 'arraybuffer',
             retries: 3

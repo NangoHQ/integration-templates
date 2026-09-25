@@ -11,10 +11,11 @@ import { User, DialpadCreateUser } from '../models.js';
  */
 const action = createAction({
     description: 'Creates a user in Dialpad',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: DialpadCreateUser,
     output: User,
+    scopes: [],
 
     exec: async (nango, input): Promise<User> => {
         await nango.zodValidateInput({ zodSchema: dialpadCreateUserSchema, input });

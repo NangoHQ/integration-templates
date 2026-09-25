@@ -39,7 +39,7 @@ const action = createAction({
 
         // If userId not in metadata, fetch from /2/users/me
         if (!userId) {
-            // https://docs.x.com/x-api/users/get-authenticated-user-data
+            // https://docs.x.com/x-api/users/get-my-user
             const meResponse = await nango.get({
                 endpoint: '/2/users/me',
                 retries: 3

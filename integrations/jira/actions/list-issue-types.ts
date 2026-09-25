@@ -44,11 +44,11 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'List Jira issue types available to the user',
-    version: '1.0.1',
+    version: '1.0.2',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read:jira-work'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

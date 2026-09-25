@@ -50,7 +50,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.figma.com/docs/rest-api/styles-endpoints/#get-style
+            // https://developers.figma.com/docs/rest-api/component-endpoints/#get-style-endpoint
             endpoint: `/v1/styles/${encodeURIComponent(input.key)}`,
             retries: 3
         });

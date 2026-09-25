@@ -23,7 +23,7 @@ const OrganisationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Xero organisation records for connected tenants.',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -35,6 +35,7 @@ const sync = createSync({
             path: '/syncs/organisations'
         }
     ],
+    scopes: ['accounting.settings.read'],
 
     exec: async (nango) => {
         const tenantId = await resolveTenantId(nango);

@@ -30,7 +30,7 @@ const action = createAction({
     scopes: ['ZohoCRM.modules.notes.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/notes/delete-notes.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/delete-notes.html
         const response = await nango.delete({
             endpoint: `/crm/v2/Notes/${input.note_id}`,
             retries: 3

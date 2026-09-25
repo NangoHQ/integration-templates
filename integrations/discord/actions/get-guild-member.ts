@@ -47,10 +47,10 @@ const GuildMemberSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single guild member from Discord',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: GuildMemberSchema,
-    scopes: ['guilds', 'guilds.members.read'],
+    scopes: ['bot'],
 
     exec: async (nango, input): Promise<z.infer<typeof GuildMemberSchema>> => {
         const metadata = await nango.getMetadata<{ botToken: string }>();

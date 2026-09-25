@@ -117,10 +117,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a subscription.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/subscriptions/read'],
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

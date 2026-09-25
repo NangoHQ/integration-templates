@@ -80,9 +80,10 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync groups from Splitwise.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     models: {
         Group: GroupSchema
     },

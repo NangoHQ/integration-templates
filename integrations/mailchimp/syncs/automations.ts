@@ -33,10 +33,11 @@ const AutomationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync automations from Mailchimp.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/automations' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     models: {
         Automation: AutomationSchema
     },

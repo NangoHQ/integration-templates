@@ -19,10 +19,11 @@ import { z } from 'zod';
  */
 const action = createAction({
     description: 'Fetch the possible services that Checkr offers for a background check',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: z.void(),
     output: CheckrServicesResponse,
+    scopes: ['read_write'],
 
     exec: async (nango): Promise<CheckrServicesResponse> => {
         const { config, connection_config } = await constructRequestWithConnectionConfig(nango, '/v1/packages');

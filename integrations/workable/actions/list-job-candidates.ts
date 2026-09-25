@@ -50,7 +50,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-candidates
+            // https://workable.readme.io/reference/job-candidates-index
             endpoint: '/spi/v3/candidates',
             params,
             retries: 3

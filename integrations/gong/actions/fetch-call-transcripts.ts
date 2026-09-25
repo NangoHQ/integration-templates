@@ -53,9 +53,10 @@ function isHttpErrorWithStatus(error: unknown, status: number): boolean {
 const action = createAction({
     description:
         'Fetch a page of Gong call transcripts, optionally filtered by date range, workspace, or call IDs. Use the returned nextCursor to retrieve subsequent pages.',
-    version: '4.0.2',
+    version: '4.0.3',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api:calls:read:transcript'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.from && !input.to && !input.callIds && !input.workspaceId && !input.cursor) {

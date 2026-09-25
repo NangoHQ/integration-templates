@@ -15,14 +15,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an employee table row in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['employee.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/v1/employees/${encodeURIComponent(input.employee_id)}/tables/${encodeURIComponent(input.table)}`;
 
-        // https://documentation.bamboohr.com/reference/create-table-row
+        // https://documentation.bamboohr.com/reference/create-table-row-v1-v1
         await nango.post({
             endpoint,
             data: input.fields,

@@ -43,7 +43,7 @@ const action = createAction({
 
     exec: async (nango, input) => {
         const response = await nango.post({
-            // https://developer.bigcommerce.com/docs/rest-management
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/create-subscriber
             endpoint: '/v3/customers/subscribers',
             data: {
                 email: input.email,

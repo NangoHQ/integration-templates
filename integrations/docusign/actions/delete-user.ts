@@ -30,7 +30,7 @@ const action = createAction({
             });
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/users/deleteusers/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
         const response = await nango.delete({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(metadata.accountId)}/users`,
             data: {

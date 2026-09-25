@@ -42,7 +42,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof WishlistSchema>> => {
         const response = await nango.post({
-            // https://developer.bigcommerce.com/docs/rest-management/wishlists
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/wishlists/create-wishlist
             endpoint: '/v3/wishlists',
             data: {
                 name: input.name,

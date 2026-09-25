@@ -76,10 +76,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a lead in Pipedrive',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['deals:full:write'],
+    scopes: ['leads:full'],
 
     exec: async (nango, input) => {
         // Build the update payload - only include fields that are provided

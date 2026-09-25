@@ -123,7 +123,7 @@ const action = createAction({
             }
         };
 
-        // https://workable.readme.io/reference/create_candidate
+        // https://workable.readme.io/reference/job-candidates-create
         const response = await nango.post({
             endpoint: `/spi/v3/jobs/${encodeURIComponent(input.shortcode)}/candidates`,
             data: body,

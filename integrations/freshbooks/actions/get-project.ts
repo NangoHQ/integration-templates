@@ -77,7 +77,7 @@ const action = createAction({
         const projectId = String(input.projectId);
 
         const response = await nango.get({
-            // https://www.freshbooks.com/api/projects
+            // https://www.freshbooks.com/developers/docs/projects
             endpoint: `/projects/business/${encodeURIComponent(businessId)}/projects/${encodeURIComponent(projectId)}`,
             retries: 3
         });

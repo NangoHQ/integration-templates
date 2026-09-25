@@ -30,10 +30,11 @@ const SystemLogEventSchema = LogEventSchema.extend({
 
 const sync = createSync({
     description: 'Sync system log events.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['okta.logs.read'],
     models: {
         SystemLogEvent: SystemLogEventSchema
     },

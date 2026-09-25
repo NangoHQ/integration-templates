@@ -53,9 +53,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync discount codes (the redeemable code strings), scoped per price rule.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_price_rules', 'read_discounts'],
     checkpoint: CheckpointSchema,
     models: {
         DiscountCode: DiscountCodeSchema

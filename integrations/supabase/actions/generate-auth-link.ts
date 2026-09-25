@@ -97,7 +97,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://supabase.com/docs/reference/api/admin-generate-link
+            // https://supabase.com/docs/reference/javascript/auth-admin-generatelink
             endpoint: '/auth/v1/admin/generate_link',
             baseUrlOverride,
             data: body,

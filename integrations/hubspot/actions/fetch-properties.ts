@@ -34,11 +34,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List CRM property metadata for a specified HubSpot object type',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['crm.objects.contacts.read', 'crm.objects.companies.read', 'crm.objects.deals.read'],
+    scopes: ['crm.schemas.contacts.read', 'crm.schemas.companies.read', 'crm.schemas.deals.read', 'tickets'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.hubspot.com/docs/api-reference/crm-properties-v3/guide

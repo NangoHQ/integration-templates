@@ -18,7 +18,7 @@ const action = createAction({
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/toggle-playback-shuffle
+        // https://developer.spotify.com/documentation/web-api/reference/toggle-shuffle-for-users-playback
         await nango.put({
             endpoint: '/v1/me/player/shuffle',
             params: {

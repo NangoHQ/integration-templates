@@ -105,9 +105,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync one or more YouTube channels in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
     models: {
         Channel: ChannelSchema
     },

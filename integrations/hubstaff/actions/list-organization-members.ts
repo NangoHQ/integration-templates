@@ -69,7 +69,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.hubstaff.com/reference/get-v2-organizations-organization-id-members
+            // https://developer.hubstaff.com/reference/members
             endpoint: `v2/organizations/${encodeURIComponent(String(input.organization_id))}/members`,
             params: {
                 ...(input.cursor && { page_start_id: input.cursor }),

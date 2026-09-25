@@ -21,7 +21,7 @@ const action = createAction({
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/set-playback-volume
+        // https://developer.spotify.com/documentation/web-api/reference/set-volume-for-users-playback
         await nango.put({
             endpoint: '/v1/me/player/volume',
             params: {

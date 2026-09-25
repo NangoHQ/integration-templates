@@ -38,10 +38,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify store events for audit and activity feed use cases.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: [],
     models: {
         Event: EventSchema
     },

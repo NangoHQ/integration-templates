@@ -35,7 +35,7 @@ const action = createAction({
         const accountUuid = parsedConfig.data.accountUuid;
 
         const response = await nango.delete({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups-api/delete-group
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/group-management-api/delete-group
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups/${encodeURIComponent(input.groupUuid)}`,
             retries: 1
         });

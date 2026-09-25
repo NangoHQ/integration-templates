@@ -47,10 +47,10 @@ type ParamsType = {
 
 const action = createAction({
     description: 'Run a parameterized search request across Salesforce objects.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api', 'refresh_token'],
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Build params with arrays for repeated query parameters

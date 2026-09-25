@@ -95,7 +95,7 @@ type UserType = z.infer<typeof UserSchema>;
 
 const sync = createSync({
     description: 'Sync users from Zoho CRM',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ path: '/syncs/users', method: 'GET' }],
     frequency: 'every hour',
     autoStart: true,
@@ -103,6 +103,7 @@ const sync = createSync({
     models: {
         User: UserSchema
     },
+    scopes: ['ZohoCRM.users.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

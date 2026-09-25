@@ -58,14 +58,14 @@ const action = createAction({
         }
 
         await nango.put({
-            // https://developers.gorgias.com/reference/put-tickets-id-tags
+            // https://developers.gorgias.com/reference/update-ticket-tags
             endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}/tags`,
             data,
             retries: 3
         });
 
         const ticketResponse = await nango.get({
-            // https://developers.gorgias.com/reference/get-tickets-id
+            // https://developers.gorgias.com/reference/get-ticket
             endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}`,
             retries: 3
         });

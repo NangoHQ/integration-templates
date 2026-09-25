@@ -101,7 +101,7 @@ const action = createAction({
         }
 
         if (!businessId) {
-            // https://www.freshbooks.com/api/identity
+            // https://www.freshbooks.com/api/identity_model
             const userResponse = await nango.get({
                 endpoint: '/auth/api/v1/users/me',
                 retries: 3

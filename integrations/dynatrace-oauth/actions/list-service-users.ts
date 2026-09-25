@@ -66,7 +66,7 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/get-all-service-users
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
             retries: 3
         };

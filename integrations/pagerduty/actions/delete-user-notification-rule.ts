@@ -14,7 +14,7 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Delete a notification rule from a user.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: z.null().describe('Empty response confirming the notification rule was deleted.'),
     scopes: ['users:contact_methods.write'],

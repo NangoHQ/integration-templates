@@ -234,7 +234,7 @@ const sync = createSync({
             // @allowTryCatch: a previously open problem may have been deleted or purged,
             // in which case we skip it and stop tracking it as open.
             try {
-                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problem
+                // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problem-details
                 const response = await nango.get({
                     endpoint: `/api/v2/problems/${encodeURIComponent(problemId)}`,
                     retries: 3

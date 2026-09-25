@@ -35,7 +35,7 @@ const action = createAction({
         const executionId = encodeURIComponent(input.executionId);
 
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/scenarios/logs/get-scenario-execution-details
+            // https://developers.make.com/api-documentation/api-reference/scenarios/logs
             endpoint: `/scenarios/${scenarioId}/executions/${executionId}`,
             retries: 3
         });

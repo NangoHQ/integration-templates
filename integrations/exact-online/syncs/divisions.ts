@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync divisions/administrations as full snapshot',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -51,6 +51,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         // https://support.exactonline.com/community/s/knowledge-base#All-All-DNO-Content-restapime

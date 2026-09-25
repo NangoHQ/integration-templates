@@ -7,10 +7,11 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetch all the background checks',
-    version: '2.1.0',
+    version: '2.1.1',
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    scopes: ['read_write'],
 
     endpoints: [
         {

@@ -55,7 +55,7 @@ const action = createAction({
     scopes: ['meeting:write:admin', 'meeting:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.zoom.us/docs/api-reference/zoom-api/methods/#operation/meetingRegistrantCreate
+        // https://developers.zoom.us/docs/api/meetings/#tag/Invitation-&-Registration/operation/meetingRegistrantCreate
         const response = await nango.post({
             endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meeting_id))}/registrants`,
             params: {

@@ -97,7 +97,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://elevenlabs.io/docs/api-reference/user-subscription/get
+            // https://elevenlabs.io/docs/api-reference/user/subscription/get
             endpoint: '/v1/user/subscription',
             retries: 3
         });

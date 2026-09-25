@@ -65,7 +65,7 @@ const action = createAction({
 
         const accountUuid = metadataResult.data.accountUuid;
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/get-user
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/get-user-groups
         const response = await nango.get({
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodeURIComponent(input.email)}`,
             retries: 3

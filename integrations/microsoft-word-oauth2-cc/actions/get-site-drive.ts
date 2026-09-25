@@ -30,7 +30,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/graph/api/site-get-drive
+            // https://learn.microsoft.com/en-us/graph/api/drive-get?view=graph-rest-1.0
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/drive`,
             retries: 3
         });

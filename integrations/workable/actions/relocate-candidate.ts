@@ -44,7 +44,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://workable.readme.io/reference/relocate-candidate
+            // https://workable.readme.io/reference/relocate-candidates
             endpoint: `/spi/v3/candidates/${encodeURIComponent(input.id)}/relocate`,
             data: requestBody,
             retries: 3

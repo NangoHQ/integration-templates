@@ -55,9 +55,10 @@ const MacroSchema = z
 
 const sync = createSync({
     description: 'Sync macros (canned response templates).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['macros:read'],
     models: {
         Macro: MacroSchema
     },

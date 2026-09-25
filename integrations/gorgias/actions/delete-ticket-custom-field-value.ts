@@ -25,7 +25,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<null> => {
         const config: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/delete-ticket-custom-field-value
+            // https://developers.gorgias.com/reference/delete-ticket-custom-field
             endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}/custom-fields/${encodeURIComponent(input.custom_field_id)}`,
             retries: 3
         };

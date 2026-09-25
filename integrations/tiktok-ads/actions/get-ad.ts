@@ -33,10 +33,10 @@ const AdSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single ad from TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: AdSchema,
-    scopes: ['ads.read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof AdSchema>> => {
         const connection = await nango.getConnection();

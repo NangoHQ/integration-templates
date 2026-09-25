@@ -32,13 +32,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales order headers.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         SalesOrder: SalesOrderSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: SalesOrderHeadersV2 does not expose a filterable last-modified

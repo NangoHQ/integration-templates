@@ -106,12 +106,13 @@ const UploadSchema = z
 
 const sync = createSync({
     description: 'Sync file uploads across all known projects vaults including sub-folders.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     checkpoint: CheckpointSchema,
     models: {
         Upload: UploadSchema
     },
+    scopes: [],
     exec: async (nango) => {
         async function discoverVaults(): Promise<Array<z.infer<typeof VaultRefSchema>>> {
             const projectVaults: Array<z.infer<typeof VaultRefSchema>> = [];

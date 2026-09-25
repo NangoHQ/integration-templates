@@ -8,11 +8,11 @@ import { GustoUpdateEmployeeResponse, GustoUpdateEmployee } from '../models.js';
 
 const action = createAction({
     description: 'Updates an employee in Gusto.',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: GustoUpdateEmployee,
     output: GustoUpdateEmployeeResponse,
-    scopes: ['employees:manage'],
+    scopes: ['employees:write'],
 
     exec: async (nango, input): Promise<GustoUpdateEmployeeResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: GustoUpdateEmployeeSchema, input });

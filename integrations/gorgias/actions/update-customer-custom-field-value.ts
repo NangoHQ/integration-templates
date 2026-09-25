@@ -44,7 +44,7 @@ const action = createAction({
     scopes: ['customers:read', 'customers:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.gorgias.com/reference/get-customer-custom-fields
+        // https://developers.gorgias.com/reference/list-customer-custom-fields-values
         const existingResponse = await nango.get({
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
             retries: 3
@@ -58,7 +58,7 @@ const action = createAction({
         mergedValues.push({ id: input.custom_field_id, value: input.value });
 
         const response = await nango.put({
-            // https://developers.gorgias.com/reference/update-customer-custom-fields
+            // https://developers.gorgias.com/reference/update-customer-custom-field-values
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
             data: mergedValues,
             retries: 3

@@ -8,7 +8,8 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'List all SQL warehouses in the workspace',
-    version: '2.0.1',
+    version: '2.0.2',
+    scopes: ['all-apis'],
 
     input: z.void(),
     output: ListWarehousesResponse,

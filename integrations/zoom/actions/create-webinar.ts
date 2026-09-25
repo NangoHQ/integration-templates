@@ -148,7 +148,7 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarcreate
+            // https://developers.zoom.us/docs/api/meetings/#tag/Webinars/operation/webinarCreate
             endpoint: `/users/${userId}/webinars`,
             data: requestBody,
             retries: 3

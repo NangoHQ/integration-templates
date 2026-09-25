@@ -106,9 +106,10 @@ const ProviderListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List contracts',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         let page = 1;

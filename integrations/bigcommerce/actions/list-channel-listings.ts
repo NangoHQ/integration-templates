@@ -91,7 +91,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/channels/listings#get-channel-listings
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/channels/listings/get-channel-listings
             endpoint: `/v3/channels/${encodeURIComponent(String(input.channel_id))}/listings`,
             params,
             retries: 3

@@ -40,7 +40,7 @@ const action = createAction({
         if (input.phone) properties['phone'] = input.phone;
         if (input.website) properties['website'] = input.website;
 
-        // https://developers.hubspot.com/docs/api-reference/crm/objects/companies#create-companies
+        // https://developers.hubspot.com/docs/api-reference/crm-companies-v3/guide
         const response = await nango.post({
             endpoint: '/crm/v3/objects/companies',
             data: { properties },

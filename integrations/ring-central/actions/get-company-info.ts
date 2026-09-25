@@ -7,10 +7,11 @@ import { z } from 'zod';
 
 const action = createAction({
     description: 'Retrieves information about the current RingCentral account/company.',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: z.void(),
     output: CompanyInfo,
+    scopes: ['ReadAccounts'],
 
     exec: async (nango): Promise<CompanyInfo> => {
         const config: ProxyConfiguration = {

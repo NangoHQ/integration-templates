@@ -56,20 +56,21 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync categories.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Category: CategorySchema
     },
-    // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-all-categories
+    // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-categories
     endpoints: [
         {
             method: 'POST',
             path: '/syncs/categories'
         }
     ],
+    scopes: ['store_v2_products_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { page: 1 });
@@ -80,9 +81,9 @@ const sync = createSync({
             await nango.trackDeletesStart('Category');
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-all-categories
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-categories
         const proxyConfig: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-all-categories
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-categories
             endpoint: '/v3/catalog/categories',
             paginate: {
                 type: 'offset',

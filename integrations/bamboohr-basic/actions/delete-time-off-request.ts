@@ -12,9 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a time off request in BambooHR by canceling it.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['time_off.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.put({

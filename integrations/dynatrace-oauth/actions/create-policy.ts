@@ -57,7 +57,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policies/create-policy
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/post-policy
             endpoint: `iam/v1/repo/account/${encodeURIComponent(accountUuid)}/policies`,
             data: {
                 name: input.name,

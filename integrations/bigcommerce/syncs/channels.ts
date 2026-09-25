@@ -57,7 +57,7 @@ const sync = createSync({
         }
 
         for await (const rawBatch of nango.paginate({
-            // https://developer.bigcommerce.com/docs/rest-management/channels
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/channels/get-channels
             endpoint: '/v3/channels',
             params: {
                 ...(updatedAfter && { 'date_modified:min': updatedAfter })

@@ -104,7 +104,7 @@ const action = createAction({
             }
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/iam-policies-management/get-policy
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/get-policy
         const response = await nango.get({
             endpoint: `iam/v1/repo/${encodeURIComponent(levelType)}/${encodeURIComponent(resolvedLevelId)}/policies/${encodeURIComponent(input.policyUuid)}`,
             retries: 3

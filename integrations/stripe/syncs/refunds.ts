@@ -54,7 +54,7 @@ const mapRefund = (raw: z.infer<typeof RawRefundSchema>) => ({
 
 const sync = createSync({
     description: 'Sync refunds from Stripe.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/refunds' }],
     frequency: 'every hour',
     autoStart: true,
@@ -62,6 +62,7 @@ const sync = createSync({
     models: {
         Refund: RefundSchema
     },
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

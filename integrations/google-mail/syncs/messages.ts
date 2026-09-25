@@ -91,9 +91,10 @@ const ProfileSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Gmail messages with an initial backfill followed by history-based incremental updates.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         Message: MessageSchema

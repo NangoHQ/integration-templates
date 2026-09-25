@@ -86,13 +86,14 @@ function shiftIso(isoTimestamp: string, deltaMs: number): string {
 
 const sync = createSync({
     description: 'Sync items from monday.com',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Item: ItemSchema
     },
+    scopes: ['boards:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

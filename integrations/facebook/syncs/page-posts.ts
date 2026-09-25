@@ -49,7 +49,7 @@ const ModelsMap = {
 
 const sync = createSync<typeof ModelsMap, typeof MetadataSchema, typeof CheckpointSchema>({
     description: 'Sync posts from Facebook Pages the connection can access.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/page-posts' }],
     frequency: 'every hour',
     autoStart: true,
@@ -57,6 +57,7 @@ const sync = createSync<typeof ModelsMap, typeof MetadataSchema, typeof Checkpoi
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: ModelsMap,
+    scopes: ['pages_show_list', 'pages_read_engagement'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -74,7 +75,7 @@ const sync = createSync<typeof ModelsMap, typeof MetadataSchema, typeof Checkpoi
         const requestedPageIds = new Set(metadata.pageIds ?? []);
 
         const accountsConfig: ProxyConfiguration = {
-            // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+            // https://developers.facebook.com/docs/graph-api/reference/page/feed/
             endpoint: '/me/accounts',
             params: {
                 fields: 'id,name,access_token,category'

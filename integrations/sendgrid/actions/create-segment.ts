@@ -37,7 +37,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://www.twilio.com/docs/sendgrid/api-reference/segments/create-segment
+            // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/create-segment
             endpoint: '/v3/marketing/segments/2.0',
             data: {
                 name: input.name,

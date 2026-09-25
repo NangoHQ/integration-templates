@@ -84,9 +84,10 @@ const addDays = (dateString: string, days: number): string => {
 
 const sync = createSync({
     description: 'Sync appointments.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api-v1'],
     checkpoint: CheckpointSchema,
     models: {
         Appointment: AppointmentSchema

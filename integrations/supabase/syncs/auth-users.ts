@@ -60,7 +60,7 @@ const sync = createSync({
         let nextPage = checkpoint?.page ?? 1;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://supabase.com/docs/reference/api/admin-listusers
+            // https://supabase.com/docs/reference/javascript/auth-admin-listusers
             endpoint: '/auth/v1/admin/users',
             baseUrlOverride,
             paginate: {

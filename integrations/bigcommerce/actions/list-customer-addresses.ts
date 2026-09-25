@@ -50,7 +50,7 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.bigcommerce.com/docs/rest-management/customers/customer-addresses#get-all-customer-addresses
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/addresses/get-customers-addresses
         const response = await nango.get({
             endpoint: '/v3/customers/addresses',
             params: {

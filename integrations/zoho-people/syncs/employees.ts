@@ -44,9 +44,10 @@ function formatEpochMsToDdMmmYyyy(epochMs: number): string {
 
 const sync = createSync({
     description: 'Sync all employees',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZOHOPEOPLE.forms.READ'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {

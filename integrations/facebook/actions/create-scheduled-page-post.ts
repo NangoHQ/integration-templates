@@ -28,13 +28,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Schedule a future post on a Facebook Page',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pages_manage_posts'],
+    scopes: ['pages_show_list', 'pages_manage_posts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+        // https://developers.facebook.com/docs/graph-api/reference/page/feed/#publishing
         let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
         for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',

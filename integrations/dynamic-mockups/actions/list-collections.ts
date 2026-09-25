@@ -27,7 +27,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynamicmockups.com/api-reference/collections/list-collections
+        // https://docs.dynamicmockups.com/api-reference/get-collections-api
         const response = await nango.get({
             endpoint: '/v1/collections',
             params: {

@@ -30,10 +30,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a message in Zoho Mail. Pass expunge=true to permanently delete; otherwise moves to Trash.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoMail.messages.ALL', 'ZohoMail.messages.DELETE'],
+    scopes: ['ZohoMail.messages.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};

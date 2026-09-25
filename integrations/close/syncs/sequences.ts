@@ -35,13 +35,14 @@ const ProviderSequenceSchema = z.object({
 
 const sync = createSync({
     description: 'Full-refresh sync of email sequences.',
-    version: '1.0.0',
+    version: '1.0.1',
     // https://developer.close.com/api/resources/sequences/list
     frequency: 'every hour',
     autoStart: true,
     models: {
         Sequence: SequenceSchema
     },
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango) => {
         let deleteTrackingStarted = false;

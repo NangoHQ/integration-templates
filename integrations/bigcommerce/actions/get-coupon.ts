@@ -63,7 +63,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons#get-a-coupon
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/get-coupons
             endpoint: `/v2/coupons/${encodeURIComponent(String(input.id))}`,
             retries: 3
         });

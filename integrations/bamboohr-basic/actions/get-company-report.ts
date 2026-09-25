@@ -39,9 +39,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a BambooHR custom company report.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['report'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: { title?: string; fields: string[]; filters?: z.infer<typeof FiltersSchema> } = {

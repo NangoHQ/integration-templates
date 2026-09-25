@@ -93,7 +93,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-timeoff-requests
+            // https://workable.readme.io/reference/timeoffrequests-1
             endpoint: '/spi/v3/timeoff/requests',
             params,
             retries: 3

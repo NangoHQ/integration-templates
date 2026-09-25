@@ -163,10 +163,10 @@ const InvoiceSchema = z
 
 const action = createAction({
     description: 'Retrieve a single invoice from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: InvoiceSchema,
-    scopes: [],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof InvoiceSchema>> => {
         // https://docs.stripe.com/api/invoices/retrieve

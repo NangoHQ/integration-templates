@@ -23,9 +23,10 @@ const AutomatedRuleSchema = z
 
 const sync = createSync({
     description: 'Sync automated budget and bid management rules from TikTok Ads',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     metadata: MetadataSchema,
     endpoints: [
         {

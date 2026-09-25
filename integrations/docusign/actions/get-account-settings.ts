@@ -13,13 +13,14 @@ const OutputSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve all account-level settings and feature flags.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/get-account-settings',
         method: 'GET'
     },
+    scopes: ['signature'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

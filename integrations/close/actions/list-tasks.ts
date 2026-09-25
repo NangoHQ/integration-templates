@@ -46,10 +46,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List tasks with optional filters.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: [],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const skip = input.cursor ? Number(input.cursor) : 0;

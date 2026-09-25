@@ -16,10 +16,10 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Delete a ticket',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Desk.tickets.ALL'],
+    scopes: ['Desk.tickets.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

@@ -45,9 +45,10 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync company records from Intercom.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     endpoints: [{ method: 'POST', path: '/syncs/companies' }],
     models: {
         Company: CompanySchema

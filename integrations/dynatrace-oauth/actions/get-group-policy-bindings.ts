@@ -45,7 +45,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/iam-bindings-api
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/bindings/get-group-bindings
             endpoint: `/iam/v1/repo/account/${encodeURIComponent(accountUuid)}/bindings/groups/${encodeURIComponent(input.groupUuid)}`,
             retries: 3
         });

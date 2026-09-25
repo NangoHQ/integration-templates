@@ -47,9 +47,10 @@ const FilterSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Gmail mailbox filters and their criteria or actions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
     models: {
         Filter: FilterSchema
     },

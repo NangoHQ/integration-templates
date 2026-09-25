@@ -79,7 +79,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync ledger entries.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every 6 hours',
     autoStart: true,
     metadata: MetadataSchema,
@@ -87,6 +87,7 @@ const sync = createSync({
     models: {
         LedgerEntry: LedgerEntrySchema
     },
+    scopes: ['ledger_entries:readonly'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

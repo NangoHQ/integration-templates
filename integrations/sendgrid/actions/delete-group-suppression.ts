@@ -18,7 +18,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-delete-a-suppression-from-a-suppression-group
+            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-suppressions/delete-a-suppression-from-a-suppression-group
             endpoint: `/v3/asm/groups/${encodeURIComponent(input.group_id)}/suppressions/${encodeURIComponent(input.email)}`,
             retries: 3
         });

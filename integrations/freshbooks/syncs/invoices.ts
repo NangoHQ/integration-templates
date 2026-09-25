@@ -51,11 +51,12 @@ const InvoiceSchema = z.object({
 
 const sync = createSync({
     description: 'Sync invoices.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['user:invoices:read'],
     models: {
         Invoice: InvoiceSchema
     },

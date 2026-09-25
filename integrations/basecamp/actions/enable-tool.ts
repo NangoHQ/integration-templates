@@ -37,9 +37,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Enable a project's dock tool (e.g. Message Board, Docs & Files, Chat, Card Table, Calendar), adding it back to the dock.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

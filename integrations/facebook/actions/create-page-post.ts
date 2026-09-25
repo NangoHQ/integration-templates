@@ -41,7 +41,7 @@ const action = createAction({
     scopes: ['pages_manage_posts', 'pages_show_list'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+        // https://developers.facebook.com/docs/graph-api/reference/page/feed#publish
         let pageAccount: z.infer<typeof PageAccountSchema> | undefined;
         for await (const batch of nango.paginate<z.infer<typeof PageAccountSchema>>({
             endpoint: '/me/accounts',

@@ -21,7 +21,7 @@ const action = createAction({
     scopes: ['profile:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.canva.dev/docs/connect/api-reference/users/get-user-profile/
+        // https://www.canva.dev/docs/apps/rest-apis/reference/users/users-profile
         const response = await nango.get({
             endpoint: '/rest/v1/users/me/profile',
             retries: 3

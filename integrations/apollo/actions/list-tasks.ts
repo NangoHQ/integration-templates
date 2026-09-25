@@ -41,7 +41,7 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.apollo.io/reference/get_tasks-search
+        // https://docs.apollo.io/reference/search-tasks
         const response = await nango.get({
             endpoint: '/v1/tasks/search',
             params: {

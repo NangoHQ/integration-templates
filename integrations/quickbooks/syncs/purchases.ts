@@ -309,7 +309,7 @@ function validateCheckpoint(data: unknown): { updated_after: string } | null {
 
 const sync = createSync({
     description: 'Sync QuickBooks purchase transactions',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -322,6 +322,7 @@ const sync = createSync({
     models: {
         Purchase: PurchaseModelSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getCompany(nango);

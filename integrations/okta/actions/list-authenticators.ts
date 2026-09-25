@@ -42,7 +42,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.okta.com/docs/reference/api/authenticators/
+            // https://developer.okta.com/docs/reference/api/authenticators-admin/
             endpoint: '/api/v1/authenticators',
             retries: 3
         });

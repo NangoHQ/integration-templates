@@ -189,7 +189,7 @@ const action = createAction({
         }
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/product-variants#update-product-variant
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/update-product-variant
             endpoint: `/v3/catalog/products/${encodeURIComponent(input.product_id)}/variants/${encodeURIComponent(input.variant_id)}`,
             data: body,
             retries: 1

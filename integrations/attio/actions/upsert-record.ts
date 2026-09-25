@@ -40,7 +40,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
-            // https://docs.attio.com/rest-api/endpoint-reference/records/assert-a-record
+            // https://docs.attio.com/rest-api/endpoint-reference/records/upsert-a-record
             endpoint: `/v2/objects/${encodeURIComponent(input.object)}/records`,
             params: {
                 matching_attribute: input.matching_attribute

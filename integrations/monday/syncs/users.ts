@@ -37,7 +37,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from monday.com.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -51,6 +51,7 @@ const sync = createSync({
             path: '/syncs/users'
         }
     ],
+    scopes: ['users:read'],
 
     exec: async (nango) => {
         // Blocker: the monday.com users query does not support updated_since

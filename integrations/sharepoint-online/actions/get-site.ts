@@ -54,10 +54,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a SharePoint site by ID or path.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Sites.Read.All', 'Sites.ReadWrite.All'],
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let endpoint: string;

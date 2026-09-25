@@ -21,7 +21,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems/delete-problem-comment
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/del-comment
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments/${encodeURIComponent(input.commentId)}`,
             retries: 10
         });

@@ -34,11 +34,12 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync HubSpot owners with names, email, user IDs, and archive status',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/owners', group: 'Owners' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['crm.objects.owners.read'],
 
     models: {
         Owner: OwnerSchema

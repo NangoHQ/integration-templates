@@ -52,7 +52,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/post-service-user
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/post-service-user
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
             data: {
                 name: input.name,

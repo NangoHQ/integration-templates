@@ -22,7 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List sales invoices',
-    version: '1.0.0',
+    version: '1.0.2',
     endpoint: {
         method: 'GET',
         path: '/actions/list-sales-invoices'
@@ -32,7 +32,7 @@ const action = createAction({
     scopes: ['salesinvoices'],
 
     exec: async (nango, input) => {
-        // https://start.exactonline.fr/docs/services/Current/Me/GET
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -80,7 +80,7 @@ const action = createAction({
             params['$filter'] = `Modified gt datetime'${input.modified_after}'`;
         }
 
-        // https://start.exactonline.fr/docs/services/SalesInvoice/GET/SalesInvoices
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SalesInvoiceSalesInvoices
         const response = await nango.get({
             endpoint: `/api/v1/${encodeURIComponent(division)}/salesinvoice/SalesInvoices`,
             params,

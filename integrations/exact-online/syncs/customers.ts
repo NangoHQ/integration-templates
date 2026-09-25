@@ -54,7 +54,7 @@ function parseOdataDate(value: string): string {
 
 const sync = createSync({
     description: 'Sync CRM accounts (customers and suppliers) with incremental updates via Modified timestamp.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -67,6 +67,7 @@ const sync = createSync({
             path: '/syncs/customers'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

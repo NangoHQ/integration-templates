@@ -62,7 +62,7 @@ const action = createAction({
         const envelopeId = input.envelopeId;
 
         const response = await nango.get({
-            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/get/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(envelopeId)}/recipients`,
             retries: 3
         });

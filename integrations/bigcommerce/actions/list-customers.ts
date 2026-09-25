@@ -97,7 +97,7 @@ const action = createAction({
             params['date_modified:min'] = input.date_modified_min;
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/customers
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/get-customers
         const response = await nango.get({
             endpoint: '/v3/customers',
             params: params,

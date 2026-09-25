@@ -40,10 +40,10 @@ function getStringProperty(obj: unknown, key: string): string | undefined {
 
 const action = createAction({
     description: 'Record an attendance check-in for an employee.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.attendance.ALL'],
+    scopes: ['ZOHOPEOPLE.attendance.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

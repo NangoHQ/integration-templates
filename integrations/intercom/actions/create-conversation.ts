@@ -34,10 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Start a new conversation.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['conversations:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {

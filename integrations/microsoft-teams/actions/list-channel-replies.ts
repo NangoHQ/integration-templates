@@ -113,7 +113,7 @@ const action = createAction({
     scopes: ['ChannelMessage.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/graph/api/channel-list-messagereplies
+        // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies?view=graph-rest-1.0
         const response = await nango.get({
             endpoint: input.cursor || `/v1.0/teams/${input.teamId}/channels/${input.channelId}/messages/${input.messageId}/replies`,
             params: input.cursor ? {} : { $top: 50 },

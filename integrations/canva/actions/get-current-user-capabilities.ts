@@ -13,14 +13,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve current Canva user capabilities.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['user:read'],
+    scopes: ['profile:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://www.canva.dev/docs/connect/api-reference/
+            // https://www.canva.dev/docs/apps/rest-apis/reference/users/get-user-capabilities
             endpoint: '/rest/v1/users/me/capabilities',
             retries: 3
         });

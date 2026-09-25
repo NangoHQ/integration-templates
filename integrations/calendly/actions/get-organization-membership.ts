@@ -51,10 +51,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single organization membership from Calendly',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['default'],
+    scopes: ['organizations:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.calendly.com/api-docs/8c3baa79a5883-get-organization-membership

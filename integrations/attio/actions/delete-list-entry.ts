@@ -20,7 +20,7 @@ const action = createAction({
     scopes: ['list_entry:read-write', 'list_configuration:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.attio.com/rest-api/reference/delete-v2-lists-list-entries-entry-id
+        // https://docs.attio.com/rest-api/endpoint-reference/entries/delete-a-list-entry
         await nango.delete({
             endpoint: `/v2/lists/${input.list_id}/entries/${input.entry_id}`,
             retries: 3

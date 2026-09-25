@@ -21,9 +21,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a file record by providing a URL for the platform to download from.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

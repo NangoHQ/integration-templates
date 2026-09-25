@@ -38,13 +38,14 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Add signature, date, text, checkbox and other tabs to a recipient on a draft envelope.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         method: 'POST',
         path: '/actions/create-recipient-tabs'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

@@ -52,10 +52,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Notion users and bots available to the integration.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users:read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

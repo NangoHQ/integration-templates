@@ -86,7 +86,7 @@ const action = createAction({
         if (input.app_metadata !== undefined) updateBody['app_metadata'] = input.app_metadata;
         if (input.ban_duration !== undefined) updateBody['ban_duration'] = input.ban_duration;
 
-        // https://supabase.com/docs/reference/api/auth-admin-updateuserbyid
+        // https://supabase.com/docs/reference/javascript/auth-admin-updateuserbyid
         const response = await nango.put({
             endpoint: `/auth/v1/admin/users/${encodeURIComponent(input.user_id)}`,
             baseUrlOverride,

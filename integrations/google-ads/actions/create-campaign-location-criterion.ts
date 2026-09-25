@@ -38,7 +38,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://developers.google.com/google-ads/api/rest/reference/rest/v25/customers/campaignCriteria/mutate
+            // https://developers.google.com/google-ads/api/reference/rpc/v25/CampaignCriterionService/MutateCampaignCriteria
             endpoint: `v25/customers/${encodeURIComponent(input.customerId)}/campaignCriteria:mutate`,
             headers: {
                 'developer-token': developerToken,

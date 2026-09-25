@@ -16,10 +16,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Record an attendance check-out for an employee.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.attendance.ALL'],
+    scopes: ['ZOHOPEOPLE.attendance.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/people/api/attendance-checkin-checkout.html

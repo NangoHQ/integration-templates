@@ -112,7 +112,7 @@ const sync = createSync({
         if (typeof metadataProjectId === 'string' && metadataProjectId.length > 0) {
             projectId = metadataProjectId;
         } else {
-            // https://developer.mixpanel.com/reference/me
+            // https://docs.mixpanel.com/reference/service-accounts
             const meResponse = await nango.get({
                 endpoint: '/api/app/me',
                 retries: 3

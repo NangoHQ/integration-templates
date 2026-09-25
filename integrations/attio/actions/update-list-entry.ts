@@ -46,7 +46,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
-            // https://docs.attio.com/rest-api/endpoint-reference/list-entries/update-a-list-entry
+            // https://docs.attio.com/rest-api/endpoint-reference/entries/update-a-list-entry-append-multiselect-values
             endpoint: `/v2/lists/${input.list_id}/entries/${input.entry_id}`,
             data: {
                 data: {

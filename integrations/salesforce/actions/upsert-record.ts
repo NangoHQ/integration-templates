@@ -24,9 +24,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update a Salesforce record using an external ID field.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const apiVersion = encodeURIComponent(input.api_version || 'v60.0');

@@ -30,10 +30,10 @@ const OutputSchema = ProviderOrderSchema;
 
 const action = createAction({
     description: 'Retrieve a single order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

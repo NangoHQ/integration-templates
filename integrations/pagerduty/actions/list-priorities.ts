@@ -55,9 +55,10 @@ const ProviderResponseSchema = z.object({
  */
 const action = createAction({
     description: "List the account's configured incident priority levels (P1-P5).",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['priorities.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 25;

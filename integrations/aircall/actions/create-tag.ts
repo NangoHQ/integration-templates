@@ -27,9 +27,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a tag in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: { name: string; color?: string; description?: string } = {

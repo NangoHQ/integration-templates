@@ -57,10 +57,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single sales invoice by ID.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['SalesInvoices'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.nango.dev/integrations/all/exact-online

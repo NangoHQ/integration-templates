@@ -31,9 +31,10 @@ const WebinarSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webinars from Zoom.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['webinar:read:admin', 'webinar:read'],
     models: {
         Webinar: WebinarSchema
     },

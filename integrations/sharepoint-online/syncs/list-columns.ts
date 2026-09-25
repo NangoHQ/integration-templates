@@ -114,7 +114,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync SharePoint list schemas.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -127,6 +127,7 @@ const sync = createSync({
     models: {
         ListColumn: ListColumnSchema
     },
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         // Blocker: Microsoft Graph list columns endpoint has no changed-since filter,

@@ -35,7 +35,7 @@ const action = createAction({
         const orderId = String(input.order_id);
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/orders#get-an-order
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/get-order
             endpoint: `/v2/orders/${encodeURIComponent(orderId)}`,
             retries: 3
         });

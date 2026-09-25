@@ -51,10 +51,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Search the account's own pins.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pins:read'],
+    scopes: ['boards:read', 'boards:read_secret', 'pins:read', 'pins:read_secret'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {

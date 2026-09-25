@@ -125,7 +125,7 @@ function buildCursor(page: number, per_page: number): string {
 
 const action = createAction({
     description: 'List events from Zoho CRM.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.events.READ'],

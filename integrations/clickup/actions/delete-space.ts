@@ -11,12 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a space in ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.clickup.com/reference/api-spaces/delete-space
+        // https://developer.clickup.com/reference/deletespace
         await nango.delete({
             endpoint: `/api/v2/space/${encodeURIComponent(input.space_id)}`,
             retries: 3

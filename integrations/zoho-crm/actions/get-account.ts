@@ -134,13 +134,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single account from Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.accounts.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/get-record.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/get-records.html
         const response = await nango.get({
             endpoint: `/crm/v2/Accounts/${input.id}`,
             retries: 3

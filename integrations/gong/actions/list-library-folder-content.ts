@@ -28,13 +28,14 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'List calls within a specific Gong library folder',
-    version: '0.0.2',
+    version: '0.0.3',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api:library:read'],
     exec: async (nango: NangoAction, input) => {
         const validated = InputSchema.parse(input);
 
-        // https://help.gong.io/docs/list-of-calls-in-a-specific-folder
+        // https://help.gong.io/apidocs/list-of-calls-in-a-specific-folder-v2libraryfolder-content-2
         const config = {
             endpoint: '/v2/library/folder-content',
             params: {

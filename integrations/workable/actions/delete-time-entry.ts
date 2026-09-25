@@ -32,7 +32,7 @@ const action = createAction({
         // @allowTryCatch Intercept expected Workable errors (403 Ergani, 422 archivalTooLate, 404 not found)
         // and re-throw as ActionError so callers get typed, actionable messages instead of raw proxy failures.
         try {
-            // https://workable.readme.io/reference/delete-time-entry
+            // https://workable.readme.io/reference/time-tracking-archive-entry
             await nango.delete({
                 endpoint: `/spi/v3/time-tracking/employees/${encodeURIComponent(input.employee_id)}/time-entries/${encodeURIComponent(input.time_entry_id)}`,
                 retries: 3

@@ -6,10 +6,11 @@ import { Candidate, CreateCandidate } from '../models.js';
 
 const action = createAction({
     description: 'Create a candidate',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: CreateCandidate,
     output: Candidate,
+    scopes: ['read_write'],
 
     exec: async (nango, rawInput): Promise<Candidate> => {
         validate(nango, rawInput);

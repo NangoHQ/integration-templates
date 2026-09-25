@@ -52,7 +52,7 @@ const action = createAction({
     scopes: ['customers:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.gorgias.com/reference/update-customer-custom-fields
+        // https://developers.gorgias.com/reference/update-customer-custom-field-values
         const response = await nango.put({
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
             data: input.values,

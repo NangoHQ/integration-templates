@@ -41,7 +41,7 @@ const action = createAction({
     scopes: ['users:read.email'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.slack.dev/reference/methods/users.lookupByEmail
+        // https://api.slack.com/methods/users.lookupByEmail
         const response = await nango.get({
             endpoint: 'users.lookupByEmail',
             params: {

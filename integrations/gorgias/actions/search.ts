@@ -34,9 +34,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Search across agents, customers, customer channels/profiles, integrations, teams, or tags by a text query.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['users:read', 'customers:read', 'integrations:read', 'tags:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

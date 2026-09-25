@@ -29,13 +29,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync routes.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Route: RouteSchema
     },
+    scopes: ['read', 'read_all'],
 
     exec: async (nango) => {
         await nango.getCheckpoint();

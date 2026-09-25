@@ -58,9 +58,10 @@ const ODataListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List vendor payment journal lines, optionally scoped to a parent journal.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const dataAreaId = input.dataAreaId ?? 'dat';

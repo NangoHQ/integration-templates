@@ -41,7 +41,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.attio.com/rest-api/objects
+            // https://docs.attio.com/rest-api/endpoint-reference/objects/create-an-object
             endpoint: '/v2/objects',
             data: {
                 data: {

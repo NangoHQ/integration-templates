@@ -50,13 +50,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync mandates eligible for Pro Account migration.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         MandateMigrationCandidate: MandateMigrationCandidateSchema
     },
+    scopes: ['customer_mandates:readonly'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

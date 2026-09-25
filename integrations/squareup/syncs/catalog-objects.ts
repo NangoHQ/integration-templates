@@ -82,9 +82,10 @@ function applyOverlapBuffer(timestamp: string): string {
 
 const sync = createSync({
     description: 'Sync catalog objects',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ITEMS_READ'],
     checkpoint: CheckpointSchema,
     models: {
         CatalogObject: CatalogObjectSchema

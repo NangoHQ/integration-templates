@@ -33,10 +33,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the factor types available for a specific user to enroll.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['okta.factors.read'],
+    scopes: ['okta.users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.okta.com/docs/reference/api/factors/

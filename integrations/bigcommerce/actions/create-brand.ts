@@ -58,7 +58,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.proxy({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands#create-brand
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/create-brand
             method: 'POST',
             endpoint: '/v3/catalog/brands',
             data: {

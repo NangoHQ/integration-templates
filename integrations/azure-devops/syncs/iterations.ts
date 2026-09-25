@@ -88,7 +88,7 @@ const sync = createSync({
         for (let i = nextProjectTeamIndex; i < projectTeams.length; i++) {
             const pt = projectTeams[i]!;
             const response = await nango.get({
-                // https://learn.microsoft.com/en-us/rest/api/azure/devops/work/team-settings/iterations/list?view=azure-devops-rest-7.2
+                // https://learn.microsoft.com/en-us/rest/api/azure/devops/work/iterations/list?view=azure-devops-rest-7.2
                 endpoint: `/${encodeURIComponent(pt.projectId)}/${encodeURIComponent(pt.teamId)}/_apis/work/teamsettings/iterations`,
                 params: {
                     'api-version': '7.2-preview.1'

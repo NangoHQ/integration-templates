@@ -31,7 +31,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developer.bigcommerce.com/docs/rest-management/pricelists
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/price-lists/create-price-list
             endpoint: '/v3/pricelists',
             data: {
                 name: input.name,

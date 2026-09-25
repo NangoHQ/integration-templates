@@ -47,7 +47,7 @@ const action = createAction({
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListSequencesOutputSchema>> => {
-        // https://docs.apollo.io/reference/get_v1-emailer-campaigns-search
+        // https://docs.apollo.io/reference/search-for-sequences
         const response = await nango.get({
             endpoint: '/v1/emailer_campaigns/search',
             params: {

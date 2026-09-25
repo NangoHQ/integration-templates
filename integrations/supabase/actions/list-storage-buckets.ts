@@ -44,7 +44,7 @@ const action = createAction({
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.get({
-            // https://supabase.com/docs/reference/api/storage-list-buckets
+            // https://supabase.com/docs/reference/javascript/file-buckets-listbuckets
             endpoint: '/storage/v1/bucket',
             params: {
                 ...(input.limit !== undefined && { limit: String(input.limit) }),

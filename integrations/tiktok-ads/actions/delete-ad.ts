@@ -21,10 +21,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive an ad in TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ads'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

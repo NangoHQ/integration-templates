@@ -36,9 +36,10 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync creative assets from TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

@@ -23,7 +23,7 @@ const action = createAction({
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-stages
+            // https://workable.readme.io/reference/stages
             endpoint: '/spi/v3/stages',
             retries: 3
         });

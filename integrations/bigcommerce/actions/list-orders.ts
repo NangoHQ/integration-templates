@@ -220,7 +220,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/orders
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/get-orders
             endpoint: '/v2/orders',
             params: {
                 page: String(page),

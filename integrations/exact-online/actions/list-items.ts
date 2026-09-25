@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List logistics items/products.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Items'],
@@ -43,7 +43,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meConfig: ProxyConfiguration = {
-            // https://start.exactonline.fr/docs/services/Me/GET/current/Me
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
             endpoint: '/api/v1/current/Me',
             retries: 3
         };
@@ -80,7 +80,7 @@ const action = createAction({
         }
 
         const itemsConfig: ProxyConfiguration = {
-            // https://start.exactonline.fr/docs/services/Items/GET/logistics/Items
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=LogisticsItems
             endpoint: `/api/v1/${encodeURIComponent(String(currentDivision))}/logistics/Items`,
             params: {
                 $select: 'ID,Code,Description,ItemGroup,IsSalesItem,IsPurchaseItem,Modified',

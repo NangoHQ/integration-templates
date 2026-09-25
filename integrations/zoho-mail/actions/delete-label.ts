@@ -69,10 +69,10 @@ function getMailBaseUrl(connection: unknown): string {
 
 const action = createAction({
     description: 'Delete a label in Zoho Mail.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoMail.tags.ALL', 'ZohoMail.tags.DELETE'],
+    scopes: ['ZohoMail.tags.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

@@ -14,9 +14,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Disable a project dock tool, removing it from the dock without deleting its content (reversible via enable-tool).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('No content. The tool was successfully disabled from the dock.'),
+    scopes: [],
 
     exec: async (nango, input): Promise<null> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/tools.md

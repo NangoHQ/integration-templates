@@ -103,7 +103,7 @@ const action = createAction({
 
         const accountId = metadata.accountId;
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountusers/getuser/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/get/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users/${encodeURIComponent(input.userId)}`,
             retries: 3

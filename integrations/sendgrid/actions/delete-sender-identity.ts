@@ -17,7 +17,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/sender-verification/delete-sender
+            // https://www.twilio.com/docs/sendgrid/api-reference/sender-verification/delete-verified-sender
             endpoint: `/v3/verified_senders/${encodeURIComponent(input.sender_id)}`,
             retries: 3
         });

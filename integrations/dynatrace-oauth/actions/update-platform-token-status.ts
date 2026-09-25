@@ -19,7 +19,7 @@ const action = createAction({
     scopes: ['platform-token:tokens:manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens/update-platform-token-status
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens-api/put-platform-token-status
         await nango.put({
             endpoint: `iam/v1/accounts/${encodeURIComponent(input.accountUuid)}/platform-tokens/${encodeURIComponent(input.tokenId)}/status`,
             data: {

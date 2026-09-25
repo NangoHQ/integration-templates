@@ -73,7 +73,7 @@ const action = createAction({
             ...(input.filters && { filter: input.filters })
         };
 
-        // https://docs.attio.com/rest-api/records/query-records
+        // https://docs.attio.com/rest-api/endpoint-reference/records/list-records
         const response = await nango.post({
             endpoint: `/v2/objects/${input.object}/records/query`,
             data: requestBody,

@@ -31,7 +31,7 @@ const action = createAction({
         }
 
         await nango.put({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/comments
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/put-comment
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments/${encodeURIComponent(input.commentId)}`,
             data,
             retries: 3

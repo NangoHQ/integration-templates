@@ -34,7 +34,7 @@ const action = createAction({
         const accountUuid = metadataResult.data.accountUuid;
 
         await nango.delete({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens/delete-platform-token
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens-api/delete-platform-token
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/platform-tokens/${encodeURIComponent(input.tokenId)}`,
             retries: 3
         });

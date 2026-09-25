@@ -20,10 +20,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create (or find, if matching an existing company by name) a contact and its associated company in one call',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['contacts:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -55,8 +55,8 @@ const action = createAction({
             });
         }
 
-        // https://developer.clickup.com/reference/create-task-comment
-        // https://developer.clickup.com/reference/create-list-comment
+        // https://developer.clickup.com/reference/createtaskcomment
+        // https://developer.clickup.com/reference/createlistcomment
         const response = await nango.post({
             endpoint: endpoint,
             data: {

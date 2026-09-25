@@ -44,7 +44,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://learn.microsoft.com/en-us/graph/api/workbooknameditemcollection-add
+            // https://learn.microsoft.com/en-us/graph/api/nameditem-add?view=graph-rest-1.0
             endpoint: `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/workbook/names/add`,
             data: {
                 name: input.name,

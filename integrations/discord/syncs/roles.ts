@@ -60,7 +60,7 @@ const ProviderRoleSchema = z.object({
 
 const sync = createSync({
     description: 'Sync roles from Discord',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -73,6 +73,7 @@ const sync = createSync({
             path: '/syncs/roles'
         }
     ],
+    scopes: ['bot'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

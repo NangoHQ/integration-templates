@@ -27,7 +27,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://www.twilio.com/docs/sendgrid/api-reference/custom-fields/create-custom-field
+            // https://www.twilio.com/docs/sendgrid/api-reference/custom-fields/create-custom-field-definition
             endpoint: '/v3/marketing/field_definitions',
             data: {
                 name: input.name,

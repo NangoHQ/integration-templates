@@ -45,7 +45,7 @@ const action = createAction({
         const accountUuid = metadataParse.data.accountUuid;
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-limits/get-account-limits
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-limits-api/get-account-limits
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/limits`,
             retries: 3
         });

@@ -70,7 +70,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.gorgias.com/reference/post-stats-name
+            // https://developers.gorgias.com/reference/get-legacy-statistic
             endpoint: `/api/stats/${encodeURIComponent(input.name)}`,
             data: {
                 filters: {

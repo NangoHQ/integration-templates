@@ -25,7 +25,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/scenarios-get-scenario-usage
+            // https://developers.make.com/api-documentation/api-reference/scenarios
             endpoint: `/scenarios/${encodeURIComponent(input.scenarioId)}/usage`,
             retries: 3
         });

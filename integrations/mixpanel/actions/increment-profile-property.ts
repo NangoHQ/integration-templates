@@ -61,7 +61,7 @@ const action = createAction({
             });
         }
 
-        // https://developer.mixpanel.com/reference/profile-increment-numeric-property
+        // https://docs.mixpanel.com/reference/profile-numerical-add
         const response = await nango.post({
             baseUrlOverride: 'https://api.mixpanel.com',
             endpoint: '/engage',

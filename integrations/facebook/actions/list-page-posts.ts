@@ -64,7 +64,7 @@ const action = createAction({
     scopes: ['pages_show_list', 'pages_read_engagement'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+        // https://developers.facebook.com/docs/graph-api/reference/page/feed/
         const accountsResponse = await nango.get({
             endpoint: '/me/accounts',
             retries: 3
