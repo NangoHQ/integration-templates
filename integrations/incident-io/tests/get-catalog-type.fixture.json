@@ -1,0 +1,58 @@
+{
+    "input": {
+        "id": "01FCNDV6P870EA6S7TK1DSYDG0"
+    },
+    "response": {
+        "catalog_type": {
+            "annotations": {
+                "incident.io/catalog-importer/id": "id-of-config"
+            },
+            "categories": [
+                "customer"
+            ],
+            "color": "yellow",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "description": "Represents Kubernetes clusters that we run inside of GKE.",
+            "dynamic_resource_parameter": "abc123",
+            "engine_resource_type": "CatalogEntry[\"PagerDutyService\"]",
+            "estimated_count": 7,
+            "icon": "alert",
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "is_editable": false,
+            "is_team_type": false,
+            "last_synced_at": "2021-08-17T13:28:57.801578Z",
+            "name": "Kubernetes Cluster",
+            "owning_team_ids": [
+                "01G0J1EXE7AXZ2C93K61WBPYEH"
+            ],
+            "ranked": true,
+            "registry_type": "PagerDutyService",
+            "required_integrations": [
+                "pager_duty"
+            ],
+            "schema": {
+                "attributes": [
+                    {
+                        "array": false,
+                        "backlink_attribute": "abc123",
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "mode": "",
+                        "name": "tier",
+                        "path": [
+                            {
+                                "attribute_id": "abc123",
+                                "attribute_name": "abc123"
+                            }
+                        ],
+                        "type": "Custom[\"Service\"]"
+                    }
+                ],
+                "version": 1
+            },
+            "source_repo_url": "https://github.com/my-company/incident-io-catalog",
+            "type_name": "Custom[\"BackstageGroup\"]",
+            "updated_at": "2021-08-17T13:28:57.801578Z",
+            "use_name_as_identifier": true
+        }
+    }
+}
