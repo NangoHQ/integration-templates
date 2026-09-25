@@ -71,11 +71,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a pull request review with approval, comment, or change request.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Pull requests" (write). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['pull_requests:write'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if ((input.event === 'REQUEST_CHANGES' || input.event === 'COMMENT') && !input.body) {

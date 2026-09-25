@@ -52,11 +52,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List comments attached to an issue or pull request thread',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Issues" (read, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['issues:read'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};
