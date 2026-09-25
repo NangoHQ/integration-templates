@@ -3,7 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        user: z.string().describe('Amplitude ID of the user.'),
+        user: z
+            .string()
+            .describe(
+                "The user's numeric Amplitude ID (e.g. \"1610450763183\") — not their app user_id, email, or device ID. If you only have one of those, call the search-users action first to look up the matching Amplitude ID."
+            ),
         offset: z.number().optional().describe('Zero-indexed offset from the most recent event to start returning events from.'),
         limit: z
             .number()
@@ -66,7 +70,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves a user's event history and summary from Amplitude without making any changes.
- * @pitfalls: Requests for non-existent users return HTTP 200 with empty events and default-filled userData rather than an error, and the API may return more events than the requested limit to avoid splitting sessions.
+ * @pitfalls: Requests for non-existent users return HTTP 200 with empty events and default-filled userData rather than an error, and the API may return more events than the requested limit to avoid splitting sessions. The `user` param must be the numeric Amplitude ID — passing a user_id/email/device_id returns a 400 "Invalid chart definition" / "Argument user must be an int" error (Amplitude reuses shared validation across endpoints, so the message is misleading; verified live 2026-09-25). This action validates the input up front to give a clearer error instead.
  */
 const action = createAction({
     description: "Get a user's event history and summary by Amplitude ID.",
@@ -75,6 +79,15 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (!/^\d+$/.test(input.user)) {
+            throw new nango.ActionError({
+                type: 'invalid_user_id',
+                message:
+                    'The "user" input must be the numeric Amplitude ID of the user (e.g. "1610450763183"), not a user_id, email, or device ID. Call the search-users action first to look up the numeric Amplitude ID for a known user_id/device_id, then pass that value here.',
+                user: input.user
+            });
+        }
+
         const connection = await nango.getConnection();
         const hostname = connection.connection_config?.['hostname'];
         const baseUrlOverride = hostname === 'analytics.eu.amplitude.com' ? 'https://analytics.eu.amplitude.com' : undefined;
