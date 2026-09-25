@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List objects from Attio.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['object_configuration:read'],

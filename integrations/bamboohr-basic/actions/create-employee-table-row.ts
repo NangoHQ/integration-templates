@@ -23,7 +23,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/v1/employees/${encodeURIComponent(input.employee_id)}/tables/${encodeURIComponent(input.table)}`;
 
-        // https://documentation.bamboohr.com/reference/create-table-row-v1-v1
+        // https://documentation.bamboohr.com/reference/create-table-row-v1
         await nango.post({
             endpoint,
             data: input.fields,
