@@ -1,0 +1,15 @@
+{
+    "input": {},
+    "response": {
+        "resources": [
+            {
+                "category": "custom",
+                "description": "Boolean true or false value",
+                "engine_resource_type": "CatalogEntry[\"01GVGYJSD39FRKVDWACK9NDS4E\"]",
+                "label": "GitHub Repository",
+                "type": "Custom[\"Team\"]",
+                "value_docstring": "Either the GraphQL node ID of the repository or a string of <owner>/<repo>, e.g. incident-io/website"
+            }
+        ]
+    }
+}

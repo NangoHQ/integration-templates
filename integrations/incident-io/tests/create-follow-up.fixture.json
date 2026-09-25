@@ -1,0 +1,77 @@
+{
+    "input": {
+        "body": {
+            "assignee_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "assignee_team_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "description": "Call the fire brigade",
+            "external_issue_reference_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "follow_up_category_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+            "follow_up_priority_option_id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H",
+            "labels": ["bug", "urgent"],
+            "title": "Add alerting on replica lag"
+        }
+    },
+    "response": {
+        "follow_up": {
+            "assignee": {
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "slack_user_id": "U02AYNF2XJM"
+            },
+            "assignee_team": {
+                "id": "abc123",
+                "name": "abc123"
+            },
+            "category": {
+                "description": "Follow-ups related to infrastructure changes.",
+                "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+                "name": "Infrastructure",
+                "rank": 10
+            },
+            "completed_at": "2021-08-17T13:28:57.801578Z",
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "creator": {
+                "alert": {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "title": "*errors.withMessage: PG::Error failed to connect"
+                },
+                "api_key": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My test API key"
+                },
+                "user": {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                },
+                "workflow": {
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "My little workflow"
+                }
+            },
+            "description": "Call the fire brigade",
+            "external_issue_reference": {
+                "issue_name": "INC-123",
+                "issue_permalink": "https://linear.app/incident-io/issue/INC-1609/find-copywriter-to-write-up",
+                "provider": "asana"
+            },
+            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "incident_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "labels": ["bug", "urgent"],
+            "priority": {
+                "description": "A follow-up that requires immediate attention.",
+                "id": "01GNW4BAQ7XRMFF6FHKNXDFPRW",
+                "name": "Urgent",
+                "rank": 10
+            },
+            "status": "outstanding",
+            "title": "Cat is stuck in the tree",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+        }
+    }
+}
