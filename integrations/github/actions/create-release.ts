@@ -50,9 +50,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Publish a Git tag release for a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Contents" permission covers this endpoint.
     scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

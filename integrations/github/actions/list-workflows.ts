@@ -28,9 +28,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List GitHub Actions workflows configured in a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    // Fine-grained/GitHub App permission: "Actions" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
     scopes: ['actions:read'],
 
     exec: async (nango, input) => {

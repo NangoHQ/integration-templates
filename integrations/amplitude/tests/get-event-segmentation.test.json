@@ -1,0 +1,176 @@
+{
+  "input": {
+    "e": {
+      "event_type": "_active"
+    },
+    "start": "20260920",
+    "end": "20260921"
+  },
+  "output": {
+    "data": {
+      "series": [],
+      "seriesLabels": [],
+      "seriesCollapsed": [],
+      "xValues": [
+        "2026-09-20",
+        "2026-09-21"
+      ]
+    }
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/api/2/events/segmentation": {
+        "response": {
+          "data": {
+            "series": [],
+            "seriesCollapsed": [],
+            "seriesLabels": [],
+            "xValues": [
+              "2026-09-20",
+              "2026-09-21"
+            ]
+          },
+          "timeComputed": 1790236459223,
+          "wasCached": true,
+          "cacheFreshness": "FRESH",
+          "allQueriesCached": true,
+          "novaRuntime": 10,
+          "novaRequestDuration": 30,
+          "wasDatasetCacheHit": false,
+          "novaCost": 0,
+          "throttleTime": 0,
+          "minSampleRate": 1,
+          "transformationIds": [],
+          "backend": "novaV2",
+          "realtimeDataMissing": false,
+          "timedOutRealtimeData": false,
+          "missedCacheAndNotComputed": false,
+          "realtimeProcessLag": {
+            "min": 338224,
+            "max": 344551,
+            "p50": 339484.7541513129,
+            "p75": 339782.4941226604,
+            "p95": 340380.91012229316,
+            "count": 150
+          },
+          "partialMergedAndNewUserInformation": false,
+          "prunedResult": false,
+          "hitChunkGroupByLimit": false,
+          "subcluster": 9,
+          "millisSinceComputed": 12510,
+          "earliestServerReceivedTime": 9223372036854776000,
+          "queryIds": [
+            "zhrYhKoHWW"
+          ],
+          "numQueries": 1,
+          "numDistinctQueries": 1,
+          "novaRequestStartAndEndTimes": [
+            [
+              1790236471701,
+              1790236471731
+            ]
+          ],
+          "perQueryMetadata": [
+            {
+              "queryId": "zhrYhKoHWW",
+              "queryType": "MULTI_SEGMENTATION",
+              "cached": true,
+              "cacheFreshness": "FRESH",
+              "throttleTime": 0,
+              "novaCost": 0,
+              "minSampleRate": 1,
+              "realtimeDataMissing": false,
+              "externalDataMissing": false,
+              "timedOutRealtime": false,
+              "missedCacheAndNotComputed": false,
+              "prunedResult": false,
+              "hitChunkGroupByLimit": false,
+              "novaRequestDuration": 30,
+              "novaRuntime": 10,
+              "costMetadata": {
+                "eventsInTimeRange": 2,
+                "cpuTime": 20947
+              },
+              "requestFreshness": "FRESH",
+              "qtsMetadata": {
+                "qtsRate": 1,
+                "numUsers": 0
+              }
+            }
+          ],
+          "prunedAmpIds": [],
+          "prunedApps": [],
+          "costMetadata": {
+            "cpuTime": 20947,
+            "eventsInTimeRange": 2
+          },
+          "potentialCacheMissAnomaly": false,
+          "dacResolutionStartAndEndTimes": [],
+          "dacResolutionDuration": 0,
+          "crossCacheMetadata": {
+            "crossCache": false,
+            "offset": 0,
+            "cdcRunTime": 0
+          },
+          "potentialCDCHit": false,
+          "qtsMetadata": {
+            "qtsRate": 1,
+            "numUsers": 0
+          },
+          "longTimeRangeQuery": false,
+          "timeRangeSplitCount": 0,
+          "isPeriodOverPeriod": false,
+          "wasStreamed": false,
+          "datasetPhaseTimings": {
+            "single time range": {
+              "max_time": 387,
+              "min_time": 387,
+              "all_timings": [
+                387
+              ]
+            }
+          },
+          "containsCohorts": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 24 Sep 2026 07:54:31 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4854",
+          "x-ratelimit-reset": "1790236475",
+          "etag": "W/\"229a43404b60c4620a2680829fd369b38bba2e8e\"",
+          "server-timing": "dash;dur=828.2",
+          "x-amzn-trace-id": "Root=1-6ab4d736-2445cd3a763c73d2080f50d5",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "eeb5d4f583f242678b92fe8e068e38aed2f70ba4",
+        "request": {
+          "params": {
+            "e": "{\"event_type\":\"_active\"}",
+            "end": "20260921",
+            "start": "20260920"
+          }
+        }
+      }
+    }
+  }
+}

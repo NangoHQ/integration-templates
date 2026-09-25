@@ -66,9 +66,11 @@ const RepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync repositories visible to the authenticated GitHub user or installation.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Contents" permission covers this endpoint.
+    scopes: ['repo'],
     endpoints: [
         {
             path: '/syncs/repositories',
