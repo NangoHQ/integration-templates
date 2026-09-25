@@ -155,11 +155,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch a single issue or pull request issue record by number.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Issues" (read, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['issues:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Issues" (read, includes labels) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/issues/issues#get-an-issue

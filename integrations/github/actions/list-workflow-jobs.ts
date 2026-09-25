@@ -56,11 +56,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List jobs in a workflow run attempt',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Actions" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['actions:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Actions" (read) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/actions/workflow-jobs#list-jobs-for-a-workflow-run

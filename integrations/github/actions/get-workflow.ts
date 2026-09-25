@@ -37,11 +37,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve metadata for a GitHub Actions workflow.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Actions" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['actions:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Actions" (read) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#get-a-workflow

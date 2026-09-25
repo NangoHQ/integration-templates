@@ -63,11 +63,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch a single pull request by number.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Pull requests" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['pull_requests:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Pull requests" (read) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request

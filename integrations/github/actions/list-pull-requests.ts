@@ -121,11 +121,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List pull requests for a repository with state and branch filters',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Pull requests" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['pull_requests:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Pull requests" (read) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/pulls/pulls#list-pull-requests

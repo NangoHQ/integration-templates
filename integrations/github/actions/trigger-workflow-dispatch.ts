@@ -9,7 +9,7 @@ const workflowDispatchResponseSchema = z.object({
 
 const action = createAction({
     description: 'Trigger a GitHub Actions workflow_dispatch run for a workflow file or ID',
-    version: '1.0.2',
+    version: '1.0.3',
     input: z.object({
         owner: z.string(),
         repo: z.string(),
@@ -18,8 +18,8 @@ const action = createAction({
         inputs: z.record(z.string(), z.string()).optional()
     }),
     output: workflowDispatchResponseSchema,
-    // Fine-grained/GitHub App permission: "Actions" (write). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['actions:write'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Actions" (write) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input) => {
         // https://docs.github.com/en/rest/actions/workflows#create-a-workflow-dispatch-event

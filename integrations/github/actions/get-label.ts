@@ -29,11 +29,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single repository label by name.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Issues" (read, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['issues:read'],
+    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Issues" (read, includes labels) permission covers this endpoint.
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
