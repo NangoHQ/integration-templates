@@ -1,44 +1,184 @@
 {
   "input": {
     "e": {
-      "event_type": "_active"
+      "event_type": "Test Event"
     },
-    "start": "20260920",
-    "end": "20260921"
+    "start": "20260601",
+    "end": "20260630"
   },
   "output": {
     "data": {
-      "series": [],
-      "seriesLabels": [],
-      "seriesCollapsed": [],
+      "series": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "seriesLabels": [
+        0
+      ],
+      "seriesCollapsed": [
+        [
+          {
+            "value": 3
+          }
+        ]
+      ],
       "xValues": [
-        "2026-09-20",
-        "2026-09-21"
+        "2026-06-01",
+        "2026-06-02",
+        "2026-06-03",
+        "2026-06-04",
+        "2026-06-05",
+        "2026-06-06",
+        "2026-06-07",
+        "2026-06-08",
+        "2026-06-09",
+        "2026-06-10",
+        "2026-06-11",
+        "2026-06-12",
+        "2026-06-13",
+        "2026-06-14",
+        "2026-06-15",
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19",
+        "2026-06-20",
+        "2026-06-21",
+        "2026-06-22",
+        "2026-06-23",
+        "2026-06-24",
+        "2026-06-25",
+        "2026-06-26",
+        "2026-06-27",
+        "2026-06-28",
+        "2026-06-29",
+        "2026-06-30"
       ]
     }
   },
   "nango": {
-    "getConnection": {}
+    "getConnection": {},
+    "getMetadata": {}
   },
   "api": {
     "get": {
       "/api/2/events/segmentation": {
         "response": {
           "data": {
-            "series": [],
-            "seriesCollapsed": [],
-            "seriesLabels": [],
+            "series": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                3,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "seriesCollapsed": [
+              [
+                {
+                  "setId": "",
+                  "value": 3
+                }
+              ]
+            ],
+            "seriesLabels": [
+              0
+            ],
             "xValues": [
-              "2026-09-20",
-              "2026-09-21"
+              "2026-06-01",
+              "2026-06-02",
+              "2026-06-03",
+              "2026-06-04",
+              "2026-06-05",
+              "2026-06-06",
+              "2026-06-07",
+              "2026-06-08",
+              "2026-06-09",
+              "2026-06-10",
+              "2026-06-11",
+              "2026-06-12",
+              "2026-06-13",
+              "2026-06-14",
+              "2026-06-15",
+              "2026-06-16",
+              "2026-06-17",
+              "2026-06-18",
+              "2026-06-19",
+              "2026-06-20",
+              "2026-06-21",
+              "2026-06-22",
+              "2026-06-23",
+              "2026-06-24",
+              "2026-06-25",
+              "2026-06-26",
+              "2026-06-27",
+              "2026-06-28",
+              "2026-06-29",
+              "2026-06-30"
             ]
           },
-          "timeComputed": 1790236459223,
+          "timeComputed": 1790342722992,
           "wasCached": true,
           "cacheFreshness": "FRESH",
           "allQueriesCached": true,
-          "novaRuntime": 10,
-          "novaRequestDuration": 30,
+          "novaRuntime": 18,
+          "novaRequestDuration": 108,
           "wasDatasetCacheHit": false,
           "novaCost": 0,
           "throttleTime": 0,
@@ -49,33 +189,33 @@
           "timedOutRealtimeData": false,
           "missedCacheAndNotComputed": false,
           "realtimeProcessLag": {
-            "min": 338224,
-            "max": 344551,
-            "p50": 339484.7541513129,
-            "p75": 339782.4941226604,
-            "p95": 340380.91012229316,
+            "min": 345124,
+            "max": 360545,
+            "p50": 346989.61706765473,
+            "p75": 347506.32306599675,
+            "p95": 348459.19439811644,
             "count": 150
           },
           "partialMergedAndNewUserInformation": false,
           "prunedResult": false,
           "hitChunkGroupByLimit": false,
           "subcluster": 9,
-          "millisSinceComputed": 12510,
+          "millisSinceComputed": 1581065,
           "earliestServerReceivedTime": 9223372036854776000,
           "queryIds": [
-            "zhrYhKoHWW"
+            "HNDqApOlKu"
           ],
           "numQueries": 1,
           "numDistinctQueries": 1,
           "novaRequestStartAndEndTimes": [
             [
-              1790236471701,
-              1790236471731
+              1790344303947,
+              1790344304055
             ]
           ],
           "perQueryMetadata": [
             {
-              "queryId": "zhrYhKoHWW",
+              "queryId": "HNDqApOlKu",
               "queryType": "MULTI_SEGMENTATION",
               "cached": true,
               "cacheFreshness": "FRESH",
@@ -88,11 +228,11 @@
               "missedCacheAndNotComputed": false,
               "prunedResult": false,
               "hitChunkGroupByLimit": false,
-              "novaRequestDuration": 30,
-              "novaRuntime": 10,
+              "novaRequestDuration": 108,
+              "novaRuntime": 18,
               "costMetadata": {
-                "eventsInTimeRange": 2,
-                "cpuTime": 20947
+                "eventsInTimeRange": 30,
+                "cpuTime": 517611
               },
               "requestFreshness": "FRESH",
               "qtsMetadata": {
@@ -104,8 +244,8 @@
           "prunedAmpIds": [],
           "prunedApps": [],
           "costMetadata": {
-            "cpuTime": 20947,
-            "eventsInTimeRange": 2
+            "cpuTime": 517611,
+            "eventsInTimeRange": 30
           },
           "potentialCacheMissAnomaly": false,
           "dacResolutionStartAndEndTimes": [],
@@ -126,10 +266,10 @@
           "wasStreamed": false,
           "datasetPhaseTimings": {
             "single time range": {
-              "max_time": 387,
-              "min_time": 387,
+              "max_time": 594,
+              "min_time": 594,
               "all_timings": [
-                387
+                594
               ]
             }
           },
@@ -137,7 +277,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Thu, 24 Sep 2026 07:54:31 GMT",
+          "date": "Fri, 25 Sep 2026 13:51:44 GMT",
           "content-type": "application/json; charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -151,23 +291,23 @@
           "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
-          "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4854",
-          "x-ratelimit-reset": "1790236475",
-          "etag": "W/\"229a43404b60c4620a2680829fd369b38bba2e8e\"",
-          "server-timing": "dash;dur=828.2",
-          "x-amzn-trace-id": "Root=1-6ab4d736-2445cd3a763c73d2080f50d5",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1901",
+          "x-ratelimit-reset": "1790344306",
+          "etag": "W/\"14cd5d6307e77dd2bd865bc6673305b555b8a5e7\"",
+          "server-timing": "dash;dur=857.0",
+          "x-amzn-trace-id": "Root=1-6ab67c6f-4e5267176d5e096f6b2d4266",
           "cache-control": "no-cache, no-store, must-revalidate",
           "pragma": "no-cache",
           "expires": "0",
           "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
         },
-        "hash": "eeb5d4f583f242678b92fe8e068e38aed2f70ba4",
+        "hash": "f39981a17844a42ffa0e0f72fce7a67d06b22c64",
         "request": {
           "params": {
-            "e": "{\"event_type\":\"_active\"}",
-            "end": "20260921",
-            "start": "20260920"
+            "e": "{\"event_type\":\"Test Event\"}",
+            "end": "20260630",
+            "start": "20260601"
           }
         }
       }
