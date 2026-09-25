@@ -212,7 +212,6 @@ const sync = createSync({
     models: {
         PullRequest: PullRequestSchema
     },
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Pull requests" (read) permission covers this endpoint.
     scopes: ['repo'],
     endpoints: [{ path: '/syncs/pull-requests', method: 'POST' }],
 

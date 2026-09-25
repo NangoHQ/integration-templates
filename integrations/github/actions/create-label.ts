@@ -34,7 +34,6 @@ const action = createAction({
     version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Issues" (write, includes labels) permission covers this endpoint.
     scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {

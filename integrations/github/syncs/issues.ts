@@ -207,7 +207,6 @@ const sync = createSync({
     version: '3.0.4',
     frequency: 'every hour',
     autoStart: true,
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Issues" (read, includes labels) permission covers this endpoint.
     scopes: ['repo'],
     endpoints: [{ method: 'GET', path: '/syncs/issues' }],
     checkpoint: CheckpointSchema,

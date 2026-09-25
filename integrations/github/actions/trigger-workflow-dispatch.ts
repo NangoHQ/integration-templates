@@ -18,7 +18,6 @@ const action = createAction({
         inputs: z.record(z.string(), z.string()).optional()
     }),
     output: workflowDispatchResponseSchema,
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Actions" (write) permission covers this endpoint.
     scopes: ['repo'],
 
     exec: async (nango, input) => {

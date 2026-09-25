@@ -153,7 +153,6 @@ const sync = createSync({
     endpoints: [{ method: 'POST', path: '/syncs/workflow-runs' }],
     frequency: 'every hour',
     autoStart: true,
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Actions" (read) permission covers this endpoint.
     scopes: ['repo'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
