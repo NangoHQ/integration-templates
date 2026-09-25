@@ -90,7 +90,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List event types from Cal.com.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['EVENT_TYPE_READ'],

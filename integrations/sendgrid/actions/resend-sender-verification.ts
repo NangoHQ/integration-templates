@@ -11,7 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Resend the verification email for a sender identity.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sender_verification'],

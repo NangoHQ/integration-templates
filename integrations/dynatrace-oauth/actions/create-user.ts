@@ -19,7 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Invite/create a new user in this account by email',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],

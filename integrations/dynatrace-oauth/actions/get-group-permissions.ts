@@ -51,7 +51,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Get the directly-assigned permissions on a group',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-read'],

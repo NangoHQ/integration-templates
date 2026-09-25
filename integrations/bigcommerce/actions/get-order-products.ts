@@ -106,7 +106,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List line items for an order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_orders_read_only'],

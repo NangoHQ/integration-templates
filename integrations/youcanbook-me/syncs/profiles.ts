@@ -35,7 +35,7 @@ const ListProfilesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync booking-page profiles on this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {

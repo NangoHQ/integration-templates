@@ -10,7 +10,7 @@ const OutputSchema = z.object({});
 
 const action = createAction({
     description: 'Undo a candidate disqualification, restoring them to their prior stage.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates', 'w_candidates'],

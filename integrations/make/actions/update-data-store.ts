@@ -34,7 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a data store's name, structure, or size limit.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['datastores:write'],

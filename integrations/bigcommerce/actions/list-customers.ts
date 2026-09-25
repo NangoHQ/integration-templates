@@ -68,7 +68,7 @@ const PaginationMetaSchema = z.object({
 
 const action = createAction({
     description: 'List customers.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         path: '/actions/list-customers',
         method: 'GET'

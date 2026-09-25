@@ -17,7 +17,7 @@ const ProviderDeleteResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a campaign in ActiveCampaign.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 

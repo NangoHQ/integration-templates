@@ -40,7 +40,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: "Update an existing time entry's times or note.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],

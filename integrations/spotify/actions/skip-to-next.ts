@@ -14,7 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Skips to the next track in the user's queue.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],

@@ -46,7 +46,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: "Get a single user's full details including their group memberships.",
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,

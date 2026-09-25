@@ -103,7 +103,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: "List SLO corrections (time windows excluded from an SLO's error-budget calculation, e.g. for planned maintenance).",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slos_read'],

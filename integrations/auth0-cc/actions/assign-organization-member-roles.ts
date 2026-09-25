@@ -13,7 +13,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Assign roles to an organization member in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:organization_member_roles'],

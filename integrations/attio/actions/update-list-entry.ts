@@ -39,7 +39,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update a list entry in Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list_entry:read-write', 'list_configuration:read'],

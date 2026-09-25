@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get the account's assigned resource limits (users, groups, permissions, platform tokens) and current usage against each.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['account-idm-read'],

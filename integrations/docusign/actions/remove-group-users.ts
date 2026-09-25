@@ -38,7 +38,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Remove users from a group.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: { method: 'POST', path: '/actions/remove-group-users' },
     input: InputSchema,
     output: OutputSchema,

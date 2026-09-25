@@ -11,7 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/delete-category'

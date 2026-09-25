@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync channels',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     models: {
         Channel: ChannelModel

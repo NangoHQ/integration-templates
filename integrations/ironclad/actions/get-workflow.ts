@@ -61,7 +61,7 @@ const ProviderWorkflowSchema = z
 
 const action = createAction({
     description: 'Get full details of a single workflow, including its current schema and attribute values.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderWorkflowSchema,
     scopes: ['public.workflows.readWorkflows'],

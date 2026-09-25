@@ -56,7 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all channels including the default storefront',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_channel_listings_read_only', 'store_channel_settings_read_only', 'store_sites_read_only'],

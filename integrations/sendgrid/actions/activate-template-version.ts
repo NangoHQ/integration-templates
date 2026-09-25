@@ -30,7 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Mark a template version as the active one used when sending.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['templates.versions.activate.create'],

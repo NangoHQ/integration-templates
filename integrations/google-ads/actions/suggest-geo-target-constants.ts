@@ -52,7 +52,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Look up geo target constant resource names for location names or codes, for use in campaign location targeting.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],

@@ -17,7 +17,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove permissions from a role in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:roles'],

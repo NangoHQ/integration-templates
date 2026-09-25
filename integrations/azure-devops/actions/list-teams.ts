@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List teams within a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

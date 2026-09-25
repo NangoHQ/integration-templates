@@ -56,7 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an ad group in an existing Google Ads campaign',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],

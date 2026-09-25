@@ -30,7 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a liked tweet (unlike) for the authenticated user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read', 'users.read', 'like.write'],

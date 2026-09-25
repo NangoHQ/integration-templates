@@ -31,7 +31,7 @@ const QueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio person records.',
-    version: '2.0.2',
+    version: '2.0.3',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/people' }],

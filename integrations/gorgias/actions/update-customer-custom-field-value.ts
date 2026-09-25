@@ -38,7 +38,7 @@ function parseCustomFieldValueEntries(data: unknown): z.infer<typeof CustomField
  */
 const action = createAction({
     description: 'Set a single custom field value on a customer.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customers:read', 'customers:write'],

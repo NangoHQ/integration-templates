@@ -10,7 +10,7 @@ const OutputSchema = z.object({});
 
 const action = createAction({
     description: "Replace a user's entire group membership list in one call (removes them from any group not included).",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],

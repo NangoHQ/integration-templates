@@ -46,7 +46,7 @@ const OutputSchema = z.array(OutputItemSchema).describe('The updated custom fiel
  */
 const action = createAction({
     description: 'Set multiple custom field values on a customer in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customers:write'],

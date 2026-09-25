@@ -56,7 +56,7 @@ const isStringArray = (value: unknown): value is string[] => {
 
 const action = createAction({
     description: 'Retrieve a coupon.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_marketing_read_only'],

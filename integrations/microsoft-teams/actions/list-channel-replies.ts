@@ -107,7 +107,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List replies under a channel message thread',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Read.All'],

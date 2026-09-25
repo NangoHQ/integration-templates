@@ -24,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a deal record in HubSpot',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,

@@ -42,7 +42,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Create a storage bucket in Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

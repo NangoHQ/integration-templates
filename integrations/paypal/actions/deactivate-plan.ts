@@ -18,7 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Deactivate a billing plan so it can no longer be subscribed to.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://uri.paypal.com/services/subscriptions'],

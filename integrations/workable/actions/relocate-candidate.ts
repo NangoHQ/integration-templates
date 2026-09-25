@@ -24,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Move a candidate to another job, deleting the original candidate record.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates', 'w_candidates'],

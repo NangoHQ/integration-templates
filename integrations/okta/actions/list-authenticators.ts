@@ -35,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the authenticator types configured at the org level.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['okta.authenticators.read'],

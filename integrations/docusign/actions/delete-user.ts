@@ -15,7 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Close/remove users from the account.',
-    version: '3.0.0',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['signature'],

@@ -37,7 +37,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Sync each candidate's latest offer, where one exists.",
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

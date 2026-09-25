@@ -70,7 +70,7 @@ const OutputSchema = SloHistoryDataSchema;
 
 const action = createAction({
     description: 'Get the historical SLI value for an SLO over a time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slos_read'],

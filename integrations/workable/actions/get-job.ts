@@ -148,7 +148,7 @@ function mapSalary(salary: z.infer<typeof ProviderSalarySchema> | null | undefin
 
 const action = createAction({
     description: 'Retrieve a single job by shortcode',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_jobs'],

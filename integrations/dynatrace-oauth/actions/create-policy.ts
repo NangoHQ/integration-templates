@@ -39,7 +39,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a new custom access policy at the account level.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],

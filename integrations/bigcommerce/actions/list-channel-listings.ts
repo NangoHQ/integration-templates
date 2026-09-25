@@ -71,7 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List product listings for a channel.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_channel_listings_read_only'],

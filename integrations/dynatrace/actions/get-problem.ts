@@ -86,7 +86,7 @@ const ProblemSchema = z
 
 const action = createAction({
     description: 'Get full details of a single problem.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProblemSchema,
     scopes: ['problems.read'],

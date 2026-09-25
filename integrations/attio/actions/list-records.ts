@@ -57,7 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List records from Attio',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read', 'object_configuration:read'],

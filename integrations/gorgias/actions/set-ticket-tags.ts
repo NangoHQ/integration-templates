@@ -36,7 +36,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Replace a ticket's full tag list with the given set of existing tags.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write', 'tickets:read'],

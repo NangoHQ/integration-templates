@@ -206,7 +206,7 @@ const OutputSchema = ProviderProfileSchema;
 
 const action = createAction({
     description: 'Create a new booking-page profile.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

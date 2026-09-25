@@ -65,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query the account-level audit log (IAM changes: user/group/policy/permission create-update-delete events).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

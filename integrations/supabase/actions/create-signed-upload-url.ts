@@ -18,7 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Generate a signed URL that allows a client to upload a file directly to Supabase Storage without exposing the service role key.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

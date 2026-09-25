@@ -65,7 +65,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Set multiple custom field values on a ticket in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write', 'custom_fields:write'],

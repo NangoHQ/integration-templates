@@ -19,7 +19,7 @@ const ProviderResponseSchema = z
 
 const action = createAction({
     description: 'Get total and billable contact counts.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

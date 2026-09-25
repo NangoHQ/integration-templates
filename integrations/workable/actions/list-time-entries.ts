@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List time-tracking entries with employee/date/duration filters.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_time_tracking'],

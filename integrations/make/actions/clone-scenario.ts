@@ -24,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Duplicate a scenario into the same or a different team.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:read', 'scenarios:write'],

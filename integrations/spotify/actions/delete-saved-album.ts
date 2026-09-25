@@ -11,7 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Remove one or more albums from the current user's library.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-modify'],

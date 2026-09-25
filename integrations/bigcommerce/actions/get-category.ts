@@ -37,7 +37,7 @@ const OutputSchema = CategorySchema;
 
 const action = createAction({
     description: 'Retrieve a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],

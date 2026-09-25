@@ -49,7 +49,7 @@ async function getSoapClient(type: 'Human_Resources' | 'Staffing', connection: a
 
 const sync = createSync({
     description: 'Sync locations from Workday.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

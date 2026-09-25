@@ -64,7 +64,7 @@ function parseBoolean(value: unknown): boolean {
 
 const action = createAction({
     description: 'List Snowflake warehouses with size, state, and resource usage.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

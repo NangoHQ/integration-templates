@@ -38,7 +38,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'List all recipients for an envelope.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-envelope-recipients'

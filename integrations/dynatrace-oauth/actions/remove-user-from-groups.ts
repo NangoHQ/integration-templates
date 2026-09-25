@@ -16,7 +16,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Remove a user from one or more specific groups without affecting other memberships.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],

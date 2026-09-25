@@ -58,7 +58,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List posts from a Facebook Page feed.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_show_list', 'pages_read_engagement'],

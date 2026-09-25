@@ -182,7 +182,7 @@ const OutputSchema = ProviderProductSchema;
 
 const action = createAction({
     description: 'Update a product.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],

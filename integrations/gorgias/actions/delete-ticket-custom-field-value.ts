@@ -18,7 +18,7 @@ const OutputSchema = z.null().describe('No response body on success.');
  */
 const action = createAction({
     description: 'Clear a single custom field value on a ticket',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write'],

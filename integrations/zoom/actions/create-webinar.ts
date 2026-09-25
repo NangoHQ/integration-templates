@@ -113,7 +113,7 @@ const OutputSchema = ProviderResponseSchema;
 
 const action = createAction({
     description: 'Create a webinar in Zoom.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webinar:write', 'webinar:write:admin'],

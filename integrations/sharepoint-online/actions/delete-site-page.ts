@@ -14,7 +14,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a site page.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],

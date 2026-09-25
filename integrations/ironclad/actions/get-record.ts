@@ -40,7 +40,7 @@ const OutputSchema = ProviderRecordSchema;
 
 const action = createAction({
     description: 'Get a single record by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public.records.readRecords'],

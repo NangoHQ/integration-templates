@@ -64,7 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a single policy's full definition (statementQuery) by uuid, at either account or global level.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],

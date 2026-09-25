@@ -32,7 +32,7 @@ const MutateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update mutable fields on a campaign budget.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],

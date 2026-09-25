@@ -29,7 +29,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Get a single service user by uid.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,

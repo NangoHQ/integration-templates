@@ -53,7 +53,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sprint iterations for all teams',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,

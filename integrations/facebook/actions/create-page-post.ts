@@ -35,7 +35,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Publish a post to a Facebook Page feed.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages_manage_posts', 'pages_show_list'],

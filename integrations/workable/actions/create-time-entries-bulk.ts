@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create up to 500 time entries across employees in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],

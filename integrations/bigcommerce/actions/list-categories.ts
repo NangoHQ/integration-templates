@@ -36,7 +36,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List categories.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['store_v2_products_read_only'],

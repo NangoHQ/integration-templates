@@ -119,7 +119,7 @@ const OutputSchema = z
 const action = createAction({
     description:
         'Get full configuration for a single booking-page profile — intake form questions, team members, appointment types, working hours, payments, cancellation policy, and automated actions.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],

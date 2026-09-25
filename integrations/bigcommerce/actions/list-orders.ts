@@ -202,7 +202,7 @@ function stripNulls(value: unknown): unknown {
 
 const action = createAction({
     description: 'List orders.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: { method: 'POST', path: '/actions/list-orders' },
     input: InputSchema,
     output: OutputSchema,

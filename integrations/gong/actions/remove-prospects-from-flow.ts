@@ -22,7 +22,7 @@ const ErrorResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unassign prospects from an Engage flow by their flow instance IDs.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],

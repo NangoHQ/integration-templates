@@ -115,7 +115,7 @@ function isProblemStillOpen(status: string): boolean {
 
 const sync = createSync({
     description: 'Sync detected problems (Davis AI-correlated issues).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -22,7 +22,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Add a user to one or more groups, leaving their existing group memberships untouched.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],

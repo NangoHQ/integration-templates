@@ -58,7 +58,7 @@ const OutputSchema = ProviderProjectSchema;
 
 const action = createAction({
     description: 'Retrieve a single project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user:projects:read'],

@@ -14,7 +14,7 @@ const OutputSchema = z.array(DisqualificationReasonSchema);
 
 const action = createAction({
     description: "List the account's configured disqualification reasons.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates'],
