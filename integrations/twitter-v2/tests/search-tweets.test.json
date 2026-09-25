@@ -1,0 +1,59 @@
+{
+  "input": {
+    "query": "from:nangohq -is:retweet"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "1861079343821576196",
+        "text": "Shipping integrations just got easier.",
+        "edit_history_tweet_ids": ["1861079343821576196"],
+        "author_id": "1466796521412771840"
+      },
+      {
+        "id": "1860978244853944663",
+        "text": "New template drop: 20 more integrations.",
+        "edit_history_tweet_ids": ["1860978244853944663"],
+        "author_id": "1466796521412771840"
+      }
+    ],
+    "next_cursor": "b26v89c19zqg8o3fpzhk8u4wufwl9c4ffkgnvlsdgmql9",
+    "newest_id": "1861079343821576196",
+    "oldest_id": "1860978244853944663",
+    "result_count": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/tweets/search/recent": {
+        "request": {
+          "params": {
+            "query": "from:nangohq -is:retweet"
+          }
+        },
+        "response": {
+          "data": [
+            {
+              "id": "1861079343821576196",
+              "text": "Shipping integrations just got easier.",
+              "edit_history_tweet_ids": ["1861079343821576196"],
+              "author_id": "1466796521412771840"
+            },
+            {
+              "id": "1860978244853944663",
+              "text": "New template drop: 20 more integrations.",
+              "edit_history_tweet_ids": ["1860978244853944663"],
+              "author_id": "1466796521412771840"
+            }
+          ],
+          "meta": {
+            "newest_id": "1861079343821576196",
+            "oldest_id": "1860978244853944663",
+            "result_count": 2,
+            "next_token": "b26v89c19zqg8o3fpzhk8u4wufwl9c4ffkgnvlsdgmql9"
+          }
+        }
+      }
+    }
+  }
+}

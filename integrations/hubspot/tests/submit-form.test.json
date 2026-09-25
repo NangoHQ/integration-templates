@@ -1,0 +1,32 @@
+{
+  "input": {
+    "portal_id": "12345678",
+    "form_guid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "fields": [
+      {
+        "name": "email",
+        "value": "john.doe@example.com",
+        "object_type_id": "0-1"
+      },
+      {
+        "name": "message",
+        "value": "Interested in a demo."
+      }
+    ],
+    "page_uri": "https://example.com/contact",
+    "page_name": "Contact Us"
+  },
+  "output": {
+    "inline_message": "Thanks for submitting the form."
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/submissions/v3/integration/secure/submit/12345678/a1b2c3d4-e5f6-7890-abcd-ef1234567890": {
+        "response": {
+          "inlineMessage": "Thanks for submitting the form."
+        }
+      }
+    }
+  }
+}

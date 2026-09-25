@@ -1,0 +1,58 @@
+{
+  "input": {
+    "owner": "NangoHQ",
+    "repo": "integration-templates",
+    "tree_sha": "main"
+  },
+  "output": {
+    "sha": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+    "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/trees/9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+    "tree": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "type": "blob",
+        "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+        "size": 1042,
+        "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+      },
+      {
+        "path": "integrations",
+        "mode": "040000",
+        "type": "tree",
+        "sha": "f484d249c660418f4d5441c1b91b3b5142c9142f",
+        "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/trees/f484d249c660418f4d5441c1b91b3b5142c9142f"
+      }
+    ],
+    "truncated": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/NangoHQ/integration-templates/git/trees/main": {
+        "response": {
+          "sha": "9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+          "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/trees/9fb037999f264ba9a7fc6274d15fa3ae2ab98312",
+          "tree": [
+            {
+              "path": "README.md",
+              "mode": "100644",
+              "type": "blob",
+              "sha": "44b4fc6d56897b048c772eb4087f854f46256132",
+              "size": 1042,
+              "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/blobs/44b4fc6d56897b048c772eb4087f854f46256132"
+            },
+            {
+              "path": "integrations",
+              "mode": "040000",
+              "type": "tree",
+              "sha": "f484d249c660418f4d5441c1b91b3b5142c9142f",
+              "url": "https://api.github.com/repos/NangoHQ/integration-templates/git/trees/f484d249c660418f4d5441c1b91b3b5142c9142f"
+            }
+          ],
+          "truncated": false
+        }
+      }
+    }
+  }
+}
