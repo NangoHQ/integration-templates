@@ -1,0 +1,10 @@
+{
+    "input": {
+        "body": {
+            "key": "example",
+            "type": "string",
+            "fallback_value": "none"
+        }
+    },
+    "response": {}
+}
