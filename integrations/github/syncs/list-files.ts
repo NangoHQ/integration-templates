@@ -54,7 +54,6 @@ const sync = createSync({
         }
     ],
 
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Contents" permission covers this endpoint.
     scopes: ['repo'],
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,

@@ -66,11 +66,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Open a pull request from one branch into another.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Pull requests" (write). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['pull_requests:write'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/pulls/pulls#create-a-pull-request

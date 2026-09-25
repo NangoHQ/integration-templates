@@ -42,11 +42,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a pull request review by review ID.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Pull requests" (read). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['pull_requests:read'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedOwner = encodeURIComponent(input.owner);

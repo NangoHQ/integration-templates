@@ -59,7 +59,6 @@ const sync = createSync({
     version: '1.1.1',
     frequency: 'every hour',
     autoStart: false,
-    // Classic OAuth (github) connections: the 'repo' scope. Fine-grained/GitHub App connections: the "Contents" permission covers this endpoint.
     scopes: ['repo'],
     endpoints: [{ method: 'POST', path: '/syncs/repository-files' }],
     metadata: MetadataSchema,
