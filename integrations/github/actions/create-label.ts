@@ -31,11 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a repository label with name, color, and description',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    // Fine-grained/GitHub App permission: "Issues" (write, includes labels). Classic OAuth (github) connections: the 'repo' scope covers this.
-    scopes: ['issues:write'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/issues/labels#create-a-label
