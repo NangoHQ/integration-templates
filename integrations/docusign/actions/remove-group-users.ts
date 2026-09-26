@@ -38,7 +38,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Remove users from a group.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: { method: 'POST', path: '/actions/remove-group-users' },
     input: InputSchema,
     output: OutputSchema,
@@ -58,7 +58,7 @@ const action = createAction({
         const accountId = metadataResult.data.accountId;
 
         const config: ProxyConfiguration = {
-            // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/deletegroupusers/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groupusers/delete/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups/${encodeURIComponent(input.groupId)}/users`,
             data: {
                 users: input.users

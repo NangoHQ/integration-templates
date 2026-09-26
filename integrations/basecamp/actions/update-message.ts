@@ -40,9 +40,10 @@ const ProviderMessageSchema = z
  */
 const action = createAction({
     description: "Update a message's subject, content, or category.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: { subject?: string; content?: string; category_id?: string } = {};

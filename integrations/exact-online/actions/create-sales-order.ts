@@ -68,7 +68,7 @@ const action = createAction({
         method: 'POST'
     },
     description: 'Create a new sales order',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sales orders'],

@@ -66,9 +66,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List Service Level Objectives.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['slos_read'],
 
     exec: async (nango, input) => {
         if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {

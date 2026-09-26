@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List MFA factors enrolled for a specific user in Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['service_role'],
@@ -48,7 +48,7 @@ const action = createAction({
         }
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
-        // https://supabase.com/docs/reference/api/admin-list-user-factors
+        // https://supabase.com/docs/reference/javascript/auth-admin-listfactors
         const response = await nango.get({
             endpoint: `/auth/v1/admin/users/${encodeURIComponent(input.user_id)}/factors`,
             baseUrlOverride,

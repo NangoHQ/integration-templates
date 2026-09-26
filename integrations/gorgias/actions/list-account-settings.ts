@@ -25,14 +25,14 @@ const OutputSchema = z
 const action = createAction({
     description:
         'List account-level settings (business hours, ticket assignment, satisfaction survey config, access/SSO, auto-merge, auto-split, default integration, etc.).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['account:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.gorgias.com/reference/get-account-settings
+            // https://developers.gorgias.com/reference/list-account-settings
             endpoint: '/api/account/settings',
             retries: 3
         });

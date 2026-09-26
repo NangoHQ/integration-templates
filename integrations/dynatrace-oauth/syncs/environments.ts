@@ -25,12 +25,13 @@ const AccountUuidSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the monitoring environments (tenants) belonging to this account.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         Environment: EnvironmentSchema
     },
+    scopes: ['account-env-read'],
 
     exec: async (nango) => {
         const connection = await nango.getConnection();

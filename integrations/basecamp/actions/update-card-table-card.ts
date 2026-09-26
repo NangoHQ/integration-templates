@@ -54,9 +54,10 @@ const ProviderCardSchema = z.object({
  */
 const action = createAction({
     description: "Update a card's title, content, due date, or assignees.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: CardOutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof CardOutputSchema>> => {
         const response = await nango.put({

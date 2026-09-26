@@ -22,7 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add one or more direct permissions to a group, without affecting existing ones.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -47,7 +47,7 @@ const action = createAction({
         const groupUuid = input.groupUuid;
 
         await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups/permissions/post-group-permissions
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/permission-management-api/post-permissions
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups/${encodeURIComponent(groupUuid)}/permissions`,
             data: input.permissions,
             retries: 10

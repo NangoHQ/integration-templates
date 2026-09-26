@@ -81,14 +81,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a variant for a product.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/product-variants#create-a-product-variant
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/create-product-variant
             endpoint: `/v3/catalog/products/${encodeURIComponent(input.product_id)}/variants`,
             data: {
                 sku: input.sku,

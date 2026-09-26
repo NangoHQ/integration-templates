@@ -122,10 +122,10 @@ function normalizeStore(store: z.infer<typeof ProviderStoreSchema>): z.infer<typ
 
 const action = createAction({
     description: 'Create a store in Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ecommerce_stores_write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {

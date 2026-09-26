@@ -47,7 +47,7 @@ const EMPTY_CHECKPOINT = {
 
 const sync = createSync({
     description: 'Sync subsites under selected parent sites.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -60,6 +60,7 @@ const sync = createSync({
             path: '/syncs/subsites'
         }
     ],
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         // Blocker: Microsoft Graph /sites/{siteId}/sites does not expose a delta endpoint,

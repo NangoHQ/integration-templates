@@ -33,13 +33,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync account users with full-refresh delete tracking.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
+    scopes: ['signature'],
     endpoints: [
         {
             path: '/syncs/users',
@@ -70,7 +71,7 @@ const sync = createSync({
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/users/getusers/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users`,
             paginate: {
                 type: 'offset',

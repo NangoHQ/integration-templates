@@ -18,7 +18,7 @@ export default createAction({
     description: 'Delete a board section.',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['boards:write'],
+    scopes: ['boards:read', 'boards:write'],
     exec: async (nango: NangoAction, input: Input): Promise<Output> => {
         const parsed = InputSchema.safeParse(input);
         if (!parsed.success) {

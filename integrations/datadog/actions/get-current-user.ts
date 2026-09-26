@@ -60,10 +60,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get the profile of the user this connection authenticates as, including org/role relationships.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['user_access_read'],
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

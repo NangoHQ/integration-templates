@@ -18,14 +18,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve operations and data-transfer usage for a scenario.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/scenarios-get-scenario-usage
+            // https://developers.make.com/api-documentation/api-reference/scenarios
             endpoint: `/scenarios/${encodeURIComponent(input.scenarioId)}/usage`,
             retries: 3
         });

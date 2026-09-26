@@ -190,9 +190,10 @@ async function saveFormRecordsCheckpoint(
 
 const sync = createSync({
     description: 'Sync records for a configurable set of forms',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['ZOHOPEOPLE.forms.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

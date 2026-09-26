@@ -54,10 +54,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a note in Pipedrive.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['deals:read', 'deals:write', 'activities:read', 'activities:write'],
+    scopes: ['deals:full', 'contacts:full'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const hasEntityId = input.deal_id || input.person_id || input.org_id || input.lead_id || input.project_id || input.task_id;

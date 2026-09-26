@@ -57,7 +57,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List records from Attio',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read', 'object_configuration:read'],
@@ -73,7 +73,7 @@ const action = createAction({
             ...(input.filters && { filter: input.filters })
         };
 
-        // https://docs.attio.com/rest-api/records/query-records
+        // https://docs.attio.com/rest-api/endpoint-reference/records/list-records
         const response = await nango.post({
             endpoint: `/v2/objects/${input.object}/records/query`,
             data: requestBody,

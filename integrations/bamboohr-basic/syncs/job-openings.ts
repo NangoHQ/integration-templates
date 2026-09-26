@@ -70,9 +70,10 @@ const JobOpeningSchema = z.object({
 
 const sync = createSync({
     description: 'Sync job openings from the BambooHR ATS.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hiring:applications'],
     endpoints: [
         {
             method: 'GET',

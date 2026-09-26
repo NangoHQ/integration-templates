@@ -48,7 +48,7 @@ const WorkItemsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync work items using WIQL ChangedDate filter, then hydrate fields in batches',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -156,7 +156,7 @@ const sync = createSync({
                     const batchIds = ids.slice(i, i + batchSize);
                     const batchIdString = batchIds.join(',');
 
-                    // https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/get-work-items?view=azure-devops-rest-7.2
+                    // https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/work-items/list?view=azure-devops-rest-7.2
                     const workItemsResponse = await nango.get({
                         endpoint: `/${encodeURIComponent(project)}/_apis/wit/workitems`,
                         params: {

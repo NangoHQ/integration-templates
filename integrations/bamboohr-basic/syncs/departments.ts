@@ -22,9 +22,10 @@ const ProviderListSchema = z.object({
 
 const sync = createSync({
     description: 'Sync department list values from BambooHR',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['field'],
     models: {
         Department: DepartmentSchema
     },

@@ -31,10 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit a leave request for an employee',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.leave.ALL'],
+    scopes: ['ZOHOPEOPLE.forms.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const inputData = JSON.stringify({
@@ -45,7 +45,7 @@ const action = createAction({
             Daystaken: input.daysTaken
         });
 
-        // https://www.zoho.com/people/api/leave.html
+        // https://www.zoho.com/people/api/insert-records.html
         const response = await nango.post({
             endpoint: '/people/api/forms/json/leave/insertRecord',
             params: {

@@ -62,9 +62,10 @@ const RawResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all admins in the workspace.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListInputSchema,
     output: ListOutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const params: Record<string, string | number> = {};

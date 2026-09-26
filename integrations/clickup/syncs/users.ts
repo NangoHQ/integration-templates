@@ -39,7 +39,7 @@ const UserModelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspace members from ClickUp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -51,6 +51,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         // Blocker: provider only exposes /api/v2/team with no changed-since filter,
@@ -58,7 +59,7 @@ const sync = createSync({
         // returned in a single response embedded within teams[].members[].user.
         await nango.trackDeletesStart('User');
 
-        // https://developer.clickup.com/reference/getteams
+        // https://developer.clickup.com/reference/getauthorizedteams
         const response = await nango.get({
             endpoint: '/api/v2/team',
             retries: 3

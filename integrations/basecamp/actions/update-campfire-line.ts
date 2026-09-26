@@ -17,9 +17,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: "Edit a Campfire line's content.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null(),
+    scopes: [],
 
     exec: async (nango, input) => {
         await nango.put({

@@ -60,7 +60,7 @@ const FileMetadataSchema = z.object({
 
 const sync = createSync<typeof ModelsSchema, typeof MetadataSchema, typeof CheckpointSchema>({
     description: 'Sync the metadata of specified files or folder paths from Box. A file or folder ID can be provided.',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every day',
     autoStart: false,
     endpoints: [
@@ -73,6 +73,7 @@ const sync = createSync<typeof ModelsSchema, typeof MetadataSchema, typeof Check
     checkpoint: CheckpointSchema,
     models: ModelsSchema,
     metadata: MetadataSchema,
+    scopes: ['root_readonly'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

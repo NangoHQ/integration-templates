@@ -107,9 +107,10 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const action = createAction({
     description: 'List QuickBooks credit memos.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const realmId = await getRealmId(nango);

@@ -29,12 +29,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List custom contact field definitions.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/custom-fields/list-all-custom-fields
+        // https://www.twilio.com/docs/sendgrid/api-reference/custom-fields/get-all-field-definitions
         const response = await nango.get({
             endpoint: '/v3/marketing/field_definitions',
             retries: 3

@@ -18,13 +18,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all candidate/opportunity tags configured on the account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
+    scopes: ['tags:read:admin'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

@@ -56,9 +56,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a user in Zendesk Support.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const userPayload: Record<string, unknown> = {

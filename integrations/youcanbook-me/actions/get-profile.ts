@@ -119,14 +119,14 @@ const OutputSchema = z
 const action = createAction({
     description:
         'Get full configuration for a single booking-page profile — intake form questions, team members, appointment types, working hours, payments, cancellation policy, and automated actions.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://ycbm.stoplight.io/docs/youcanbookme-api/
+            // https://ycbm.stoplight.io/
             endpoint: `/v1/profiles/${encodeURIComponent(input.profileId)}`,
             retries: 3
         });

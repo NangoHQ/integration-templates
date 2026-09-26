@@ -18,14 +18,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a subscription in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://docs.stripe.com/api/subscriptions/delete
+            // https://docs.stripe.com/api/subscriptions/cancel
             endpoint: `/v1/subscriptions/${encodeURIComponent(input.id)}`,
             retries: 3
         });

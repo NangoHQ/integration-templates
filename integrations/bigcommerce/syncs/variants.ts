@@ -116,7 +116,7 @@ function getNextPage(nextLink: string | undefined): number | undefined {
 
 const sync = createSync({
     description: 'Sync product variants across all products',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -129,6 +129,7 @@ const sync = createSync({
     models: {
         Variant: VariantModelSchema
     },
+    scopes: ['store_v2_products_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { product_page: 1, product_id: 0, variant_page: 1 });
@@ -147,7 +148,7 @@ const sync = createSync({
         }
 
         while (true) {
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/get-products
             const productResponse = await nango.get({
                 endpoint: '/v3/catalog/products',
                 params: {
@@ -181,7 +182,7 @@ const sync = createSync({
                     variant_page: variantPage
                 });
 
-                // https://developer.bigcommerce.com/docs/rest-management/catalog/variants
+                // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/get-product-variants
                 while (true) {
                     const variantResponse = await nango.get({
                         endpoint: `/v3/catalog/products/${encodeURIComponent(String(product.id))}/variants`,

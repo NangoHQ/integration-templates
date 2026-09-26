@@ -48,11 +48,12 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Aircall.',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/users' }],
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    scopes: ['public_api'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema

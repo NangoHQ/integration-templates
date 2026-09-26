@@ -21,10 +21,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a person in Pipedrive.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['deals:full', 'contacts:full'],
+    scopes: ['contacts:full'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let responseData: unknown;

@@ -40,10 +40,10 @@ const OutputSchema = z.array(FormSchema);
 
 const action = createAction({
     description: 'List all form definitions in the organisation.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.forms.READ'],
+    scopes: ['ZOHOPEOPLE.forms.READ'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

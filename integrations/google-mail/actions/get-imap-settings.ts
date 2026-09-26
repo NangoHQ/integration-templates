@@ -21,15 +21,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve IMAP settings for the mailbox',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [
-        'https://www.googleapis.com/auth/gmail.settings.basic',
-        'https://mail.google.com/',
-        'https://www.googleapis.com/auth/gmail.modify',
-        'https://www.googleapis.com/auth/gmail.readonly'
-    ],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const userId = input.userId ?? 'me';

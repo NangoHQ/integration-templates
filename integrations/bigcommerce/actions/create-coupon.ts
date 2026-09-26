@@ -67,14 +67,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a coupon.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_marketing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons#create-a-coupon
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/create-coupon
             endpoint: '/v2/coupons',
             data: {
                 name: input.name,

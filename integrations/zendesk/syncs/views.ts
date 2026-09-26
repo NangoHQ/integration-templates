@@ -37,9 +37,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync ticket views from Zendesk',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ticket_views:read'],
     checkpoint: CheckpointSchema,
     models: {
         View: ViewSchema

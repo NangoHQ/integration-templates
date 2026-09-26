@@ -38,10 +38,10 @@ const ListMailFoldersOutputSchema = z.object({
 
 const action = createAction({
     description: 'List top-level mail folders from the mailbox',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListMailFoldersInputSchema,
     output: ListMailFoldersOutputSchema,
-    scopes: ['Mail.Read', 'Mail.ReadBasic', 'Mail.ReadWrite'],
+    scopes: ['Mail.Read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListMailFoldersOutputSchema>> => {
         // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages

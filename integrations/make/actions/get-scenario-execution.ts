@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the status and result of a single scenario execution.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:read'],
@@ -35,7 +35,7 @@ const action = createAction({
         const executionId = encodeURIComponent(input.executionId);
 
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/scenarios/logs/get-scenario-execution-details
+            // https://developers.make.com/api-documentation/api-reference/scenarios/logs
             endpoint: `/scenarios/${scenarioId}/executions/${executionId}`,
             retries: 3
         });

@@ -65,7 +65,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query the account-level audit log (IAM changes: user/group/policy/permission create-update-delete events).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -90,7 +90,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-audit-logs-api/get-account-audit-log
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-audits-api/get-account-audits
             endpoint: `/audit/v1/accounts/${encodeURIComponent(accountUuid)}`,
             params: {
                 ...(input.startTime !== undefined && { startTime: input.startTime }),

@@ -12,10 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Zendesk user',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read', 'write'],
+    scopes: ['users:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.zendesk.com/api-reference/ticketing/users/users/#delete-user

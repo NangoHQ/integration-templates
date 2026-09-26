@@ -128,9 +128,10 @@ const ProfileSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Gmail conversation threads with full message hydration',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/gmail.readonly'],
     endpoints: [{ path: '/syncs/threads', method: 'POST' }],
     checkpoint: CheckpointSchema,
     models: {

@@ -29,7 +29,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Get a single service user by uid.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -40,7 +40,7 @@ const action = createAction({
         const accountUuid = metadata.accountUuid;
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/get-service-user
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/get-service-user
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users/${encodeURIComponent(input.uid)}`,
             retries: 3
         });

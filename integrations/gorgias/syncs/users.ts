@@ -63,9 +63,10 @@ const ProviderUserSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users (agents/admins/bots).',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['users:read'],
     models: {
         GorgiasUser: GorgiasUserSchema
     },

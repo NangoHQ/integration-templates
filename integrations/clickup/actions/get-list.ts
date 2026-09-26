@@ -38,9 +38,10 @@ const ProviderListSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single list from ClickUp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ProviderListSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderListSchema>> => {
         const response = await nango.get({

@@ -24,13 +24,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a TikTok user identity (TT_USER) to authorize an account for use in Spark Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ad.info.manage'],
+    scopes: [],
 
     exec: async (nango, input) => {
-        // https://business-api.tiktok.com/portal/docs/api-reference/v1.3/identity/create/
+        // https://business-api.tiktok.com/portal/docs/create-an-identity/v1.3
         const response = await nango.post({
             endpoint: 'identity/create/',
             data: {

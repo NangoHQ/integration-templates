@@ -34,7 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the users and access roles associated with a posting',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['postings:read:admin', 'users:read:admin'],

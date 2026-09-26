@@ -47,14 +47,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List teams within an organization.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['teams:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/teams/get-teams
+            // https://developers.make.com/api-documentation/api-reference/teams
             endpoint: '/teams',
             params: {
                 organizationId: input.organizationId

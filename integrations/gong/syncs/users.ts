@@ -95,9 +95,10 @@ function normalizeToUtc(isoString: string): string {
 
 const sync = createSync({
     description: 'Sync users from Gong',
-    version: '1.1.1',
+    version: '1.1.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:users:read'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {

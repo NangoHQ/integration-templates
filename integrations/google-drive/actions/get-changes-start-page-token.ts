@@ -9,11 +9,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get the starting token for listing future changes',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/drive.readonly', 'https://www.googleapis.com/auth/drive.metadata.readonly'],
+    scopes: ['https://www.googleapis.com/auth/drive.metadata.readonly'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/drive/api/reference/rest/v3/changes/getStartPageToken

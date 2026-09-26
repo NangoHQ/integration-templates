@@ -17,13 +17,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove permissions from a role in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['update:roles'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://auth0.com/docs/api/management/v2/roles/delete-role-permissions-assignment
+        // https://auth0.com/docs/api/management/v2/roles/delete-role-permission-assignment
         await nango.delete({
             endpoint: `/api/v2/roles/${encodeURIComponent(input.role_id)}/permissions`,
             data: {

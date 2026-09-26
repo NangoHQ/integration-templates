@@ -18,7 +18,9 @@ const RawDepartmentItem = z.record(z.string(), z.array(RawDepartmentFields).min(
 
 const sync = createSync({
     description: 'Sync all departments',
+    version: '1.0.1',
     frequency: 'every hour',
+    scopes: ['ZOHOPEOPLE.forms.READ'],
     models: {
         Department: DepartmentSchema
     },

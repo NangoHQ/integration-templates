@@ -20,8 +20,8 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description:
-        'This sync will be used to sync all of the events managed by your Calendar. See https://docs.lu.ma/reference/calendar-list-events for more details.',
-    version: '1.1.0',
+        'This sync will be used to sync all of the events managed by your Calendar. See https://docs.luma.com/reference/get_v1-calendars-events-list for more details.',
+    version: '1.1.1',
     frequency: 'every day',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -46,7 +46,7 @@ const sync = createSync({
         const runStartedAt = new Date().toISOString();
 
         const config: ProxyConfiguration = {
-            // https://docs.lu.ma/reference/get_public-v1-calendar-list-events
+            // https://docs.luma.com/reference/get_v1-calendars-events-list
             endpoint: '/public/v1/calendar/list-events',
             // Include 'after' parameter with the checkpoint if available
             ...(checkpointUpdatedAfter ? { params: { after: checkpointUpdatedAfter?.toISOString() } } : {}),

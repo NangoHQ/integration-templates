@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a contact in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.contacts.DELETE'],

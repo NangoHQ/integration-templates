@@ -33,9 +33,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List departments configured in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['field'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://documentation.bamboohr.com/reference/list-list-fields

@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a customer/account by ID.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Crm.Accounts'],
@@ -37,7 +37,7 @@ const action = createAction({
     },
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://start.exactonline.fr/docs/services/ExactOnlineRESTAPIv1/Operations/Me
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             params: {
@@ -61,7 +61,7 @@ const action = createAction({
             currentDivision = first.CurrentDivision;
         }
 
-        // https://start.exactonline.fr/docs/services/ExactOnlineRESTAPIv1/Operations/Accounts
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=CRMAccounts
         await nango.delete({
             endpoint: `/api/v1/${currentDivision}/crm/Accounts(guid'${encodeURIComponent(input.id)}')`,
             retries: 1

@@ -74,13 +74,13 @@ const ItemResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing item/product',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Items'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://start.exactonline.fr/docs/services/System/Me
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -110,14 +110,14 @@ const action = createAction({
             ...(input.salesPrice !== undefined && { SalesPrice: input.salesPrice })
         };
 
-        // https://start.exactonline.fr/docs/services/Logistics/Items
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=LogisticsItems
         await nango.put({
             endpoint: `/api/v1/${currentDivision}/logistics/Items(guid'${encodeURIComponent(input.id)}')`,
             data: updateData,
             retries: 10
         });
 
-        // https://start.exactonline.fr/docs/services/Logistics/Items
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=LogisticsItems
         const getResponse = await nango.get({
             endpoint: `/api/v1/${currentDivision}/logistics/Items(guid'${encodeURIComponent(input.id)}')`,
             retries: 3

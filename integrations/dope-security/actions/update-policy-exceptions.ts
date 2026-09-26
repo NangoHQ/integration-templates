@@ -28,9 +28,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add user/group-level restriction overrides per category; replaces all existing exceptions for the categories/customCategories supplied.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.categories && !input.customCategories) {

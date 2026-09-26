@@ -37,10 +37,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a capture.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/payments/payment'],
+    scopes: ['https://uri.paypal.com/services/payments/payment/authcapture'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // @allowTryCatch We catch 404s from PayPal and convert them to a typed ActionError so callers get a clean not_found response instead of a raw HTTP exception.

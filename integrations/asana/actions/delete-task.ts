@@ -12,14 +12,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a task by gid.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks:delete'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developers.asana.com/reference/delete-task
+            // https://developers.asana.com/reference/deletetask
             endpoint: `/api/1.0/tasks/${input.task_gid}`,
             retries: 1
         });

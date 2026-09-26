@@ -44,7 +44,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync groups from GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
     models: {
         Group: GroupSchema
     },
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         // Blocker: GitLab groups API does not expose updated_at in responses,

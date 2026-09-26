@@ -26,9 +26,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a comment from a TikTok video',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
+
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://business-api.tiktok.com/portal/docs?id=1738957772267522

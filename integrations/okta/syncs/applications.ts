@@ -27,9 +27,10 @@ const ApplicationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync applications.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['okta.apps.read'],
     models: {
         Application: ApplicationSchema
     },

@@ -39,15 +39,16 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync wishlists.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    // https://developer.bigcommerce.com/docs/rest-management/wishlists#get-wishlists
+    // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/wishlists/get-wishlists
     endpoints: [{ method: 'GET', path: '/syncs/wishlists' }],
     models: {
         Wishlist: WishlistModelSchema
     },
+    scopes: ['store_v2_customers_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { page: 1 });
@@ -57,9 +58,9 @@ const sync = createSync({
         // deleted-record endpoint, or resumable cursor.
         await nango.trackDeletesStart('Wishlist');
 
-        // https://developer.bigcommerce.com/docs/rest-management/wishlists#get-wishlists
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/wishlists/get-wishlists
         const proxyConfig: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/wishlists#get-wishlists
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/wishlists/get-wishlists
             endpoint: '/v3/wishlists',
             paginate: {
                 type: 'offset',

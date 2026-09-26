@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a group's name/description.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -36,7 +36,7 @@ const action = createAction({
             });
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups/put-group
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/group-management-api/put-group
         await nango.put({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups/${encodeURIComponent(input.groupUuid)}`,
             data: {

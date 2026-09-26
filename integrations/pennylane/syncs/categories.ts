@@ -29,13 +29,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync analytical categories',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Category: CategorySchema
     },
+    scopes: ['categories:readonly'],
 
     exec: async (nango) => {
         // Blocker: provider only exposes GET /categories with no changed-since filter,

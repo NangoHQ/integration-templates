@@ -53,9 +53,10 @@ const ListRulesOutputSchema = z
  */
 const action = createAction({
     description: 'List automation rules, optionally searched.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: ListRulesInputSchema,
     output: ListRulesOutputSchema,
+    scopes: ['rules:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListRulesOutputSchema>> => {
         const response = await nango.get({

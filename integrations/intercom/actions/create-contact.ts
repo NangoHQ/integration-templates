@@ -47,10 +47,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact (user or lead) in Intercom.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['contacts:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Contacts/createContact

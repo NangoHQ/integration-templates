@@ -43,7 +43,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List email newsletter subscribers.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-subscribers'
@@ -54,7 +54,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/subscribers
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/get-subscribers
             endpoint: '/v3/customers/subscribers',
             params: {
                 ...(input.date_modified_min !== undefined && { 'date_modified:min': input.date_modified_min }),

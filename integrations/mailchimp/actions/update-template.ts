@@ -46,10 +46,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a template in Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['templates'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

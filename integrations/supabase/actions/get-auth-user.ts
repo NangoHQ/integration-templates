@@ -50,7 +50,7 @@ const OutputSchema = ProviderUserSchema;
 
 const action = createAction({
     description: 'Retrieve a single auth user from Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -60,7 +60,7 @@ const action = createAction({
         const projectUrl = connection.connection_config?.['projectUrl'];
         const baseUrlOverride = typeof projectUrl === 'string' ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
-        // https://supabase.com/docs/reference/api/admin-getuserbyid
+        // https://supabase.com/docs/reference/javascript/auth-admin-getuserbyid
         const response = await nango.get({
             endpoint: `/auth/v1/admin/users/${encodeURIComponent(input.userId)}`,
             baseUrlOverride,

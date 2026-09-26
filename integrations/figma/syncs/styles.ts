@@ -48,7 +48,7 @@ const StyleSchema = z.object({
 
 const sync = createSync({
     description: 'Sync styles from Figma',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -58,6 +58,7 @@ const sync = createSync({
     },
     // https://developers.figma.com/docs/rest-api/component-endpoints/
     endpoints: [{ method: 'GET', path: '/syncs/styles' }],
+    scopes: ['team_library_content:read'],
 
     exec: async (nango) => {
         const metadataResult = MetadataSchema.safeParse(await nango.getMetadata());

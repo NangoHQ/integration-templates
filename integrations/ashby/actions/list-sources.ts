@@ -36,14 +36,14 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List sources from Ashby.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['hiringProcessMetadataRead'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.ashbyhq.com/reference/sourcelist
+            // https://developers.ashbyhq.com/reference/sourcelist-1
             endpoint: 'source.list',
             data: {
                 ...(input.cursor !== undefined && { cursor: input.cursor }),

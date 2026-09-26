@@ -16,7 +16,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a user from this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -32,7 +32,7 @@ const action = createAction({
         }
         const accountUuid = metadataParse.data.accountUuid;
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/users-api/delete-user
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/delete-user
         await nango.delete({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodeURIComponent(input.email)}`,
             retries: 10

@@ -77,10 +77,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync<{ ChannelMessageReply: typeof ChannelMessageReplySchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync replies for selected channel message threads',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
+    scopes: ['ChannelMessage.Read.All'],
     models: {
         ChannelMessageReply: ChannelMessageReplySchema
     },

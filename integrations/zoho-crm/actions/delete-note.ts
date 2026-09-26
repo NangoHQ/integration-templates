@@ -24,13 +24,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a note in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.notes.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/notes/delete-notes.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/delete-notes.html
         const response = await nango.delete({
             endpoint: `/crm/v2/Notes/${input.note_id}`,
             retries: 3

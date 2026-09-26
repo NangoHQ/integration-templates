@@ -209,7 +209,7 @@ function extractParent(item: PageObject | DataSourceObject): { parent_id?: strin
 
 const sync = createSync({
     description: 'Sync page and data source metadata for broad Notion content discovery.',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -222,6 +222,7 @@ const sync = createSync({
             path: '/syncs/content-metadata'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

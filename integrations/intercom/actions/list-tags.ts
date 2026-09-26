@@ -53,10 +53,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all tags in the workspace.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tags'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Tags

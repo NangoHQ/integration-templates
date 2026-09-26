@@ -14,10 +14,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Cancel a pending/running bulk-operation job',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('No content response when the job is successfully canceled'),
-    scopes: [],
+    scopes: ['jobs:write'],
 
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/cancel-job

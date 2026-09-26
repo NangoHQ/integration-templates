@@ -35,8 +35,9 @@ const CheckpointSchema = z.object({
 const sync = createSync({
     description:
         'Sync messages, thread replies, and reactions for conversations the bot can access; fully backfill new channels, then resync the last 10 days using channelsLastSyncDate metadata.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/messages-received', group: 'Messages' }],
+    scopes: ['channels:read', 'groups:read', 'channels:history', 'groups:history', 'channels:join', 'channels:write'],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -68,7 +69,7 @@ const sync = createSync({
         const updatedChannelsLastSyncDate: Record<string, string> = { ...channelsLastSyncDate };
 
         // Get all channels the bot can access
-        // https://api.slack.dev/methods/conversations.list
+        // https://api.slack.com/methods/conversations.list
         const channelsResponse = await nango.get({
             endpoint: 'conversations.list',
             params: {
@@ -98,7 +99,7 @@ const sync = createSync({
             // Try to join public channels if not already joined
             if (!isJoined && channel.is_channel && !channel.is_private) {
                 try {
-                    // https://api.slack.dev/methods/conversations.join
+                    // https://api.slack.com/methods/conversations.join
                     await nango.post({
                         endpoint: 'conversations.join',
                         data: { channel: channelId },
@@ -125,7 +126,7 @@ const sync = createSync({
             const effectiveOldest = isNewChannel ? '0' : Math.max(parseFloat(oldestTimestamp), parseFloat(tenDaysAgoTs)).toString();
 
             // Fetch messages for this channel
-            // https://api.slack.dev/methods/conversations.history
+            // https://api.slack.com/methods/conversations.history
             let cursor: string | undefined;
             let hasMore = true;
 
@@ -217,7 +218,7 @@ async function fetchThreadReplies(
     let hasMore = true;
 
     while (hasMore) {
-        // https://api.slack.dev/methods/conversations.replies
+        // https://api.slack.com/methods/conversations.replies
         const response = await nango.get({
             endpoint: 'conversations.replies',
             params: {

@@ -11,9 +11,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a list in ClickUp. This is a permanent delete and all tasks inside the list are also deleted.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.clickup.com/reference/deletelist

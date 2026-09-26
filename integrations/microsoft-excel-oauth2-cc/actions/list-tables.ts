@@ -31,10 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List tables in a workbook.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Sites.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

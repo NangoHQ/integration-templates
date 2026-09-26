@@ -59,9 +59,10 @@ const RawPurchaseOrderSchema = z.object({
 
 const sync = createSync({
     description: 'Sync purchase orders from Zoho Books',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoBooks.purchaseorders.READ', 'ZohoBooks.settings.READ'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {

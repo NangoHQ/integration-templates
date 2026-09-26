@@ -48,9 +48,10 @@ const StoreSchema = z.object({
 
 const sync = createSync({
     description: 'Sync stores from Mailchimp.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     models: {
         Store: StoreSchema
     },

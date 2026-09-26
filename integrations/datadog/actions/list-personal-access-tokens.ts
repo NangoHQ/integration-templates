@@ -70,14 +70,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List personal access tokens',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['user_app_keys'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.datadoghq.com/api/latest/personal-access-tokens/#list-personal-access-tokens
+            // https://docs.datadoghq.com/api/latest/key-management/get-all-personal-access-tokens/
             endpoint: 'v2/personal_access_tokens',
             params: {
                 ...(input.page_size !== undefined && { 'page[size]': input.page_size }),

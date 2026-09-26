@@ -12,10 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a draft invoice that has not yet been sent.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/invoicing/invoices/readwrite'],
+    scopes: ['https://uri.paypal.com/services/invoicing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

@@ -31,10 +31,11 @@ const EdgeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify discount nodes with status and summary fields.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_discounts'],
     endpoints: [
         {
             path: '/syncs/discounts',

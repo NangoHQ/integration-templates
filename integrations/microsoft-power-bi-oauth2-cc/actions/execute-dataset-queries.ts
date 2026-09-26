@@ -47,10 +47,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Run a DAX query against a dataset and return the results',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

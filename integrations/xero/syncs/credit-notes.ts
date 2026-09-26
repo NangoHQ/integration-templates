@@ -82,7 +82,7 @@ function formatIfModifiedSince(date: Date): string {
 
 const sync = createSync({
     description: 'Sync credit notes from Xero.',
-    version: '3.1.0',
+    version: '3.1.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -92,6 +92,7 @@ const sync = createSync({
         }
     ],
     checkpoint: CheckpointSchema,
+    scopes: ['accounting.invoices.read'],
     models: {
         CreditNote: CreditNoteSchema
     },

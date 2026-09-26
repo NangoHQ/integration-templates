@@ -22,13 +22,14 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single tag from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/get-tag',
         method: 'GET'
     },
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

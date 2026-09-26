@@ -32,9 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a sales quotation header',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

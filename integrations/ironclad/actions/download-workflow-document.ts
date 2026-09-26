@@ -14,14 +14,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Download the binary content of a specific workflow document.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public.workflows.readDocuments'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/download-workflow-document
+            // https://developer.ironcladapp.com/reference/retrieve-a-workflow-document
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}/document/${encodeURIComponent(input.documentKey)}/download`,
             responseType: 'arraybuffer',
             retries: 3

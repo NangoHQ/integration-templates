@@ -41,7 +41,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sections for projects in scope',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/sections' }],
@@ -50,6 +50,7 @@ const sync = createSync({
     models: {
         Section: SectionSchema
     },
+    scopes: ['projects:read'],
 
     exec: async (nango) => {
         const metadataRaw = await nango.getMetadata();

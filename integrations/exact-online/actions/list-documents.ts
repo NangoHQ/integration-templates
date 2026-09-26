@@ -65,13 +65,14 @@ const DocsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List documents (invoice PDFs, attachments)',
-    version: '1.0.0',
+    version: '1.0.2',
     endpoint: {
         method: 'GET',
         path: '/actions/list-documents'
     },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://start.exactonline.nl/docs/HlpRestAPIResourcesDetails.aspx?name=SystemMe

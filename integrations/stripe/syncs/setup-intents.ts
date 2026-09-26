@@ -44,7 +44,7 @@ const SetupIntentListApiSchema = z.object({
 
 const sync = createSync({
     description: 'Sync setup intents from Stripe.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -57,6 +57,7 @@ const sync = createSync({
     models: {
         SetupIntent: SetupIntentSchema
     },
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

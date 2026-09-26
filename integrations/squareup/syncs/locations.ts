@@ -56,9 +56,10 @@ const ListLocationsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync locations.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['MERCHANT_PROFILE_READ'],
     models: {
         Location: LocationSchema
     },

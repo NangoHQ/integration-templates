@@ -50,10 +50,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts attached to a company.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Companies/getCompaniesIdContacts

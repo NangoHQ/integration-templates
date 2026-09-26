@@ -74,10 +74,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single opportunity (candidate) by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['opportunities:read:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

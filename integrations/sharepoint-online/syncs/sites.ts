@@ -65,7 +65,7 @@ function parseCheckpointState(input: string | undefined): z.infer<typeof Checkpo
 
 const sync = createSync({
     description: 'Sync targeted SharePoint sites.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -79,6 +79,7 @@ const sync = createSync({
             path: '/syncs/sites'
         }
     ],
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());

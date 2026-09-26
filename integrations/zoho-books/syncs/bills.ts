@@ -49,9 +49,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync bills from Zoho Books.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoBooks.bills.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/bills' }],

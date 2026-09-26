@@ -36,7 +36,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List coupons.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-coupons'
@@ -56,7 +56,7 @@ const action = createAction({
         const page = parsedPage;
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/get-coupons
         const response = await nango.get({
             endpoint: '/v2/coupons',
             params: {

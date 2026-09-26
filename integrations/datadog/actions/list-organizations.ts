@@ -30,9 +30,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List organizations manageable by this account (relevant for multi-org/MSP setups).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -43,10 +43,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List all custom field values set on a customer.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['customers:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

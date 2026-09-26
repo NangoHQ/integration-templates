@@ -66,10 +66,10 @@ const SubscriptionSchema = z
 
 const action = createAction({
     description: 'Retrieve a single subscription from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: SubscriptionSchema,
-    scopes: [],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof SubscriptionSchema>> => {
         const response = await nango.get({

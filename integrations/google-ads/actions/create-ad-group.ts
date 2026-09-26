@@ -56,7 +56,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an ad group in an existing Google Ads campaign',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/adwords'],
@@ -94,7 +94,7 @@ const action = createAction({
             responseContentType: 'MUTABLE_RESOURCE'
         };
 
-        // https://developers.google.com/google-ads/api/rest/reference/rest/v25/customers/adGroups/mutate
+        // https://developers.google.com/google-ads/api/reference/rpc/v25/AdGroupService/MutateAdGroups
         const response = await nango.post({
             endpoint: `v25/customers/${encodeURIComponent(customerId)}/adGroups:mutate`,
             data: requestBody,

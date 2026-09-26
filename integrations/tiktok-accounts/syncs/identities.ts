@@ -19,10 +19,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync TikTok user identities (TT_USER) connected to the Business Center or ad account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
+    scopes: [],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

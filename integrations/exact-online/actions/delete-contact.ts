@@ -24,7 +24,7 @@ const MeResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete a contact by ID',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Crm.Contacts'],

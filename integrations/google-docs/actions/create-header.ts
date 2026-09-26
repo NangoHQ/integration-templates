@@ -27,10 +27,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a header in a document section.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['documents'],
+    scopes: ['https://www.googleapis.com/auth/documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/docs/api/reference/rest/v1/documents/batchUpdate

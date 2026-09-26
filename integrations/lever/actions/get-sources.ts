@@ -19,9 +19,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all candidate sources configured on the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['sources:read:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://hire.lever.co/developer/documentation

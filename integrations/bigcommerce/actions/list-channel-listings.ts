@@ -71,7 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List product listings for a channel.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_channel_listings_read_only'],
@@ -91,7 +91,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/channels/listings#get-channel-listings
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/channels/listings/get-channel-listings
             endpoint: `/v3/channels/${encodeURIComponent(String(input.channel_id))}/listings`,
             params,
             retries: 3

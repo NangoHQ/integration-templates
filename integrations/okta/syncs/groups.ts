@@ -32,10 +32,11 @@ const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const sync = createSync({
     description: 'Sync groups.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['okta.groups.read'],
     models: {
         Group: GroupSchema
     },

@@ -34,10 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List availability status for all Aircall users.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users:read'],
+    scopes: ['public_api'],
 
     endpoint: {
         method: 'GET',

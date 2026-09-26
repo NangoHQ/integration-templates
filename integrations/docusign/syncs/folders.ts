@@ -35,7 +35,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync envelope folder structure with full-refresh delete tracking.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -43,7 +43,8 @@ const sync = createSync({
     models: {
         Folder: FolderSchema
     },
-    // https://developers.docusign.com/docs/esign-rest-api/reference/folders/folderslist/
+    scopes: ['signature'],
+    // https://developers.docusign.com/docs/esign-rest-api/reference/folders/folders/list/
     endpoints: [{ method: 'GET', path: '/syncs/folders' }],
 
     exec: async (nango) => {
@@ -69,7 +70,7 @@ const sync = createSync({
         const limit = 50;
         const hasMore = true;
         while (hasMore) {
-            // https://developers.docusign.com/docs/esign-rest-api/reference/folders/folderslist/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/folders/folders/list/
             const response = await nango.get({
                 endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/folders`,
                 params: {

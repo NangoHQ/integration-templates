@@ -34,9 +34,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync entities (counterparty companies, customers, vendors, partners, etc.).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['public.entities.readEntities'],
     checkpoint: CheckpointSchema,
     models: {
         Entity: EntitySchema

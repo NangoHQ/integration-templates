@@ -59,9 +59,10 @@ function isSyncTokenExpiredError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync calendar settings',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/calendar.settings.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         Setting: SettingSchema

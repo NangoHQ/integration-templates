@@ -62,13 +62,14 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Connect webhook configurations with full-refresh delete tracking',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     models: {
         ConnectConfiguration: ConnectConfigurationSchema
     },
+    scopes: ['signature'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();
@@ -82,7 +83,7 @@ const sync = createSync({
             throw new Error('accountId is required in metadata');
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/connectconfigurations/getconnectconfigurations/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/connect/connectconfigurations/list/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(metadata.data.accountId)}/connect`,
             retries: 3

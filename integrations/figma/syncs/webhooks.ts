@@ -25,7 +25,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webhooks from Figma',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -34,6 +34,7 @@ const sync = createSync({
     models: {
         Webhook: WebhookSchema
     },
+    scopes: ['webhooks:read'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

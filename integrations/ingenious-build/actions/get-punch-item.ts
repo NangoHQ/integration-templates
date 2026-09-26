@@ -20,13 +20,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get a single punch item by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://api.ingenious.build/reference/getpunchitempubv2.md
+            // https://api.ingenious.build/reference/v2-get-punch-item
             endpoint: `/api/v2/pub/punch-items/${encodeURIComponent(input.id)}`,
             retries: 3
         };

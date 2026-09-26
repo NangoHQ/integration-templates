@@ -138,7 +138,7 @@ function mapPayment(record: Record<string, unknown>) {
 
 const sync = createSync({
     description: 'Sync payments from Xero.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -148,6 +148,7 @@ const sync = createSync({
             path: '/syncs/payments'
         }
     ],
+    scopes: ['accounting.payments.read'],
     models: {
         Payment: PaymentSchema
     },

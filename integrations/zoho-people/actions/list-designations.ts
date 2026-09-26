@@ -37,10 +37,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List all designations (job titles).',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['ZohoPeople.forms.ALL'],
+    scopes: ['ZOHOPEOPLE.forms.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const limit = 200;
@@ -53,7 +53,7 @@ const action = createAction({
             });
         }
 
-        // https://www.zoho.com/people/api/forms-api.html
+        // https://www.zoho.com/people/api/bulk-records.html
         const response = await nango.get({
             endpoint: '/people/api/forms/designation/getRecords',
             params: {

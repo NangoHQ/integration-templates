@@ -39,10 +39,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Associate a content type with a SharePoint list.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Sites.Read.All', 'Sites.ReadWrite.All'],
+    scopes: ['Sites.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.contentTypeId && !input.contentTypeUrl) {

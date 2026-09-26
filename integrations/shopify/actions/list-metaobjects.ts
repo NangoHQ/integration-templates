@@ -53,7 +53,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify metaobjects by type with pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read_metaobjects'],
@@ -77,7 +77,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://shopify.dev/docs/api/admin-graphql/queries/metaobjects
+            // https://shopify.dev/docs/api/admin-graphql/latest/queries/metaobjects
             endpoint: '/admin/api/2026-04/graphql.json',
             data: {
                 query: `query Metaobjects($type: String!, $first: Int, $after: String, $sortKey: MetaobjectSortKeys, $reverse: Boolean) {

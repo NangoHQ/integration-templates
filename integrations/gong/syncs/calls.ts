@@ -230,9 +230,10 @@ function getWindowEnd(): string {
 
 const sync = createSync({
     description: 'Sync calls from Gong.',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:calls:read:basic', 'api:calls:read:extensive'],
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/calls' }],
     models: {

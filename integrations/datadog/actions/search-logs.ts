@@ -53,10 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search ingested log events within a time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['logs_read_index_data'],
+    scopes: ['logs_read_data'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

@@ -46,9 +46,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Retrieve a single custom field definition.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['custom_fields:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.gorgias.com/reference/get-custom-field

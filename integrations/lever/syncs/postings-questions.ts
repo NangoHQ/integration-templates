@@ -39,7 +39,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Fetches a list of all questions included in a posting's application form in Lever",
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every 6 hours',
     autoStart: true,
     metadata: z.object({}),
@@ -47,6 +47,7 @@ const sync = createSync({
     models: {
         LeverPostingApply: LeverPostingApplySchema
     },
+    scopes: ['postings:read:admin'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

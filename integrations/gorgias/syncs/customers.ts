@@ -43,9 +43,10 @@ type Customer = z.infer<typeof CustomerSchema>;
 
 const sync = createSync({
     description: 'Sync customers and their contact channels.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['customers:read'],
     models: {
         Customer: CustomerSchema
     },

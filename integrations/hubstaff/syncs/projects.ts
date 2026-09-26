@@ -49,9 +49,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync projects across all organizations this connection can access.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hubstaff:read'],
     checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema

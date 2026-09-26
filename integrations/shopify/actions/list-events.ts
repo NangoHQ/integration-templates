@@ -53,9 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Shopify store events for the activity feed.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         const first = input.first ?? 50;

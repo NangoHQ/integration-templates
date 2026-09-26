@@ -54,9 +54,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List account audit-trail events, filterable by object type/ID, event types, user, and creation-date range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['events:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number | string[] | number[]> = {

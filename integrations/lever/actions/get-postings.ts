@@ -73,9 +73,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get all posts for your account. Note that this does\nnot paginate the response so it is possible that not all postings \nare returned.',
-    version: '2.0.2',
+    version: '2.0.3',
     input: z.object({}),
     output: OutputSchema,
+    scopes: ['postings:read:admin'],
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://hire.lever.co/developer/documentation#list-all-postings

@@ -38,10 +38,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a webhook on a repository',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['webhook', 'repository:write'],
+    scopes: ['webhook', 'repository'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {

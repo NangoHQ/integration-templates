@@ -55,7 +55,7 @@ const WebhookSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webhooks from Discord.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/webhooks' }],
     frequency: 'every hour',
     autoStart: false,
@@ -63,6 +63,7 @@ const sync = createSync({
     models: {
         Webhook: WebhookSchema
     },
+    scopes: ['bot'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

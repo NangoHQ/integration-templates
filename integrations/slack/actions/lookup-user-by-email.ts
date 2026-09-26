@@ -34,14 +34,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Look up a user by email address',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users:read.email'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.slack.dev/reference/methods/users.lookupByEmail
+        // https://api.slack.com/methods/users.lookupByEmail
         const response = await nango.get({
             endpoint: 'users.lookupByEmail',
             params: {

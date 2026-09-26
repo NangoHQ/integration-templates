@@ -108,10 +108,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a payment against an invoice or credit note.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.payments'],
+    scopes: ['accounting.payments', 'accounting.settings.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const hasInvoice = input.invoice_id !== undefined && input.invoice_id.length > 0;

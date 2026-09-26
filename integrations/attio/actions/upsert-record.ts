@@ -33,14 +33,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create or update a record in Attio by matching attribute value.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['record_permission:read-write', 'object_configuration:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
-            // https://docs.attio.com/rest-api/endpoint-reference/records/assert-a-record
+            // https://docs.attio.com/rest-api/endpoint-reference/records/upsert-a-record
             endpoint: `/v2/objects/${encodeURIComponent(input.object)}/records`,
             params: {
                 matching_attribute: input.matching_attribute

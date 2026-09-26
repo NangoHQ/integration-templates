@@ -74,9 +74,10 @@ const StoreSchema = z
 
 const action = createAction({
     description: 'Retrieve a single store from Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: StoreSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof StoreSchema>> => {
         // https://mailchimp.com/developer/marketing/api/ecommerce-stores/get-store-info/

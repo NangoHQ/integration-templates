@@ -47,10 +47,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Save (repin) an existing pin to one of your boards.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pins:read', 'pins:write'],
+    scopes: ['boards:read', 'boards:write', 'pins:read', 'pins:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

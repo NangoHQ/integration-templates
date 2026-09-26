@@ -28,7 +28,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the audit trail for an envelope.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
@@ -50,7 +50,7 @@ const action = createAction({
             });
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/envelopes/getenvelopeauditevents/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/envelopes/listauditevents/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(input.envelopeId)}/audit_events`,
             retries: 3

@@ -42,9 +42,10 @@ function withOneSecondOverlap(isoTimestamp: string): string {
 
 const sync = createSync({
     description: 'Sync segments from Mailchimp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/segments' }],
     models: {

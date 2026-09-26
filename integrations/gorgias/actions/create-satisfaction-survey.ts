@@ -30,10 +30,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a satisfaction survey record for a ticket and customer.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['satisfaction_survey:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

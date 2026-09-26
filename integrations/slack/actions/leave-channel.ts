@@ -12,14 +12,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Leave a channel',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
     scopes: ['channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.slack.dev/methods/conversations.leave
+        // https://api.slack.com/methods/conversations.leave
         const response = await nango.post({
             endpoint: 'conversations.leave',
             data: {

@@ -118,7 +118,7 @@ async function getMetadataOrNull(nango: NangoSyncLocal): Promise<unknown> {
 
 const sync = createSync({
     description: 'Sync selected files from chosen SharePoint shared sites.',
-    version: '4.0.0',
+    version: '4.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -132,6 +132,7 @@ const sync = createSync({
     models: {
         SharedSiteFile: SharedSiteFileSchema
     },
+    scopes: ['Sites.Read.All', 'Files.Read.All'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -175,7 +176,7 @@ const sync = createSync({
         }
 
         for (const siteId of sharedSites) {
-            // https://learn.microsoft.com/graph/api/site-list-drives
+            // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
             const drivesResponse = await nango.get({
                 endpoint: `/v1.0/sites/${encodeURIComponent(siteId)}/drives`,
                 retries: 3

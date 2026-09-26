@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List document libraries on a site.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],
@@ -36,7 +36,7 @@ const action = createAction({
             params['$skiptoken'] = input.cursor;
         }
 
-        // https://learn.microsoft.com/graph/api/site-list-drives
+        // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
         const response = await nango.get({
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/drives`,
             params,

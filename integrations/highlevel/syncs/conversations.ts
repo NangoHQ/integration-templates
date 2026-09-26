@@ -76,9 +76,10 @@ const OVERLAP_MS = 60 * 60 * 1000;
 
 const sync = createSync({
     description: 'Sync conversations from HighLevel',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['conversations.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         Conversation: ConversationSchema

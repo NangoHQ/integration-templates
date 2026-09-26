@@ -23,7 +23,7 @@ const ErrorWithResponseSchema = z.object({
 
 const action = createAction({
     description: 'Archive/delete a time entry.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],
@@ -32,7 +32,7 @@ const action = createAction({
         // @allowTryCatch Intercept expected Workable errors (403 Ergani, 422 archivalTooLate, 404 not found)
         // and re-throw as ActionError so callers get typed, actionable messages instead of raw proxy failures.
         try {
-            // https://workable.readme.io/reference/delete-time-entry
+            // https://workable.readme.io/reference/time-tracking-archive-entry
             await nango.delete({
                 endpoint: `/spi/v3/time-tracking/employees/${encodeURIComponent(input.employee_id)}/time-entries/${encodeURIComponent(input.time_entry_id)}`,
                 retries: 3

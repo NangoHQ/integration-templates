@@ -78,9 +78,10 @@ const IntegrationSchema = z
 
 const sync = createSync({
     description: 'Sync configured integrations (email senders, HTTP integrations, apps, etc.)',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['integrations:read'],
     models: {
         Integration: IntegrationSchema
     },

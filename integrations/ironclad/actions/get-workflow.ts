@@ -61,14 +61,14 @@ const ProviderWorkflowSchema = z
 
 const action = createAction({
     description: 'Get full details of a single workflow, including its current schema and attribute values.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderWorkflowSchema,
     scopes: ['public.workflows.readWorkflows'],
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderWorkflowSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/get-workflow
+            // https://developer.ironcladapp.com/reference/retrieve-a-workflow
             endpoint: `/public/api/v1/workflows/${encodeURIComponent(input.workflowId)}`,
             retries: 3
         });

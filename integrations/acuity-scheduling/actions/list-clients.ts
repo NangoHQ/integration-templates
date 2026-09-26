@@ -27,14 +27,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List clients.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.acuityscheduling.com/reference/get-clients
+            // https://developers.acuityscheduling.com/reference/clients
             endpoint: '/clients',
             params: {
                 ...(input.search !== undefined && { search: input.search })

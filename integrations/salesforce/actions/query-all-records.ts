@@ -26,10 +26,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Run a SOQL query that also includes deleted and archived records.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api', 'refresh_token'],
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const version = input.apiVersion || 'v60.0';

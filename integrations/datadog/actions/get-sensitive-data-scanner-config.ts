@@ -46,9 +46,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Get the full Sensitive Data Scanner configuration tree (scanning groups and rules).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.datadoghq.com/api/latest/sensitive-data-scanner

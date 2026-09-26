@@ -58,9 +58,10 @@ interface AudienceRecord {
 
 const sync = createSync({
     description: 'Sync audiences.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ads:read'],
     checkpoint: CheckpointSchema,
     models: {
         Audience: AudienceModelSchema

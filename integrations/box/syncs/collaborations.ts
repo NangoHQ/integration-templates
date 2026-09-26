@@ -53,7 +53,7 @@ type Models = typeof ModelsSchema;
 
 const sync = createSync<Models, undefined, typeof CheckpointSchema>({
     description: 'Sync collaborations from Box',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -64,6 +64,7 @@ const sync = createSync<Models, undefined, typeof CheckpointSchema>({
         }
     ],
     models: ModelsSchema,
+    scopes: ['root_readonly'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

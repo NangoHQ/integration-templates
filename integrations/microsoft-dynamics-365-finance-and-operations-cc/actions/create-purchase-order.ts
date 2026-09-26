@@ -31,11 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a purchase order header.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Financials'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/data-entities/odata

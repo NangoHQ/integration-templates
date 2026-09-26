@@ -32,13 +32,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync free text (miscellaneous) customer invoice headers.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         FreeTextInvoice: FreeTextInvoiceSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: FreeTextInvoiceHeaders does not expose a filterable modified-timestamp

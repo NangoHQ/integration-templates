@@ -66,7 +66,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync bounced email events.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -87,7 +87,7 @@ const sync = createSync({
         // Reuse the recorded request window under NangoSyncMock so fixture hashes stay stable.
         const endTime = await resolveEndTime(nango, '/v3/suppression/bounces');
         const proxyConfig: ProxyConfiguration = {
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-api-retrieve-all-bounces
+            // https://www.twilio.com/docs/sendgrid/api-reference/bounces-api/retrieve-all-bounces
             endpoint: '/v3/suppression/bounces',
             params: {
                 ...(startTime !== undefined && { start_time: startTime }),

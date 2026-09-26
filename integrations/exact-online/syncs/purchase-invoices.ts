@@ -43,19 +43,20 @@ const PurchaseEntryItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync purchase invoice entries with incremental updates via Modified timestamp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         PurchaseInvoice: PurchaseInvoiceSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const updatedAfter = checkpoint?.updated_after;
 
-        // https://start.exactonline.fr/docs/services/Me/GET
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: 'api/v1/current/Me',
             retries: 3
@@ -72,7 +73,7 @@ const sync = createSync({
             throw new Error('CurrentDivision not found in Me response');
         }
 
-        // https://start.exactonline.fr/docs/services/PurchaseEntries/GET
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=PurchaseEntryPurchaseEntries
         let skip = 0;
         const top = 100;
         let hasMore = true;

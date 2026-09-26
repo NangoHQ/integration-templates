@@ -40,10 +40,10 @@ const ProviderResponseSchema = z
 
 const action = createAction({
     description: 'List workbook-level defined names.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Sites.Read.All'],
+    scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

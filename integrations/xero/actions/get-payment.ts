@@ -90,10 +90,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a payment by PaymentID.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.payments', 'accounting.payments.read'],
+    scopes: ['accounting.payments.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         async function resolveTenantId(): Promise<string> {

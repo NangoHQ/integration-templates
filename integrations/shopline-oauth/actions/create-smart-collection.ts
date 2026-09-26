@@ -70,10 +70,10 @@ const SmartCollectionOutputSchema = z
  */
 const action = createAction({
     description: 'Create a smart collection with membership rules.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: SmartCollectionInputSchema,
     output: SmartCollectionOutputSchema,
-    scopes: ['read_products', 'write_products'],
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof SmartCollectionOutputSchema>> => {
         const response = await nango.post({

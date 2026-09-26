@@ -79,9 +79,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "List the version history of an upload's file content.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

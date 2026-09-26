@@ -48,13 +48,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search contacts in Aircall by name, phone, or email.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/search-contacts'
     },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public_api'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         if (isNaN(page) || page < 1) {

@@ -39,7 +39,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync orders.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['store_v2_orders_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', max_date_modified: '', page: 1 });
@@ -63,7 +64,7 @@ const sync = createSync({
         // The V2 orders endpoint returns HTTP 204 with no body when no orders match,
         // so we use a manual loop to check status before parsing the response.
         while (true) {
-            // https://developer.bigcommerce.com/docs/rest-management/orders
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/get-orders
             const response = await nango.get({
                 endpoint: '/v2/orders',
                 params: {

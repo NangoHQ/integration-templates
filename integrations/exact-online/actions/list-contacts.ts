@@ -57,10 +57,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List CRM contacts.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Crm accounts'],
+    scopes: ['crm.Contacts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meConfig: ProxyConfiguration = {

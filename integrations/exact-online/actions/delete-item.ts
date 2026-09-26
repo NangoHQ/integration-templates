@@ -22,10 +22,10 @@ const MeResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete an item/product by ID.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['Items'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const meResponse = await nango.get({

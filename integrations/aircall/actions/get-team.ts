@@ -28,10 +28,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single team from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['public_api'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developer.aircall.io/api-references/#retrieve-a-team

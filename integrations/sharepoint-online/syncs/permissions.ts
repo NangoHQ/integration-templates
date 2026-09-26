@@ -57,7 +57,7 @@ const CheckpointStateSchema = z.object({
 
 const sync = createSync({
     description: 'Sync permission grants on drive items for configured site drives.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [
@@ -66,7 +66,7 @@ const sync = createSync({
             path: '/syncs/permissions'
         }
     ],
-    scopes: ['Sites.Read.All', 'Sites.Selected', 'MyFiles.Read', 'Files.Read.All', 'Files.Read.Selected', 'offline_access'],
+    scopes: ['Sites.Read.All', 'Files.Read.All'],
     models: {
         Permission: PermissionSchema
     },

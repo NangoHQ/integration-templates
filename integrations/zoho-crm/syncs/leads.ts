@@ -106,7 +106,7 @@ type ProviderLead = z.infer<typeof ProviderLeadSchema>;
 
 const sync = createSync({
     description: 'Sync leads from Zoho CRM',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -119,6 +119,7 @@ const sync = createSync({
             path: '/syncs/leads'
         }
     ],
+    scopes: ['ZohoCRM.modules.leads.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

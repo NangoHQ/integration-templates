@@ -29,10 +29,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a child mail folder in Outlook.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
+    scopes: ['Mail.ReadWrite'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         type RequestBody = {

@@ -51,7 +51,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Get the directly-assigned permissions on a group',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-read'],
@@ -74,7 +74,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups-api/get-group-permissions
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/permission-management-api/get-permissions
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups/${encodeURIComponent(input.groupUuid)}/permissions`,
             retries: 3
         });

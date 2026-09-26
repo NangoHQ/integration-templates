@@ -38,7 +38,7 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync marketing emails from HubSpot',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/marketing-emails', group: 'Marketing Emails' }],
     frequency: 'every hour',
     autoStart: true,
@@ -53,7 +53,7 @@ const sync = createSync({
         const checkpoint = parseOptional(CheckpointSchema, await nango.getCheckpoint());
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developers.hubspot.com/docs/reference/api/marketing/marketing-emails
+            // https://developers.hubspot.com/docs/api-reference/marketing-marketing-emails-v3/guide
             endpoint: '/marketing/v3/emails',
             params: {
                 limit: '100',

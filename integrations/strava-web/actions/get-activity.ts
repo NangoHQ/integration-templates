@@ -25,10 +25,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve an activity',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['activity:read_all'],
+    scopes: ['activity:read', 'activity:read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

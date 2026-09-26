@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -35,7 +35,7 @@ const action = createAction({
 
         const businessId = parsedMetadata.data.businessId;
 
-        // https://www.freshbooks.com/api/projects
+        // https://www.freshbooks.com/developers/docs/projects
         const response = await nango.delete({
             endpoint: `/projects/business/${encodeURIComponent(String(businessId))}/projects/${encodeURIComponent(input.projectId)}`,
             retries: 10

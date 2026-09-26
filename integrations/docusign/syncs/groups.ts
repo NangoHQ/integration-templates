@@ -38,13 +38,14 @@ const GroupSchema = z.object({
 
 const sync = createSync({
     description: 'Sync account groups with full-refresh delete tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Group: GroupSchema
     },
+    scopes: ['signature'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -71,7 +72,7 @@ const sync = createSync({
             await nango.trackDeletesStart('Group');
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountgroups/list/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/list/
         for await (const page of nango.paginate({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups`,
             paginate: {

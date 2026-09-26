@@ -11,12 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Permanently delete an SLO correction.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.datadoghq.com/api/latest/slo-corrections/#delete-an-slo-correction
+        // https://docs.datadoghq.com/api/latest/service-level-objective-corrections/delete-an-slo-correction/
         await nango.delete({
             endpoint: `v1/slo/correction/${encodeURIComponent(input.correctionId)}`,
             retries: 10

@@ -30,7 +30,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync folders from ClickUp.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -44,6 +44,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

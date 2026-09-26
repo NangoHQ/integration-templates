@@ -51,10 +51,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List all Zoho Books organizations accessible with the current credentials.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: z.object({}),
     output: OutputSchema,
-    scopes: ['ZohoBooks.fullaccess.ALL'],
+    scopes: ['ZohoBooks.settings.READ'],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

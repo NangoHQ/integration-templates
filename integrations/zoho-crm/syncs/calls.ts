@@ -93,7 +93,7 @@ const CheckpointSchema = z.object({
 type Call = z.infer<typeof CallSchema>;
 type Checkpoint = z.infer<typeof CheckpointSchema>;
 
-// https://www.zoho.com/crm/developer/docs/api/v2/module-samples.html
+// https://www.zoho.com/crm/developer/docs/api/v8/get-records.html
 const InfoSchema = z.object({
     per_page: z.number(),
     count: z.number(),
@@ -111,7 +111,7 @@ const DeletedRecordSchema = z.object({
 
 const sync = createSync<{ Call: typeof CallSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync calls from Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/calls' }],
@@ -119,6 +119,7 @@ const sync = createSync<{ Call: typeof CallSchema }, undefined, typeof Checkpoin
     models: {
         Call: CallSchema
     },
+    scopes: ['ZohoCRM.modules.calls.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

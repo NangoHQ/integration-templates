@@ -21,14 +21,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve details of a single data store.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['datastores:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/api-reference/data-stores/get-data-store
+            // https://developers.make.com/api-documentation/api-reference/data-stores
             endpoint: `/data-stores/${encodeURIComponent(String(input.dataStoreId))}`,
             retries: 3
         });

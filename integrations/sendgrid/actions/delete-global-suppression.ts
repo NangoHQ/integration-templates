@@ -11,13 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a single email address from the global suppression list.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asm.suppressions.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-global-suppressions/delete-a-globally-suppressed-email-address
+        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-global-suppressions/delete-a-global-suppression
         await nango.delete({
             endpoint: `/v3/asm/suppressions/global/${encodeURIComponent(input.email)}`,
             retries: 3

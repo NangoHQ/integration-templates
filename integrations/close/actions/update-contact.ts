@@ -69,9 +69,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update a contact',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { id, ...updateData } = input;

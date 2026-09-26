@@ -95,13 +95,14 @@ type CatalogRequest = {
 
 const sync = createSync({
     description: 'Sync service catalog requests (sc_request)',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CatalogRequest: CatalogRequestSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

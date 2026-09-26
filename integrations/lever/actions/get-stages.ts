@@ -14,9 +14,10 @@ const GetStagesOutputSchema = z.object({
 const action = createAction({
     description:
         'Action to get lists all pipeline stages. Note that this does \nnot paginate the response so it is possible that not all stages \nare returned.',
-    version: '3.0.0',
+    version: '3.0.1',
     input: z.object({}),
     output: GetStagesOutputSchema,
+    scopes: ['stages:read:admin'],
 
     exec: async (nango, _input): Promise<z.infer<typeof GetStagesOutputSchema>> => {
         const config: ProxyConfiguration = {

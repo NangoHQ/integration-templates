@@ -62,7 +62,7 @@ const FolderItemsResponseSchema = z.object({
 
 const sync = createSync<{ Folder: typeof FolderSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync folders from Box',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -75,6 +75,7 @@ const sync = createSync<{ Folder: typeof FolderSchema }, undefined, typeof Check
     models: {
         Folder: FolderSchema
     },
+    scopes: ['root_readonly'],
 
     exec: async (nango) => {
         const checkpoint: Checkpoint = (await nango.getCheckpoint()) || {

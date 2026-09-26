@@ -156,7 +156,7 @@ function toEstimate(record: z.infer<typeof ProviderEstimateSchema>): z.infer<typ
 
 const sync = createSync({
     description: 'Sync customer estimates from QuickBooks Online.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -164,6 +164,7 @@ const sync = createSync({
     models: {
         Estimate: EstimateSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getCompany(nango);

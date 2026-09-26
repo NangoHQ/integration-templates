@@ -33,11 +33,12 @@ const AccountsCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync accessible Google Analytics accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     // https://developers.google.com/analytics/devguides/config/admin/v1/rest/v1beta/accounts/list
     endpoints: [{ method: 'GET', path: '/syncs/accounts' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     models: {
         Account: AccountSchema
     },

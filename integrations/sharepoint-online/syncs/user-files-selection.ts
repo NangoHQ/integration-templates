@@ -172,7 +172,7 @@ async function buildDryRunMetadata(nango: NangoSyncLocal): Promise<z.infer<typeo
 
 const sync = createSync({
     description: 'Sync selected user files from SharePoint.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -186,6 +186,7 @@ const sync = createSync({
             path: '/syncs/user-files-selection'
         }
     ],
+    scopes: ['Sites.Read.All', 'Files.Read.All'],
 
     exec: async (nango) => {
         const rawMetadata = await getMetadataOrNull(nango);

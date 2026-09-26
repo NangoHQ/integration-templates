@@ -65,10 +65,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "List the authenticated athlete's starred segments.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: ['read', 'read_all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor !== undefined ? Number(input.cursor) : 1;

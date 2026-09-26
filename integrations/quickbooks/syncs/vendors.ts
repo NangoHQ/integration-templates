@@ -96,7 +96,7 @@ async function getRealmId(nango: { getConnection: () => Promise<{ connection_con
 
 const sync = createSync({
     description: 'Sync vendor records from QuickBooks Online',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -109,6 +109,7 @@ const sync = createSync({
             path: '/syncs/vendors'
         }
     ],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getRealmId(nango);

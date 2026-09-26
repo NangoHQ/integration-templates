@@ -61,9 +61,10 @@ function parseWindowsJson(windowsJson: string): Record<string, string> {
 
 const sync = createSync({
     description: 'Sync tracked-time activity records (10-minute slots) across all organizations this connection can access.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hubstaff:read'],
     checkpoint: CheckpointSchema,
     models: {
         Activity: ActivitySchema

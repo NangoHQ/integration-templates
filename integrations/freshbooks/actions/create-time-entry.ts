@@ -86,7 +86,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a time entry.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user:time_entries:write'],
@@ -101,7 +101,7 @@ const action = createAction({
         }
 
         if (!businessId) {
-            // https://www.freshbooks.com/api/identity
+            // https://www.freshbooks.com/api/identity_model
             const userResponse = await nango.get({
                 endpoint: '/auth/api/v1/users/me',
                 retries: 3

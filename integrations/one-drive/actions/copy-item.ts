@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a file or folder to another location',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Files.ReadWrite', 'offline_access'],
@@ -94,7 +94,7 @@ const action = createAction({
 
             await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
 
-            // https://learn.microsoft.com/graph/api/asyncstatus-get
+            // https://learn.microsoft.com/en-us/graph/long-running-actions-overview
             const monitorResponse = await nango.get({
                 endpoint: monitorUrl,
                 baseUrlOverride: 'https://graph.microsoft.com',

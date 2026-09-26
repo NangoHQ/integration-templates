@@ -13,14 +13,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Assign roles to an organization member in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['create:organization_member_roles'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.post({
-            // https://auth0.com/docs/api/management/v2/organizations/post-organizations-members-roles
+            // https://auth0.com/docs/api/management/v2/organizations/post-organization-member-roles
             endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/members/${encodeURIComponent(input.user_id)}/roles`,
             data: {
                 roles: input.role_ids

@@ -11,9 +11,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a webhook subscription.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['webhooks:write:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://hire.lever.co/developer/documentation

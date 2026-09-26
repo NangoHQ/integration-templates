@@ -99,7 +99,7 @@ const DeletedTaskSchema = z.object({
 
 const sync = createSync({
     description: 'Sync tasks from Zoho CRM',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     endpoints: [
         {
@@ -111,6 +111,7 @@ const sync = createSync({
     models: {
         Task: TaskSchema
     },
+    scopes: ['ZohoCRM.modules.tasks.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

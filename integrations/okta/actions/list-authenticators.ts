@@ -35,14 +35,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the authenticator types configured at the org level.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['okta.authenticators.read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.okta.com/docs/reference/api/authenticators/
+            // https://developer.okta.com/docs/reference/api/authenticators-admin/
             endpoint: '/api/v1/authenticators',
             retries: 3
         });

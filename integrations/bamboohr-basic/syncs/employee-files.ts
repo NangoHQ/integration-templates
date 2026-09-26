@@ -20,9 +20,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync employee file metadata from BambooHR.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['employee', 'employee:file'],
     checkpoint: CheckpointSchema,
     models: {
         EmployeeFile: EmployeeFileSchema

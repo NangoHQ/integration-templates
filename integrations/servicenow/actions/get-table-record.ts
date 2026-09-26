@@ -18,9 +18,10 @@ const OutputSchema = z.record(z.string(), z.unknown());
 
 const action = createAction({
     description: 'Retrieve an allowed table record.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.servicenow.com/dev.do#!/reference/api/now/rest/table-api

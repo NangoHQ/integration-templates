@@ -31,10 +31,11 @@ const FreshBooksResponseSchema = z.object({
 
 const action = createAction({
     description: 'Send an invoice by email or mark it as sent.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
+    scopes: ['user:invoices:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

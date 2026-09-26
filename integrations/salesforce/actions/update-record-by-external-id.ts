@@ -16,9 +16,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a record by external ID field and value.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_sobject_upsert.htm

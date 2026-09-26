@@ -59,10 +59,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a tab to a channel.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ChannelSettings.ReadWrite.All', 'TeamsTab.Create'],
+    scopes: ['TeamsTab.Create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/channel-post-tabs

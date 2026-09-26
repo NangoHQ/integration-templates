@@ -44,7 +44,7 @@ const DocumentContentSchema = z.object({
 
 const sync = createSync({
     description: 'Sync full document structure and content for document IDs supplied in connection metadata',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -55,6 +55,7 @@ const sync = createSync({
             path: '/syncs/document-content-by-id'
         }
     ],
+    scopes: ['https://www.googleapis.com/auth/documents.readonly'],
     models: {
         DocumentContent: DocumentContentSchema
     },

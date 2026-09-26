@@ -81,7 +81,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Add a new notification rule to a user.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users:contact_methods.write'],

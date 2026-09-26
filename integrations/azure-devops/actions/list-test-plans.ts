@@ -58,14 +58,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List test plans in a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['vso.test'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://learn.microsoft.com/en-us/rest/api/azure/devops/testplan/plans/list?view=azure-devops-rest-7.2
+            // https://learn.microsoft.com/en-us/rest/api/azure/devops/testplan/test-plans/list?view=azure-devops-rest-7.2
             endpoint: `/${encodeURIComponent(input.project)}/_apis/testplan/plans`,
             params: {
                 'api-version': '7.2-preview.1',

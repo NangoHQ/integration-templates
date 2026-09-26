@@ -24,9 +24,10 @@ const OutputSchema = ProviderCatalogItemSchema;
 
 const action = createAction({
     description: 'Retrieve a service catalog item.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.servicenow.com/dev.do#!/reference/api

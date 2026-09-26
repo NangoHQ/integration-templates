@@ -83,7 +83,7 @@ function flattenNode(raw: unknown, fileKey: string, fileName: string | undefined
 
 const sync = createSync({
     description: 'Sync file nodes from Figma.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -92,6 +92,7 @@ const sync = createSync({
     models: {
         FileNode: FileNodeSchema
     },
+    scopes: ['projects:read', 'file_content:read'],
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
         if (!metadata || !metadata.team_id) {

@@ -74,9 +74,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a YouTube playlist by playlist ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://www.googleapis.com/auth/youtube.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/youtube/v3/docs/playlists/list

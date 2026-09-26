@@ -58,9 +58,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync caption track metadata for YouTube videos in scope',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/youtube.force-ssl'],
     syncType: 'full',
     endpoints: [
         {

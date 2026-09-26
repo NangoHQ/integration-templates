@@ -172,7 +172,7 @@ function mapProviderContact(providerContact: ProviderContact): Contact {
 
 const sync = createSync({
     description: 'Sync contacts from Zoho CRM',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -180,6 +180,7 @@ const sync = createSync({
         Contact: ContactSchema
     },
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],
+    scopes: ['ZohoCRM.modules.contacts.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

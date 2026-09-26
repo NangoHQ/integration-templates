@@ -12,14 +12,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a template version.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['templates.delete'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/templates-versions/delete-template-version
+            // https://www.twilio.com/docs/sendgrid/api-reference/transactional-templates-versions/delete-a-transactional-template-version
             endpoint: `/v3/templates/${encodeURIComponent(input.template_id)}/versions/${encodeURIComponent(input.version_id)}`,
             retries: 3
         });

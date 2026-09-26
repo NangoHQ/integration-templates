@@ -24,11 +24,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List pending scheduled messages',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['chat:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

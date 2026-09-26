@@ -60,9 +60,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Schedule a downtime (maintenance window) that suppresses monitor notifications for a scope/time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['monitors_downtime'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const monitorIdentifier: { monitor_tags?: string[]; monitor_id?: number } = {};

@@ -65,10 +65,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update repository metadata.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repository:write'],
+    scopes: ['repository:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const updateBody: Record<string, unknown> = {

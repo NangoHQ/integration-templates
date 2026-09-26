@@ -34,7 +34,7 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single source from Ashby',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['hiringProcessMetadataRead'],
@@ -42,7 +42,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Ashby does not expose a source.info endpoint, so we use source.list
         // and filter by ID across all pages.
-        // https://developers.ashbyhq.com/reference/sourcelist
+        // https://developers.ashbyhq.com/reference/sourcelist-1
         let nextCursor: string | undefined;
 
         do {

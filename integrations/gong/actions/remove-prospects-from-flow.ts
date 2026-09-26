@@ -22,7 +22,7 @@ const ErrorResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unassign prospects from an Engage flow by their flow instance IDs.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:flows:write'],
@@ -32,7 +32,7 @@ const action = createAction({
         // @allowTryCatch The Gong API returns 400 when all provided flowInstanceIds do not exist.
         // We treat this as a valid empty result (analogous to the 404 "no calls found" pattern).
         try {
-            // https://help.gong.io/docs/engage-flows-api
+            // https://help.gong.io/apidocs/unassign-flows-by-flow-instance-id-v2flowsprospectsunassign-flows-by-instance-id-1
             response = await nango.post({
                 endpoint: '/v2/flows/prospects/unassign-flows-by-instance-id',
                 data: {

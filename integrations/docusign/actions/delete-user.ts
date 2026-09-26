@@ -15,7 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Close/remove users from the account.',
-    version: '3.0.0',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['signature'],
@@ -30,7 +30,7 @@ const action = createAction({
             });
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/users/deleteusers/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/delete/
         const response = await nango.delete({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(metadata.accountId)}/users`,
             data: {

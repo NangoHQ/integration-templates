@@ -134,9 +134,10 @@ const CheckpointSchema = z
 
 const sync = createSync({
     description: 'Incrementally sync full Google Calendar event objects',
-    version: '5.0.2',
+    version: '5.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/calendar.events.readonly'],
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     models: {

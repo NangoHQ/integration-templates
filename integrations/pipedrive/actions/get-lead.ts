@@ -53,10 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single lead from Pipedrive.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['leads:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Get connection to access the api_domain for Pipedrive

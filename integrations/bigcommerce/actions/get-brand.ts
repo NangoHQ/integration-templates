@@ -34,13 +34,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a brand.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/brands#get-a-brand
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/get-brand
         const response = await nango.get({
             endpoint: `/v3/catalog/brands/${encodeURIComponent(String(input.brand_id))}`,
             retries: 3

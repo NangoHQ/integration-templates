@@ -40,9 +40,10 @@ const ProviderVendorSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the global integration-vendor-type catalog.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['vendors.read'],
     checkpoint: CheckpointSchema,
     models: {
         Vendor: VendorSchema

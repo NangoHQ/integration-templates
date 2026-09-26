@@ -21,7 +21,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a storage bucket in Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -48,7 +48,7 @@ const action = createAction({
             // Keep listing from offset 0: after each delete the same prefix has fewer items.
             while (true) {
                 const listResponse = await nango.post({
-                    // https://supabase.com/docs/reference/api/storage-list-objects
+                    // https://supabase.com/docs/reference/javascript/file-buckets-list
                     endpoint: `/storage/v1/object/list/${encodeURIComponent(bucketId)}`,
                     data: {
                         limit,
@@ -80,7 +80,7 @@ const action = createAction({
                     const prefixes = files.map((obj) => (prefix ? `${prefix}${obj.name}` : obj.name));
 
                     await nango.delete({
-                        // https://supabase.com/docs/reference/api/storage-delete-objects
+                        // https://supabase.com/docs/reference/javascript/file-buckets-remove
                         endpoint: `/storage/v1/object/${encodeURIComponent(bucketId)}`,
                         data: { prefixes },
                         baseUrlOverride,
@@ -97,7 +97,7 @@ const action = createAction({
         }
 
         await nango.delete({
-            // https://supabase.com/docs/reference/api/storage-delete-bucket
+            // https://supabase.com/docs/reference/javascript/file-buckets-deletebucket
             endpoint: `/storage/v1/bucket/${encodeURIComponent(bucketId)}`,
             baseUrlOverride,
             retries: 3

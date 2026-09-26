@@ -78,10 +78,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new On-Call escalation policy',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['on_call_write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const attributes: Record<string, unknown> = {

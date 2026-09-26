@@ -19,7 +19,7 @@ const OutputSchema = z.array(ProviderRowSchema);
 
 const action = createAction({
     description: 'Update rows in a Supabase table.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
@@ -37,7 +37,7 @@ const action = createAction({
         const projectUrl = connectionConfig.projectUrl;
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
-        // https://supabase.com/docs/reference/api/patch-tablerows
+        // https://supabase.com/docs/reference/javascript/update
         const response = await nango.patch({
             endpoint: `/rest/v1/${encodeURIComponent(input.table)}`,
             params: input.filters,

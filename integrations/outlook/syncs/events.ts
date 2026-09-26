@@ -100,7 +100,8 @@ const DeltaPageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync events in a bounded calendar view with delta tokens.',
-    version: '3.1.0',
+    version: '3.1.1',
+    scopes: ['Calendars.Read'],
     endpoints: [{ method: 'POST', path: '/syncs/events' }],
     frequency: 'every hour',
     autoStart: true,

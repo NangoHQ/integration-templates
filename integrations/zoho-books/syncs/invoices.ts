@@ -43,9 +43,10 @@ const RawInvoiceSchema = z.object({
 
 const sync = createSync({
     description: 'Sync invoices from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoBooks.invoices.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     endpoints: [{ path: '/syncs/invoices', method: 'GET' }],

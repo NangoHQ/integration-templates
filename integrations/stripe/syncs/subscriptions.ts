@@ -73,7 +73,7 @@ const StripeListResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync subscriptions from Stripe.',
-    version: '1.2.0',
+    version: '1.2.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -86,6 +86,7 @@ const sync = createSync({
         Subscription: SubscriptionSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

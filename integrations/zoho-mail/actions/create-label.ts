@@ -26,10 +26,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a label in Zoho Mail',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoMail.tags.CREATE'],
+    scopes: ['ZohoMail.tags.ALL'],
 
     exec: async (nango, input) => {
         const response = await nango.post({

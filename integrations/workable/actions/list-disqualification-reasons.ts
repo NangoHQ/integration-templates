@@ -14,14 +14,14 @@ const OutputSchema = z.array(DisqualificationReasonSchema);
 
 const action = createAction({
     description: "List the account's configured disqualification reasons.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-disqualification-reasons
+            // https://workable.readme.io/reference/disqualification_reasons
             endpoint: '/spi/v3/disqualification_reasons',
             retries: 3
         });

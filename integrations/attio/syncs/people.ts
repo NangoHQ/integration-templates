@@ -31,7 +31,7 @@ const QueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio person records.',
-    version: '2.0.2',
+    version: '2.0.3',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/people' }],
@@ -55,7 +55,7 @@ const sync = createSync({
         let checkpointSaved = false;
 
         while (hasMore) {
-            // https://docs.attio.com/rest-api/endpoint-reference/records/query
+            // https://docs.attio.com/rest-api/endpoint-reference/records/list-records
             const response = await nango.post({
                 endpoint: '/v2/objects/people/records/query',
                 data: {

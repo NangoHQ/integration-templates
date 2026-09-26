@@ -16,14 +16,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new punch item on a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['public'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://api.ingenious.build/reference/createpunchitempubv2
+            // https://api.ingenious.build/reference/v2-create-punch-item
             endpoint: '/api/v2/pub/punch-items',
             data: {
                 project_id: input.project_id,

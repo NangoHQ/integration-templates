@@ -94,9 +94,10 @@ function extractRecords(queryResponse: QueryResponseType): unknown[] {
 
 const action = createAction({
     description: 'Run a custom QuickBooks SQL-like query over supported entities',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

@@ -57,7 +57,7 @@ const PostResponseSchema = z.object({
 
 const action = createAction({
     description: 'Create a new contact linked to an account',
-    version: '1.0.0',
+    version: '1.0.2',
     endpoint: {
         method: 'POST',
         path: '/actions/create-contact'

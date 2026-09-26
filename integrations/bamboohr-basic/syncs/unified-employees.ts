@@ -214,9 +214,10 @@ function toStandardEmployee(employee: BamboohrEmployee): z.infer<typeof Standard
 
 const sync = createSync({
     description: 'Fetches employees from BambooHR and maps them to the standard HRIS employee model.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
+    scopes: ['report'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {
@@ -235,7 +236,7 @@ const sync = createSync({
         const updatedAfter = checkpointParsed.success ? new Date(checkpointParsed.data['updated_after']) : undefined;
         const runStartedAt = new Date().toISOString();
 
-        // https://documentation.bamboohr.com/reference/request-custom-report-1
+        // https://documentation.bamboohr.com/reference/request-custom-report
         const response = await nango.post({
             endpoint: '/v1/reports/custom',
             params: {

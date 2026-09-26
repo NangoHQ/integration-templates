@@ -113,10 +113,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a personal task in Zoho Mail.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoMail.tasks.ALL', 'ZohoMail.tasks.CREATE'],
+    scopes: ['ZohoMail.tasks.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

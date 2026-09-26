@@ -32,7 +32,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'List storage buckets from Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -44,7 +44,7 @@ const action = createAction({
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.get({
-            // https://supabase.com/docs/reference/api/storage-list-buckets
+            // https://supabase.com/docs/reference/javascript/file-buckets-listbuckets
             endpoint: '/storage/v1/bucket',
             params: {
                 ...(input.limit !== undefined && { limit: String(input.limit) }),

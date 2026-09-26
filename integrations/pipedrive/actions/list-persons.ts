@@ -106,9 +106,10 @@ const ListPersonsOutputSchema = z.object({
 
 const action = createAction({
     description: 'List persons from Pipedrive',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListPersonsInputSchema,
     output: ListPersonsOutputSchema,
+    scopes: ['contacts:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListPersonsOutputSchema>> => {
         const params: Record<string, string | number | string[] | number[]> = {};

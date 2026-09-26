@@ -24,9 +24,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List workspaces the authenticated user belongs to.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['account'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.atlassian.com/cloud/bitbucket/rest/api-group-workspaces/#api-user-workspaces-get

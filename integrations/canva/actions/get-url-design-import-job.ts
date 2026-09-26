@@ -87,10 +87,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve URL design import job status/result.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['portability:import'],
+    scopes: ['design:content:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

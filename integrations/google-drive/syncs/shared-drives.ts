@@ -39,7 +39,7 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync shared drives from Google Drive',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [
         {
             method: 'POST',
@@ -50,6 +50,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     models: {
         SharedDrive: SharedDriveSchema

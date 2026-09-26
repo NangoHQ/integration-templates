@@ -65,7 +65,7 @@ function parseODataDate(value: string | null | undefined): string | undefined {
 
 const action = createAction({
     description: 'List purchase invoice entries.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['purchaseentry.PurchaseEntries'],

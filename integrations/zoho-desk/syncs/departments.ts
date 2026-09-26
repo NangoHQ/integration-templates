@@ -47,9 +47,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync departments.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['Desk.settings.READ'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {

@@ -32,12 +32,13 @@ const AccountUuidSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users in this Dynatrace account.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         User: UserSchema
     },
+    scopes: ['account-idm-read'],
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
@@ -58,7 +59,7 @@ const sync = createSync({
             throw new Error('Missing accountUuid in connection config or metadata');
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/accounts-users/get-all-users
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/get-all-users
         const response = await nango.get({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users`,
             retries: 3

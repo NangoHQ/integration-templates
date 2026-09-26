@@ -107,13 +107,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List replies under a channel message thread',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ChannelMessage.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/graph/api/channel-list-messagereplies
+        // https://learn.microsoft.com/en-us/graph/api/chatmessage-list-replies?view=graph-rest-1.0
         const response = await nango.get({
             endpoint: input.cursor || `/v1.0/teams/${input.teamId}/channels/${input.channelId}/messages/${input.messageId}/replies`,
             params: input.cursor ? {} : { $top: 50 },

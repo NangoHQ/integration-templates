@@ -37,13 +37,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all webhook subscriptions in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/list-webhooks',
         method: 'GET'
     },
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;

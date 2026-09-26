@@ -55,14 +55,14 @@ const OutputSchema = ProviderWebinarSchema;
 
 const action = createAction({
     description: 'Retrieve a single webinar from Zoom.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webinar:read:admin', 'webinar:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.zoom.us/docs/api/rest/reference/zoom-api/webinars/getawebinar/
+            // https://developers.zoom.us/docs/api/meetings/#tag/Webinars/operation/webinar
             endpoint: `/webinars/${input.webinarId}`,
             retries: 3
         });

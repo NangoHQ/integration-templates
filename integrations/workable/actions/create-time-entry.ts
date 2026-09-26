@@ -53,7 +53,7 @@ function getHttpErrorData(err: unknown): { status: number | undefined; payload: 
 
 const action = createAction({
     description: 'Record a single clock-in/clock-out or manual time entry for an employee.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],
@@ -77,7 +77,7 @@ const action = createAction({
         // @allowTryCatch We need to map provider-specific 400/409 errors to actionable ActionError payloads.
         try {
             response = await nango.post({
-                // https://workable.readme.io/reference/create-time-entry
+                // https://workable.readme.io/reference/time-tracking-create-entry
                 endpoint: `/spi/v3/time-tracking/employees/${encodeURIComponent(input.employee_id)}/time-entries`,
                 data: {
                     type: input.type,

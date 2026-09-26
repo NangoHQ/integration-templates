@@ -39,14 +39,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create up to 500 time entries across employees in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://workable.readme.io/reference/create-time-entries-bulk
+            // https://workable.readme.io/reference/time-tracking-bulk-create
             endpoint: '/spi/v3/time-tracking/time-entries',
             data: {
                 time_entries: input.time_entries.map((entry) => ({

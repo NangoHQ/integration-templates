@@ -22,7 +22,7 @@ const GetTeamFoldersResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync projects from Figma.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -35,6 +35,7 @@ const sync = createSync({
             path: '/syncs/projects'
         }
     ],
+    scopes: ['projects:read'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

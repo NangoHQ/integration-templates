@@ -39,14 +39,14 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Update a list entry in Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['list_entry:read-write', 'list_configuration:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.patch({
-            // https://docs.attio.com/rest-api/endpoint-reference/list-entries/update-a-list-entry
+            // https://docs.attio.com/rest-api/endpoint-reference/entries/update-a-list-entry-append-multiselect-values
             endpoint: `/v2/lists/${input.list_id}/entries/${input.entry_id}`,
             data: {
                 data: {

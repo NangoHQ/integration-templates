@@ -32,12 +32,13 @@ const BrandItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync branding profiles. Requires Branding feature (enterprise plans).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     models: {
         Brand: BrandSchema
     },
+    scopes: ['signature'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -57,7 +58,7 @@ const sync = createSync({
         // no deleted-record endpoint, and no resumable cursor.
         await nango.trackDeletesStart('Brand');
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/brands/brandgetlist/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountbrands/list/
         let brandsResponse;
         // @allowTryCatch: DocuSign returns ACCOUNT_LACKS_PERMISSIONS when branding is not enabled.
         // We catch this to provide a clear error message before the sync fails opaquely.

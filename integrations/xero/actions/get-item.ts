@@ -64,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an item by ItemID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.settings.read'],
+    scopes: ['accounting.invoices.read'],
 
     exec: async (nango, input) => {
         const connection = await nango.getConnection();

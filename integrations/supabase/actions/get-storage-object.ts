@@ -36,7 +36,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve metadata for a single storage object from Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -65,7 +65,7 @@ const action = createAction({
             });
         }
 
-        // https://supabase.com/docs/reference/api/storage-listobjects
+        // https://supabase.com/docs/reference/javascript/file-buckets-list
         const pageSize = 100;
         let offset = 0;
         let match: z.infer<typeof ProviderListItemSchema> | undefined;

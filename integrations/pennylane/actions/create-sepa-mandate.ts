@@ -42,14 +42,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a SEPA mandate.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customer_mandates:all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://pennylane.readme.io/reference/post_sepa_mandates
+            // https://pennylane.readme.io/reference/postsepamandates
             endpoint: '/api/external/v2/sepa_mandates',
             data: {
                 bic: input.bic,

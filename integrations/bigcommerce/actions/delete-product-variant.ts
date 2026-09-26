@@ -12,14 +12,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a product variant.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/product-variants#delete-a-product-variant
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/delete-product-variant
             endpoint: `/v3/catalog/products/${encodeURIComponent(input.product_id)}/variants/${encodeURIComponent(input.variant_id)}`,
             retries: 1
         });

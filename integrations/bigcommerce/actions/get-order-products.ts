@@ -106,7 +106,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List line items for an order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_orders_read_only'],
@@ -115,7 +115,7 @@ const action = createAction({
         const page = input.page ?? 1;
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-management/orders/order-products
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/order-products/get-order-products
         const response = await nango.get({
             endpoint: `/v2/orders/${encodeURIComponent(String(input.order_id))}/products`,
             params: {

@@ -104,13 +104,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workers (employees)',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Worker: WorkerSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: Workers exposes no filterable modified timestamp in this

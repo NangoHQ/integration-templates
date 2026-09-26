@@ -52,8 +52,9 @@ function parseOptional<T>(schema: z.ZodType<T>, value: unknown): T | undefined {
 
 const sync = createSync({
     description: 'Sync conversations allowed by granted scopes - public/private channels, DMs, and group DMs',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/channels', group: 'Channels' }],
+    scopes: ['channels:read', 'groups:read', 'im:read', 'mpim:read', 'channels:join', 'channels:write'],
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,

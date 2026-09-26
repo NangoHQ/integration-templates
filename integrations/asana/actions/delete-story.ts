@@ -15,7 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a story or comment by gid.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['stories:delete'],

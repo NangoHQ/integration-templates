@@ -61,7 +61,7 @@ const InvoiceItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync invoice items from Stripe.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/invoice-items' }],
     frequency: 'every hour',
     autoStart: true,
@@ -69,6 +69,7 @@ const sync = createSync({
     models: {
         InvoiceItem: InvoiceItemSchema
     },
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

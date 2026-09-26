@@ -37,10 +37,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List enrolled factors for a user',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['okta.factors.read'],
+    scopes: ['okta.users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const proxyConfig: ProxyConfiguration = {

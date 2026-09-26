@@ -50,9 +50,10 @@ const AudiencesCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync GA4 audiences for properties.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     endpoints: [{ path: '/syncs/audiences', method: 'GET' }],
     models: {
         Audience: AudienceModelSchema

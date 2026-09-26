@@ -180,10 +180,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Update a calendar event',
-    version: '2.0.2',
+    version: '2.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};

@@ -93,7 +93,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync document libraries for selected sites',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -102,6 +102,7 @@ const sync = createSync({
         Drive: DriveSchema
     },
     endpoints: [{ method: 'GET', path: '/syncs/drives' }],
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -148,7 +149,7 @@ const sync = createSync({
 
             while (nextEndpoint) {
                 const response = await nango.get({
-                    // https://learn.microsoft.com/graph/api/site-list-drives
+                    // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
                     endpoint: nextEndpoint,
                     retries: 3
                 });

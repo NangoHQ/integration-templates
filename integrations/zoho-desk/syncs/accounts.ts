@@ -39,10 +39,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync accounts',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/accounts', group: 'Accounts' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Desk.basic.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Account: accountSchema

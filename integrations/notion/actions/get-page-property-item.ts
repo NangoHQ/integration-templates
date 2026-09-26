@@ -43,13 +43,13 @@ const OutputSchema = z.union([PropertyItemSchema, PropertyItemListSchema]);
 
 const action = createAction({
     description: 'Retrieve a single property item value from a page.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read.content'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.notion.com/reference/retrieve-a-page-property-item
+        // https://developers.notion.com/reference/retrieve-a-page-property
         const response = await nango.get({
             endpoint: `/v1/pages/${encodeURIComponent(input.page_id)}/properties/${encodeURIComponent(input.property_id)}`,
             params: {

@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files shared in the workspace',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -46,7 +46,7 @@ const action = createAction({
             params['limit'] = input.limit;
         }
 
-        // https://api.slack.dev/apis/files/list
+        // https://api.slack.com/methods/files.list
         const response = await nango.get({
             endpoint: 'files.list',
             params,

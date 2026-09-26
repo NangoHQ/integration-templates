@@ -7,10 +7,11 @@ import { TriggeredBackgroundCheck, TriggerBackgroundCheckInput } from '../models
 
 const action = createAction({
     description: 'Trigger a background check',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: TriggerBackgroundCheckInput,
     output: TriggeredBackgroundCheck,
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<TriggeredBackgroundCheck> => {
         if (!input?.candidate_id) {

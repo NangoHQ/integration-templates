@@ -14,13 +14,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Skips to the next track in the user's queue.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/skip-playback-to-next-track
+        // https://developer.spotify.com/documentation/web-api/reference/skip-users-playback-to-next-track
         await nango.post({
             endpoint: '/v1/me/player/next',
             params: {

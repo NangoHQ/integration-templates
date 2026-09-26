@@ -214,9 +214,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Shopify order by the documented order identifier input.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema.nullable(),
+    scopes: ['read_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema> | null> => {
         if (!input.id && !input.customId) {

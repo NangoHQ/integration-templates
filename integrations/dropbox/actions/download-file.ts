@@ -36,10 +36,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Download file contents from Dropbox.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['files.content.read'],
+    scopes: ['files.content.read', 'files.metadata.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // First, get the file metadata

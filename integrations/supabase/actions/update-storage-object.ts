@@ -47,7 +47,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Update a storage object in Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
@@ -62,7 +62,7 @@ const action = createAction({
 
         if (input.new_path !== undefined) {
             const response = await nango.post({
-                // https://supabase.com/docs/reference/api/storage-move
+                // https://supabase.com/docs/reference/javascript/file-buckets-move
                 endpoint: '/storage/v1/object/move',
                 data: {
                     bucketId: input.bucket_id,
@@ -83,7 +83,7 @@ const action = createAction({
 
         if (input.content !== undefined) {
             const response = await nango.post({
-                // https://supabase.com/docs/reference/api/storage-upload
+                // https://supabase.com/docs/reference/javascript/file-buckets-update
                 endpoint: `/storage/v1/object/${encodeURIComponent(input.bucket_id)}/${encodeURIComponent(input.path)}`,
                 headers: {
                     'x-upsert': 'true',

@@ -17,12 +17,12 @@ const ProviderDeleteResponseSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a campaign in ActiveCampaign.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.activecampaign.com/reference/campaigns
+        // https://developers.activecampaign.com/reference/delete-a-campaign
         const response = await nango.delete({
             endpoint: `/3/campaigns/${encodeURIComponent(String(input.id))}/delete`,
             retries: 3

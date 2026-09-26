@@ -26,11 +26,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search companies by criteria',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['crm.objects.companies.read', 'crm.schemas.companies.read'],
+    scopes: ['crm.objects.companies.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const filters: any[] = [];

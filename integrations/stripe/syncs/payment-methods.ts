@@ -29,7 +29,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync payment methods from Stripe',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -42,6 +42,7 @@ const sync = createSync({
             path: '/syncs/payment-methods'
         }
     ],
+    scopes: ['read_only'],
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;

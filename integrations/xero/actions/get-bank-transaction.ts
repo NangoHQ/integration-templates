@@ -86,10 +86,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a bank transaction by BankTransactionID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.banktransactions', 'accounting.settings'],
+    scopes: ['accounting.banktransactions.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

@@ -2,7 +2,7 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 // Apollo Mixed Companies Search API response types
-// https://docs.apollo.io/reference/mixedcompanies_search
+// https://docs.apollo.io/reference/organization-search
 
 const OrganizationSchema = z.object({
     id: z.string(),
@@ -67,7 +67,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync organizations matching saved Apollo filters',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

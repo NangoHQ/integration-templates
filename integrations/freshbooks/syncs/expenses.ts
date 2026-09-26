@@ -47,11 +47,12 @@ const ExpenseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync expenses.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['user:expenses:read'],
     models: {
         Expense: ExpenseSchema
     },

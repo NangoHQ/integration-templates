@@ -16,9 +16,10 @@ const OutputSchema = z.null().describe('Empty success response returned when the
  */
 const action = createAction({
     description: 'Restore a project from the archive or trash back to active.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         // https://github.com/basecamp/bc3-api/blob/master/sections/projects.md

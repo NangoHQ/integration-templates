@@ -11,13 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Resend the verification email for a sender identity.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['sender_verification'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.twilio.com/docs/sendgrid/api-reference/sender-identity/resend-verification
+        // https://www.twilio.com/docs/sendgrid/api-reference/sender-verification/resend-verified-sender-request
         await nango.post({
             endpoint: `/v3/verified_senders/resend/${encodeURIComponent(input.sender_id)}`,
             retries: 10

@@ -140,10 +140,10 @@ function flattenUsers(users: z.infer<typeof InputSchema>['users']): Record<strin
 
 const action = createAction({
     description: 'Update a expense in Splitwise.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

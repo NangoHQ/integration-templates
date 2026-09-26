@@ -15,14 +15,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a webhook.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['hooks:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developers.make.com/api-documentation/hooks/delete-hooks-hookid
+            // https://developers.make.com/api-documentation/api-reference/hooks
             endpoint: `/hooks/${encodeURIComponent(input.hookId)}`,
             params: {
                 confirmed: 'true'

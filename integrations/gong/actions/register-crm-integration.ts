@@ -18,14 +18,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Register a generic CRM integration with Gong',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api:crm:integration:register'],
 
     exec: async (nango, input) => {
         // https://help.gong.io/apidocs/register-a-generic-crm-integration-v2crmintegrations-1
         const handleConflict = async (requestId: string) => {
-            // https://help.gong.io/apidocs/get-generic-crm-integration-details-v2crmintegrations
+            // https://help.gong.io/apidocs/get-generic-crm-integration-details-v2crmintegrations-1
             const getResponse = await nango.get({
                 endpoint: '/v2/crm/integrations',
                 retries: 3

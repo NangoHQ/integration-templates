@@ -27,7 +27,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync files from Figma.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -41,6 +41,7 @@ const sync = createSync({
             path: '/syncs/files'
         }
     ],
+    scopes: ['projects:read'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

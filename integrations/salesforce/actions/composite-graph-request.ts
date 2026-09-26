@@ -40,9 +40,10 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'Execute a dependent graph of subrequests in one composite graph call. Supports up to 500 subrequests across multiple graphs with automatic rollback on failure.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const apiVersion = input.apiVersion || 'v66.0';

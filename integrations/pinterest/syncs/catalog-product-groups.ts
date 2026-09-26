@@ -58,9 +58,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync catalog product groups.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['catalogs:read'],
     checkpoint: CheckpointSchema,
     models: {
         CatalogProductGroup: CatalogProductGroupSchema

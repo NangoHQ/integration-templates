@@ -24,13 +24,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync warehouses.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Warehouse: WarehouseSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

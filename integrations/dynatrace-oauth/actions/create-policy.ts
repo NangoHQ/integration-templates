@@ -39,7 +39,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a new custom access policy at the account level.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],
@@ -57,7 +57,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policies/create-policy
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/post-policy
             endpoint: `iam/v1/repo/account/${encodeURIComponent(accountUuid)}/policies`,
             data: {
                 name: input.name,

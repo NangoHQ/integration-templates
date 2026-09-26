@@ -11,13 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a sender identity.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/sender-verification/delete-sender
+            // https://www.twilio.com/docs/sendgrid/api-reference/sender-verification/delete-verified-sender
             endpoint: `/v3/verified_senders/${encodeURIComponent(input.sender_id)}`,
             retries: 3
         });

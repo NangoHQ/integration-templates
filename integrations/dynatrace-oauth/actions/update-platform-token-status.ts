@@ -13,13 +13,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Activate or deactivate a platform token without deleting it.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['platform-token:tokens:manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens/update-platform-token-status
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/platform-tokens-api/put-platform-token-status
         await nango.put({
             endpoint: `iam/v1/accounts/${encodeURIComponent(input.accountUuid)}/platform-tokens/${encodeURIComponent(input.tokenId)}/status`,
             data: {

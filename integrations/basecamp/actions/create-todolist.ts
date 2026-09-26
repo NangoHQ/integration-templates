@@ -170,9 +170,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a to-do list under a project to-do set.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://github.com/basecamp/bc3-api/blob/master/sections/todolists.md#create-a-to-do-list

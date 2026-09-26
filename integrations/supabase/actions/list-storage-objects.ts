@@ -55,7 +55,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List storage objects from Supabase.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -72,7 +72,7 @@ const action = createAction({
         const limit = input.limit ?? 100;
         const offset = input.offset ?? 0;
 
-        // https://supabase.com/docs/reference/api/storage
+        // https://supabase.com/docs/reference/javascript/file-buckets-list
         const response = await nango.post({
             endpoint: `/storage/v1/object/list/${encodeURIComponent(input.bucket_id)}`,
             baseUrlOverride,

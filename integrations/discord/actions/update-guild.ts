@@ -70,11 +70,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a guild in Discord',
-    version: '1.0.1',
+    version: '1.0.2',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['guilds'], // @allowTryCatch - Not used; we handle errors via ActionError
+    scopes: ['bot'], // @allowTryCatch - Not used; we handle errors via ActionError
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{ botToken: string }>();

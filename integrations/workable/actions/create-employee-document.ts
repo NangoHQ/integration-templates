@@ -17,14 +17,14 @@ const OutputSchema = z.object({});
 
 const action = createAction({
     description: 'Attach a document to an employee record from a hosted URL',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_employees', 'w_employees'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://workable.readme.io/reference/create-employeedocument
+            // https://workable.readme.io/reference/employeesiddocuments-1
             endpoint: `/spi/v3/employees/${encodeURIComponent(input.employee_id)}/documents`,
             data: {
                 member_id: input.member_id,

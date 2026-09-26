@@ -54,9 +54,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List all recordings of a given type across one or more projects, account-wide.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {

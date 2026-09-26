@@ -25,9 +25,10 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync time off types configured in BambooHR.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['time_off'],
     endpoints: [
         {
             path: '/syncs/time-off-types',

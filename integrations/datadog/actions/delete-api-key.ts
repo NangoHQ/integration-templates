@@ -11,13 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete an API key',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api_keys_delete'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.datadoghq.com/api/latest/api-keys/#delete-an-api-key
+        // https://docs.datadoghq.com/api/latest/key-management/delete-an-api-key/
         await nango.delete({
             endpoint: `v2/api_keys/${encodeURIComponent(input.apiKeyId)}`,
             retries: 3

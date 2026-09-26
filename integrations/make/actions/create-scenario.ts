@@ -53,14 +53,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new scenario from a blueprint.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://developers.make.com/api-documentation/api-reference/scenarios/post-scenarios
+            // https://developers.make.com/api-documentation/api-reference/scenarios
             endpoint: '/scenarios',
             data: {
                 teamId: input.teamId,

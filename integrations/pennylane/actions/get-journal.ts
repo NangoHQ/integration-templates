@@ -23,14 +23,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an accounting journal.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['journals:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://pennylane.readme.io/reference/get_journals-id
+            // https://pennylane.readme.io/reference/getjournal
             endpoint: `/api/external/v2/journals/${encodeURIComponent(input.id)}`,
             retries: 3
         });

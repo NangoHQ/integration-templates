@@ -64,7 +64,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a single policy's full definition (statementQuery) by uuid, at either account or global level.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],
@@ -104,7 +104,7 @@ const action = createAction({
             }
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/iam-policies-management/get-policy
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/get-policy
         const response = await nango.get({
             endpoint: `iam/v1/repo/${encodeURIComponent(levelType)}/${encodeURIComponent(resolvedLevelId)}/policies/${encodeURIComponent(input.policyUuid)}`,
             retries: 3

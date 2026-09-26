@@ -40,10 +40,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a tag from one or more contacts',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['contacts:write', 'tags:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const users = input.contacts.map((contact) => ({

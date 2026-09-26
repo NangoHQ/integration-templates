@@ -39,7 +39,7 @@ type SalesforceOpportunity = z.infer<typeof SalesforceOpportunitySchema>;
 
 const sync = createSync({
     description: 'Sync Salesforce Opportunity records with amount, stage, close date, and owner fields.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -48,6 +48,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['api'],
     models: {
         Opportunity: OpportunitySchema
     },

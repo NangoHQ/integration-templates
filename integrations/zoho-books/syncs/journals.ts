@@ -134,9 +134,10 @@ const PageContextSchema = z.object({
 
 const sync = createSync({
     description: 'Sync manual journal entries from Zoho Books.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoBooks.accountants.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

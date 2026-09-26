@@ -64,10 +64,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a goal in ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let teamId = input.team_id;
@@ -104,7 +105,7 @@ const action = createAction({
             requestBody['owners'] = input.owners;
         }
 
-        // https://developer.clickup.com/reference/create-goal
+        // https://developer.clickup.com/reference/creategoal
         const response = await nango.post({
             endpoint: `/api/v2/team/${encodeURIComponent(teamId)}/goal`,
             data: requestBody,

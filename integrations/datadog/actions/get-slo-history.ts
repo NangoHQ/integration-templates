@@ -70,14 +70,14 @@ const OutputSchema = SloHistoryDataSchema;
 
 const action = createAction({
     description: 'Get the historical SLI value for an SLO over a time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slos_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://docs.datadoghq.com/api/latest/slos/#get-an-slos-history
+            // https://docs.datadoghq.com/api/latest/service-level-objectives/get-an-slos-history/
             endpoint: `v1/slo/${encodeURIComponent(input.slo_id)}/history`,
             params: {
                 from_ts: input.from_ts,

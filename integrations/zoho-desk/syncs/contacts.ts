@@ -98,9 +98,10 @@ const ProviderContactSchema = z.object({
 
 const sync = createSync({
     description: 'Sync contacts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Desk.contacts.READ'],
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],
     models: {

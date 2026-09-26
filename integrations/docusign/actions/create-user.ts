@@ -38,10 +38,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new account user.',
-    version: '3.0.0',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
@@ -56,7 +57,7 @@ const action = createAction({
         const accountId = parsedMetadata.data.accountId;
         const permissionProfileId = input.permissionProfileId ?? '52114902';
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountusers/create/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/create/
         const response = await nango.post({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users`,
             data: {

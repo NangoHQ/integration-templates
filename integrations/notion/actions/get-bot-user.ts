@@ -62,9 +62,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the bot user associated with the current integration token.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

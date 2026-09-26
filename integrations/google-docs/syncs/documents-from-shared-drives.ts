@@ -41,11 +41,12 @@ const SharedDriveDocumentSchema = z.object({
 
 const sync = createSync({
     description: 'Discover Google Docs files across shared drives and hydrate each document through the Docs API',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     models: {
         SharedDriveDocument: SharedDriveDocumentSchema
     },

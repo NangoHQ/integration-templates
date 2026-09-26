@@ -33,10 +33,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List file nodes from Figma.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['file_content:read', 'files:read'],
+    scopes: ['file_content:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: {

@@ -36,13 +36,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspace tags.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Tag: TagSchema
     },
+    scopes: ['workspaces:read', 'tags:read'],
     endpoints: [{ method: 'GET', path: '/syncs/tags' }],
 
     exec: async (nango) => {

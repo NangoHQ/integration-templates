@@ -58,10 +58,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a reusable envelope template with documents, roles, and tabs.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['signature', 'template_read', 'template_write'],
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const MetadataSchema = z.object({ accountId: z.string().min(1) });

@@ -18,7 +18,7 @@ const UserMeSchema = z.object({
 
 const action = createAction({
     description: 'Remove a tweet bookmark',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['bookmark.write', 'users.read', 'tweet.read'],
@@ -50,7 +50,7 @@ const action = createAction({
 
         const userId = parsedUser.data.data.id;
 
-        // https://docs.x.com/x-api/introduction/bookmarks
+        // https://docs.x.com/x-api/posts/bookmarks/quickstart/manage-bookmarks
         const response = await nango.delete({
             endpoint: `/2/users/${userId}/bookmarks/${input.tweet_id}`,
             retries: 2

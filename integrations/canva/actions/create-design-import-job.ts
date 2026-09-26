@@ -19,10 +19,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Start a binary design import job',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['portability:import'],
+    scopes: ['design:content:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const fileBuffer = Buffer.from(input.file_content, 'base64');

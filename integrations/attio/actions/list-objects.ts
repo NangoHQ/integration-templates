@@ -37,14 +37,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List objects from Attio.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['object_configuration:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.attio.com/rest-api/objects
+            // https://docs.attio.com/rest-api/endpoint-reference/objects/list-objects
             endpoint: '/v2/objects',
             retries: 3
         });

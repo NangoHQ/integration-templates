@@ -23,10 +23,10 @@ const ProviderErrorSchema = z.object({ error: z.string() });
  */
 const action = createAction({
     description: 'Send a private email reply to a reviewer instead of posting publicly.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: PrivateReplyInputSchema,
     output: PrivateReplyOutputSchema,
-    scopes: ['write_private_replies'],
+    scopes: ['write_reviews'],
 
     exec: async (nango, input): Promise<z.infer<typeof PrivateReplyOutputSchema>> => {
         const response = await nango.post({

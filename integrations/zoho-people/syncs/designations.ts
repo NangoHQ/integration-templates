@@ -11,9 +11,10 @@ const DesignationSchema = z.object({
 
 const sync = createSync({
     description: 'Sync all designations (job titles)',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZOHOPEOPLE.forms.READ'],
     models: {
         Designation: DesignationSchema
     },

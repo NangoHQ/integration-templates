@@ -100,7 +100,7 @@ function mapProviderSpaceToOutput(providerSpace: z.infer<typeof ProviderSpaceSch
 
 const action = createAction({
     description: 'List accessible Confluence spaces.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -149,7 +149,7 @@ const action = createAction({
             }
             cloudId = parsedResources.data[0]!.id;
 
-            // https://docs.nango.dev/reference/sdk/javascript#set-metadata
+            // https://nango.dev/docs/reference/backend/backend-sdk/node#edit-connection-metadata
             await nango.updateMetadata({ cloudId });
         }
 

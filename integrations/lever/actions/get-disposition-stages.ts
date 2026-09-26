@@ -45,9 +45,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a combined view of the account's pipeline stages and archive reasons.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://hire.lever.co/developer/documentation

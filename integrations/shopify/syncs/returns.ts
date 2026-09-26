@@ -32,10 +32,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify returns for post-purchase and reverse logistics workflows.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_returns'],
     models: {
         Return: ReturnSchema
     },

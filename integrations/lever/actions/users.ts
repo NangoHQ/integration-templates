@@ -25,10 +25,11 @@ type GetUsers = z.infer<typeof GetUsersSchema>;
 
 const action = createAction({
     description: 'Lists all the users in your Lever account. Only active users are included by default.',
-    version: '2.0.0',
+    version: '2.0.1',
 
     input: z.void(),
     output: GetUsersSchema,
+    scopes: ['users:read:admin'],
 
     exec: async (nango): Promise<GetUsers> => {
         const config: ProxyConfiguration = {

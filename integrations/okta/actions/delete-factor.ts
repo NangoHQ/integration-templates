@@ -12,10 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unenroll (delete) a factor from a user.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['okta.factors.manage'],
+    scopes: ['okta.users.manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.okta.com/docs/reference/api/factors/#unenroll-factor

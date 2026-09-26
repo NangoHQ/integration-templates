@@ -37,9 +37,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Submit an application on behalf of a candidate. This endpoint can only be used to submit applications to published or unlisted postings.',
-    version: '2.0.0',
+    version: '2.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.postId) {

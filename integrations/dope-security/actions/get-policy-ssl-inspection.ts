@@ -25,9 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get a policy's SSL inspection state and inheritance flag.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

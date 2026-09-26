@@ -65,11 +65,12 @@ const MetaobjectSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify metaobjects for one or more metaobject types.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['read_metaobjects'],
     models: {
         Metaobject: MetaobjectSchema
     },

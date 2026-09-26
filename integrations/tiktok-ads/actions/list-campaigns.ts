@@ -71,10 +71,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List campaigns from TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ad.read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const currentPage = input.cursor ? parseInt(input.cursor, 10) : 1;

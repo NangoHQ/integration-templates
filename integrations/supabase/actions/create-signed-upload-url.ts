@@ -18,7 +18,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Generate a signed URL that allows a client to upload a file directly to Supabase Storage without exposing the service role key.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -42,7 +42,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://supabase.com/docs/reference/api/storage-createuploadsignedurl
+            // https://supabase.com/docs/reference/javascript/file-buckets-createsigneduploadurl
             endpoint: `/storage/v1/object/upload/sign/${encodeURIComponent(input.bucket_id)}/${encodeURIComponent(input.path)}`,
             data: {
                 upsert: true

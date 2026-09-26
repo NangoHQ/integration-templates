@@ -19,10 +19,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Apply a tag to a conversation.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read', 'write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Tags

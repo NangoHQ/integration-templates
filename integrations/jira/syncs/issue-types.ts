@@ -33,9 +33,10 @@ interface JiraMetadata {
 
 const sync = createSync({
     description: 'Sync Jira issue types available to the authenticated user',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read:jira-work'],
     models: {
         IssueType: IssueTypeSchema
     },

@@ -42,9 +42,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List custom metrics derived from RUM events.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

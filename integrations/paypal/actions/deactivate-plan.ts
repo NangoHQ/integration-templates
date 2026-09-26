@@ -18,13 +18,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Deactivate a billing plan so it can no longer be subscribed to.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.paypal.com/api/rest/subscriptions/plans/#plans_deactivate
+        // https://developer.paypal.com/api/subscriptions/v1/plans-deactivate
         await nango.post({
             endpoint: `/v1/billing/plans/${encodeURIComponent(input.plan_id)}/deactivate`,
             headers: {

@@ -29,7 +29,7 @@ const action = createAction({
     description: 'Retrieve a single event.',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: ['events:read'],
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/get-event
         const response = await nango.get({

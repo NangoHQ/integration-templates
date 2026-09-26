@@ -27,9 +27,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an order with a JSON Patch before it is captured or authorized (e.g. amount, description, shipping address)',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://uri.paypal.com/services/payments/payment'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.patch({

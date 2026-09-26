@@ -97,11 +97,12 @@ type Checkpoint = z.infer<typeof CheckpointSchema>;
 
 const sync = createSync({
     description: 'Sync root channel messages for selected channels',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
+    scopes: ['ChannelMessage.Read.All'],
     models: {
         ChannelMessage: ChannelMessageSchema
     },

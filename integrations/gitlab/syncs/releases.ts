@@ -44,7 +44,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync releases from GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/releases', group: 'Releases' }],
     frequency: 'every hour',
     autoStart: true,
@@ -52,6 +52,7 @@ const sync = createSync({
     models: {
         Release: ReleaseSchema
     },
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         // Blocker: GitLab Releases List API does not support updated_after,

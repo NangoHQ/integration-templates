@@ -102,11 +102,11 @@ function toCustomer(customer: z.infer<typeof V2CustomerSchema>): PennylaneCustom
 
 const sync = createSync({
     description: 'Fetches a list of customers from pennylane',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    scopes: ['accounting'],
+    scopes: ['customers:readonly'],
     models: {
         PennylaneCustomer: PennylaneCustomerSchema
     },

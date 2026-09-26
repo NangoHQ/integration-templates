@@ -50,11 +50,12 @@ const ProviderTimeEntrySchema = z.object({
 
 const sync = createSync({
     description: 'Sync time entries.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['user:time_entries:read'],
     models: {
         TimeEntry: TimeEntrySchema
     },

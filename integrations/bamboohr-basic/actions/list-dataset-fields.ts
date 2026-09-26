@@ -39,9 +39,10 @@ const OutputSchema = z.object({
 const action = createAction({
     description:
         'List available fields for a BambooHR v2 dataset (e.g. "employee"). Use this to discover valid field names before configuring the employees sync.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['report'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const datasetName = input?.datasetName ?? 'employee';
@@ -55,7 +56,7 @@ const action = createAction({
             });
         }
 
-        // https://documentation.bamboohr.com/reference/get-fields-from-dataset
+        // https://documentation.bamboohr.com/reference/get-fields-from-dataset-v1_2-v1_2
         // Note: the path uses v1_2 (underscore), not v1.2 (period).
         const response = await nango.get({
             endpoint: `/v1_2/datasets/${datasetName}/fields`,

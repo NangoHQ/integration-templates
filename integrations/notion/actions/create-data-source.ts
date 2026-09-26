@@ -51,10 +51,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Notion data source in its supported parent container.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['database', 'data_source'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const titleContent = input.title || 'New Data Source';

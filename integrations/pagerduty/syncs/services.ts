@@ -160,9 +160,10 @@ type IncidentUrgencyRule = z.infer<typeof IncidentUrgencyRuleSchema>;
 
 const sync = createSync({
     description: "Sync PagerDuty services, including each service's embedded escalation-policy reference and integrations array.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['services.read'],
     checkpoint: CheckpointSchema,
     models: {
         Service: ServiceSchema

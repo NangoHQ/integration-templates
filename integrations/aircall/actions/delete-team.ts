@@ -12,10 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a team in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['teams:write'],
+    scopes: ['public_api'],
     endpoint: {
         method: 'POST',
         path: '/actions/delete-team'

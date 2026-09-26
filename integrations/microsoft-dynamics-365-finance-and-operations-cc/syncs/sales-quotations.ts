@@ -35,13 +35,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales quotation headers',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         SalesQuotation: SalesQuotationSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: SalesQuotationHeadersV2 does not expose a filterable

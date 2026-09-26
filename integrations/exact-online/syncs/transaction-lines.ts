@@ -52,13 +52,14 @@ const extraConfig: Record<string, unknown> = {
 const sync = createSync({
     ...extraConfig,
     description: 'Sync financial transaction line details including amounts and GL account assignments.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         TransactionLine: TransactionLineSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

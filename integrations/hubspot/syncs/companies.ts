@@ -96,7 +96,7 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync companies from HubSpot CRM',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [
         {
             method: 'POST',
@@ -107,6 +107,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
+    scopes: ['crm.objects.companies.read'],
 
     models: {
         Company: CompanySchema

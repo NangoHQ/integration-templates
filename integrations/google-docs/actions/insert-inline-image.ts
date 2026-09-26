@@ -52,10 +52,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Insert an inline image from a public URL.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['documents', 'drive', 'drive.file'],
+    scopes: ['https://www.googleapis.com/auth/documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.location && !input.endOfSegmentLocation) {

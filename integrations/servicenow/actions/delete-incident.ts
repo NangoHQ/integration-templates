@@ -17,10 +17,10 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Delete an incident',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['itil', 'admin'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // @allowTryCatch We catch expected 404s from the provider and map them to a typed

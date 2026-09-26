@@ -11,14 +11,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the email addresses unsubscribed from a specific group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asm.groups.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups-retrieve-all-suppressions-for-a-group
+            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-suppressions/retrieve-all-suppressions-for-a-suppression-group
             endpoint: `/v3/asm/groups/${encodeURIComponent(input.group_id)}/suppressions`,
             retries: 3
         });

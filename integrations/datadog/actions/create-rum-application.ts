@@ -34,9 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new RUM application (registers a client_token for browser/mobile SDK instrumentation).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

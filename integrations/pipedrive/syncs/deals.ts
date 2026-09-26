@@ -71,9 +71,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync deals from Pipedrive.',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['deals:read'],
     endpoints: [
         {
             method: 'GET',

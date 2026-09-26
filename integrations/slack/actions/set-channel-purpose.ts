@@ -14,11 +14,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a channel's purpose text for a conversation",
-    version: '2.0.1',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['chat:write', 'channels:write', 'groups:write', 'im:write', 'mpim:write'],
+    scopes: ['channels:manage', 'channels:write.topic', 'groups:write', 'groups:write.topic', 'im:write', 'im:write.topic', 'mpim:write', 'mpim:write.topic'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.slack.dev/reference/methods/conversations.setPurpose/
