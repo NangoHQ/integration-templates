@@ -7,7 +7,7 @@ const InputSchema = z
         repo: z.string().describe('Repository name.'),
         issue_number: z.number().int().describe('Issue number to update.'),
         title: z.string().optional().describe('New title for the issue.'),
-        body: z.string().optional().describe('New body content for the issue.'),
+        body: z.string().nullable().optional().describe('New body content for the issue. Pass null to clear it.'),
         state: z.enum(['open', 'closed']).optional().describe('State of the issue.'),
         state_reason: z.enum(['completed', 'not_planned', 'reopened', 'duplicate']).optional().describe('Reason for the state change.'),
         labels: z.array(z.string()).optional().describe('Array of label names to replace current labels.'),
@@ -81,7 +81,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Edit an issue's title, body, state, assignees, labels, or milestone.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['issues:write'],

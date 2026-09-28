@@ -28,9 +28,9 @@ const TreeSchema = z.object({
 const VerificationSchema = z.object({
     verified: z.boolean().describe('Whether GitHub considers the commit signature to be verified.'),
     reason: z.string().describe('The reason for the verified value. For example, "valid" or "unsigned".'),
-    signature: z.string().optional().describe('The signature that was extracted from the commit.'),
-    payload: z.string().optional().describe('The value that was signed.'),
-    verified_at: z.string().optional().describe('The date the signature was verified by GitHub.')
+    signature: z.string().nullable().optional().describe('The signature that was extracted from the commit.'),
+    payload: z.string().nullable().optional().describe('The value that was signed.'),
+    verified_at: z.string().nullable().optional().describe('The date the signature was verified by GitHub.')
 });
 
 const CommitDetailsSchema = z.object({
@@ -107,9 +107,9 @@ const ProviderCommitSchema = z.object({
         verification: z.object({
             verified: z.boolean(),
             reason: z.string(),
-            signature: z.string().optional(),
-            payload: z.string().optional(),
-            verified_at: z.string().optional()
+            signature: z.string().nullable().optional(),
+            payload: z.string().nullable().optional(),
+            verified_at: z.string().nullable().optional()
         })
     }),
     author: z.unknown(),
@@ -130,7 +130,7 @@ const ProviderCommitSchema = z.object({
  */
 const action = createAction({
     description: 'List commits on a branch or overall.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],

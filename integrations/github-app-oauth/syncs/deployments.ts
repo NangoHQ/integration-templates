@@ -36,11 +36,6 @@ const RepoSchema = z.object({
     name: z.string()
 });
 
-const InstallationReposSchema = z.object({
-    total_count: z.number(),
-    repositories: z.array(RepoSchema)
-});
-
 const CreatorSchema = z
     .object({
         login: z.string().describe('Username of the deployment creator'),
@@ -79,7 +74,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync deployments for a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -95,18 +90,25 @@ const sync = createSync({
             ...(rawCheckpoint && typeof rawCheckpoint === 'object' ? rawCheckpoint : {})
         });
 
+        const repositories: Array<z.infer<typeof RepoSchema>> = [];
         // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
-        const reposResponse = await nango.get({
+        for await (const repoBatch of nango.paginate({
             endpoint: '/installation/repositories',
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'per_page',
+                limit: 100,
+                response_path: 'repositories',
+                link_rel_in_response_header: 'next'
+            },
             retries: 3
-        });
-
-        const parsedRepos = InstallationReposSchema.safeParse(reposResponse.data);
-        if (!parsedRepos.success) {
-            throw new Error(`Failed to parse installation repositories: ${parsedRepos.error.message}`);
+        })) {
+            repositories.push(...z.array(RepoSchema).parse(repoBatch));
         }
 
-        const repositories = parsedRepos.data.repositories;
+        if (repositories.length === 0) {
+            return;
+        }
 
         // Blocker: provider only exposes /repos/{owner}/{repo}/deployments with no
         // changed-since filter, no deleted-record endpoint, and no resumable cursor.

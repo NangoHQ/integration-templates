@@ -1,8 +1,21 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+const MetadataSchema = z
+    .object({
+        repositories: z
+            .array(
+                z.object({
+                    owner: z.string().describe('Repository owner login'),
+                    repo: z.string().describe('Repository name')
+                })
+            )
+            .describe('List of repositories to sync pull requests from')
+    })
+    .describe('Sync metadata specifying which repositories to fetch pull requests from');
+
 const CheckpointSchema = z.object({
-    updated_after: z.string()
+    updated_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 updated_at watermark for that repository.')
 });
 
 const AssigneeSchema = z
@@ -137,130 +150,141 @@ const ProviderPullRequestSchema = z.object({
 
 const sync = createSync({
     description: 'Sync pull requests for a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every 5 minutes',
-    autoStart: true,
+    autoStart: false,
+    metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {
         PullRequest: PullRequestSchema
     },
     scopes: ['pull_requests:read'],
     exec: async (nango) => {
-        const rawCheckpoint = await nango.getCheckpoint();
-        let updatedAfter: string | undefined;
-        if (rawCheckpoint != null) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
-            if (!parsedCheckpoint.success) {
-                throw new Error(`Invalid checkpoint: ${parsedCheckpoint.error.message}`);
-            }
-            updatedAfter = parsedCheckpoint.data.updated_after;
+        const metadata = MetadataSchema.parse(await nango.getMetadata());
+        if (metadata.repositories.length === 0) {
+            throw new Error('No repositories found in metadata');
         }
 
-        const owner = 'nango-provisioned-apps';
-        const repo = 'nango';
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://docs.github.com/rest/pulls/pulls#list-pull-requests
-            endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/pulls`,
-            params: {
-                state: 'all',
-                sort: 'updated',
-                direction: 'desc',
-                per_page: '100'
-            },
-            paginate: {
-                type: 'link',
-                limit_name_in_request: 'per_page',
-                limit: 100
-            },
-            retries: 3
-        };
-
-        const isFirstRun = !updatedAfter;
-        let maxUpdatedAt: string | undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const isFirstRun = rawCheckpoint == null;
+        const updatedAfterByRepo: Record<string, string> = isFirstRun
+            ? {}
+            : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).updated_after_by_repo));
 
         if (isFirstRun) {
             await nango.trackDeletesStart('PullRequest');
         }
 
-        // https://docs.github.com/rest/pulls/pulls#list-pull-requests
-        for await (const page of nango.paginate(proxyConfig)) {
-            const validatedPage = page.map((item) => {
-                const result = ProviderPullRequestSchema.safeParse(item);
-                if (!result.success) {
-                    throw new Error(`Failed to parse pull request: ${result.error.message}`);
-                }
-                return result.data;
-            });
+        for (const repo of metadata.repositories) {
+            const repoFullName = `${repo.owner}/${repo.repo}`;
+            const updatedAfter = updatedAfterByRepo[repoFullName];
 
-            if (validatedPage.length === 0) {
-                continue;
-            }
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.github.com/rest/pulls/pulls#list-pull-requests
+                endpoint: `repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/pulls`,
+                params: {
+                    state: 'all',
+                    sort: 'updated',
+                    direction: 'desc',
+                    per_page: '100'
+                },
+                paginate: {
+                    type: 'link',
+                    limit_name_in_request: 'per_page',
+                    limit: 100,
+                    link_rel_in_response_header: 'next'
+                },
+                retries: 3
+            };
 
-            let prsToSave = validatedPage;
+            let maxUpdatedAt: string | undefined;
+            let stop = false;
 
-            if (!isFirstRun && updatedAfter) {
-                const firstStaleIndex = validatedPage.findIndex((pr) => pr.updated_at <= updatedAfter);
-                if (firstStaleIndex === 0) {
+            // https://docs.github.com/rest/pulls/pulls#list-pull-requests
+            for await (const page of nango.paginate(proxyConfig)) {
+                if (stop) {
                     break;
                 }
-                if (firstStaleIndex !== -1) {
-                    prsToSave = validatedPage.slice(0, firstStaleIndex);
+
+                const validatedPage = page.map((item) => {
+                    const result = ProviderPullRequestSchema.safeParse(item);
+                    if (!result.success) {
+                        throw new Error(`Failed to parse pull request: ${result.error.message}`);
+                    }
+                    return result.data;
+                });
+
+                if (validatedPage.length === 0) {
+                    continue;
+                }
+
+                let prsToSave = validatedPage;
+
+                if (updatedAfter) {
+                    const firstStaleIndex = validatedPage.findIndex((pr) => pr.updated_at < updatedAfter);
+                    if (firstStaleIndex === 0) {
+                        break;
+                    }
+                    if (firstStaleIndex !== -1) {
+                        prsToSave = validatedPage.slice(0, firstStaleIndex);
+                        stop = true;
+                    }
+                }
+
+                if (maxUpdatedAt === undefined) {
+                    const firstPr = validatedPage[0];
+                    if (firstPr) {
+                        maxUpdatedAt = firstPr.updated_at;
+                    }
+                }
+
+                const mapped = prsToSave.map((pr) => ({
+                    id: String(pr.id),
+                    number: pr.number,
+                    title: pr.title,
+                    state: pr.state,
+                    locked: pr.locked,
+                    ...(pr.user && { user_login: pr.user.login, user_id: pr.user.id }),
+                    ...(pr.body != null && { body: pr.body }),
+                    created_at: pr.created_at,
+                    updated_at: pr.updated_at,
+                    ...(pr.closed_at != null && { closed_at: pr.closed_at }),
+                    ...(pr.merged_at != null && { merged_at: pr.merged_at }),
+                    ...(pr.merge_commit_sha != null && { merge_commit_sha: pr.merge_commit_sha }),
+                    ...(pr.draft != null && { draft: pr.draft }),
+                    html_url: pr.html_url,
+                    ...(pr.head && { head_ref: pr.head.ref, head_sha: pr.head.sha }),
+                    ...(pr.base && { base_ref: pr.base.ref, base_sha: pr.base.sha }),
+                    ...(pr.assignees && {
+                        assignees: pr.assignees.map((a) => ({ login: a.login, id: a.id }))
+                    }),
+                    ...(pr.requested_reviewers && {
+                        requested_reviewers: pr.requested_reviewers.map((r) => ({ login: r.login, id: r.id }))
+                    }),
+                    ...(pr.labels && {
+                        labels: pr.labels.map((l) => ({
+                            id: l.id,
+                            name: l.name,
+                            ...(l.color && { color: l.color })
+                        }))
+                    })
+                }));
+
+                if (mapped.length > 0) {
+                    await nango.batchSave(mapped, 'PullRequest');
                 }
             }
 
-            if (isFirstRun && maxUpdatedAt === undefined) {
-                const firstPr = validatedPage[0];
-                if (firstPr) {
-                    maxUpdatedAt = firstPr.updated_at;
-                }
+            if (maxUpdatedAt !== undefined) {
+                updatedAfterByRepo[repoFullName] = maxUpdatedAt;
             }
-
-            const mapped = prsToSave.map((pr) => ({
-                id: String(pr.id),
-                number: pr.number,
-                title: pr.title,
-                state: pr.state,
-                locked: pr.locked,
-                ...(pr.user && { user_login: pr.user.login, user_id: pr.user.id }),
-                ...(pr.body != null && { body: pr.body }),
-                created_at: pr.created_at,
-                updated_at: pr.updated_at,
-                ...(pr.closed_at != null && { closed_at: pr.closed_at }),
-                ...(pr.merged_at != null && { merged_at: pr.merged_at }),
-                ...(pr.merge_commit_sha != null && { merge_commit_sha: pr.merge_commit_sha }),
-                ...(pr.draft != null && { draft: pr.draft }),
-                html_url: pr.html_url,
-                ...(pr.head && { head_ref: pr.head.ref, head_sha: pr.head.sha }),
-                ...(pr.base && { base_ref: pr.base.ref, base_sha: pr.base.sha }),
-                ...(pr.assignees && {
-                    assignees: pr.assignees.map((a) => ({ login: a.login, id: a.id }))
-                }),
-                ...(pr.requested_reviewers && {
-                    requested_reviewers: pr.requested_reviewers.map((r) => ({ login: r.login, id: r.id }))
-                }),
-                ...(pr.labels && {
-                    labels: pr.labels.map((l) => ({
-                        id: l.id,
-                        name: l.name,
-                        ...(l.color && { color: l.color })
-                    }))
-                })
-            }));
-
-            if (mapped.length > 0) {
-                await nango.batchSave(mapped, 'PullRequest');
-                const lastPr = prsToSave[prsToSave.length - 1];
-                if (lastPr && !isFirstRun) {
-                    await nango.saveCheckpoint({ updated_after: lastPr.updated_at });
-                }
-            }
+            await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
         }
 
         if (isFirstRun) {
             await nango.clearCheckpoint();
             await nango.trackDeletesEnd('PullRequest');
-            await nango.saveCheckpoint({ updated_after: maxUpdatedAt ?? new Date().toISOString() });
+            await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
         }
     }
 });

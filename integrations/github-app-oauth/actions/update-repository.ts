@@ -7,8 +7,12 @@ const InputSchema = z
         owner: z.string().describe('Repository owner login. Example: "NangoHQ"'),
         repo: z.string().describe('Repository name. Example: "nango"'),
         name: z.string().optional().describe('New repository name. Renaming changes the repository URLs; GitHub redirects the old URLs to the new ones.'),
-        description: z.string().optional().describe('Short repository description. Example: "Build product integrations with AI."'),
-        homepage: z.string().optional().describe('Repository homepage URL. Example: "https://nango.dev"'),
+        description: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('Short repository description. Example: "Build product integrations with AI." Pass null to clear it.'),
+        homepage: z.string().nullable().optional().describe('Repository homepage URL. Example: "https://nango.dev". Pass null to clear it.'),
         private: z.boolean().optional().describe('Whether the repository is private. Cannot be combined with visibility in the same request.'),
         visibility: z
             .enum(['public', 'private', 'internal'])
@@ -55,6 +59,10 @@ const ProviderRepositorySchema = z.object({
     node_id: z.string(),
     name: z.string(),
     full_name: z.string(),
+    owner: z.object({
+        login: z.string(),
+        id: z.number()
+    }),
     description: z.string().nullable().optional(),
     homepage: z.string().nullable().optional(),
     private: z.boolean(),
@@ -63,9 +71,11 @@ const ProviderRepositorySchema = z.object({
     has_projects: z.boolean().optional(),
     has_wiki: z.boolean().optional(),
     has_discussions: z.boolean().optional(),
+    has_pages: z.boolean().optional(),
     is_template: z.boolean().optional(),
     default_branch: z.string(),
     archived: z.boolean(),
+    disabled: z.boolean().optional(),
     allow_squash_merge: z.boolean().optional(),
     allow_merge_commit: z.boolean().optional(),
     allow_rebase_merge: z.boolean().optional(),
@@ -89,6 +99,7 @@ const OutputSchema = z
         node_id: z.string().describe('GitHub node ID of the repository. Example: "R_kgDOT1NNvw"'),
         name: z.string().describe('Repository name. Example: "nango"'),
         full_name: z.string().describe('Full repository name including the owner. Example: "NangoHQ/nango"'),
+        owner: z.string().describe('Login of the repository owner. Example: "NangoHQ"'),
         description: z.string().optional().describe('Repository description. Omitted when unset.'),
         homepage: z.string().optional().describe('Repository homepage URL. Omitted when unset.'),
         private: z.boolean().describe('Whether the repository is private.'),
@@ -97,9 +108,11 @@ const OutputSchema = z
         has_projects: z.boolean().optional().describe('Whether the Projects feature is enabled.'),
         has_wiki: z.boolean().optional().describe('Whether the wiki is enabled.'),
         has_discussions: z.boolean().optional().describe('Whether Discussions are enabled.'),
+        has_pages: z.boolean().optional().describe('Whether GitHub Pages is enabled for the repository.'),
         is_template: z.boolean().optional().describe('Whether the repository is a template repository.'),
         default_branch: z.string().describe('Default branch name. Example: "main"'),
         archived: z.boolean().describe('Whether the repository is archived.'),
+        disabled: z.boolean().optional().describe('Whether the repository has been disabled by GitHub (e.g. for exceeding usage limits).'),
         allow_squash_merge: z.boolean().optional().describe('Whether squash-merging pull requests is allowed.'),
         allow_merge_commit: z.boolean().optional().describe('Whether merging pull requests with a merge commit is allowed.'),
         allow_rebase_merge: z.boolean().optional().describe('Whether rebase-merging pull requests is allowed.'),
@@ -128,10 +141,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Update repository-level settings such as description, homepage, default branch, feature toggles, merge options, and archived state.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['administration'],
+    scopes: ['administration:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
@@ -174,6 +187,7 @@ const action = createAction({
             node_id: repository.node_id,
             name: repository.name,
             full_name: repository.full_name,
+            owner: repository.owner.login,
             private: repository.private,
             default_branch: repository.default_branch,
             archived: repository.archived,
@@ -185,7 +199,9 @@ const action = createAction({
             ...(repository.has_projects !== undefined && { has_projects: repository.has_projects }),
             ...(repository.has_wiki !== undefined && { has_wiki: repository.has_wiki }),
             ...(repository.has_discussions !== undefined && { has_discussions: repository.has_discussions }),
+            ...(repository.has_pages !== undefined && { has_pages: repository.has_pages }),
             ...(repository.is_template !== undefined && { is_template: repository.is_template }),
+            ...(repository.disabled !== undefined && { disabled: repository.disabled }),
             ...(repository.allow_squash_merge !== undefined && { allow_squash_merge: repository.allow_squash_merge }),
             ...(repository.allow_merge_commit !== undefined && { allow_merge_commit: repository.allow_merge_commit }),
             ...(repository.allow_rebase_merge !== undefined && { allow_rebase_merge: repository.allow_rebase_merge }),

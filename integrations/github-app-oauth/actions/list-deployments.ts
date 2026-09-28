@@ -45,7 +45,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List deployments for a repository',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],
@@ -67,7 +67,8 @@ const action = createAction({
 
         const deployments = z.array(DeploymentSchema).parse(response.data);
         const currentPage = input.page ?? 1;
-        const nextPage = deployments.length > 0 ? currentPage + 1 : undefined;
+        const effectivePerPage = input.per_page ?? 30;
+        const nextPage = deployments.length === effectivePerPage ? currentPage + 1 : undefined;
 
         return {
             deployments,

@@ -18,9 +18,13 @@ const MetadataSchema = z
 
 const CheckpointSchema = z
     .object({
-        updated_after: z.string().describe('ISO 8601 timestamp of the most recently updated issue from the last run')
+        updated_after_by_repo: z
+            .string()
+            .describe(
+                'JSON-encoded map of "{owner}/{repo}" to the ISO 8601 timestamp of the most recently updated issue synced for that repository'
+            )
     })
-    .describe('Resume state for incremental issue syncing');
+    .describe('Resume state for incremental issue syncing, tracked per repository');
 
 const IssueSchema = z
     .object({
@@ -89,7 +93,7 @@ const ProviderIssueSchema = z.object({
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -105,11 +109,14 @@ const sync = createSync({
         }
 
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint == null ? undefined : CheckpointSchema.parse(rawCheckpoint);
-        const requestUpdatedAfter = checkpoint?.updated_after;
-        let maxUpdatedAt: string | undefined = requestUpdatedAfter;
+        const updatedAfterByRepo: Record<string, string> =
+            rawCheckpoint == null ? {} : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).updated_after_by_repo));
 
         for (const repo of metadata.repositories) {
+            const repoFullName = `${repo.owner}/${repo.repo}`;
+            const requestUpdatedAfter = updatedAfterByRepo[repoFullName];
+            let maxUpdatedAt: string | undefined = requestUpdatedAfter;
+
             const proxyConfig = {
                 // https://docs.github.com/rest/issues/issues#list-repository-issues
                 endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/issues`,
@@ -179,10 +186,11 @@ const sync = createSync({
 
                 await nango.batchSave(mappedIssues, 'Issue');
             }
-        }
 
-        if (maxUpdatedAt !== undefined) {
-            await nango.saveCheckpoint({ updated_after: maxUpdatedAt });
+            if (maxUpdatedAt !== undefined) {
+                updatedAfterByRepo[repoFullName] = maxUpdatedAt;
+            }
+            await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
         }
     }
 });

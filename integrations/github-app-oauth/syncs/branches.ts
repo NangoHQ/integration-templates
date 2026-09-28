@@ -8,7 +8,7 @@ const CheckpointSchema = z.object({
 
 const BranchSchema = z
     .object({
-        id: z.string().describe('The stable identifier for the branch, equal to its name within the repository.'),
+        id: z.string().describe('The stable identifier for the branch, formatted as "{repo_owner}/{repo_name}:{name}" to stay unique across repositories.'),
         name: z.string().describe('The name of the branch.'),
         repo_owner: z.string().describe('The login of the user or organization that owns the repository.'),
         repo_name: z.string().describe('The name of the repository this branch belongs to.'),
@@ -29,7 +29,7 @@ const BranchResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync branches for a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -45,26 +45,28 @@ const sync = createSync({
             ...(rawCheckpoint && typeof rawCheckpoint === 'object' ? rawCheckpoint : {})
         });
 
-        // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
-        const reposResponse = await nango.get({
-            endpoint: '/installation/repositories',
-            retries: 3
+        const RepoSchema = z.object({
+            name: z.string(),
+            owner: z.object({
+                login: z.string()
+            })
         });
 
-        const reposData = z
-            .object({
-                repositories: z.array(
-                    z.object({
-                        name: z.string(),
-                        owner: z.object({
-                            login: z.string()
-                        })
-                    })
-                )
-            })
-            .parse(reposResponse.data);
-
-        const repos = reposData.repositories;
+        const repos: Array<z.infer<typeof RepoSchema>> = [];
+        // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
+        for await (const repoBatch of nango.paginate({
+            endpoint: '/installation/repositories',
+            paginate: {
+                type: 'link',
+                limit_name_in_request: 'per_page',
+                limit: 100,
+                response_path: 'repositories',
+                link_rel_in_response_header: 'next'
+            },
+            retries: 3
+        })) {
+            repos.push(...z.array(RepoSchema).parse(repoBatch));
+        }
 
         if (repos.length === 0) {
             return;
@@ -109,7 +111,7 @@ const sync = createSync({
                 const validated = z.array(BranchResponseSchema).parse(branchBatch);
 
                 const branches = validated.map((branch) => ({
-                    id: branch.name,
+                    id: `${repoFullName}:${branch.name}`,
                     name: branch.name,
                     repo_owner: owner,
                     repo_name: repoName,

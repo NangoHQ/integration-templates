@@ -2,12 +2,14 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 const CheckpointSchema = z.object({
-    created_after: z.string()
+    created_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 created_at watermark for that repository.')
 });
 
 const WorkflowRunSchema = z
     .object({
         id: z.string().describe('The unique identifier of the workflow run.'),
+        repository_owner: z.string().describe('The login of the repository owner this workflow run belongs to.'),
+        repository_name: z.string().describe('The name of the repository this workflow run belongs to.'),
         name: z.string().optional().describe('The display name of the workflow run.'),
         head_branch: z.string().optional().describe('The branch that triggered the workflow run.'),
         head_sha: z.string().optional().describe('The SHA of the commit that triggered the workflow run.'),
@@ -50,7 +52,7 @@ const ProviderRepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -59,9 +61,11 @@ const sync = createSync({
     },
     scopes: ['actions:read'],
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const isFirstRun = checkpoint == null;
-        const createdAfter = isFirstRun ? undefined : checkpoint.created_after;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const isFirstRun = rawCheckpoint == null;
+        const createdAfterByRepo: Record<string, string> = isFirstRun
+            ? {}
+            : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).created_after_by_repo));
 
         const repos: Array<{ owner: { login: string }; name: string }> = [];
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
@@ -89,16 +93,17 @@ const sync = createSync({
             await nango.trackDeletesStart('WorkflowRun');
         }
 
-        let maxCreatedAt: string | undefined = undefined;
-
         for (const repo of repos) {
             const owner = repo.owner.login;
             const name = repo.name;
+            const repoFullName = `${owner}/${name}`;
+            const createdAfter = createdAfterByRepo[repoFullName];
+            let maxCreatedAt: string | undefined = createdAfter;
 
             // https://docs.github.com/rest/actions/workflow-runs#list-workflow-runs-for-a-repository
             for await (const page of nango.paginate<unknown>({
                 endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/actions/runs`,
-                params: createdAfter ? { created: `>${createdAfter}..*` } : {},
+                params: createdAfter ? { created: `>${createdAfter}` } : {},
                 paginate: {
                     type: 'link',
                     limit_name_in_request: 'per_page',
@@ -122,6 +127,8 @@ const sync = createSync({
 
                 const mapped = runs.map((run) => ({
                     id: String(run.id),
+                    repository_owner: owner,
+                    repository_name: name,
                     ...(run.name != null && { name: run.name }),
                     ...(run.head_branch != null && { head_branch: run.head_branch }),
                     ...(run.head_sha != null && { head_sha: run.head_sha }),
@@ -145,16 +152,18 @@ const sync = createSync({
                     }
                 }
             }
+
+            if (maxCreatedAt !== undefined) {
+                createdAfterByRepo[repoFullName] = maxCreatedAt;
+            }
+            await nango.saveCheckpoint({ created_after_by_repo: JSON.stringify(createdAfterByRepo) });
         }
 
         if (isFirstRun) {
             await nango.clearCheckpoint();
             await nango.trackDeletesEnd('WorkflowRun');
+            await nango.saveCheckpoint({ created_after_by_repo: JSON.stringify(createdAfterByRepo) });
         }
-
-        await nango.saveCheckpoint({
-            created_after: maxCreatedAt ?? createdAfter ?? new Date().toISOString()
-        });
     }
 });
 

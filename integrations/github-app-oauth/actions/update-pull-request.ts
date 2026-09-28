@@ -7,7 +7,7 @@ const InputSchema = z
         repo: z.string().describe('Repository name. Example: "Hello-World"'),
         pull_number: z.number().describe('Pull request number. Example: 1'),
         title: z.string().optional().describe('New title for the pull request.'),
-        body: z.string().optional().describe('New body content for the pull request.'),
+        body: z.string().nullable().optional().describe('New body content for the pull request. Pass null to clear it.'),
         state: z.enum(['open', 'closed']).optional().describe('New state for the pull request.'),
         base: z.string().optional().describe('New base branch name for the pull request.')
     })
@@ -58,7 +58,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Update a pull request's title, body, state, or base branch.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],

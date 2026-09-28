@@ -68,7 +68,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List assets uploaded to a repository release.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],
@@ -118,7 +118,8 @@ const action = createAction({
             };
         });
 
-        const next_page = assets.length > 0 && (input.per_page === undefined || assets.length === input.per_page) ? String(page + 1) : undefined;
+        const effectivePerPage = input.per_page ?? 30;
+        const next_page = assets.length === effectivePerPage ? String(page + 1) : undefined;
 
         return {
             assets,
