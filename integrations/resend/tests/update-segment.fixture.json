@@ -1,0 +1,9 @@
+{
+    "input": {
+        "id": "example",
+        "body": {
+            "name": "example"
+        }
+    },
+    "response": {}
+}

@@ -1,0 +1,30 @@
+{
+    "input": {
+        "id": "01FCNDV6P870EA6S7TK1DSYD5H"
+    },
+    "response": {
+        "postmortem_document": {
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "document_url": "https://app.incident.io/my-org/incidents/123/post-mortems/01GDZEW57FDA1K4S63MGMQ5DS9",
+            "editors": [
+                {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "viewer",
+                    "slack_user_id": "U02AYNF2XJM"
+                }
+            ],
+            "exported_urls": [
+                "https://www.notion.so/INC-123-sad-database",
+                "https://docs.google.com/document/d/1234"
+            ],
+            "id": "01GDZEW57FDA1K4S63MGMQ5DS9",
+            "incident_id": "01GBA8J19SMXQWPJMX3P2ESCVG",
+            "status": "in_progress",
+            "title": "INC-123: Database is sad",
+            "type": "in_app",
+            "updated_at": "abc123"
+        }
+    }
+}

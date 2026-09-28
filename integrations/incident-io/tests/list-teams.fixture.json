@@ -1,0 +1,31 @@
+{
+    "input": {
+        "page_size": 25,
+        "after": "01FDAG4SAP5TYPT98WGR2N7W91"
+    },
+    "response": {
+        "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+        },
+        "teams": [
+            {
+                "catalog_entry": {
+                    "external_id": "761722cd-d1d7-477b-ac7e-90f9e079dc33",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Primary On-call"
+                },
+                "id": "abc123",
+                "members": [
+                    {
+                        "email": "lisa@incident.io",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Lisa Karlin Curtis",
+                        "slack_user_id": "U02AYNF2XJM"
+                    }
+                ],
+                "name": "abc123"
+            }
+        ]
+    }
+}

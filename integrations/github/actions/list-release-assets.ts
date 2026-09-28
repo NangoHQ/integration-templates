@@ -73,7 +73,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List assets uploaded to a repository release.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['repo'],

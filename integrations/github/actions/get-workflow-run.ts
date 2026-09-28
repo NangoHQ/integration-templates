@@ -38,9 +38,10 @@ const WorkflowRunSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a workflow run with status and conclusion details.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: WorkflowRunSchema,
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof WorkflowRunSchema>> => {
         // https://docs.github.com/en/rest/actions/workflow-runs#get-a-workflow-run

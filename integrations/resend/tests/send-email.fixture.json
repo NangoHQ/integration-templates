@@ -1,0 +1,11 @@
+{
+    "input": {
+        "body": {
+            "from": "example",
+            "to": "example",
+            "subject": "example",
+            "text": "Example email body"
+        }
+    },
+    "response": {}
+}

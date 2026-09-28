@@ -134,9 +134,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Edit a pull request's title, body, base branch, or state.",
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const payload: PatchPayload = {};

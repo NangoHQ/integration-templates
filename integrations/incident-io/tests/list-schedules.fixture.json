@@ -1,0 +1,115 @@
+{
+    "input": {
+        "page_size": 25,
+        "after": "01FDAG4SAP5TYPT98WGR2N7W91"
+    },
+    "response": {
+        "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25,
+            "total_record_count": 238
+        },
+        "schedules": [
+            {
+                "annotations": {
+                    "incident.io/terraform/version": "3.0.0"
+                },
+                "config": {
+                    "rotations": [
+                        {
+                            "effective_from": "2021-08-17T13:28:57.801578Z",
+                            "handover_start_at": "2021-08-17T13:28:57.801578Z",
+                            "handovers": [
+                                {
+                                    "interval": 1,
+                                    "interval_type": "hourly"
+                                }
+                            ],
+                            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                            "layers": [
+                                {
+                                    "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                                    "name": "Layer 1"
+                                }
+                            ],
+                            "name": "Primary On-Call Schedule",
+                            "scheduling_mode": "fair",
+                            "users": [
+                                {
+                                    "email": "lisa@incident.io",
+                                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                                    "name": "Lisa Karlin Curtis",
+                                    "role": "owner",
+                                    "slack_user_id": "U02AYNF2XJM"
+                                }
+                            ],
+                            "working_interval": [
+                                {
+                                    "end_time": "17:00",
+                                    "start_time": "09:00",
+                                    "weekday": "monday"
+                                }
+                            ],
+                            "working_intervals": [
+                                {
+                                    "end_time": "17:00",
+                                    "start_time": "09:00",
+                                    "weekday": "monday"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "current_shifts": [
+                    {
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
+                        "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "start_at": "2021-08-17T13:28:57.801578Z",
+                        "user": {
+                            "email": "lisa@incident.io",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Lisa Karlin Curtis",
+                            "role": "owner",
+                            "slack_user_id": "U02AYNF2XJM"
+                        }
+                    }
+                ],
+                "holidays_public_config": {
+                    "country_codes": [
+                        "GB",
+                        "FR"
+                    ]
+                },
+                "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                "name": "Primary On-Call Schedule",
+                "next_shifts": [
+                    {
+                        "end_at": "2021-08-17T13:28:57.801578Z",
+                        "entry_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "fingerprint": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "layer_id": "01G0J1EXE7AXZ2C93K61WBPYNH",
+                        "rotation_id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                        "start_at": "2021-08-17T13:28:57.801578Z",
+                        "user": {
+                            "email": "lisa@incident.io",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Lisa Karlin Curtis",
+                            "role": "owner",
+                            "slack_user_id": "U02AYNF2XJM"
+                        }
+                    }
+                ],
+                "permalink": "https://app.incident.io/acme/on-call/schedules/01G0J1EXE7AXZ2C93K61WBPYEH",
+                "team_ids": [
+                    "01JPQA75EPNEES4479P16P4XAB"
+                ],
+                "timezone": "Europe/London",
+                "updated_at": "2021-08-17T13:28:57.801578Z"
+            }
+        ]
+    }
+}

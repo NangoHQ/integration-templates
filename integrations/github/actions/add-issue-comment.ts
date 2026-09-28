@@ -64,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new comment on an issue or pull request discussion thread',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['issues:write'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

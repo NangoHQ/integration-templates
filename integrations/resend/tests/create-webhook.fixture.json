@@ -1,0 +1,14 @@
+{
+    "input": {
+        "body": {
+            "endpoint": "https://webhook.example.com/handler",
+            "events": [
+                "email.sent",
+                "email.delivered",
+                "email.bounced",
+                "email.suppressed"
+            ]
+        }
+    },
+    "response": {}
+}

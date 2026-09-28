@@ -1,0 +1,44 @@
+{
+    "input": {
+        "page_size": 25,
+        "after": "01JXYZ000000000000000000CD",
+        "schedule_id": "01FDAG4SAP5TYPT98WGR2N7W91"
+    },
+    "response": {
+        "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+        },
+        "schedule_sync_rules": [
+            {
+                "created_at": "2021-08-17T13:28:57.801578Z",
+                "id": "01JXYZ000000000000000000CD",
+                "permanent_member_user_ids": [
+                    "01G0J1EXE7AXZ2C93K61WBPYEH"
+                ],
+                "rotation_id": "01JXYZ000000000000000000RT",
+                "schedule_id": "01JXYZ000000000000000000EF",
+                "schedule_sync_target": {
+                    "add_bot_to_group": true,
+                    "created_at": "2021-08-17T13:28:57.801578Z",
+                    "id": "01JXYZ000000000000000000AB",
+                    "linked_schedules": [
+                        {
+                            "id": "01G0J1EXE7AXZ2C93K61WBPYEH",
+                            "name": "Primary On-Call Schedule",
+                            "team_ids": [
+                                "01JPQA75EPNEES4479P16P4XAB"
+                            ]
+                        }
+                    ],
+                    "slack_team_id": "T02A1AZHG3J",
+                    "slack_user_group_id": "S06MNNU5BMK",
+                    "updated_at": "2021-08-17T13:28:57.801578Z"
+                },
+                "schedule_sync_target_id": "01JXYZ000000000000000000AB",
+                "sync_type": "on_call",
+                "updated_at": "2021-08-17T13:28:57.801578Z"
+            }
+        ]
+    }
+}

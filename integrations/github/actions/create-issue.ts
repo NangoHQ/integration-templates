@@ -91,7 +91,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Open a new GitHub issue in a repository.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

@@ -121,7 +121,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List pull requests for a repository with state and branch filters',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

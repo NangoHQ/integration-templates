@@ -25,10 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Merge an open pull request using the selected merge method.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pull_requests:write'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request

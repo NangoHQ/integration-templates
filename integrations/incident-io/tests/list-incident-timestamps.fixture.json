@@ -1,0 +1,12 @@
+{
+    "input": {},
+    "response": {
+        "incident_timestamps": [
+            {
+                "id": "01FCNDV6P870EA6S7TK1DSYD5H",
+                "name": "Impact started",
+                "rank": 1
+            }
+        ]
+    }
+}

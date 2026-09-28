@@ -47,7 +47,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve repository metadata, visibility, default branch, and owner info.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

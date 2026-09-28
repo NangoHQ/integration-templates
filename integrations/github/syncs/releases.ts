@@ -120,9 +120,10 @@ const sync = createSync<
     typeof CheckpointSchema
 >({
     description: 'Sync releases for one or more GitHub repositories.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['repo'],
     endpoints: [{ method: 'POST', path: '/syncs/releases' }],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
