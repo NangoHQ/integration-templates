@@ -1,0 +1,2370 @@
+{
+  "input": {},
+  "output": {
+    "data_points": [
+      {
+        "time": "07:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "08:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "09:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "10:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "11:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "12:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "13:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "14:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "15:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "16:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "17:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "18:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "19:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "20:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "21:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "22:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "23:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "00:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "01:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "02:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "03:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "04:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "05:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "06:55",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:00",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:05",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:10",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:15",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:20",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:25",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:30",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:35",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:40",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:45",
+        "today_count": 0,
+        "yesterday_count": 0
+      },
+      {
+        "time": "07:50",
+        "today_count": 0,
+        "yesterday_count": 0
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {},
+    "getMetadata": {}
+  },
+  "api": {
+    "get": {
+      "/api/2/realtime": {
+        "response": {
+          "data": {
+            "xValues": [
+              "07:55",
+              "08:00",
+              "08:05",
+              "08:10",
+              "08:15",
+              "08:20",
+              "08:25",
+              "08:30",
+              "08:35",
+              "08:40",
+              "08:45",
+              "08:50",
+              "08:55",
+              "09:00",
+              "09:05",
+              "09:10",
+              "09:15",
+              "09:20",
+              "09:25",
+              "09:30",
+              "09:35",
+              "09:40",
+              "09:45",
+              "09:50",
+              "09:55",
+              "10:00",
+              "10:05",
+              "10:10",
+              "10:15",
+              "10:20",
+              "10:25",
+              "10:30",
+              "10:35",
+              "10:40",
+              "10:45",
+              "10:50",
+              "10:55",
+              "11:00",
+              "11:05",
+              "11:10",
+              "11:15",
+              "11:20",
+              "11:25",
+              "11:30",
+              "11:35",
+              "11:40",
+              "11:45",
+              "11:50",
+              "11:55",
+              "12:00",
+              "12:05",
+              "12:10",
+              "12:15",
+              "12:20",
+              "12:25",
+              "12:30",
+              "12:35",
+              "12:40",
+              "12:45",
+              "12:50",
+              "12:55",
+              "13:00",
+              "13:05",
+              "13:10",
+              "13:15",
+              "13:20",
+              "13:25",
+              "13:30",
+              "13:35",
+              "13:40",
+              "13:45",
+              "13:50",
+              "13:55",
+              "14:00",
+              "14:05",
+              "14:10",
+              "14:15",
+              "14:20",
+              "14:25",
+              "14:30",
+              "14:35",
+              "14:40",
+              "14:45",
+              "14:50",
+              "14:55",
+              "15:00",
+              "15:05",
+              "15:10",
+              "15:15",
+              "15:20",
+              "15:25",
+              "15:30",
+              "15:35",
+              "15:40",
+              "15:45",
+              "15:50",
+              "15:55",
+              "16:00",
+              "16:05",
+              "16:10",
+              "16:15",
+              "16:20",
+              "16:25",
+              "16:30",
+              "16:35",
+              "16:40",
+              "16:45",
+              "16:50",
+              "16:55",
+              "17:00",
+              "17:05",
+              "17:10",
+              "17:15",
+              "17:20",
+              "17:25",
+              "17:30",
+              "17:35",
+              "17:40",
+              "17:45",
+              "17:50",
+              "17:55",
+              "18:00",
+              "18:05",
+              "18:10",
+              "18:15",
+              "18:20",
+              "18:25",
+              "18:30",
+              "18:35",
+              "18:40",
+              "18:45",
+              "18:50",
+              "18:55",
+              "19:00",
+              "19:05",
+              "19:10",
+              "19:15",
+              "19:20",
+              "19:25",
+              "19:30",
+              "19:35",
+              "19:40",
+              "19:45",
+              "19:50",
+              "19:55",
+              "20:00",
+              "20:05",
+              "20:10",
+              "20:15",
+              "20:20",
+              "20:25",
+              "20:30",
+              "20:35",
+              "20:40",
+              "20:45",
+              "20:50",
+              "20:55",
+              "21:00",
+              "21:05",
+              "21:10",
+              "21:15",
+              "21:20",
+              "21:25",
+              "21:30",
+              "21:35",
+              "21:40",
+              "21:45",
+              "21:50",
+              "21:55",
+              "22:00",
+              "22:05",
+              "22:10",
+              "22:15",
+              "22:20",
+              "22:25",
+              "22:30",
+              "22:35",
+              "22:40",
+              "22:45",
+              "22:50",
+              "22:55",
+              "23:00",
+              "23:05",
+              "23:10",
+              "23:15",
+              "23:20",
+              "23:25",
+              "23:30",
+              "23:35",
+              "23:40",
+              "23:45",
+              "23:50",
+              "23:55",
+              "00:00",
+              "00:05",
+              "00:10",
+              "00:15",
+              "00:20",
+              "00:25",
+              "00:30",
+              "00:35",
+              "00:40",
+              "00:45",
+              "00:50",
+              "00:55",
+              "01:00",
+              "01:05",
+              "01:10",
+              "01:15",
+              "01:20",
+              "01:25",
+              "01:30",
+              "01:35",
+              "01:40",
+              "01:45",
+              "01:50",
+              "01:55",
+              "02:00",
+              "02:05",
+              "02:10",
+              "02:15",
+              "02:20",
+              "02:25",
+              "02:30",
+              "02:35",
+              "02:40",
+              "02:45",
+              "02:50",
+              "02:55",
+              "03:00",
+              "03:05",
+              "03:10",
+              "03:15",
+              "03:20",
+              "03:25",
+              "03:30",
+              "03:35",
+              "03:40",
+              "03:45",
+              "03:50",
+              "03:55",
+              "04:00",
+              "04:05",
+              "04:10",
+              "04:15",
+              "04:20",
+              "04:25",
+              "04:30",
+              "04:35",
+              "04:40",
+              "04:45",
+              "04:50",
+              "04:55",
+              "05:00",
+              "05:05",
+              "05:10",
+              "05:15",
+              "05:20",
+              "05:25",
+              "05:30",
+              "05:35",
+              "05:40",
+              "05:45",
+              "05:50",
+              "05:55",
+              "06:00",
+              "06:05",
+              "06:10",
+              "06:15",
+              "06:20",
+              "06:25",
+              "06:30",
+              "06:35",
+              "06:40",
+              "06:45",
+              "06:50",
+              "06:55",
+              "07:00",
+              "07:05",
+              "07:10",
+              "07:15",
+              "07:20",
+              "07:25",
+              "07:30",
+              "07:35",
+              "07:40",
+              "07:45",
+              "07:50"
+            ],
+            "series": [
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            ],
+            "seriesLabels": [
+              "Today",
+              "Yesterday"
+            ]
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 24 Sep 2026 07:57:35 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4908",
+          "x-ratelimit-reset": "1790236662",
+          "etag": "W/\"f7937fc14e3df4eacec65be273a8b3be25ae6dcc\"",
+          "server-timing": "dash;dur=237.2",
+          "x-amzn-trace-id": "Root=1-6ab4d7ef-0b5d81841f9f5e1d00fd1ffa",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "<redacted>"
+        },
+        "hash": "8e42e613d76ce2b731e20df429d91fb3aaa0177a",
+        "request": {
+          "params": {
+            "i": "5"
+          }
+        }
+      }
+    }
+  }
+}

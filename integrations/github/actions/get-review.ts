@@ -42,10 +42,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a pull request review by review ID.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pull_requests:read'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedOwner = encodeURIComponent(input.owner);

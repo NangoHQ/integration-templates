@@ -155,7 +155,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch a single issue or pull request issue record by number.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

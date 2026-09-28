@@ -42,7 +42,7 @@ const CommitFileSchema = z.object({
 
 const sync = createSync({
     description: 'Lists all the files of a Github repo given a specific branch',
-    version: '2.0.2',
+    version: '2.0.3',
     frequency: 'every hour',
     autoStart: false,
 
@@ -55,7 +55,6 @@ const sync = createSync({
     ],
 
     scopes: ['repo'],
-
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
 

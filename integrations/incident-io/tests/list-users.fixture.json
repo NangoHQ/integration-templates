@@ -1,0 +1,43 @@
+{
+    "input": {
+        "email": "john.doe@incident.io",
+        "slack_user_id": "U12345678",
+        "include_inactive": true,
+        "page_size": 25,
+        "after": "01FDAG4SAP5TYPT98WGR2N7W91"
+    },
+    "response": {
+        "pagination_meta": {
+            "after": "01FCNDV6P870EA6S7TK1DSYDG0",
+            "page_size": 25
+        },
+        "users": [
+            {
+                "base_role": {
+                    "description": "Elevated permissions for the customer success team.",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Customer Success",
+                    "slug": "customer-success"
+                },
+                "custom_roles": [
+                    {
+                        "description": "Elevated permissions for the customer success team.",
+                        "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                        "name": "Customer Success",
+                        "slug": "customer-success"
+                    }
+                ],
+                "email": "lisa@incident.io",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "is_active": true,
+                "name": "Lisa Karlin Curtis",
+                "role": "owner",
+                "seats": {
+                    "on_call": "full_access",
+                    "response": "viewer_only"
+                },
+                "slack_user_id": "U02AYNF2XJM"
+            }
+        ]
+    }
+}

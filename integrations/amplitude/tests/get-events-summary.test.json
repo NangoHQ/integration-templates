@@ -1,0 +1,207 @@
+{
+  "input": {},
+  "output": {
+    "events": [
+      {
+        "value": "Test Event",
+        "display": "Test Event",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      },
+      {
+        "value": "TestEvent",
+        "display": "TestEvent",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      },
+      {
+        "value": "TestEventForRestore",
+        "display": "TestEventForRestore",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      },
+      {
+        "value": "nango-test-restore-live-2026-06-16-001",
+        "display": "nango-test-restore-live-2026-06-16-001",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      },
+      {
+        "value": "test",
+        "display": "test",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      },
+      {
+        "value": "test_event",
+        "display": "test_event",
+        "totals": 0,
+        "non_active": false,
+        "deleted": false,
+        "hidden": false,
+        "flow_hidden": false
+      }
+    ]
+  },
+  "nango": {
+    "getConnection": {}
+  },
+  "api": {
+    "get": {
+      "/api/2/events/list": {
+        "response": {
+          "data": [
+            {
+              "autohidden": false,
+              "id": 895590894,
+              "value": "Test Event",
+              "display": "Test Event",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "Test Event",
+              "totals": 0,
+              "totals_delta": 0
+            },
+            {
+              "autohidden": false,
+              "id": 895591654,
+              "value": "TestEvent",
+              "display": "TestEvent",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "TestEvent",
+              "totals": 0,
+              "totals_delta": 0
+            },
+            {
+              "autohidden": false,
+              "id": 895592533,
+              "value": "TestEventForRestore",
+              "display": "TestEventForRestore",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "TestEventForRestore",
+              "totals": 0,
+              "totals_delta": 0
+            },
+            {
+              "autohidden": false,
+              "id": 895591913,
+              "value": "nango-test-restore-live-2026-06-16-001",
+              "display": "nango-test-restore-live-2026-06-16-001",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "nango-test-restore-live-2026-06-16-001",
+              "totals": 0,
+              "totals_delta": 0
+            },
+            {
+              "autohidden": false,
+              "id": 895591223,
+              "value": "test",
+              "display": "test",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "test",
+              "totals": 0,
+              "totals_delta": 0
+            },
+            {
+              "autohidden": false,
+              "id": 895591113,
+              "value": "test_event",
+              "display": "test_event",
+              "hidden": false,
+              "deleted": false,
+              "flow_hidden": false,
+              "timeline_hidden": false,
+              "non_active": false,
+              "in_waitroom": false,
+              "waitroom_approved": null,
+              "name": "test_event",
+              "totals": 0,
+              "totals_delta": 0
+            }
+          ],
+          "timeComputed": 1790236477583,
+          "wasCached": true,
+          "cacheFreshness": "FRESH",
+          "novaRuntime": 8,
+          "novaRequestDuration": 31,
+          "novaCost": 0,
+          "throttleTime": 0,
+          "transformationIds": []
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 24 Sep 2026 07:54:45 GMT",
+          "content-type": "application/json; charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4963",
+          "x-ratelimit-reset": "1790236536",
+          "etag": "W/\"b5319af1a7169c6f62738866b6903ece0323907d\"",
+          "server-timing": "dash;dur=186.7",
+          "x-amzn-trace-id": "Root=1-6ab4d745-58572094289d2f7d35882fe4",
+          "cache-control": "no-cache, no-store, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0",
+          "set-cookie": "SERVERID=; Expires=Thu, 01-Jan-1970 00:00:01 GMT; path=/"
+        },
+        "hash": "8b2fd2d930e069b8795ac0be7549321f0011c63a",
+        "request": {}
+      }
+    }
+  }
+}

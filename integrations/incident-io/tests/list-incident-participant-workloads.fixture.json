@@ -1,0 +1,29 @@
+{
+    "input": {
+        "incident_id": "01FCNDV6P870EA6S7TK1DSYD5H"
+    },
+    "response": {
+        "incident_participant_workloads": [
+            {
+                "archived_at": "2021-08-17T13:28:57.801578Z",
+                "participant_type": "observer",
+                "user": {
+                    "email": "lisa@incident.io",
+                    "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                    "name": "Lisa Karlin Curtis",
+                    "role": "owner",
+                    "slack_user_id": "U02AYNF2XJM"
+                },
+                "workload": {
+                    "minutes_spent_on_incident": 125.5,
+                    "minutes_spent_on_incident_in_late_hours": 20.5,
+                    "minutes_spent_on_incident_in_sleeping_hours": 15,
+                    "minutes_spent_on_incident_in_working_hours": 90
+                }
+            }
+        ],
+        "metadata": {
+            "data_synced_at": "2021-08-17T13:00:00Z"
+        }
+    }
+}

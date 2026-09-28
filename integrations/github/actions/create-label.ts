@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a repository label with name, color, and description',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],
