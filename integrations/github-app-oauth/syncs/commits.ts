@@ -29,6 +29,13 @@ const CheckpointSchema = z
     })
     .describe('Checkpoint state for incremental commit syncing across one or more repositories.');
 
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    since: z.string().describe('The single global ISO 8601 watermark used by the pre-migration version of this sync.'),
+    page: z.number().int().positive()
+});
+
 const MetadataSchema = z
     .object({
         owner: z.string().optional().describe('The repository owner. If omitted, the sync discovers accessible repositories from the GitHub App installation.'),
@@ -85,7 +92,7 @@ const ProviderRepoSchema = z.object({
 
 const sync = createSync({
     description: "Sync commits on a repository's default branch (or a specified branch).",
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -97,12 +104,34 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const isFirstRun = rawCheckpoint === undefined || rawCheckpoint === null;
-        const parsedCheckpoint = isFirstRun ? { since_by_repo: '{}', repo_full_name: '', page: 1 } : CheckpointSchema.parse(rawCheckpoint);
-        const checkpoint = {
-            since_by_repo: z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.since_by_repo)),
-            repo_full_name: parsedCheckpoint.repo_full_name,
-            page: parsedCheckpoint.page
+
+        let checkpoint: { since_by_repo: Record<string, string>; repo_full_name: string; page: number } = {
+            since_by_repo: {},
+            repo_full_name: '',
+            page: 1
         };
+        let legacySince: string | undefined;
+
+        if (!isFirstRun) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                checkpoint = {
+                    since_by_repo: z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.since_by_repo)),
+                    repo_full_name: parsedCheckpoint.data.repo_full_name,
+                    page: parsedCheckpoint.data.page
+                };
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single-repo watermark: use it as the fallback for whichever repo
+                    // doesn't yet have its own per-repo entry. The legacy `page` can't be attributed to any
+                    // specific repo (the old schema was single-repo only), so it's dropped rather than resumed.
+                    legacySince = parsedLegacyCheckpoint.data.since;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
 
         let metadataRaw: unknown = {};
         try {
@@ -189,7 +218,7 @@ const sync = createSync({
                 continue;
             }
             const repoFullName = `${repo.owner}/${repo.repo}`;
-            const sinceForRepo = sinceByRepo[repoFullName];
+            const sinceForRepo = sinceByRepo[repoFullName] ?? legacySince;
             let currentPage = repoFullName === resumeRepoFullName ? checkpoint.page : 1;
             let newestCommitDate: string | undefined = sinceForRepo;
 

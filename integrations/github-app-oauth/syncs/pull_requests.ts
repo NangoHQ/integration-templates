@@ -18,6 +18,12 @@ const CheckpointSchema = z.object({
     updated_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 updated_at watermark for that repository.')
 });
 
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    updated_after: z.string().describe('The single global ISO 8601 updated_at watermark used by the pre-migration version of this sync.')
+});
+
 const AssigneeSchema = z
     .object({
         login: z.string().describe('The login username of the assignee.'),
@@ -43,6 +49,8 @@ const LabelSchema = z
 const PullRequestSchema = z
     .object({
         id: z.string().describe('The unique string identifier of the pull request from GitHub.'),
+        repository_owner: z.string().describe('The login of the repository owner this pull request belongs to.'),
+        repository_name: z.string().describe('The name of the repository this pull request belongs to.'),
         number: z.number().int().describe('The pull request number within the repository.'),
         title: z.string().describe('The title of the pull request.'),
         state: z.string().describe('The current state of the pull request, such as open or closed.'),
@@ -150,7 +158,7 @@ const ProviderPullRequestSchema = z.object({
 
 const sync = createSync({
     description: 'Sync pull requests for a repository.',
-    version: '1.0.2',
+    version: '1.0.4',
     frequency: 'every 5 minutes',
     autoStart: false,
     metadata: MetadataSchema,
@@ -167,9 +175,25 @@ const sync = createSync({
 
         const rawCheckpoint = await nango.getCheckpoint();
         const isFirstRun = rawCheckpoint == null;
-        const updatedAfterByRepo: Record<string, string> = isFirstRun
-            ? {}
-            : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).updated_after_by_repo));
+
+        let updatedAfterByRepo: Record<string, string> = {};
+        let legacyUpdatedAfter: string | undefined;
+
+        if (!isFirstRun) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                updatedAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.updated_after_by_repo));
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single global watermark: use it as the fallback for any repo
+                    // that doesn't yet have its own per-repo entry, rather than re-fetching everything.
+                    legacyUpdatedAfter = parsedLegacyCheckpoint.data.updated_after;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
 
         if (isFirstRun) {
             await nango.trackDeletesStart('PullRequest');
@@ -177,7 +201,7 @@ const sync = createSync({
 
         for (const repo of metadata.repositories) {
             const repoFullName = `${repo.owner}/${repo.repo}`;
-            const updatedAfter = updatedAfterByRepo[repoFullName];
+            const updatedAfter = updatedAfterByRepo[repoFullName] ?? legacyUpdatedAfter;
 
             const proxyConfig: ProxyConfiguration = {
                 // https://docs.github.com/rest/pulls/pulls#list-pull-requests
@@ -240,6 +264,8 @@ const sync = createSync({
 
                 const mapped = prsToSave.map((pr) => ({
                     id: String(pr.id),
+                    repository_owner: repo.owner,
+                    repository_name: repo.repo,
                     number: pr.number,
                     title: pr.title,
                     state: pr.state,

@@ -5,6 +5,12 @@ const CheckpointSchema = z.object({
     created_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 created_at watermark for that repository.')
 });
 
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    created_after: z.string().describe('The single global ISO 8601 created_at watermark used by the pre-migration version of this sync.')
+});
+
 const WorkflowRunSchema = z
     .object({
         id: z.string().describe('The unique identifier of the workflow run.'),
@@ -52,7 +58,7 @@ const ProviderRepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for a repository.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -63,9 +69,25 @@ const sync = createSync({
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const isFirstRun = rawCheckpoint == null;
-        const createdAfterByRepo: Record<string, string> = isFirstRun
-            ? {}
-            : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).created_after_by_repo));
+
+        let createdAfterByRepo: Record<string, string> = {};
+        let legacyCreatedAfter: string | undefined;
+
+        if (!isFirstRun) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                createdAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.created_after_by_repo));
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single global watermark: use it as the fallback `since` for any
+                    // repo that doesn't yet have its own per-repo entry, rather than re-fetching everything.
+                    legacyCreatedAfter = parsedLegacyCheckpoint.data.created_after;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
 
         const repos: Array<{ owner: { login: string }; name: string }> = [];
         // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
@@ -97,7 +119,7 @@ const sync = createSync({
             const owner = repo.owner.login;
             const name = repo.name;
             const repoFullName = `${owner}/${name}`;
-            const createdAfter = createdAfterByRepo[repoFullName];
+            const createdAfter = createdAfterByRepo[repoFullName] ?? legacyCreatedAfter;
             let maxCreatedAt: string | undefined = createdAfter;
 
             // https://docs.github.com/rest/actions/workflow-runs#list-workflow-runs-for-a-repository

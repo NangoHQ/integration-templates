@@ -12,6 +12,8 @@
       "PullRequest": [
         {
           "id": "4638639556",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 16,
           "title": "Nango registry create PR test",
           "state": "closed",
@@ -35,6 +37,8 @@
         },
         {
           "id": "4638633096",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 15,
           "title": "Nango registry create PR test",
           "state": "closed",
@@ -58,6 +62,8 @@
         },
         {
           "id": "4252992686",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 1,
           "title": "Nango registry test PR - updated by dryrun",
           "state": "closed",
@@ -86,6 +92,8 @@
         },
         {
           "id": "4255856543",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 12,
           "title": "Nango registry test PR from dryrun",
           "state": "closed",
@@ -109,6 +117,8 @@
         },
         {
           "id": "4255849201",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 11,
           "title": "Nango registry test PR from dryrun",
           "state": "closed",
@@ -132,6 +142,8 @@
         },
         {
           "id": "4255864135",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 14,
           "title": "Merge test PR 2",
           "state": "closed",
@@ -156,6 +168,8 @@
         },
         {
           "id": "4255858098",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 13,
           "title": "Merge test PR",
           "state": "closed",
@@ -180,6 +194,8 @@
         },
         {
           "id": "4255144881",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 10,
           "title": "Nango merge test PR",
           "state": "closed",
@@ -203,6 +219,8 @@
         },
         {
           "id": "4255133290",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 9,
           "title": "Nango agent test PR",
           "state": "closed",
@@ -226,6 +244,8 @@
         },
         {
           "id": "4255129714",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 8,
           "title": "Nango agent test PR",
           "state": "closed",
@@ -249,6 +269,8 @@
         },
         {
           "id": "4254928071",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 7,
           "title": "Nango create pull request test",
           "state": "closed",
@@ -272,6 +294,8 @@
         },
         {
           "id": "4254919308",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 6,
           "title": "Nango create pull request test",
           "state": "closed",
@@ -295,6 +319,8 @@
         },
         {
           "id": "4254918801",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 5,
           "title": "Temp PR for merge test",
           "state": "closed",
@@ -319,6 +345,8 @@
         },
         {
           "id": "4254722710",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 4,
           "title": "Test PR from Nango create-pull-request action",
           "state": "closed",
@@ -342,6 +370,8 @@
         },
         {
           "id": "4254711904",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 3,
           "title": "Test PR from Nango create-pull-request action",
           "state": "closed",
@@ -365,6 +395,8 @@
         },
         {
           "id": "4254704189",
+          "repository_owner": "nango-provisioned-apps",
+          "repository_name": "nango",
           "number": 2,
           "title": "Merge test PR",
           "state": "closed",

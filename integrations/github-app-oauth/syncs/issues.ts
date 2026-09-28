@@ -24,6 +24,12 @@ const CheckpointSchema = z
     })
     .describe('Resume state for incremental issue syncing, tracked per repository');
 
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    updated_after: z.string().describe('The single global ISO 8601 timestamp used by the pre-migration version of this sync.')
+});
+
 const IssueSchema = z
     .object({
         id: z.string().describe('Stable string identifier for the issue'),
@@ -91,7 +97,7 @@ const ProviderIssueSchema = z.object({
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -107,12 +113,28 @@ const sync = createSync({
         }
 
         const rawCheckpoint = await nango.getCheckpoint();
-        const updatedAfterByRepo: Record<string, string> =
-            rawCheckpoint == null ? {} : z.record(z.string(), z.string()).parse(JSON.parse(CheckpointSchema.parse(rawCheckpoint).updated_after_by_repo));
+        let updatedAfterByRepo: Record<string, string> = {};
+        let legacyUpdatedAfter: string | undefined;
+
+        if (rawCheckpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                updatedAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.updated_after_by_repo));
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single global watermark: use it as the fallback for any repo
+                    // that doesn't yet have its own per-repo entry, rather than re-fetching everything.
+                    legacyUpdatedAfter = parsedLegacyCheckpoint.data.updated_after;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
 
         for (const repo of metadata.repositories) {
             const repoFullName = `${repo.owner}/${repo.repo}`;
-            const requestUpdatedAfter = updatedAfterByRepo[repoFullName];
+            const requestUpdatedAfter = updatedAfterByRepo[repoFullName] ?? legacyUpdatedAfter;
             let maxUpdatedAt: string | undefined = requestUpdatedAfter;
 
             const proxyConfig = {
