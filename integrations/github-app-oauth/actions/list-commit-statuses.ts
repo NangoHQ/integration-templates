@@ -1,16 +1,16 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps"'),
-        repo: z.string().describe('Repository name. Example: "nango"'),
-        sha: z.string().describe('Commit SHA, branch name, or tag name. Example: "a0c1289b8a1b2708d5e040b85a6ff0dedee4bd40"'),
-        cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.')
+        owner: z.string().describe('Repository owner username. Example: "octocat"'),
+        repo: z.string().describe('Repository name. Example: "hello-world"'),
+        sha: z.string().describe('Commit SHA, branch name, or tag name. Example: "abc123"'),
+        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
     })
-    .describe('Input parameters to list commit statuses for a specific reference.');
+    .describe('Input parameters to list commit statuses for a specific commit.');
 
-const GitHubStatusSchema = z.object({
+const ProviderStatusSchema = z.object({
     id: z.number(),
     state: z.string(),
     context: z.string(),
@@ -21,59 +21,67 @@ const GitHubStatusSchema = z.object({
 });
 
 const StatusSchema = z.object({
-    id: z.string().describe('Status ID.'),
-    state: z.string().describe('Status state. Example: "success", "pending", "failure", "error".'),
-    context: z.string().describe('Status context. Example: "nango/registry-test".'),
+    id: z.number().describe('Unique identifier of the commit status.'),
+    state: z.string().describe('State of the status. Can be "pending", "success", "failure", or "error".'),
+    context: z.string().describe('A string label to differentiate this status from other systems. Example: "continuous-integration/jenkins".'),
     description: z.string().optional().describe('Short description of the status.'),
-    target_url: z.string().optional().describe('Target URL associated with the status.'),
-    created_at: z.string().describe('ISO 8601 timestamp when the status was created.'),
-    updated_at: z.string().describe('ISO 8601 timestamp when the status was updated.')
+    target_url: z.string().optional().describe('Target URL to associate with this status.'),
+    created_at: z.string().describe('ISO 8601 timestamp of when the status was created.'),
+    updated_at: z.string().describe('ISO 8601 timestamp of when the status was updated.')
 });
 
 const OutputSchema = z
     .object({
-        items: z.array(StatusSchema).describe('List of commit statuses.'),
-        next_cursor: z.string().optional().describe('Cursor for the next page. Absent if this is the last page.')
+        statuses: z.array(StatusSchema).describe('Array of commit statuses for the requested commit.'),
+        next_cursor: z.string().optional().describe('Pagination cursor for the next page of results.')
     })
-    .describe('Output containing the list of commit statuses and an optional pagination cursor.');
+    .describe('List of commit statuses and pagination cursor for the requested commit.');
 
 /**
  * @tags: [read]
- * @tagReason: Retrieves existing commit statuses from the provider.
- * @pitfalls: Statuses are returned in reverse chronological order, so the first item in the array is the latest one.
+ * @tagReason: Reads existing commit statuses from the GitHub API without making any provider-side mutations.
+ * @pitfalls: GitHub Actions and other modern CI results use the Checks API and will not appear in this legacy commit statuses list.
  */
 const action = createAction({
     description: 'List all statuses posted for a specific commit.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['statuses:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const perPage = 100;
-        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (Number.isNaN(page)) {
             throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'cursor must be a positive integer string representing a page number.'
+                type: 'invalid_input',
+                message: 'cursor must be a valid page number'
             });
         }
 
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const perPage = 100;
 
-        const response = await nango.get({
+        const config: ProxyConfiguration = {
             // https://docs.github.com/en/rest/commits/statuses#list-commit-statuses-for-a-reference
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/commits/${encodeURIComponent(input.sha)}/statuses`,
             params: {
-                per_page: perPage,
-                page: page
+                per_page: String(perPage),
+                ...(page > 1 && { page: String(page) })
             },
             retries: 3
-        });
+        };
 
-        const statuses = z.array(GitHubStatusSchema).parse(response.data);
+        const response = await nango.get(config);
 
-        const items = statuses.map((status) => ({
-            id: String(status.id),
+        const rawStatuses = z.array(ProviderStatusSchema).safeParse(response.data);
+        if (!rawStatuses.success) {
+            throw new nango.ActionError({
+                type: 'unexpected_response',
+                message: 'Provider response did not match expected schema'
+            });
+        }
+
+        const statuses = rawStatuses.data.map((status) => ({
+            id: status.id,
             state: status.state,
             context: status.context,
             ...(status.description != null && { description: status.description }),
@@ -82,9 +90,11 @@ const action = createAction({
             updated_at: status.updated_at
         }));
 
+        const nextCursor = rawStatuses.data.length === perPage ? String(page + 1) : undefined;
+
         return {
-            items,
-            ...(statuses.length === perPage && { next_cursor: String(page + 1) })
+            statuses,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

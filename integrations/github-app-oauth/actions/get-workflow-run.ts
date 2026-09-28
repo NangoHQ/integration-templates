@@ -1,138 +1,96 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('The account owner of the repository.'),
-        repo: z.string().describe('The name of the repository without the .git extension.'),
-        run_id: z.number().int().positive().describe('The unique identifier of the workflow run. Example: 31489919982'),
-        exclude_pull_requests: z.boolean().optional().describe('If true, pull requests are omitted from the response.')
+        owner: z.string().describe('Repository owner username or organization name. Example: "nango-provisioned-apps"'),
+        repo: z.string().describe('Repository name. Example: "nango"'),
+        run_id: z.number().describe('Unique identifier of the workflow run to retrieve. Example: 31522802177')
     })
-    .describe('Input for retrieving a single workflow run.');
+    .describe('Input parameters to retrieve a single GitHub Actions workflow run');
 
 const ActorSchema = z.object({
-    login: z.string().optional().describe('The login username of the actor.'),
-    id: z.number().optional().describe('The unique identifier of the actor.'),
-    avatar_url: z.string().optional().describe('The avatar URL of the actor.'),
-    html_url: z.string().optional().describe('The HTML URL of the actor profile.'),
-    type: z.string().optional().describe('The type of the actor (e.g., User, Bot).')
+    login: z.string().describe('GitHub username of the actor'),
+    id: z.number().describe('GitHub user ID of the actor'),
+    avatar_url: z.string().describe("URL of the actor's avatar image"),
+    html_url: z.string().describe('GitHub profile URL of the actor'),
+    type: z.string().describe('Type of actor, e.g. "Bot" or "User"')
 });
 
-const PullRequestSchema = z.object({
-    id: z.number().optional().describe('The unique identifier of the pull request.'),
-    number: z.number().optional().describe('The pull request number.'),
-    url: z.string().optional().describe('The REST API URL for the pull request.'),
-    head: z
-        .object({
-            ref: z.string().optional().describe('The head branch reference.'),
-            sha: z.string().optional().describe('The head commit SHA.'),
-            repo: z
-                .object({
-                    id: z.number().optional().describe('The repository ID.'),
-                    url: z.string().optional().describe('The REST API URL for the repository.'),
-                    name: z.string().optional().describe('The repository name.')
-                })
-                .optional()
-                .describe('The head repository.')
-        })
-        .optional()
-        .describe('The head branch information.'),
-    base: z
-        .object({
-            ref: z.string().optional().describe('The base branch reference.'),
-            sha: z.string().optional().describe('The base commit SHA.'),
-            repo: z
-                .object({
-                    id: z.number().optional().describe('The repository ID.'),
-                    url: z.string().optional().describe('The REST API URL for the repository.'),
-                    name: z.string().optional().describe('The repository name.')
-                })
-                .optional()
-                .describe('The base repository.')
-        })
-        .optional()
-        .describe('The base branch information.')
+const CommitAuthorSchema = z.object({
+    name: z.string().describe('Name of the commit author or committer'),
+    email: z.string().describe('Email of the commit author or committer')
 });
 
 const HeadCommitSchema = z.object({
-    id: z.string().optional().describe('The commit SHA.'),
-    tree_id: z.string().optional().describe('The tree SHA of the commit.'),
-    message: z.string().optional().describe('The commit message.'),
-    timestamp: z.string().optional().describe('The commit timestamp.'),
-    author: z
-        .object({
-            name: z.string().optional().describe('The name of the commit author.'),
-            email: z.string().optional().describe('The email of the commit author.')
-        })
-        .optional()
-        .describe('The author of the commit.'),
-    committer: z
-        .object({
-            name: z.string().optional().describe('The name of the commit committer.'),
-            email: z.string().optional().describe('The email of the commit committer.')
-        })
-        .optional()
-        .describe('The committer of the commit.')
+    id: z.string().describe('SHA of the head commit'),
+    message: z.string().describe('Commit message'),
+    timestamp: z.string().describe('Commit timestamp in ISO 8601 format'),
+    author: CommitAuthorSchema.describe('Commit author information'),
+    committer: CommitAuthorSchema.describe('Commit committer information')
 });
 
 const OutputSchema = z
     .object({
-        id: z.number().describe('The unique identifier of the workflow run.'),
-        name: z.string().optional().describe('The name of the workflow run.'),
-        head_branch: z.string().optional().describe('The head branch of the workflow run.'),
-        head_sha: z.string().describe('The SHA of the commit that triggered the workflow run.'),
-        path: z.string().describe('The path to the workflow file.'),
-        run_number: z.number().describe('The run number of the workflow run.'),
-        run_attempt: z.number().optional().describe('The attempt number of the workflow run.'),
-        event: z.string().describe('The event that triggered the workflow run.'),
-        status: z.string().optional().describe('The status of the workflow run.'),
-        conclusion: z.string().nullable().optional().describe('The conclusion of the workflow run.'),
-        workflow_id: z.number().describe('The ID of the workflow.'),
-        url: z.string().describe('The REST API URL for the workflow run.'),
-        html_url: z.string().describe('The HTML URL for the workflow run.'),
-        pull_requests: z.array(PullRequestSchema).optional().describe('The pull requests associated with the workflow run.'),
-        created_at: z.string().describe('The creation timestamp of the workflow run.'),
-        updated_at: z.string().describe('The last update timestamp of the workflow run.'),
-        run_started_at: z.string().optional().describe('The start timestamp of the workflow run.'),
-        actor: ActorSchema.optional().describe('The user who triggered the workflow run.'),
-        triggering_actor: ActorSchema.optional().describe('The user who triggered the workflow run.'),
-        jobs_url: z.string().describe('The REST API URL for the jobs in the workflow run.'),
-        logs_url: z.string().describe('The REST API URL for the logs of the workflow run.'),
-        check_suite_url: z.string().describe('The REST API URL for the check suite of the workflow run.'),
-        artifacts_url: z.string().describe('The REST API URL for the artifacts of the workflow run.'),
-        cancel_url: z.string().describe('The REST API URL to cancel the workflow run.'),
-        rerun_url: z.string().describe('The REST API URL to rerun the workflow run.'),
-        previous_attempt_url: z.string().nullable().optional().describe('The REST API URL for the previous attempt of the workflow run.'),
-        workflow_url: z.string().describe('The REST API URL for the workflow.'),
-        head_commit: HeadCommitSchema.optional().describe('The head commit of the workflow run.'),
-        display_title: z.string().describe('The display title of the workflow run.')
+        id: z.number().describe('Unique identifier of the workflow run'),
+        name: z.string().describe('Name of the workflow'),
+        head_branch: z.string().describe('Branch on which the run was triggered'),
+        head_sha: z.string().describe('SHA of the commit that triggered the run'),
+        path: z.string().describe('Path to the workflow file'),
+        display_title: z.string().describe('Display title of the run'),
+        run_number: z.number().describe('Run number for this workflow'),
+        event: z.string().describe('GitHub event that triggered the run'),
+        status: z.string().describe('Current status of the run, e.g. "queued", "in_progress", "completed"'),
+        conclusion: z.string().nullable().describe('Conclusion of the run, e.g. "success", "failure", or null if not completed'),
+        workflow_id: z.number().describe('ID of the workflow definition'),
+        url: z.string().describe('API URL for this workflow run'),
+        html_url: z.string().describe('GitHub web URL for this workflow run'),
+        created_at: z.string().describe('Creation timestamp in ISO 8601 format'),
+        updated_at: z.string().describe('Last update timestamp in ISO 8601 format'),
+        run_started_at: z.string().describe('When the run started in ISO 8601 format'),
+        run_attempt: z.number().describe('Attempt number for this run'),
+        jobs_url: z.string().describe('API URL for the jobs in this run'),
+        logs_url: z.string().describe('API URL for the run logs'),
+        artifacts_url: z.string().describe('API URL for the run artifacts'),
+        cancel_url: z.string().describe('API URL to cancel this run'),
+        rerun_url: z.string().describe('API URL to rerun this run'),
+        actor: ActorSchema.describe('User or bot that triggered the run'),
+        head_commit: HeadCommitSchema.describe('Head commit for this run')
     })
-    .describe('Details and status of a single workflow run.');
+    .describe('Details and status of a single GitHub Actions workflow run');
 
 /**
  * @tags: [read]
- * @tagReason: Retrieves details and status of a single workflow run from the GitHub API.
- * @pitfalls: conclusion is null while status is not "completed", and trivial workflows can transition from queued to completed within seconds.
+ * @tagReason: Reads the details and status of a single workflow run from the GitHub API.
  */
 const action = createAction({
-    description: 'Get details and status of a single workflow run.',
+    description: 'Get details and status of a single workflow run',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://docs.github.com/en/rest/actions/workflow-runs?apiVersion=2022-11-28#get-a-workflow-run
-            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/actions/runs/${encodeURIComponent(String(input.run_id))}`,
-            params: {
-                ...(input.exclude_pull_requests !== undefined && { exclude_pull_requests: String(input.exclude_pull_requests) })
-            },
+        const config: ProxyConfiguration = {
+            // https://docs.github.com/rest/actions/workflow-runs#get-a-workflow-run
+            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/actions/runs/${input.run_id}`,
             retries: 3
-        });
+        };
 
-        const run = OutputSchema.parse(response.data);
-        return run;
+        const response = await nango.get(config);
+
+        if (!response.data) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: 'Workflow run not found',
+                run_id: input.run_id
+            });
+        }
+
+        const providerRun = OutputSchema.parse(response.data);
+
+        return providerRun;
     }
 });
 

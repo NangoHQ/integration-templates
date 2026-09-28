@@ -1,72 +1,80 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const ProviderUserSchema = z.object({
+const ProviderCreatorSchema = z.object({
     login: z.string(),
     id: z.number(),
     node_id: z.string(),
     avatar_url: z.string(),
-    gravatar_id: z.string(),
-    url: z.string(),
-    html_url: z.string(),
-    type: z.string(),
-    site_admin: z.boolean()
+    html_url: z.string()
 });
 
 const ProviderDeploymentSchema = z.object({
-    url: z.string(),
     id: z.number(),
     node_id: z.string(),
     sha: z.string(),
     ref: z.string(),
     task: z.string(),
-    payload: z.unknown(),
+    payload: z.unknown().optional(),
     original_environment: z.string(),
     environment: z.string(),
     description: z.string().nullable(),
-    creator: ProviderUserSchema.nullable().optional(),
     created_at: z.string(),
     updated_at: z.string(),
     statuses_url: z.string(),
     repository_url: z.string(),
     transient_environment: z.boolean(),
-    production_environment: z.boolean(),
-    performed_via_github_app: z.unknown().optional()
+    production_environment: z.boolean().optional(),
+    creator: ProviderCreatorSchema
 });
+
+const RepoSchema = z.object({
+    full_name: z.string(),
+    owner: z.object({
+        login: z.string()
+    }),
+    name: z.string()
+});
+
+const InstallationReposSchema = z.object({
+    total_count: z.number(),
+    repositories: z.array(RepoSchema)
+});
+
+const CreatorSchema = z
+    .object({
+        login: z.string().describe('Username of the deployment creator'),
+        id: z.number().describe('Unique identifier of the creator user'),
+        node_id: z.string().describe('Global node identifier of the creator user'),
+        avatar_url: z.string().describe('URL of the creators avatar image'),
+        html_url: z.string().describe('URL of the creators GitHub profile')
+    })
+    .describe('The user who created the deployment');
 
 const DeploymentSchema = z
     .object({
-        id: z.string().describe('The unique identifier of the deployment.'),
-        node_id: z.string().describe('The global node ID of the deployment.'),
-        sha: z.string().describe('The SHA of the commit being deployed.'),
-        ref: z.string().describe('The name of the ref being deployed, such as a branch or tag name.'),
-        task: z.string().describe('The deployment task, such as "deploy".'),
-        original_environment: z.string().describe('The original environment name of the deployment.'),
-        environment: z.string().describe('The current environment name of the deployment.'),
-        description: z.string().optional().describe('A short description of the deployment.'),
-        creator_login: z.string().optional().describe('The login of the user who created the deployment.'),
-        created_at: z.string().describe('The ISO 8601 timestamp when the deployment was created.'),
-        updated_at: z.string().describe('The ISO 8601 timestamp when the deployment was last updated.'),
-        statuses_url: z.string().describe('The API URL to list statuses for this deployment.'),
-        repository_url: z.string().describe('The API URL of the repository.'),
-        transient_environment: z.boolean().describe('Whether the deployment is set as transient.'),
-        production_environment: z.boolean().describe('Whether the deployment is set as a production deployment.')
+        id: z.string().describe('Unique identifier of the deployment'),
+        node_id: z.string().describe('Global node identifier for the deployment'),
+        sha: z.string().describe('SHA of the commit being deployed'),
+        ref: z.string().describe('The ref to deploy, which can be a branch, tag, or SHA'),
+        task: z.string().describe('The deployment task, such as deploy'),
+        payload: z.unknown().optional().describe('JSON payload with extra information about the deployment'),
+        original_environment: z.string().describe('The original environment specified when the deployment was created'),
+        environment: z.string().describe('The current environment of the deployment'),
+        description: z.string().optional().describe('A short description of the deployment'),
+        created_at: z.string().describe('When the deployment was created'),
+        updated_at: z.string().describe('When the deployment was last updated'),
+        statuses_url: z.string().describe('URL to fetch deployment statuses'),
+        repository_url: z.string().describe('URL of the repository'),
+        transient_environment: z.boolean().describe('Whether the environment is transient and will be auto-deleted'),
+        production_environment: z.boolean().optional().describe('Whether the environment is a production environment'),
+        creator: CreatorSchema
     })
-    .describe('A GitHub deployment for a repository.');
-
-const ProviderRepositorySchema = z.object({
-    name: z.string(),
-    owner: z
-        .object({
-            login: z.string()
-        })
-        .optional()
-});
+    .describe('A GitHub deployment for a repository');
 
 const CheckpointSchema = z.object({
-    repo_page: z.number().int().positive(),
-    repo_index: z.number().int().nonnegative(),
-    deployment_page: z.number().int().positive()
+    repo_full_name: z.string(),
+    page: z.number().int().positive()
 });
 
 const sync = createSync({
@@ -78,107 +86,107 @@ const sync = createSync({
     models: {
         Deployment: DeploymentSchema
     },
-
+    scopes: ['deployments:read'],
     exec: async (nango) => {
-        const checkpointRaw = await nango.getCheckpoint();
-        const checkpoint = checkpointRaw != null ? CheckpointSchema.parse(checkpointRaw) : undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse({
+            repo_full_name: '',
+            page: 1,
+            ...(rawCheckpoint && typeof rawCheckpoint === 'object' ? rawCheckpoint : {})
+        });
 
-        const { repos, finalPage: repoPage } = await getRepositories(nango, checkpoint != null ? checkpoint['repo_page'] : undefined);
+        // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
+        const reposResponse = await nango.get({
+            endpoint: '/installation/repositories',
+            retries: 3
+        });
 
-        if (repos.length === 0) {
-            // An empty response may be transient rather than a genuine "installation has no
-            // repositories" state. Skip the run instead of reconciling away every synced deployment.
-            await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
-            return;
+        const parsedRepos = InstallationReposSchema.safeParse(reposResponse.data);
+        if (!parsedRepos.success) {
+            throw new Error(`Failed to parse installation repositories: ${parsedRepos.error.message}`);
         }
 
+        const repositories = parsedRepos.data.repositories;
+
+        // Blocker: provider only exposes /repos/{owner}/{repo}/deployments with no
+        // changed-since filter, no deleted-record endpoint, and no resumable cursor.
         await nango.trackDeletesStart('Deployment');
 
-        const startIndex = checkpoint != null ? checkpoint['repo_index'] : 0;
+        const checkpointRepoFullName = checkpoint.repo_full_name ?? repositories[0]?.full_name;
+        const resumeRepoIndex = checkpointRepoFullName
+            ? Math.max(
+                  repositories.findIndex((repo) => repo.full_name === checkpointRepoFullName),
+                  0
+              )
+            : 0;
 
-        for (let i = startIndex; i < repos.length; i++) {
-            const repo = repos[i];
-            if (repo == null) {
-                throw new Error(`Repository index ${i} is out of bounds`);
+        for (let repoIndex = resumeRepoIndex; repoIndex < repositories.length; repoIndex++) {
+            const repo = repositories[repoIndex];
+            if (!repo) {
+                continue;
             }
-            const owner = repo.owner?.login;
-            const name = repo.name;
 
-            if (typeof owner !== 'string' || typeof name !== 'string') {
-                throw new Error('Repository missing required owner.login or name');
-            }
-
-            let nextDeploymentPage: number | undefined;
+            const owner = repo.owner.login;
+            const repoName = repo.name;
+            const repoFullName = repo.full_name;
+            let currentPage = repoFullName === checkpointRepoFullName ? checkpoint.page : 1;
 
             const proxyConfig: ProxyConfiguration = {
-                // https://docs.github.com/en/rest/deployments/deployments?apiVersion=2022-11-28#list-deployments
-                endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/deployments`,
-                params: {
-                    per_page: 100,
-                    ...(checkpoint != null && checkpoint['deployment_page'] > 1 && i === startIndex ? { page: checkpoint['deployment_page'] } : {})
-                },
+                // https://docs.github.com/rest/deployments/deployments#list-deployments
+                endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/deployments`,
                 paginate: {
-                    type: 'link',
+                    type: 'offset',
+                    offset_name_in_request: 'page',
+                    offset_start_value: currentPage,
+                    offset_calculation_method: 'per-page',
                     limit_name_in_request: 'per_page',
-                    limit: 100,
-                    on_page: async (paginationState) => {
-                        if (typeof paginationState.nextPageParam === 'string') {
-                            const url = new URL(paginationState.nextPageParam);
-                            nextDeploymentPage = Number(url.searchParams.get('page'));
-                        } else {
-                            nextDeploymentPage = undefined;
-                        }
-                    }
+                    limit: 100
                 },
                 retries: 3
             };
 
-            for await (const batch of nango.paginate(proxyConfig)) {
-                if (!Array.isArray(batch)) {
-                    throw new Error('Expected paginated batch to be an array');
-                }
-
-                const deployments = [];
-                for (const item of batch) {
-                    const parsed = ProviderDeploymentSchema.safeParse(item);
+            for await (const deployments of nango.paginate(proxyConfig)) {
+                const mappedDeployments = deployments.map((deployment) => {
+                    const parsed = ProviderDeploymentSchema.safeParse(deployment);
                     if (!parsed.success) {
                         throw new Error(`Failed to parse deployment: ${parsed.error.message}`);
                     }
 
-                    const d = parsed.data;
-                    deployments.push({
-                        id: String(d.id),
-                        node_id: d.node_id,
-                        sha: d.sha,
-                        ref: d.ref,
-                        task: d.task,
-                        original_environment: d.original_environment,
-                        environment: d.environment,
-                        ...(d.description != null && { description: d.description }),
-                        ...(d.creator && { creator_login: d.creator.login }),
-                        created_at: d.created_at,
-                        updated_at: d.updated_at,
-                        statuses_url: d.statuses_url,
-                        repository_url: d.repository_url,
-                        transient_environment: d.transient_environment,
-                        production_environment: d.production_environment
-                    });
+                    const data = parsed.data;
+
+                    return {
+                        id: String(data.id),
+                        node_id: data.node_id,
+                        sha: data.sha,
+                        ref: data.ref,
+                        task: data.task,
+                        ...(data.payload !== undefined && { payload: data.payload }),
+                        original_environment: data.original_environment,
+                        environment: data.environment,
+                        ...(data.description != null && { description: data.description }),
+                        created_at: data.created_at,
+                        updated_at: data.updated_at,
+                        statuses_url: data.statuses_url,
+                        repository_url: data.repository_url,
+                        transient_environment: data.transient_environment,
+                        ...(data.production_environment !== undefined && { production_environment: data.production_environment }),
+                        creator: {
+                            login: data.creator.login,
+                            id: data.creator.id,
+                            node_id: data.creator.node_id,
+                            avatar_url: data.creator.avatar_url,
+                            html_url: data.creator.html_url
+                        }
+                    };
+                });
+
+                if (mappedDeployments.length > 0) {
+                    await nango.batchSave(mappedDeployments, 'Deployment');
                 }
 
-                if (deployments.length > 0) {
-                    await nango.batchSave(deployments, 'Deployment');
-                }
-
-                if (nextDeploymentPage !== undefined) {
-                    await nango.saveCheckpoint({
-                        repo_page: repoPage,
-                        repo_index: i,
-                        deployment_page: nextDeploymentPage
-                    });
-                }
+                currentPage += 1;
+                await nango.saveCheckpoint({ repo_full_name: repoFullName, page: currentPage });
             }
-
-            await nango.saveCheckpoint({ repo_page: repoPage, repo_index: i + 1, deployment_page: 1 });
         }
 
         await nango.clearCheckpoint();
@@ -188,44 +196,3 @@ const sync = createSync({
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
 export default sync;
-
-async function getRepositories(nango: NangoSyncLocal, maxRepoPage: number | undefined) {
-    let repoPage = 1;
-    const repos = [];
-    while (true) {
-        if (maxRepoPage != null && repoPage > maxRepoPage) {
-            break;
-        }
-
-        const repoResponse = await nango.get({
-            // https://docs.github.com/en/rest/apps/apps?apiVersion=2022-11-28#list-repositories-accessible-to-the-app-installation
-            endpoint: '/installation/repositories',
-            params: {
-                per_page: 100,
-                ...(repoPage > 1 ? { page: repoPage } : {})
-            },
-            retries: 3
-        });
-
-        const batch = z.array(z.unknown()).parse(repoResponse.data.repositories);
-        if (batch.length === 0) {
-            break;
-        }
-
-        for (const raw of batch) {
-            const parsed = ProviderRepositorySchema.safeParse(raw);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse repository: ${parsed.error.message}`);
-            }
-            repos.push(parsed.data);
-        }
-
-        if (batch.length < 100) {
-            break;
-        }
-
-        repoPage++;
-    }
-
-    return { repos, finalPage: repoPage };
-}

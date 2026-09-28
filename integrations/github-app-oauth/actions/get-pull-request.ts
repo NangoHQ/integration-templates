@@ -3,60 +3,20 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner. Example: "octocat"'),
-        repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        pull_number: z.number().int().positive().describe('Pull request number. Example: 1')
+        owner: z.string().describe('Repository owner username or organization name.'),
+        repo: z.string().describe('Repository name.'),
+        pull_number: z.number().describe('Pull request number.')
     })
-    .describe('Input parameters for retrieving a single pull request.');
-
-const UserSchema = z.object({
-    login: z.string().describe('User login name'),
-    id: z.number().describe('User ID')
-});
-
-const LabelSchema = z.object({
-    id: z.number().describe('Label ID'),
-    name: z.string().describe('Label name'),
-    color: z.string().describe('Label color')
-});
-
-const RefSchema = z.object({
-    ref: z.string().describe('Branch reference name'),
-    sha: z.string().describe('Commit SHA')
-});
-
-const OutputSchema = z
-    .object({
-        id: z.number().describe('Pull request ID'),
-        number: z.number().describe('Pull request number'),
-        title: z.string().describe('Pull request title'),
-        state: z.string().describe('Pull request state. Example: "open" or "closed"'),
-        draft: z.boolean().describe('Whether the pull request is a draft'),
-        body: z.string().nullable().optional().describe('Pull request body content'),
-        user: UserSchema.optional().describe('User who created the pull request'),
-        labels: z.array(LabelSchema).optional().describe('Labels attached to the pull request'),
-        head: RefSchema.optional().describe('The branch the pull request originates from'),
-        base: RefSchema.optional().describe('The branch the pull request targets'),
-        html_url: z.string().describe('URL to view the pull request in a browser'),
-        created_at: z.string().describe('Creation timestamp in ISO 8601 format'),
-        updated_at: z.string().describe('Last update timestamp in ISO 8601 format'),
-        closed_at: z.string().nullable().optional().describe('Close timestamp in ISO 8601 format, or null if still open'),
-        merged_at: z.string().nullable().optional().describe('Merge timestamp in ISO 8601 format, or null if not merged')
-    })
-    .describe('Details of a single pull request.');
+    .describe('Input to get a single pull request.');
 
 const ProviderUserSchema = z.object({
     login: z.string(),
-    id: z.number()
-});
-
-const ProviderLabelSchema = z.object({
     id: z.number(),
-    name: z.string(),
-    color: z.string()
+    html_url: z.string(),
+    type: z.string()
 });
 
-const ProviderRefSchema = z.object({
+const ProviderHeadBaseSchema = z.object({
     ref: z.string(),
     sha: z.string()
 });
@@ -64,25 +24,56 @@ const ProviderRefSchema = z.object({
 const ProviderPullRequestSchema = z.object({
     id: z.number(),
     number: z.number(),
-    title: z.string(),
     state: z.string(),
+    title: z.string(),
+    body: z.string().nullable(),
     draft: z.boolean(),
-    body: z.string().nullable().optional(),
-    user: ProviderUserSchema.nullable().optional(),
-    labels: z.array(ProviderLabelSchema).optional(),
-    head: ProviderRefSchema.optional(),
-    base: ProviderRefSchema.optional(),
     html_url: z.string(),
     created_at: z.string(),
     updated_at: z.string(),
-    closed_at: z.string().nullable().optional(),
-    merged_at: z.string().nullable().optional()
+    closed_at: z.string().nullable(),
+    merged_at: z.string().nullable(),
+    merge_commit_sha: z.string().nullable(),
+    user: ProviderUserSchema,
+    head: ProviderHeadBaseSchema,
+    base: ProviderHeadBaseSchema
 });
+
+const OutputUserSchema = z.object({
+    login: z.string().describe('GitHub username of the pull request author.'),
+    id: z.number().describe('GitHub user ID of the pull request author.'),
+    html_url: z.string().describe("URL to the author's GitHub profile."),
+    type: z.string().describe('Type of GitHub user, e.g. User or Organization.')
+});
+
+const OutputHeadBaseSchema = z.object({
+    ref: z.string().describe('Git ref name for the branch.'),
+    sha: z.string().describe('SHA of the commit at the tip of the branch.')
+});
+
+const OutputSchema = z
+    .object({
+        id: z.number().describe('Unique pull request ID.'),
+        number: z.number().describe('Pull request number within the repository.'),
+        state: z.string().describe('State of the pull request: open, closed.'),
+        title: z.string().describe('Title of the pull request.'),
+        body: z.string().optional().describe('Body content of the pull request.'),
+        draft: z.boolean().describe('Whether the pull request is a draft.'),
+        html_url: z.string().describe('URL to view the pull request on GitHub.'),
+        created_at: z.string().describe('ISO 8601 timestamp when the pull request was created.'),
+        updated_at: z.string().describe('ISO 8601 timestamp when the pull request was last updated.'),
+        closed_at: z.string().optional().describe('ISO 8601 timestamp when the pull request was closed, if applicable.'),
+        merged_at: z.string().optional().describe('ISO 8601 timestamp when the pull request was merged, if applicable.'),
+        merge_commit_sha: z.string().optional().describe('SHA of the merge commit, if the pull request was merged.'),
+        user: OutputUserSchema.describe('Author of the pull request.'),
+        head: OutputHeadBaseSchema.describe('Source branch of the pull request.'),
+        base: OutputHeadBaseSchema.describe('Target branch of the pull request.')
+    })
+    .describe('Output of a single pull request.');
 
 /**
  * @tags: [read]
- * @tagReason: Retrieves a single pull request by number without modifying any data.
- * @pitfalls: The state field only reports "open" or "closed"; rely on merged_at to distinguish merged PRs from merely closed ones.
+ * @tagReason: Reads a single pull request from the GitHub API.
  */
 const action = createAction({
     description: 'Get details of a single pull request.',
@@ -92,61 +83,51 @@ const action = createAction({
     scopes: ['pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.github.com/rest/pulls/pulls#get-a-pull-request
+        // https://docs.github.com/en/rest/pulls/pulls#get-a-pull-request
         const response = await nango.get({
-            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${input.pull_number}`,
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${encodeURIComponent(String(input.pull_number))}`,
             retries: 3
         });
 
         if (!response.data) {
             throw new nango.ActionError({
                 type: 'not_found',
-                message: `Pull request #${input.pull_number} not found in ${input.owner}/${input.repo}`,
+                message: 'Pull request not found',
                 owner: input.owner,
                 repo: input.repo,
                 pull_number: input.pull_number
             });
         }
 
-        const pr = ProviderPullRequestSchema.parse(response.data);
+        const providerPr = ProviderPullRequestSchema.parse(response.data);
 
         return {
-            id: pr.id,
-            number: pr.number,
-            title: pr.title,
-            state: pr.state,
-            draft: pr.draft,
-            ...(pr.body !== undefined && { body: pr.body }),
-            ...(pr.user && {
-                user: {
-                    login: pr.user.login,
-                    id: pr.user.id
-                }
-            }),
-            ...(pr.labels && {
-                labels: pr.labels.map((label) => ({
-                    id: label.id,
-                    name: label.name,
-                    color: label.color
-                }))
-            }),
-            ...(pr.head && {
-                head: {
-                    ref: pr.head.ref,
-                    sha: pr.head.sha
-                }
-            }),
-            ...(pr.base && {
-                base: {
-                    ref: pr.base.ref,
-                    sha: pr.base.sha
-                }
-            }),
-            html_url: pr.html_url,
-            created_at: pr.created_at,
-            updated_at: pr.updated_at,
-            ...(pr.closed_at !== undefined && { closed_at: pr.closed_at }),
-            ...(pr.merged_at !== undefined && { merged_at: pr.merged_at })
+            id: providerPr.id,
+            number: providerPr.number,
+            state: providerPr.state,
+            title: providerPr.title,
+            ...(providerPr.body != null && { body: providerPr.body }),
+            draft: providerPr.draft,
+            html_url: providerPr.html_url,
+            created_at: providerPr.created_at,
+            updated_at: providerPr.updated_at,
+            ...(providerPr.closed_at != null && { closed_at: providerPr.closed_at }),
+            ...(providerPr.merged_at != null && { merged_at: providerPr.merged_at }),
+            ...(providerPr.merge_commit_sha != null && { merge_commit_sha: providerPr.merge_commit_sha }),
+            user: {
+                login: providerPr.user.login,
+                id: providerPr.user.id,
+                html_url: providerPr.user.html_url,
+                type: providerPr.user.type
+            },
+            head: {
+                ref: providerPr.head.ref,
+                sha: providerPr.head.sha
+            },
+            base: {
+                ref: providerPr.base.ref,
+                sha: providerPr.base.sha
+            }
         };
     }
 });

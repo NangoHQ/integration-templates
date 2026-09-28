@@ -1,60 +1,74 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('The name of the repository. Example: "nango"'),
-        ref: z.string().describe('The ref to deploy. This can be a branch, tag, or SHA. Example: "master"'),
-        environment: z.string().optional().describe('The name of the target deployment environment. Example: "production"'),
+        ref: z.string().describe('The ref to deploy. Can be a branch name, tag, or commit SHA. Example: "master"'),
+        environment: z
+            .string()
+            .optional()
+            .describe('Name of the target deployment environment. Defaults to "production" on GitHub when omitted. Example: "nango-registry-test"'),
         auto_merge: z
             .boolean()
             .optional()
-            .describe('Whether to automatically merge the default branch into the requested ref before deploying. Defaults to true on GitHub.'),
+            .describe(
+                'Whether GitHub should attempt to automatically merge the default branch into the requested ref when it is behind. Defaults to true on GitHub.'
+            ),
         required_contexts: z
             .array(z.string())
             .optional()
-            .describe('The status contexts to verify against commit status checks. Pass an empty array to skip all checks.')
+            .describe(
+                'Commit status contexts that must be green before the deployment is created. Pass an empty array to bypass the default requirement that all commit statuses on the ref succeed.'
+            )
     })
-    .describe('Input parameters for creating a GitHub deployment.');
+    .describe('Input for creating a GitHub deployment');
 
-const CreatorSchema = z.object({
-    login: z.string().describe('The username of the deployment creator.'),
-    id: z.number().describe('The unique identifier of the creator.'),
-    node_id: z.string().optional().describe('The global node ID of the creator.'),
-    avatar_url: z.string().optional().describe("The URL of the creator's avatar image."),
-    html_url: z.string().optional().describe("The URL of the creator's profile page."),
-    type: z.string().optional().describe('The type of user. Example: "User" or "Bot".')
+const ProviderDeploymentSchema = z.object({
+    id: z.number(),
+    node_id: z.string(),
+    url: z.string(),
+    sha: z.string(),
+    ref: z.string(),
+    task: z.string().optional(),
+    environment: z.string(),
+    description: z.string().nullable().optional(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    statuses_url: z.string(),
+    repository_url: z.string(),
+    transient_environment: z.boolean().optional(),
+    production_environment: z.boolean().optional()
 });
 
 const OutputSchema = z
     .object({
-        id: z.number().describe('The unique identifier of the deployment.'),
-        node_id: z.string().optional().describe('The global node ID for the deployment.'),
-        sha: z.string().describe('The SHA of the commit that was deployed.'),
-        ref: z.string().describe('The ref that was deployed.'),
-        task: z.string().optional().describe('The deployment task. Example: "deploy".'),
-        payload: z
-            .union([z.record(z.string(), z.unknown()), z.string()])
+        id: z.number().describe('Unique identifier of the deployment. Example: 5850133226'),
+        node_id: z.string().describe('Node ID of the deployment.'),
+        url: z.string().describe('API URL of the deployment.'),
+        sha: z.string().describe('Commit SHA the deployment was created for.'),
+        ref: z.string().describe('The ref that was deployed. Example: "master"'),
+        task: z.string().optional().describe('The deployment task. Example: "deploy"'),
+        environment: z.string().describe('The environment the deployment targets. Example: "nango-registry-test"'),
+        description: z.string().optional().describe('Description of the deployment, when one was set.'),
+        created_at: z.string().describe('ISO 8601 timestamp of when the deployment was created.'),
+        updated_at: z.string().describe('ISO 8601 timestamp of when the deployment was last updated.'),
+        statuses_url: z.string().describe('API URL for listing and creating statuses of this deployment.'),
+        repository_url: z.string().describe('API URL of the repository the deployment belongs to.'),
+        transient_environment: z
+            .boolean()
             .optional()
-            .describe('The payload passed when the deployment was created.'),
-        environment: z.string().optional().describe('The target environment of the deployment.'),
-        original_environment: z.string().optional().describe('The original environment specified when the deployment was created.'),
-        description: z.string().nullable().optional().describe('A short description of the deployment.'),
-        creator: CreatorSchema.optional().describe('The user or app that created the deployment.'),
-        created_at: z.string().describe('The ISO 8601 timestamp when the deployment was created.'),
-        updated_at: z.string().describe('The ISO 8601 timestamp when the deployment was last updated.'),
-        statuses_url: z.string().optional().describe('The API URL for the deployment statuses.'),
-        repository_url: z.string().optional().describe('The API URL for the repository.'),
-        transient_environment: z.boolean().optional().describe('Whether this is a transient (short-lived) environment.'),
-        production_environment: z.boolean().optional().describe('Whether this is a production environment.')
+            .describe('Whether the deployment environment is specific to this deployment and will no longer exist at some point.'),
+        production_environment: z.boolean().optional().describe('Whether the deployment environment is one that end-users directly interact with.')
     })
-    .describe('The deployment object returned by GitHub after creation.');
+    .describe('The created GitHub deployment');
 
 /**
  * @tags: [write]
- * @tagReason: Creates a new deployment on the repository.
- * @pitfalls: GitHub defaults auto_merge to true, which merges the default branch into the requested ref before deploying, and requires all commit statuses to pass unless required_contexts is provided as an empty array.
+ * @tagReason: Creates a new deployment in the repository, which mutates provider state.
+ * @pitfalls: When required_contexts is omitted GitHub verifies every commit status context on the ref and rejects the deployment if any is not successful; pass an empty array to skip the check. auto_merge defaults to true, so GitHub may merge the default branch into the requested ref. A new deployment has no state until a deployment status is created for it.
  */
 const action = createAction({
     description: 'Create a new deployment.',
@@ -64,20 +78,37 @@ const action = createAction({
     scopes: ['deployments:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://docs.github.com/rest/deployments/deployments#create-a-deployment
-            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/deployments`,
+        const config: ProxyConfiguration = {
+            method: 'POST',
+            // https://docs.github.com/en/rest/deployments/deployments#create-a-deployment
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/deployments`,
             data: {
                 ref: input.ref,
                 ...(input.environment !== undefined && { environment: input.environment }),
                 ...(input.auto_merge !== undefined && { auto_merge: input.auto_merge }),
                 ...(input.required_contexts !== undefined && { required_contexts: input.required_contexts })
             },
-            retries: 1
-        });
+            retries: 10
+        };
+        const response = await nango.post(config);
+        const deployment = ProviderDeploymentSchema.parse(response.data);
 
-        const deployment = OutputSchema.parse(response.data);
-        return deployment;
+        return {
+            id: deployment.id,
+            node_id: deployment.node_id,
+            url: deployment.url,
+            sha: deployment.sha,
+            ref: deployment.ref,
+            ...(deployment.task !== undefined && { task: deployment.task }),
+            environment: deployment.environment,
+            ...(deployment.description != null && { description: deployment.description }),
+            created_at: deployment.created_at,
+            updated_at: deployment.updated_at,
+            statuses_url: deployment.statuses_url,
+            repository_url: deployment.repository_url,
+            ...(deployment.transient_environment !== undefined && { transient_environment: deployment.transient_environment }),
+            ...(deployment.production_environment !== undefined && { production_environment: deployment.production_environment })
+        };
     }
 });
 

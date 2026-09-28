@@ -3,44 +3,46 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner login name. Example: "octocat"'),
-        repo: z.string().describe('Repository name. Example: "Hello-World"'),
-        pull_number: z.number().int().positive().describe('Pull request number. Example: 1'),
-        body: z.string().optional().describe('The body text of the review. Optional when event is "APPROVE", otherwise recommended.'),
+        owner: z.string().describe('Repository owner login. Example: "nango-provisioned-apps"'),
+        repo: z.string().describe('Repository name. Example: "nango"'),
+        pull_number: z.number().describe('Pull request number. Example: 1'),
+        body: z.string().optional().describe('The body text of the review. Optional for APPROVE; typically required for COMMENT and REQUEST_CHANGES.'),
         event: z
             .enum(['COMMENT', 'APPROVE', 'REQUEST_CHANGES'])
-            .describe('Review event type. COMMENT leaves a review comment, APPROVE approves the PR, REQUEST_CHANGES requests changes.')
+            .describe(
+                'The review action to perform. COMMENT leaves a review comment without changing approval state; APPROVE approves the PR; REQUEST_CHANGES requests changes before merging.'
+            )
     })
-    .describe('Input to submit a review on a pull request.');
+    .describe('Input for creating a pull request review.');
 
-const ProviderUserSchema = z.object({
-    login: z.string(),
-    id: z.number()
+const ProviderReviewSchema = z.object({
+    id: z.number(),
+    node_id: z.string(),
+    body: z.string().nullable(),
+    state: z.string(),
+    html_url: z.string(),
+    pull_request_url: z.string(),
+    commit_id: z.string(),
+    submitted_at: z.string().nullable().optional()
 });
 
 const OutputSchema = z
     .object({
-        id: z.number().describe('Unique review ID.'),
-        node_id: z.string().describe('Global node ID for GitHub GraphQL.'),
-        user: z
-            .object({
-                login: z.string().describe('Review author login name.'),
-                id: z.number().describe('Review author user ID.')
-            })
-            .describe('GitHub user who submitted the review.'),
-        body: z.string().optional().describe('Body text of the review.'),
-        state: z.string().describe('Review state, e.g. "COMMENTED", "APPROVED", or "CHANGES_REQUESTED".'),
+        id: z.number().describe('Unique identifier of the review.'),
+        node_id: z.string().describe('Global node ID for the review.'),
+        body: z.string().optional().describe('The body text of the review.'),
+        state: z.string().describe('The review state. Examples: "APPROVED", "COMMENTED", "CHANGES_REQUESTED".'),
         html_url: z.string().describe('URL to view the review in a browser.'),
-        pull_request_url: z.string().describe('API URL of the pull request.'),
-        commit_id: z.string().describe('SHA of the commit being reviewed.'),
+        pull_request_url: z.string().describe('API URL of the associated pull request.'),
+        commit_id: z.string().describe('The commit SHA the review was submitted against.'),
         submitted_at: z.string().optional().describe('ISO 8601 timestamp when the review was submitted.')
     })
-    .describe('The created pull request review.');
+    .describe('Output of a created pull request review.');
 
 /**
  * @tags: [write]
- * @tagReason: Submits a review on a pull request, which creates a new provider-side review object.
- * @pitfalls: GitHub rejects an APPROVE review from the same identity that authored the PR (422 "Can not approve your own pull request").
+ * @tagReason: Creates a new review on a pull request.
+ * @pitfalls: GitHub rejects an APPROVE review from the same identity that authored or committed the PR (422 "Can not approve your own pull request").
  */
 const action = createAction({
     description: 'Submit a review on a pull request (a comment, approval, or change request).',
@@ -50,53 +52,21 @@ const action = createAction({
     scopes: ['pull_requests:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if ((input.event === 'COMMENT' || input.event === 'REQUEST_CHANGES') && !input.body) {
-            throw new nango.ActionError({
-                type: 'missing_body',
-                message: 'The body field is required when event is COMMENT or REQUEST_CHANGES.'
-            });
-        }
-
-        const requestBody: {
-            body?: string;
-            event: 'COMMENT' | 'APPROVE' | 'REQUEST_CHANGES';
-        } = {
-            event: input.event
-        };
-
-        if (input.body !== undefined) {
-            requestBody.body = input.body;
-        }
-
+        // https://docs.github.com/rest/pulls/reviews#create-a-review-for-a-pull-request
         const response = await nango.post({
-            // https://docs.github.com/rest/pulls/reviews#create-a-review-for-a-pull-request
             endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${encodeURIComponent(String(input.pull_number))}/reviews`,
-            data: requestBody,
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-            retries: 0
+            data: {
+                ...(input.body !== undefined && { body: input.body }),
+                ...(input.event !== undefined && { event: input.event })
+            },
+            retries: 1
         });
 
-        const providerReview = z
-            .object({
-                id: z.number(),
-                node_id: z.string(),
-                user: ProviderUserSchema,
-                body: z.string().nullish(),
-                state: z.string(),
-                html_url: z.string(),
-                pull_request_url: z.string(),
-                commit_id: z.string(),
-                submitted_at: z.string().nullish()
-            })
-            .parse(response.data);
+        const providerReview = ProviderReviewSchema.parse(response.data);
 
         return {
             id: providerReview.id,
             node_id: providerReview.node_id,
-            user: {
-                login: providerReview.user.login,
-                id: providerReview.user.id
-            },
             ...(providerReview.body != null && { body: providerReview.body }),
             state: providerReview.state,
             html_url: providerReview.html_url,

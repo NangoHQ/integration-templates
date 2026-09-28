@@ -1,43 +1,30 @@
-import { createHash } from 'crypto';
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const GitHubCommitSchema = z.object({
-    sha: z.string(),
-    url: z.string().optional()
-});
-
-const GitHubBranchSchema = z.object({
-    name: z.string(),
-    commit: GitHubCommitSchema,
-    protected: z.boolean(),
-    protection_url: z.string().optional()
-});
-
-const GitHubRepositorySchema = z.object({
-    owner: z.object({
-        login: z.string()
-    }),
-    name: z.string()
+const CheckpointSchema = z.object({
+    repo_full_name: z.string(),
+    page: z.number().int().positive()
 });
 
 const BranchSchema = z
     .object({
-        id: z.string().describe('Stable identifier for the branch, qualified by repository owner and name.'),
+        id: z.string().describe('The stable identifier for the branch, equal to its name within the repository.'),
         name: z.string().describe('The name of the branch.'),
-        repo_owner: z.string().describe('The owner (user or organization) of the repository this branch belongs to.'),
+        repo_owner: z.string().describe('The login of the user or organization that owns the repository.'),
         repo_name: z.string().describe('The name of the repository this branch belongs to.'),
-        commit_sha: z.string().describe('The SHA of the latest commit on this branch.'),
-        commit_url: z.string().optional().describe('The API URL for the latest commit on this branch.'),
-        protected: z.boolean().describe('Whether the branch is protected from force pushes and deletions.'),
-        protection_url: z.string().optional().describe('The API URL for the branch protection settings, if any.')
+        commit_sha: z.string().describe('The SHA hash of the latest commit on this branch.'),
+        commit_url: z.string().describe('The API URL for the latest commit object on this branch.'),
+        protected: z.boolean().describe('Whether the branch is protected by branch protection rules.')
     })
-    .describe('A git branch in a GitHub repository.');
+    .describe('Represents a Git repository branch, including its latest commit and protection status.');
 
-const CheckpointSchema = z.object({
-    repo_index: z.number().int().nonnegative(),
-    repositories_fingerprint: z.string(),
-    branch_page: z.number().int().positive()
+const BranchResponseSchema = z.object({
+    name: z.string(),
+    commit: z.object({
+        sha: z.string(),
+        url: z.string()
+    }),
+    protected: z.boolean().optional()
 });
 
 const sync = createSync({
@@ -49,136 +36,95 @@ const sync = createSync({
     models: {
         Branch: BranchSchema
     },
-
+    scopes: ['contents:read'],
     exec: async (nango) => {
-        const checkpointRaw = await nango.getCheckpoint();
-        const parsedCheckpoint = checkpointRaw != null ? CheckpointSchema.safeParse(checkpointRaw) : undefined;
-        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
+        const rawCheckpoint = await nango.getCheckpoint();
+        const checkpoint = CheckpointSchema.parse({
+            repo_full_name: '',
+            page: 1,
+            ...(rawCheckpoint && typeof rawCheckpoint === 'object' ? rawCheckpoint : {})
+        });
 
-        // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
-        // repo_index addresses the complete repository list, so always rebuild that list
-        // from page 1 before applying the saved index.
-        let repoPage = 1;
-        const repositories: Array<{ owner: string; name: string }> = [];
-        while (true) {
-            const repoResponse = await nango.get({
-                endpoint: '/installation/repositories',
-                params: {
-                    per_page: 100,
-                    ...(repoPage > 1 ? { page: repoPage } : {})
-                },
-                retries: 3
-            });
+        // https://docs.github.com/rest/apps/installations#list-repositories-accessible-to-the-app-installation
+        const reposResponse = await nango.get({
+            endpoint: '/installation/repositories',
+            retries: 3
+        });
 
-            const batch = z.array(z.unknown()).parse(repoResponse.data.repositories);
-            if (batch.length === 0) {
-                break;
-            }
+        const reposData = z
+            .object({
+                repositories: z.array(
+                    z.object({
+                        name: z.string(),
+                        owner: z.object({
+                            login: z.string()
+                        })
+                    })
+                )
+            })
+            .parse(reposResponse.data);
 
-            for (const raw of batch) {
-                const parsed = GitHubRepositorySchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse repository: ${parsed.error.message}`);
-                }
-                repositories.push({ owner: parsed.data.owner.login, name: parsed.data.name });
-            }
+        const repos = reposData.repositories;
 
-            if (batch.length < 100) {
-                break;
-            }
-
-            repoPage++;
-        }
-
-        if (repositories.length === 0) {
-            // An empty response may be transient rather than a genuine "installation has no
-            // repositories" state. Skip the run instead of reconciling away every synced branch.
-            await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
+        if (repos.length === 0) {
             return;
-        }
-
-        const repositoriesFingerprint = createHash('sha256').update(JSON.stringify(repositories)).digest('hex');
-        const resumeCheckpoint =
-            checkpoint?.repositories_fingerprint === repositoriesFingerprint && checkpoint.repo_index <= repositories.length ? checkpoint : undefined;
-
-        if (checkpointRaw != null && resumeCheckpoint == null) {
-            await nango.log('The accessible repository set changed or the checkpoint is obsolete; restarting repository enumeration.', { level: 'warn' });
         }
 
         await nango.trackDeletesStart('Branch');
 
-        const startIndex = resumeCheckpoint?.repo_index ?? 0;
+        const firstRepo = repos[0];
+        const checkpointRepoFullName = checkpoint.repo_full_name ?? (firstRepo ? `${firstRepo.owner.login}/${firstRepo.name}` : undefined);
+        const resumeRepoIndex = checkpointRepoFullName
+            ? Math.max(
+                  repos.findIndex((repo) => `${repo.owner.login}/${repo.name}` === checkpointRepoFullName),
+                  0
+              )
+            : 0;
 
-        for (let i = startIndex; i < repositories.length; i++) {
-            const repo = repositories[i];
-            if (repo == null) {
-                throw new Error(`Repository index ${i} is out of bounds`);
+        for (let repoIndex = resumeRepoIndex; repoIndex < repos.length; repoIndex++) {
+            const repo = repos[repoIndex];
+            if (!repo) {
+                continue;
             }
-            const owner = repo.owner;
+            const owner = repo.owner.login;
             const repoName = repo.name;
-            let nextBranchPage: number | undefined;
+            const repoFullName = `${owner}/${repoName}`;
+            let currentPage = repoFullName === checkpointRepoFullName ? checkpoint.page : 1;
 
-            const branchesConfig: ProxyConfiguration = {
-                // https://docs.github.com/en/rest/branches/branches#list-branches
-                endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/branches`,
-                params: {
-                    per_page: 100,
-                    ...(resumeCheckpoint != null && resumeCheckpoint.branch_page > 1 && i === startIndex ? { page: resumeCheckpoint.branch_page } : {})
-                },
+            const proxyConfig: ProxyConfiguration = {
+                // https://docs.github.com/rest/branches/branches#list-branches
+                endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repoName)}/branches`,
                 paginate: {
-                    type: 'link',
+                    type: 'offset',
+                    offset_name_in_request: 'page',
+                    offset_start_value: currentPage,
+                    offset_calculation_method: 'per-page',
                     limit_name_in_request: 'per_page',
-                    limit: 100,
-                    on_page: async (paginationState) => {
-                        if (typeof paginationState.nextPageParam === 'string') {
-                            const url = new URL(paginationState.nextPageParam);
-                            nextBranchPage = Number(url.searchParams.get('page'));
-                        } else {
-                            nextBranchPage = undefined;
-                        }
-                    }
+                    limit: 100
                 },
                 retries: 3
             };
 
-            for await (const page of nango.paginate(branchesConfig)) {
-                if (!Array.isArray(page)) {
-                    throw new Error('Unexpected non-array page from paginate');
-                }
+            for await (const branchBatch of nango.paginate(proxyConfig)) {
+                const validated = z.array(BranchResponseSchema).parse(branchBatch);
 
-                const branches = [];
-                for (const branch of page) {
-                    const parsed = GitHubBranchSchema.safeParse(branch);
-                    if (!parsed.success) {
-                        throw new Error(`Failed to parse branch: ${parsed.error.message}`);
-                    }
-
-                    branches.push({
-                        id: `${owner}/${repoName}/${parsed.data.name}`,
-                        name: parsed.data.name,
-                        repo_owner: owner,
-                        repo_name: repoName,
-                        commit_sha: parsed.data.commit.sha,
-                        commit_url: parsed.data.commit.url,
-                        protected: parsed.data.protected,
-                        protection_url: parsed.data.protection_url
-                    });
-                }
+                const branches = validated.map((branch) => ({
+                    id: branch.name,
+                    name: branch.name,
+                    repo_owner: owner,
+                    repo_name: repoName,
+                    commit_sha: branch.commit.sha,
+                    commit_url: branch.commit.url,
+                    protected: branch.protected ?? false
+                }));
 
                 if (branches.length > 0) {
                     await nango.batchSave(branches, 'Branch');
                 }
 
-                if (nextBranchPage !== undefined) {
-                    await nango.saveCheckpoint({
-                        repo_index: i,
-                        repositories_fingerprint: repositoriesFingerprint,
-                        branch_page: nextBranchPage
-                    });
-                }
+                currentPage += 1;
+                await nango.saveCheckpoint({ repo_full_name: repoFullName, page: currentPage });
             }
-
-            await nango.saveCheckpoint({ repo_index: i + 1, repositories_fingerprint: repositoriesFingerprint, branch_page: 1 });
         }
 
         await nango.clearCheckpoint();

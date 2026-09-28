@@ -3,70 +3,56 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
-        repo: z.string().describe('The name of the repository. Example: "Hello-World"'),
-        sha: z.string().optional().describe('The SHA recorded at creation time.'),
-        ref: z.string().optional().describe('The name of the ref. This can be a branch, tag, or SHA.'),
-        task: z.string().optional().describe('The name of the task for the deployment (e.g., deploy or deploy:migrations).'),
-        environment: z.string().optional().describe('The name of the environment that was deployed to (e.g., staging or production).'),
-        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100). Example: 30'),
-        page: z.number().int().min(1).optional().describe('Page number of the results to fetch. Example: 1')
+        owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps".'),
+        repo: z.string().describe('Repository name. Example: "nango".'),
+        sha: z.string().optional().describe('SHA hash of the deployment to filter by.'),
+        ref: z.string().optional().describe('Name of the ref (branch, tag, or SHA) to filter by.'),
+        task: z.string().optional().describe('Deployment task to filter by. Default: "deploy".'),
+        environment: z.string().optional().describe('Name of the environment to filter by.'),
+        per_page: z.number().optional().describe('Number of results per page. Max: 100.'),
+        page: z.number().optional().describe('Page number of the results to fetch.')
     })
-    .describe('Input for listing deployments in a repository.');
+    .describe('Input parameters for listing repository deployments.');
 
-const DeploymentSchema = z
-    .object({
-        url: z.string().describe('API URL for this deployment.'),
-        id: z.number().describe('Unique deployment ID.'),
-        node_id: z.string().describe('Global node ID for this deployment.'),
-        sha: z.string().describe('SHA recorded at creation time.'),
-        ref: z.string().describe('The ref (branch, tag, or SHA) being deployed.'),
-        task: z.string().describe('The task for the deployment, e.g. "deploy".'),
-        payload: z.union([z.record(z.string(), z.unknown()), z.string()]).describe('Extra payload for the deployment, either an object or a string.'),
-        original_environment: z.string().optional().describe('Original environment name if it changed.'),
-        environment: z.string().describe('Target environment name, e.g. "production".'),
-        description: z.string().nullable().optional().describe('Description of the deployment.'),
-        creator: z
-            .object({
-                login: z.string().describe('GitHub username of the creator.'),
-                id: z.number().describe('GitHub user ID of the creator.'),
-                node_id: z.string().describe('Global node ID of the creator.'),
-                avatar_url: z.string().describe('Avatar URL of the creator.'),
-                html_url: z.string().describe('GitHub profile URL of the creator.')
-            })
-            .optional()
-            .describe('User who created the deployment.'),
-        created_at: z.string().describe('ISO 8601 timestamp when the deployment was created.'),
-        updated_at: z.string().describe('ISO 8601 timestamp when the deployment was last updated.'),
-        statuses_url: z.string().describe('API URL for deployment statuses.'),
-        repository_url: z.string().describe('API URL for the repository.'),
-        transient_environment: z.boolean().optional().describe('Whether the environment is transient.'),
-        production_environment: z.boolean().optional().describe('Whether the environment is a production environment.')
-    })
-    .describe('A deployment object.');
+const DeploymentSchema = z.object({
+    id: z.number().describe('Unique identifier of the deployment.'),
+    sha: z.string().describe('SHA hash of the commit being deployed.'),
+    ref: z.string().describe('The ref (branch, tag, or SHA) being deployed.'),
+    task: z.string().describe('The deployment task, typically "deploy".'),
+    payload: z.unknown().describe('Optional payload attached to the deployment.'),
+    environment: z.string().describe('The target environment of the deployment.'),
+    description: z.string().nullable().describe('Optional description of the deployment.'),
+    created_at: z.string().describe('ISO 8601 timestamp when the deployment was created.'),
+    updated_at: z.string().describe('ISO 8601 timestamp when the deployment was last updated.'),
+    statuses_url: z.string().describe('URL to fetch deployment statuses.'),
+    repository_url: z.string().describe('URL of the repository.'),
+    transient_environment: z.boolean().describe('Whether the environment is transient.'),
+    production_environment: z.boolean().describe('Whether this is a production environment.'),
+    original_environment: z.string().describe('The original environment name at creation time.')
+});
 
 const OutputSchema = z
     .object({
-        deployments: z.array(DeploymentSchema).describe('List of deployments for the repository.'),
-        next_page: z.number().optional().describe('Next page number if more results are available.')
+        deployments: z.array(DeploymentSchema).describe('Array of deployment objects for the repository.'),
+        next_page: z.number().optional().describe('Page number for the next page of results, if more pages may exist.')
     })
-    .describe('Output containing the list of deployments and pagination info.');
+    .describe('Response containing a list of repository deployments and pagination information.');
 
 /**
  * @tags: [read]
- * @tagReason: Reads the list of deployments from the repository.
- * @pitfalls: Deployments are returned newest-first with no sort option, and status history is not included inline; callers must follow statuses_url to retrieve statuses separately.
+ * @tagReason: This action reads deployment data from the GitHub API without making any mutations.
+ * @pitfalls: Callers may need to request one empty page to confirm the end of results because GitHub does not include a total count or has-more flag.
  */
 const action = createAction({
-    description: 'List deployments for a repository.',
-    version: '1.0.0',
+    description: 'List deployments for a repository',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.github.com/en/rest/deployments/deployments#list-deployments
         const response = await nango.get({
+            // https://docs.github.com/rest/deployments/deployments#list-deployments
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/deployments`,
             params: {
                 ...(input.sha !== undefined && { sha: input.sha }),
@@ -80,12 +66,8 @@ const action = createAction({
         });
 
         const deployments = z.array(DeploymentSchema).parse(response.data);
-
-        const rawLink = response.headers?.['link'];
-        const linkHeader = typeof rawLink === 'string' ? rawLink : undefined;
-        const hasNextPage = linkHeader ? linkHeader.includes('rel="next"') : false;
         const currentPage = input.page ?? 1;
-        const nextPage = hasNextPage ? currentPage + 1 : undefined;
+        const nextPage = deployments.length > 0 ? currentPage + 1 : undefined;
 
         return {
             deployments,
