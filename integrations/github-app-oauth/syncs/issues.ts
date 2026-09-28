@@ -20,9 +20,7 @@ const CheckpointSchema = z
     .object({
         updated_after_by_repo: z
             .string()
-            .describe(
-                'JSON-encoded map of "{owner}/{repo}" to the ISO 8601 timestamp of the most recently updated issue synced for that repository'
-            )
+            .describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 timestamp of the most recently updated issue synced for that repository')
     })
     .describe('Resume state for incremental issue syncing, tracked per repository');
 
