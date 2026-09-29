@@ -208,7 +208,14 @@ const sync = createSync({
             }
 
             const linkHeader = response.headers['link'];
-            cursor = parseNextCursor(typeof linkHeader === 'string' ? linkHeader : undefined);
+            const nextCursor = parseNextCursor(typeof linkHeader === 'string' ? linkHeader : undefined);
+            // A repeated cursor while results="true" would otherwise loop forever. Fail loudly
+            // instead of silently treating it as exhaustion: doing so inside a delete-tracked
+            // scan would falsely mark unfetched releases as deleted at trackDeletesEnd().
+            if (nextCursor !== undefined && nextCursor === cursor) {
+                throw new Error(`Sentry returned a repeated release cursor while more results were reported: ${nextCursor}`);
+            }
+            cursor = nextCursor;
         } while (cursor !== undefined);
 
         await nango.trackDeletesEnd('Release');

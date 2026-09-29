@@ -18,8 +18,8 @@ const MonitorConfigSchema = z
     .object({
         schedule_type: z.enum(['crontab', 'interval']).describe('Schedule kind: "crontab" for a cron expression, "interval" for a fixed interval.'),
         schedule: z
-            .union([z.string(), z.array(z.union([z.number(), z.string()]))])
-            .describe('Cron expression for crontab schedules (e.g. "0 * * * *"), or a [value, unit] pair such as [1, "day"] for interval schedules.'),
+            .union([z.string(), z.tuple([z.number(), z.string()])])
+            .describe('Cron expression for crontab schedules (e.g. "0 * * * *"), or a [count, unit] tuple such as [1, "day"] for interval schedules.'),
         checkin_margin: z.number().optional().describe('Minutes after the expected check-in time before the monitor is marked missed.'),
         max_runtime: z.number().optional().describe('Minutes a check-in may run before the monitor is marked as timed out.'),
         timezone: z.string().optional().describe('IANA timezone the schedule is evaluated in. Example: "America/Los_Angeles".'),
@@ -93,7 +93,7 @@ const ProviderMonitorSchema = z.object({
     }),
     config: z.object({
         schedule_type: z.enum(['crontab', 'interval']),
-        schedule: z.union([z.string(), z.array(z.union([z.number(), z.string()]))]),
+        schedule: z.union([z.string(), z.tuple([z.number(), z.string()])]),
         checkin_margin: z.number().nullable().optional(),
         max_runtime: z.number().nullable().optional(),
         timezone: z.string().nullable().optional(),

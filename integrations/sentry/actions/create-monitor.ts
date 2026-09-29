@@ -24,9 +24,9 @@ const InputSchema = z
                     .enum(['crontab', 'interval'])
                     .describe('Schedule representation: "crontab" for a crontab expression, "interval" for a fixed interval.'),
                 schedule: z
-                    .union([z.string(), z.array(z.union([z.number().int().min(1), z.enum(['year', 'month', 'week', 'day', 'hour', 'minute'])])).length(2)])
+                    .union([z.string(), z.tuple([z.number().int().min(1), z.enum(['minute', 'hour', 'day', 'week', 'month', 'year'])])])
                     .describe(
-                        'Crontab expression when schedule_type is "crontab" (example: "0 * * * *"), or a two-element [interval, unit] tuple when schedule_type is "interval" (example: [1, "day"]).'
+                        'Crontab expression when schedule_type is "crontab" (example: "0 * * * *"), or a [count, unit] tuple when schedule_type is "interval" (example: [1, "day"]), where unit is one of minute, hour, day, week, month, or year.'
                     ),
                 checkin_margin: z
                     .number()
@@ -69,7 +69,7 @@ const InputSchema = z
 
 const MonitorConfigSchema = z.object({
     schedule_type: z.enum(['crontab', 'interval']).optional(),
-    schedule: z.union([z.string(), z.array(z.unknown())]).optional(),
+    schedule: z.union([z.string(), z.tuple([z.number(), z.string()])]).optional(),
     checkin_margin: z.number().nullable().optional(),
     max_runtime: z.number().nullable().optional(),
     timezone: z.string().nullable().optional(),
@@ -120,9 +120,9 @@ const OutputSchema = z
             .object({
                 schedule_type: z.enum(['crontab', 'interval']).optional().describe('Schedule representation of the monitor: "crontab" or "interval".'),
                 schedule: z
-                    .union([z.string(), z.array(z.unknown())])
+                    .union([z.string(), z.tuple([z.number(), z.string()])])
                     .optional()
-                    .describe('Configured schedule: a crontab expression string for "crontab" monitors or a [interval, unit] tuple for "interval" monitors.'),
+                    .describe('Configured schedule: a crontab expression string for "crontab" monitors or a [count, unit] tuple for "interval" monitors.'),
                 checkin_margin: z.number().optional().describe('Minutes after the expected check-in time before the check-in is considered missed.'),
                 max_runtime: z.number().optional().describe('Minutes a check-in may remain in progress before it is considered failed.'),
                 timezone: z.string().optional().describe('tz database timezone used to evaluate a crontab schedule.'),

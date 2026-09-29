@@ -18,8 +18,8 @@ const CheckinMonitorConfigSchema = z
     .object({
         schedule_type: z.enum(['crontab', 'interval']).describe('How the monitor schedule is expressed: as a crontab expression or as a fixed interval'),
         schedule: z
-            .union([z.string(), z.array(z.number())])
-            .describe('Crontab expression for crontab schedules, or a two-element [value, unit] pair for interval schedules. Example: "0 * * * *"'),
+            .union([z.string(), z.tuple([z.number(), z.string()])])
+            .describe('Crontab expression for crontab schedules, or a [count, unit] tuple (e.g. [1, "day"]) for interval schedules. Example: "0 * * * *"'),
         checkin_margin: z
             .number()
             .nullable()

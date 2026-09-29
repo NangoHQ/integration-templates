@@ -20,7 +20,11 @@ const TeamSchema = z
         hasAccess: z.boolean().describe('Whether the API token owner has access to this team.'),
         isPending: z.boolean().describe('Whether membership of the API token owner in this team is pending approval.'),
         memberCount: z.number().describe('Number of organization members on this team.'),
-        access: z.array(z.string()).describe('OAuth-style scopes the API token owner has on this team, e.g. "team:read".'),
+        access: z
+            .array(z.string())
+            .describe(
+                'Permission scopes the API token owner\'s organization role grants on this team, e.g. "team:read"; these are not scopes granted to the API token itself.'
+            ),
         avatar: TeamAvatarSchema.optional().describe('Avatar information for the team. Omitted when Sentry does not return avatar data.')
     })
     .describe('A Sentry team belonging to the organization.');
@@ -106,7 +110,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    scopes: ['team:read'],
+    scopes: ['team:read', 'org:read'],
     models: {
         Team: TeamSchema
     },
@@ -150,8 +154,13 @@ const sync = createSync({
                 total += teams.length;
             }
             const nextCursor = nextCursorFromLinkHeader(getResponseHeader(response.headers, 'link'));
-            // Guard against a repeated cursor, which would otherwise loop forever.
-            cursor = nextCursor !== undefined && nextCursor !== cursor ? nextCursor : undefined;
+            // A repeated cursor while results="true" would otherwise loop forever. Fail loudly
+            // instead of silently treating it as exhaustion: doing so inside a delete-tracked
+            // scan would falsely mark unfetched teams as deleted at trackDeletesEnd().
+            if (nextCursor !== undefined && nextCursor === cursor) {
+                throw new Error(`Sentry returned a repeated team cursor while more results were reported: ${nextCursor}`);
+            }
+            cursor = nextCursor;
         } while (cursor !== undefined);
 
         await nango.trackDeletesEnd('Team');

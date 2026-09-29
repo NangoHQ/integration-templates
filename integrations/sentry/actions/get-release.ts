@@ -11,10 +11,18 @@ const InputSchema = z
 
 const ReleaseVersionInfoSchema = z
     .object({
-        package: z.string().nullable().describe('The package name parsed from the version string, or null when the version is not a package-based version.'),
+        package: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('The package name parsed from the version string, or null/omitted when the version is not a package-based version.'),
         version: z.record(z.string(), z.unknown()).describe('Structured representation of the parsed version string.'),
         description: z.string().optional().describe('Human-readable description of the parsed version.'),
-        buildHash: z.string().nullable().describe('The build hash parsed from the version string, or null when the version does not contain one.')
+        buildHash: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('The build hash parsed from the version string, or null/omitted when the version does not contain one.')
     })
     .describe('Structured information parsed from the release version string.');
 
@@ -32,7 +40,7 @@ const ReleaseDeploySchema = z
 const ReleaseAuthorSchema = z
     .object({
         id: z.string().optional().describe('The Sentry user ID of the author. Absent when the author is not a Sentry user.'),
-        name: z.string().describe('The name of the author.'),
+        name: z.string().nullable().describe('The name of the author, or null when the commit author has no display name.'),
         email: z.string().describe('The email address of the author.'),
         username: z.string().optional().describe('The Sentry username of the author. Absent when the author is not a Sentry user.'),
         avatarUrl: z.string().optional().describe('The avatar URL of the author. Absent when the author is not a Sentry user.')
@@ -69,9 +77,9 @@ const OutputSchema = z
         version: z.string().describe('The full version identifier of the release.'),
         status: z.string().describe('The status of the release. One of "open" or "archived".'),
         shortVersion: z.string().describe('A shortened form of the version string, used for display.'),
-        versionInfo: ReleaseVersionInfoSchema.nullable().describe(
-            'Structured information parsed from the version string, or null when it could not be parsed.'
-        ),
+        versionInfo: ReleaseVersionInfoSchema.nullable()
+            .optional()
+            .describe('Structured information parsed from the version string, or null/omitted when it could not be parsed.'),
         ref: z.string().nullable().optional().describe('The commit reference (branch, tag, or SHA range) associated with the release, or null when not set.'),
         url: z.string().nullable().optional().describe('An external URL for the release, or null when not set.'),
         dateReleased: z
@@ -124,6 +132,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['org:ci', 'project:admin', 'project:read', 'project:releases', 'project:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

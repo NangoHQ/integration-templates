@@ -36,11 +36,11 @@ const InputSchema = z
     .object({
         organization_id_or_slug: z.string().describe('The ID or slug of the organization the issues belong to. Example: "my-org".'),
         ids: z
-            .array(z.number().int().positive())
+            .array(z.string().regex(/^[1-9]\d*$/, 'Each id must be a numeric issue ID'))
             .max(1000)
             .optional()
             .describe(
-                'Numeric issue IDs to update, sent as repeated id query parameters. Required for non-status updates; optional for status updates, where omitting it updates all issues matching the filters. Maximum 1000. Example: [123456789].'
+                'Numeric issue IDs to update, as decimal strings (matching the id field returned by the list-issues actions), sent as repeated id query parameters. Required for non-status updates; optional for status updates, where omitting it updates all issues matching the filters. Maximum 1000. Example: ["123456789"].'
             ),
         query: z
             .string()
@@ -137,7 +137,7 @@ const OutputSchema = z
                 type: z.enum(['user', 'team']).describe('Whether the assignee is a user or a team.'),
                 id: z.string().describe('ID of the assigned user or team.'),
                 name: z.string().describe('Display name of the assigned user or team.'),
-                email: z.string().optional().describe('Email of the assigned user.')
+                email: z.string().nullable().optional().describe('Email of the assigned user; null or absent for team assignees or users without one.')
             })
             .nullable()
             .optional()
@@ -186,7 +186,7 @@ const action = createAction({
 
         const searchParams: string[] = [];
         for (const id of input.ids ?? []) {
-            searchParams.push(`id=${id}`);
+            searchParams.push(`id=${encodeURIComponent(id)}`);
         }
         if (input.query !== undefined) {
             searchParams.push(`query=${encodeURIComponent(input.query)}`);

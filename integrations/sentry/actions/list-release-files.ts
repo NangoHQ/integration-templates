@@ -62,6 +62,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['org:ci', 'project:admin', 'project:read', 'project:releases', 'project:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.sentry.io/api/releases/list-an-organizations-release-files/

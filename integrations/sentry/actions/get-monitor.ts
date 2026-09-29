@@ -11,9 +11,9 @@ const InputSchema = z
 const MonitorConfigSchema = z.object({
     schedule_type: z.string().optional().describe('Schedule kind: "crontab" or "interval"'),
     schedule: z
-        .union([z.string(), z.array(z.union([z.number(), z.string()]))])
+        .union([z.string(), z.tuple([z.number(), z.string()])])
         .optional()
-        .describe('Crontab expression for crontab monitors, or a two-element [interval, unit] array for interval monitors. Example: "0 * * * *"'),
+        .describe('Crontab expression for crontab monitors, or a [count, unit] tuple for interval monitors. Example: "0 * * * *"'),
     checkin_margin: z.number().optional().describe('Minutes after the expected check-in time before the check-in is considered missed'),
     max_runtime: z.number().optional().describe('Minutes an in-progress check-in may run before it is considered timed out'),
     timezone: z.string().optional().describe('IANA timezone the crontab schedule is evaluated in. Example: "America/New_York"'),
@@ -94,7 +94,7 @@ const MonitorResponseSchema = z.object({
     dateCreated: z.string(),
     config: z.object({
         schedule_type: z.string().optional(),
-        schedule: z.union([z.string(), z.array(z.union([z.number(), z.string()]))]).optional(),
+        schedule: z.union([z.string(), z.tuple([z.number(), z.string()])]).optional(),
         checkin_margin: z.number().nullish(),
         max_runtime: z.number().nullish(),
         timezone: z.string().nullish(),

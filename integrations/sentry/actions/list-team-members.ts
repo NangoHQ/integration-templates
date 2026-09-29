@@ -40,7 +40,8 @@ const TeamMemberSchema = z
                 lastLogin: z.string().optional().describe('ISO 8601 timestamp of the user last login. Omitted when the user has never logged in.'),
                 lastActive: z.string().optional().describe('ISO 8601 timestamp of the user last activity. Omitted when the user has never been active.')
             })
-            .describe('The Sentry user account behind this membership.')
+            .nullable()
+            .describe('The Sentry user account behind this membership, or null while the member is still an invited pending member with no account linked yet.')
     })
     .describe('A member of the team.');
 
@@ -63,16 +64,18 @@ const ProviderTeamMemberSchema = z.object({
     inviteStatus: z.string(),
     inviterName: z.string().nullable(),
     dateCreated: z.string(),
-    user: z.object({
-        id: z.string(),
-        name: z.string(),
-        username: z.string(),
-        email: z.string(),
-        avatarUrl: z.string(),
-        isActive: z.boolean(),
-        lastLogin: z.string().nullable(),
-        lastActive: z.string().nullable()
-    })
+    user: z
+        .object({
+            id: z.string(),
+            name: z.string(),
+            username: z.string(),
+            email: z.string(),
+            avatarUrl: z.string(),
+            isActive: z.boolean(),
+            lastLogin: z.string().nullable(),
+            lastActive: z.string().nullable()
+        })
+        .nullable()
 });
 
 function parseNextCursor(linkHeader: unknown): string | undefined {
@@ -90,7 +93,7 @@ function parseNextCursor(linkHeader: unknown): string | undefined {
 /**
  * @tags: [read]
  * @tagReason: Performs a single GET request to read the members of a team without mutating any provider state.
- * @pitfalls: Members with a pending organization invite are never included in the results, so teammates who have been invited but have not accepted yet do not appear.
+ * @pitfalls: Members whose join request has not yet been approved (inviteStatus other than "approved") are excluded from the results. However, a member who has been invited by email and not yet signed up or accepted (pending: true) is included, with `user` set to null since no account is linked yet.
  */
 const action = createAction({
     description: 'List the members of a team.',
@@ -125,16 +128,19 @@ const action = createAction({
             inviteStatus: member.inviteStatus,
             ...(member.inviterName != null && { inviterName: member.inviterName }),
             dateCreated: member.dateCreated,
-            user: {
-                id: member.user.id,
-                name: member.user.name,
-                username: member.user.username,
-                email: member.user.email,
-                avatarUrl: member.user.avatarUrl,
-                isActive: member.user.isActive,
-                ...(member.user.lastLogin != null && { lastLogin: member.user.lastLogin }),
-                ...(member.user.lastActive != null && { lastActive: member.user.lastActive })
-            }
+            user:
+                member.user === null
+                    ? null
+                    : {
+                          id: member.user.id,
+                          name: member.user.name,
+                          username: member.user.username,
+                          email: member.user.email,
+                          avatarUrl: member.user.avatarUrl,
+                          isActive: member.user.isActive,
+                          ...(member.user.lastLogin != null && { lastLogin: member.user.lastLogin }),
+                          ...(member.user.lastActive != null && { lastActive: member.user.lastActive })
+                      }
         }));
 
         const nextCursor = parseNextCursor(response.headers['link']);

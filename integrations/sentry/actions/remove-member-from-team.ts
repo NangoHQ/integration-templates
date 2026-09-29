@@ -24,12 +24,23 @@ const OutputSchema = z
         slug: z.string().describe('URL-friendly team slug. Example: "backend".'),
         name: z.string().describe('Human-readable team name.'),
         dateCreated: z.string().nullable().describe('ISO 8601 timestamp of when the team was created, or null if not set.'),
-        isMember: z.boolean().describe('Whether the member is still on the team; false after a successful removal.'),
-        teamRole: z.string().nullable().describe("The removed member's team-level role; null once the membership is removed."),
+        isMember: z
+            .boolean()
+            .describe(
+                "Whether the acting/authenticated user (the API token's own user), not input.member_id, is a member of this team. Unrelated to the member that was just removed."
+            ),
+        teamRole: z
+            .string()
+            .nullable()
+            .describe(
+                "The acting/authenticated user's (the API token's own user) team-level role, or null if they have none. Describes the caller, not input.member_id, and is unaffected by the removal."
+            ),
         flags: z.record(z.string(), z.unknown()).describe('Team feature flags, e.g. idp:provisioned.'),
         access: z.array(z.string()).describe("Scopes available on the team based on the acting subject's organization role."),
         hasAccess: z.boolean().describe('Whether the acting subject has access to the team.'),
-        isPending: z.boolean().describe('Whether the team is in a pending state.'),
+        isPending: z
+            .boolean()
+            .describe('Whether the acting/authenticated user has a pending access request for this team. Describes the caller, not input.member_id.'),
         memberCount: z.number().describe('Number of members remaining on the team.'),
         avatar: TeamAvatarSchema
     })
@@ -38,7 +49,7 @@ const OutputSchema = z
 /**
  * @tags: [write, destructive]
  * @tagReason: Deletes a member's team membership through the provider API, a write that revokes team access and requires an explicit re-add to reverse.
- * @pitfalls: Removing the token's own member record from a team immediately revokes team-admin rights on that team for subsequent calls, yet the response can still report hasAccess true and admin scopes in access because they reflect the caller's organization role, not the remaining permissions. A token with only the org:read scope can only remove its own user from teams it already belongs to.
+ * @pitfalls: The response is a snapshot of the team as seen by the acting/authenticated user, not the removed member: isMember, teamRole, isPending, hasAccess, and access all describe the caller's own relationship to the team and are unaffected by the removal of input.member_id. Removing the token's own member record from a team immediately revokes team-admin rights on that team for subsequent calls, yet the response can still report hasAccess true and admin scopes in access because they reflect the caller's organization role, not the remaining permissions. A token with only the org:read scope can only remove its own user from teams it already belongs to.
  */
 const action = createAction({
     description: 'Remove an organization member from a team.',

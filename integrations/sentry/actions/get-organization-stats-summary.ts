@@ -22,7 +22,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe(
-                'Resolution of the aggregation, in the same "<number><unit>" format as statsPeriod. Defaults to "1h"; the minimum is "1h", intervals larger than "1d" are not supported, and the interval must cleanly divide one day. Example: "1h".'
+                'Resolution of the aggregation, in the same "<number><unit>" format as statsPeriod. Intervals larger than "1d" are not supported, and the interval must cleanly divide one day (verified live: e.g. "1m", "5m", "1h", "6h", "1d" are all accepted; "5h" and "1w" are rejected). Example: "1h".'
             ),
         start: z
             .string()
@@ -51,6 +51,10 @@ const InputSchema = z
             .optional()
             .describe('Outcome status to filter by. See https://docs.sentry.io/product/stats/ for outcome definitions. Example: "accepted".'),
         reason: z.string().optional().describe('Filter by the reason events were filtered or dropped, e.g. a specific inbound filter or rate-limit reason.')
+    })
+    .refine((input) => input.statsPeriod !== undefined || (input.start !== undefined && input.end !== undefined), {
+        message: 'Provide either statsPeriod, or both start and end (verified live: Sentry returns a 400 otherwise).',
+        path: ['statsPeriod']
     })
     .describe('Parameters for retrieving summarized event counts per project. Either statsPeriod or both start and end must be provided.');
 

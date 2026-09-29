@@ -58,8 +58,8 @@ const EventGroupingConfigSchema = z.object({
 
 const EventLastDeploySchema = z.object({
     id: z.string().describe('ID of the deploy'),
-    name: z.string().describe('Name of the deploy'),
-    environment: z.string().describe('Environment the release was deployed to. Example: "production"'),
+    name: z.string().nullable().describe('Name of the deploy, if one was given'),
+    environment: z.string().nullable().describe('Environment the release was deployed to, if known. Example: "production"'),
     dateFinished: z.string().describe('ISO 8601 timestamp when the deploy finished'),
     dateStarted: z.string().nullable().optional().describe('ISO 8601 timestamp when the deploy started, if recorded'),
     url: z.string().nullable().optional().describe('URL of the deploy, if recorded')

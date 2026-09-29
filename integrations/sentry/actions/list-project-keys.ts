@@ -51,15 +51,15 @@ const ProjectKeySchema = z.object({
     id: z.string().describe('Unique identifier of the client key.'),
     name: z.string().describe('Name of the client key. Example: "Default".'),
     label: z.string().optional().describe('Display label of the client key.'),
-    public: z.string().describe('Public component of the key, embedded in the DSNs as the sentry_key.'),
-    secret: z.string().optional().describe('Secret component of the key. Treat this value as a credential.'),
+    public: z.string().nullable().describe('Public component of the key, embedded in the DSNs as the sentry_key; null when not set.'),
+    secret: z.string().nullable().optional().describe('Secret component of the key. Treat this value as a credential; null when not set.'),
     projectId: z.number().optional().describe('Numeric ID of the project the key belongs to.'),
     isActive: z.boolean().optional().describe('Whether the key is active and able to ingest events.'),
     rateLimit: RateLimitSchema.optional().describe('Per-key event rate limit. Absent when no rate limit is configured.'),
     dsn: DsnSchema.describe('Endpoint-specific DSN URLs derived from this key.'),
-    browserSdkVersion: z.string().optional().describe('Default browser SDK version recommended for this key. Example: "7.x".'),
+    browserSdkVersion: z.string().describe('Default browser SDK version recommended for this key. Example: "7.x".'),
     browserSdk: BrowserSdkSchema.optional().describe('Browser SDK version metadata for the JavaScript loader.'),
-    dateCreated: z.string().optional().describe('ISO 8601 timestamp of when the key was created.'),
+    dateCreated: z.string().nullable().optional().describe('ISO 8601 timestamp of when the key was created; null when not set.'),
     dynamicSdkLoaderOptions: DynamicSdkLoaderOptionsSchema.optional().describe('Feature flags baked into the dynamic JavaScript loader for this key.')
 });
 
@@ -74,15 +74,15 @@ const ProviderProjectKeySchema = z.object({
     id: z.string(),
     name: z.string(),
     label: z.string().optional(),
-    public: z.string(),
-    secret: z.string().optional(),
+    public: z.string().nullable(),
+    secret: z.string().nullable().optional(),
     projectId: z.number().optional(),
     isActive: z.boolean().optional(),
     rateLimit: RateLimitSchema.nullable().optional(),
     dsn: DsnSchema,
-    browserSdkVersion: z.string().optional(),
+    browserSdkVersion: z.string(),
     browserSdk: BrowserSdkSchema.optional(),
-    dateCreated: z.string().optional(),
+    dateCreated: z.string().nullable().optional(),
     dynamicSdkLoaderOptions: DynamicSdkLoaderOptionsSchema.nullable().optional()
 });
 
@@ -139,7 +139,7 @@ const action = createAction({
             ...(key.isActive !== undefined && { isActive: key.isActive }),
             ...(key.rateLimit != null && { rateLimit: key.rateLimit }),
             dsn: key.dsn,
-            ...(key.browserSdkVersion !== undefined && { browserSdkVersion: key.browserSdkVersion }),
+            browserSdkVersion: key.browserSdkVersion,
             ...(key.browserSdk !== undefined && { browserSdk: key.browserSdk }),
             ...(key.dateCreated !== undefined && { dateCreated: key.dateCreated }),
             ...(key.dynamicSdkLoaderOptions != null && { dynamicSdkLoaderOptions: key.dynamicSdkLoaderOptions })

@@ -67,7 +67,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    scopes: ['member:read'],
+    scopes: ['member:read', 'org:read'],
     models: {
         Member: MemberSchema
     },

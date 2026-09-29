@@ -1,6 +1,35 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// Verified against the live stats_v2 endpoint: it accepts any interval down to 1 minute, but
+// rejects one that does not evenly divide a day ("The interval should divide one day without a
+// remainder.") and one longer than a day ("The interval has to be less than one day.").
+function isValidStatsInterval(value: string): boolean {
+    const match = /^(\d+)([mhdw])$/.exec(value);
+    if (!match) {
+        return false;
+    }
+    let minutesPerUnit: number;
+    switch (match[2]) {
+        case 'm':
+            minutesPerUnit = 1;
+            break;
+        case 'h':
+            minutesPerUnit = 60;
+            break;
+        case 'd':
+            minutesPerUnit = 1440;
+            break;
+        case 'w':
+            minutesPerUnit = 10080;
+            break;
+        default:
+            return false;
+    }
+    const minutes = Number(match[1]) * minutesPerUnit;
+    return minutes > 0 && minutes <= 1440 && 1440 % minutes === 0;
+}
+
 const InputSchema = z
     .object({
         organization_id_or_slug: z.string().describe('The ID or slug of the organization to query event counts for. Example: "nangodev".'),
@@ -23,9 +52,12 @@ const InputSchema = z
         interval: z
             .string()
             .regex(/^\d+[mhdw]$/)
+            .refine(isValidStatsInterval, {
+                message: 'Interval must evenly divide one day (1440 minutes) and be at most "1d", e.g. "1h", "6h", "12h", "1d".'
+            })
             .optional()
             .describe(
-                'Resolution of the time series in the same <number><unit> format as statsPeriod. Defaults to "1h"; minimum "1h", at most "1d", and must cleanly divide one day.'
+                'Resolution of the time series in the same <number><unit> format as statsPeriod. At most "1d", and must evenly divide one day (1440 minutes), e.g. "1h", "6h", "12h", "1d".'
             ),
         start: z
             .string()
@@ -63,6 +95,10 @@ const InputSchema = z
             .optional()
             .describe('Filter by outcome status, e.g. "accepted" for stored events or "rate_limited" for events dropped by rate limiting.'),
         reason: z.string().optional().describe('Filter by the reason events were filtered or dropped, e.g. "spike_protection".')
+    })
+    .refine((input) => input.groupBy.includes('category') || input.category !== undefined, {
+        message: 'Sentry requires "category" as a groupBy dimension or as a category filter (verified live: omitting both returns a 400).',
+        path: ['groupBy']
     })
     .describe('Dimensions, aggregation field, time window, and filters for the organization event-counts query.');
 

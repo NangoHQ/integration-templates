@@ -9,15 +9,15 @@ const InputSchema = z
     .describe('Input for retrieving a single Sentry alert rule.');
 
 const AlertRuleConditionSchema = z.object({
-    id: z.string().describe('Unique identifier of the condition.'),
-    type: z.string().describe('The condition type. Example: "new_high_priority_issue"'),
-    comparison: z.unknown().describe('The value the condition compares against. The shape varies by condition type (boolean, integer, or list).'),
-    conditionResult: z.boolean().describe('The comparison result required for the condition to pass.')
+    id: z.string().optional().describe('Unique identifier of the condition.'),
+    type: z.string().optional().describe('The condition type. Example: "new_high_priority_issue"'),
+    comparison: z.unknown().optional().describe('The value the condition compares against. The shape varies by condition type (boolean, integer, or list).'),
+    conditionResult: z.unknown().optional().describe('The comparison result required for the condition to pass.')
 });
 
 const AlertRuleActionSchema = z.object({
-    id: z.string().describe('Unique identifier of the action.'),
-    type: z.string().describe('The action type. Example: "email"'),
+    id: z.string().optional().describe('Unique identifier of the action.'),
+    type: z.string().optional().describe('The action type. Example: "email"'),
     integrationId: z.string().nullable().optional().describe('ID of the third-party integration the action uses, or null when it does not use one.'),
     data: z.record(z.string(), z.unknown()).optional().describe('Additional action-specific settings as key/value pairs.'),
     config: z.record(z.string(), z.unknown()).optional().describe('Action configuration as key/value pairs, such as the notification target.'),
@@ -25,11 +25,11 @@ const AlertRuleActionSchema = z.object({
 });
 
 const AlertRuleConditionGroupSchema = z.object({
-    id: z.string().describe('Unique identifier of the condition group.'),
-    organizationId: z.string().describe('ID of the organization the condition group belongs to.'),
-    logicType: z.string().describe('Logic used to combine the conditions in this group. Example: "any"'),
-    conditions: z.array(AlertRuleConditionSchema).describe('Conditions evaluated by this group.'),
-    actions: z.array(AlertRuleActionSchema).describe('Actions executed when the conditions of this group pass.')
+    id: z.string().optional().describe('Unique identifier of the condition group.'),
+    organizationId: z.string().optional().describe('ID of the organization the condition group belongs to.'),
+    logicType: z.string().optional().describe('Logic used to combine the conditions in this group. Example: "any"'),
+    conditions: z.array(AlertRuleConditionSchema).optional().describe('Conditions evaluated by this group.'),
+    actions: z.array(AlertRuleActionSchema).optional().describe('Actions executed when the conditions of this group pass.')
 });
 
 const OutputSchema = z

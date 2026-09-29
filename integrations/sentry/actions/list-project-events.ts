@@ -87,8 +87,8 @@ const SentryEventSchema = z.looseObject({
     'event.type': z.string().optional(),
     groupID: z.string().nullable().optional(),
     projectID: z.string().optional(),
-    title: z.string().optional(),
-    message: z.string().optional(),
+    title: z.string().nullable().optional(),
+    message: z.string().nullable().optional(),
     location: z.string().nullable().optional(),
     culprit: z.string().nullable().optional(),
     platform: z.string().nullable().optional(),
@@ -127,11 +127,13 @@ function mapUser(user: z.infer<typeof SentryEventUserSchema>): z.infer<typeof Ev
 }
 
 function mapEvent(raw: z.infer<typeof SentryEventSchema>): z.infer<typeof EventSchema> {
-    const { 'event.type': eventType, groupID, location, culprit, platform, crashFile, user, tags, ...rest } = raw;
+    const { 'event.type': eventType, groupID, title, message, location, culprit, platform, crashFile, user, tags, ...rest } = raw;
     const mappedUser = user != null ? mapUser(user) : undefined;
 
     return {
         ...rest,
+        ...(title != null && { title }),
+        ...(message != null && { message }),
         ...(eventType !== undefined && { eventType }),
         ...(groupID != null && { groupID }),
         ...(location != null && { location }),

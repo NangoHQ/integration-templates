@@ -62,7 +62,11 @@ const DsnOutputSchema = z
         nel: z.string().optional().describe('Network Error Logging (NEL) report endpoint URL for this key'),
         unreal: z.string().optional().describe('Unreal Engine crash report endpoint URL for this key'),
         cdn: z.string().optional().describe('CDN URL of the Sentry browser SDK loader bundled with this key'),
-        crons: z.string().optional().describe('Cron check-in endpoint URL template for this key')
+        crons: z.string().optional().describe('Cron check-in endpoint URL template for this key'),
+        playstation: z.string().optional().describe('Endpoint URL for PlayStation crash reports'),
+        integration: z.string().optional().describe('Generic integration ingestion endpoint URL for the project'),
+        otlp_traces: z.string().optional().describe('OTLP endpoint URL for ingesting traces'),
+        otlp_logs: z.string().optional().describe('OTLP endpoint URL for ingesting logs')
     })
     .describe('Endpoint URLs derived from this client key');
 
@@ -146,7 +150,11 @@ const action = createAction({
                 ...(key.dsn.nel !== undefined && { nel: key.dsn.nel }),
                 ...(key.dsn.unreal !== undefined && { unreal: key.dsn.unreal }),
                 ...(key.dsn.cdn !== undefined && { cdn: key.dsn.cdn }),
-                ...(key.dsn.crons !== undefined && { crons: key.dsn.crons })
+                ...(key.dsn.crons !== undefined && { crons: key.dsn.crons }),
+                ...(key.dsn.playstation !== undefined && { playstation: key.dsn.playstation }),
+                ...(key.dsn.integration !== undefined && { integration: key.dsn.integration }),
+                ...(key.dsn.otlp_traces !== undefined && { otlp_traces: key.dsn.otlp_traces }),
+                ...(key.dsn.otlp_logs !== undefined && { otlp_logs: key.dsn.otlp_logs })
             },
             ...(key.browserSdkVersion !== undefined && { browserSdkVersion: key.browserSdkVersion }),
             dateCreated: key.dateCreated

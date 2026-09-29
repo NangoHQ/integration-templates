@@ -53,11 +53,17 @@ const ReleaseSchema = z
         version: z.string().describe('Full version string of the release. Example: "frontend@1.0.0"'),
         shortVersion: z.string().optional().describe('Shortened version string of the release.'),
         status: z.string().optional().describe('Status of the release, e.g. "open" or "archived".'),
-        versionInfo: ReleaseVersionInfoSchema.optional().describe('Parsed version metadata for the release.'),
+        versionInfo: ReleaseVersionInfoSchema.nullable()
+            .optional()
+            .describe('Parsed version metadata for the release, or null/omitted when the version could not be parsed.'),
         ref: z.string().nullable().optional().describe('Git ref (branch or tag) the release points to, or null when unset.'),
         url: z.string().nullable().optional().describe('External URL for the release, or null when unset.'),
         dateReleased: z.string().nullable().optional().describe('ISO 8601 timestamp when the release was finalized, or null when not yet released.'),
-        dateCreated: z.string().describe('ISO 8601 timestamp when the release was created. Example: "2024-01-01T00:00:00Z"'),
+        dateCreated: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('ISO 8601 timestamp when the release was created, or null/omitted when unknown. Example: "2024-01-01T00:00:00Z"'),
         data: z.record(z.string(), z.unknown()).optional().describe('Provider-specific metadata attached to the release.'),
         newGroups: z.number().optional().describe('Number of new issues (groups) first seen in this release.'),
         owner: z.record(z.string(), z.unknown()).nullable().optional().describe('Owner of the release, or null when none is assigned.'),
@@ -115,6 +121,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['org:ci', 'project:admin', 'project:read', 'project:releases', 'project:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

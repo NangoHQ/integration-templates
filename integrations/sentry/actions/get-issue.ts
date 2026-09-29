@@ -71,7 +71,7 @@ const IssueSchema = z
         shareId: z.string().nullable().optional().describe('Public share ID, present only when the issue has been shared publicly.'),
         shortId: z.string().describe('Human-readable issue identifier shown in the Sentry UI, e.g. "NANGO-SEED-PROJECT-1".'),
         title: z.string().describe('Issue title, typically the error message.'),
-        culprit: z.string().describe('Function or location that caused the issue, e.g. "runner in main".'),
+        culprit: z.string().nullable().optional().describe('Function or location that caused the issue, e.g. "runner in main"; null or absent when not set.'),
         permalink: z.string().nullable().optional().describe('Web URL of the issue in Sentry.'),
         logger: z.string().nullable().optional().describe('Logger that reported the events, when set.'),
         level: z.string().describe('Severity level of the issue, e.g. "error" or "warning".'),

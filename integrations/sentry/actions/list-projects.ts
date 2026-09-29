@@ -76,7 +76,11 @@ function parseNextCursor(linkHeader: string): string | undefined {
     }
     const urlCursor = nextPart.match(/[?&]cursor=([^>&]+)/);
     if (urlCursor && urlCursor[1]) {
-        return urlCursor[1];
+        // The cursor attribute is normally quoted directly on the Link entry (see above), but
+        // fall back to the URL's query string when it isn't. That value is percent-encoded
+        // (e.g. "100%3A1%3A0"), while InputSchema.cursor only accepts [\w:.-], so it must be
+        // decoded before being returned.
+        return decodeURIComponent(urlCursor[1]);
     }
     return undefined;
 }

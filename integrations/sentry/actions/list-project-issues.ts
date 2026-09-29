@@ -73,7 +73,7 @@ const IssueSchema = z
         isSubscribed: z.boolean().optional().describe('Whether the current user is subscribed to the issue.'),
         isUnhandled: z.boolean().optional().describe('Whether the issue was captured from an unhandled exception.'),
         hasSeen: z.boolean().optional().describe('Whether the current user has seen the issue.'),
-        priority: z.string().optional().describe('Issue priority, e.g. "high", "medium", or "low".'),
+        priority: z.string().nullable().optional().describe('Issue priority, e.g. "high", "medium", or "low"; null when not set.'),
         permalink: z.string().optional().describe('Web URL of the issue in Sentry.'),
         shareId: z.string().nullable().optional().describe('Public share link ID; null when the issue is not shared.'),
         annotations: z

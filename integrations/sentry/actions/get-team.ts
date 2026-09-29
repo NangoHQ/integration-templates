@@ -12,7 +12,7 @@ const ProviderTeamSchema = z.object({
     id: z.string(),
     slug: z.string(),
     name: z.string(),
-    dateCreated: z.string(),
+    dateCreated: z.string().nullable(),
     isMember: z.boolean(),
     teamRole: z.string().nullable(),
     flags: z.object({
@@ -34,7 +34,10 @@ const OutputSchema = z
         id: z.string().describe('The numeric ID of the team, as a string. Example: "4512170111401984"'),
         slug: z.string().describe('The URL-friendly slug of the team. Example: "nango-seed-team"'),
         name: z.string().describe('The display name of the team.'),
-        dateCreated: z.string().describe('ISO 8601 timestamp of when the team was created. Example: "2026-09-29T14:26:48.828608Z"'),
+        dateCreated: z
+            .string()
+            .optional()
+            .describe('ISO 8601 timestamp of when the team was created. Omitted when Sentry returns null. Example: "2026-09-29T14:26:48.828608Z"'),
         isMember: z.boolean().describe('Whether the member the token acts as is on the team.'),
         teamRole: z
             .string()
@@ -84,7 +87,7 @@ const action = createAction({
             id: team.id,
             slug: team.slug,
             name: team.name,
-            dateCreated: team.dateCreated,
+            ...(team.dateCreated != null && { dateCreated: team.dateCreated }),
             isMember: team.isMember,
             ...(team.teamRole != null && { teamRole: team.teamRole }),
             flags: {

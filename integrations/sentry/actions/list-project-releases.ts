@@ -31,7 +31,7 @@ const ReleaseVersionSchema = z.object({
 const ReleaseVersionInfoSchema = z.object({
     package: z.string().optional().describe('Package portion of the version string. Omitted when null. Example: "frontend"'),
     version: ReleaseVersionSchema.describe('Parsed components of the release version.'),
-    description: z.string().describe('Human-readable description of the version. Example: "1.0.0"'),
+    description: z.string().optional().describe('Human-readable description of the version. Omitted when not provided by Sentry. Example: "1.0.0"'),
     buildHash: z.string().optional().describe('Build hash of the version when available. Omitted when null.')
 });
 
@@ -62,15 +62,15 @@ const ReleaseSchema = z.object({
     ref: z.string().optional().describe('Git reference (commit SHA or tag) the release is tied to. Omitted when null.'),
     url: z.string().optional().describe('External URL pointing to the release. Omitted when null.'),
     dateReleased: z.string().optional().describe('ISO 8601 timestamp when the release was marked as released. Omitted when null.'),
-    dateCreated: z.string().describe('ISO 8601 timestamp when the release was created.'),
+    dateCreated: z.string().nullable().optional().describe('ISO 8601 timestamp when the release was created. Omitted when null.'),
     newGroups: z.number().describe('Number of new issues (groups) created by this release.'),
-    owner: z.string().optional().describe('Owner of the release. Omitted when null.'),
+    owner: z.record(z.string(), z.unknown()).optional().describe('Owner of the release, serialized as a Sentry user object. Omitted when null.'),
     commitCount: z.number().describe('Number of commits associated with the release.'),
     deployCount: z.number().describe('Number of deploys associated with the release.'),
     firstEvent: z.string().optional().describe('ISO 8601 timestamp of the first event seen in this release. Omitted when null.'),
     lastEvent: z.string().optional().describe('ISO 8601 timestamp of the most recent event seen in this release. Omitted when null.'),
     userAgent: z.string().optional().describe('User agent of the client that created the release. Omitted when null.'),
-    versionInfo: ReleaseVersionInfoSchema.describe('Parsed version metadata for the release.'),
+    versionInfo: ReleaseVersionInfoSchema.optional().describe('Parsed version metadata for the release. Omitted when Sentry could not parse the version.'),
     data: z.record(z.string(), z.unknown()).optional().describe('Free-form metadata attached to the release.'),
     lastCommit: z
         .record(z.string(), z.unknown())
@@ -102,7 +102,7 @@ const RawReleaseVersionSchema = z.object({
 const RawReleaseVersionInfoSchema = z.object({
     package: z.string().nullable().optional(),
     version: RawReleaseVersionSchema,
-    description: z.string(),
+    description: z.string().optional(),
     buildHash: z.string().nullable().optional()
 });
 
@@ -133,15 +133,15 @@ const RawReleaseSchema = z.object({
     ref: z.string().nullable().optional(),
     url: z.string().nullable().optional(),
     dateReleased: z.string().nullable().optional(),
-    dateCreated: z.string(),
+    dateCreated: z.string().nullable().optional(),
     newGroups: z.number(),
-    owner: z.string().nullable().optional(),
+    owner: z.record(z.string(), z.unknown()).nullable().optional(),
     commitCount: z.number(),
     deployCount: z.number(),
     firstEvent: z.string().nullable().optional(),
     lastEvent: z.string().nullable().optional(),
     userAgent: z.string().nullable().optional(),
-    versionInfo: RawReleaseVersionInfoSchema,
+    versionInfo: RawReleaseVersionInfoSchema.nullable(),
     data: z.record(z.string(), z.unknown()).optional(),
     lastCommit: z.record(z.string(), z.unknown()).nullable().optional(),
     lastDeploy: RawReleaseDeploySchema.nullable().optional(),
@@ -199,7 +199,7 @@ function mapRelease(release: z.infer<typeof RawReleaseSchema>): z.infer<typeof R
         ...(release.ref != null && { ref: release.ref }),
         ...(release.url != null && { url: release.url }),
         ...(release.dateReleased != null && { dateReleased: release.dateReleased }),
-        dateCreated: release.dateCreated,
+        ...(release.dateCreated != null && { dateCreated: release.dateCreated }),
         newGroups: release.newGroups,
         ...(release.owner != null && { owner: release.owner }),
         commitCount: release.commitCount,
@@ -207,7 +207,7 @@ function mapRelease(release: z.infer<typeof RawReleaseSchema>): z.infer<typeof R
         ...(release.firstEvent != null && { firstEvent: release.firstEvent }),
         ...(release.lastEvent != null && { lastEvent: release.lastEvent }),
         ...(release.userAgent != null && { userAgent: release.userAgent }),
-        versionInfo: mapVersionInfo(release.versionInfo),
+        ...(release.versionInfo != null && { versionInfo: mapVersionInfo(release.versionInfo) }),
         ...(release.data !== undefined && { data: release.data }),
         ...(release.lastCommit != null && { lastCommit: release.lastCommit }),
         ...(release.lastDeploy != null && { lastDeploy: mapDeploy(release.lastDeploy) }),

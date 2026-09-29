@@ -40,7 +40,10 @@ const EventSchema = z
         location: z.string().optional().describe('File or function location where the event occurred'),
         culprit: z.string().optional().describe('Function or module Sentry identified as the cause of the event'),
         platform: z.string().optional().describe('SDK platform that sent the event, e.g. "node"'),
-        dateCreated: z.string().describe('ISO-8601 timestamp of when Sentry ingested the event, e.g. "2026-09-29T15:04:05.000Z"'),
+        dateCreated: z
+            .string()
+            .optional()
+            .describe('ISO-8601 timestamp of when Sentry ingested the event, e.g. "2026-09-29T15:04:05.000Z"; omitted on the rare event Sentry cannot date'),
         eventType: z.string().optional().describe('Sentry event type, e.g. "error" or "default" (maps the provider field "event.type")'),
         user: EventUserSchema.optional().describe('User context attached to the event, when Sentry could associate one'),
         tags: z.array(EventTagSchema).optional().describe('Tags attached to the event'),
@@ -78,7 +81,7 @@ const SentryEventSchema = z.object({
     location: z.string().nullable().optional(),
     culprit: z.string().nullable().optional(),
     platform: z.string().nullable().optional(),
-    dateCreated: z.string(),
+    dateCreated: z.string().optional(),
     'event.type': z.string().optional(),
     user: z
         .object({
@@ -110,7 +113,7 @@ type SentryEvent = z.infer<typeof SentryEventSchema>;
 function toEvent(raw: SentryEvent): z.infer<typeof EventSchema> {
     return {
         id: raw.id,
-        dateCreated: raw.dateCreated,
+        ...(raw.dateCreated != null && { dateCreated: raw.dateCreated }),
         ...(raw.eventID != null && { eventID: raw.eventID }),
         ...(raw.projectID != null && { projectID: raw.projectID }),
         ...(raw.groupID != null && { groupID: raw.groupID }),

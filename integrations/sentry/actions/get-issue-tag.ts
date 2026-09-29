@@ -12,8 +12,8 @@ const InputSchema = z
 const IssueTagTopValueSchema = z.object({
     key: z.string().describe('Tag key this value belongs to. Example: "seed"'),
     name: z.string().describe('Human-readable display name of the tag value. Example: "nango"'),
-    value: z.string().describe('Raw tag value. Example: "nango"'),
-    count: z.number().describe('Number of times this tag value occurs on the issue. Example: 1'),
+    value: z.string().optional().describe('Raw tag value. Example: "nango". Omitted when Sentry reports null.'),
+    count: z.number().optional().describe('Number of times this tag value occurs on the issue. Example: 1. Omitted when Sentry reports null.'),
     lastSeen: z.string().optional().describe('ISO 8601 timestamp when this tag value was last seen on the issue. Example: "2026-09-29T12:00:00.000Z"'),
     firstSeen: z.string().optional().describe('ISO 8601 timestamp when this tag value was first seen on the issue. Example: "2026-09-29T12:00:00.000Z"')
 });
@@ -31,8 +31,8 @@ const OutputSchema = z
 const ProviderTagValueSchema = z.object({
     key: z.string(),
     name: z.string(),
-    value: z.string(),
-    count: z.number(),
+    value: z.string().nullable().optional(),
+    count: z.number().nullable().optional(),
     lastSeen: z.string().nullable().optional(),
     firstSeen: z.string().nullable().optional()
 });
@@ -74,8 +74,8 @@ const action = createAction({
             topValues: tag.topValues.map((value) => ({
                 key: value.key,
                 name: value.name,
-                value: value.value,
-                count: value.count,
+                ...(value.value != null && { value: value.value }),
+                ...(value.count != null && { count: value.count }),
                 ...(value.lastSeen != null && { lastSeen: value.lastSeen }),
                 ...(value.firstSeen != null && { firstSeen: value.firstSeen })
             }))

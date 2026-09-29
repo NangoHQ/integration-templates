@@ -75,7 +75,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['project:write', 'project:admin'],
+    scopes: ['project:write', 'project:admin', 'org:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
@@ -88,7 +88,8 @@ const action = createAction({
                 ...(input.default_rules !== undefined && { default_rules: input.default_rules })
             },
             // Create is not idempotent: retrying after a lost response could create a duplicate project.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- non-idempotent create: retries must stay 0
+            retries: 0
         };
 
         const response = await nango.post(config);

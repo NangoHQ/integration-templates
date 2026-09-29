@@ -17,8 +17,8 @@ const InputSchema = z
             .describe('Whether the client key is active. Set to false to deactivate the key and stop it from accepting events. Example: true'),
         rateLimit: z
             .object({
-                window: z.number().describe('Length of the rate-limit window in seconds. Example: 7200'),
-                count: z.number().describe('Maximum number of events accepted within the window. Example: 1000')
+                window: z.number().int().positive().describe('Length of the rate-limit window in seconds. Example: 7200'),
+                count: z.number().int().positive().describe('Maximum number of events accepted within the window. Example: 1000')
             })
             .nullable()
             .optional()
@@ -26,7 +26,10 @@ const InputSchema = z
     })
     .describe(
         'Input for updating a Sentry project client key. At least one of name, isActive, or rateLimit should be provided; omitted fields are left unchanged.'
-    );
+    )
+    .refine((input) => input.name !== undefined || input.isActive !== undefined || input.rateLimit !== undefined, {
+        message: 'At least one of name, isActive, or rateLimit must be provided; otherwise there is nothing to update.'
+    });
 
 const RateLimitSchema = z.object({
     window: z.number().describe('Length of the rate-limit window in seconds.'),
@@ -62,13 +65,16 @@ const OutputSchema = z
         id: z.string().describe('Unique ID of the client key, identical to its public key value.'),
         name: z.string().describe('Display name of the client key.'),
         label: z.string().describe('Label of the client key, mirroring its name.'),
-        public: z.string().describe('Public component of the key, embedded in every DSN.'),
-        secret: z.string().describe('Secret component of the key, used for authenticated ingestion.'),
+        public: z.string().nullable().describe('Public component of the key, embedded in every DSN; null when not set.'),
+        secret: z.string().nullable().describe('Secret component of the key, used for authenticated ingestion; null when not set.'),
         projectId: z.number().describe('Numeric ID of the project the key belongs to.'),
         isActive: z.boolean().describe('Whether the client key is currently active.'),
         rateLimit: RateLimitSchema.nullable().optional().describe('The active rate limit on the key, or null when no rate limit is set.'),
         browserSdkVersion: z.string().optional().describe('Version of the Sentry JavaScript SDK served by the loader script. Example: "7.x"'),
-        dateCreated: z.string().describe('ISO 8601 timestamp of when the key was created. Example: "2023-06-21T19:50:26.036254Z"'),
+        dateCreated: z
+            .string()
+            .nullable()
+            .describe('ISO 8601 timestamp of when the key was created, or null when not set. Example: "2023-06-21T19:50:26.036254Z"'),
         dsn: DsnSchema.optional().describe('Set of ingestion endpoint URLs derived from this key.'),
         dynamicSdkLoaderOptions: DynamicSdkLoaderOptionsSchema.optional().describe('Feature flags served by the JavaScript loader script for this key.')
     })

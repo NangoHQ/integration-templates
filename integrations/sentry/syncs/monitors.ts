@@ -7,9 +7,9 @@ const MonitorConfigSchema = z
             .enum(['crontab', 'interval'])
             .describe("Schedule syntax used by the monitor: 'crontab' for a crontab expression or 'interval' for a fixed interval."),
         schedule: z
-            .union([z.string(), z.array(z.number())])
+            .union([z.string(), z.tuple([z.number(), z.string()])])
             .describe(
-                "Crontab expression (e.g. '0 * * * *') when schedule_type is 'crontab', or a two-element [value, unit] array when schedule_type is 'interval'."
+                "Crontab expression (e.g. '0 * * * *') when schedule_type is 'crontab', or a [count, unit] tuple (e.g. [1, 'day']) when schedule_type is 'interval'."
             ),
         checkin_margin: z
             .number()

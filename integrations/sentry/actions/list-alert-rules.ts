@@ -53,7 +53,10 @@ const ProviderWorkflowSchema = z.object({
     dateCreated: z.string(),
     dateUpdated: z.string(),
     triggers: z.record(z.string(), z.unknown()).nullable(),
-    actionFilters: z.array(z.record(z.string(), z.unknown())),
+    actionFilters: z
+        .array(z.record(z.string(), z.unknown()))
+        .nullable()
+        .transform((actionFilters) => actionFilters ?? []),
     environment: z.string().nullable(),
     config: z.record(z.string(), z.unknown()),
     detectorIds: z.array(z.string()).nullable(),

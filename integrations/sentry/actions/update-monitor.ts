@@ -9,7 +9,7 @@ const MonitorConfigInputSchema = z
             .optional()
             .describe("Schedule type: 'crontab' for a cron expression schedule, 'interval' for a fixed repeating interval."),
         schedule: z
-            .union([z.string(), z.tuple([z.number().int().positive(), z.string()])])
+            .union([z.string(), z.tuple([z.number().int().positive(), z.enum(['minute', 'hour', 'day', 'week', 'month', 'year'])])])
             .optional()
             .describe(
                 'Schedule matching schedule_type: a crontab expression such as "0 * * * *", or a [count, unit] interval tuple such as [1, "day"] with unit minute, hour, day, week, month, or year.'
@@ -135,7 +135,7 @@ const ProviderMonitorSchema = z.object({
         schedule: z.union([z.string(), z.tuple([z.number(), z.string()])]).optional(),
         checkin_margin: z.number().nullable().optional(),
         max_runtime: z.number().nullable().optional(),
-        timezone: z.string().optional(),
+        timezone: z.string().nullable().optional(),
         failure_issue_threshold: z.number().nullable().optional(),
         recovery_threshold: z.number().nullable().optional()
     }),
@@ -186,8 +186,10 @@ const action = createAction({
         const proxyConfig: ProxyConfiguration = {
             // https://docs.sentry.io/api/crons/update-a-monitor/
             endpoint: `/0/organizations/${encodeURIComponent(input.organization_id_or_slug)}/monitors/${encodeURIComponent(input.monitor_id_or_slug)}/`,
-            // retries: 0 — a replayed PUT after a lost response could 404 once a slug rename has already been applied, so this mutation is not auto-retried.
-            retries: 10,
+            // A replayed PUT after a lost response can 404: once a slug rename in this same request has already been applied, monitor_id_or_slug
+            // (when it identifies the monitor by its old slug) no longer resolves, so this mutation is not auto-retried.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0,
             data: {
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.slug !== undefined && { slug: input.slug }),
@@ -211,7 +213,7 @@ const action = createAction({
                 ...(monitor.config.schedule !== undefined && { schedule: monitor.config.schedule }),
                 ...(monitor.config.checkin_margin != null && { checkin_margin: monitor.config.checkin_margin }),
                 ...(monitor.config.max_runtime != null && { max_runtime: monitor.config.max_runtime }),
-                ...(monitor.config.timezone !== undefined && { timezone: monitor.config.timezone }),
+                ...(monitor.config.timezone != null && { timezone: monitor.config.timezone }),
                 ...(monitor.config.failure_issue_threshold != null && { failure_issue_threshold: monitor.config.failure_issue_threshold }),
                 ...(monitor.config.recovery_threshold != null && { recovery_threshold: monitor.config.recovery_threshold })
             },

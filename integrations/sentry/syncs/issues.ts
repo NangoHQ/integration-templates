@@ -213,7 +213,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    scopes: ['event:read'],
+    scopes: ['event:read', 'org:read'],
     models: {
         Issue: IssueSchema
     },

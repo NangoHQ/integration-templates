@@ -24,7 +24,7 @@ const InputSchema = z
         limit: z.number().int().min(1).max(100).optional().describe('Maximum number of issues to return per page (1-100). Defaults to 100.'),
         cursor: z
             .string()
-            .regex(/^\d+:-?\d+:\d+$/)
+            .regex(/^-?\d+(?:\.\d+)?:-?\d+:-?\d+$/)
             .optional()
             .describe('Pagination cursor from the nextCursor of a previous response, e.g. "1700000000000:1:0". Omit for the first page.'),
         statsPeriod: z
@@ -50,7 +50,7 @@ const IssueAssigneeSchema = z.object({
     type: z.string().describe('Assignee actor type, e.g. "user" or "team".'),
     id: z.string().describe('ID of the assigned user or team.'),
     name: z.string().describe('Display name of the assigned user or team.'),
-    email: z.string().optional().describe('Email address of the assigned user. Only present when type is "user".')
+    email: z.string().nullable().optional().describe('Email address of the assigned user. Only present when type is "user"; null or absent otherwise.')
 });
 
 const IssueSubscriptionDetailsSchema = z.object({
@@ -62,6 +62,10 @@ const IssueAnnotationSchema = z.object({
     displayName: z.string().describe('Display name of the annotation.'),
     url: z.string().describe('URL the annotation links to.')
 });
+
+// Sentry renders annotations either as a plain string (e.g. a rendered link's display text) or as a
+// {displayName, url} object (e.g. a linked external issue-tracker reference); both forms are accepted.
+const IssueAnnotationEntrySchema = z.union([z.string(), IssueAnnotationSchema]);
 
 const IssueSchema = z.object({
     id: z.string().describe('Numeric issue ID as a string. Example: "7761433968".'),
@@ -93,12 +97,14 @@ const IssueSchema = z.object({
         .describe('Issue metadata for error issues.')
         .optional(),
     numComments: z.number().int().describe('Number of comments on the issue.'),
-    assignedTo: IssueAssigneeSchema.nullable().describe('User or team the issue is assigned to; null when unassigned.'),
+    assignedTo: IssueAssigneeSchema.nullable().optional().describe('User or team the issue is assigned to; null or absent when unassigned.'),
     isBookmarked: z.boolean().describe('Whether the acting user has bookmarked the issue.'),
     isSubscribed: z.boolean().describe('Whether the acting user is subscribed to the issue.'),
     subscriptionDetails: IssueSubscriptionDetailsSchema.nullable().describe('Details of the acting user subscription; null when not subscribed.'),
     hasSeen: z.boolean().describe('Whether the acting user has seen the issue.'),
-    annotations: z.array(IssueAnnotationSchema).describe('External annotations linked to the issue.'),
+    annotations: z
+        .array(IssueAnnotationEntrySchema)
+        .describe('External annotations linked to the issue; entries may be plain strings or {displayName, url} objects.'),
     isUnhandled: z.boolean().describe('Whether the issue was flagged as unhandled by the SDK.'),
     count: z.string().describe('Total number of events in the issue, as a string. Example: "150".'),
     userCount: z.number().int().describe('Number of unique users affected by the issue.'),

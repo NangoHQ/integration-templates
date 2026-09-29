@@ -67,6 +67,15 @@ const AssignedToSchema = z.object({
     email: z.string().optional().describe('Email of the assigned user. Only present for user assignees.')
 });
 
+// Provider-side assignee shape: Sentry can return an explicit null email for a user assignee (e.g. a user
+// without a public email) or for a team assignee, even though the output normalizes that to an omitted key.
+const ProviderAssignedToSchema = z.object({
+    type: z.string(),
+    id: z.string(),
+    name: z.string(),
+    email: z.string().nullable().optional()
+});
+
 const OutputSchema = z
     .object({
         id: z.string().describe('Numeric ID of the issue. Example: "7761433968"'),
@@ -117,7 +126,7 @@ const ProviderIssueSchema = z.object({
     isBookmarked: z.boolean(),
     isSubscribed: z.boolean(),
     hasSeen: z.boolean(),
-    assignedTo: AssignedToSchema.nullable(),
+    assignedTo: ProviderAssignedToSchema.nullable(),
     project: z.object({
         id: z.string(),
         name: z.string(),
@@ -156,8 +165,10 @@ const action = createAction({
                 ...(input.isPublic !== undefined && { isPublic: input.isPublic }),
                 ...(input.inbox !== undefined && { inbox: input.inbox })
             },
-            // State-setting update: retrying a lost response re-applies the same attribute values. The workspace proxy-call-retries lint rule requires a positive integer, so 0 is not permitted here.
-            retries: 3
+            // retries: 1 - most fields here set absolute state, so a retry after a lost response is safe, but
+            // statusDetails.ignoreDuration/ignoreWindow/ignoreUserWindow are relative to when Sentry processes the
+            // request; a blind retry would restart that window. Matches bulk-update-issues.ts's reasoning.
+            retries: 1
         });
 
         const issue = ProviderIssueSchema.parse(response.data);
@@ -177,7 +188,14 @@ const action = createAction({
             isBookmarked: issue.isBookmarked,
             isSubscribed: issue.isSubscribed,
             hasSeen: issue.hasSeen,
-            ...(issue.assignedTo != null && { assignedTo: issue.assignedTo }),
+            ...(issue.assignedTo != null && {
+                assignedTo: {
+                    type: issue.assignedTo.type,
+                    id: issue.assignedTo.id,
+                    name: issue.assignedTo.name,
+                    ...(issue.assignedTo.email != null && { email: issue.assignedTo.email })
+                }
+            }),
             project: {
                 id: issue.project.id,
                 name: issue.project.name,
