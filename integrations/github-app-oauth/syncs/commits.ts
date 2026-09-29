@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 const CommitSchema = z
     .object({
-        id: z.string().describe('The SHA hash of the commit, used as a stable unique identifier.'),
+        id: z.string().describe('A stable unique identifier for this record, formatted as "{owner}/{repo}:{branch}:{sha}" to stay unique across repositories.'),
         sha: z.string().describe('The SHA hash of the commit.'),
         message: z.string().describe('The commit message.'),
         author_name: z.string().optional().describe('The name of the commit author from the Git identity.'),
@@ -92,7 +92,7 @@ const ProviderRepoSchema = z.object({
 
 const sync = createSync({
     description: "Sync commits on a repository's default branch (or a specified branch).",
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -222,6 +222,13 @@ const sync = createSync({
             let currentPage = repoFullName === resumeRepoFullName ? checkpoint.page : 1;
             let newestCommitDate: string | undefined = sinceForRepo;
 
+            // Seed the map up front so a per-page checkpoint save mid-pagination (below) still reflects
+            // this repo's watermark even before any newer commit is found — otherwise a crash before the
+            // first page completes would drop the legacy `since` filter on resume and reprocess older history.
+            if (sinceForRepo !== undefined) {
+                sinceByRepo[repoFullName] = sinceForRepo;
+            }
+
             const proxyConfig: ProxyConfiguration = {
                 // https://docs.github.com/rest/commits/commits#list-commits
                 endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/commits`,
@@ -252,7 +259,7 @@ const sync = createSync({
                     }
                     const c = parsed.data;
                     return {
-                        id: c.sha,
+                        id: `${repoFullName}:${repo.branch}:${c.sha}`,
                         sha: c.sha,
                         message: c.commit.message,
                         ...(c.commit.author != null && {
@@ -284,11 +291,19 @@ const sync = createSync({
                 }
 
                 currentPage = currentPage + 1;
-                await nango.saveCheckpoint({
-                    since_by_repo: JSON.stringify(sinceByRepo),
-                    repo_full_name: repoFullName,
-                    page: currentPage
-                });
+
+                // Only persist progress incrementally when this is NOT the initial delete-tracked scan:
+                // saving a checkpoint mid-scan would make a crash-and-retry look like a plain incremental
+                // run next time (isFirstRun is derived from checkpoint presence), skipping
+                // trackDeletesStart/End and silently keeping commits that were actually deleted before the
+                // crash, while resuming from a stale page for whichever repo happened to be in progress.
+                if (!isFirstRun) {
+                    await nango.saveCheckpoint({
+                        since_by_repo: JSON.stringify(sinceByRepo),
+                        repo_full_name: repoFullName,
+                        page: currentPage
+                    });
+                }
             }
 
             if (newestCommitDate !== undefined) {

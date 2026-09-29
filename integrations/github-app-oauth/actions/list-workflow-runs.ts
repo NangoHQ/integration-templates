@@ -100,7 +100,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List workflow runs for a specific workflow or for the whole repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['actions:read'],

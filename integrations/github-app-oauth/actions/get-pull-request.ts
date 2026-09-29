@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('Repository owner username or organization name.'),
         repo: z.string().describe('Repository name.'),
-        pull_number: z.number().describe('Pull request number.')
+        pull_number: z.number().int().positive().describe('Pull request number.')
     })
     .describe('Input to get a single pull request.');
 
@@ -19,6 +19,12 @@ const ProviderUserSchema = z.object({
 const ProviderHeadBaseSchema = z.object({
     ref: z.string(),
     sha: z.string()
+});
+
+const ProviderLabelSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    color: z.string()
 });
 
 const ProviderPullRequestSchema = z.object({
@@ -35,6 +41,7 @@ const ProviderPullRequestSchema = z.object({
     merged_at: z.string().nullable(),
     merge_commit_sha: z.string().nullable(),
     user: ProviderUserSchema,
+    labels: z.array(ProviderLabelSchema).optional(),
     head: ProviderHeadBaseSchema,
     base: ProviderHeadBaseSchema
 });
@@ -49,6 +56,12 @@ const OutputUserSchema = z.object({
 const OutputHeadBaseSchema = z.object({
     ref: z.string().describe('Git ref name for the branch.'),
     sha: z.string().describe('SHA of the commit at the tip of the branch.')
+});
+
+const OutputLabelSchema = z.object({
+    id: z.number().describe('Unique label ID.'),
+    name: z.string().describe('Name of the label.'),
+    color: z.string().describe('Hex color code of the label, without the leading #.')
 });
 
 const OutputSchema = z
@@ -66,6 +79,7 @@ const OutputSchema = z
         merged_at: z.string().optional().describe('ISO 8601 timestamp when the pull request was merged, if applicable.'),
         merge_commit_sha: z.string().optional().describe('SHA of the merge commit, if the pull request was merged.'),
         user: OutputUserSchema.describe('Author of the pull request.'),
+        labels: z.array(OutputLabelSchema).optional().describe('Labels attached to the pull request.'),
         head: OutputHeadBaseSchema.describe('Source branch of the pull request.'),
         base: OutputHeadBaseSchema.describe('Target branch of the pull request.')
     })
@@ -77,7 +91,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Get details of a single pull request.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:read'],
@@ -120,6 +134,13 @@ const action = createAction({
                 html_url: providerPr.user.html_url,
                 type: providerPr.user.type
             },
+            ...(providerPr.labels && {
+                labels: providerPr.labels.map((label) => ({
+                    id: label.id,
+                    name: label.name,
+                    color: label.color
+                }))
+            }),
             head: {
                 ref: providerPr.head.ref,
                 sha: providerPr.head.sha

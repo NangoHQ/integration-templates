@@ -37,8 +37,8 @@ const FileOutputSchema = z.object({
 });
 
 const DirectoryOutputSchema = z.object({
-    type: z.literal('directory').describe('Content type discriminator for a directory listing.'),
-    entries: z.array(DirectoryItemSchema).describe('The list of items in the directory.')
+    type: z.literal('dir').describe('Content type discriminator for a directory listing.'),
+    items: z.array(DirectoryItemSchema).describe('The list of items in the directory.')
 });
 
 const SymlinkOutputSchema = z.object({
@@ -78,7 +78,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Get the content and metadata of a file (or list a directory) at a given path and ref.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],
@@ -99,7 +99,7 @@ const action = createAction({
         });
 
         if (Array.isArray(response.data)) {
-            const entries = response.data.map((item: unknown) => {
+            const items = response.data.map((item: unknown) => {
                 const parsed = DirectoryItemSchema.parse(item);
                 return {
                     type: parsed.type,
@@ -114,8 +114,8 @@ const action = createAction({
                 };
             });
             return {
-                type: 'directory',
-                entries
+                type: 'dir',
+                items
             };
         }
 

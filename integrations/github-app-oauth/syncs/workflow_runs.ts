@@ -3,9 +3,7 @@ import { z } from 'zod';
 
 const CheckpointSchema = z.object({
     created_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 created_at watermark for that repository.'),
-    pending_run_ids_by_repo: z
-        .string()
-        .describe('JSON-encoded map of "{owner}/{repo}" to workflow run IDs whose status was not terminal as of the last sync.')
+    pending_run_ids_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to workflow run IDs whose status was not terminal as of the last sync.')
 });
 
 // Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so

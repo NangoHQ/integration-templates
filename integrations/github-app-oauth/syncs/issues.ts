@@ -97,7 +97,7 @@ const ProviderIssueSchema = z.object({
 
 const sync = createSync({
     description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -128,6 +128,19 @@ const sync = createSync({
                     legacyUpdatedAfter = parsedLegacyCheckpoint.data.updated_after;
                 } else {
                     throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
+
+        if (legacyUpdatedAfter !== undefined) {
+            // Seed the fallback for every configured repo before the first checkpoint save, so a
+            // crash partway through the loop doesn't strand not-yet-processed repos without the
+            // legacy watermark (the in-memory `legacyUpdatedAfter` variable disappears once the
+            // checkpoint is persisted in the new per-repo shape).
+            for (const repo of metadata.repositories) {
+                const repoFullName = `${repo.owner}/${repo.repo}`;
+                if (!(repoFullName in updatedAfterByRepo)) {
+                    updatedAfterByRepo[repoFullName] = legacyUpdatedAfter;
                 }
             }
         }

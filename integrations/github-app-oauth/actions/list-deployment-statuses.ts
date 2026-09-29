@@ -52,13 +52,13 @@ const ProviderResponseSchema = z.array(ProviderStatusSchema);
  */
 const action = createAction({
     description: 'List the status history of a deployment.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
+        const page = input.cursor ? Number(input.cursor) : 1;
+        if (!Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_cursor',
                 message: 'cursor must be a positive integer string'

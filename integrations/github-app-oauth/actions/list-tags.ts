@@ -18,7 +18,7 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository.'),
         repo: z.string().describe('The name of the repository without the .git extension.'),
-        per_page: z.number().max(100).optional().describe('The number of results per page (max 100).'),
+        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100).'),
         cursor: z.string().optional().describe('The page number of the results to fetch. Omit for the first page.')
     })
     .describe('Input parameters for listing repository tags.');
@@ -37,7 +37,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List tags in a repository.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],

@@ -74,7 +74,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync deployments for a repository.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -107,6 +107,11 @@ const sync = createSync({
         }
 
         if (repositories.length === 0) {
+            // No accessible repositories this run (e.g. a transient GitHub App permission issue).
+            // Clear any stale mid-scan checkpoint so a later run starts a clean full scan instead of
+            // resuming at a page that no longer corresponds to reality, which would cause
+            // trackDeletesEnd to wrongly delete deployments from un-resynced earlier pages.
+            await nango.clearCheckpoint();
             return;
         }
 

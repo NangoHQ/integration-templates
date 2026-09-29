@@ -9,10 +9,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe('(Legacy) The name of the branch to create, without the refs/heads/ prefix. Prefer `branch`. Example: "feature/new-ui"'),
-        branch: z
-            .string()
-            .optional()
-            .describe('The name of the branch to create, without the refs/heads/ prefix. Example: "feature/new-ui"'),
+        branch: z.string().optional().describe('The name of the branch to create, without the refs/heads/ prefix. Example: "feature/new-ui"'),
         sha: z.string().describe('The SHA1 of the commit the new branch should point at. Example: "aa218f56b14c9653891f9e74264a383fa43fefbd"')
     })
     .describe('Input for creating a branch in a repository');

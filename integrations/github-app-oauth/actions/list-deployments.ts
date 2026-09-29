@@ -9,7 +9,7 @@ const InputSchema = z
         ref: z.string().optional().describe('Name of the ref (branch, tag, or SHA) to filter by.'),
         task: z.string().optional().describe('Deployment task to filter by. Default: "deploy".'),
         environment: z.string().optional().describe('Name of the environment to filter by.'),
-        per_page: z.number().optional().describe('Number of results per page. Max: 100.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Max: 100.'),
         page: z.number().optional().describe('Page number of the results to fetch.')
     })
     .describe('Input parameters for listing repository deployments.');
@@ -34,7 +34,7 @@ const DeploymentSchema = z.object({
     payload: z.unknown().describe('Optional payload attached to the deployment.'),
     environment: z.string().describe('The target environment of the deployment.'),
     description: z.string().nullable().describe('Optional description of the deployment.'),
-    creator: CreatorSchema,
+    creator: CreatorSchema.nullable().optional(),
     created_at: z.string().describe('ISO 8601 timestamp when the deployment was created.'),
     updated_at: z.string().describe('ISO 8601 timestamp when the deployment was last updated.'),
     statuses_url: z.string().describe('URL to fetch deployment statuses.'),
@@ -58,7 +58,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List deployments for a repository',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],
@@ -78,9 +78,13 @@ const action = createAction({
             retries: 3
         });
 
-        const deployments = z.array(DeploymentSchema).parse(response.data);
+        const rawDeployments = z.array(DeploymentSchema).parse(response.data);
+        const deployments = rawDeployments.map(({ creator, ...rest }) => ({
+            ...rest,
+            ...(creator != null && { creator })
+        }));
         const currentPage = input.page ?? 1;
-        const effectivePerPage = input.per_page ?? 30;
+        const effectivePerPage = Math.min(input.per_page ?? 30, 100);
         const nextPage = deployments.length === effectivePerPage ? currentPage + 1 : undefined;
 
         return {

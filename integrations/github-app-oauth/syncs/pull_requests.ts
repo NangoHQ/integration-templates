@@ -24,6 +24,11 @@ const LegacyCheckpointSchema = z.object({
     updated_after: z.string().describe('The single global ISO 8601 updated_at watermark used by the pre-migration version of this sync.')
 });
 
+// The old pre-migration version of this sync only ever synced this one hardcoded repository, so the
+// legacy watermark only means anything for that specific repository, not for any other repo that may
+// since have been added to the sync's metadata.
+const LEGACY_SINGLE_REPO_FULL_NAME = 'nango-provisioned-apps/nango';
+
 const AssigneeSchema = z
     .object({
         login: z.string().describe('The login username of the assignee.'),
@@ -158,7 +163,7 @@ const ProviderPullRequestSchema = z.object({
 
 const sync = createSync({
     description: 'Sync pull requests for a repository.',
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every 5 minutes',
     autoStart: false,
     metadata: MetadataSchema,
@@ -201,7 +206,15 @@ const sync = createSync({
 
         for (const repo of metadata.repositories) {
             const repoFullName = `${repo.owner}/${repo.repo}`;
-            const updatedAfter = updatedAfterByRepo[repoFullName] ?? legacyUpdatedAfter;
+            const updatedAfter =
+                updatedAfterByRepo[repoFullName] ?? (repoFullName === LEGACY_SINGLE_REPO_FULL_NAME ? legacyUpdatedAfter : undefined);
+
+            // Seed the per-repo watermark up front so it survives even if this run finds zero new PRs for
+            // this repo (which would otherwise leave the entry unset, forcing every future run to fully
+            // backfill this repo instead of recognizing it as already caught up to `updatedAfter`).
+            if (updatedAfter !== undefined) {
+                updatedAfterByRepo[repoFullName] = updatedAfter;
+            }
 
             const proxyConfig: ProxyConfiguration = {
                 // https://docs.github.com/rest/pulls/pulls#list-pull-requests
@@ -226,10 +239,6 @@ const sync = createSync({
 
             // https://docs.github.com/rest/pulls/pulls#list-pull-requests
             for await (const page of nango.paginate(proxyConfig)) {
-                if (stop) {
-                    break;
-                }
-
                 const validatedPage = page.map((item) => {
                     const result = ProviderPullRequestSchema.safeParse(item);
                     if (!result.success) {
@@ -299,12 +308,23 @@ const sync = createSync({
                 if (mapped.length > 0) {
                     await nango.batchSave(mapped, 'PullRequest');
                 }
+
+                if (stop) {
+                    break;
+                }
             }
 
             if (maxUpdatedAt !== undefined) {
                 updatedAfterByRepo[repoFullName] = maxUpdatedAt;
             }
-            await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
+
+            // Only persist progress incrementally when this is NOT the initial delete-tracked scan: saving
+            // a checkpoint mid-scan would make a crash-and-retry look like a plain incremental run next
+            // time (isFirstRun is derived from checkpoint presence), skipping trackDeletesStart/End and
+            // silently keeping pull requests that were actually deleted before the crash.
+            if (!isFirstRun) {
+                await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
+            }
         }
 
         if (isFirstRun) {
