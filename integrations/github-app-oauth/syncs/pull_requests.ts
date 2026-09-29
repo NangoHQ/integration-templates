@@ -206,8 +206,7 @@ const sync = createSync({
 
         for (const repo of metadata.repositories) {
             const repoFullName = `${repo.owner}/${repo.repo}`;
-            const updatedAfter =
-                updatedAfterByRepo[repoFullName] ?? (repoFullName === LEGACY_SINGLE_REPO_FULL_NAME ? legacyUpdatedAfter : undefined);
+            const updatedAfter = updatedAfterByRepo[repoFullName] ?? (repoFullName === LEGACY_SINGLE_REPO_FULL_NAME ? legacyUpdatedAfter : undefined);
 
             // Seed the per-repo watermark up front so it survives even if this run finds zero new PRs for
             // this repo (which would otherwise leave the entry unset, forcing every future run to fully
