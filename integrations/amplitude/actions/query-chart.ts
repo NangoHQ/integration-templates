@@ -150,14 +150,19 @@ const action = createAction({
             const rows = parseCsvIntoRows(unwrappedData);
             const parsedTimeSeries = parseAmplitudeTimeSeriesCsv(rows);
 
-            return {
-                ...(parsedTimeSeries !== undefined && {
+            if (parsedTimeSeries !== undefined) {
+                return {
                     series: parsedTimeSeries.series,
                     series_labels: parsedTimeSeries.seriesLabels,
-                    x_values: parsedTimeSeries.xValues
-                }),
-                chart_data: { ...responseData, rows }
-            };
+                    x_values: parsedTimeSeries.xValues,
+                    chart_data: responseData
+                };
+            }
+
+            // Unrecognized layout: return only the parsed grid, not also the raw string it was
+            // parsed from — keeping both would double the payload size for large charts and risk
+            // the 2MB action-output limit.
+            return { chart_data: { rows } };
         }
 
         const chartPayload = unwrappedData !== undefined && isRecord(unwrappedData) ? unwrappedData : responseData;
