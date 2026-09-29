@@ -74,6 +74,10 @@ const ProviderResponseSchema = z.object({
     '@odata.nextLink': z.string().optional()
 });
 
+// Keep the serialized response safely under Nango's 2 MB action output limit: passthrough
+// custom/large-text fields and a server-sized page together are otherwise unbounded.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 function extractSkipToken(nextLink: string): string | undefined {
     if (!URL.canParse(nextLink)) {
         return undefined;
@@ -84,7 +88,7 @@ function extractSkipToken(nextLink: string): string | undefined {
 /**
  * @tags: [read]
  * @tagReason: Performs a single read-only GET on the opportunities entity set and creates, updates, or deletes nothing in the provider.
- * @pitfalls: select, filter and orderby are raw OData v4 query options over opportunity attribute logical names (e.g. "statecode eq 0"); invalid syntax or unknown attribute names make the provider reject the request with a 400. Without top, results are capped at a single server-sized page (org default, normally 5000 records); pass the returned next_cursor back as cursor to continue.
+ * @pitfalls: select, filter and orderby are raw OData v4 query options over opportunity attribute logical names (e.g. "statecode eq 0"); invalid syntax or unknown attribute names make the provider reject the request with a 400. Without top, results are capped at a single server-sized page (org default, normally 5000 records); pass the returned next_cursor back as cursor to continue. This action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'List sales opportunities.',
@@ -113,10 +117,20 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
         const nextCursor = parsed['@odata.nextLink'] !== undefined ? extractSkipToken(parsed['@odata.nextLink']) : undefined;
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             opportunities: parsed.value,
             ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller top, a more restrictive select, or a filter, and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

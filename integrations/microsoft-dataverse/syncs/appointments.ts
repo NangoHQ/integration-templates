@@ -22,7 +22,11 @@ const AppointmentSchema = z
         isalldayevent: z.boolean().optional().describe('Whether the appointment is an all-day event.'),
         activitytypecode: z.string().optional().describe('Activity type discriminator; always "appointment" for records produced by this sync.'),
         createdon: z.string().describe('Timestamp the appointment record was created, as an ISO 8601 timestamp, e.g. "2026-09-18T19:43:41Z".'),
-        modifiedon: z.string().describe('Timestamp the appointment record was last modified, as an ISO 8601 timestamp; used as the incremental sync cursor.'),
+        modifiedon: z
+            .string()
+            .describe(
+                'Timestamp the appointment record was last modified, as an ISO 8601 timestamp. The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            ),
         ownerid: z.string().optional().describe('GUID of the user or team that owns the appointment (from the _ownerid_value lookup).'),
         regardingobjectid: z
             .string()
@@ -91,7 +95,7 @@ function toAppointment(record: z.infer<typeof DataverseAppointmentSchema>): z.in
 
 const sync = createSync({
     description:
-        'Sync appointment activities from Microsoft Dataverse, incrementally by modifiedon, with a periodic full refresh (every 24h) to detect deletions such as appointments cascade-deleted with their parent record.',
+        'Sync appointment activities from Microsoft Dataverse, incrementally by versionnumber, with a periodic full refresh (every 24h) to detect deletions such as appointments cascade-deleted with their parent record.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -115,6 +119,7 @@ const sync = createSync({
         let lastSeenVersionNumber = storedVersionNumber;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         // Dataverse does not return @odata.nextLink for $top-truncated results, so paginate by
         // re-filtering on the last-seen versionnumber (keyset pagination) ordered ascending.
@@ -139,13 +144,16 @@ const sync = createSync({
 
             // Full refreshes crawl every appointment (no version filter) so that trackDeletesEnd can
             // detect records deleted at the provider. The delete-tracking window opens only once the
-            // first page has been fetched and parsed, so a request or parse failure before that point
-            // never leaves it open. They always start from the first page, and the checkpoint is
-            // persisted only once, after the full scan completes, so an interrupted run restarts the
-            // full refresh instead of degrading into a plain incremental run that would silently keep
-            // already-deleted records.
-            if (isFirstPage && isFullRefresh) {
+            // first page has been fetched, parsed, and confirmed non-empty, so a request/parse
+            // failure or empty response before that point never leaves it open (an empty first page
+            // is treated as inconclusive, not proof the table is empty, since acting on it would mark
+            // every previously synced appointment as deleted). They always start from the first page,
+            // and the checkpoint is persisted only once, after the full scan completes, so an
+            // interrupted run restarts the full refresh instead of degrading into a plain incremental
+            // run that would silently keep already-deleted records.
+            if (isFirstPage && isFullRefresh && page.value.length > 0) {
                 await nango.trackDeletesStart('Appointment');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -170,7 +178,7 @@ const sync = createSync({
             hasMore = appointments.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Appointment');
             await nango.saveCheckpoint({
                 last_version_number: lastSeenVersionNumber ?? 0,

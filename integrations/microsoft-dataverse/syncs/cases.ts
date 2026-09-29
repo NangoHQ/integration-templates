@@ -148,7 +148,11 @@ const CaseSchema = z
         blockedprofile: z.boolean().optional().describe('Whether the customer is blocked from being contacted (blocked profile)'),
         createdon: z.string().describe('ISO 8601 timestamp of when the case was created, e.g. "2026-09-29T17:30:15Z"'),
         createdby_id: z.string().optional().describe('GUID of the systemuser who created the case'),
-        modifiedon: z.string().describe('ISO 8601 timestamp of when the case was last modified; used as the incremental sync cursor'),
+        modifiedon: z
+            .string()
+            .describe(
+                'ISO 8601 timestamp of when the case was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field'
+            ),
         modifiedby_id: z.string().optional().describe('GUID of the systemuser who last modified the case')
     })
     .describe(
@@ -218,7 +222,7 @@ function toCase(incident: z.infer<typeof RawIncidentSchema>): z.infer<typeof Cas
 }
 
 const sync = createSync({
-    description: 'Incrementally sync customer service cases (Dataverse incidents) using a modifiedon cursor, with a delete-tracked full refresh every 24 hours',
+    description: 'Incrementally sync customer service cases (Dataverse incidents) using a versionnumber cursor, with a delete-tracked full refresh every 24 hours',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -241,6 +245,7 @@ const sync = createSync({
         let lastSeen: number | undefined = isFullRefresh ? undefined : checkpoint.last_version_number;
         let hasMorePages = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMorePages) {
             const proxyConfig: ProxyConfiguration = {
@@ -263,18 +268,21 @@ const sync = createSync({
                 throw new Error(`Failed to parse incidents response from Dataverse: ${parsed.error.message}`);
             }
 
-            // No prerequisites to resolve, so the delete-tracking window opens as soon as the first
-            // page has been fetched and validated (not before): a request or parse failure before
-            // this point must never leave the window open. The full scan always starts from the
-            // first page: the version cursor from the checkpoint must not filter this walk or
-            // unchanged cases would be falsely deleted.
-            if (isFirstPage && isFullRefresh) {
-                await nango.trackDeletesStart('Case');
-            }
-            isFirstPage = false;
-
             const incidents = parsed.data.value;
             const lastIncident = incidents[incidents.length - 1];
+
+            // No prerequisites to resolve, so the delete-tracking window opens as soon as the first
+            // page has been fetched, validated, and confirmed non-empty (not before): a request or
+            // parse failure, or an empty first page, must never leave the window open. An empty
+            // first page is treated as inconclusive, not proof the table is empty, since acting on
+            // it would mark every previously synced case as deleted. The full scan always starts
+            // from the first page: the version cursor from the checkpoint must not filter this walk
+            // or unchanged cases would be falsely deleted.
+            if (isFirstPage && isFullRefresh && incidents.length > 0) {
+                await nango.trackDeletesStart('Case');
+                deleteTrackingOpened = true;
+            }
+            isFirstPage = false;
 
             if (incidents.length > 0 && lastIncident) {
                 await nango.batchSave(
@@ -296,7 +304,7 @@ const sync = createSync({
             hasMorePages = incidents.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             // The full scan completed: close the delete-tracking window exactly once, then persist
             // progress. No checkpoint is saved mid-scan so a crashed run re-enters the full refresh
             // path (and trackDeletesStart) on its next invocation instead of looking incremental.
@@ -309,9 +317,9 @@ const sync = createSync({
                     last_full_sync: now.toISOString()
                 });
             }
-            // If the org has no cases at all there is no cursor worth persisting; the next run
-            // re-enters the full refresh path and re-scans the (empty) entity set.
         }
+        // If the first page came back empty, delete tracking never opened and no checkpoint is
+        // touched here; the next run re-enters the full refresh path and re-scans the entity set.
     }
 });
 

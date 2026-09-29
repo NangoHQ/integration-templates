@@ -71,6 +71,10 @@ const KNOWN_USER_KEYS = new Set([
     'modifiedon'
 ]);
 
+// Keep the serialized response safely under Nango's 2 MB action output limit: a passthrough
+// custom field (e.g. a long-text, image, or file column) named in select is otherwise unbounded.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 const ProviderUserSchema = z.looseObject({
     systemuserid: z.string(),
     fullname: z.string().nullable().optional(),
@@ -99,7 +103,7 @@ const ProviderUserSchema = z.looseObject({
 /**
  * @tags: [read]
  * @tagReason: Performs a single provider GET against the systemusers entity set and mutates nothing.
- * @pitfalls: A nonexistent id throws the provider's 404 error rather than returning an empty result.
+ * @pitfalls: A nonexistent id throws the provider's 404 error rather than returning an empty result. This action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'Retrieve a single system user by id.',
@@ -124,7 +128,7 @@ const action = createAction({
         const user = ProviderUserSchema.parse(response.data);
         const extraFields = Object.fromEntries(Object.entries(user).filter(([key]) => !KNOWN_USER_KEYS.has(key)));
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             ...extraFields,
             systemuserid: user.systemuserid,
             ...(user.fullname != null && { fullname: user.fullname }),
@@ -149,6 +153,16 @@ const action = createAction({
             ...(user.createdon != null && { createdon: user.createdon }),
             ...(user.modifiedon != null && { modifiedon: user.modifiedon })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow select to exclude large custom fields and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

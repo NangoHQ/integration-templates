@@ -206,7 +206,7 @@ function toLead(record: z.infer<typeof DataverseLeadSchema>): z.infer<typeof Lea
 }
 
 const sync = createSync({
-    description: 'Sync leads (unqualified prospects) from Microsoft Dataverse, incrementally by modifiedon, with a periodic full refresh to detect deletions.',
+    description: 'Sync leads (unqualified prospects) from Microsoft Dataverse, incrementally by versionnumber, with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -230,6 +230,7 @@ const sync = createSync({
         let watermark = isFullRefresh ? undefined : checkpoint.last_version_number || undefined;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMore) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -247,12 +248,24 @@ const sync = createSync({
             const page = DataverseLeadListSchema.parse(response.data).value;
             const lastRecord = page.at(-1);
 
-            // Delete tracking opens only once the first page has been fetched and parsed
-            // successfully, so a failure before any data is seen never leaves the window open.
-            if (isFirstPage && isFullRefresh) {
-                await nango.trackDeletesStart('Lead');
+            if (isFirstPage) {
+                isFirstPage = false;
+                // An empty first page of a full refresh is treated as inconclusive, not proof
+                // the table is empty: opening (and later closing) delete tracking here would mark
+                // every previously synced lead as deleted on what could be a transient or bogus
+                // empty response. Bail out without touching delete tracking or the checkpoint, so
+                // the next run retries the full refresh from scratch.
+                if (lastRecord === undefined) {
+                    break;
+                }
+                // Delete tracking opens only once the first page has been fetched, parsed, and
+                // confirmed non-empty, so a failure or empty response before this point never
+                // leaves the window open.
+                if (isFullRefresh) {
+                    await nango.trackDeletesStart('Lead');
+                    deleteTrackingOpened = true;
+                }
             }
-            isFirstPage = false;
 
             if (lastRecord === undefined) {
                 break;
@@ -277,7 +290,7 @@ const sync = createSync({
             hasMore = page.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Lead');
             await nango.saveCheckpoint({
                 last_version_number: watermark ?? checkpoint.last_version_number,

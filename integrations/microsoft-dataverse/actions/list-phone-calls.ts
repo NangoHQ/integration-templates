@@ -123,10 +123,14 @@ const ProviderListResponseSchema = z.object({
     '@odata.nextLink': z.string().optional()
 });
 
+// Keep the serialized response safely under Nango's 2 MB action output limit: passthrough
+// custom fields and a server-sized page of calls together are otherwise unbounded.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 /**
  * @tags: [read]
  * @tagReason: Only performs a GET list request against Dataverse phone call activities; it mutates nothing in the provider.
- * @pitfalls: Fields with null values are omitted from each record rather than returned as null. top is the only way to limit results; if the server paginates a large result set, only the first page is returned and the action provides no input to follow next_link.
+ * @pitfalls: Fields with null values are omitted from each record rather than returned as null. top is the only way to limit results; if the server paginates a large result set, only the first page is returned and the action provides no input to follow next_link. This action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'List Dataverse phone call activities.',
@@ -150,9 +154,11 @@ const action = createAction({
 
         const parsed = ProviderListResponseSchema.parse(response.data);
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             phone_calls: parsed.value.map((call) => ({
-                ...Object.fromEntries(Object.entries(call).filter(([key]) => !KNOWN_PHONE_CALL_KEYS.has(key))),
+                // Extra/custom fields drop null values here too, matching the curated fields below,
+                // so the "nulls are omitted" contract holds for every field regardless of origin.
+                ...Object.fromEntries(Object.entries(call).filter(([key, value]) => !KNOWN_PHONE_CALL_KEYS.has(key) && value != null)),
                 id: call.activityid,
                 ...(call.subject != null && { subject: call.subject }),
                 ...(call.description != null && { description: call.description }),
@@ -175,6 +181,16 @@ const action = createAction({
             })),
             ...(parsed['@odata.nextLink'] !== undefined && { next_link: parsed['@odata.nextLink'] })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller top, a more restrictive select, or a filter, and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

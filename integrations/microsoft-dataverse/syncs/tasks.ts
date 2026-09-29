@@ -22,7 +22,11 @@ const TaskSchema = z
             .optional()
             .describe('GUID of the parent record this task is regarding, e.g. an account or contact (from the `_regardingobjectid_value` lookup).'),
         createdon: z.string().optional().describe('Timestamp the task was created, as an ISO 8601 UTC string.'),
-        modifiedon: z.string().describe('Timestamp the task was last modified, as an ISO 8601 UTC string. Used as the incremental sync cursor.')
+        modifiedon: z
+            .string()
+            .describe(
+                'Timestamp the task was last modified, as an ISO 8601 UTC string. The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            )
     })
     .describe('A task activity in Microsoft Dataverse (the OData v4 data platform underlying Dynamics 365 CRM).');
 
@@ -79,7 +83,7 @@ function toTask(record: DataverseTask) {
 }
 
 const sync = createSync({
-    description: 'Sync task activities from Microsoft Dataverse, incrementally on `modifiedon`, with a periodic full refresh to detect deletions.',
+    description: 'Sync task activities from Microsoft Dataverse, incrementally on `versionnumber`, with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every 5 minutes',
     autoStart: true,
@@ -120,6 +124,7 @@ const sync = createSync({
         let maxVersionNumber: number | undefined;
         let hasMorePages = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
         while (hasMorePages) {
             const records = await fetchPage(marker);
 
@@ -127,11 +132,14 @@ const sync = createSync({
             // tracking window: the Dataverse Web API has no deleted-records feed, and task
             // activities can disappear via cascade deletes without touching surviving rows,
             // which an incremental-only crawl would miss. The window opens only once the
-            // first page has been fetched and parsed, so a failure before any data is seen
-            // never leaves it open. No checkpoint is persisted mid-scan so a crashed run
-            // retries the full refresh.
-            if (isFirstPage && fullRefreshDue) {
+            // first page has been fetched, parsed, and confirmed non-empty, so a failure or
+            // empty response before this point never leaves it open (an empty first page is
+            // treated as inconclusive, not proof the table is empty, since acting on it would
+            // mark every previously synced task as deleted). No checkpoint is persisted
+            // mid-scan so a crashed run retries the full refresh.
+            if (isFirstPage && fullRefreshDue && records.length > 0) {
                 await nango.trackDeletesStart('Task');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -152,12 +160,12 @@ const sync = createSync({
             }
         }
 
-        if (fullRefreshDue) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Task');
         }
         await nango.saveCheckpoint({
             last_version_number: maxVersionNumber ?? lastVersionNumber ?? 0,
-            last_full_refresh: fullRefreshDue ? new Date().toISOString() : (lastFullRefresh ?? '')
+            last_full_refresh: deleteTrackingOpened ? new Date().toISOString() : (lastFullRefresh ?? '')
         });
     }
 });

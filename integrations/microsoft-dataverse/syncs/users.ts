@@ -24,7 +24,11 @@ const UserSchema = z
         isdisabled: z.boolean().optional().describe('Whether the user account is disabled. Dataverse typically disables users instead of hard-deleting them.'),
         islicensed: z.boolean().optional().describe('Whether the user is licensed in the tenant.'),
         createdon: z.string().describe('ISO 8601 UTC timestamp of when the user record was created, e.g. "2026-09-29T15:49:54Z".'),
-        modifiedon: z.string().describe('ISO 8601 UTC timestamp of when the user record was last modified; used as the incremental sync cursor.')
+        modifiedon: z
+            .string()
+            .describe(
+                'ISO 8601 UTC timestamp of when the user record was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            )
     })
     .describe('A Microsoft Dataverse system user (systemuser entity). Users are rarely hard-deleted; they are typically disabled via isdisabled instead.');
 
@@ -150,6 +154,7 @@ const sync = createSync({
         let pagingCookie: string | undefined;
         let hasMorePages = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         // Paging uses fetchXml page/count with a paging cookie: verified live that this endpoint never
         // emits @odata.nextLink for $top-capped OData queries (Prefer: odata.maxpagesize is ignored too)
@@ -172,10 +177,13 @@ const sync = createSync({
 
             // The full refresh crawl is intentionally unfiltered: trackDeletesEnd would falsely
             // delete unchanged users if a changed-only version filter were applied here. The window
-            // opens only once the first page has been fetched and parsed, so a failure before any
-            // data is seen never leaves it open.
-            if (isFirstPage && isFullRefresh) {
+            // opens only once the first page has been fetched, parsed, and confirmed non-empty, so a
+            // failure or empty response before this point never leaves it open (an empty first page
+            // is treated as inconclusive, not proof the table is empty, since acting on it would mark
+            // every previously synced user as deleted).
+            if (isFirstPage && isFullRefresh && parsed.value.length > 0) {
                 await nango.trackDeletesStart('User');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -208,7 +216,7 @@ const sync = createSync({
             }
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('User');
             await nango.saveCheckpoint({ last_version_number: maxVersionNumber ?? 0, last_full_sync: new Date().toISOString() });
         }

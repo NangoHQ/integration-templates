@@ -5,9 +5,11 @@ import { z } from 'zod';
 /**
  * Dataverse's Web API truncates `$top`-capped responses without returning an
  * `@odata.nextLink` (and the `odata.maxpagesize` preference is not honored
- * through the proxy), so paging walks a `modifiedon` watermark instead:
- * every page re-queries `$filter=modifiedon gt {lastSeen}` ordered by
- * `modifiedon asc`, and the checkpoint stores the last-seen `modifiedon`.
+ * through the proxy), so paging walks a `versionnumber` watermark instead:
+ * every page re-queries `$filter=versionnumber gt {lastSeen}` ordered by
+ * `versionnumber asc`, and the checkpoint stores the last-seen `versionnumber`.
+ * versionnumber is a unique, monotonically increasing rowversion, so unlike
+ * modifiedon it never ties across a page boundary or between runs.
  */
 const PAGE_SIZE = 100;
 
@@ -42,7 +44,11 @@ const PhoneCallSchema = z
         createdby: z.string().optional().describe('GUID of the user who created the phone call record.'),
         modifiedby: z.string().optional().describe('GUID of the user who last modified the phone call record.'),
         createdon: z.string().describe('Timestamp when the record was created (ISO 8601 UTC). Example: "2026-09-18T19:43:40Z"'),
-        modifiedon: z.string().describe('Timestamp when the record was last modified (ISO 8601 UTC). Used as the incremental sync watermark.')
+        modifiedon: z
+            .string()
+            .describe(
+                'Timestamp when the record was last modified (ISO 8601 UTC). The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            )
     })
     .describe('A Microsoft Dataverse phone call activity.');
 
@@ -113,7 +119,7 @@ function toPhoneCall(record: z.infer<typeof DataversePhoneCallSchema>) {
 }
 
 const sync = createSync({
-    description: 'Sync Microsoft Dataverse phone call activities, incrementally by `modifiedon`, with a periodic full crawl to detect deletions.',
+    description: 'Sync Microsoft Dataverse phone call activities, incrementally by `versionnumber`, with a periodic full crawl to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -141,6 +147,7 @@ const sync = createSync({
         let maxVersionNumber = lastVersionNumber;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMore) {
             const config: ProxyConfiguration = {
@@ -160,11 +167,14 @@ const sync = createSync({
             // a skipped record would be falsely reported as deleted.
             const records = page.value.map((item) => DataversePhoneCallSchema.parse(item));
 
-            // Delete tracking opens only once the first page has been fetched and
-            // parsed successfully, so a failure before any data is seen never leaves
-            // the window open.
-            if (isFirstPage && isFullRefresh) {
+            // Delete tracking opens only once the first page has been fetched, parsed, and
+            // confirmed non-empty, so a failure or empty response before this point never
+            // leaves the window open. An empty first page of a full refresh is treated as
+            // inconclusive, not proof the table is empty, since acting on it would mark every
+            // previously synced phone call as deleted.
+            if (isFirstPage && isFullRefresh && records.length > 0) {
                 await nango.trackDeletesStart('PhoneCall');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -188,7 +198,7 @@ const sync = createSync({
             hasMore = records.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('PhoneCall');
             await nango.saveCheckpoint({ last_version_number: maxVersionNumber, last_full_refresh: new Date().toISOString() });
         }

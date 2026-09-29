@@ -61,7 +61,9 @@ const OpportunitySchema = z
         createdon: z.string().describe('ISO 8601 timestamp when the opportunity record was created. Example: 2026-09-18T19:43:18Z'),
         modifiedon: z
             .string()
-            .describe('ISO 8601 timestamp when the opportunity record was last modified; drives the incremental sync. Example: 2026-09-18T19:44:35Z'),
+            .describe(
+                'ISO 8601 timestamp when the opportunity record was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field. Example: 2026-09-18T19:44:35Z'
+            ),
         _customerid_value: z.string().optional().describe('GUID of the customer (account or contact) associated with the opportunity.'),
         _parentaccountid_value: z.string().optional().describe('GUID of the parent account for the opportunity.'),
         _parentcontactid_value: z.string().optional().describe('GUID of the parent contact for the opportunity.'),
@@ -114,7 +116,7 @@ function toOpportunity(record: z.infer<typeof DataverseOpportunitySchema>): z.in
 }
 
 const sync = createSync({
-    description: 'Sync sales opportunities from Microsoft Dataverse, incrementally by modifiedon with a periodic full refresh to detect deletions.',
+    description: 'Sync sales opportunities from Microsoft Dataverse, incrementally by versionnumber with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -134,6 +136,7 @@ const sync = createSync({
 
         let lastSeenVersionNumber: number | undefined;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         if (isFullRefresh) {
             // The full crawl intentionally does NOT use $top: Dataverse does
@@ -144,7 +147,12 @@ const sync = createSync({
             let endpoint = '/api/data/v9.2/opportunities';
             let params: Record<string, string | number> | undefined = {
                 $select: SELECT_FIELDS,
-                $orderby: 'modifiedon asc'
+                // Ordered by versionnumber (not modifiedon) so the last record seen on the last
+                // page is always the true maximum versionnumber across the whole crawl: modifiedon
+                // ties don't preserve rowversion order, so sorting by modifiedon could leave a
+                // smaller-than-true-max value as the next incremental run's floor, forcing it to
+                // needlessly replay a range of already-synced records.
+                $orderby: 'versionnumber asc'
             };
             let hasNextPage = true;
 
@@ -161,11 +169,14 @@ const sync = createSync({
                 // a delete-tracked crawl would mark them as deleted.
                 const page = DataverseListResponseSchema.parse(response.data);
 
-                // Delete-tracked full crawl: the window opens only once the first page has
-                // been fetched and parsed successfully, so a failure before any data is seen
-                // never leaves it open.
-                if (isFirstPage) {
+                // Delete-tracked full crawl: the window opens only once the first page has been
+                // fetched, parsed, and confirmed non-empty, so a failure or empty response before
+                // this point never leaves it open. An empty first page is treated as inconclusive,
+                // not proof the table is empty, since acting on it would mark every previously
+                // synced opportunity as deleted.
+                if (isFirstPage && page.value.length > 0) {
                     await nango.trackDeletesStart('Opportunity');
+                    deleteTrackingOpened = true;
                 }
                 isFirstPage = false;
 
@@ -226,7 +237,7 @@ const sync = createSync({
             } while (hasMore);
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             // The checkpoint is persisted only once the full scan completes: a
             // mid-scan crash must re-run as a delete-tracked full crawl rather
             // than looking like a finished incremental run.

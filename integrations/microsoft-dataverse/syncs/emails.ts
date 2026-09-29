@@ -22,7 +22,9 @@ const EmailSchema = z
         modifiedon: z
             .string()
             .optional()
-            .describe('Time the email record was last modified as an ISO 8601 UTC timestamp. Used as the incremental checkpoint value.')
+            .describe(
+                'Time the email record was last modified as an ISO 8601 UTC timestamp. The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            )
     })
     .describe('An email activity from the Dataverse emails entity set.');
 
@@ -96,7 +98,7 @@ function toEmail(record: DataverseEmail): z.infer<typeof EmailSchema> {
 }
 
 const sync = createSync({
-    description: 'Sync email activities from Microsoft Dataverse, incrementally by modifiedon with a periodic full refresh to detect deletions.',
+    description: 'Sync email activities from Microsoft Dataverse, incrementally by versionnumber with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -118,6 +120,7 @@ const sync = createSync({
         let endpoint: string | undefined = '/api/data/v9.2/emails';
         let params: Record<string, string | number> | undefined = buildListParams(fullRefresh ? undefined : checkpoint?.lastVersionNumber);
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (endpoint !== undefined) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -131,11 +134,14 @@ const sync = createSync({
             // Dataverse Web API exposes no deleted-records feed, and emails can disappear
             // through cascade deletes when their parent record is removed, so the periodic
             // full crawl is wrapped in delete tracking. The window opens only once the first
-            // page has been fetched and parsed successfully, so a failure before any data is
-            // seen never leaves it open. The checkpoint is intentionally not persisted
-            // mid-scan: a crashed run must restart as a delete-tracked full crawl.
-            if (isFirstPage && fullRefresh) {
+            // page has been fetched, parsed, and confirmed non-empty, so a failure or empty
+            // response before this point never leaves it open (an empty first page is treated
+            // as inconclusive, not proof the table is empty, since acting on it would mark
+            // every previously synced email as deleted). The checkpoint is intentionally not
+            // persisted mid-scan: a crashed run must restart as a delete-tracked full crawl.
+            if (isFirstPage && fullRefresh && page.value.length > 0) {
                 await nango.trackDeletesStart('Email');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -173,7 +179,7 @@ const sync = createSync({
             }
         }
 
-        if (fullRefresh) {
+        if (deleteTrackingOpened) {
             // Close delete tracking before advancing the full-refresh checkpoint. If
             // trackDeletesEnd() fails, the next run must retry the delete-tracked crawl.
             await nango.trackDeletesEnd('Email');

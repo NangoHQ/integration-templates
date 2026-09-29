@@ -155,6 +155,7 @@ const sync = createSync({
         let latestVersionNumber: number | undefined;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -170,10 +171,14 @@ const sync = createSync({
             const response = await nango.get<unknown>(proxyConfig);
             const page = DataverseAccountPageSchema.parse(response.data);
 
-            // Delete tracking opens only once the first page has been fetched and parsed
-            // successfully, so a failure before any data is seen never leaves the window open.
-            if (isFirstPage && isFullRefresh) {
+            // Delete tracking opens only once the first page has been fetched, parsed, and
+            // confirmed non-empty. An empty first page of a full refresh is treated as
+            // inconclusive, not proof the table is empty: opening (and later closing) delete
+            // tracking on it would mark every previously synced account as deleted on what
+            // could be a transient or bogus empty response.
+            if (isFirstPage && isFullRefresh && page.value.length > 0) {
                 await nango.trackDeletesStart('Account');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -199,7 +204,7 @@ const sync = createSync({
             hasMore = page.value.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Account');
             // Persist the checkpoint only once the full scan has completed: saving it mid-scan would make
             // a crashed run look like a plain incremental run on retry and skip delete tracking.

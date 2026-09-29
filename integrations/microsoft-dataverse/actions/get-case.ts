@@ -51,6 +51,11 @@ const KNOWN_INCIDENT_KEYS = new Set([
     'modifiedon'
 ]);
 
+// Keep the serialized response safely under Nango's 2 MB action output limit: a wide or
+// large case record (e.g. a long description plus several passthrough custom fields) is
+// otherwise unbounded, especially when select is omitted and every attribute is returned.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 const IncidentSchema = z.looseObject({
     incidentid: z.string().optional(),
     ticketnumber: z.string().optional(),
@@ -73,7 +78,7 @@ const IncidentSchema = z.looseObject({
 /**
  * @tags: [read]
  * @tagReason: Performs a single provider read of a case (incident) record by id with no mutations.
- * @pitfalls: When select is provided, only the requested attributes are returned, so unselected output fields are omitted even when the case has values for them; the case id is always returned regardless of the selection. Option-set fields (statuscode, statecode, prioritycode, severitycode) may be explicitly null when unset on the case, in which case they are omitted from the output.
+ * @pitfalls: When select is provided, only the requested attributes are returned, so unselected output fields are omitted even when the case has values for them; the case id is always returned regardless of the selection. Option-set fields (statuscode, statecode, prioritycode, severitycode) may be explicitly null when unset on the case, in which case they are omitted from the output. This action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'Retrieve a single case by id.',
@@ -94,7 +99,7 @@ const action = createAction({
         const incident = IncidentSchema.parse(response.data);
         const extraFields = Object.fromEntries(Object.entries(incident).filter(([key]) => !KNOWN_INCIDENT_KEYS.has(key)));
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             ...extraFields,
             id: incident.incidentid ?? input.incident_id,
             ...(incident.ticketnumber != null && { ticketnumber: incident.ticketnumber }),
@@ -111,6 +116,16 @@ const action = createAction({
             ...(incident.createdon != null && { createdon: incident.createdon }),
             ...(incident.modifiedon != null && { modifiedon: incident.modifiedon })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow select to exclude large fields and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

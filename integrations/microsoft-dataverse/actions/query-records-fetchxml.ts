@@ -76,14 +76,20 @@ function injectFetchPaging(fetchXml: string, page: number, pagingCookie: string)
     let injected = false;
     const result = fetchXml.replace(/<fetch\b([^>]*)>/i, (_match, attrs: string) => {
         injected = true;
-        const cleanedAttrs = attrs.replace(/\s+page\s*=\s*"[^"]*"/i, '').replace(/\s+paging-cookie\s*=\s*"[^"]*"/i, '');
+        // Caller-supplied FetchXML may quote attribute values with either " or ', so both quote
+        // styles must be stripped here; otherwise a single-quoted page/paging-cookie attribute is
+        // left in place and a second, double-quoted one is appended, producing an invalid document
+        // with the attribute duplicated.
+        const cleanedAttrs = attrs
+            .replace(/\s+page\s*=\s*(?:"[^"]*"|'[^']*')/i, '')
+            .replace(/\s+paging-cookie\s*=\s*(?:"[^"]*"|'[^']*')/i, '');
         return `<fetch${cleanedAttrs} page="${page}" paging-cookie="${escapeXmlAttribute(pagingCookie)}">`;
     });
     return injected ? result : undefined;
 }
 
 const CursorSchema = z.object({
-    page: z.number(),
+    page: z.number().int().positive(),
     pagingCookie: z.string()
 });
 

@@ -18,25 +18,36 @@ const InputSchema = z
 const OutputSchema = z
     .looseObject({
         teamid: z.string().describe('Unique identifier (GUID) of the team.'),
-        name: z.string().nullable().optional().describe('Name of the team. Omitted when empty or not selected.'),
-        description: z.string().nullable().optional().describe('Description of the team. Omitted when empty or not selected.'),
+        name: z.string().optional().describe('Name of the team. Omitted when empty or not selected.'),
+        description: z.string().optional().describe('Description of the team. Omitted when empty or not selected.'),
         teamtype: z
             .number()
-            .nullable()
             .optional()
             .describe('Team type: 0 = Owner, 1 = Access, 2 = Microsoft Entra security group, 3 = Microsoft Entra Office group. Omitted when not selected.'),
-        isdefault: z.boolean().nullable().optional().describe('Whether the team is the default team of its business unit. Omitted when not selected.'),
+        isdefault: z.boolean().optional().describe('Whether the team is the default team of its business unit. Omitted when not selected.'),
         azureactivedirectoryobjectid: z
             .string()
-            .nullable()
             .optional()
             .describe('Object id of the linked Microsoft Entra group, present only for Microsoft Entra-backed teams. Omitted otherwise.'),
-        createdon: z.string().nullable().optional().describe('ISO 8601 timestamp of when the team was created. Example: "2024-05-01T12:34:56Z".'),
-        modifiedon: z.string().nullable().optional().describe('ISO 8601 timestamp of when the team was last modified. Example: "2024-05-01T12:34:56Z".')
+        createdon: z.string().optional().describe('ISO 8601 timestamp of when the team was created. Example: "2024-05-01T12:34:56Z".'),
+        modifiedon: z.string().optional().describe('ISO 8601 timestamp of when the team was last modified. Example: "2024-05-01T12:34:56Z".')
     })
     .describe(
-        'The retrieved team record. Attributes beyond the ones listed, including custom team fields, depend on the select input and are passed through unchanged.'
+        'The retrieved team record. Known fields with no value are omitted rather than returned as null. Attributes beyond the ones listed, including custom team fields, depend on the select input and are passed through unchanged (including as explicit null).'
     );
+
+const KNOWN_TEAM_KEYS = new Set(['teamid', 'name', 'description', 'teamtype', 'isdefault', 'azureactivedirectoryobjectid', 'createdon', 'modifiedon']);
+
+const TeamRecordSchema = z.looseObject({
+    teamid: z.string(),
+    name: z.string().nullable().optional(),
+    description: z.string().nullable().optional(),
+    teamtype: z.number().nullable().optional(),
+    isdefault: z.boolean().nullable().optional(),
+    azureactivedirectoryobjectid: z.string().nullable().optional(),
+    createdon: z.string().nullable().optional(),
+    modifiedon: z.string().nullable().optional()
+});
 
 /**
  * @tags: [read]
@@ -63,7 +74,20 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        const team = TeamRecordSchema.parse(response.data);
+        const extraFields = Object.fromEntries(Object.entries(team).filter(([key]) => !KNOWN_TEAM_KEYS.has(key)));
+
+        return {
+            ...extraFields,
+            teamid: team.teamid,
+            ...(team.name != null && { name: team.name }),
+            ...(team.description != null && { description: team.description }),
+            ...(team.teamtype != null && { teamtype: team.teamtype }),
+            ...(team.isdefault != null && { isdefault: team.isdefault }),
+            ...(team.azureactivedirectoryobjectid != null && { azureactivedirectoryobjectid: team.azureactivedirectoryobjectid }),
+            ...(team.createdon != null && { createdon: team.createdon }),
+            ...(team.modifiedon != null && { modifiedon: team.modifiedon })
+        };
     }
 });
 

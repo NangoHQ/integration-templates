@@ -19,7 +19,9 @@ const TeamSchema = z
         createdon: z.string().optional().describe('ISO 8601 timestamp of when the team was created. Example: "2026-09-17T13:28:51Z".'),
         modifiedon: z
             .string()
-            .describe('ISO 8601 timestamp of when the team was last modified; drives the incremental sync filter. Example: "2026-09-17T13:28:57Z".')
+            .describe(
+                'ISO 8601 timestamp of when the team was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field. Example: "2026-09-17T13:28:57Z".'
+            )
     })
     .describe('A Microsoft Dataverse team (entity set: teams).');
 
@@ -73,7 +75,7 @@ function toTeam(record: TeamRecord): Team {
 }
 
 const sync = createSync({
-    description: 'Sync Microsoft Dataverse teams incrementally by modifiedon, with a periodic full refresh to detect deletions.',
+    description: 'Sync Microsoft Dataverse teams incrementally by versionnumber, with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -118,17 +120,22 @@ const sync = createSync({
         let maxVersionNumber: number | undefined;
         let hasMorePages = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
         while (hasMorePages) {
             const records = await fetchTeamsPage(after);
+            const last = records[records.length - 1];
 
-            // Delete tracking opens only once the first page has been fetched and parsed
-            // successfully, so a failure before any data is seen never leaves the window open.
-            if (isFirstPage && isFullRefresh) {
+            // Delete tracking opens only once the first page has been fetched, parsed, and
+            // confirmed non-empty, so a failure or empty response before this point never leaves
+            // the window open. An empty first page of a full refresh is treated as inconclusive,
+            // not proof the table is empty, since acting on it would mark every previously synced
+            // team as deleted.
+            if (isFirstPage && isFullRefresh && last) {
                 await nango.trackDeletesStart('Team');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
-            const last = records[records.length - 1];
             if (!last) {
                 // Empty page: nothing left to fetch.
                 hasMorePages = false;
@@ -147,7 +154,7 @@ const sync = createSync({
             hasMorePages = records.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Team');
             await nango.saveCheckpoint({
                 lastVersionNumber: maxVersionNumber ?? 0,

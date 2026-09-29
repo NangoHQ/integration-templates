@@ -24,7 +24,11 @@ const NoteSchema = z
         created_by: z.string().optional().describe('GUID of the user who created the note.'),
         modified_by: z.string().optional().describe('GUID of the user who last modified the note.'),
         createdon: z.string().describe('ISO 8601 timestamp when the note was created, e.g. "2026-09-29T17:29:26Z".'),
-        modifiedon: z.string().describe('ISO 8601 timestamp when the note was last modified; drives the incremental sync high-water mark.')
+        modifiedon: z
+            .string()
+            .describe(
+                'ISO 8601 timestamp when the note was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field.'
+            )
     })
     .describe('A Dataverse note (annotation), optionally attached to a parent record such as an account, contact, or opportunity.');
 
@@ -87,7 +91,7 @@ function toNote(record: z.infer<typeof DataverseNoteSchema>): z.infer<typeof Not
 }
 
 const sync = createSync({
-    description: 'Sync notes (annotations) from Microsoft Dataverse, incrementally by modifiedon, with a periodic delete-tracked full refresh.',
+    description: 'Sync notes (annotations) from Microsoft Dataverse, incrementally by versionnumber, with a periodic delete-tracked full refresh.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -113,6 +117,7 @@ const sync = createSync({
         let lastSeenVersionNumber = fullRefresh ? 0 : checkpoint.last_version_number;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMore) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -134,15 +139,18 @@ const sync = createSync({
                 throw new Error(`Failed to parse Dataverse annotations response: ${parsed.error.message}`);
             }
 
-            // Delete tracking opens only once the first page has been fetched and
-            // parsed successfully, so a failure before any data is seen never leaves
-            // the window open. No prerequisite lookups are otherwise needed.
-            if (isFirstPage && fullRefresh) {
+            const records = parsed.data.value;
+
+            // Delete tracking opens only once the first page has been fetched, parsed, and
+            // confirmed non-empty, so a failure or empty response before this point never
+            // leaves the window open. An empty first page of a full refresh is treated as
+            // inconclusive, not proof the table is empty, since acting on it would mark every
+            // previously synced note as deleted.
+            if (isFirstPage && fullRefresh && records.length > 0) {
                 await nango.trackDeletesStart('Note');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
-
-            const records = parsed.data.value;
 
             if (records.length > 0) {
                 const notes = records.map(toNote);
@@ -164,7 +172,7 @@ const sync = createSync({
             hasMore = records.length >= PAGE_SIZE;
         }
 
-        if (fullRefresh) {
+        if (deleteTrackingOpened) {
             // Close the delete-tracking window and only then persist the checkpoint:
             // a crash before this point leaves the previous checkpoint intact, so the
             // next run redoes the full refresh instead of silently skipping deletions.

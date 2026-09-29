@@ -101,6 +101,7 @@ const sync = createSync({
         let maxVersionNumber: number | undefined;
         let hasMore = true;
         let isFirstPage = true;
+        let deleteTrackingOpened = false;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
@@ -118,10 +119,14 @@ const sync = createSync({
             // would falsely mark it as deleted.
             const rows = DataverseContactListSchema.parse(response.data).value;
 
-            // Delete tracking opens only once the first page has been fetched and parsed
-            // successfully, so a failure before any data is seen never leaves the window open.
-            if (isFirstPage && isFullRefresh) {
+            // Delete tracking opens only once the first page has been fetched, parsed, and
+            // confirmed non-empty, so a failure or empty response before this point never leaves
+            // the window open. An empty first page of a full refresh is treated as inconclusive,
+            // not proof the table is empty, since acting on it would mark every previously synced
+            // contact as deleted.
+            if (isFirstPage && isFullRefresh && rows.length > 0) {
                 await nango.trackDeletesStart('Contact');
+                deleteTrackingOpened = true;
             }
             isFirstPage = false;
 
@@ -168,18 +173,19 @@ const sync = createSync({
             hasMore = rows.length === PAGE_SIZE;
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingOpened) {
             await nango.trackDeletesEnd('Contact');
         }
 
         // Completion checkpoint: advance the versionnumber watermark. Never reset it to 0 -
         // doing so would let the next run's filter regress and re-skip any contact written
         // with the same versionnumber floor. For a full refresh this is saved only after
-        // trackDeletesEnd, so a crash mid-scan makes the next run redo the full refresh
-        // instead of resuming as a plain incremental that would silently skip delete tracking.
+        // trackDeletesEnd, so a crash mid-scan (or an empty first page that never opened
+        // tracking) makes the next run redo the full refresh instead of resuming as a plain
+        // incremental that would silently skip delete tracking.
         await nango.saveCheckpoint({
             last_version_number: maxVersionNumber ?? checkpoint?.last_version_number ?? 0,
-            last_full_refresh_at: isFullRefresh ? now.toISOString() : (checkpoint?.last_full_refresh_at ?? '')
+            last_full_refresh_at: deleteTrackingOpened ? now.toISOString() : (checkpoint?.last_full_refresh_at ?? '')
         });
     }
 });
