@@ -1,0 +1,430 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev"
+  },
+  "output": {
+    "id": "4512170041409536",
+    "slug": "nangodev",
+    "name": "NangoDev",
+    "status": {
+      "id": "active",
+      "name": "active"
+    },
+    "dateCreated": "2026-09-29T14:09:02.024798Z",
+    "isEarlyAdopter": false,
+    "require2FA": false,
+    "allowMemberInvite": true,
+    "allowMemberProjectCreation": true,
+    "allowSuperuserAccess": true,
+    "hasAuthProvider": false,
+    "avatar": {
+      "avatarType": "letter_avatar",
+      "avatarUuid": null,
+      "avatarUrl": null
+    },
+    "links": {
+      "organizationUrl": "https://nangodev.sentry.io",
+      "regionUrl": "https://us.sentry.io"
+    },
+    "access": [
+      "project:releases",
+      "member:write",
+      "project:read",
+      "org:read",
+      "member:read",
+      "event:read",
+      "team:read",
+      "alerts:read",
+      "member:invite",
+      "alerts:write",
+      "project:write",
+      "team:write",
+      "event:write",
+      "org:write"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/0/organizations/nangodev/": {
+        "response": {
+          "id": "4512170041409536",
+          "slug": "nangodev",
+          "status": {
+            "id": "active",
+            "name": "active"
+          },
+          "name": "NangoDev",
+          "dateCreated": "2026-09-29T14:09:02.024798Z",
+          "isEarlyAdopter": false,
+          "require2FA": false,
+          "avatar": {
+            "avatarType": "letter_avatar",
+            "avatarUuid": null,
+            "avatarUrl": null
+          },
+          "allowMemberInvite": true,
+          "allowMemberProjectCreation": true,
+          "allowSuperuserAccess": true,
+          "links": {
+            "organizationUrl": "https://nangodev.sentry.io",
+            "regionUrl": "https://us.sentry.io"
+          },
+          "hasAuthProvider": false,
+          "access": [
+            "project:releases",
+            "member:write",
+            "project:read",
+            "org:read",
+            "member:read",
+            "event:read",
+            "team:read",
+            "alerts:read",
+            "member:invite",
+            "alerts:write",
+            "project:write",
+            "team:write",
+            "event:write",
+            "org:write"
+          ],
+          "onboardingTasks": [
+            {
+              "task": "create_project",
+              "status": "complete",
+              "completionSeen": null,
+              "dateCompleted": "2026-09-29T14:26:58.005122Z",
+              "data": {}
+            },
+            {
+              "task": "send_first_event",
+              "status": "complete",
+              "completionSeen": null,
+              "dateCompleted": "2026-09-29T14:27:52.929180Z",
+              "data": {}
+            },
+            {
+              "task": "invite_member",
+              "status": "complete",
+              "completionSeen": null,
+              "dateCompleted": "2026-09-29T14:33:02.349529Z",
+              "data": {}
+            },
+            {
+              "task": "setup_second_platform",
+              "status": "complete",
+              "completionSeen": null,
+              "dateCompleted": "2026-09-29T14:31:32.670211Z",
+              "data": {}
+            }
+          ],
+          "experiments": {
+            "onboarding-scm-experiment": "active",
+            "onboarding-scm-messaging-experiment": "active",
+            "onboarding-scm-project-creation-experiment": "control"
+          },
+          "isDefault": false,
+          "defaultRole": "member",
+          "availableRoles": [
+            {
+              "id": "billing",
+              "name": "Billing"
+            },
+            {
+              "id": "member",
+              "name": "Member"
+            },
+            {
+              "id": "admin",
+              "name": "Admin"
+            },
+            {
+              "id": "manager",
+              "name": "Manager"
+            },
+            {
+              "id": "owner",
+              "name": "Owner"
+            }
+          ],
+          "orgRoleList": [
+            {
+              "id": "billing",
+              "name": "Billing",
+              "desc": "Can manage subscription and billing details.",
+              "scopes": [
+                "org:billing"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": false,
+              "is_global": false,
+              "isGlobal": false,
+              "minimumTeamRole": "contributor"
+            },
+            {
+              "id": "member",
+              "name": "Member",
+              "desc": "Members can view and act on events, as well as view most other data within the organization. By default, they can invite members to the organization unless the organization has disabled this feature.",
+              "scopes": [
+                "project:releases",
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "team:read",
+                "event:admin",
+                "alerts:read",
+                "member:invite",
+                "alerts:write",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": true,
+              "is_global": false,
+              "isGlobal": false,
+              "minimumTeamRole": "contributor"
+            },
+            {
+              "id": "admin",
+              "name": "Admin",
+              "desc": "Admin privileges on any teams of which they're a member. They can create new teams and projects, as well as remove teams and projects on which they already hold membership (or all teams, if open membership is enabled). Additionally, they can manage memberships of teams that they are members of. By default, they can invite members to the organization unless the organization has disabled this feature.",
+              "scopes": [
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "event:admin",
+                "team:admin",
+                "project:admin",
+                "alerts:read",
+                "org:integrations",
+                "member:invite",
+                "project:write",
+                "team:write",
+                "project:releases",
+                "team:read",
+                "alerts:write",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": true,
+              "isTeamRolesAllowed": true,
+              "is_global": false,
+              "isGlobal": false,
+              "minimumTeamRole": "admin"
+            },
+            {
+              "id": "manager",
+              "name": "Manager",
+              "desc": "Gains admin access on all teams as well as the ability to add and remove members.",
+              "scopes": [
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "event:admin",
+                "team:admin",
+                "project:admin",
+                "alerts:read",
+                "org:integrations",
+                "member:invite",
+                "project:write",
+                "team:write",
+                "org:write",
+                "project:releases",
+                "member:write",
+                "team:read",
+                "member:admin",
+                "alerts:write",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": true,
+              "is_global": true,
+              "isGlobal": true,
+              "minimumTeamRole": "admin"
+            },
+            {
+              "id": "owner",
+              "name": "Owner",
+              "desc": "Unrestricted access to the organization, its data, and its settings. Can add, modify, and delete projects and members, as well as make billing and plan changes.",
+              "scopes": [
+                "org:billing",
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "event:admin",
+                "team:admin",
+                "project:admin",
+                "alerts:read",
+                "org:integrations",
+                "member:invite",
+                "org:admin",
+                "project:write",
+                "team:write",
+                "org:write",
+                "project:releases",
+                "member:write",
+                "team:read",
+                "member:admin",
+                "alerts:write",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": true,
+              "is_global": true,
+              "isGlobal": true,
+              "minimumTeamRole": "admin"
+            }
+          ],
+          "teamRoleList": [
+            {
+              "id": "contributor",
+              "name": "Contributor",
+              "desc": "Contributors can view and act on events, as well as view most other data within the team's projects.",
+              "scopes": [
+                "project:releases",
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "team:read",
+                "alerts:read",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": true,
+              "isMinimumRoleFor": null
+            },
+            {
+              "id": "admin",
+              "name": "Team Admin",
+              "desc": "Admin privileges on the team. They can create and remove projects, and can manage the team's memberships.",
+              "scopes": [
+                "project:releases",
+                "project:read",
+                "org:read",
+                "member:read",
+                "event:read",
+                "team:read",
+                "event:admin",
+                "team:admin",
+                "project:admin",
+                "alerts:read",
+                "org:integrations",
+                "alerts:write",
+                "project:write",
+                "team:write",
+                "event:write"
+              ],
+              "allowed": false,
+              "isAllowed": false,
+              "isRetired": false,
+              "isTeamRolesAllowed": true,
+              "isMinimumRoleFor": "admin"
+            }
+          ],
+          "openMembership": true,
+          "allowSharedIssues": true,
+          "enhancedPrivacy": false,
+          "dataScrubber": false,
+          "dataScrubberDefaults": false,
+          "sensitiveFields": [],
+          "safeFields": [],
+          "storeCrashReports": 0,
+          "attachmentsRole": "member",
+          "debugFilesRole": "admin",
+          "eventsMemberAdmin": true,
+          "alertsMemberWrite": true,
+          "scrubIPAddresses": false,
+          "scrapeJavaScript": true,
+          "allowJoinRequests": true,
+          "relayPiiConfig": null,
+          "relayDsnEndpoint": null,
+          "hideAiFeatures": false,
+          "genAIConsent": false,
+          "aggregatedDataConsent": false,
+          "issueAlertsThreadFlag": true,
+          "metricAlertsThreadFlag": true,
+          "rollbackEnabled": true,
+          "defaultAutofixAutomationTuning": "medium",
+          "defaultSeerScannerAutomation": true,
+          "enableSeerCoding": true,
+          "defaultCodingAgent": "seer",
+          "defaultCodingAgentIntegrationId": null,
+          "defaultAutomatedRunStoppingPoint": "code_changes",
+          "autoOpenPrs": false,
+          "autoEnableCodeReview": false,
+          "defaultCodeReviewTriggers": [
+            "on_ready_for_review"
+          ],
+          "streamlineOnly": true,
+          "trustedRelays": [],
+          "requiresSso": false,
+          "pendingAccessRequests": 0,
+          "isDynamicallySampled": false,
+          "hasGranularReplayPermissions": false,
+          "replayAccessMembers": [],
+          "ingestThroughTrustedRelaysOnly": "disabled",
+          "enabledConsolePlatforms": [],
+          "consoleSdkInviteQuota": 0,
+          "dashboardsAsyncQueueParallelLimit": 10,
+          "role": "owner",
+          "orgRole": "owner"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:08:03 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1790694516",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "allow": "GET, PUT, DELETE, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694483",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; style-src * 'unsafe-inline'; font-src * data:; img-src * blob: data:; object-src 'none'; worker-src 'self' blob:; frame-ancestors 'self' *.sentry.io; default-src 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; base-uri 'none'; media-src *; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "1008",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "2ddc656a5db36cbac6fd5ef973f381b848ea0d86",
+        "request": {
+          "params": {
+            "detailed": "0"
+          }
+        }
+      }
+    }
+  }
+}

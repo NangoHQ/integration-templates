@@ -1,0 +1,685 @@
+{
+  "nango": {
+    "batchSave": {
+      "ProjectKey": [
+        {
+          "id": "153a453657f280d806c460181e257ffe",
+          "projectId": 4512170271703040,
+          "name": "Default",
+          "label": "Default",
+          "public": "153a453657f280d806c460181e257ffe",
+          "secret": "74b7c2c1baa5ad6148ed8224c401b3fb",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://153a453657f280d806c460181e257ffe:74b7c2c1baa5ad6148ed8224c401b3fb@o4512170041409536.ingest.us.sentry.io/4512170271703040",
+            "public": "https://153a453657f280d806c460181e257ffe@o4512170041409536.ingest.us.sentry.io/4512170271703040",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/csp-report/?sentry_key=153a453657f280d806c460181e257ffe",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/security/?sentry_key=153a453657f280d806c460181e257ffe",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/minidump/?sentry_key=153a453657f280d806c460181e257ffe",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/nel/?sentry_key=153a453657f280d806c460181e257ffe",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/unreal/153a453657f280d806c460181e257ffe/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/cron/___MONITOR_SLUG___/153a453657f280d806c460181e257ffe/",
+            "cdn": "https://js.sentry-cdn.com/153a453657f280d806c460181e257ffe.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/playstation/?sentry_key=153a453657f280d806c460181e257ffe",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T15:07:35.019889Z"
+        },
+        {
+          "id": "dd9f14a588de246565173446221c4f39",
+          "projectId": 4512170270654464,
+          "name": "Default",
+          "label": "Default",
+          "public": "dd9f14a588de246565173446221c4f39",
+          "secret": "23d70216b7f96d23a1ba2ae37194d021",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://dd9f14a588de246565173446221c4f39:23d70216b7f96d23a1ba2ae37194d021@o4512170041409536.ingest.us.sentry.io/4512170270654464",
+            "public": "https://dd9f14a588de246565173446221c4f39@o4512170041409536.ingest.us.sentry.io/4512170270654464",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/csp-report/?sentry_key=dd9f14a588de246565173446221c4f39",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/security/?sentry_key=dd9f14a588de246565173446221c4f39",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/minidump/?sentry_key=dd9f14a588de246565173446221c4f39",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/nel/?sentry_key=dd9f14a588de246565173446221c4f39",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/unreal/dd9f14a588de246565173446221c4f39/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/cron/___MONITOR_SLUG___/dd9f14a588de246565173446221c4f39/",
+            "cdn": "https://js.sentry-cdn.com/dd9f14a588de246565173446221c4f39.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/playstation/?sentry_key=dd9f14a588de246565173446221c4f39",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T15:07:18.968634Z"
+        },
+        {
+          "id": "c3f6f66d06ab5d420880be83d78a8958",
+          "projectId": 4512170269605888,
+          "name": "Default",
+          "label": "Default",
+          "public": "c3f6f66d06ab5d420880be83d78a8958",
+          "secret": "850e1e851282cd1d2747fdceac2866a2",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://c3f6f66d06ab5d420880be83d78a8958:850e1e851282cd1d2747fdceac2866a2@o4512170041409536.ingest.us.sentry.io/4512170269605888",
+            "public": "https://c3f6f66d06ab5d420880be83d78a8958@o4512170041409536.ingest.us.sentry.io/4512170269605888",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/csp-report/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/security/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/minidump/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/nel/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/unreal/c3f6f66d06ab5d420880be83d78a8958/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/cron/___MONITOR_SLUG___/c3f6f66d06ab5d420880be83d78a8958/",
+            "cdn": "https://js.sentry-cdn.com/c3f6f66d06ab5d420880be83d78a8958.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/playstation/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T15:07:02.741260Z"
+        },
+        {
+          "id": "4e9323b6de63b99f85abb1621c20d838",
+          "projectId": 4512170111991808,
+          "name": "Nango Test Key",
+          "label": "Nango Test Key",
+          "public": "4e9323b6de63b99f85abb1621c20d838",
+          "secret": "1d446aed9741ca95f42a8673db6bc77e",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://4e9323b6de63b99f85abb1621c20d838:1d446aed9741ca95f42a8673db6bc77e@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "public": "https://4e9323b6de63b99f85abb1621c20d838@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4e9323b6de63b99f85abb1621c20d838/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4e9323b6de63b99f85abb1621c20d838/",
+            "cdn": "https://js.sentry-cdn.com/4e9323b6de63b99f85abb1621c20d838.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T15:06:22.245503Z"
+        },
+        {
+          "id": "e31135750bd5f7187f64ed8834319197",
+          "projectId": 4512170111991808,
+          "name": "Nango Test Key",
+          "label": "Nango Test Key",
+          "public": "e31135750bd5f7187f64ed8834319197",
+          "secret": "19e82398c059bd98d157a37759877b74",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://e31135750bd5f7187f64ed8834319197:19e82398c059bd98d157a37759877b74@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "public": "https://e31135750bd5f7187f64ed8834319197@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=e31135750bd5f7187f64ed8834319197",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=e31135750bd5f7187f64ed8834319197",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=e31135750bd5f7187f64ed8834319197",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=e31135750bd5f7187f64ed8834319197",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/e31135750bd5f7187f64ed8834319197/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/e31135750bd5f7187f64ed8834319197/",
+            "cdn": "https://js.sentry-cdn.com/e31135750bd5f7187f64ed8834319197.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=e31135750bd5f7187f64ed8834319197",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T15:06:08.162384Z"
+        },
+        {
+          "id": "4131819035ec5b634cdf5a530ead7f30",
+          "projectId": 4512170111991808,
+          "name": "Default",
+          "label": "Default",
+          "public": "4131819035ec5b634cdf5a530ead7f30",
+          "secret": "7ed8435a650947970fa79a83e4d65c1a",
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://4131819035ec5b634cdf5a530ead7f30:7ed8435a650947970fa79a83e4d65c1a@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "public": "https://4131819035ec5b634cdf5a530ead7f30@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4131819035ec5b634cdf5a530ead7f30/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4131819035ec5b634cdf5a530ead7f30/",
+            "cdn": "https://js.sentry-cdn.com/4131819035ec5b634cdf5a530ead7f30.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "dateCreated": "2026-09-29T14:26:57.823710Z"
+        }
+      ]
+    },
+    "batchDelete": {
+      "ProjectKey": []
+    }
+  },
+  "api": {
+    "get": {
+      "/0/organizations/": {
+        "response": [
+          {
+            "id": "4512170041409536",
+            "slug": "nangodev",
+            "name": "NangoDev",
+            "status": {
+              "id": "active",
+              "name": "active"
+            },
+            "dateCreated": "2026-09-29T14:09:02.024798Z",
+            "isEarlyAdopter": false,
+            "require2FA": false,
+            "allowMemberInvite": true,
+            "allowMemberProjectCreation": true,
+            "allowSuperuserAccess": true,
+            "avatar": {
+              "avatarType": "letter_avatar",
+              "avatarUuid": null,
+              "avatarUrl": null
+            },
+            "links": {
+              "organizationUrl": "https://nangodev.sentry.io",
+              "regionUrl": "https://us.sentry.io"
+            },
+            "hasAuthProvider": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:11:33 GMT",
+          "content-type": "application/json",
+          "content-length": "468",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1953",
+          "x-ratelimit-reset": "1790694731",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/organizations/?&cursor=1790690942024:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"1790690942024:0:1\", <https://sentry.io/api/0/organizations/?&cursor=1790690942025:100:0>; rel=\"next\"; results=\"false\"; cursor=\"1790690942025:100:0\"",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694694",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com plausible.io api.github.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; object-src 'none'; font-src * data:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com plausible.io app.intercom.io widget.intercom.io js.intercomcdn.com; default-src 'none'; media-src *; worker-src 'self' blob:; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; frame-ancestors 'self' *.sentry.io; style-src * 'unsafe-inline'; img-src * blob: data:; base-uri 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=b6c25df1608b6e4ff930ab89c850c332411c7f2e",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "etag": "W/\"1d4-egKfNymycs+mFuFq6MWIkc0gvTQ\""
+        },
+        "hash": "98f78848b1260898740dd4bb313fbbca50a5abaa",
+        "request": {}
+      },
+      "/0/organizations/nangodev/project-keys/": {
+        "response": [
+          {
+            "id": "153a453657f280d806c460181e257ffe",
+            "name": "Default",
+            "label": "Default",
+            "public": "153a453657f280d806c460181e257ffe",
+            "secret": "74b7c2c1baa5ad6148ed8224c401b3fb",
+            "projectId": 4512170271703040,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://153a453657f280d806c460181e257ffe:74b7c2c1baa5ad6148ed8224c401b3fb@o4512170041409536.ingest.us.sentry.io/4512170271703040",
+              "public": "https://153a453657f280d806c460181e257ffe@o4512170041409536.ingest.us.sentry.io/4512170271703040",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/csp-report/?sentry_key=153a453657f280d806c460181e257ffe",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/security/?sentry_key=153a453657f280d806c460181e257ffe",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/minidump/?sentry_key=153a453657f280d806c460181e257ffe",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/nel/?sentry_key=153a453657f280d806c460181e257ffe",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/unreal/153a453657f280d806c460181e257ffe/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/cron/___MONITOR_SLUG___/153a453657f280d806c460181e257ffe/",
+              "cdn": "https://js.sentry-cdn.com/153a453657f280d806c460181e257ffe.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/playstation/?sentry_key=153a453657f280d806c460181e257ffe",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170271703040/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T15:07:35.019889Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          },
+          {
+            "id": "dd9f14a588de246565173446221c4f39",
+            "name": "Default",
+            "label": "Default",
+            "public": "dd9f14a588de246565173446221c4f39",
+            "secret": "23d70216b7f96d23a1ba2ae37194d021",
+            "projectId": 4512170270654464,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://dd9f14a588de246565173446221c4f39:23d70216b7f96d23a1ba2ae37194d021@o4512170041409536.ingest.us.sentry.io/4512170270654464",
+              "public": "https://dd9f14a588de246565173446221c4f39@o4512170041409536.ingest.us.sentry.io/4512170270654464",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/csp-report/?sentry_key=dd9f14a588de246565173446221c4f39",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/security/?sentry_key=dd9f14a588de246565173446221c4f39",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/minidump/?sentry_key=dd9f14a588de246565173446221c4f39",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/nel/?sentry_key=dd9f14a588de246565173446221c4f39",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/unreal/dd9f14a588de246565173446221c4f39/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/cron/___MONITOR_SLUG___/dd9f14a588de246565173446221c4f39/",
+              "cdn": "https://js.sentry-cdn.com/dd9f14a588de246565173446221c4f39.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/playstation/?sentry_key=dd9f14a588de246565173446221c4f39",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170270654464/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T15:07:18.968634Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          },
+          {
+            "id": "c3f6f66d06ab5d420880be83d78a8958",
+            "name": "Default",
+            "label": "Default",
+            "public": "c3f6f66d06ab5d420880be83d78a8958",
+            "secret": "850e1e851282cd1d2747fdceac2866a2",
+            "projectId": 4512170269605888,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://c3f6f66d06ab5d420880be83d78a8958:850e1e851282cd1d2747fdceac2866a2@o4512170041409536.ingest.us.sentry.io/4512170269605888",
+              "public": "https://c3f6f66d06ab5d420880be83d78a8958@o4512170041409536.ingest.us.sentry.io/4512170269605888",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/csp-report/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/security/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/minidump/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/nel/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/unreal/c3f6f66d06ab5d420880be83d78a8958/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/cron/___MONITOR_SLUG___/c3f6f66d06ab5d420880be83d78a8958/",
+              "cdn": "https://js.sentry-cdn.com/c3f6f66d06ab5d420880be83d78a8958.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/playstation/?sentry_key=c3f6f66d06ab5d420880be83d78a8958",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170269605888/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T15:07:02.741260Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          },
+          {
+            "id": "4e9323b6de63b99f85abb1621c20d838",
+            "name": "Nango Test Key",
+            "label": "Nango Test Key",
+            "public": "4e9323b6de63b99f85abb1621c20d838",
+            "secret": "1d446aed9741ca95f42a8673db6bc77e",
+            "projectId": 4512170111991808,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://4e9323b6de63b99f85abb1621c20d838:1d446aed9741ca95f42a8673db6bc77e@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "public": "https://4e9323b6de63b99f85abb1621c20d838@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4e9323b6de63b99f85abb1621c20d838/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4e9323b6de63b99f85abb1621c20d838/",
+              "cdn": "https://js.sentry-cdn.com/4e9323b6de63b99f85abb1621c20d838.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4e9323b6de63b99f85abb1621c20d838",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T15:06:22.245503Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          },
+          {
+            "id": "e31135750bd5f7187f64ed8834319197",
+            "name": "Nango Test Key",
+            "label": "Nango Test Key",
+            "public": "e31135750bd5f7187f64ed8834319197",
+            "secret": "19e82398c059bd98d157a37759877b74",
+            "projectId": 4512170111991808,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://e31135750bd5f7187f64ed8834319197:19e82398c059bd98d157a37759877b74@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "public": "https://e31135750bd5f7187f64ed8834319197@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=e31135750bd5f7187f64ed8834319197",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=e31135750bd5f7187f64ed8834319197",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=e31135750bd5f7187f64ed8834319197",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=e31135750bd5f7187f64ed8834319197",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/e31135750bd5f7187f64ed8834319197/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/e31135750bd5f7187f64ed8834319197/",
+              "cdn": "https://js.sentry-cdn.com/e31135750bd5f7187f64ed8834319197.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=e31135750bd5f7187f64ed8834319197",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T15:06:08.162384Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          },
+          {
+            "id": "4131819035ec5b634cdf5a530ead7f30",
+            "name": "Default",
+            "label": "Default",
+            "public": "4131819035ec5b634cdf5a530ead7f30",
+            "secret": "7ed8435a650947970fa79a83e4d65c1a",
+            "projectId": 4512170111991808,
+            "isActive": true,
+            "rateLimit": null,
+            "dsn": {
+              "secret": "https://4131819035ec5b634cdf5a530ead7f30:7ed8435a650947970fa79a83e4d65c1a@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "public": "https://4131819035ec5b634cdf5a530ead7f30@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+              "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+              "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+              "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+              "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+              "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4131819035ec5b634cdf5a530ead7f30/",
+              "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4131819035ec5b634cdf5a530ead7f30/",
+              "cdn": "https://js.sentry-cdn.com/4131819035ec5b634cdf5a530ead7f30.min.js",
+              "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+              "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+              "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+              "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+            },
+            "browserSdkVersion": "10.x",
+            "browserSdk": {
+              "choices": [
+                [
+                  "11.x",
+                  "11.x"
+                ],
+                [
+                  "10.x",
+                  "10.x"
+                ],
+                [
+                  "9.x",
+                  "9.x"
+                ],
+                [
+                  "8.x",
+                  "8.x"
+                ],
+                [
+                  "7.x",
+                  "7.x"
+                ]
+              ]
+            },
+            "dateCreated": "2026-09-29T14:26:57.823710Z",
+            "dynamicSdkLoaderOptions": {
+              "hasReplay": true,
+              "hasPerformance": true,
+              "hasDebug": false,
+              "hasFeedback": false,
+              "hasLogsAndMetrics": false
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:11:33 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1790694731",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "link": "<https://sentry.io/api/0/organizations/nangodev/project-keys/?limit=100&cursor=6558159:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"6558159:0:1\", <https://sentry.io/api/0/organizations/nangodev/project-keys/?limit=100&cursor=6557966:1:0>; rel=\"next\"; results=\"false\"; cursor=\"6557966:1:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694694",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "style-src * 'unsafe-inline'; frame-ancestors 'self' *.sentry.io; img-src * blob: data:; media-src *; font-src * data:; object-src 'none'; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; worker-src 'self' blob:; base-uri 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; default-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "138",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "ba3729c1ac5ec33ab577a62b1cf027ab881c0c08",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/api/0/organizations/nangodev/project-keys/": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:11:33 GMT",
+          "content-type": "application/json",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1948",
+          "x-ratelimit-reset": "1790694731",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/organizations/nangodev/project-keys/?limit=100&cursor=0:0:1>; rel=\"previous\"; results=\"true\"; cursor=\"0:0:1\", <https://sentry.io/api/0/organizations/nangodev/project-keys/?limit=100&cursor=6557966:1:0>; rel=\"next\"; results=\"false\"; cursor=\"6557966:1:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "38",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694694",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "font-src * data:; base-uri 'none'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; default-src 'none'; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; media-src *; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; frame-ancestors 'self' *.sentry.io; img-src * blob: data:; style-src * 'unsafe-inline'; worker-src 'self' blob:; object-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "104",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "0c2173042e74efa21fbcfe5be4f23fa0e0fe22b5",
+        "request": {
+          "params": {
+            "cursor": "6557966:1:0",
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

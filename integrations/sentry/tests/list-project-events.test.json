@@ -1,0 +1,290 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev",
+    "project_id_or_slug": "nango-seed-project",
+    "start": "2026-09-29T14:00:00Z",
+    "end": "2026-09-29T15:00:00Z"
+  },
+  "output": {
+    "events": [
+      {
+        "id": "c8bf289d90e64040a72bf8ca29755911",
+        "eventID": "c8bf289d90e64040a72bf8ca29755911",
+        "projectID": "4512170111991808",
+        "title": "<untitled>",
+        "message": "",
+        "dateCreated": "2026-09-29T14:50:23.117000Z",
+        "metadata": {},
+        "eventType": "default",
+        "groupID": "7761476961",
+        "tags": []
+      },
+      {
+        "id": "4d40431fb1f24657be6b94b24d1f0f58",
+        "eventID": "4d40431fb1f24657be6b94b24d1f0f58",
+        "projectID": "4512170111991808",
+        "title": "<untitled>",
+        "message": "",
+        "dateCreated": "2026-09-29T14:50:14.724000Z",
+        "metadata": {},
+        "eventType": "default",
+        "groupID": "7761476596",
+        "tags": []
+      },
+      {
+        "id": "eb7d3f8e98e54b3189c8a80462856d4f",
+        "eventID": "eb7d3f8e98e54b3189c8a80462856d4f",
+        "projectID": "4512170111991808",
+        "title": "ValueError: bad input",
+        "message": "Nango seed test error 2: ValueError bad input",
+        "dateCreated": "2026-09-29T14:27:55.048000Z",
+        "metadata": {
+          "filename": "worker.js",
+          "function": "process",
+          "in_app_frame_mix": "system-only",
+          "synthetic": false,
+          "type": "ValueError",
+          "value": "bad input"
+        },
+        "eventType": "error",
+        "groupID": "7761433968",
+        "location": "worker.js",
+        "culprit": "process(worker.js)",
+        "platform": "node",
+        "tags": [
+          {
+            "key": "interface_type",
+            "value": "exception"
+          },
+          {
+            "key": "level",
+            "value": "error"
+          },
+          {
+            "key": "seed",
+            "value": "nango"
+          }
+        ]
+      },
+      {
+        "id": "63be9f2fdd3f438d951b2bae4e847b51",
+        "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+        "projectID": "4512170111991808",
+        "title": "TypeError: undefined is not a function",
+        "message": "Nango seed test error: TypeError undefined is not a function",
+        "dateCreated": "2026-09-29T14:27:47.062000Z",
+        "metadata": {
+          "filename": "app.js",
+          "function": "handler",
+          "in_app_frame_mix": "system-only",
+          "synthetic": false,
+          "type": "TypeError",
+          "value": "undefined is not a function"
+        },
+        "eventType": "error",
+        "groupID": "7761433611",
+        "location": "app.js",
+        "culprit": "handler(app.js)",
+        "platform": "node",
+        "tags": [
+          {
+            "key": "interface_type",
+            "value": "exception"
+          },
+          {
+            "key": "level",
+            "value": "error"
+          },
+          {
+            "key": "seed",
+            "value": "nango"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/0/projects/nangodev/nango-seed-project/events/": {
+        "response": [
+          {
+            "id": "c8bf289d90e64040a72bf8ca29755911",
+            "event.type": "default",
+            "groupID": "7761476961",
+            "eventID": "c8bf289d90e64040a72bf8ca29755911",
+            "projectID": "4512170111991808",
+            "message": "",
+            "title": "<untitled>",
+            "location": null,
+            "culprit": null,
+            "user": null,
+            "tags": [],
+            "platform": null,
+            "dateCreated": "2026-09-29T14:50:23.117000Z",
+            "crashFile": null,
+            "metadata": {}
+          },
+          {
+            "id": "4d40431fb1f24657be6b94b24d1f0f58",
+            "event.type": "default",
+            "groupID": "7761476596",
+            "eventID": "4d40431fb1f24657be6b94b24d1f0f58",
+            "projectID": "4512170111991808",
+            "message": "",
+            "title": "<untitled>",
+            "location": null,
+            "culprit": null,
+            "user": null,
+            "tags": [],
+            "platform": null,
+            "dateCreated": "2026-09-29T14:50:14.724000Z",
+            "crashFile": null,
+            "metadata": {}
+          },
+          {
+            "id": "eb7d3f8e98e54b3189c8a80462856d4f",
+            "event.type": "error",
+            "groupID": "7761433968",
+            "eventID": "eb7d3f8e98e54b3189c8a80462856d4f",
+            "projectID": "4512170111991808",
+            "message": "Nango seed test error 2: ValueError bad input",
+            "title": "ValueError: bad input",
+            "location": "worker.js",
+            "culprit": "process(worker.js)",
+            "user": {
+              "id": null,
+              "email": null,
+              "username": null,
+              "ip_address": null,
+              "name": null,
+              "geo": {
+                "country_code": "CA",
+                "city": "Toronto",
+                "region": "Canada"
+              },
+              "data": null
+            },
+            "tags": [
+              {
+                "key": "interface_type",
+                "value": "exception"
+              },
+              {
+                "key": "level",
+                "value": "error"
+              },
+              {
+                "key": "seed",
+                "value": "nango"
+              }
+            ],
+            "platform": "node",
+            "dateCreated": "2026-09-29T14:27:55.048000Z",
+            "crashFile": null,
+            "metadata": {
+              "filename": "worker.js",
+              "function": "process",
+              "in_app_frame_mix": "system-only",
+              "synthetic": false,
+              "type": "ValueError",
+              "value": "bad input"
+            }
+          },
+          {
+            "id": "63be9f2fdd3f438d951b2bae4e847b51",
+            "event.type": "error",
+            "groupID": "7761433611",
+            "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+            "projectID": "4512170111991808",
+            "message": "Nango seed test error: TypeError undefined is not a function",
+            "title": "TypeError: undefined is not a function",
+            "location": "app.js",
+            "culprit": "handler(app.js)",
+            "user": {
+              "id": null,
+              "email": null,
+              "username": null,
+              "ip_address": null,
+              "name": null,
+              "geo": {
+                "country_code": "CA",
+                "city": "Toronto",
+                "region": "Canada"
+              },
+              "data": null
+            },
+            "tags": [
+              {
+                "key": "interface_type",
+                "value": "exception"
+              },
+              {
+                "key": "level",
+                "value": "error"
+              },
+              {
+                "key": "seed",
+                "value": "nango"
+              }
+            ],
+            "platform": "node",
+            "dateCreated": "2026-09-29T14:27:47.062000Z",
+            "crashFile": null,
+            "metadata": {
+              "filename": "app.js",
+              "function": "handler",
+              "in_app_frame_mix": "system-only",
+              "synthetic": false,
+              "type": "TypeError",
+              "value": "undefined is not a function"
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:13:36 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1790694853",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "link": "<https://sentry.io/api/0/projects/nangodev/nango-seed-project/events/?start=2026-09-29T14%3A00%3A00Z&end=2026-09-29T15%3A00%3A00Z&cursor=0:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"0:0:1\", <https://sentry.io/api/0/projects/nangodev/nango-seed-project/events/?start=2026-09-29T14%3A00%3A00Z&end=2026-09-29T15%3A00%3A00Z&cursor=0:100:0>; rel=\"next\"; results=\"false\"; cursor=\"0:100:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "59",
+          "x-sentry-rate-limit-limit": "60",
+          "x-sentry-rate-limit-reset": "1790694840",
+          "x-sentry-rate-limit-concurrentremaining": "0",
+          "x-sentry-rate-limit-concurrentlimit": "1",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; object-src 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; default-src 'none'; base-uri 'none'; style-src * 'unsafe-inline'; img-src * blob: data:; media-src *; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; font-src * data:; frame-ancestors 'self' *.sentry.io; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "151",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "465ffa2f939bdb8683cfc7250f6cd1f79f107888",
+        "request": {
+          "params": {
+            "end": "2026-09-29T15:00:00Z",
+            "start": "2026-09-29T14:00:00Z"
+          }
+        }
+      }
+    }
+  }
+}
