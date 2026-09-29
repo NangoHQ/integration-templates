@@ -6,7 +6,7 @@ const InputSchema = z
         user: z
             .string()
             .describe(
-                "The user's numeric Amplitude ID (e.g. \"1610450763183\") — not their app user_id, email, or device ID. If you only have one of those, call the search-users action first to look up the matching Amplitude ID."
+                'The user\'s numeric Amplitude ID (e.g. "1610450763183") — not their app user_id, email, or device ID. If you only have one of those, call the search-users action first to look up the matching Amplitude ID.'
             ),
         offset: z.number().optional().describe('Zero-indexed offset from the most recent event to start returning events from.'),
         limit: z
