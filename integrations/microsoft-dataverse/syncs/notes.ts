@@ -26,9 +26,7 @@ const NoteSchema = z
         createdon: z.string().describe('ISO 8601 timestamp when the note was created, e.g. "2026-09-29T17:29:26Z".'),
         modifiedon: z
             .string()
-            .describe(
-                'ISO 8601 timestamp when the note was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field.'
-            )
+            .describe('ISO 8601 timestamp when the note was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field.')
     })
     .describe('A Dataverse note (annotation), optionally attached to a parent record such as an account, contact, or opportunity.');
 

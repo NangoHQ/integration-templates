@@ -150,9 +150,7 @@ const CaseSchema = z
         createdby_id: z.string().optional().describe('GUID of the systemuser who created the case'),
         modifiedon: z
             .string()
-            .describe(
-                'ISO 8601 timestamp of when the case was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field'
-            ),
+            .describe('ISO 8601 timestamp of when the case was last modified. The incremental sync cursor is the Dataverse versionnumber, not this field'),
         modifiedby_id: z.string().optional().describe('GUID of the systemuser who last modified the case')
     })
     .describe(
@@ -222,7 +220,8 @@ function toCase(incident: z.infer<typeof RawIncidentSchema>): z.infer<typeof Cas
 }
 
 const sync = createSync({
-    description: 'Incrementally sync customer service cases (Dataverse incidents) using a versionnumber cursor, with a delete-tracked full refresh every 24 hours',
+    description:
+        'Incrementally sync customer service cases (Dataverse incidents) using a versionnumber cursor, with a delete-tracked full refresh every 24 hours',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,

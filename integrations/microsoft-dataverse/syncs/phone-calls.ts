@@ -46,9 +46,7 @@ const PhoneCallSchema = z
         createdon: z.string().describe('Timestamp when the record was created (ISO 8601 UTC). Example: "2026-09-18T19:43:40Z"'),
         modifiedon: z
             .string()
-            .describe(
-                'Timestamp when the record was last modified (ISO 8601 UTC). The incremental sync cursor is the Dataverse versionnumber, not this field.'
-            )
+            .describe('Timestamp when the record was last modified (ISO 8601 UTC). The incremental sync cursor is the Dataverse versionnumber, not this field.')
     })
     .describe('A Microsoft Dataverse phone call activity.');
 

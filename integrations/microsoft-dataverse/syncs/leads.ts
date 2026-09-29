@@ -206,7 +206,8 @@ function toLead(record: z.infer<typeof DataverseLeadSchema>): z.infer<typeof Lea
 }
 
 const sync = createSync({
-    description: 'Sync leads (unqualified prospects) from Microsoft Dataverse, incrementally by versionnumber, with a periodic full refresh to detect deletions.',
+    description:
+        'Sync leads (unqualified prospects) from Microsoft Dataverse, incrementally by versionnumber, with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,

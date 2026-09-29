@@ -80,9 +80,7 @@ function injectFetchPaging(fetchXml: string, page: number, pagingCookie: string)
         // styles must be stripped here; otherwise a single-quoted page/paging-cookie attribute is
         // left in place and a second, double-quoted one is appended, producing an invalid document
         // with the attribute duplicated.
-        const cleanedAttrs = attrs
-            .replace(/\s+page\s*=\s*(?:"[^"]*"|'[^']*')/i, '')
-            .replace(/\s+paging-cookie\s*=\s*(?:"[^"]*"|'[^']*')/i, '');
+        const cleanedAttrs = attrs.replace(/\s+page\s*=\s*(?:"[^"]*"|'[^']*')/i, '').replace(/\s+paging-cookie\s*=\s*(?:"[^"]*"|'[^']*')/i, '');
         return `<fetch${cleanedAttrs} page="${page}" paging-cookie="${escapeXmlAttribute(pagingCookie)}">`;
     });
     return injected ? result : undefined;
