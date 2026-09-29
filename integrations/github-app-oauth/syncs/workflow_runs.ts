@@ -2,7 +2,10 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 const CheckpointSchema = z.object({
-    created_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 created_at watermark for that repository.')
+    created_after_by_repo: z.string().describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 created_at watermark for that repository.'),
+    pending_run_ids_by_repo: z
+        .string()
+        .describe('JSON-encoded map of "{owner}/{repo}" to workflow run IDs whose status was not terminal as of the last sync.')
 });
 
 // Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
@@ -58,7 +61,7 @@ const ProviderRepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for a repository.',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -71,20 +74,28 @@ const sync = createSync({
         const isFirstRun = rawCheckpoint == null;
 
         let createdAfterByRepo: Record<string, string> = {};
+        let pendingRunIdsByRepo: Record<string, number[]> = {};
         let legacyCreatedAfter: string | undefined;
 
         if (!isFirstRun) {
             const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
             if (parsedCheckpoint.success) {
                 createdAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.created_after_by_repo));
+                pendingRunIdsByRepo = z.record(z.string(), z.array(z.number())).parse(JSON.parse(parsedCheckpoint.data.pending_run_ids_by_repo));
             } else {
-                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
-                if (parsedLegacyCheckpoint.success) {
-                    // Migrate from the old single global watermark: use it as the fallback `since` for any
-                    // repo that doesn't yet have its own per-repo entry, rather than re-fetching everything.
-                    legacyCreatedAfter = parsedLegacyCheckpoint.data.created_after;
+                // Intermediate checkpoint shape (per-repo watermark, added before pending-run tracking existed).
+                const parsedIntermediateCheckpoint = z.object({ created_after_by_repo: z.string() }).safeParse(rawCheckpoint);
+                if (parsedIntermediateCheckpoint.success) {
+                    createdAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedIntermediateCheckpoint.data.created_after_by_repo));
                 } else {
-                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                    const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                    if (parsedLegacyCheckpoint.success) {
+                        // Migrate from the old single global watermark: use it as the fallback `since` for any
+                        // repo that doesn't yet have its own per-repo entry, rather than re-fetching everything.
+                        legacyCreatedAfter = parsedLegacyCheckpoint.data.created_after;
+                    } else {
+                        throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                    }
                 }
             }
         }
@@ -121,6 +132,52 @@ const sync = createSync({
             const repoFullName = `${owner}/${name}`;
             const createdAfter = createdAfterByRepo[repoFullName] ?? legacyCreatedAfter;
             let maxCreatedAt: string | undefined = createdAfter;
+            const stillPendingRunIds: number[] = [];
+
+            // Re-fetch runs left non-terminal by a previous sync, since the incremental `created` filter
+            // below only ever discovers newly-created runs and would otherwise never see a queued/in_progress
+            // run transition to its final status/conclusion.
+            for (const runId of pendingRunIdsByRepo[repoFullName] ?? []) {
+                // https://docs.github.com/rest/actions/workflow-runs#get-a-workflow-run
+                const runResponse = await nango.get<unknown>({
+                    endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/actions/runs/${runId}`,
+                    retries: 3
+                });
+
+                const parsedRun = ProviderWorkflowRunSchema.safeParse(runResponse.data);
+                if (!parsedRun.success) {
+                    throw new Error(`Failed to parse workflow run: ${parsedRun.error.message}`);
+                }
+                const run = parsedRun.data;
+
+                await nango.batchSave(
+                    [
+                        {
+                            id: String(run.id),
+                            repository_owner: owner,
+                            repository_name: name,
+                            ...(run.name != null && { name: run.name }),
+                            ...(run.head_branch != null && { head_branch: run.head_branch }),
+                            ...(run.head_sha != null && { head_sha: run.head_sha }),
+                            ...(run.path != null && { path: run.path }),
+                            run_number: run.run_number,
+                            ...(run.event != null && { event: run.event }),
+                            ...(run.status != null && { status: run.status }),
+                            ...(run.conclusion != null && { conclusion: run.conclusion }),
+                            workflow_id: run.workflow_id,
+                            ...(run.url != null && { url: run.url }),
+                            ...(run.html_url != null && { html_url: run.html_url }),
+                            created_at: run.created_at,
+                            updated_at: run.updated_at
+                        }
+                    ],
+                    'WorkflowRun'
+                );
+
+                if (run.status !== 'completed') {
+                    stillPendingRunIds.push(run.id);
+                }
+            }
 
             // https://docs.github.com/rest/actions/workflow-runs#list-workflow-runs-for-a-repository
             for await (const page of nango.paginate<unknown>({
@@ -172,19 +229,29 @@ const sync = createSync({
                     if (maxCreatedAt === undefined || run.created_at > maxCreatedAt) {
                         maxCreatedAt = run.created_at;
                     }
+                    if (run.status !== 'completed') {
+                        stillPendingRunIds.push(run.id);
+                    }
                 }
             }
 
             if (maxCreatedAt !== undefined) {
                 createdAfterByRepo[repoFullName] = maxCreatedAt;
             }
-            await nango.saveCheckpoint({ created_after_by_repo: JSON.stringify(createdAfterByRepo) });
+            pendingRunIdsByRepo[repoFullName] = stillPendingRunIds;
+            await nango.saveCheckpoint({
+                created_after_by_repo: JSON.stringify(createdAfterByRepo),
+                pending_run_ids_by_repo: JSON.stringify(pendingRunIdsByRepo)
+            });
         }
 
         if (isFirstRun) {
             await nango.clearCheckpoint();
             await nango.trackDeletesEnd('WorkflowRun');
-            await nango.saveCheckpoint({ created_after_by_repo: JSON.stringify(createdAfterByRepo) });
+            await nango.saveCheckpoint({
+                created_after_by_repo: JSON.stringify(createdAfterByRepo),
+                pending_run_ids_by_repo: JSON.stringify(pendingRunIdsByRepo)
+            });
         }
     }
 });

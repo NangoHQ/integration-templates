@@ -6,6 +6,7 @@ const InputSchema = z
         owner: z.string().describe('Repository owner username.'),
         repo: z.string().describe('Repository name.'),
         deployment_id: z.number().describe('Deployment ID.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page (max 100).'),
         cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.')
     })
     .describe('Input for listing deployment statuses.');
@@ -23,7 +24,7 @@ const StatusSchema = z.object({
 
 const OutputSchema = z
     .object({
-        statuses: z.array(StatusSchema).describe('List of deployment statuses.'),
+        items: z.array(StatusSchema).describe('List of deployment statuses.'),
         next_cursor: z.string().optional().describe('Pagination cursor for the next page.')
     })
     .describe('Output containing a list of deployment statuses and optional pagination cursor.');
@@ -51,7 +52,7 @@ const ProviderResponseSchema = z.array(ProviderStatusSchema);
  */
 const action = createAction({
     description: 'List the status history of a deployment.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],
@@ -64,12 +65,14 @@ const action = createAction({
             });
         }
 
+        const perPage = input.per_page ?? 100;
+
         const response = await nango.get({
             // https://docs.github.com/rest/deployments/statuses#list-deployment-statuses
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/deployments/${encodeURIComponent(String(input.deployment_id))}/statuses`,
             params: {
                 page: String(page),
-                per_page: '100'
+                per_page: String(perPage)
             },
             retries: 3
         });
@@ -87,10 +90,10 @@ const action = createAction({
             updated_at: status.updated_at
         }));
 
-        const nextCursor = rawStatuses.length === 100 ? String(page + 1) : undefined;
+        const nextCursor = rawStatuses.length === perPage ? String(page + 1) : undefined;
 
         return {
-            statuses,
+            items: statuses,
             ...(nextCursor != null && { next_cursor: nextCursor })
         };
     }
