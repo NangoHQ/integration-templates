@@ -1,0 +1,73 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "name": "bug",
+    "color": "ff0000"
+  },
+  "output": {
+    "id": 11800879185,
+    "node_id": "LA_kwDOT1NNv88AAAACv2MgUQ",
+    "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/bug",
+    "name": "bug",
+    "description": "Something isn't working",
+    "color": "ff0000",
+    "default": true
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/repos/nango-provisioned-apps/nango/labels/bug": {
+        "response": {
+          "id": 11800879185,
+          "node_id": "LA_kwDOT1NNv88AAAACv2MgUQ",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/bug",
+          "name": "bug",
+          "color": "ff0000",
+          "default": true,
+          "description": "Something isn't working",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 25 Sep 2026 13:36:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4866",
+          "x-ratelimit-reset": "1790346775",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"9fe929d5600d109e331abfaed8e500e445ca6e431ca19d69d992574f44f4f519\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "issues=write; pull_requests=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "134",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "73C7:187125:7937:AF8F:6AB678EE",
+          "x-github-edge-region": "westus2"
+        },
+        "hash": "db23373dc0adb0aaea93faf77073190979fedee2",
+        "request": {
+          "data": {
+            "color": "ff0000"
+          }
+        }
+      }
+    }
+  }
+}

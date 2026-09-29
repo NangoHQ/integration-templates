@@ -1,0 +1,60 @@
+{
+    "input": {
+        "id": "01FDAG4SAP5TYPT98WGR2N7W91"
+    },
+    "response": {
+        "alert": {
+            "alert_group_ids": [
+                "01GW2G3V0S59R238FAHPDS1R66"
+            ],
+            "alert_source_id": "01GW2G3V0S59R238FAHPDS1R66",
+            "attributes": [
+                {
+                    "array_value": [
+                        {
+                            "catalog_entry": {
+                                "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                                "name": "Primary On-call"
+                            },
+                            "label": "Payments Team",
+                            "literal": "SEV123"
+                        }
+                    ],
+                    "attribute": {
+                        "array": false,
+                        "emoji": "fire",
+                        "id": "01GW2G3V0S59R238FAHPDS1R66",
+                        "name": "service",
+                        "required": false,
+                        "type": "CatalogEntry[\"01GW2G3V0S59R238FAHPDS1R67\"]"
+                    },
+                    "value": {
+                        "catalog_entry": {
+                            "catalog_type_id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                            "name": "Primary On-call"
+                        },
+                        "label": "Payments Team",
+                        "literal": "SEV123"
+                    }
+                }
+            ],
+            "created_at": "2021-08-17T13:28:57.801578Z",
+            "deduplication_key": "4293868629",
+            "description": "CPU on the payments service has exceeded 75 percent for 5 minutes",
+            "id": "01GW2G3V0S59R238FAHPDS1R66",
+            "resolved_at": "2021-08-17T14:28:57.801578Z",
+            "source_url": "https://www.my-alerting-platform.com/alerts/my-alert-123",
+            "status": "firing",
+            "tags": [
+                {
+                    "id": "01GW2G3V0S59R238FAHPDS1R66",
+                    "name": "noisy"
+                }
+            ],
+            "title": "*errors.withMessage: PG::Error failed to connect",
+            "updated_at": "2021-08-17T13:28:57.801578Z"
+        }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "input": {
+        "body": {
+            "segment_id": "example",
+            "from": "example",
+            "subject": "example"
+        }
+    },
+    "response": {}
+}

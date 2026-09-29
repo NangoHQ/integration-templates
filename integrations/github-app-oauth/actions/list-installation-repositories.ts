@@ -1,96 +1,130 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z
-    .object({
-        per_page: z.number().min(1).max(100).optional().describe('Number of repositories to return per page (1-100). Defaults to 30.'),
-        page: z.number().min(1).optional().describe('Page number for pagination. Defaults to 1.')
-    })
-    .describe('Input for listing repositories accessible to the GitHub App installation.');
+const OwnerSchema = z.object({
+    login: z.string().describe('The username of the repository owner. Example: "octocat"'),
+    id: z.number().describe('The unique identifier of the owner. Example: 1'),
+    node_id: z.string().describe('The global node ID of the owner. Example: "MDQ6VXNlcjE="'),
+    type: z.string().describe('The type of owner account. Example: "User" or "Organization"')
+});
+
+const PermissionsSchema = z.object({
+    admin: z.boolean().describe('Whether the app has admin access to the repository'),
+    push: z.boolean().describe('Whether the app has push access to the repository'),
+    pull: z.boolean().describe('Whether the app has pull access to the repository')
+});
+
+const ProviderRepositorySchema = z.object({
+    id: z.number(),
+    node_id: z.string(),
+    name: z.string(),
+    full_name: z.string(),
+    private: z.boolean(),
+    owner: OwnerSchema,
+    html_url: z.string(),
+    description: z.string().nullable(),
+    fork: z.boolean(),
+    default_branch: z.string(),
+    permissions: PermissionsSchema.optional()
+});
 
 const RepositorySchema = z
     .object({
-        id: z.number().describe('Unique repository ID.'),
-        node_id: z.string().describe('Global node ID.'),
-        name: z.string().describe('Repository name.'),
-        full_name: z.string().describe('Full repository name including owner (e.g., "owner/repo").'),
-        private: z.boolean().describe('Whether the repository is private.'),
-        owner: z
-            .object({
-                login: z.string().describe('Owner login/username.'),
-                id: z.number().describe('Owner account ID.'),
-                node_id: z.string().describe('Owner global node ID.'),
-                type: z.string().describe('Owner account type (e.g., "User" or "Organization").')
-            })
-            .passthrough()
-            .describe('Repository owner information.'),
-        html_url: z.string().describe('URL to view the repository in a browser.'),
-        description: z.string().nullable().describe('Repository description.'),
-        fork: z.boolean().describe('Whether this repository is a fork.'),
-        url: z.string().describe('API URL for this repository.'),
-        created_at: z.string().describe('Creation timestamp in ISO 8601 format.'),
-        updated_at: z.string().describe('Last update timestamp in ISO 8601 format.'),
-        pushed_at: z.string().nullable().describe('Last push timestamp in ISO 8601 format.'),
-        homepage: z.string().nullable().describe('Repository homepage URL.'),
-        size: z.number().describe('Repository size in kilobytes.'),
-        stargazers_count: z.number().describe('Number of stars.'),
-        watchers_count: z.number().describe('Number of watchers.'),
-        language: z.string().nullable().describe('Primary programming language.'),
-        forks_count: z.number().describe('Number of forks.'),
-        open_issues_count: z.number().describe('Number of open issues.'),
-        default_branch: z.string().describe('Default branch name.')
+        id: z.number().describe('The unique identifier of the repository. Example: 1296269'),
+        node_id: z.string().describe('The global node ID of the repository. Example: "MDEwOlJlcG9zaXRvcnkxMjk2MjY5"'),
+        name: z.string().describe('The name of the repository. Example: "Hello-World"'),
+        full_name: z.string().describe('The full name of the repository including owner. Example: "octocat/Hello-World"'),
+        private: z.boolean().describe('Whether the repository is private'),
+        owner: OwnerSchema.describe('The owner of the repository'),
+        html_url: z.string().describe('The URL to view the repository in a browser. Example: "https://github.com/octocat/Hello-World"'),
+        description: z.string().optional().describe('The description of the repository'),
+        fork: z.boolean().describe('Whether the repository is a fork'),
+        default_branch: z.string().describe('The default branch name. Example: "main"'),
+        permissions: PermissionsSchema.optional().describe('The permissions the app installation has on this repository')
     })
-    .passthrough()
-    .describe('GitHub repository object.');
+    .describe('A GitHub repository accessible to the app installation.');
+
+const InputSchema = z
+    .object({
+        cursor: z.string().optional().describe('Pagination cursor. Pass a page number as a string for the first or subsequent pages.'),
+        per_page: z.number().optional().describe('Number of results per page. GitHub defaults to 30 and allows up to 100.')
+    })
+    .describe('Input parameters for listing repositories accessible to a GitHub App installation.');
 
 const OutputSchema = z
     .object({
-        total_count: z.number().describe('Total number of repositories accessible to the installation.'),
-        repository_selection: z
-            .enum(['all', 'selected'])
-            .optional()
-            .describe('Whether the installation has access to all repositories or only selected ones, when provided.'),
-        repositories: z.array(RepositorySchema).describe('Array of repositories accessible to this installation.')
+        total_count: z.number().describe('The total number of repositories accessible to this installation. Example: 1'),
+        repository_selection: z.enum(['all', 'selected']).describe('Whether the installation has access to all or only selected repositories'),
+        repositories: z.array(RepositorySchema).describe('The list of repositories accessible to this installation'),
+        next_page: z.string().optional().describe('The next page number to fetch, if more results are available')
     })
-    .describe('Output containing repositories accessible to the GitHub App installation.');
+    .describe('Response containing repositories accessible to a GitHub App installation, total count, and pagination metadata.');
 
 /**
  * @tags: [read]
- * @tagReason: Lists repositories accessible to the GitHub App installation via a read-only endpoint.
- * @pitfalls: A returned repository may have disabled features (for example issues or discussions) independently of installation permissions, so downstream write actions can still fail on it.
+ * @tagReason: Reads the list of repositories accessible to the GitHub App installation.
+ * @pitfalls: Installations may return `repository_selection: "selected"`, so only explicitly granted repositories appear; do not assume a fixed repository is accessible without checking this list first.
  */
 const action = createAction({
-    description: 'List the repositories this GitHub App installation has access to.',
+    description: 'List the repositories this GitHub App installation has access to',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['metadata:read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        if (Number.isNaN(page) || page < 1) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a valid positive integer page number'
+            });
+        }
+
+        const perPage = input.per_page ?? 30;
+
+        // https://docs.github.com/en/rest/apps/installations?apiVersion=2022-11-28#list-repositories-accessible-to-the-app-installation
         const response = await nango.get({
             endpoint: '/installation/repositories',
             params: {
-                ...(input.per_page !== undefined && { per_page: String(input.per_page) }),
-                ...(input.page !== undefined && { page: String(input.page) })
+                page: String(page),
+                per_page: String(perPage)
             },
             retries: 3
         });
 
-        const providerResponse = z
-            .object({
-                total_count: z.number(),
-                repository_selection: z.enum(['all', 'selected']).optional(),
-                repositories: z.array(z.unknown())
-            })
-            .parse(response.data);
+        const ProviderResponseSchema = z.object({
+            total_count: z.number(),
+            repository_selection: z.enum(['all', 'selected']),
+            repositories: z.array(z.unknown())
+        });
 
-        const repositories = providerResponse.repositories.map((repo) => RepositorySchema.parse(repo));
+        const providerData = ProviderResponseSchema.parse(response.data);
+
+        const repositories = providerData.repositories.map((repo: unknown) => {
+            const parsed = ProviderRepositorySchema.parse(repo);
+            return {
+                id: parsed.id,
+                node_id: parsed.node_id,
+                name: parsed.name,
+                full_name: parsed.full_name,
+                private: parsed.private,
+                owner: parsed.owner,
+                html_url: parsed.html_url,
+                ...(parsed.description != null && { description: parsed.description }),
+                fork: parsed.fork,
+                default_branch: parsed.default_branch,
+                ...(parsed.permissions !== undefined && { permissions: parsed.permissions })
+            };
+        });
+
+        const hasMore = page * perPage < providerData.total_count;
 
         return {
-            total_count: providerResponse.total_count,
-            ...(providerResponse.repository_selection !== undefined && { repository_selection: providerResponse.repository_selection }),
-            repositories
+            total_count: providerData.total_count,
+            repository_selection: providerData.repository_selection,
+            repositories,
+            ...(hasMore && { next_page: String(page + 1) })
         };
     }
 });

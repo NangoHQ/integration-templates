@@ -1,0 +1,31 @@
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { z } from 'zod';
+
+// Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
+// Operation: segments/remove
+const InputSchema = z.object({ id: z.string() }).passthrough();
+
+const ProviderResponseSchema = z.object({ id: z.string().optional(), object: z.string().optional(), deleted: z.boolean().optional() }).passthrough();
+const OutputSchema = ProviderResponseSchema;
+
+const action = createAction({
+    description: 'Remove an existing segment in Resend.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: [],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const config: ProxyConfiguration = {
+            // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
+            endpoint: `/segments/${encodeURIComponent(input['id'])}`,
+            retries: 3
+        };
+        const response = await nango.delete(config);
+        const data = ProviderResponseSchema.parse(response.data);
+        return data;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

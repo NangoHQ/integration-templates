@@ -3,70 +3,66 @@
     "owner": "nango-provisioned-apps",
     "repo": "nango",
     "pull_number": 1,
-    "body": "Test review from Nango registry",
+    "body": "Test review from Nango action dryrun",
     "event": "COMMENT"
   },
   "output": {
-    "id": 4908054166,
-    "node_id": "PRR_kwDOT1NNv88AAAABJIr2lg",
-    "user": {
-      "login": "testnangoapi[bot]",
-      "id": 280313874
-    },
-    "body": "Test review from Nango registry",
+    "id": 5318308447,
+    "node_id": "PRR_kwDOT1NNv88AAAABPP7yXw",
+    "body": "Test review from Nango action dryrun",
     "state": "COMMENTED",
-    "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-4908054166",
+    "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-5318308447",
     "pull_request_url": "https://api.github.com/repos/nango-provisioned-apps/nango/pulls/1",
     "commit_id": "a0c1289b8a1b2708d5e040b85a6ff0dedee4bd40",
-    "submitted_at": "2026-08-11T15:44:56Z"
+    "submitted_at": "2026-09-25T13:35:53Z"
   },
   "nango": {},
   "api": {
     "post": {
       "/repos/nango-provisioned-apps/nango/pulls/1/reviews": {
         "response": {
-          "id": 4908054166,
-          "node_id": "PRR_kwDOT1NNv88AAAABJIr2lg",
+          "id": 5318308447,
+          "node_id": "PRR_kwDOT1NNv88AAAABPP7yXw",
           "user": {
-            "login": "testnangoapi[bot]",
-            "id": 280313874,
-            "node_id": "BOT_kgDOELVAEg",
-            "avatar_url": "https://avatars.githubusercontent.com/u/125632594?v=4",
+            "login": "nango-oauth-app[bot]",
+            "id": 318402831,
+            "node_id": "BOT_kgDOEvpxDw",
+            "avatar_url": "https://avatars.githubusercontent.com/in/4640518?v=4",
             "gravatar_id": "",
-            "url": "https://api.github.com/users/testnangoapi%5Bbot%5D",
-            "html_url": "https://github.com/apps/testnangoapi",
-            "followers_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/followers",
-            "following_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/following{/other_user}",
-            "gists_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/gists{/gist_id}",
-            "starred_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/starred{/owner}{/repo}",
-            "subscriptions_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/subscriptions",
-            "organizations_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/orgs",
-            "repos_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/repos",
-            "events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/events{/privacy}",
-            "received_events_url": "https://api.github.com/users/testnangoapi%5Bbot%5D/received_events",
+            "url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D",
+            "html_url": "https://github.com/apps/nango-oauth-app",
+            "followers_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/received_events",
             "type": "Bot",
             "user_view_type": "public",
             "site_admin": false
           },
-          "body": "Test review from Nango registry",
+          "body": "Test review from Nango action dryrun",
           "state": "COMMENTED",
-          "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-4908054166",
+          "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-5318308447",
           "pull_request_url": "https://api.github.com/repos/nango-provisioned-apps/nango/pulls/1",
           "author_association": "NONE",
           "_links": {
             "html": {
-              "href": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-4908054166"
+              "href": "https://github.com/nango-provisioned-apps/nango/pull/1#pullrequestreview-5318308447"
             },
             "pull_request": {
               "href": "https://api.github.com/repos/nango-provisioned-apps/nango/pulls/1"
             }
           },
-          "submitted_at": "2026-08-11T15:44:56Z",
+          "submitted_at": "2026-09-25T13:35:53Z",
           "commit_id": "a0c1289b8a1b2708d5e040b85a6ff0dedee4bd40"
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 15:44:56 GMT",
+          "date": "Fri, 25 Sep 2026 13:35:54 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -75,32 +71,32 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4996",
-          "x-ratelimit-reset": "1786466677",
+          "x-ratelimit-remaining": "4897",
+          "x-ratelimit-reset": "1790346775",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"3e664846c7127f4bd20eee11d9e5c4a12837e2d6d369965e2a86878438b49359\"",
+          "etag": "W/\"4afe8636166c4d4b49dc2e40a2174c3b041ed99b68d19eca35e8a1a3a0f57791\"",
           "x-github-media-type": "github.v3",
           "x-accepted-github-permissions": "pull_requests=write",
           "x-github-api-version-selected": "2022-11-28",
-          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "4",
+          "x-ratelimit-used": "103",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "F91A:315057:1B7B8F:1BF945:6A7B4375",
+          "x-github-request-id": "2E47:161F:323CC69:3415189:6AB678B2",
           "x-github-edge-region": "sea"
         },
-        "hash": "33680f0001375c5687f2f7ebde0e58e70e56e594",
+        "hash": "33105e3926c758ac928e2c20879b3fb631d4e0ad",
         "request": {
           "data": {
-            "event": "COMMENT",
-            "body": "Test review from Nango registry"
+            "body": "Test review from Nango action dryrun",
+            "event": "COMMENT"
           }
         }
       }
