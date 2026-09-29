@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve metadata for a GitHub Actions workflow.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['repo'],

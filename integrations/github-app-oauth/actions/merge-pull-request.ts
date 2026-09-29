@@ -1,18 +1,23 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
-
-const MergeMethodSchema = z.enum(['merge', 'squash', 'rebase']);
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('The account owner of the repository.'),
-        repo: z.string().describe('The name of the repository.'),
-        pull_number: z.number().int().positive().describe('The number that identifies the pull request.'),
-        commit_title: z.string().optional().describe('Title for the automatic commit message.'),
-        commit_message: z.string().optional().describe('Extra detail to append to automatic commit message.'),
-        merge_method: MergeMethodSchema.optional().describe('The merge method to use. Defaults to merge if omitted.')
+        owner: z.string().describe('The account owner of the repository. The name is not case sensitive. Example: "nango-provisioned-apps"'),
+        repo: z.string().describe('The name of the repository without the .git extension. The name is not case sensitive. Example: "nango"'),
+        pull_number: z.number().int().describe('The number that identifies the pull request. Example: 22'),
+        commit_title: z
+            .string()
+            .optional()
+            .describe('Title for the automatic commit message. Defaults to the pull request title when omitted. Example: "Add new feature"'),
+        commit_message: z.string().optional().describe('Extra detail to append to the automatic commit message.'),
+        merge_method: z
+            .enum(['merge', 'squash', 'rebase'])
+            .optional()
+            .describe('The merge method to use. Must be enabled in the repository settings. Defaults to "merge".')
     })
-    .describe('Parameters for merging a pull request.');
+    .describe('Identifies the repository and pull request to merge, with optional merge commit customization.');
 
 const ProviderMergeResponseSchema = z.object({
     sha: z.string(),
@@ -22,42 +27,49 @@ const ProviderMergeResponseSchema = z.object({
 
 const OutputSchema = z
     .object({
-        sha: z.string().describe('SHA of the merge commit.'),
-        merged: z.boolean().describe('Whether the merge was successful.'),
-        message: z.string().describe('A descriptive message about the merge result.')
+        sha: z
+            .string()
+            .describe(
+                'The SHA of the resulting commit on the base branch: the merge commit for "merge", the squashed commit for "squash", or the commit the base branch was updated to for "rebase".'
+            ),
+        merged: z.boolean().describe('Whether the pull request was merged. True on a successful response.'),
+        message: z.string().describe('A message describing the merge result. Example: "Pull Request successfully merged"')
     })
-    .describe('Result of merging a pull request.');
+    .describe('The result of merging the pull request.');
 
 /**
  * @tags: [write, destructive]
- * @tagReason: Permanently merges a pull request into the base branch, rewriting history depending on the merge method.
- * @pitfalls: GitHub rejects the request with 405 when the PR is not mergeable, already closed or merged, or required status checks are failing, and with 409 if the head branch is modified during the request.
+ * @tagReason: Merging a pull request writes a commit to the base branch and closes the pull request, which cannot be un-merged through the API.
+ * @pitfalls: GitHub computes mergeability in the background, so merging a pull request immediately after it is created or updated can transiently fail with a 405 "Base branch was modified" error; retrying after a few seconds usually succeeds. Merging an already-merged pull request still returns a successful response, so a 200 does not prove this call performed the merge.
  */
 const action = createAction({
-    description: 'Merge a pull request.',
+    description: 'Merge a pull request',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.put({
-            // https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#merge-a-pull-request
-            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${encodeURIComponent(String(input.pull_number))}/merge`,
+        // https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request
+        const config: ProxyConfiguration = {
+            // https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${input.pull_number}/merge`,
             data: {
                 ...(input.commit_title !== undefined && { commit_title: input.commit_title }),
                 ...(input.commit_message !== undefined && { commit_message: input.commit_message }),
                 ...(input.merge_method !== undefined && { merge_method: input.merge_method })
             },
             retries: 3
-        });
+        };
 
-        const providerData = ProviderMergeResponseSchema.parse(response.data);
+        const response = await nango.put(config);
+
+        const merge = ProviderMergeResponseSchema.parse(response.data);
 
         return {
-            sha: providerData.sha,
-            merged: providerData.merged,
-            message: providerData.message
+            sha: merge.sha,
+            merged: merge.merged,
+            message: merge.message
         };
     }
 });

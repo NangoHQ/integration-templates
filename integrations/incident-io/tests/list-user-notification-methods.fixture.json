@@ -1,0 +1,19 @@
+{
+    "input": {
+        "user_id": "01FCNDV6P870EA6S7TK1DSYDG0"
+    },
+    "response": {
+        "notification_methods": [
+            {
+                "address": "\u2022\u2022\u2022\u2022\u2022\u2022\u20226789",
+                "id": "01FCNDV6P870EA6S7TK1DSYDG0",
+                "is_usable": true,
+                "method_type": "app",
+                "phone_details": {
+                    "supports_sms": true,
+                    "supports_voice": true
+                }
+            }
+        ]
+    }
+}

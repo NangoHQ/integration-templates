@@ -6,13 +6,143 @@
   "output": {
     "items": [
       {
-        "name": "nango-create-release-test-v1",
-        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-create-release-test-v1",
-        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-create-release-test-v1",
+        "name": "nango-registry-test-delete-release-v3",
+        "commit": {
+          "sha": "11b0c9616894774ff2fddc3a3c5a5f8c0075411f",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/11b0c9616894774ff2fddc3a3c5a5f8c0075411f"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v3",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v3",
+        "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYz"
+      },
+      {
+        "name": "nango-registry-test-delete-release-v2",
+        "commit": {
+          "sha": "11b0c9616894774ff2fddc3a3c5a5f8c0075411f",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/11b0c9616894774ff2fddc3a3c5a5f8c0075411f"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v2",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v2",
+        "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYy"
+      },
+      {
+        "name": "nango-registry-test-delete-release-v1",
+        "commit": {
+          "sha": "9c24f4912f55f90c88b6b8e1a1cfab05bb280743",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/9c24f4912f55f90c88b6b8e1a1cfab05bb280743"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v1",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v1",
+        "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYx"
+      },
+      {
+        "name": "nango-get-release-test",
+        "commit": {
+          "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-get-release-test",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-get-release-test",
+        "node_id": "REF_kwDOT1NNv9oAIHJlZnMvdGFncy9uYW5nby1nZXQtcmVsZWFzZS10ZXN0"
+      },
+      {
+        "name": "nango-delete-test-v3",
+        "commit": {
+          "sha": "f506f3df04c832fe159c829c862e733f42177111",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/f506f3df04c832fe159c829c862e733f42177111"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v3",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v3",
+        "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjM"
+      },
+      {
+        "name": "nango-delete-test-v2",
+        "commit": {
+          "sha": "1234449dad84864a879bb39dd0ca80b44e01dc5e",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/1234449dad84864a879bb39dd0ca80b44e01dc5e"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v2",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v2",
+        "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjI"
+      },
+      {
+        "name": "nango-delete-test-v1",
+        "commit": {
+          "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v1",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v1",
+        "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjE"
+      },
+      {
+        "name": "nango-delete-test-1786463984980",
+        "commit": {
+          "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463984980",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463984980",
+        "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzOTg0OTgw"
+      },
+      {
+        "name": "nango-delete-test-1786463963724",
+        "commit": {
+          "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463963724",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463963724",
+        "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzOTYzNzI0"
+      },
+      {
+        "name": "nango-delete-test-1786463815621",
+        "commit": {
+          "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463815621",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463815621",
+        "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzODE1NjIx"
+      },
+      {
+        "name": "nango-delete-test-1786463795814",
+        "commit": {
+          "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463795814",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463795814",
+        "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzNzk1ODE0"
+      },
+      {
+        "name": "nango-delete-test-1786463263307",
+        "commit": {
+          "sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/4f29bd42578cb8bd927a23747db0f9cd9c1098cc"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463263307",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463263307",
+        "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzMjYzMzA3"
+      },
+      {
+        "name": "nango-create-release-test-v2",
         "commit": {
           "sha": "0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d",
           "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d"
         },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-create-release-test-v2",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-create-release-test-v2",
+        "node_id": "REF_kwDOT1NNv9oAJnJlZnMvdGFncy9uYW5nby1jcmVhdGUtcmVsZWFzZS10ZXN0LXYy"
+      },
+      {
+        "name": "nango-create-release-test-v1",
+        "commit": {
+          "sha": "0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d"
+        },
+        "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-create-release-test-v1",
+        "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-create-release-test-v1",
         "node_id": "REF_kwDOT1NNv9oAJnJlZnMvdGFncy9uYW5nby1jcmVhdGUtcmVsZWFzZS10ZXN0LXYx"
       }
     ]
@@ -22,6 +152,136 @@
     "get": {
       "/repos/nango-provisioned-apps/nango/tags": {
         "response": [
+          {
+            "name": "nango-registry-test-delete-release-v3",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v3",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v3",
+            "commit": {
+              "sha": "11b0c9616894774ff2fddc3a3c5a5f8c0075411f",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/11b0c9616894774ff2fddc3a3c5a5f8c0075411f"
+            },
+            "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYz"
+          },
+          {
+            "name": "nango-registry-test-delete-release-v2",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v2",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v2",
+            "commit": {
+              "sha": "11b0c9616894774ff2fddc3a3c5a5f8c0075411f",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/11b0c9616894774ff2fddc3a3c5a5f8c0075411f"
+            },
+            "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYy"
+          },
+          {
+            "name": "nango-registry-test-delete-release-v1",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-registry-test-delete-release-v1",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-registry-test-delete-release-v1",
+            "commit": {
+              "sha": "9c24f4912f55f90c88b6b8e1a1cfab05bb280743",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/9c24f4912f55f90c88b6b8e1a1cfab05bb280743"
+            },
+            "node_id": "REF_kwDOT1NNv9oAL3JlZnMvdGFncy9uYW5nby1yZWdpc3RyeS10ZXN0LWRlbGV0ZS1yZWxlYXNlLXYx"
+          },
+          {
+            "name": "nango-get-release-test",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-get-release-test",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-get-release-test",
+            "commit": {
+              "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+            },
+            "node_id": "REF_kwDOT1NNv9oAIHJlZnMvdGFncy9uYW5nby1nZXQtcmVsZWFzZS10ZXN0"
+          },
+          {
+            "name": "nango-delete-test-v3",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v3",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v3",
+            "commit": {
+              "sha": "f506f3df04c832fe159c829c862e733f42177111",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/f506f3df04c832fe159c829c862e733f42177111"
+            },
+            "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjM"
+          },
+          {
+            "name": "nango-delete-test-v2",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v2",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v2",
+            "commit": {
+              "sha": "1234449dad84864a879bb39dd0ca80b44e01dc5e",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/1234449dad84864a879bb39dd0ca80b44e01dc5e"
+            },
+            "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjI"
+          },
+          {
+            "name": "nango-delete-test-v1",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-v1",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-v1",
+            "commit": {
+              "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+            },
+            "node_id": "REF_kwDOT1NNv75yZWZzL3RhZ3MvbmFuZ28tZGVsZXRlLXRlc3QtdjE"
+          },
+          {
+            "name": "nango-delete-test-1786463984980",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463984980",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463984980",
+            "commit": {
+              "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+            },
+            "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzOTg0OTgw"
+          },
+          {
+            "name": "nango-delete-test-1786463963724",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463963724",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463963724",
+            "commit": {
+              "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+            },
+            "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzOTYzNzI0"
+          },
+          {
+            "name": "nango-delete-test-1786463815621",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463815621",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463815621",
+            "commit": {
+              "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+            },
+            "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzODE1NjIx"
+          },
+          {
+            "name": "nango-delete-test-1786463795814",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463795814",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463795814",
+            "commit": {
+              "sha": "d33bd57c78ccf261a6e46a9e9e78c08c072428dd",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/d33bd57c78ccf261a6e46a9e9e78c08c072428dd"
+            },
+            "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzNzk1ODE0"
+          },
+          {
+            "name": "nango-delete-test-1786463263307",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-delete-test-1786463263307",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-delete-test-1786463263307",
+            "commit": {
+              "sha": "4f29bd42578cb8bd927a23747db0f9cd9c1098cc",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/4f29bd42578cb8bd927a23747db0f9cd9c1098cc"
+            },
+            "node_id": "REF_kwDOT1NNv9oAKXJlZnMvdGFncy9uYW5nby1kZWxldGUtdGVzdC0xNzg2NDYzMjYzMzA3"
+          },
+          {
+            "name": "nango-create-release-test-v2",
+            "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-create-release-test-v2",
+            "tarball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/tarball/refs/tags/nango-create-release-test-v2",
+            "commit": {
+              "sha": "0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/0fe315b5ea62d71f06f796c3a9cd14bfcc6e832d"
+            },
+            "node_id": "REF_kwDOT1NNv9oAJnJlZnMvdGFncy9uYW5nby1jcmVhdGUtcmVsZWFzZS10ZXN0LXYy"
+          },
           {
             "name": "nango-create-release-test-v1",
             "zipball_url": "https://api.github.com/repos/nango-provisioned-apps/nango/zipball/refs/tags/nango-create-release-test-v1",
@@ -35,7 +295,7 @@
         ],
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 15:46:05 GMT",
+          "date": "Fri, 25 Sep 2026 13:37:42 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -44,29 +304,29 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4984",
-          "x-ratelimit-reset": "1786466683",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1790346762",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"f2a1ebb0ab665d94f311398a09a4eb8981c9b464b2d920e12a353c0cd8a83615\"",
-          "last-modified": "Tue, 11 Aug 2026 12:17:29 GMT",
+          "etag": "W/\"ede18a44e7f895d22055c35981941882bb1a64081bd57f388138c61a226d6738\"",
+          "last-modified": "Tue, 11 Aug 2026 18:26:50 GMT",
           "x-github-media-type": "github.v3",
           "x-accepted-github-permissions": "metadata=read",
           "x-github-api-version-selected": "2022-11-28",
-          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "16",
+          "x-ratelimit-used": "66",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "23FB:38C518:29ADC:3292A:6A7B43BA",
-          "x-github-edge-region": "westus2"
+          "x-github-request-id": "8BD0:190E3A:53CA3:57733:6AB6790B",
+          "x-github-edge-region": "sea"
         },
-        "hash": "98ac8c9da759900970cc34d44ecec9ba2955c870",
+        "hash": "f9bf78b1787bc6dc49c7b79b0d3565199e0fb321",
         "request": {
           "params": {
             "page": "1",

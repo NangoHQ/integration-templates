@@ -1,0 +1,8 @@
+{
+    "input": {
+        "segment_id": "example",
+        "limit": 1,
+        "after": "example"
+    },
+    "response": {}
+}

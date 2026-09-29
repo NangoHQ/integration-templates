@@ -1,0 +1,62 @@
+import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
+import { z } from 'zod';
+
+// Contract derived from https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml
+// Operation: emails/get-receiving
+const InputSchema = z.object({ email_id: z.string() }).passthrough();
+
+const ProviderResponseSchema = z
+    .object({
+        object: z.string().optional(),
+        id: z.string().optional(),
+        to: z.array(z.string()).optional(),
+        from: z.string().optional(),
+        subject: z.string().optional(),
+        message_id: z.string().optional(),
+        bcc: z.array(z.string()).nullable().optional(),
+        cc: z.array(z.string()).nullable().optional(),
+        reply_to: z.array(z.string()).nullable().optional(),
+        received_for: z.array(z.string()).optional(),
+        html: z.string().nullable().optional(),
+        text: z.string().nullable().optional(),
+        headers: z.object({}).passthrough().nullable().optional(),
+        created_at: z.string().optional(),
+        attachments: z
+            .array(
+                z
+                    .object({
+                        id: z.string().optional(),
+                        filename: z.string().nullable().optional(),
+                        content_type: z.string().optional(),
+                        content_id: z.string().optional(),
+                        content_disposition: z.enum(['inline', 'attachment']).nullable().optional(),
+                        size: z.number().int().optional()
+                    })
+                    .passthrough()
+            )
+            .optional()
+    })
+    .passthrough();
+const OutputSchema = ProviderResponseSchema;
+
+const action = createAction({
+    description: 'Retrieve a single received email in Resend.',
+    version: '1.0.0',
+    input: InputSchema,
+    output: OutputSchema,
+    scopes: [],
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const config: ProxyConfiguration = {
+            // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
+            endpoint: `/emails/receiving/${encodeURIComponent(input['email_id'])}`,
+            retries: 3
+        };
+        const response = await nango.get(config);
+        const data = ProviderResponseSchema.parse(response.data);
+        return data;
+    }
+});
+
+export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
+export default action;

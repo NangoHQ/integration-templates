@@ -61,7 +61,12 @@ const OutputSchema = z
         data: z
             .object({
                 series: z.array(z.array(z.number())).describe('Metric values for each group and date in xValues'),
-                seriesLabels: z.array(z.string()).optional().describe('Labels for each group in series'),
+                seriesLabels: z
+                    .array(z.union([z.string(), z.number()]))
+                    .optional()
+                    .describe(
+                        'Labels for each group in series. A plain segment/group-by value (e.g. a property value) when grouping, or a numeric group index (e.g. 0) when there is no group-by.'
+                    ),
                 seriesCollapsed: z
                     .array(z.array(SeriesCollapsedItemSchema))
                     .optional()
@@ -75,7 +80,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Queries computed event metrics from Amplitude. No provider state is modified.
- * @pitfalls: Rate limiting uses a query-cost model (cost = days * conditions * query-type cost) and may return 429. Real-time and hourly intervals are capped at 2 and 7 days respectively; daily is capped at 365 days. Property metrics require group_by in the event definition and group-by is only available with a single segment.
+ * @pitfalls: Rate limiting uses a query-cost model (cost = days * conditions * query-type cost) and may return 429. Real-time and hourly intervals are capped at 2 and 7 days respectively; daily is capped at 365 days. Property metrics require group_by in the event definition and group-by is only available with a single segment. seriesLabels entries are numeric group indices (e.g. 0) when no group_by/segment is set, and strings when grouping by a property — verified live 2026-09-25.
  */
 const action = createAction({
     description: 'Query event metrics with segmentation, optionally comparing up to two events.',

@@ -1,65 +1,74 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner. Example: "octocat"'),
-        repo: z.string().describe('Repository name. Example: "hello-world"'),
-        tag_name: z.string().describe('The name of the tag for the release. Example: "v1.0.0"'),
+        owner: z.string().describe('The account owner of the repository (user or organization login). Example: "octocat"'),
+        repo: z.string().describe('The name of the repository, without the owner. Example: "hello-world"'),
+        tag_name: z.string().describe('The name of the tag for this release. Example: "v1.0.0"'),
         target_commitish: z
             .string()
             .optional()
             .describe(
-                'The commitish value that determines where the Git tag is created from. Can be any branch or commit SHA. Defaults to the repository\'s default branch if omitted. Example: "master"'
+                'The branch or commit SHA to create the tag from when the tag does not already exist. Defaults to the repository default branch. Example: "main"'
             ),
         name: z.string().optional().describe('The name of the release. Example: "v1.0.0"'),
-        body: z.string().optional().describe('Text describing the contents of the tag. Example: "Description of the release"'),
-        draft: z.boolean().optional().describe('Whether the release is a draft. Defaults to false.'),
-        prerelease: z.boolean().optional().describe('Whether the release is a prerelease. Defaults to false.')
+        body: z.string().optional().describe('Text describing the contents of the release'),
+        draft: z.boolean().optional().describe('Set to true to create a draft (unpublished) release. Defaults to false'),
+        prerelease: z.boolean().optional().describe('Set to true to identify the release as a prerelease. Defaults to false')
     })
-    .describe('Input to create a GitHub release.');
+    .describe('Input for creating a GitHub release');
 
-const AuthorSchema = z
-    .object({
-        login: z.string().describe('The username of the release author.'),
-        id: z.number().describe('The unique identifier of the release author.'),
-        avatar_url: z.string().describe("The URL of the release author's avatar."),
-        html_url: z.string().describe("The URL of the release author's profile.")
-    })
-    .describe('The user who created the release.');
+const ProviderReleaseSchema = z.object({
+    id: z.number(),
+    tag_name: z.string(),
+    target_commitish: z.string(),
+    name: z.string().nullable(),
+    body: z.string().nullable(),
+    draft: z.boolean(),
+    prerelease: z.boolean(),
+    created_at: z.string(),
+    published_at: z.string().nullable(),
+    url: z.string(),
+    html_url: z.string(),
+    upload_url: z.string()
+});
 
 const OutputSchema = z
     .object({
-        id: z.number().describe('The unique identifier of the release.'),
-        tag_name: z.string().describe('The name of the tag for the release.'),
-        target_commitish: z.string().describe('The commitish value the Git tag was created from.'),
-        name: z.string().optional().describe('The name of the release.'),
-        body: z.string().optional().describe('The description of the release.'),
-        draft: z.boolean().describe('Whether the release is a draft.'),
-        prerelease: z.boolean().describe('Whether the release is a prerelease.'),
-        html_url: z.string().describe('The URL of the release in the browser.'),
-        url: z.string().describe('The API URL of the release.'),
-        created_at: z.string().describe('The ISO 8601 timestamp when the release was created.'),
-        published_at: z.string().optional().describe('The ISO 8601 timestamp when the release was published. Omitted for drafts.'),
-        author: AuthorSchema.describe('The user who created the release.')
+        id: z.number().describe('The unique identifier of the release. Example: 1'),
+        tag_name: z.string().describe('The name of the tag this release is associated with. Example: "v1.0.0"'),
+        target_commitish: z.string().describe('The commitish value the underlying tag points to, such as a branch name. Example: "main"'),
+        name: z.string().optional().describe('The name of the release'),
+        body: z.string().optional().describe('Text describing the contents of the release'),
+        draft: z.boolean().describe('Whether the release is a draft (unpublished)'),
+        prerelease: z.boolean().describe('Whether the release is identified as a prerelease'),
+        created_at: z.string().describe('ISO 8601 timestamp of when the release was created. Example: "2013-02-27T19:35:32Z"'),
+        published_at: z
+            .string()
+            .optional()
+            .describe('ISO 8601 timestamp of when the release was published. Omitted for draft releases. Example: "2013-02-27T19:35:32Z"'),
+        url: z.string().describe('The REST API URL of the release. Example: "https://api.github.com/repos/octocat/hello-world/releases/1"'),
+        html_url: z.string().describe('The browser URL of the release. Example: "https://github.com/octocat/hello-world/releases/v1.0.0"'),
+        upload_url: z.string().describe('The endpoint URL template used to upload assets to the release')
     })
-    .describe('A GitHub release that was created.');
+    .describe('The created GitHub release');
 
 /**
  * @tags: [write]
- * @tagReason: Creates a new release and its underlying git tag on the provider.
- * @pitfalls: Creating a release with a new tag_name automatically creates the underlying git tag, but deleting the release later does not delete that tag, so reusing the same tag_name afterward will fail with already_exists until the tag is removed separately.
+ * @tagReason: Creates a new release (and its underlying git tag when the tag does not already exist) in the repository.
+ * @pitfalls: A brand-new tag_name automatically creates the underlying git tag, and that tag is not removed if the release is later deleted. The target_commitish input is ignored when the tag already exists. The installation needs the repository Contents write permission; Releases have no dedicated permission of their own.
  */
 const action = createAction({
-    description: 'Create a new release (and its underlying git tag, if the tag does not already exist).',
-    version: '1.0.0',
+    description: 'Creates a new release for a repository',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:write'],
-
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.post({
-            // https://docs.github.com/rest/releases/releases#create-a-release
+        const config: ProxyConfiguration = {
+            // https://docs.github.com/en/rest/releases/releases#create-a-release
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/releases`,
             data: {
                 tag_name: input.tag_name,
@@ -69,51 +78,26 @@ const action = createAction({
                 ...(input.draft !== undefined && { draft: input.draft }),
                 ...(input.prerelease !== undefined && { prerelease: input.prerelease })
             },
-            retries: 3
-        });
+            retries: 1
+        };
 
-        const raw = response.data;
+        const response = await nango.post(config);
 
-        const parsed = z
-            .object({
-                id: z.number(),
-                tag_name: z.string(),
-                target_commitish: z.string(),
-                name: z.string().nullable(),
-                body: z.string().nullable(),
-                draft: z.boolean(),
-                prerelease: z.boolean(),
-                html_url: z.string(),
-                url: z.string(),
-                created_at: z.string(),
-                published_at: z.string().nullable(),
-                author: z.object({
-                    login: z.string(),
-                    id: z.number(),
-                    avatar_url: z.string(),
-                    html_url: z.string()
-                })
-            })
-            .parse(raw);
+        const release = ProviderReleaseSchema.parse(response.data);
 
         return {
-            id: parsed.id,
-            tag_name: parsed.tag_name,
-            target_commitish: parsed.target_commitish,
-            ...(parsed.name != null && { name: parsed.name }),
-            ...(parsed.body != null && { body: parsed.body }),
-            draft: parsed.draft,
-            prerelease: parsed.prerelease,
-            html_url: parsed.html_url,
-            url: parsed.url,
-            created_at: parsed.created_at,
-            ...(parsed.published_at != null && { published_at: parsed.published_at }),
-            author: {
-                login: parsed.author.login,
-                id: parsed.author.id,
-                avatar_url: parsed.author.avatar_url,
-                html_url: parsed.author.html_url
-            }
+            id: release.id,
+            tag_name: release.tag_name,
+            target_commitish: release.target_commitish,
+            ...(release.name != null && { name: release.name }),
+            ...(release.body != null && { body: release.body }),
+            draft: release.draft,
+            prerelease: release.prerelease,
+            created_at: release.created_at,
+            ...(release.published_at != null && { published_at: release.published_at }),
+            url: release.url,
+            html_url: release.html_url,
+            upload_url: release.upload_url
         };
     }
 });

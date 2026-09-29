@@ -3,43 +3,51 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner. Example: "octo-org".'),
-        repo: z.string().describe('Repository name. Example: "hello-world".'),
-        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Default: 30.'),
-        cursor: z.string().optional().describe('Pagination cursor (page number). Omit for the first page.')
+        owner: z.string().describe('The account owner of the repository. Example: "octocat"'),
+        repo: z.string().describe('The name of the repository. Example: "hello-world"'),
+        per_page: z.number().int().min(1).max(100).optional().describe('The number of results per page. Maximum is 100.'),
+        cursor: z.string().optional().describe('Pagination cursor representing the page number. Omit for the first page.')
     })
-    .describe('Parameters for listing GitHub Actions workflows in a repository.');
+    .describe('Input parameters for listing GitHub Actions workflows in a repository.');
 
-const WorkflowSchema = z.object({
-    id: z.number().describe('Unique identifier of the workflow.'),
-    node_id: z.string().describe('Global node ID for the workflow.'),
-    name: z.string().describe('Display name of the workflow.'),
-    path: z.string().describe('Path to the workflow file in the repository.'),
-    state: z.string().describe('Current state of the workflow (e.g., "active").'),
-    created_at: z.string().describe('ISO 8601 timestamp when the workflow was created.'),
-    updated_at: z.string().describe('ISO 8601 timestamp when the workflow was last updated.'),
-    url: z.string().describe('API URL for the workflow.'),
-    html_url: z.string().describe('HTML URL for the workflow file on GitHub.'),
-    badge_url: z.string().describe('Badge image URL for the workflow.')
+const RawWorkflowSchema = z.object({
+    id: z.number(),
+    node_id: z.string(),
+    name: z.string(),
+    path: z.string(),
+    state: z.string(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    url: z.string(),
+    html_url: z.string(),
+    badge_url: z.string().nullish()
 });
 
-const ProviderResponseSchema = z.object({
-    total_count: z.number(),
-    workflows: z.array(WorkflowSchema)
+const WorkflowSchema = z.object({
+    id: z.number().describe('The workflow identifier.'),
+    node_id: z.string().describe('The node ID of the workflow.'),
+    name: z.string().describe('The name of the workflow.'),
+    path: z.string().describe('The path to the workflow file in the repository.'),
+    state: z.string().describe('The current state of the workflow. Example: "active".'),
+    created_at: z.string().describe('When the workflow was created.'),
+    updated_at: z.string().describe('When the workflow was last updated.'),
+    url: z.string().describe('The API URL for the workflow.'),
+    html_url: z.string().describe('The HTML URL for the workflow.'),
+    badge_url: z.string().optional().describe('The badge URL for the workflow.')
 });
 
 const OutputSchema = z
     .object({
-        total_count: z.number().describe('Total number of workflows in the repository.'),
-        workflows: z.array(WorkflowSchema).describe('Array of workflow definitions.'),
-        next_cursor: z.string().optional().describe('Pagination cursor for the next page. Omit if there are no more pages.')
+        total_count: z.number().describe('The total number of workflows in the repository.'),
+        workflows: z.array(WorkflowSchema).describe('The list of workflows.'),
+        next_cursor: z.string().optional().describe('The cursor for the next page of results, if more pages are available.')
     })
-    .describe('Result of listing GitHub Actions workflows in a repository.');
+    .describe('The list of GitHub Actions workflows in a repository, including pagination metadata.');
 
 /**
  * @tags: [read]
- * @tagReason: Lists existing GitHub Actions workflows in a repository.
- * @pitfalls: May return an empty list on repositories where Actions has never been triggered, even when workflow files already exist; an actual push event is required to activate and register them.
+ * @tagReason: Retrieves workflow definitions from the GitHub API without modifying any data.
+ * @pitfalls: On repositories where GitHub Actions has never been triggered, this may return an empty list even when workflow files already exist; pushing any workflow change causes GitHub to index and reveal all pre-existing workflows at once.
  */
 const action = createAction({
     description: 'List GitHub Actions workflows defined in a repository.',
@@ -49,17 +57,10 @@ const action = createAction({
     scopes: ['actions:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'cursor must be a positive integer string representing a page number.'
-            });
-        }
-
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (isNaN(page) || page < 1) {
+        if (Number.isNaN(page) || page < 1) {
             throw new nango.ActionError({
-                type: 'invalid_cursor',
+                type: 'invalid_input',
                 message: 'cursor must be a positive integer string representing a page number.'
             });
         }
@@ -67,22 +68,71 @@ const action = createAction({
         const perPage = input.per_page ?? 30;
 
         const response = await nango.get({
-            // https://docs.github.com/rest/actions/workflows#list-repository-workflows
-            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/actions/workflows`,
+            // https://docs.github.com/en/rest/actions/workflows?apiVersion=2022-11-28#list-repository-workflows
+            endpoint: `repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/actions/workflows`,
             params: {
-                per_page: perPage,
-                page: page
+                per_page: String(perPage),
+                page: String(page)
             },
             retries: 3
         });
 
-        const providerData = ProviderResponseSchema.parse(response.data);
-        const hasNextPage = providerData.total_count > page * perPage;
+        const rawData = response.data;
+        if (!rawData || typeof rawData !== 'object' || Array.isArray(rawData)) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from GitHub API.'
+            });
+        }
+
+        const providerResponse = z
+            .object({
+                total_count: z.number(),
+                workflows: z.array(z.unknown())
+            })
+            .safeParse(rawData);
+
+        if (!providerResponse.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response format from GitHub API.',
+                details: providerResponse.error.message
+            });
+        }
+
+        const totalCount = providerResponse.data.total_count;
+        const rawWorkflows = providerResponse.data.workflows;
+
+        const workflows = rawWorkflows.map((item) => {
+            const parsed = RawWorkflowSchema.safeParse(item);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Invalid workflow item in response.',
+                    details: parsed.error.message
+                });
+            }
+            return {
+                id: parsed.data.id,
+                node_id: parsed.data.node_id,
+                name: parsed.data.name,
+                path: parsed.data.path,
+                state: parsed.data.state,
+                created_at: parsed.data.created_at,
+                updated_at: parsed.data.updated_at,
+                url: parsed.data.url,
+                html_url: parsed.data.html_url,
+                ...(parsed.data.badge_url != null && { badge_url: parsed.data.badge_url })
+            };
+        });
+
+        const hasMore = workflows.length === perPage && totalCount > page * perPage;
+        const nextCursor = hasMore ? String(page + 1) : undefined;
 
         return {
-            total_count: providerData.total_count,
-            workflows: providerData.workflows,
-            ...(hasNextPage && { next_cursor: String(page + 1) })
+            total_count: totalCount,
+            workflows,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

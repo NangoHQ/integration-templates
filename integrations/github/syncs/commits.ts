@@ -206,9 +206,10 @@ const sync = createSync<
     typeof CheckpointSchema
 >({
     description: 'Sync commits for repositories and branches in scope',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['repo'],
     checkpoint: CheckpointSchema,
     models: {
         Commit: CommitSchema

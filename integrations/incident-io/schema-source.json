@@ -1,0 +1,496 @@
+{
+    "url": "https://api.incident.io/v1/openapiV3.json",
+    "sha256": "eed9d59e10427381693d71d0167c5f46f5deca699a5b940558a80cf63d932abc",
+    "retrievedAt": "2026-09-14",
+    "operations": [
+        {
+            "action": "list-incident-statuses",
+            "method": "GET",
+            "path": "/v1/incident_statuses",
+            "operationId": "Incident Statuses V1#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-incident-status",
+            "method": "GET",
+            "path": "/v1/incident_statuses/{id}",
+            "operationId": "Incident Statuses V1#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-types",
+            "method": "GET",
+            "path": "/v1/incident_types",
+            "operationId": "Incident Types V1#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-incident-type",
+            "method": "GET",
+            "path": "/v1/incident_types/{id}",
+            "operationId": "Incident Types V1#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-postmortem-documents",
+            "method": "GET",
+            "path": "/v1/postmortem_documents",
+            "operationId": "PostmortemDocuments V1#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-postmortem-document",
+            "method": "GET",
+            "path": "/v1/postmortem_documents/{id}",
+            "operationId": "PostmortemDocuments V1#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-postmortem-document-content",
+            "method": "GET",
+            "path": "/v1/postmortem_documents/{id}/content",
+            "operationId": "PostmortemDocuments V1#ShowContent",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-severities",
+            "method": "GET",
+            "path": "/v1/severities",
+            "operationId": "Severities V1#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-severity",
+            "method": "GET",
+            "path": "/v1/severities/{id}",
+            "operationId": "Severities V1#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-alert-tags",
+            "method": "GET",
+            "path": "/v2/alert_tags",
+            "operationId": "Alerts V2#ListAlertTags",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-alerts",
+            "method": "GET",
+            "path": "/v2/alerts",
+            "operationId": "Alerts V2#List",
+            "omittedQueryParameters": [
+                "deduplication_key",
+                "status",
+                "alert_source",
+                "alert_group_id",
+                "created_at",
+                "updated_at",
+                "attributes",
+                "has_notes",
+                "tags",
+                "include_maintenance_window"
+            ]
+        },
+        {
+            "action": "get-alert",
+            "method": "GET",
+            "path": "/v2/alerts/{id}",
+            "operationId": "Alerts V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "add-alert-tags",
+            "method": "POST",
+            "path": "/v2/alerts/{id}/actions/add_tags",
+            "operationId": "Alerts V2#AddTags",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "remove-alert-tags",
+            "method": "POST",
+            "path": "/v2/alerts/{id}/actions/remove_tags",
+            "operationId": "Alerts V2#RemoveTags",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "resolve-alert",
+            "method": "POST",
+            "path": "/v2/alerts/{id}/actions/resolve",
+            "operationId": "Alerts V2#Resolve",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "set-alert-tags",
+            "method": "POST",
+            "path": "/v2/alerts/{id}/actions/set_tags",
+            "operationId": "Alerts V2#SetTags",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-alerts",
+            "method": "GET",
+            "path": "/v2/incident_alerts",
+            "operationId": "Alerts V2#ListIncidentAlerts",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-incident-alert",
+            "method": "POST",
+            "path": "/v2/incident_alerts",
+            "operationId": "Alerts V2#CreateIncidentAlert",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "transition-incident-alert",
+            "method": "POST",
+            "path": "/v2/incident_alerts/{id}/actions/transition",
+            "operationId": "Alerts V2#TransitionIncidentAlert",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-participant-workloads",
+            "method": "GET",
+            "path": "/v2/incident_participant_workloads",
+            "operationId": "IncidentParticipantWorkloads V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-participants",
+            "method": "GET",
+            "path": "/v2/incident_participants",
+            "operationId": "IncidentParticipants V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-roles",
+            "method": "GET",
+            "path": "/v2/incident_roles",
+            "operationId": "Incident Roles V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-incident-role",
+            "method": "GET",
+            "path": "/v2/incident_roles/{id}",
+            "operationId": "Incident Roles V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-timeline-items",
+            "method": "GET",
+            "path": "/v2/incident_timeline_items",
+            "operationId": "Incident Timeline Items V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-incident-timeline-item",
+            "method": "POST",
+            "path": "/v2/incident_timeline_items",
+            "operationId": "Incident Timeline Items V2#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-incident-timeline-item",
+            "method": "PATCH",
+            "path": "/v2/incident_timeline_items/{id}",
+            "operationId": "Incident Timeline Items V2#Update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-timestamps",
+            "method": "GET",
+            "path": "/v2/incident_timestamps",
+            "operationId": "Incident Timestamps V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-incident-timestamp",
+            "method": "GET",
+            "path": "/v2/incident_timestamps/{id}",
+            "operationId": "Incident Timestamps V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incident-updates",
+            "method": "GET",
+            "path": "/v2/incident_updates",
+            "operationId": "Incident Updates V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "create-incident-update",
+            "method": "POST",
+            "path": "/v2/incident_updates",
+            "operationId": "Incident Updates V2#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-incidents",
+            "method": "GET",
+            "path": "/v2/incidents",
+            "operationId": "Incidents V2#List",
+            "omittedQueryParameters": [
+                "status",
+                "status_category",
+                "created_at",
+                "updated_at",
+                "severity",
+                "incident_type",
+                "incident_role",
+                "custom_field",
+                "mode"
+            ]
+        },
+        {
+            "action": "create-incident",
+            "method": "POST",
+            "path": "/v2/incidents",
+            "operationId": "Incidents V2#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-incident",
+            "method": "GET",
+            "path": "/v2/incidents/{id}",
+            "operationId": "Incidents V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-incident",
+            "method": "POST",
+            "path": "/v2/incidents/{id}/actions/edit",
+            "operationId": "Incidents V2#Edit",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-schedule-entries",
+            "method": "GET",
+            "path": "/v2/schedule_entries",
+            "operationId": "Schedules V2#ListScheduleEntries",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-schedule-overrides",
+            "method": "GET",
+            "path": "/v2/schedule_overrides",
+            "operationId": "Schedules V2#ListOverrides",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-schedule-override",
+            "method": "GET",
+            "path": "/v2/schedule_overrides/{id}",
+            "operationId": "Schedules V2#ShowOverride",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-schedules",
+            "method": "GET",
+            "path": "/v2/schedules",
+            "operationId": "Schedules V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-schedule",
+            "method": "GET",
+            "path": "/v2/schedules/{id}",
+            "operationId": "Schedules V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-schedule-replicas",
+            "method": "GET",
+            "path": "/v2/schedules/{schedule_id}/replicas",
+            "operationId": "Schedules V2#ListScheduleReplicas",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-schedule-replica",
+            "method": "GET",
+            "path": "/v2/schedules/{schedule_id}/replicas/{id}",
+            "operationId": "Schedules V2#ShowScheduleReplica",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-schedule-sync-rules",
+            "method": "GET",
+            "path": "/v2/schedules/{schedule_id}/sync_rules",
+            "operationId": "Schedules V2#ListScheduleSyncRules",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-schedule-sync-rule",
+            "method": "GET",
+            "path": "/v2/schedules/{schedule_id}/sync_rules/{id}",
+            "operationId": "Schedules V2#ShowScheduleSyncRule",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-users",
+            "method": "GET",
+            "path": "/v2/users",
+            "operationId": "Users V2#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-user",
+            "method": "GET",
+            "path": "/v2/users/{id}",
+            "operationId": "Users V2#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-user-notification-methods",
+            "method": "GET",
+            "path": "/v2/users/{user_id}/notification_methods",
+            "operationId": "Users V2#ListNotificationMethods",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-user-notification-rules",
+            "method": "GET",
+            "path": "/v2/users/{user_id}/notification_rules",
+            "operationId": "Users V2#ListNotificationRules",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-user-paging-provider",
+            "method": "GET",
+            "path": "/v2/users/{user_id}/paging_provider",
+            "operationId": "Users V2#ShowPagingProvider",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-actions",
+            "method": "GET",
+            "path": "/v3/actions",
+            "operationId": "Actions V3#List",
+            "omittedQueryParameters": [
+                "created_at",
+                "updated_at"
+            ]
+        },
+        {
+            "action": "create-action",
+            "method": "POST",
+            "path": "/v3/actions",
+            "operationId": "Actions V3#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-action",
+            "method": "GET",
+            "path": "/v3/actions/{id}",
+            "operationId": "Actions V3#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-action",
+            "method": "PUT",
+            "path": "/v3/actions/{id}",
+            "operationId": "Actions V3#Update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-action",
+            "method": "DELETE",
+            "path": "/v3/actions/{id}",
+            "operationId": "Actions V3#Delete",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-catalog-entries",
+            "method": "GET",
+            "path": "/v3/catalog_entries",
+            "operationId": "Catalog V3#ListEntries",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-catalog-entry",
+            "method": "GET",
+            "path": "/v3/catalog_entries/{id}",
+            "operationId": "Catalog V3#ShowEntry",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-catalog-resources",
+            "method": "GET",
+            "path": "/v3/catalog_resources",
+            "operationId": "Catalog V3#ListResources",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-catalog-types",
+            "method": "GET",
+            "path": "/v3/catalog_types",
+            "operationId": "Catalog V3#ListTypes",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-catalog-type",
+            "method": "GET",
+            "path": "/v3/catalog_types/{id}",
+            "operationId": "Catalog V3#ShowType",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-follow-ups",
+            "method": "GET",
+            "path": "/v3/follow_ups",
+            "operationId": "Follow-ups V3#List",
+            "omittedQueryParameters": [
+                "created_at",
+                "updated_at"
+            ]
+        },
+        {
+            "action": "create-follow-up",
+            "method": "POST",
+            "path": "/v3/follow_ups",
+            "operationId": "Follow-ups V3#Create",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-follow-up",
+            "method": "GET",
+            "path": "/v3/follow_ups/{id}",
+            "operationId": "Follow-ups V3#Show",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "update-follow-up",
+            "method": "PUT",
+            "path": "/v3/follow_ups/{id}",
+            "operationId": "Follow-ups V3#Update",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "delete-follow-up",
+            "method": "DELETE",
+            "path": "/v3/follow_ups/{id}",
+            "operationId": "Follow-ups V3#Delete",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "connect-follow-up-external-issue",
+            "method": "POST",
+            "path": "/v3/follow_ups/{id}/actions/connect_external_issue",
+            "operationId": "Follow-ups V3#ConnectExternalIssue",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "list-teams",
+            "method": "GET",
+            "path": "/v3/teams",
+            "operationId": "Teams V3#List",
+            "omittedQueryParameters": []
+        },
+        {
+            "action": "get-team",
+            "method": "GET",
+            "path": "/v3/teams/{id}",
+            "operationId": "Teams V3#Show",
+            "omittedQueryParameters": []
+        }
+    ]
+}

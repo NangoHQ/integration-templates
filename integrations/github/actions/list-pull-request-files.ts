@@ -43,10 +43,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List files changed by a pull request',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pull_requests:read'],
+    scopes: ['repo'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

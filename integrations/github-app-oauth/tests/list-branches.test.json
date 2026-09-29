@@ -4,12 +4,44 @@
     "repo": "nango"
   },
   "output": {
-    "items": [
+    "branches": [
       {
         "name": "master",
         "commit": {
-          "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
-          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+          "sha": "f506f3df04c832fe159c829c862e733f42177111",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/f506f3df04c832fe159c829c862e733f42177111"
+        },
+        "protected": false
+      },
+      {
+        "name": "merge-test-branch",
+        "commit": {
+          "sha": "ccdb8baafded313c51a75e7eab97e84ecf287335",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/ccdb8baafded313c51a75e7eab97e84ecf287335"
+        },
+        "protected": false
+      },
+      {
+        "name": "merge-test-branch-2",
+        "commit": {
+          "sha": "5dc6b0ae50c7baf916ad655a67001a782c7cc0cd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/5dc6b0ae50c7baf916ad655a67001a782c7cc0cd"
+        },
+        "protected": false
+      },
+      {
+        "name": "nango-merge-test-2026-08-11",
+        "commit": {
+          "sha": "1eab38d43d562210974bb72572bf036cff7bcf21",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/1eab38d43d562210974bb72572bf036cff7bcf21"
+        },
+        "protected": false
+      },
+      {
+        "name": "temp-merge-test-1786464845945",
+        "commit": {
+          "sha": "b46e7e6c7611d580df2a40f9f2b50310aa2f5814",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/b46e7e6c7611d580df2a40f9f2b50310aa2f5814"
         },
         "protected": false
       }
@@ -23,15 +55,92 @@
           {
             "name": "master",
             "commit": {
-              "sha": "e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d",
-              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/e059b4c7c0d27c7ce6f4aeec2902d1cd82494c3d"
+              "sha": "f506f3df04c832fe159c829c862e733f42177111",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/f506f3df04c832fe159c829c862e733f42177111"
             },
-            "protected": false
+            "protected": false,
+            "protection": {
+              "enabled": false,
+              "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": [],
+                "checks": []
+              }
+            },
+            "protection_url": "https://api.github.com/repos/nango-provisioned-apps/nango/branches/master/protection"
+          },
+          {
+            "name": "merge-test-branch",
+            "commit": {
+              "sha": "ccdb8baafded313c51a75e7eab97e84ecf287335",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/ccdb8baafded313c51a75e7eab97e84ecf287335"
+            },
+            "protected": false,
+            "protection": {
+              "enabled": false,
+              "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": [],
+                "checks": []
+              }
+            },
+            "protection_url": "https://api.github.com/repos/nango-provisioned-apps/nango/branches/merge-test-branch/protection"
+          },
+          {
+            "name": "merge-test-branch-2",
+            "commit": {
+              "sha": "5dc6b0ae50c7baf916ad655a67001a782c7cc0cd",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/5dc6b0ae50c7baf916ad655a67001a782c7cc0cd"
+            },
+            "protected": false,
+            "protection": {
+              "enabled": false,
+              "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": [],
+                "checks": []
+              }
+            },
+            "protection_url": "https://api.github.com/repos/nango-provisioned-apps/nango/branches/merge-test-branch-2/protection"
+          },
+          {
+            "name": "nango-merge-test-2026-08-11",
+            "commit": {
+              "sha": "1eab38d43d562210974bb72572bf036cff7bcf21",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/1eab38d43d562210974bb72572bf036cff7bcf21"
+            },
+            "protected": false,
+            "protection": {
+              "enabled": false,
+              "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": [],
+                "checks": []
+              }
+            },
+            "protection_url": "https://api.github.com/repos/nango-provisioned-apps/nango/branches/nango-merge-test-2026-08-11/protection"
+          },
+          {
+            "name": "temp-merge-test-1786464845945",
+            "commit": {
+              "sha": "b46e7e6c7611d580df2a40f9f2b50310aa2f5814",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/commits/b46e7e6c7611d580df2a40f9f2b50310aa2f5814"
+            },
+            "protected": false,
+            "protection": {
+              "enabled": false,
+              "required_status_checks": {
+                "enforcement_level": "off",
+                "contexts": [],
+                "checks": []
+              }
+            },
+            "protection_url": "https://api.github.com/repos/nango-provisioned-apps/nango/branches/temp-merge-test-1786464845945/protection"
           }
         ],
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 16:12:19 GMT",
+          "date": "Fri, 25 Sep 2026 13:35:50 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -40,25 +149,25 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4350",
-          "x-ratelimit-reset": "1786466683",
+          "x-ratelimit-remaining": "4962",
+          "x-ratelimit-reset": "1790346762",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"2c3d38d7b69cba2ef699cc864e0479b0f9565f50e60fd82f79196b2614efdacf\"",
+          "etag": "W/\"eca57ad9a7e743dafb15cfca65c429a953472bc06d9de4321bc2be1c03a9fa1b\"",
           "x-github-media-type": "github.v3",
           "x-accepted-github-permissions": "contents=read",
           "x-github-api-version-selected": "2022-11-28",
-          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "650",
+          "x-ratelimit-used": "38",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "1A23:320B59:3AC542:3BE207:6A7B49E2",
+          "x-github-request-id": "73C7:17CFD8:4B13E:4E0DA:6AB678AD",
           "x-github-edge-region": "sea"
         },
         "hash": "16ee8bfa324c5357e688058c4962e480cecb9571",

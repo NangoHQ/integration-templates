@@ -1,8 +1,7 @@
 {
   "input": {
     "owner": "nango-provisioned-apps",
-    "repo": "nango",
-    "per_page": 10
+    "repo": "nango"
   },
   "output": {
     "total_count": 21,
@@ -126,9 +125,140 @@
         "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870954",
         "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/managed-release.yaml",
         "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/%5BRelease%5D%20Managed%20Nango%20Release/badge.svg"
+      },
+      {
+        "id": 331870956,
+        "node_id": "W_kwDOT1NNv84Tx_Ls",
+        "name": "Nango Registry Test",
+        "path": ".github/workflows/nango-registry-test.yml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870956",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/nango-registry-test.yml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Nango%20Registry%20Test/badge.svg"
+      },
+      {
+        "id": 331870957,
+        "node_id": "W_kwDOT1NNv84Tx_Lt",
+        "name": "Preview Deploy — Webapp",
+        "path": ".github/workflows/preview-webapp.yml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870957",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/preview-webapp.yml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Preview%20Deploy%20%E2%80%94%20Webapp/badge.svg"
+      },
+      {
+        "id": 331870960,
+        "node_id": "W_kwDOT1NNv84Tx_Lw",
+        "name": "[Release] NPM publish",
+        "path": ".github/workflows/publish.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870960",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/publish.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/%5BRelease%5D%20NPM%20publish/badge.svg"
+      },
+      {
+        "id": 331870962,
+        "node_id": "W_kwDOT1NNv84Tx_Ly",
+        "name": "Sanity Sync",
+        "path": ".github/workflows/sanity-sync.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870962",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sanity-sync.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sanity%20Sync/badge.svg"
+      },
+      {
+        "id": 331870963,
+        "node_id": "W_kwDOT1NNv84Tx_Lz",
+        "name": "Close inactive issues/PRs",
+        "path": ".github/workflows/stale.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870963",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/stale.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Close%20inactive%20issues/PRs/badge.svg"
+      },
+      {
+        "id": 331870964,
+        "node_id": "W_kwDOT1NNv84Tx_L0",
+        "name": "Sync New Provider Scopes",
+        "path": ".github/workflows/sync-new-provider-scopes.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870964",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sync-new-provider-scopes.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sync%20New%20Provider%20Scopes/badge.svg"
+      },
+      {
+        "id": 331870966,
+        "node_id": "W_kwDOT1NNv84Tx_L2",
+        "name": "Sync Provider Scopes",
+        "path": ".github/workflows/sync-provider-scopes.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870966",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sync-provider-scopes.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sync%20Provider%20Scopes/badge.svg"
+      },
+      {
+        "id": 331870967,
+        "node_id": "W_kwDOT1NNv84Tx_L3",
+        "name": "Run Client Tests",
+        "path": ".github/workflows/tests-clients.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870967",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tests-clients.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Run%20Client%20Tests/badge.svg"
+      },
+      {
+        "id": 331870968,
+        "node_id": "W_kwDOT1NNv84Tx_L4",
+        "name": "Run Unit & Integration Tests",
+        "path": ".github/workflows/tests.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870968",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tests.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Run%20Unit%20&%20Integration%20Tests/badge.svg"
+      },
+      {
+        "id": 331870969,
+        "node_id": "W_kwDOT1NNv84Tx_L5",
+        "name": "Token check",
+        "path": ".github/workflows/tokens-check.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870969",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tokens-check.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Token%20check/badge.svg"
+      },
+      {
+        "id": 331870970,
+        "node_id": "W_kwDOT1NNv84Tx_L6",
+        "name": "Yaml Validation",
+        "path": ".github/workflows/validation.yaml",
+        "state": "active",
+        "created_at": "2026-08-11T12:09:26.000Z",
+        "updated_at": "2026-08-11T12:09:26.000Z",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870970",
+        "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/validation.yaml",
+        "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Yaml%20Validation/badge.svg"
       }
-    ],
-    "next_cursor": "2"
+    ]
   },
   "nango": {},
   "api": {
@@ -256,12 +386,144 @@
               "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870954",
               "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/managed-release.yaml",
               "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/%5BRelease%5D%20Managed%20Nango%20Release/badge.svg"
+            },
+            {
+              "id": 331870956,
+              "node_id": "W_kwDOT1NNv84Tx_Ls",
+              "name": "Nango Registry Test",
+              "path": ".github/workflows/nango-registry-test.yml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870956",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/nango-registry-test.yml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Nango%20Registry%20Test/badge.svg"
+            },
+            {
+              "id": 331870957,
+              "node_id": "W_kwDOT1NNv84Tx_Lt",
+              "name": "Preview Deploy — Webapp",
+              "path": ".github/workflows/preview-webapp.yml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870957",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/preview-webapp.yml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Preview%20Deploy%20%E2%80%94%20Webapp/badge.svg"
+            },
+            {
+              "id": 331870960,
+              "node_id": "W_kwDOT1NNv84Tx_Lw",
+              "name": "[Release] NPM publish",
+              "path": ".github/workflows/publish.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870960",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/publish.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/%5BRelease%5D%20NPM%20publish/badge.svg"
+            },
+            {
+              "id": 331870962,
+              "node_id": "W_kwDOT1NNv84Tx_Ly",
+              "name": "Sanity Sync",
+              "path": ".github/workflows/sanity-sync.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870962",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sanity-sync.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sanity%20Sync/badge.svg"
+            },
+            {
+              "id": 331870963,
+              "node_id": "W_kwDOT1NNv84Tx_Lz",
+              "name": "Close inactive issues/PRs",
+              "path": ".github/workflows/stale.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870963",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/stale.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Close%20inactive%20issues/PRs/badge.svg"
+            },
+            {
+              "id": 331870964,
+              "node_id": "W_kwDOT1NNv84Tx_L0",
+              "name": "Sync New Provider Scopes",
+              "path": ".github/workflows/sync-new-provider-scopes.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870964",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sync-new-provider-scopes.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sync%20New%20Provider%20Scopes/badge.svg"
+            },
+            {
+              "id": 331870966,
+              "node_id": "W_kwDOT1NNv84Tx_L2",
+              "name": "Sync Provider Scopes",
+              "path": ".github/workflows/sync-provider-scopes.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870966",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/sync-provider-scopes.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Sync%20Provider%20Scopes/badge.svg"
+            },
+            {
+              "id": 331870967,
+              "node_id": "W_kwDOT1NNv84Tx_L3",
+              "name": "Run Client Tests",
+              "path": ".github/workflows/tests-clients.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870967",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tests-clients.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Run%20Client%20Tests/badge.svg"
+            },
+            {
+              "id": 331870968,
+              "node_id": "W_kwDOT1NNv84Tx_L4",
+              "name": "Run Unit & Integration Tests",
+              "path": ".github/workflows/tests.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870968",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tests.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Run%20Unit%20&%20Integration%20Tests/badge.svg"
+            },
+            {
+              "id": 331870969,
+              "node_id": "W_kwDOT1NNv84Tx_L5",
+              "name": "Token check",
+              "path": ".github/workflows/tokens-check.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870969",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/tokens-check.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Token%20check/badge.svg"
+            },
+            {
+              "id": 331870970,
+              "node_id": "W_kwDOT1NNv84Tx_L6",
+              "name": "Yaml Validation",
+              "path": ".github/workflows/validation.yaml",
+              "state": "active",
+              "created_at": "2026-08-11T12:09:26.000Z",
+              "updated_at": "2026-08-11T12:09:26.000Z",
+              "url": "https://api.github.com/repos/nango-provisioned-apps/nango/actions/workflows/331870970",
+              "html_url": "https://github.com/nango-provisioned-apps/nango/blob/master/.github/workflows/validation.yaml",
+              "badge_url": "https://github.com/nango-provisioned-apps/nango/workflows/Yaml%20Validation/badge.svg"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Tue, 11 Aug 2026 15:45:07 GMT",
+          "date": "Fri, 25 Sep 2026 13:34:58 GMT",
           "content-type": "application/json; charset=utf-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -270,33 +532,32 @@
           "x-download-options": "noopen",
           "x-frame-options": "deny",
           "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';form-action 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
           "x-ratelimit-limit": "5000",
-          "x-ratelimit-remaining": "4989",
-          "x-ratelimit-reset": "1786466677",
+          "x-ratelimit-remaining": "4934",
+          "x-ratelimit-reset": "1790346775",
           "cache-control": "private, max-age=60, s-maxage=60",
           "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
-          "etag": "W/\"8f798d6abbbef7bbc20751fe4a6a58e0cf9ec8ee61b5509c3bf663fe9210a4ce\"",
+          "etag": "W/\"1749062a0a919cbf4578a066a2ed764bf775cba515c53699d25fe0d61ea34aad\"",
           "x-github-media-type": "github.v3",
-          "link": "<https://api.github.com/repositories/1330859455/actions/workflows?per_page=10&page=2>; rel=\"next\", <https://api.github.com/repositories/1330859455/actions/workflows?per_page=10&page=3>; rel=\"last\"",
           "x-accepted-github-permissions": "actions=read",
           "x-github-api-version-selected": "2022-11-28",
-          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
           "content-security-policy": "default-src 'none'",
           "server": "github.com",
-          "x-ratelimit-used": "11",
+          "x-ratelimit-used": "66",
           "x-ratelimit-resource": "core",
-          "x-github-request-id": "AEFB:1D4FF:25FED:2E69E:6A7B4377",
-          "x-github-edge-region": "westus2"
+          "x-github-request-id": "D3F5:5F01:354FE:37BC9:6AB6787F",
+          "x-github-edge-region": "sea"
         },
-        "hash": "3ead0cf6673796e34744186a457cc9d02d954ec0",
+        "hash": "081f4ead45917efa7dc213eeaad559d49730d006",
         "request": {
           "params": {
             "page": "1",
-            "per_page": "10"
+            "per_page": "30"
           }
         }
       }

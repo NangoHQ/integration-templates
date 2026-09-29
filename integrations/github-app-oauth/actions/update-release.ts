@@ -3,56 +3,61 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner. Example: "nango-provisioned-apps".'),
-        repo: z.string().describe('Repository name. Example: "nango".'),
-        release_id: z.number().int().positive().describe('Release ID to update. Example: 12345678.'),
-        tag_name: z.string().optional().describe('New tag name for the release.'),
-        name: z.string().optional().describe('New name or title for the release.'),
-        body: z.string().optional().describe('New description body for the release.'),
-        draft: z.boolean().optional().describe('Whether the release is a draft.'),
-        prerelease: z.boolean().optional().describe('Whether the release is a prerelease.')
+        owner: z.string().describe('The account owner of the repository. The name is not case sensitive. Example: "nango-provisioned-apps".'),
+        repo: z.string().describe('The name of the repository without the .git extension. The name is not case sensitive. Example: "nango".'),
+        release_id: z.number().int().describe('The unique identifier of the release to update. Example: 398418000.'),
+        tag_name: z.string().optional().describe('The name of the tag associated with the release. Example: "v1.0.0".'),
+        name: z.string().optional().describe('The name of the release.'),
+        body: z.string().optional().describe('Text describing the contents of the release.'),
+        draft: z.boolean().optional().describe('Set to true to make the release a draft, or false to publish it.'),
+        prerelease: z.boolean().optional().describe('Set to true to identify the release as a prerelease, or false for a full release.')
     })
-    .describe('Input to update an existing GitHub release.');
+    .describe('Identifies the release to update and the metadata fields to change. Only the provided fields are sent to GitHub.');
 
-const ProviderReleaseSchema = z.object({
+const ReleaseSchema = z.object({
     id: z.number(),
     tag_name: z.string(),
-    name: z.string().nullable().optional(),
-    body: z.string().nullable().optional(),
+    target_commitish: z.string(),
+    name: z.string().nullable(),
+    body: z.string().nullable(),
     draft: z.boolean(),
     prerelease: z.boolean(),
     html_url: z.string(),
-    url: z.string()
+    created_at: z.string(),
+    published_at: z.string().nullable(),
+    updated_at: z.string().nullable()
 });
 
 const OutputSchema = z
     .object({
-        id: z.number().describe('Release ID.'),
-        tag_name: z.string().describe('Tag name associated with the release.'),
-        name: z.string().optional().describe('Release title.'),
-        body: z.string().optional().describe('Release description.'),
-        draft: z.boolean().describe('Whether the release is a draft.'),
-        prerelease: z.boolean().describe('Whether the release is a prerelease.'),
-        html_url: z.string().describe('URL to the release in the browser.'),
-        url: z.string().describe('API URL for the release.')
+        id: z.number().describe('The unique identifier of the release.'),
+        tag_name: z.string().describe('The name of the tag associated with the release.'),
+        target_commitish: z.string().describe('The commitish value that determines where the Git tag is created from.'),
+        name: z.string().optional().describe('The name of the release. Omitted when the release has no name.'),
+        body: z.string().optional().describe('Text describing the contents of the release. Omitted when empty.'),
+        draft: z.boolean().describe('Whether the release is a draft (unpublished).'),
+        prerelease: z.boolean().describe('Whether the release is identified as a prerelease.'),
+        html_url: z.string().describe('The browser URL of the release.'),
+        created_at: z.string().describe('ISO 8601 timestamp of when the release was created. Example: "2026-09-28T16:14:17Z".'),
+        published_at: z.string().optional().describe('ISO 8601 timestamp of when the release was published. Omitted for draft releases.'),
+        updated_at: z.string().optional().describe('ISO 8601 timestamp of when the release was last updated.')
     })
-    .describe('Updated GitHub release metadata.');
+    .describe('The updated release.');
 
 /**
  * @tags: [write]
- * @tagReason: Updates an existing release's metadata on GitHub.
- * @pitfalls: Releases and git tags are independent objects; updating a release does not delete or modify its underlying tag.
+ * @tagReason: Mutates an existing release's metadata on GitHub via a PATCH request.
+ * @pitfalls: Requires write access to the repository (for GitHub App installations, the Contents read-and-write permission); if the release's tag resolves to a commit that adds or modifies files under .github/workflows/, the token must also be authorized to modify workflows or the update fails with a 404 or 403 error.
  */
 const action = createAction({
     description: "Update an existing release's metadata.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:write'],
-
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#update-a-release
         const response = await nango.patch({
-            // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#update-a-release
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/releases/${input.release_id}`,
             data: {
                 ...(input.tag_name !== undefined && { tag_name: input.tag_name }),
@@ -64,17 +69,20 @@ const action = createAction({
             retries: 3
         });
 
-        const providerRelease = ProviderReleaseSchema.parse(response.data);
+        const release = ReleaseSchema.parse(response.data);
 
         return {
-            id: providerRelease.id,
-            tag_name: providerRelease.tag_name,
-            ...(providerRelease.name != null && { name: providerRelease.name }),
-            ...(providerRelease.body != null && { body: providerRelease.body }),
-            draft: providerRelease.draft,
-            prerelease: providerRelease.prerelease,
-            html_url: providerRelease.html_url,
-            url: providerRelease.url
+            id: release.id,
+            tag_name: release.tag_name,
+            target_commitish: release.target_commitish,
+            ...(release.name != null && { name: release.name }),
+            ...(release.body != null && { body: release.body }),
+            draft: release.draft,
+            prerelease: release.prerelease,
+            html_url: release.html_url,
+            created_at: release.created_at,
+            ...(release.published_at != null && { published_at: release.published_at }),
+            ...(release.updated_at != null && { updated_at: release.updated_at })
         };
     }
 });
