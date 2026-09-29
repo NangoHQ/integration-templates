@@ -30,7 +30,7 @@ const InputSchema = z
             .array(z.string())
             .optional()
             .describe(
-                'OData $select field names to return (e.g. ["subject", "phonenumber"]). Omit to return the default curated field set. activityid is always returned by the provider. Fields outside the curated output schema are dropped from the response.'
+                'OData $select field names to return (e.g. ["subject", "phonenumber"]), including custom phone call fields. Omit to return the default curated field set. activityid is always returned by the provider. Fields outside the curated output schema are passed through unchanged.'
             ),
         filter: z.string().optional().describe('OData $filter expression to restrict which phone calls are returned (e.g. "statecode eq 0" for open calls).'),
         orderby: z.string().optional().describe('OData $orderby expression to sort results (e.g. "scheduledstart desc").'),
@@ -38,27 +38,31 @@ const InputSchema = z
     })
     .describe('Filters for listing Dataverse phone call activities. All fields are optional.');
 
-const PhoneCallSchema = z.object({
-    id: z.string().describe('Unique identifier of the phone call activity (activityid). Example: "1d1d5314-ed24-eb11-a814-000d3a30f257".'),
-    subject: z.string().optional().describe('Subject line of the phone call.'),
-    description: z.string().optional().describe('Free-text body or notes for the phone call.'),
-    phonenumber: z.string().optional().describe('Phone number the call was placed to or received from. Example: "930-555-0168".'),
-    directioncode: z.boolean().optional().describe('Direction of the call: true = incoming, false = outgoing.'),
-    scheduledstart: z.string().optional().describe('Scheduled start of the call as an ISO 8601 UTC timestamp. Example: "2026-09-14T04:00:00Z".'),
-    scheduledend: z.string().optional().describe('Scheduled end of the call as an ISO 8601 UTC timestamp. Example: "2026-09-14T04:02:00Z".'),
-    actualstart: z.string().optional().describe('Actual start of the call as an ISO 8601 UTC timestamp.'),
-    actualend: z.string().optional().describe('Actual end of the call as an ISO 8601 UTC timestamp.'),
-    scheduleddurationminutes: z.number().int().optional().describe('Scheduled duration of the call in minutes.'),
-    actualdurationminutes: z.number().int().optional().describe('Actual duration of the call in minutes.'),
-    prioritycode: z.number().int().optional().describe('Priority option-set code: 0 = Low, 1 = Normal, 2 = High.'),
-    statecode: z.number().int().optional().describe('State option-set code: 0 = Open, 1 = Completed, 2 = Canceled.'),
-    statuscode: z.number().int().optional().describe('Status reason option-set code (e.g. 1 = Open, 2 = Made, 4 = Received).'),
-    leftvoicemail: z.boolean().optional().describe('Whether a voicemail was left on the call.'),
-    createdon: z.string().optional().describe('Timestamp when the record was created as an ISO 8601 UTC timestamp.'),
-    modifiedon: z.string().optional().describe('Timestamp when the record was last modified as an ISO 8601 UTC timestamp.'),
-    _regardingobjectid_value: z.string().optional().describe('Id of the related record (account, contact, opportunity, etc.) the call regards.'),
-    _ownerid_value: z.string().optional().describe('Id of the owning user or team.')
-});
+const PhoneCallSchema = z
+    .looseObject({
+        id: z.string().describe('Unique identifier of the phone call activity (activityid). Example: "1d1d5314-ed24-eb11-a814-000d3a30f257".'),
+        subject: z.string().optional().describe('Subject line of the phone call.'),
+        description: z.string().optional().describe('Free-text body or notes for the phone call.'),
+        phonenumber: z.string().optional().describe('Phone number the call was placed to or received from. Example: "930-555-0168".'),
+        directioncode: z.boolean().optional().describe('Direction of the call: true = incoming, false = outgoing.'),
+        scheduledstart: z.string().optional().describe('Scheduled start of the call as an ISO 8601 UTC timestamp. Example: "2026-09-14T04:00:00Z".'),
+        scheduledend: z.string().optional().describe('Scheduled end of the call as an ISO 8601 UTC timestamp. Example: "2026-09-14T04:02:00Z".'),
+        actualstart: z.string().optional().describe('Actual start of the call as an ISO 8601 UTC timestamp.'),
+        actualend: z.string().optional().describe('Actual end of the call as an ISO 8601 UTC timestamp.'),
+        scheduleddurationminutes: z.number().int().optional().describe('Scheduled duration of the call in minutes.'),
+        actualdurationminutes: z.number().int().optional().describe('Actual duration of the call in minutes.'),
+        prioritycode: z.number().int().optional().describe('Priority option-set code: 0 = Low, 1 = Normal, 2 = High.'),
+        statecode: z.number().int().optional().describe('State option-set code: 0 = Open, 1 = Completed, 2 = Canceled.'),
+        statuscode: z.number().int().optional().describe('Status reason option-set code (e.g. 1 = Open, 2 = Made, 4 = Received).'),
+        leftvoicemail: z.boolean().optional().describe('Whether a voicemail was left on the call.'),
+        createdon: z.string().optional().describe('Timestamp when the record was created as an ISO 8601 UTC timestamp.'),
+        modifiedon: z.string().optional().describe('Timestamp when the record was last modified as an ISO 8601 UTC timestamp.'),
+        _regardingobjectid_value: z.string().optional().describe('Id of the related record (account, contact, opportunity, etc.) the call regards.'),
+        _ownerid_value: z.string().optional().describe('Id of the owning user or team.')
+    })
+    .describe(
+        'A Dataverse phone call activity. Attributes beyond the ones listed, including custom phone call fields, depend on the select input and are passed through unchanged.'
+    );
 
 const OutputSchema = z
     .object({
@@ -70,7 +74,29 @@ const OutputSchema = z
     })
     .describe('List of Dataverse phone call activities.');
 
-const ProviderPhoneCallSchema = z.object({
+const KNOWN_PHONE_CALL_KEYS = new Set([
+    'activityid',
+    'subject',
+    'description',
+    'phonenumber',
+    'directioncode',
+    'scheduledstart',
+    'scheduledend',
+    'actualstart',
+    'actualend',
+    'scheduleddurationminutes',
+    'actualdurationminutes',
+    'prioritycode',
+    'statecode',
+    'statuscode',
+    'leftvoicemail',
+    'createdon',
+    'modifiedon',
+    '_regardingobjectid_value',
+    '_ownerid_value'
+]);
+
+const ProviderPhoneCallSchema = z.looseObject({
     activityid: z.string(),
     subject: z.string().nullish(),
     description: z.string().nullish(),
@@ -100,7 +126,7 @@ const ProviderListResponseSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Only performs a GET list request against Dataverse phone call activities; it mutates nothing in the provider.
- * @pitfalls: Fields with null values are omitted from each record rather than returned as null, and fields requested via select that fall outside the curated output set are dropped from the response. top is the only way to limit results; if the server paginates a large result set, only the first page is returned and the action provides no input to follow next_link.
+ * @pitfalls: Fields with null values are omitted from each record rather than returned as null. top is the only way to limit results; if the server paginates a large result set, only the first page is returned and the action provides no input to follow next_link.
  */
 const action = createAction({
     description: 'List Dataverse phone call activities.',
@@ -126,6 +152,7 @@ const action = createAction({
 
         return {
             phone_calls: parsed.value.map((call) => ({
+                ...Object.fromEntries(Object.entries(call).filter(([key]) => !KNOWN_PHONE_CALL_KEYS.has(key))),
                 id: call.activityid,
                 ...(call.subject != null && { subject: call.subject }),
                 ...(call.description != null && { description: call.description }),

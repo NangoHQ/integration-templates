@@ -11,11 +11,25 @@ const InputSchema = z
             .describe(
                 'GUID of a parent record to list only notes attached to it. Example: "1d3b0f2a-4c5e-4a1b-8c2d-3e4f5a6b7c8d". Omit to list notes across all records.'
             ),
-        top: z.number().int().positive().max(5000).optional().describe('Maximum number of notes to return in this page. Defaults to 50. Maximum is 5000.'),
+        top: z
+            .number()
+            .int()
+            .positive()
+            .max(5000)
+            .optional()
+            .describe(
+                'Maximum number of notes to return in this page. Acts as a hard cap in Dataverse: when set, the result is truncated at this count and no next_cursor is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size (up to 5000) and receive a next_cursor when more notes exist. Maximum is 5000. Ignored when cursor is provided.'
+            ),
         order_by: z
             .enum(['createdon desc', 'createdon asc', 'modifiedon desc', 'modifiedon asc'])
             .optional()
             .describe('Sort order of the returned notes. Defaults to "createdon desc" (newest first). Ignored when cursor is provided.'),
+        include_notetext: z
+            .boolean()
+            .optional()
+            .describe(
+                "Whether to include each note's body text (notetext) in the response. Defaults to false because note bodies can be large and, combined with a full unbounded page, can exceed the 2 MB action output limit. Ignored when cursor is provided (the original query, including this choice, is preserved by the cursor)."
+            ),
         cursor: z
             .string()
             .optional()
@@ -76,13 +90,18 @@ const ProviderListSchema = z.object({
     '@odata.nextLink': z.string().optional()
 });
 
-const SELECT_FIELDS =
-    'annotationid,subject,notetext,isdocument,filename,filesize,mimetype,_objectid_value,objecttypecode,createdon,modifiedon,_createdby_value,_modifiedby_value,_ownerid_value';
+// notetext is intentionally excluded by default (see include_notetext): combined with an
+// unbounded default page (up to Dataverse's server page size of ~5000 records when top is
+// omitted for real pagination to work), returning every note's body text could exceed
+// Nango's 2 MB action output limit.
+const BASE_SELECT_FIELDS =
+    'annotationid,subject,isdocument,filename,filesize,mimetype,_objectid_value,objecttypecode,createdon,modifiedon,_createdby_value,_modifiedby_value,_ownerid_value';
+const SELECT_FIELDS_WITH_NOTETEXT = `annotationid,subject,notetext,isdocument,filename,filesize,mimetype,_objectid_value,objecttypecode,createdon,modifiedon,_createdby_value,_modifiedby_value,_ownerid_value`;
 
 /**
  * @tags: [read]
  * @tagReason: Performs a single read-only GET against the Dataverse Web API annotations collection and never mutates provider data.
- * @pitfalls: Notes with attachments (isdocument true) return only attachment metadata (filename, filesize, mimetype), never the file content; the file bytes must be fetched separately via the note's documentbody field.
+ * @pitfalls: Notes with attachments (isdocument true) return only attachment metadata (filename, filesize, mimetype), never the file content; the file bytes must be fetched separately via the note's documentbody field. notetext is omitted unless include_notetext is set. top is a hard cap: when set, Dataverse does not emit @odata.nextLink beyond it, so no next_cursor is returned for records past the cap; omit top to page through the full result set via next_cursor/cursor.
  */
 const action = createAction({
     description: 'List Dataverse notes (annotations), optionally scoped to a parent record.',
@@ -97,7 +116,10 @@ const action = createAction({
         if (input.cursor) {
             // The cursor is the absolute @odata.nextLink URL returned by Dataverse; strip the origin so the Nango proxy base URL applies.
             const path = input.cursor.replace(/^https?:\/\/[^/]+/i, '');
-            if (!path.startsWith('/api/data/')) {
+            // Restricted to the annotations collection specifically (not any /api/data/ path) so a
+            // caller cannot redirect this action into returning another entity's records by passing
+            // a cursor that points elsewhere.
+            if (!/^\/api\/data\/v9\.2\/annotations(\?|$)/i.test(path)) {
                 throw new nango.ActionError({
                     type: 'invalid_input',
                     message: 'cursor must be a next_cursor value previously returned by this action.'
@@ -107,9 +129,13 @@ const action = createAction({
         } else {
             endpoint = '/api/data/v9.2/annotations';
             params = {
-                $select: SELECT_FIELDS,
+                // top is only forwarded when explicitly requested: Dataverse treats $top as a hard
+                // cap on the whole result set and never emits @odata.nextLink for a $top-capped
+                // request, so a default top here would silently disable pagination. Omitting it lets
+                // Dataverse's own server-side page size apply and return a real next_cursor.
+                $select: input.include_notetext ? SELECT_FIELDS_WITH_NOTETEXT : BASE_SELECT_FIELDS,
                 $orderby: input.order_by ?? 'createdon desc',
-                $top: input.top ?? 50
+                ...(input.top !== undefined ? { $top: input.top } : {})
             };
             if (input.parent_record_id) {
                 params['$filter'] = `_objectid_value eq ${input.parent_record_id}`;

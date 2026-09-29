@@ -41,7 +41,10 @@ const action = createAction({
         await nango.patch({
             endpoint: `/api/data/v9.2/${encodeURIComponent(input.entitySetName)}(${encodeURIComponent(input.id)})`,
             data: input.data,
-            retries: 3 // partial-merge PATCH with a fixed body is naturally idempotent, so a replayed request is safe
+            // No idempotency key exists; this targets an arbitrary entity, and a PATCH on it can trigger server-side plugins or workflows.
+            // A retry after a lost response would re-fire those side effects, so retries must stay 0.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return { id: input.id };

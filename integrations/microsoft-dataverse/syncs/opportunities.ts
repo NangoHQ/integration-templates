@@ -11,6 +11,7 @@ import { z } from 'zod';
  */
 const DataverseOpportunitySchema = z.object({
     opportunityid: z.string(),
+    versionnumber: z.number(),
     name: z.string().optional().nullable(),
     description: z.string().optional().nullable(),
     emailaddress: z.string().optional().nullable(),
@@ -70,10 +71,10 @@ const OpportunitySchema = z
     .describe('A Microsoft Dataverse sales opportunity.');
 
 const CheckpointSchema = z.object({
-    updated_after: z
-        .string()
+    last_version_number: z
+        .number()
         .describe(
-            'ISO 8601 timestamp of the most recently synced opportunity modifiedon value; the next incremental run fetches records modified after this instant.'
+            'Dataverse versionnumber of the most recently synced opportunity; the next incremental run fetches records with versionnumber greater than this value. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary.'
         ),
     last_full_refresh: z.string().describe('ISO 8601 timestamp of when the last unfiltered full crawl (used for deletion detection) completed.')
 });
@@ -85,7 +86,7 @@ const PAGE_SIZE = 100;
 const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const SELECT_FIELDS =
-    'opportunityid,name,description,emailaddress,estimatedvalue,estimatedclosedate,actualvalue,actualclosedate,closeprobability,stepname,salesstagecode,statecode,statuscode,createdon,modifiedon,_customerid_value,_parentaccountid_value,_parentcontactid_value,_ownerid_value,_transactioncurrencyid_value';
+    'opportunityid,versionnumber,name,description,emailaddress,estimatedvalue,estimatedclosedate,actualvalue,actualclosedate,closeprobability,stepname,salesstagecode,statecode,statuscode,createdon,modifiedon,_customerid_value,_parentaccountid_value,_parentcontactid_value,_ownerid_value,_transactioncurrencyid_value';
 
 function toOpportunity(record: z.infer<typeof DataverseOpportunitySchema>): z.infer<typeof OpportunitySchema> {
     return {
@@ -124,21 +125,15 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.updated_after;
+        const lastVersionNumber = checkpoint?.last_version_number;
         const previousFullRefresh = checkpoint?.last_full_refresh;
         const runStartedAt = new Date().toISOString();
 
         const lastFullRefreshMs = previousFullRefresh !== undefined ? Date.parse(previousFullRefresh) : Number.NaN;
-        const isFullRefresh = updatedAfter === undefined || Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
+        const isFullRefresh = lastVersionNumber === undefined || Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
 
-        // Delete-tracked full crawl on the first run, then at most once a day.
-        // trackDeletesStart/End only execute on full-crawl runs; the compiler
-        // requires their call sites to wrap every batchSave call site.
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Opportunity');
-        }
-
-        let lastSeenModifiedOn: string | undefined;
+        let lastSeenVersionNumber: number | undefined;
+        let isFirstPage = true;
 
         if (isFullRefresh) {
             // The full crawl intentionally does NOT use $top: Dataverse does
@@ -166,11 +161,19 @@ const sync = createSync({
                 // a delete-tracked crawl would mark them as deleted.
                 const page = DataverseListResponseSchema.parse(response.data);
 
+                // Delete-tracked full crawl: the window opens only once the first page has
+                // been fetched and parsed successfully, so a failure before any data is seen
+                // never leaves it open.
+                if (isFirstPage) {
+                    await nango.trackDeletesStart('Opportunity');
+                }
+                isFirstPage = false;
+
                 if (page.value.length > 0) {
                     await nango.batchSave(page.value.map(toOpportunity), 'Opportunity');
                     const lastRecord = page.value.at(-1);
                     if (lastRecord) {
-                        lastSeenModifiedOn = lastRecord.modifiedon;
+                        lastSeenVersionNumber = lastRecord.versionnumber;
                     }
                 }
 
@@ -183,10 +186,12 @@ const sync = createSync({
                     params = undefined;
                 }
             } while (hasNextPage);
-        } else if (updatedAfter !== undefined) {
-            // Incremental crawl: keyset-paginate changed records in $top-capped
-            // pages, advancing the modifiedon cursor after each saved page.
-            let cursor = updatedAfter;
+        } else if (lastVersionNumber !== undefined) {
+            // Incremental crawl: keyset-paginate changed records in $top-capped pages,
+            // advancing the versionnumber cursor after each saved page. versionnumber is a
+            // unique, monotonically increasing rowversion, so unlike modifiedon it never
+            // ties across a page boundary and silently drops rows.
+            let cursor = lastVersionNumber;
             let hasMore = true;
 
             do {
@@ -196,8 +201,8 @@ const sync = createSync({
                     endpoint: '/api/data/v9.2/opportunities',
                     params: {
                         $select: SELECT_FIELDS,
-                        $orderby: 'modifiedon asc',
-                        $filter: `modifiedon gt ${cursor}`,
+                        $orderby: 'versionnumber asc',
+                        $filter: `versionnumber gt ${cursor}`,
                         $top: PAGE_SIZE
                     },
                     retries: 3
@@ -209,9 +214,9 @@ const sync = createSync({
                     await nango.batchSave(page.value.map(toOpportunity), 'Opportunity');
                     const lastRecord = page.value.at(-1);
                     if (lastRecord) {
-                        cursor = lastRecord.modifiedon;
+                        cursor = lastRecord.versionnumber;
                         await nango.saveCheckpoint({
-                            updated_after: cursor,
+                            last_version_number: cursor,
                             last_full_refresh: previousFullRefresh ?? runStartedAt
                         });
                     }
@@ -227,7 +232,7 @@ const sync = createSync({
             // than looking like a finished incremental run.
             await nango.trackDeletesEnd('Opportunity');
             await nango.saveCheckpoint({
-                updated_after: lastSeenModifiedOn ?? updatedAfter ?? runStartedAt,
+                last_version_number: lastSeenVersionNumber ?? lastVersionNumber ?? 0,
                 last_full_refresh: runStartedAt
             });
         }

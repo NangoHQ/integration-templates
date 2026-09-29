@@ -27,13 +27,19 @@ const InputSchema = z
             .positive()
             .optional()
             .describe(
-                'Maximum number of records to return (OData $top). Dataverse applies its own server-side page size regardless, so set this to cap results explicitly. Example: 50'
+                'Maximum number of records to return (OData $top). Example: 50. This is a hard cap in Dataverse: when set, results are truncated at this count and no nextLink is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size and receive a nextLink when more records exist. Ignored when cursor is provided.'
             ),
         $expand: z
             .string()
             .optional()
             .describe(
                 'OData $expand expression that embeds related records inline via a navigation property, e.g. "parentcustomerid_account" on contacts. Expanded records appear as nested objects.'
+            ),
+        cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Opaque pagination cursor: pass the nextLink value returned by a previous response unchanged to fetch the next page. Omit for the first page. When set, $select/$filter/$orderby/$top/$expand are ignored because the cursor already encodes the original query; entitySetName must still be the same entity set the cursor was issued for.'
             )
     })
     .describe('Query parameters for listing records of any Dataverse entity. Only entitySetName is required; the rest map to standard OData query options.');
@@ -63,10 +69,14 @@ const OutputSchema = z
     })
     .describe('One page of Dataverse records plus the server-provided link to the next page when the result was truncated.');
 
+// Keep the serialized response safely under Nango's 2 MB action output limit: entitySetName,
+// $select and $expand are all caller-controlled, so a wide custom entity or an $expand can be large.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 /**
  * @tags: [read]
  * @tagReason: Issues a single GET request to read records; performs no provider-side mutation.
- * @pitfalls: Results are silently truncated at Dataverse's server-side page size (about 5000 rows) even when $top requests more, and further pages are only signaled by the nextLink output, which callers must follow themselves; fields with no value come back as explicit nulls rather than being omitted; an unrecognized entitySetName fails with a provider 404 error.
+ * @pitfalls: Results are silently truncated at Dataverse's server-side page size (about 5000 rows) even when $top requests more, and further pages are only signaled by the nextLink output; pass it back as cursor to fetch the next page. $top is a hard cap: when set, Dataverse does not emit a nextLink beyond it. Fields with no value come back as explicit nulls rather than being omitted; an unrecognized entitySetName fails with a provider 404 error. This action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'List records of any Dataverse entity (standard or custom) with OData query support',
@@ -75,26 +85,70 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
-            endpoint: `/api/data/v9.2/${encodeURIComponent(input.entitySetName)}`,
-            params: {
+        const entityEndpoint = `/api/data/v9.2/${encodeURIComponent(input.entitySetName)}`;
+        let endpoint = entityEndpoint;
+        let params: Record<string, string | number>;
+
+        if (input.cursor !== undefined) {
+            let cursorUrl: URL;
+            // @allowTryCatch: an unparsable cursor must surface as a caller-facing ActionError instead of an uncaught TypeError from the URL constructor.
+            try {
+                cursorUrl = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid nextLink value returned by a previous list-records call.'
+                });
+            }
+            // Restricted to the same entity set named in entitySetName so a caller cannot redirect
+            // this action into returning a different entity's records by passing a mismatched cursor.
+            if (cursorUrl.pathname !== entityEndpoint) {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor does not point at the entity set named in entitySetName.'
+                });
+            }
+            endpoint = cursorUrl.pathname;
+            // $skiptoken must be replayed together with the original $select/$filter/$orderby/$expand,
+            // so the full next-link query string is preserved and reissued verbatim.
+            params = Object.fromEntries(cursorUrl.searchParams.entries());
+        } else {
+            params = {
                 ...(input.$select !== undefined && { $select: input.$select }),
                 ...(input.$filter !== undefined && { $filter: input.$filter }),
                 ...(input.$orderby !== undefined && { $orderby: input.$orderby }),
+                // $top is only forwarded when explicitly requested: Dataverse treats it as a hard cap
+                // on the whole result set and never emits a nextLink for a $top-capped request, so a
+                // default $top here would silently disable pagination.
                 ...(input.$top !== undefined && { $top: input.$top }),
                 ...(input.$expand !== undefined && { $expand: input.$expand })
-            },
+            };
+        }
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
+            endpoint,
+            params,
             retries: 3
         };
         const response = await nango.get(config);
 
         const parsed = ListResponseSchema.parse(response.data);
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             records: parsed.value,
             ...(parsed['@odata.nextLink'] !== undefined && { nextLink: parsed['@odata.nextLink'] })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller $top, a more restrictive $select, or a $filter, and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

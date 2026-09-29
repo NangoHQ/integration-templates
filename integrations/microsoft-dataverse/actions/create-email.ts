@@ -71,7 +71,8 @@ const action = createAction({
             endpoint: '/api/data/v9.2/emails',
             data,
             // No retries: create is not idempotent, so retrying after a lost response could silently create a duplicate email record.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         // Dataverse create returns 204 No Content; the new record URL is carried in the OData-EntityId response header.

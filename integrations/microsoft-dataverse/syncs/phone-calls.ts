@@ -20,7 +20,7 @@ const PAGE_SIZE = 100;
 const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const PHONECALL_SELECT =
-    'activityid,subject,description,phonenumber,directioncode,statecode,statuscode,prioritycode,scheduledstart,scheduledend,actualstart,actualend,actualdurationminutes,createdon,modifiedon,_regardingobjectid_value,_ownerid_value,_createdby_value,_modifiedby_value';
+    'activityid,versionnumber,subject,description,phonenumber,directioncode,statecode,statuscode,prioritycode,scheduledstart,scheduledend,actualstart,actualend,actualdurationminutes,createdon,modifiedon,_regardingobjectid_value,_ownerid_value,_createdby_value,_modifiedby_value';
 
 const PhoneCallSchema = z
     .object({
@@ -47,10 +47,10 @@ const PhoneCallSchema = z
     .describe('A Microsoft Dataverse phone call activity.');
 
 const CheckpointSchema = z.object({
-    updated_after: z
-        .string()
+    last_version_number: z
+        .number()
         .describe(
-            'ISO 8601 timestamp of the most recent `modifiedon` value synced; the next incremental crawl only fetches records modified after it. Empty string when nothing has been synced yet.'
+            'Dataverse versionnumber of the most recent phone call synced; the next incremental crawl only fetches records with versionnumber greater than it. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary. 0 when nothing has been synced yet.'
         ),
     last_full_refresh: z
         .string()
@@ -63,6 +63,7 @@ const CheckpointSchema = z.object({
 // returned as explicit JSON null, omitted when never set, so both are allowed).
 const DataversePhoneCallSchema = z.object({
     activityid: z.string(),
+    versionnumber: z.number(),
     subject: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     phonenumber: z.string().nullable().optional(),
@@ -123,23 +124,23 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.updated_after ?? '';
+        const lastVersionNumber = checkpoint?.last_version_number ?? 0;
         const lastFullRefresh = checkpoint?.last_full_refresh ?? '';
 
         // A full (unfiltered) crawl runs on the first sync and once every
         // FULL_REFRESH_INTERVAL_MS afterwards; it is the only way deletions are
         // detected, so it is wrapped in trackDeletesStart/trackDeletesEnd.
-        const isFullRefresh = updatedAfter === '' || lastFullRefresh === '' || Date.now() - Date.parse(lastFullRefresh) >= FULL_REFRESH_INTERVAL_MS;
-
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('PhoneCall');
-        }
+        const lastFullRefreshMs = lastFullRefresh === '' ? Number.NaN : Date.parse(lastFullRefresh);
+        const isFullRefresh = checkpoint === undefined || Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
 
         // Full crawls always start from page 1 (no watermark filter); the
         // intra-run watermark below is pagination state, not a restored cursor.
-        let lastSeen = isFullRefresh ? '' : updatedAfter;
-        let maxModifiedOn = updatedAfter;
+        // versionnumber is a unique, monotonically increasing rowversion, so unlike
+        // modifiedon it never ties across a page boundary and silently drops rows.
+        let lastSeen = isFullRefresh ? 0 : lastVersionNumber;
+        let maxVersionNumber = lastVersionNumber;
         let hasMore = true;
+        let isFirstPage = true;
 
         while (hasMore) {
             const config: ProxyConfiguration = {
@@ -147,9 +148,9 @@ const sync = createSync({
                 endpoint: '/api/data/v9.2/phonecalls',
                 params: {
                     $select: PHONECALL_SELECT,
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(lastSeen !== '' && { $filter: `modifiedon gt ${lastSeen}` })
+                    ...(lastSeen !== 0 && { $filter: `versionnumber gt ${lastSeen}` })
                 },
                 retries: 3
             };
@@ -159,12 +160,20 @@ const sync = createSync({
             // a skipped record would be falsely reported as deleted.
             const records = page.value.map((item) => DataversePhoneCallSchema.parse(item));
 
+            // Delete tracking opens only once the first page has been fetched and
+            // parsed successfully, so a failure before any data is seen never leaves
+            // the window open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('PhoneCall');
+            }
+            isFirstPage = false;
+
             if (records.length > 0) {
                 await nango.batchSave(records.map(toPhoneCall), 'PhoneCall');
                 const lastRecord = records[records.length - 1];
                 if (lastRecord) {
-                    lastSeen = lastRecord.modifiedon;
-                    maxModifiedOn = lastRecord.modifiedon;
+                    lastSeen = lastRecord.versionnumber;
+                    maxVersionNumber = lastRecord.versionnumber;
                 }
 
                 // Progress is persisted per page on incremental crawls only. During
@@ -172,7 +181,7 @@ const sync = createSync({
                 // after the scan completes, so a mid-scan crash retries the full
                 // crawl instead of silently skipping deletion detection.
                 if (!isFullRefresh) {
-                    await nango.saveCheckpoint({ updated_after: lastSeen, last_full_refresh: lastFullRefresh });
+                    await nango.saveCheckpoint({ last_version_number: lastSeen, last_full_refresh: lastFullRefresh });
                 }
             }
 
@@ -181,7 +190,7 @@ const sync = createSync({
 
         if (isFullRefresh) {
             await nango.trackDeletesEnd('PhoneCall');
-            await nango.saveCheckpoint({ updated_after: maxModifiedOn, last_full_refresh: new Date().toISOString() });
+            await nango.saveCheckpoint({ last_version_number: maxVersionNumber, last_full_refresh: new Date().toISOString() });
         }
     }
 });

@@ -29,7 +29,10 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/update-delete-entities-using-web-api#basic-delete
             endpoint: `/api/data/v9.2/contacts(${encodeURIComponent(input.id)})`,
-            retries: 3
+            // No retries: a retry after a lost 204 response would hit a 404 on the already-deleted contact (the delete truly succeeded, but the SDK
+            // surfaces the retry's 404 as a failure), so retrying here would report a spurious error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         await nango.delete(config);

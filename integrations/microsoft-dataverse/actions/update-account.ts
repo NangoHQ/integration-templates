@@ -5,7 +5,7 @@ import type { ProxyConfiguration } from 'nango';
 const InputSchema = z
     .object({
         accountid: z.string().describe('GUID of the account to update. Example: "4f2d9c1e-7a3b-4c5d-8e9f-1a2b3c4d5e6f".'),
-        name: z.string().nullable().optional().describe('Account name.'),
+        name: z.string().optional().describe('Account name.'),
         accountnumber: z.string().nullable().optional().describe('Account number.'),
         telephone1: z.string().nullable().optional().describe('Main phone number.'),
         telephone2: z.string().nullable().optional().describe('Other phone number.'),
@@ -121,6 +121,13 @@ const action = createAction({
             ...(input.address1_postalcode !== undefined && { address1_postalcode: input.address1_postalcode }),
             ...(input.address1_country !== undefined && { address1_country: input.address1_country })
         };
+
+        if (Object.keys(data).length === 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide at least one account field to update alongside accountid.'
+            });
+        }
 
         // PATCH sets absolute field values, so a retry after a lost response reapplies the same update and stays idempotent.
         const patchConfig: ProxyConfiguration = {

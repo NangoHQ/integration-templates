@@ -43,10 +43,10 @@ const AccountSchema = z
 // Checkpoint fields must be plain required primitives (z.ZodString | z.ZodNumber | z.ZodBoolean),
 // so both values are always persisted together once at least one account has been seen.
 const CheckpointSchema = z.object({
-    modifiedAfter: z
-        .string()
+    lastVersionNumber: z
+        .number()
         .describe(
-            'ISO 8601 timestamp of the last-synced account modifiedon value; used as the exclusive lower bound ($filter=modifiedon gt ...) for the next incremental run.'
+            'Dataverse versionnumber of the last-synced account; used as a tie-safe exclusive lower bound ($filter=versionnumber gt ...) for the next incremental run. versionnumber is a unique, monotonically increasing rowversion, unlike modifiedon which multiple accounts can share.'
         ),
     lastFullSync: z
         .string()
@@ -58,6 +58,7 @@ const CheckpointSchema = z.object({
 // Internal schemas used to parse the Dataverse Web API response envelope.
 const DataverseAccountSchema = z.object({
     accountid: z.string(),
+    versionnumber: z.number(),
     createdon: z.string(),
     modifiedon: z.string(),
     name: z.string().nullable().optional(),
@@ -144,44 +145,51 @@ const sync = createSync({
         const startedAt = new Date().toISOString();
         const isFullRefresh = !checkpoint || Date.now() - Date.parse(checkpoint.lastFullSync) >= FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Account');
-        }
-
         // Dataverse caps results at $top without returning @odata.nextLink, so nango.paginate link mode
-        // would silently truncate the dataset. Paginate manually instead: order by modifiedon ascending
-        // and advance the exclusive modifiedon lower bound after every page (keyset pagination).
+        // would silently truncate the dataset. Paginate manually instead: order by versionnumber ascending
+        // and advance the exclusive versionnumber lower bound after every page (keyset pagination).
+        // versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it can
+        // never tie across a page boundary and silently drop the remaining rows of that page.
         // Full refreshes always start from the beginning of the dataset (no $filter).
-        let modifiedAfter = isFullRefresh ? undefined : checkpoint?.modifiedAfter;
-        let latestModifiedOn: string | undefined;
+        let versionAfter = isFullRefresh ? undefined : checkpoint?.lastVersionNumber;
+        let latestVersionNumber: number | undefined;
         let hasMore = true;
+        let isFirstPage = true;
 
         while (hasMore) {
             const proxyConfig: ProxyConfiguration = {
                 // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
                 endpoint: '/api/data/v9.2/accounts',
                 params: {
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(modifiedAfter && { $filter: `modifiedon gt ${modifiedAfter}` })
+                    ...(versionAfter !== undefined && { $filter: `versionnumber gt ${versionAfter}` })
                 },
                 retries: 3
             };
             const response = await nango.get<unknown>(proxyConfig);
             const page = DataverseAccountPageSchema.parse(response.data);
+
+            // Delete tracking opens only once the first page has been fetched and parsed
+            // successfully, so a failure before any data is seen never leaves the window open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Account');
+            }
+            isFirstPage = false;
+
             const accounts = page.value.map(toAccount);
 
             if (accounts.length > 0) {
                 await nango.batchSave(accounts, 'Account');
-                const lastRecord = accounts[accounts.length - 1];
+                const lastRecord = page.value[page.value.length - 1];
                 if (lastRecord) {
-                    latestModifiedOn = lastRecord.modifiedon;
-                    modifiedAfter = lastRecord.modifiedon;
+                    latestVersionNumber = lastRecord.versionnumber;
+                    versionAfter = lastRecord.versionnumber;
                     if (!isFullRefresh) {
                         // Incremental run: checkpoint exists (a full refresh ran before), so persist
                         // progress after every page; startedAt is only an unreachable fallback.
                         await nango.saveCheckpoint({
-                            modifiedAfter: lastRecord.modifiedon,
+                            lastVersionNumber: lastRecord.versionnumber,
                             lastFullSync: checkpoint?.lastFullSync ?? startedAt
                         });
                     }
@@ -195,12 +203,12 @@ const sync = createSync({
             await nango.trackDeletesEnd('Account');
             // Persist the checkpoint only once the full scan has completed: saving it mid-scan would make
             // a crashed run look like a plain incremental run on retry and skip delete tracking.
-            // When no account was seen at all there is no modifiedon floor to persist, so the next run
+            // When no account was seen at all there is no versionnumber floor to persist, so the next run
             // simply performs another full refresh.
-            const resumeAfter = latestModifiedOn ?? checkpoint?.modifiedAfter;
-            if (resumeAfter) {
+            const resumeAfter = latestVersionNumber ?? checkpoint?.lastVersionNumber;
+            if (resumeAfter !== undefined) {
                 await nango.saveCheckpoint({
-                    modifiedAfter: resumeAfter,
+                    lastVersionNumber: resumeAfter,
                     lastFullSync: startedAt
                 });
             }

@@ -1,6 +1,10 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// statuscode values that belong to a closed opportunity state (Won/Canceled/Out-Sold). A plain PATCH of statuscode alone
+// does not run Dataverse's WinOpportunity/LoseOpportunity workflow, so these are rejected rather than silently accepted.
+const CLOSED_STATUS_CODES = new Set([3, 4, 5]);
+
 const InputSchema = z
     .object({
         opportunityId: z.string().describe('GUID of the opportunity to update. Example: "e90a0493-e8f0-ea11-a815-000d3a1b14a2"'),
@@ -19,7 +23,14 @@ const InputSchema = z
             .nullable()
             .optional()
             .describe('Estimated close date as "YYYY-MM-DD" or an ISO 8601 datetime. Maps to estimatedclosedate. Pass null to clear.'),
-        closeProbability: z.number().int().nullable().optional().describe('Close probability between 0 and 100. Maps to closeprobability. Pass null to clear.'),
+        closeProbability: z
+            .number()
+            .int()
+            .min(0)
+            .max(100)
+            .nullable()
+            .optional()
+            .describe('Close probability between 0 and 100. Maps to closeprobability. Pass null to clear.'),
         budgetAmount: z
             .number()
             .nullable()
@@ -72,10 +83,9 @@ const InputSchema = z
         statusCode: z
             .number()
             .int()
-            .nullable()
             .optional()
             .describe(
-                "Status reason, which must belong to the opportunity's current state: while open use 1 = In Progress or 2 = On Hold; 3 = Won, 4 = Canceled and 5 = Out-Sold belong to closed states. Maps to statuscode. Pass null to clear."
+                "Status reason for an opportunity that is still open: 1 = In Progress or 2 = On Hold. Maps to statuscode. This action performs a plain PATCH with no statecode change, so it cannot close an opportunity: closed-state reasons (3 = Won, 4 = Canceled, 5 = Out-Sold) are rejected. Use Dataverse's dedicated WinOpportunity/LoseOpportunity bound actions to win or lose an opportunity, which this action does not implement. This field is required by Dataverse once set and cannot be cleared with null."
             )
     })
     .describe(
@@ -142,6 +152,14 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.statusCode !== undefined && CLOSED_STATUS_CODES.has(input.statusCode)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message:
+                    "statusCode must be a status reason valid for an open opportunity (1 = In Progress, 2 = On Hold). Closed-state reasons (3 = Won, 4 = Canceled, 5 = Out-Sold) are rejected because this action only performs a plain PATCH; use Dataverse's dedicated WinOpportunity/LoseOpportunity bound actions to close an opportunity."
+            });
+        }
+
         const data: Record<string, string | number | null> = {
             ...(input.name !== undefined && { name: input.name }),
             ...(input.description !== undefined && { description: input.description }),

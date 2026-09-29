@@ -41,7 +41,8 @@ const action = createAction({
                 ...(input.location !== undefined && { location: input.location })
             },
             // No retries: creating an appointment is not idempotent, so a retry after a lost response would create a duplicate record
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.post(config);

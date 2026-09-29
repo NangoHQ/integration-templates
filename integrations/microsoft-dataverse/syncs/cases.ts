@@ -20,6 +20,7 @@ const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 
 const INCIDENT_SELECT_FIELDS = [
     'incidentid',
+    'versionnumber',
     'ticketnumber',
     'title',
     'description',
@@ -58,6 +59,7 @@ const INCIDENT_SELECT_FIELDS = [
 // Raw shape of one incident row as returned by the Dataverse Web API (internal; no descriptions).
 const RawIncidentSchema = z.object({
     incidentid: z.string(),
+    versionnumber: z.number(),
     ticketnumber: z.string().nullable(),
     title: z.string().nullable(),
     description: z.string().nullable(),
@@ -158,10 +160,10 @@ const CaseSchema = z
 // fields are always written together once a checkpoint exists.
 const CheckpointSchema = z
     .object({
-        modified_after: z
-            .string()
+        last_version_number: z
+            .number()
             .describe(
-                'ISO 8601 timestamp of the last-seen incident modifiedon value; the next incremental run fetches only incidents with modifiedon greater than this value'
+                'Dataverse versionnumber of the last-seen incident; the next incremental run fetches only incidents with versionnumber greater than this value. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary.'
             ),
         last_full_sync: z
             .string()
@@ -172,7 +174,7 @@ const CheckpointSchema = z
 // Lenient reader for the stored checkpoint: fields may be absent on the first run (no checkpoint)
 // or on checkpoints written by an older shape, so parse defensively before reading properties.
 const ParsedCheckpointSchema = z.object({
-    modified_after: z.string().optional(),
+    last_version_number: z.number().optional(),
     last_full_sync: z.string().optional()
 });
 
@@ -228,21 +230,17 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = ParsedCheckpointSchema.parse((await nango.getCheckpoint()) ?? {});
         const now = new Date();
-        const lastFullSyncMs = checkpoint.last_full_sync ? Date.parse(checkpoint.last_full_sync) : undefined;
+        const lastFullSyncMs = checkpoint.last_full_sync ? Date.parse(checkpoint.last_full_sync) : Number.NaN;
 
         // Dataverse exposes no deleted-records feed, so deletions are detected by a periodic full
-        // refresh. The first run (no modified_after cursor) is always a full refresh.
-        const isFullRefresh = !checkpoint.modified_after || lastFullSyncMs === undefined || now.getTime() - lastFullSyncMs > FULL_REFRESH_INTERVAL_MS;
+        // refresh. The first run (no version cursor) and an unparseable last_full_sync are always
+        // treated as due for a full refresh.
+        const isFullRefresh =
+            checkpoint.last_version_number === undefined || Number.isNaN(lastFullSyncMs) || now.getTime() - lastFullSyncMs > FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            // No prerequisites to resolve, so the delete-tracking window can open immediately. The
-            // full scan always starts from the first page: the modifiedon cursor from the checkpoint
-            // must not filter this walk or unchanged cases would be falsely deleted.
-            await nango.trackDeletesStart('Case');
-        }
-
-        let lastSeen: string | undefined = isFullRefresh ? undefined : checkpoint.modified_after;
+        let lastSeen: number | undefined = isFullRefresh ? undefined : checkpoint.last_version_number;
         let hasMorePages = true;
+        let isFirstPage = true;
 
         while (hasMorePages) {
             const proxyConfig: ProxyConfiguration = {
@@ -250,9 +248,9 @@ const sync = createSync({
                 endpoint: '/api/data/v9.2/incidents',
                 params: {
                     $select: INCIDENT_SELECT_FIELDS,
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(lastSeen ? { $filter: `modifiedon gt ${lastSeen}` } : {})
+                    ...(lastSeen !== undefined && { $filter: `versionnumber gt ${lastSeen}` })
                 },
                 retries: 3
             };
@@ -265,6 +263,16 @@ const sync = createSync({
                 throw new Error(`Failed to parse incidents response from Dataverse: ${parsed.error.message}`);
             }
 
+            // No prerequisites to resolve, so the delete-tracking window opens as soon as the first
+            // page has been fetched and validated (not before): a request or parse failure before
+            // this point must never leave the window open. The full scan always starts from the
+            // first page: the version cursor from the checkpoint must not filter this walk or
+            // unchanged cases would be falsely deleted.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Case');
+            }
+            isFirstPage = false;
+
             const incidents = parsed.data.value;
             const lastIncident = incidents[incidents.length - 1];
 
@@ -273,11 +281,11 @@ const sync = createSync({
                     incidents.map((incident) => toCase(incident)),
                     'Case'
                 );
-                lastSeen = lastIncident.modifiedon;
+                lastSeen = lastIncident.versionnumber;
 
                 if (!isFullRefresh) {
                     await nango.saveCheckpoint({
-                        modified_after: lastSeen,
+                        last_version_number: lastSeen,
                         // Always present by construction; the fallback only defends against
                         // checkpoints written without the field and simply delays the next full refresh.
                         last_full_sync: checkpoint.last_full_sync ?? now.toISOString()
@@ -294,10 +302,10 @@ const sync = createSync({
             // path (and trackDeletesStart) on its next invocation instead of looking incremental.
             // Closing the window first keeps last_full_sync stale if saving fails, forcing a retry.
             await nango.trackDeletesEnd('Case');
-            const modifiedAfter = lastSeen ?? checkpoint.modified_after;
-            if (modifiedAfter) {
+            const versionNumber = lastSeen ?? checkpoint.last_version_number;
+            if (versionNumber !== undefined) {
                 await nango.saveCheckpoint({
-                    modified_after: modifiedAfter,
+                    last_version_number: versionNumber,
                     last_full_sync: now.toISOString()
                 });
             }

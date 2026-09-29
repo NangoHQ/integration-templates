@@ -2,17 +2,38 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+const DEFAULT_SELECT_FIELDS = [
+    'activityid',
+    'subject',
+    'directioncode',
+    'statuscode',
+    'statecode',
+    'sender',
+    'torecipients',
+    'scheduledstart',
+    'scheduledend',
+    'createdon',
+    'modifiedon'
+];
+
 const InputSchema = z
     .object({
         select: z
             .array(z.string())
             .optional()
             .describe(
-                'Email attribute logical names to return (OData $select), e.g. ["subject", "directioncode", "createdon"]. "activityid" is always appended automatically. Omit to return all attributes.'
+                'Email attribute logical names to return (OData $select), e.g. ["subject", "directioncode", "createdon"]. "activityid" is always appended automatically. Omit to return a curated default set of fields rather than every attribute Dataverse defines; the default intentionally excludes description (the email body), which can be large, to keep the response well within the action output size limit. Pass "description" explicitly to include the body.'
             ),
         filter: z.string().optional().describe('OData $filter expression, e.g. "directioncode eq true" or "modifiedon gt 2026-01-01T00:00:00Z".'),
         orderby: z.string().optional().describe('OData $orderby expression, e.g. "createdon desc".'),
-        top: z.number().int().positive().optional().describe('Maximum number of emails to return (OData $top), e.g. 50.'),
+        top: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe(
+                'Maximum number of emails to return (OData $top), e.g. 50. This is a hard cap in Dataverse: when set, results are truncated at this count and no next_link is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size and receive a next_link when more emails exist.'
+            ),
         cursor: z
             .string()
             .optional()
@@ -60,7 +81,7 @@ const ListEmailsResponseSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Performs a read-only GET against the Dataverse emails entity set and never mutates provider data.
- * @pitfalls: Results have no guaranteed sort order unless orderby is provided. Returned records can include attributes beyond those listed in select, such as an ETag and the plain-text companion of the HTML body.
+ * @pitfalls: Results have no guaranteed sort order unless orderby is provided. Returned records can include attributes beyond those listed in select, such as an ETag and the plain-text companion of the HTML body. top is a hard cap: when set, Dataverse does not emit @odata.nextLink beyond it, so no next_link is returned for records past the cap. The default select excludes description (the HTML body) to bound response size; this action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'List Dataverse email activities.',
@@ -91,13 +112,11 @@ const action = createAction({
                 params[key] = value;
             });
         } else {
-            const select = input.select !== undefined ? [...input.select] : undefined;
-            if (select !== undefined && !select.some((field) => field.toLowerCase() === 'activityid')) {
+            const select = input.select !== undefined ? [...input.select] : [...DEFAULT_SELECT_FIELDS];
+            if (!select.some((field) => field.toLowerCase() === 'activityid')) {
                 select.push('activityid');
             }
-            if (select !== undefined && select.length > 0) {
-                params['$select'] = select.join(',');
-            }
+            params['$select'] = select.join(',');
             if (input.filter !== undefined) {
                 params['$filter'] = input.filter;
             }
@@ -124,6 +143,17 @@ const action = createAction({
         if (parsed['@odata.nextLink'] !== undefined) {
             output.next_link = parsed['@odata.nextLink'];
         }
+
+        // Keep the serialized response safely under Nango's 2 MB action output limit: an explicit
+        // select including description (the email body) combined with a large page can still be big.
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > 1_900_000) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller top, a more restrictive select (e.g. excluding description), or a filter, and try again.`
+            });
+        }
+
         return output;
     }
 });

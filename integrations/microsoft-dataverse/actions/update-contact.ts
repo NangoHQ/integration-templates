@@ -101,12 +101,13 @@ const action = createAction({
             });
         }
 
-        // PATCH applies a partial merge of fixed field values, so retrying the same body is idempotent.
         const updateConfig: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/update-delete-entities-using-web-api#basic-update
             endpoint: `/api/data/v9.2/contacts(${encodeURIComponent(input.contactid)})`,
             data,
-            retries: 3
+            // No idempotency key exists; a retry after a lost response would re-fire server-side plugins and workflows, duplicating their side effects.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.patch(updateConfig);
 

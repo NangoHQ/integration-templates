@@ -30,7 +30,7 @@ const EmailSchema = z
 // fields are always written together. A missing or legacy-shaped stored checkpoint is
 // treated as "no checkpoint" via safeParse below.
 const CheckpointSchema = z.object({
-    lastModified: z.string(),
+    lastVersionNumber: z.number(),
     lastFullRefresh: z.string()
 });
 
@@ -38,6 +38,7 @@ const CheckpointSchema = z.object({
 // $select is applied, so every non-key field must tolerate both null and omission.
 const DataverseEmailSchema = z.object({
     activityid: z.string(),
+    versionnumber: z.number(),
     subject: z.string().nullish(),
     description: z.string().nullish(),
     sender: z.string().nullish(),
@@ -60,11 +61,18 @@ const DataverseEmailListResponseSchema = z.object({
 
 type DataverseEmail = z.infer<typeof DataverseEmailSchema>;
 
-function buildListParams(modifiedAfter: string | undefined): Record<string, string | number> {
+// Only the columns mapped by toEmail() below are requested: the emails entity also
+// carries large body-related fields (e.g. mime attachments) that this sync never
+// saves, and fetching them for every 1,000-row page risks proxy/request timeouts.
+const EMAIL_SELECT_FIELDS =
+    'activityid,versionnumber,subject,description,sender,torecipients,directioncode,statecode,statuscode,scheduledstart,scheduledend,senton,createdon,modifiedon,_regardingobjectid_value';
+
+function buildListParams(versionAfter: number | undefined): Record<string, string | number> {
     return {
-        $orderby: 'modifiedon asc',
+        $select: EMAIL_SELECT_FIELDS,
+        $orderby: 'versionnumber asc',
         $top: PAGE_SIZE,
-        ...(modifiedAfter !== undefined && { $filter: `modifiedon gt ${modifiedAfter}` })
+        ...(versionAfter !== undefined && { $filter: `versionnumber gt ${versionAfter}` })
     };
 }
 
@@ -105,18 +113,11 @@ const sync = createSync({
         const lastFullRefreshMs = checkpoint !== undefined ? Date.parse(checkpoint.lastFullRefresh) : Number.NaN;
         const fullRefresh = checkpoint === undefined || Number.isNaN(lastFullRefreshMs) || lastFullRefreshMs + FULL_REFRESH_INTERVAL_MS <= Date.now();
 
-        if (fullRefresh) {
-            // Dataverse Web API exposes no deleted-records feed, and emails can disappear
-            // through cascade deletes when their parent record is removed, so the periodic
-            // full crawl is wrapped in delete tracking. The checkpoint is intentionally not
-            // persisted mid-scan: a crashed run must restart as a delete-tracked full crawl.
-            await nango.trackDeletesStart('Email');
-        }
-
-        let lastSeenModified = checkpoint?.lastModified;
+        let lastSeenVersionNumber = checkpoint?.lastVersionNumber;
         let windowCount = 0;
         let endpoint: string | undefined = '/api/data/v9.2/emails';
-        let params: Record<string, string | number> | undefined = buildListParams(fullRefresh ? undefined : checkpoint?.lastModified);
+        let params: Record<string, string | number> | undefined = buildListParams(fullRefresh ? undefined : checkpoint?.lastVersionNumber);
+        let isFirstPage = true;
 
         while (endpoint !== undefined) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -126,17 +127,29 @@ const sync = createSync({
                 retries: 3
             });
             const page = DataverseEmailListResponseSchema.parse(response.data);
+
+            // Dataverse Web API exposes no deleted-records feed, and emails can disappear
+            // through cascade deletes when their parent record is removed, so the periodic
+            // full crawl is wrapped in delete tracking. The window opens only once the first
+            // page has been fetched and parsed successfully, so a failure before any data is
+            // seen never leaves it open. The checkpoint is intentionally not persisted
+            // mid-scan: a crashed run must restart as a delete-tracked full crawl.
+            if (isFirstPage && fullRefresh) {
+                await nango.trackDeletesStart('Email');
+            }
+            isFirstPage = false;
+
             windowCount += page.value.length;
 
             if (page.value.length > 0) {
                 await nango.batchSave(page.value.map(toEmail), 'Email');
-                const pageLastModified = page.value[page.value.length - 1]?.modifiedon;
-                if (pageLastModified != null) {
-                    lastSeenModified = pageLastModified;
+                const pageLastVersionNumber = page.value[page.value.length - 1]?.versionnumber;
+                if (pageLastVersionNumber != null) {
+                    lastSeenVersionNumber = pageLastVersionNumber;
                 }
-                if (!fullRefresh && lastSeenModified !== undefined && checkpoint !== undefined) {
+                if (!fullRefresh && lastSeenVersionNumber !== undefined && checkpoint !== undefined) {
                     await nango.saveCheckpoint({
-                        lastModified: lastSeenModified,
+                        lastVersionNumber: lastSeenVersionNumber,
                         lastFullRefresh: checkpoint.lastFullRefresh
                     });
                 }
@@ -151,10 +164,10 @@ const sync = createSync({
                 const url = new URL(nextLink);
                 endpoint = url.pathname + url.search;
                 params = undefined;
-            } else if (windowCount >= PAGE_SIZE && lastSeenModified !== undefined) {
+            } else if (windowCount >= PAGE_SIZE && lastSeenVersionNumber !== undefined) {
                 windowCount = 0;
                 endpoint = '/api/data/v9.2/emails';
-                params = buildListParams(lastSeenModified);
+                params = buildListParams(lastSeenVersionNumber);
             } else {
                 endpoint = undefined;
             }
@@ -165,7 +178,7 @@ const sync = createSync({
             // trackDeletesEnd() fails, the next run must retry the delete-tracked crawl.
             await nango.trackDeletesEnd('Email');
             await nango.saveCheckpoint({
-                lastModified: lastSeenModified ?? now,
+                lastVersionNumber: lastSeenVersionNumber ?? 0,
                 lastFullRefresh: now
             });
         }

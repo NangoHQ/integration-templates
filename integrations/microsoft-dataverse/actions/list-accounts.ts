@@ -53,7 +53,15 @@ const InputSchema = z
             .optional()
             .describe('OData $filter expression applied to accounts. Example: "contains(name, \'Fabrikam\')" or "modifiedon gt 2026-01-01T00:00:00Z"'),
         orderby: z.string().optional().describe('OData $orderby expression for sorting accounts. Example: "name asc" or "modifiedon desc"'),
-        top: z.number().int().positive().optional().describe('Maximum number of accounts to return in this page (OData $top). Example: 50'),
+        top: z
+            .number()
+            .int()
+            .positive()
+            .max(5000)
+            .optional()
+            .describe(
+                'Maximum number of accounts to return in this page (OData $top). Example: 50. This is a hard cap in Dataverse: when set, results are truncated at this count and no next_cursor is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size and receive a next_cursor when more accounts exist.'
+            ),
         cursor: z
             .string()
             .optional()
@@ -90,7 +98,7 @@ function extractSkipToken(nextLink: string): string | undefined {
 /**
  * @tags: [read]
  * @tagReason: Only performs a read-only OData GET on the accounts entity set; it never creates, updates, or deletes provider data.
- * @pitfalls: Without top, a single call can return up to the provider's maximum page size (5000 records by default) and next_cursor only appears beyond that; top is a hard cap, so when it truncates the list no next_cursor is returned for the remaining records. Attributes named in select that fall outside this action's output schema are omitted from the returned accounts.
+ * @pitfalls: Without top, a single call can return up to the provider's maximum page size (5000 records by default) and next_cursor only appears beyond that; top is a hard cap, so when it truncates the list no next_cursor is returned for the remaining records. Attributes named in select that fall outside this action's output schema are omitted from the returned accounts. This action rejects a response that would exceed a safe serialized size instead of risking the 2 MB action output limit.
  */
 const action = createAction({
     description: 'List accounts (companies/organizations) in Microsoft Dataverse.',
@@ -119,10 +127,23 @@ const action = createAction({
         const accounts = parsed.value.map((record) => AccountSchema.parse(record));
         const nextCursor = parsed['@odata.nextLink'] !== undefined ? extractSkipToken(parsed['@odata.nextLink']) : undefined;
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             accounts,
             ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
+
+        // Without top, a page can hold up to Dataverse's server-side page size (commonly 5000
+        // records), and select can request arbitrary attributes, so check the serialized size
+        // before returning it rather than risk exceeding Nango's 2 MB action output limit.
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > 1_900_000) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller top, a more restrictive select, or a filter, and try again.`
+            });
+        }
+
+        return output;
     }
 });
 

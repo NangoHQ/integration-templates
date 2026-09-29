@@ -9,13 +9,13 @@ const InputSchema = z
             .array(z.string())
             .optional()
             .describe(
-                'OData $select attribute names to return, e.g. ["fullname", "internalemailaddress"]. When omitted, the full record is fetched and every curated output field is populated.'
+                'OData $select attribute names to return, e.g. ["fullname", "internalemailaddress"], including custom user fields. When omitted, the full record is fetched and every curated output field is populated. Attributes beyond the curated output fields are passed through unchanged.'
             )
     })
     .describe('Parameters for retrieving a single system user.');
 
 const OutputSchema = z
-    .object({
+    .looseObject({
         systemuserid: z.string().describe('GUID of the system user.'),
         fullname: z.string().optional().describe('Full display name of the user.'),
         firstname: z.string().optional().describe('First name of the user.'),
@@ -24,7 +24,7 @@ const OutputSchema = z
         internalemailaddress: z.string().optional().describe('Primary internal email address of the user.'),
         personalemailaddress: z.string().optional().describe('Personal email address of the user.'),
         domainname: z.string().optional().describe('Sign-in name (user principal name) of the user.'),
-        title: z.string().optional().describe('Title (salutation) of the user.'),
+        title: z.string().optional().describe('Title (salutation) of the user, e.g. "Mr." or "Dr.". Not the job title.'),
         jobtitle: z.string().optional().describe('Job title of the user.'),
         mobilephone: z.string().optional().describe('Mobile phone number of the user.'),
         businessunitid: z.string().optional().describe('GUID of the business unit the user belongs to.'),
@@ -42,9 +42,36 @@ const OutputSchema = z
         createdon: z.string().optional().describe('ISO 8601 timestamp of when the user record was created.'),
         modifiedon: z.string().optional().describe('ISO 8601 timestamp of when the user record was last modified.')
     })
-    .describe('The retrieved system user.');
+    .describe(
+        'The retrieved system user. Attributes beyond the ones listed, including custom user fields, depend on the select input and are passed through unchanged.'
+    );
 
-const ProviderUserSchema = z.object({
+const KNOWN_USER_KEYS = new Set([
+    'systemuserid',
+    'fullname',
+    'firstname',
+    'middlename',
+    'lastname',
+    'internalemailaddress',
+    'personalemailaddress',
+    'domainname',
+    'title',
+    'jobtitle',
+    'mobilephone',
+    '_businessunitid_value',
+    '_parentsystemuserid_value',
+    '_territoryid_value',
+    'isdisabled',
+    'islicensed',
+    'isintegrationuser',
+    'accessmode',
+    'azureactivedirectoryobjectid',
+    'applicationid',
+    'createdon',
+    'modifiedon'
+]);
+
+const ProviderUserSchema = z.looseObject({
     systemuserid: z.string(),
     fullname: z.string().nullable().optional(),
     firstname: z.string().nullable().optional(),
@@ -72,7 +99,7 @@ const ProviderUserSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Performs a single provider GET against the systemusers entity set and mutates nothing.
- * @pitfalls: Only attributes covered by the output schema are returned, even when select requests additional ones. A nonexistent id throws the provider's 404 error rather than returning an empty result.
+ * @pitfalls: A nonexistent id throws the provider's 404 error rather than returning an empty result.
  */
 const action = createAction({
     description: 'Retrieve a single system user by id.',
@@ -95,8 +122,10 @@ const action = createAction({
         const response = await nango.get(config);
 
         const user = ProviderUserSchema.parse(response.data);
+        const extraFields = Object.fromEntries(Object.entries(user).filter(([key]) => !KNOWN_USER_KEYS.has(key)));
 
         return {
+            ...extraFields,
             systemuserid: user.systemuserid,
             ...(user.fullname != null && { fullname: user.fullname }),
             ...(user.firstname != null && { firstname: user.firstname }),

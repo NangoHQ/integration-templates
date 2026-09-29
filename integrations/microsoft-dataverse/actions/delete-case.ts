@@ -30,7 +30,8 @@ const action = createAction({
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/update-delete-entities-using-web-api#basic-delete
             endpoint: `/api/data/v9.2/incidents(${encodeURIComponent(input.incidentid)})`,
             // Deleting the same case twice returns a 404 (the record is already gone), so retrying a lost response would surface a spurious failure.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.delete(config);
 

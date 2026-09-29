@@ -273,7 +273,8 @@ const action = createAction({
             endpoint: leadPath,
             data: payload,
             // No idempotency key exists; a retry after a lost response would re-fire server-side plugins and workflows, duplicating their side effects.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.patch(updateConfig);
 

@@ -30,13 +30,10 @@ const ContactSchema = z
 // The Nango SDK requires checkpoint fields to be plain string/number/boolean schemas
 // (non-optional), so empty string / 0 are used as "not set" sentinels.
 const CheckpointSchema = z.object({
-    last_modified_on: z
-        .string()
-        .describe('ISO 8601 `modifiedon` high-water mark used as the incremental filter on the next run. Empty string when no contact has been synced yet.'),
     last_version_number: z
         .number()
         .describe(
-            'Dataverse `versionnumber` of the last synced row while a scan is in progress, used to resume a crashed run exactly where it stopped. 0 when no scan is in progress.'
+            'Dataverse `versionnumber` high-water mark of the last synced contact, used as the incremental filter cursor and to resume a crashed run exactly where it stopped. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary or between runs. 0 when no contact has been synced yet.'
         ),
     last_full_refresh_at: z
         .string()
@@ -92,44 +89,26 @@ const sync = createSync({
         // detected by a full refresh on the first run and then once every 24 hours.
         const isFullRefresh = Number.isNaN(lastFullRefreshMs) || now.getTime() - lastFullRefreshMs > FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Contact');
-        }
-
-        // `modifiedon` is the persistent incremental watermark. Paginating on it
-        // alone is not safe: bulk-seeded or bulk-updated contacts routinely share
-        // the exact same `modifiedon` (9 of the 12 sample contacts tie at the same
-        // second) and `$skip`/secondary sorts on `contactid` are not supported, so
-        // a `modifiedon gt {last}` page turn would silently skip tied rows.
-        // `versionnumber` is a unique, monotonically increasing rowversion that
-        // changes on every write in the same order as `modifiedon`, which makes it
-        // an exact tie-proof keyset cursor. A full refresh always starts from the
-        // first page with no filter so unchanged rows are seen and not falsely
-        // marked as deleted.
-        const incrementalAfter = isFullRefresh ? undefined : checkpoint?.last_modified_on || undefined;
-        let versionCursor: number | undefined = isFullRefresh
-            ? undefined
-            : checkpoint && checkpoint.last_version_number > 0
-              ? checkpoint.last_version_number
-              : undefined;
-        let maxModifiedOn: string | undefined;
+        // `versionnumber` is a unique, monotonically increasing rowversion that changes on
+        // every write in the same order as `modifiedon`, which makes it an exact tie-proof
+        // keyset cursor: bulk-seeded or bulk-updated contacts routinely share the exact same
+        // `modifiedon` (9 of the 12 sample contacts tie at the same second), and paginating
+        // on `modifiedon` alone (with `$skip`/secondary sorts on `contactid` unsupported)
+        // would silently skip tied rows both across a page boundary and across runs. A full
+        // refresh always starts from the first page with no filter so unchanged rows are
+        // seen and not falsely marked as deleted.
+        let versionCursor: number | undefined = isFullRefresh ? undefined : checkpoint?.last_version_number || undefined;
+        let maxVersionNumber: number | undefined;
         let hasMore = true;
+        let isFirstPage = true;
 
         while (hasMore) {
-            const conditions: string[] = [];
-            if (incrementalAfter) {
-                conditions.push(`modifiedon gt ${incrementalAfter}`);
-            }
-            if (versionCursor !== undefined) {
-                conditions.push(`versionnumber gt ${versionCursor}`);
-            }
-
             const proxyConfig: ProxyConfiguration = {
                 // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
                 endpoint: '/api/data/v9.2/contacts',
                 params: {
-                    ...(conditions.length > 0 ? { $filter: conditions.join(' and ') } : {}),
-                    $orderby: 'modifiedon asc,versionnumber asc',
+                    ...(versionCursor !== undefined && { $filter: `versionnumber gt ${versionCursor}` }),
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE
                 },
                 retries: 3
@@ -138,6 +117,13 @@ const sync = createSync({
             // Throw on parse failure: skipping a record inside a delete-tracked scan
             // would falsely mark it as deleted.
             const rows = DataverseContactListSchema.parse(response.data).value;
+
+            // Delete tracking opens only once the first page has been fetched and parsed
+            // successfully, so a failure before any data is seen never leaves the window open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Contact');
+            }
+            isFirstPage = false;
 
             if (rows.length > 0) {
                 const contacts = rows.map((row) => ({
@@ -166,19 +152,12 @@ const sync = createSync({
                 const lastRow = rows[rows.length - 1];
                 if (lastRow) {
                     versionCursor = lastRow.versionnumber;
-                    for (const row of rows) {
-                        if (maxModifiedOn === undefined || row.modifiedon > maxModifiedOn) {
-                            maxModifiedOn = row.modifiedon;
-                        }
-                    }
+                    maxVersionNumber = lastRow.versionnumber;
 
                     if (!isFullRefresh) {
-                        // Mid-scan checkpoint on a plain incremental run: keep the run's
-                        // original modifiedon base filter and advance only the
-                        // versionnumber cursor, so a crashed run resumes exactly after
-                        // the last saved row without excluding not-yet-scanned rows.
+                        // Mid-scan checkpoint on a plain incremental run, so a crashed run
+                        // resumes exactly after the last saved row.
                         await nango.saveCheckpoint({
-                            last_modified_on: incrementalAfter ?? '',
                             last_version_number: lastRow.versionnumber,
                             last_full_refresh_at: checkpoint?.last_full_refresh_at ?? ''
                         });
@@ -193,14 +172,13 @@ const sync = createSync({
             await nango.trackDeletesEnd('Contact');
         }
 
-        // Completion checkpoint: advance the modifiedon watermark and reset the
-        // versionnumber cursor to 0 ("no scan in progress"). For a full refresh this
-        // is saved only after trackDeletesEnd, so a crash mid-scan makes the next run
-        // redo the full refresh instead of resuming as a plain incremental that
-        // would silently skip delete tracking.
+        // Completion checkpoint: advance the versionnumber watermark. Never reset it to 0 -
+        // doing so would let the next run's filter regress and re-skip any contact written
+        // with the same versionnumber floor. For a full refresh this is saved only after
+        // trackDeletesEnd, so a crash mid-scan makes the next run redo the full refresh
+        // instead of resuming as a plain incremental that would silently skip delete tracking.
         await nango.saveCheckpoint({
-            last_modified_on: maxModifiedOn ?? checkpoint?.last_modified_on ?? '',
-            last_version_number: 0,
+            last_version_number: maxVersionNumber ?? checkpoint?.last_version_number ?? 0,
             last_full_refresh_at: isFullRefresh ? now.toISOString() : (checkpoint?.last_full_refresh_at ?? '')
         });
     }

@@ -31,8 +31,10 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/update-delete-entities-using-web-api#delete-a-single-entity
             endpoint: `/api/data/v9.2/accounts(${encodeURIComponent(input.accountId)})`,
-            // DELETE of a specific record is idempotent: a retry after a lost response cannot repeat the deletion (the record is already gone), so server-side retries are safe here.
-            retries: 3
+            // No retries: a retry after a lost 204 response would hit a 404 on the already-deleted record (the delete truly succeeded, but the SDK
+            // surfaces the retry's 404 as a failure), so retrying here would report a spurious error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.delete(config);

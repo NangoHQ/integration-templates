@@ -10,12 +10,24 @@ const ListContactsInputSchema = z
             .describe('Comma-separated contact fields to return (OData $select). Example: "fullname,emailaddress1,telephone1". Omit to return all fields.'),
         filter: z.string().optional().describe('OData $filter expression restricting which contacts are returned. Example: "firstname eq \'Kevin\'".'),
         orderby: z.string().optional().describe('OData $orderby expression controlling sort order. Example: "createdon desc".'),
-        top: z.number().int().positive().optional().describe('Maximum number of contacts to return in this page (OData $top).'),
+        top: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe(
+                'Maximum number of contacts to return in this page (OData $top). This is a hard cap in Dataverse: when set, results are truncated at this count and no next_cursor is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size and receive a next_cursor when more contacts exist.'
+            ),
         expand: z
             .string()
             .optional()
             .describe('OData $expand expression inlining related records such as the parent account. Example: "parentcustomerid_account($select=name)".'),
-        cursor: z.string().optional().describe("Opaque pagination cursor from a previous response's next_cursor. Omit for the first page.")
+        cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Opaque pagination cursor: pass the next_cursor value returned by a previous response unchanged to fetch the next page. Omit for the first page. When set, select/filter/orderby/top/expand are ignored because the cursor already encodes the original query.'
+            )
     })
     .describe('Filters, field selection, and pagination options for listing contacts.');
 
@@ -48,18 +60,10 @@ const ListContactsResponseSchema = z.object({
     '@odata.nextLink': z.string().optional()
 });
 
-function extractSkipToken(nextLink: string): string | undefined {
-    const match = /[?&]\$skiptoken=([^&]+)/.exec(nextLink);
-    if (!match?.[1]) {
-        return undefined;
-    }
-    return decodeURIComponent(match[1]);
-}
-
 /**
  * @tags: [read]
  * @tagReason: Performs only a read-only GET listing contacts; no provider data is created, modified, or deleted.
- * @pitfalls: Lookup fields such as the parent account are returned as `_<logicalname>_value` GUID properties (e.g. `_parentcustomerid_value`), and navigation-property names are rejected in `select`; use `expand` to inline the related record.
+ * @pitfalls: Lookup fields such as the parent account are returned as `_<logicalname>_value` GUID properties (e.g. `_parentcustomerid_value`), and navigation-property names are rejected in `select`; use `expand` to inline the related record. top is a hard cap: when set, Dataverse does not emit @odata.nextLink beyond it, so no next_cursor is returned for records past the cap.
  */
 const action = createAction({
     description: 'List contacts (people).',
@@ -68,27 +72,58 @@ const action = createAction({
     output: ListContactsOutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof ListContactsOutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
-            endpoint: '/api/data/v9.2/contacts',
-            params: {
+        let endpoint = '/api/data/v9.2/contacts';
+        let params: Record<string, string | number>;
+
+        if (input.cursor !== undefined) {
+            let cursorUrl: URL;
+            // @allowTryCatch: an unparsable cursor must surface as a caller-facing ActionError instead of an uncaught TypeError from the URL constructor.
+            try {
+                cursorUrl = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid next_cursor value returned by a previous list-contacts call.'
+                });
+            }
+            // Restricted to the contacts collection specifically so a caller cannot redirect this
+            // action into returning another entity's records by passing a cursor that points elsewhere.
+            if (cursorUrl.pathname !== '/api/data/v9.2/contacts') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor does not point at the Dataverse contacts entity set.'
+                });
+            }
+            endpoint = cursorUrl.pathname;
+            // $skiptoken must be replayed together with the original $select/$filter/$orderby, so the
+            // full next-link query string (not just the bare skiptoken) is preserved and reissued verbatim.
+            params = Object.fromEntries(cursorUrl.searchParams.entries());
+        } else {
+            params = {
                 ...(input.select && { $select: input.select }),
                 ...(input.filter && { $filter: input.filter }),
                 ...(input.orderby && { $orderby: input.orderby }),
+                // top is only forwarded when explicitly requested: Dataverse treats $top as a hard cap
+                // on the whole result set and never emits @odata.nextLink for a $top-capped request, so
+                // a default top here would silently disable pagination.
                 ...(input.top !== undefined && { $top: input.top }),
-                ...(input.expand && { $expand: input.expand }),
-                ...(input.cursor && { $skiptoken: input.cursor })
-            },
+                ...(input.expand && { $expand: input.expand })
+            };
+        }
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
+            endpoint,
+            params,
             retries: 3
         };
 
         const response = await nango.get(config);
         const parsed = ListContactsResponseSchema.parse(response.data);
-        const nextCursor = parsed['@odata.nextLink'] !== undefined ? extractSkipToken(parsed['@odata.nextLink']) : undefined;
 
         return {
             contacts: parsed.value,
-            ...(nextCursor !== undefined && { next_cursor: nextCursor })
+            ...(parsed['@odata.nextLink'] !== undefined && { next_cursor: parsed['@odata.nextLink'] })
         };
     }
 });

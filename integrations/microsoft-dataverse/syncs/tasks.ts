@@ -26,10 +26,10 @@ const TaskSchema = z
     })
     .describe('A task activity in Microsoft Dataverse (the OData v4 data platform underlying Dynamics 365 CRM).');
 
-// Checkpoint fields must be bare strings per the createSync checkpoint contract, so
-// "no value yet" is stored as an empty string and reads go through a partial schema.
+// Checkpoint fields must be bare primitives per the createSync checkpoint contract, so
+// "no value yet" is stored as an empty string / 0 and reads go through a partial schema.
 const CheckpointSchema = z.object({
-    last_modified: z.string(),
+    last_version_number: z.number(),
     last_full_refresh: z.string()
 });
 
@@ -37,6 +37,7 @@ const CheckpointSchema = z.object({
 // attribute of the record, with an explicit null for fields that have no value.
 const DataverseTaskSchema = z.object({
     activityid: z.string(),
+    versionnumber: z.number(),
     subject: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     scheduledstart: z.string().nullable().optional(),
@@ -89,16 +90,16 @@ const sync = createSync({
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});
-        const lastModified = checkpoint.last_modified || undefined;
+        const lastVersionNumber = checkpoint.last_version_number;
         const lastFullRefresh = checkpoint.last_full_refresh || undefined;
 
-        const fetchPage = async (modifiedAfter: string | undefined): Promise<DataverseTask[]> => {
+        const fetchPage = async (versionAfter: number | undefined): Promise<DataverseTask[]> => {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
             const response = await nango.get({
                 endpoint: '/api/data/v9.2/tasks',
                 params: {
-                    ...(modifiedAfter && { $filter: `modifiedon gt ${modifiedAfter}` }),
-                    $orderby: 'modifiedon asc',
+                    ...(versionAfter !== undefined && { $filter: `versionnumber gt ${versionAfter}` }),
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE
                 },
                 retries: 3
@@ -109,35 +110,42 @@ const sync = createSync({
         const parsedLastFullRefresh = lastFullRefresh ? Date.parse(lastFullRefresh) : Number.NaN;
         const fullRefreshDue = Number.isNaN(parsedLastFullRefresh) || Date.now() - parsedLastFullRefresh >= FULL_REFRESH_INTERVAL_MS;
 
-        // A full refresh walks the entire table starting from page 1 inside a delete
-        // tracking window: the Dataverse Web API has no deleted-records feed, and task
-        // activities can disappear via cascade deletes without touching `modifiedon` of
-        // surviving rows, which a modifiedon-only incremental crawl would miss. No
-        // checkpoint is persisted mid-scan so a crashed run retries the full refresh.
-        if (fullRefreshDue) {
-            await nango.trackDeletesStart('Task');
-        }
-
-        // Pages are walked with a `modifiedon gt {marker}` keyset filter ordered by
-        // `modifiedon asc` and capped with `$top`, because `$top` is a hard cap that
+        // Pages are walked with a `versionnumber gt {marker}` keyset filter ordered by
+        // `versionnumber asc` and capped with `$top`, because `$top` is a hard cap that
         // returns no `@odata.nextLink` and the `odata.maxpagesize` preference header is
-        // not honored through the Nango proxy for this API.
-        let marker = fullRefreshDue ? undefined : lastModified;
-        let maxModifiedOn: string | undefined;
+        // not honored through the Nango proxy for this API. versionnumber is a unique,
+        // monotonically increasing rowversion, so (unlike modifiedon) it can never tie
+        // across a page boundary and silently drop the remaining rows of that page.
+        let marker = fullRefreshDue ? undefined : lastVersionNumber;
+        let maxVersionNumber: number | undefined;
         let hasMorePages = true;
+        let isFirstPage = true;
         while (hasMorePages) {
             const records = await fetchPage(marker);
+
+            // A full refresh walks the entire table starting from page 1 inside a delete
+            // tracking window: the Dataverse Web API has no deleted-records feed, and task
+            // activities can disappear via cascade deletes without touching surviving rows,
+            // which an incremental-only crawl would miss. The window opens only once the
+            // first page has been fetched and parsed, so a failure before any data is seen
+            // never leaves it open. No checkpoint is persisted mid-scan so a crashed run
+            // retries the full refresh.
+            if (isFirstPage && fullRefreshDue) {
+                await nango.trackDeletesStart('Task');
+            }
+            isFirstPage = false;
+
             hasMorePages = records.length === PAGE_SIZE;
             const lastRecord = records.at(-1);
             if (records.length > 0 && lastRecord) {
                 await nango.batchSave(records.map(toTask), 'Task');
-                marker = lastRecord.modifiedon;
-                maxModifiedOn = lastRecord.modifiedon;
+                marker = lastRecord.versionnumber;
+                maxVersionNumber = lastRecord.versionnumber;
                 if (!fullRefreshDue) {
-                    // Incremental runs checkpoint on the last-seen `modifiedon` of each
+                    // Incremental runs checkpoint on the last-seen `versionnumber` of each
                     // page so a run that exceeds the execution window resumes there.
                     await nango.saveCheckpoint({
-                        last_modified: marker,
+                        last_version_number: marker,
                         last_full_refresh: lastFullRefresh ?? ''
                     });
                 }
@@ -148,7 +156,7 @@ const sync = createSync({
             await nango.trackDeletesEnd('Task');
         }
         await nango.saveCheckpoint({
-            last_modified: maxModifiedOn ?? lastModified ?? '',
+            last_version_number: maxVersionNumber ?? lastVersionNumber ?? 0,
             last_full_refresh: fullRefreshDue ? new Date().toISOString() : (lastFullRefresh ?? '')
         });
     }

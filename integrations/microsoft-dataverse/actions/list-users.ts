@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const USER_FIELDS = 'systemuserid,fullname,firstname,lastname,internalemailaddress,domainname,title,isdisabled,islicensed,createdon,modifiedon';
+const USER_FIELDS = 'systemuserid,fullname,firstname,lastname,internalemailaddress,domainname,jobtitle,isdisabled,islicensed,createdon,modifiedon';
 
 const InputSchema = z
     .object({
@@ -22,7 +22,7 @@ const UserSchema = z.object({
         .string()
         .optional()
         .describe('Domain login of the user, typically the Microsoft Entra user principal name. Example: "ada@fabrikam.onmicrosoft.com"'),
-    title: z.string().optional().describe('Job title of the user. Example: "Sales Manager"'),
+    jobtitle: z.string().optional().describe('Job title of the user. Example: "Sales Manager"'),
     isdisabled: z.boolean().optional().describe('Whether the user account is disabled'),
     islicensed: z.boolean().optional().describe('Whether the user is licensed for Dynamics 365'),
     createdon: z.string().optional().describe('ISO 8601 timestamp when the user record was created. Example: "2026-01-15T08:30:00Z"'),
@@ -43,7 +43,7 @@ const DataverseUserSchema = z.object({
     lastname: z.string().nullable().optional(),
     internalemailaddress: z.string().nullable().optional(),
     domainname: z.string().nullable().optional(),
-    title: z.string().nullable().optional(),
+    jobtitle: z.string().nullable().optional(),
     isdisabled: z.boolean().nullable().optional(),
     islicensed: z.boolean().nullable().optional(),
     createdon: z.string().nullable().optional(),
@@ -107,7 +107,7 @@ const action = createAction({
                 lastname: toOptional(user.lastname),
                 internalemailaddress: toOptional(user.internalemailaddress),
                 domainname: toOptional(user.domainname),
-                title: toOptional(user.title),
+                jobtitle: toOptional(user.jobtitle),
                 isdisabled: toOptional(user.isdisabled),
                 islicensed: toOptional(user.islicensed),
                 createdon: toOptional(user.createdon),

@@ -10,7 +10,7 @@ const InputSchema = z
             .array(z.string())
             .optional()
             .describe(
-                'Entity metadata attribute names to return (OData $select), e.g. ["LogicalName", "EntitySetName", "DisplayName"]. Defaults to LogicalName, EntitySetName, DisplayName, IsCustomEntity, ObjectTypeCode and IsActivity. MetadataId is always requested. Only these attributes are surfaced in the output.'
+                'Entity metadata attribute names to return (OData $select), e.g. ["LogicalName", "EntitySetName", "DisplayName"], including custom metadata attributes. Defaults to LogicalName, EntitySetName, DisplayName, IsCustomEntity, ObjectTypeCode and IsActivity. MetadataId is always requested. Attributes beyond the curated output fields are passed through unchanged.'
             ),
         filter: z
             .string()
@@ -32,7 +32,7 @@ const RawLabelSchema = z.object({
     UserLocalizedLabel: RawLocalizedLabelSchema.nullable().optional()
 });
 
-const RawEntityDefinitionSchema = z.object({
+const RawEntityDefinitionSchema = z.looseObject({
     MetadataId: z.string(),
     LogicalName: z.string().optional(),
     EntitySetName: z.string().optional(),
@@ -42,13 +42,15 @@ const RawEntityDefinitionSchema = z.object({
     IsActivity: z.boolean().optional()
 });
 
+const KNOWN_ENTITY_DEFINITION_KEYS = new Set(['MetadataId', 'LogicalName', 'EntitySetName', 'DisplayName', 'IsCustomEntity', 'ObjectTypeCode', 'IsActivity']);
+
 const RawEntityDefinitionsResponseSchema = z.object({
     value: z.array(RawEntityDefinitionSchema),
     '@odata.nextLink': z.string().optional()
 });
 
 const EntityDefinitionSchema = z
-    .object({
+    .looseObject({
         metadata_id: z.string().describe('Unique metadata identifier of the entity definition. Example: "70816501-edb9-4740-a16c-6a5efbc05d84"'),
         logical_name: z.string().optional().describe('Logical (schema) name of the entity, e.g. "account".'),
         entity_set_name: z.string().optional().describe('Entity set name used in Web API URLs, e.g. "accounts".'),
@@ -57,7 +59,9 @@ const EntityDefinitionSchema = z
         object_type_code: z.number().optional().describe('Object type code of the entity, e.g. 1 for account.'),
         is_activity: z.boolean().optional().describe('Whether the entity is an activity entity (e.g. task, email, phonecall).')
     })
-    .describe('Metadata for a single entity (table).');
+    .describe(
+        'Metadata for a single entity (table). Attributes beyond the ones listed, including custom metadata attributes requested via select, are passed through unchanged using their raw provider attribute names.'
+    );
 
 const OutputSchema = z
     .object({
@@ -78,7 +82,14 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requested = input.select ?? DEFAULT_SELECT;
-        const selectFields = requested.some((field) => field.toLowerCase() === 'metadataid') ? requested : [...requested, 'MetadataId'];
+        // $select is case-sensitive in Dataverse, so a caller-supplied variant of MetadataId in
+        // the wrong case (e.g. "metadataId") must be replaced with the canonical "MetadataId"
+        // rather than appended alongside it, otherwise the wrong-cased field is sent to the
+        // provider and MetadataId is not actually requested.
+        const hasMetadataId = requested.some((field) => field.toLowerCase() === 'metadataid');
+        const selectFields = hasMetadataId
+            ? requested.map((field) => (field.toLowerCase() === 'metadataid' ? 'MetadataId' : field))
+            : [...requested, 'MetadataId'];
 
         const definitions: z.infer<typeof RawEntityDefinitionSchema>[] = [];
         let endpoint = '/api/data/v9.2/EntityDefinitions';
@@ -112,7 +123,9 @@ const action = createAction({
         return {
             entity_definitions: definitions.map((definition) => {
                 const displayName = definition.DisplayName?.UserLocalizedLabel?.Label ?? definition.DisplayName?.LocalizedLabels?.[0]?.Label;
+                const extraFields = Object.fromEntries(Object.entries(definition).filter(([key]) => !KNOWN_ENTITY_DEFINITION_KEYS.has(key)));
                 return {
+                    ...extraFields,
                     metadata_id: definition.MetadataId,
                     ...(definition.LogicalName != null && { logical_name: definition.LogicalName }),
                     ...(definition.EntitySetName != null && { entity_set_name: definition.EntitySetName }),

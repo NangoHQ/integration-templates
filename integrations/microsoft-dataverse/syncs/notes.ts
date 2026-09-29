@@ -7,7 +7,7 @@ const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 // documentbody (base64 attachment content) is intentionally excluded: it can be
 // several MB per note and is not needed to sync note metadata.
 const SELECT_FIELDS =
-    'annotationid,subject,notetext,filename,mimetype,filesize,isdocument,objecttypecode,createdon,modifiedon,_objectid_value,_ownerid_value,_createdby_value,_modifiedby_value';
+    'annotationid,versionnumber,subject,notetext,filename,mimetype,filesize,isdocument,objecttypecode,createdon,modifiedon,_objectid_value,_ownerid_value,_createdby_value,_modifiedby_value';
 
 const NoteSchema = z
     .object({
@@ -30,10 +30,10 @@ const NoteSchema = z
 
 const CheckpointSchema = z
     .object({
-        modified_after: z
-            .string()
+        last_version_number: z
+            .number()
             .describe(
-                'ISO 8601 high-water mark: the greatest modifiedon timestamp saved so far. Incremental runs only fetch notes with modifiedon after this value. An empty string means no note has been seen yet, so the next run walks all notes.'
+                'Dataverse versionnumber high-water mark of the last note saved so far. Incremental runs only fetch notes with versionnumber after this value. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary. 0 means no note has been seen yet, so the next run walks all notes.'
             ),
         last_full_refresh: z
             .string()
@@ -41,12 +41,13 @@ const CheckpointSchema = z
                 'ISO 8601 timestamp of the last completed delete-tracked full refresh. An empty or unparseable value, or a value older than 24 hours, triggers a new full refresh.'
             )
     })
-    .describe('Sync progress: incremental modifiedon high-water mark plus the timestamp of the last delete-tracked full refresh.');
+    .describe('Sync progress: incremental versionnumber high-water mark plus the timestamp of the last delete-tracked full refresh.');
 
-const EMPTY_CHECKPOINT: z.infer<typeof CheckpointSchema> = { modified_after: '', last_full_refresh: '' };
+const EMPTY_CHECKPOINT: z.infer<typeof CheckpointSchema> = { last_version_number: 0, last_full_refresh: '' };
 
 const DataverseNoteSchema = z.object({
     annotationid: z.string(),
+    versionnumber: z.number(),
     subject: z.string().nullable().optional(),
     notetext: z.string().nullable().optional(),
     filename: z.string().nullable().optional(),
@@ -103,17 +104,15 @@ const sync = createSync({
         const lastFullRefreshMs = Date.parse(checkpoint.last_full_refresh);
         const fullRefresh = Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
 
-        if (fullRefresh) {
-            // No prerequisite lookups are needed, so the delete-tracking window can open immediately.
-            await nango.trackDeletesStart('Note');
-        }
-
         // Dataverse returns no @odata.nextLink when $top is used, so pagination is a
-        // keyset loop on modifiedon: each page requests modifiedon gt <last seen>
-        // ordered ascending. A full refresh always starts from page 1 (no filter);
-        // an incremental run resumes from the checkpointed high-water mark.
-        let lastSeenModifiedon = fullRefresh ? '' : checkpoint.modified_after;
+        // keyset loop on versionnumber: each page requests versionnumber gt <last seen>
+        // ordered ascending. versionnumber is a unique, monotonically increasing
+        // rowversion, so unlike modifiedon it never ties across a page boundary. A full
+        // refresh always starts from page 1 (no filter); an incremental run resumes from
+        // the checkpointed high-water mark.
+        let lastSeenVersionNumber = fullRefresh ? 0 : checkpoint.last_version_number;
         let hasMore = true;
+        let isFirstPage = true;
 
         while (hasMore) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -121,9 +120,9 @@ const sync = createSync({
                 endpoint: '/api/data/v9.2/annotations',
                 params: {
                     $select: SELECT_FIELDS,
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(lastSeenModifiedon ? { $filter: `modifiedon gt ${lastSeenModifiedon}` } : {})
+                    ...(lastSeenVersionNumber > 0 ? { $filter: `versionnumber gt ${lastSeenVersionNumber}` } : {})
                 },
                 retries: 3
             });
@@ -135,6 +134,14 @@ const sync = createSync({
                 throw new Error(`Failed to parse Dataverse annotations response: ${parsed.error.message}`);
             }
 
+            // Delete tracking opens only once the first page has been fetched and
+            // parsed successfully, so a failure before any data is seen never leaves
+            // the window open. No prerequisite lookups are otherwise needed.
+            if (isFirstPage && fullRefresh) {
+                await nango.trackDeletesStart('Note');
+            }
+            isFirstPage = false;
+
             const records = parsed.data.value;
 
             if (records.length > 0) {
@@ -143,11 +150,11 @@ const sync = createSync({
 
                 const lastRecord = records[records.length - 1];
                 if (lastRecord) {
-                    lastSeenModifiedon = lastRecord.modifiedon;
+                    lastSeenVersionNumber = lastRecord.versionnumber;
 
                     if (!fullRefresh) {
                         await nango.saveCheckpoint({
-                            modified_after: lastRecord.modifiedon,
+                            last_version_number: lastRecord.versionnumber,
                             last_full_refresh: checkpoint.last_full_refresh
                         });
                     }
@@ -163,7 +170,7 @@ const sync = createSync({
             // next run redoes the full refresh instead of silently skipping deletions.
             await nango.trackDeletesEnd('Note');
             await nango.saveCheckpoint({
-                modified_after: lastSeenModifiedon,
+                last_version_number: lastSeenVersionNumber,
                 last_full_refresh: new Date().toISOString()
             });
         }

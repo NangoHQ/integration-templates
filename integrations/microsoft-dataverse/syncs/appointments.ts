@@ -32,12 +32,12 @@ const AppointmentSchema = z
     .describe('An appointment activity in Microsoft Dataverse / Dynamics 365.');
 
 // Checkpoint fields must be plain primitives (the Nango SDK only allows string/number/boolean
-// checkpoint values), so an empty string means "no value stored yet".
+// checkpoint values), so 0 means "no value stored yet".
 const CheckpointSchema = z.object({
-    updated_after: z
-        .string()
+    last_version_number: z
+        .number()
         .describe(
-            'ISO 8601 timestamp of the most recent appointment modification already synced; used as the incremental modifiedon filter cursor. Empty when nothing has been synced yet.'
+            'Dataverse versionnumber of the most recent appointment already synced; used as the incremental filter cursor. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary. 0 when nothing has been synced yet.'
         ),
     last_full_refresh: z
         .string()
@@ -48,6 +48,7 @@ const CheckpointSchema = z.object({
 // explicit null when empty, hence .nullable(); keys may be absent from a row, hence .optional().
 const DataverseAppointmentSchema = z.object({
     activityid: z.string(),
+    versionnumber: z.number(),
     subject: z.string().nullable().optional(),
     description: z.string().nullable().optional(),
     scheduledstart: z.string().nullable().optional(),
@@ -105,26 +106,20 @@ const sync = createSync({
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
 
         const runStartedAt = new Date();
-        const storedUpdatedAfter = checkpoint?.updated_after ? checkpoint.updated_after : undefined;
+        const storedVersionNumber = checkpoint?.last_version_number;
         const storedLastFullRefresh = checkpoint?.last_full_refresh ? checkpoint.last_full_refresh : undefined;
         const lastFullRefreshMs = storedLastFullRefresh ? Date.parse(storedLastFullRefresh) : Number.NaN;
         const isFullRefresh = Number.isNaN(lastFullRefreshMs) || runStartedAt.getTime() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
 
-        // Full refreshes crawl every appointment (no modifiedon filter) so that trackDeletesEnd can
-        // detect records deleted at the provider. They always start from the first page, and the
-        // checkpoint is persisted only once, after the full scan completes, so an interrupted run
-        // restarts the full refresh instead of degrading into a plain incremental run that would
-        // silently keep already-deleted records.
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Appointment');
-        }
-
-        let pageFilter = isFullRefresh ? undefined : storedUpdatedAfter;
-        let lastSeenModifiedOn = storedUpdatedAfter;
+        let pageFilter = isFullRefresh ? undefined : storedVersionNumber;
+        let lastSeenVersionNumber = storedVersionNumber;
         let hasMore = true;
+        let isFirstPage = true;
 
         // Dataverse does not return @odata.nextLink for $top-truncated results, so paginate by
-        // re-filtering on the last-seen modifiedon (keyset pagination) ordered ascending.
+        // re-filtering on the last-seen versionnumber (keyset pagination) ordered ascending.
+        // versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it
+        // never ties across a page boundary and silently drops rows.
         while (hasMore) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
             const proxyConfig: ProxyConfiguration = {
@@ -132,28 +127,41 @@ const sync = createSync({
                 endpoint: '/api/data/v9.2/appointments',
                 params: {
                     $select:
-                        'activityid,subject,description,scheduledstart,scheduledend,location,statecode,statuscode,prioritycode,isalldayevent,activitytypecode,createdon,modifiedon,_ownerid_value,_regardingobjectid_value',
-                    $orderby: 'modifiedon asc',
+                        'activityid,versionnumber,subject,description,scheduledstart,scheduledend,location,statecode,statuscode,prioritycode,isalldayevent,activitytypecode,createdon,modifiedon,_ownerid_value,_regardingobjectid_value',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(pageFilter ? { $filter: `modifiedon gt ${pageFilter}` } : {})
+                    ...(pageFilter !== undefined && { $filter: `versionnumber gt ${pageFilter}` })
                 },
                 retries: 3
             };
             const response = await nango.get(proxyConfig);
             const page = DataverseAppointmentsPageSchema.parse(response.data);
+
+            // Full refreshes crawl every appointment (no version filter) so that trackDeletesEnd can
+            // detect records deleted at the provider. The delete-tracking window opens only once the
+            // first page has been fetched and parsed, so a request or parse failure before that point
+            // never leaves it open. They always start from the first page, and the checkpoint is
+            // persisted only once, after the full scan completes, so an interrupted run restarts the
+            // full refresh instead of degrading into a plain incremental run that would silently keep
+            // already-deleted records.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Appointment');
+            }
+            isFirstPage = false;
+
             const appointments = page.value.map(toAppointment);
 
             if (appointments.length > 0) {
                 await nango.batchSave(appointments, 'Appointment');
-                const lastRecord = appointments[appointments.length - 1];
+                const lastRecord = page.value[page.value.length - 1];
                 if (lastRecord) {
-                    lastSeenModifiedOn = lastRecord.modifiedon;
-                    pageFilter = lastRecord.modifiedon;
+                    lastSeenVersionNumber = lastRecord.versionnumber;
+                    pageFilter = lastRecord.versionnumber;
                 }
 
                 if (!isFullRefresh) {
                     await nango.saveCheckpoint({
-                        updated_after: lastSeenModifiedOn ?? '',
+                        last_version_number: lastSeenVersionNumber ?? 0,
                         last_full_refresh: storedLastFullRefresh ?? ''
                     });
                 }
@@ -165,7 +173,7 @@ const sync = createSync({
         if (isFullRefresh) {
             await nango.trackDeletesEnd('Appointment');
             await nango.saveCheckpoint({
-                updated_after: lastSeenModifiedOn ?? '',
+                last_version_number: lastSeenVersionNumber ?? 0,
                 last_full_refresh: runStartedAt.toISOString()
             });
         }

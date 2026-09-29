@@ -19,17 +19,11 @@ const InputSchema = z
             .number()
             .int()
             .optional()
-            .describe('The customer satisfaction with the case. 5 = Very Satisfied, 4 = Satisfied, 3 = Neutral, 2 = Dissatisfied, 1 = Very Dissatisfied.'),
-        statecode: z.number().int().optional().describe('The state of the case. 0 = Active, 1 = Resolved, 2 = Cancelled.'),
-        statuscode: z
-            .number()
-            .int()
-            .optional()
-            .describe(
-                'The status reason of the case. Active: 1 = In Progress, 2 = On Hold, 3 = Waiting for Details, 4 = Researching. Resolved: 5 = Problem Solved, 1000 = Information Provided. Cancelled: 6 = Cancelled, 2000 = Merged.'
-            )
+            .describe('The customer satisfaction with the case. 5 = Very Satisfied, 4 = Satisfied, 3 = Neutral, 2 = Dissatisfied, 1 = Very Dissatisfied.')
     })
-    .describe('Fields to update on an existing Dataverse case (incident). Provide incidentid plus at least one field to change.');
+    .describe(
+        'Fields to update on an existing Dataverse case (incident). Provide incidentid plus at least one field to change. Resolving or cancelling a case is not supported here: this action performs a plain PATCH, and Dataverse does not reliably honor a raw statecode/statuscode write as a real close/cancel workflow. Use the dedicated CloseIncident/CancelCase bound actions in Dataverse for that (https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/close-open-case).'
+    );
 
 const ProviderCaseSchema = z.object({
     incidentid: z.string(),
@@ -41,8 +35,6 @@ const ProviderCaseSchema = z.object({
     caseorigincode: z.number().nullable().optional(),
     severitycode: z.number().nullable().optional(),
     customersatisfactioncode: z.number().nullable().optional(),
-    statecode: z.number().nullable().optional(),
-    statuscode: z.number().nullable().optional(),
     createdon: z.string().nullable().optional(),
     modifiedon: z.string().nullable().optional()
 });
@@ -64,8 +56,6 @@ const OutputSchema = z
             .number()
             .optional()
             .describe('The customer satisfaction with the case. 5 = Very Satisfied, 4 = Satisfied, 3 = Neutral, 2 = Dissatisfied, 1 = Very Dissatisfied.'),
-        statecode: z.number().optional().describe('The state of the case. 0 = Active, 1 = Resolved, 2 = Cancelled.'),
-        statuscode: z.number().optional().describe('The status reason of the case, which must be valid for the current statecode.'),
         createdon: z.string().optional().describe('The date and time when the case was created, in ISO 8601 format.'),
         modifiedon: z.string().optional().describe('The date and time when the case was last modified, in ISO 8601 format.')
     })
@@ -74,10 +64,10 @@ const OutputSchema = z
 /**
  * @tags: [read, write]
  * @tagReason: Updates the case's fields via PATCH (write) and reads back the updated record via GET (read).
- * @pitfalls: Resolving or cancelling a case by patching statecode/statuscode is not guaranteed to run Dataverse's full case-resolution workflow, which is normally done with the dedicated CloseIncident bound action. Any statuscode set must be a valid status reason for the target statecode.
+ * @pitfalls: This action cannot resolve or cancel a case: Dataverse's close/cancel workflow requires the dedicated CloseIncident/CancelCase bound actions, which this action does not implement, so statecode/statuscode are intentionally not exposed here.
  */
 const action = createAction({
-    description: "Update a case's fields (e.g. resolve, change priority).",
+    description: "Update a case's fields (e.g. change priority). Does not support resolving or cancelling a case.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -105,13 +95,6 @@ const action = createAction({
         if (input.customersatisfactioncode !== undefined) {
             data['customersatisfactioncode'] = input.customersatisfactioncode;
         }
-        if (input.statecode !== undefined) {
-            data['statecode'] = input.statecode;
-        }
-        if (input.statuscode !== undefined) {
-            data['statuscode'] = input.statuscode;
-        }
-
         if (Object.keys(data).length === 0) {
             throw new nango.ActionError({
                 type: 'invalid_input',
@@ -133,7 +116,7 @@ const action = createAction({
             endpoint: `/api/data/v9.2/incidents(${encodeURIComponent(input.incidentid)})`,
             params: {
                 $select:
-                    'incidentid,ticketnumber,title,description,prioritycode,casetypecode,caseorigincode,severitycode,customersatisfactioncode,statecode,statuscode,createdon,modifiedon'
+                    'incidentid,ticketnumber,title,description,prioritycode,casetypecode,caseorigincode,severitycode,customersatisfactioncode,createdon,modifiedon'
             },
             retries: 3
         };
@@ -151,8 +134,6 @@ const action = createAction({
             ...(caseRecord.caseorigincode != null && { caseorigincode: caseRecord.caseorigincode }),
             ...(caseRecord.severitycode != null && { severitycode: caseRecord.severitycode }),
             ...(caseRecord.customersatisfactioncode != null && { customersatisfactioncode: caseRecord.customersatisfactioncode }),
-            ...(caseRecord.statecode != null && { statecode: caseRecord.statecode }),
-            ...(caseRecord.statuscode != null && { statuscode: caseRecord.statuscode }),
             ...(caseRecord.createdon != null && { createdon: caseRecord.createdon }),
             ...(caseRecord.modifiedon != null && { modifiedon: caseRecord.modifiedon })
         };

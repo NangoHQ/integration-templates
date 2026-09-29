@@ -109,11 +109,14 @@ const action = createAction({
                     message: 'The cursor input is not a valid URL. Pass the next_cursor value returned by a previous list-appointments call.'
                 });
             }
-            if (!cursorUrl.pathname.startsWith('/api/data/')) {
+            // Restricted to the appointments collection specifically (not any /api/data/ path) so a
+            // caller cannot redirect this action into returning another entity's records by passing
+            // a cursor that points elsewhere, e.g. /api/data/v9.2/accounts.
+            if (cursorUrl.pathname !== '/api/data/v9.2/appointments') {
                 throw new nango.ActionError({
                     type: 'invalid_cursor',
                     message:
-                        'The cursor input does not point at a Dataverse Web API path. Pass the next_cursor value returned by a previous list-appointments call.'
+                        'The cursor input does not point at the Dataverse appointments entity set. Pass the next_cursor value returned by a previous list-appointments call.'
                 });
             }
             endpoint = cursorUrl.pathname;

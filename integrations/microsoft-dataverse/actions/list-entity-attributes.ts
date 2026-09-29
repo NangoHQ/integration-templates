@@ -2,11 +2,18 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+// https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api
+// These properties only exist on a derived AttributeMetadata subtype (e.g. Targets on LookupAttributeMetadata, OptionSet on
+// PicklistAttributeMetadata) and Dataverse rejects them in a $select against the base AttributeMetadata collection queried
+// here without an OData type-cast segment in the URL, which this generic action does not implement.
+const DERIVED_ONLY_FIELDS = new Set(['Targets', 'OptionSet']);
+const DERIVED_ONLY_FIELDS_EXAMPLE = 'Targets';
+
 const InputSchema = z
     .object({
         logicalName: z
             .string()
-            .min(1)
+            .regex(/^[a-z][a-z0-9_]*$/)
             .describe(
                 'Logical (lowercase) name of the entity whose fields are listed, e.g. "account". Use the list-entity-definitions action to discover valid logical names, including custom entities.'
             ),
@@ -14,7 +21,7 @@ const InputSchema = z
             .array(z.string().min(1))
             .optional()
             .describe(
-                'OData $select list of attribute metadata fields to return, e.g. ["LogicalName", "AttributeType", "Targets"]. Defaults to a common core set of metadata fields. "LogicalName" is always included. Extra requested fields are passed through in the output with their provider casing.'
+                `OData $select list of attribute metadata fields to return, e.g. ["LogicalName", "AttributeType", "DisplayName"]. Defaults to a common core set of metadata fields. "LogicalName" is always included. Extra requested fields are passed through in the output with their provider casing. Fields that only exist on a derived attribute metadata type (e.g. "${DERIVED_ONLY_FIELDS_EXAMPLE}") are not selectable here because this action queries the base AttributeMetadata collection, which Dataverse does not allow those fields on without a type-cast; requesting them is rejected.`
             )
     })
     .describe('Input for listing all attributes (fields) defined on a Dataverse entity, including custom fields.');
@@ -116,7 +123,7 @@ function extractLabel(label: z.infer<typeof RawLabelSchema>): string | undefined
 /**
  * @tags: [read]
  * @tagReason: Only reads entity attribute metadata from the provider; it never creates, updates, or deletes anything.
- * @pitfalls: Always returns the entity's full attribute list in one unpaginated response (the provider silently ignores $top on this collection), so large entities produce large payloads — pass a narrow select to keep each item small. Attribute-type detail such as lookup Targets or picklist OptionSet is only included when explicitly requested via select.
+ * @pitfalls: Always returns the entity's full attribute list in one unpaginated response (the provider silently ignores $top on this collection), so large entities produce large payloads — pass a narrow select to keep each item small. Attribute-type detail that only exists on a derived attribute metadata subtype, such as lookup Targets or picklist OptionSet, is not available through this action at all (Dataverse rejects those fields on the base AttributeMetadata collection queried here); use a raw metadata query with an OData type-cast segment for that.
  */
 const action = createAction({
     description: 'List all fields (attributes) defined on a given Dataverse entity, including custom fields.',
@@ -126,6 +133,15 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requested = input.select !== undefined && input.select.length > 0 ? input.select : DEFAULT_SELECT;
+
+        const derivedOnlyRequested = requested.filter((field) => DERIVED_ONLY_FIELDS.has(field));
+        if (derivedOnlyRequested.length > 0) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `The following select fields only exist on a derived attribute metadata type and cannot be selected on the base AttributeMetadata collection this action queries: ${derivedOnlyRequested.join(', ')}. Dataverse requires an OData type-cast (e.g. Microsoft.Dynamics.CRM.LookupAttributeMetadata for Targets) to access these, which this action does not support.`
+            });
+        }
+
         const selectFields = requested.includes('LogicalName') ? requested : ['LogicalName', ...requested];
 
         const config: ProxyConfiguration = {

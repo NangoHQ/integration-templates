@@ -24,10 +24,10 @@ const TeamSchema = z
     .describe('A Microsoft Dataverse team (entity set: teams).');
 
 const CheckpointSchema = z.object({
-    modifiedon: z
-        .string()
+    lastVersionNumber: z
+        .number()
         .describe(
-            'ISO 8601 high-water mark of the last synced team; applied as $filter=modifiedon gt {value} on the next incremental run. Empty string when no team has been synced yet.'
+            'Dataverse versionnumber high-water mark of the last synced team; applied as $filter=versionnumber gt {value} on the next incremental run. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary. 0 when no team has been synced yet.'
         ),
     lastFullRefresh: z
         .string()
@@ -37,6 +37,7 @@ const CheckpointSchema = z.object({
 const TeamRecordSchema = z
     .object({
         teamid: z.string(),
+        versionnumber: z.number(),
         name: z.string().nullish(),
         description: z.string().nullish(),
         teamtype: z.number().nullish(),
@@ -85,14 +86,14 @@ const sync = createSync({
         const parsedCheckpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
 
-        const fetchTeamsPage = async (after: string | undefined): Promise<TeamRecord[]> => {
+        const fetchTeamsPage = async (after: number | undefined): Promise<TeamRecord[]> => {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
             const response = await nango.get({
                 endpoint: '/api/data/v9.2/teams',
                 params: {
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(after ? { $filter: `modifiedon gt ${after}` } : {})
+                    ...(after !== undefined && { $filter: `versionnumber gt ${after}` })
                 },
                 retries: 3
             });
@@ -108,20 +109,25 @@ const sync = createSync({
         const lastFullRefresh = checkpoint?.lastFullRefresh ?? '';
         const lastFullRefreshTime = new Date(lastFullRefresh).getTime();
         // The Dataverse Web API exposes no deleted-records feed, so deletions are detected
-        // by a periodic full refresh. That scan always starts from page 1 (no modifiedon
+        // by a periodic full refresh. That scan always starts from page 1 (no version
         // filter) and persists its checkpoint only once the whole scan completes, so an
         // interrupted run retries as a full refresh instead of silently turning incremental.
         const isFullRefresh = Number.isNaN(lastFullRefreshTime) || Date.now() - lastFullRefreshTime >= FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Team');
-        }
-
-        let after: string | undefined = isFullRefresh ? undefined : checkpoint?.modifiedon || undefined;
-        let maxModifiedon: string | undefined;
+        let after: number | undefined = isFullRefresh ? undefined : checkpoint?.lastVersionNumber || undefined;
+        let maxVersionNumber: number | undefined;
         let hasMorePages = true;
+        let isFirstPage = true;
         while (hasMorePages) {
             const records = await fetchTeamsPage(after);
+
+            // Delete tracking opens only once the first page has been fetched and parsed
+            // successfully, so a failure before any data is seen never leaves the window open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Team');
+            }
+            isFirstPage = false;
+
             const last = records[records.length - 1];
             if (!last) {
                 // Empty page: nothing left to fetch.
@@ -129,12 +135,12 @@ const sync = createSync({
                 continue;
             }
             await nango.batchSave(records.map(toTeam), 'Team');
-            after = last.modifiedon;
+            after = last.versionnumber;
             if (isFullRefresh) {
-                maxModifiedon = after;
+                maxVersionNumber = after;
             } else {
                 await nango.saveCheckpoint({
-                    modifiedon: after,
+                    lastVersionNumber: after,
                     lastFullRefresh
                 });
             }
@@ -144,7 +150,7 @@ const sync = createSync({
         if (isFullRefresh) {
             await nango.trackDeletesEnd('Team');
             await nango.saveCheckpoint({
-                modifiedon: maxModifiedon ?? '',
+                lastVersionNumber: maxVersionNumber ?? 0,
                 lastFullRefresh: new Date().toISOString()
             });
         }

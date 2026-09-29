@@ -82,7 +82,8 @@ const action = createAction({
             retries: 0
         });
 
-        const entityIdHeader = createResponse.headers['odata-entityid'];
+        const rawEntityIdHeader = createResponse.headers['odata-entityid'];
+        const entityIdHeader = Array.isArray(rawEntityIdHeader) ? rawEntityIdHeader[0] : rawEntityIdHeader;
         const idMatch = typeof entityIdHeader === 'string' ? /\(([0-9a-fA-F-]{36})\)/.exec(entityIdHeader) : null;
         const taskId = idMatch?.[1];
 

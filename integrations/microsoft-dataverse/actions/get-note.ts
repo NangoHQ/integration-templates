@@ -1,6 +1,20 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const DEFAULT_SELECT_FIELDS = [
+    'annotationid',
+    'subject',
+    'notetext',
+    'filename',
+    'mimetype',
+    'filesize',
+    'isdocument',
+    'objecttypecode',
+    '_objectid_value',
+    'createdon',
+    'modifiedon'
+];
+
 const InputSchema = z
     .object({
         annotationId: z.string().describe('ID (GUID) of the note (annotation) to retrieve. Example: "7191a0cc-2abc-f111-aaad-7ced8d717fa5"'),
@@ -8,7 +22,7 @@ const InputSchema = z
             .array(z.string())
             .optional()
             .describe(
-                'Optional list of Dataverse annotation attribute names to return ($select). The annotationid attribute is always included. Omit to return all note attributes. Attributes outside the output schema are not returned.'
+                'Optional list of Dataverse annotation attribute names to return ($select). The annotationid attribute is always included. Omit to return a default set of note metadata fields that excludes documentbody (the base64 file attachment content), which can be several MB and risks exceeding the 2 MB action output limit. Pass "documentbody" explicitly to include the attachment content. Attributes outside the output schema are not returned.'
             )
     })
     .describe('Input for retrieving a single Dataverse note (annotation) by its ID');
@@ -37,7 +51,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Performs a single read-only GET of a note (annotation) record; it never mutates provider data.
- * @pitfalls: On notes with a file attachment, the full file content is returned inline as base64 in documentbody and can make the response very large; pass select without documentbody when only the note metadata or text is needed.
+ * @pitfalls: documentbody (the base64 file attachment content) is excluded by default and must be requested explicitly via select, because it can be several MB and risks exceeding the 2 MB action output limit on an ordinary note attachment.
  */
 const action = createAction({
     description: 'Retrieve a single note by id',
@@ -46,13 +60,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const select = input.select && input.select.length > 0 ? [...new Set([...input.select, 'annotationid'])].join(',') : undefined;
+        const select = [...new Set([...(input.select && input.select.length > 0 ? input.select : DEFAULT_SELECT_FIELDS), 'annotationid'])].join(',');
 
         // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/retrieve-entity-using-web-api
         const response = await nango.get({
             endpoint: `/api/data/v9.2/annotations(${encodeURIComponent(input.annotationId)})`,
             params: {
-                ...(select !== undefined && { $select: select })
+                $select: select
             },
             retries: 3
         });

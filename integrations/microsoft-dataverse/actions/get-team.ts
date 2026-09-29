@@ -15,35 +15,28 @@ const InputSchema = z
     })
     .describe('Input for retrieving a single team by id.');
 
-const DataverseTeamSchema = z.object({
-    teamid: z.string(),
-    name: z.string().nullable().optional(),
-    description: z.string().nullable().optional(),
-    teamtype: z.number().nullable().optional(),
-    isdefault: z.boolean().nullable().optional(),
-    azureactivedirectoryobjectid: z.string().nullable().optional(),
-    createdon: z.string().nullable().optional(),
-    modifiedon: z.string().nullable().optional()
-});
-
 const OutputSchema = z
-    .object({
+    .looseObject({
         teamid: z.string().describe('Unique identifier (GUID) of the team.'),
-        name: z.string().optional().describe('Name of the team. Omitted when empty or not selected.'),
-        description: z.string().optional().describe('Description of the team. Omitted when empty or not selected.'),
+        name: z.string().nullable().optional().describe('Name of the team. Omitted when empty or not selected.'),
+        description: z.string().nullable().optional().describe('Description of the team. Omitted when empty or not selected.'),
         teamtype: z
             .number()
+            .nullable()
             .optional()
             .describe('Team type: 0 = Owner, 1 = Access, 2 = Microsoft Entra security group, 3 = Microsoft Entra Office group. Omitted when not selected.'),
-        isdefault: z.boolean().optional().describe('Whether the team is the default team of its business unit. Omitted when not selected.'),
+        isdefault: z.boolean().nullable().optional().describe('Whether the team is the default team of its business unit. Omitted when not selected.'),
         azureactivedirectoryobjectid: z
             .string()
+            .nullable()
             .optional()
             .describe('Object id of the linked Microsoft Entra group, present only for Microsoft Entra-backed teams. Omitted otherwise.'),
-        createdon: z.string().optional().describe('ISO 8601 timestamp of when the team was created. Example: "2024-05-01T12:34:56Z".'),
-        modifiedon: z.string().optional().describe('ISO 8601 timestamp of when the team was last modified. Example: "2024-05-01T12:34:56Z".')
+        createdon: z.string().nullable().optional().describe('ISO 8601 timestamp of when the team was created. Example: "2024-05-01T12:34:56Z".'),
+        modifiedon: z.string().nullable().optional().describe('ISO 8601 timestamp of when the team was last modified. Example: "2024-05-01T12:34:56Z".')
     })
-    .describe('The retrieved team record.');
+    .describe(
+        'The retrieved team record. Attributes beyond the ones listed, including custom team fields, depend on the select input and are passed through unchanged.'
+    );
 
 /**
  * @tags: [read]
@@ -70,18 +63,7 @@ const action = createAction({
             retries: 3
         });
 
-        const team = DataverseTeamSchema.parse(response.data);
-
-        return {
-            teamid: team.teamid,
-            ...(team.name != null && { name: team.name }),
-            ...(team.description != null && { description: team.description }),
-            ...(team.teamtype != null && { teamtype: team.teamtype }),
-            ...(team.isdefault != null && { isdefault: team.isdefault }),
-            ...(team.azureactivedirectoryobjectid != null && { azureactivedirectoryobjectid: team.azureactivedirectoryobjectid }),
-            ...(team.createdon != null && { createdon: team.createdon }),
-            ...(team.modifiedon != null && { modifiedon: team.modifiedon })
-        };
+        return OutputSchema.parse(response.data);
     }
 });
 

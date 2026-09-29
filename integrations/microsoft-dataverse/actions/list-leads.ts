@@ -35,8 +35,15 @@ const InputSchema = z
             .int()
             .positive()
             .optional()
-            .describe('Maximum number of leads to return in this call. Omit to return up to the Dataverse server page size (5000 leads). Example: 50'),
-        cursor: z.string().optional().describe("Opaque pagination cursor from a previous response's next_cursor. Omit for the first page.")
+            .describe(
+                'Maximum number of leads to return in this call. This is a hard cap in Dataverse: when set, results are truncated at this count and no next_cursor is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size (up to 5000 leads) and receive a next_cursor when more leads exist.'
+            ),
+        cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Opaque pagination cursor: pass the next_cursor value returned by a previous response unchanged to fetch the next page. Omit for the first page. When set, filter/orderby/top are ignored because the cursor already encodes the original query.'
+            )
     })
     .describe('Optional OData filter, sort and paging options for the leads query. All fields are optional.');
 
@@ -94,13 +101,6 @@ const OutputSchema = z
     })
     .describe('A page of leads plus the cursor for the next page, if any.');
 
-const extractNextCursor = (nextLink: string | undefined): string | undefined => {
-    if (!nextLink || !URL.canParse(nextLink)) {
-        return undefined;
-    }
-    return new URL(nextLink).searchParams.get('$skiptoken') ?? undefined;
-};
-
 /**
  * @tags: [read]
  * @tagReason: Runs a read-only OData GET query against the Dataverse leads entity set and never mutates provider data.
@@ -113,16 +113,48 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
-            endpoint: '/api/data/v9.2/leads',
-            params: {
+        let endpoint = '/api/data/v9.2/leads';
+        let params: Record<string, string | number>;
+
+        if (input.cursor !== undefined) {
+            let cursorUrl: URL;
+            // @allowTryCatch: an unparsable cursor must surface as a caller-facing ActionError instead of an uncaught TypeError from the URL constructor.
+            try {
+                cursorUrl = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid next_cursor value returned by a previous list-leads call.'
+                });
+            }
+            // Restricted to the leads collection specifically so a caller cannot redirect this action
+            // into returning another entity's records by passing a cursor that points elsewhere.
+            if (cursorUrl.pathname !== '/api/data/v9.2/leads') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor does not point at the Dataverse leads entity set.'
+                });
+            }
+            endpoint = cursorUrl.pathname;
+            // $skiptoken must be replayed together with the original $select/$filter/$orderby, so the
+            // full next-link query string (not just the bare skiptoken) is preserved and reissued verbatim.
+            params = Object.fromEntries(cursorUrl.searchParams.entries());
+        } else {
+            params = {
                 $select: LEAD_SELECT_FIELDS,
                 ...(input.filter !== undefined && { $filter: input.filter }),
                 ...(input.orderby !== undefined && { $orderby: input.orderby }),
-                ...(input.top !== undefined && { $top: input.top }),
-                ...(input.cursor !== undefined && { $skiptoken: input.cursor })
-            },
+                // top is only forwarded when explicitly requested: Dataverse treats $top as a hard cap
+                // on the whole result set and never emits @odata.nextLink for a $top-capped request, so
+                // a default top here would silently disable pagination.
+                ...(input.top !== undefined && { $top: input.top })
+            };
+        }
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
+            endpoint,
+            params,
             retries: 3
         };
 
@@ -147,11 +179,9 @@ const action = createAction({
             ...(lead.modifiedon != null && { modifiedon: lead.modifiedon })
         }));
 
-        const next_cursor = extractNextCursor(parsed['@odata.nextLink']);
-
         return {
             leads,
-            ...(next_cursor !== undefined && { next_cursor })
+            ...(parsed['@odata.nextLink'] !== undefined && { next_cursor: parsed['@odata.nextLink'] })
         };
     }
 });

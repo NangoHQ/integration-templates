@@ -9,6 +9,7 @@ const FULL_REFRESH_INTERVAL_MS = 24 * 60 * 60 * 1000;
 // related record's GUID.
 const LEAD_SELECT_FIELDS = [
     'leadid',
+    'versionnumber',
     'subject',
     'firstname',
     'lastname',
@@ -104,10 +105,10 @@ const LeadSchema = z
     .describe('A Microsoft Dataverse lead (unqualified prospect)');
 
 const CheckpointSchema = z.object({
-    last_modified_on: z
-        .string()
+    last_version_number: z
+        .number()
         .describe(
-            'ISO 8601 high-water mark of the last synced lead modifiedon value. Incremental runs fetch only leads with modifiedon greater than this timestamp. Empty string when no lead has been seen yet.'
+            'Dataverse versionnumber high-water mark of the last synced lead. Incremental runs fetch only leads with versionnumber greater than this value. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary. 0 when no lead has been seen yet.'
         ),
     last_full_refresh: z
         .string()
@@ -115,7 +116,7 @@ const CheckpointSchema = z.object({
 });
 
 const EMPTY_CHECKPOINT: z.infer<typeof CheckpointSchema> = {
-    last_modified_on: '',
+    last_version_number: 0,
     last_full_refresh: ''
 };
 
@@ -123,6 +124,7 @@ const EMPTY_CHECKPOINT: z.infer<typeof CheckpointSchema> = {
 // back as explicit JSON null, hence nullish on every non-key field.
 const DataverseLeadSchema = z.object({
     leadid: z.string(),
+    versionnumber: z.number(),
     createdon: z.string(),
     modifiedon: z.string(),
     subject: z.string().nullish(),
@@ -225,12 +227,9 @@ const sync = createSync({
         // leads would be absent from the scan and would be falsely deleted.
         const isFullRefresh = Number.isNaN(lastFullRefreshMs) || Date.now() - lastFullRefreshMs >= FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Lead');
-        }
-
-        let watermark = isFullRefresh ? undefined : checkpoint.last_modified_on || undefined;
+        let watermark = isFullRefresh ? undefined : checkpoint.last_version_number || undefined;
         let hasMore = true;
+        let isFirstPage = true;
 
         while (hasMore) {
             // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
@@ -238,39 +237,39 @@ const sync = createSync({
                 endpoint: '/api/data/v9.2/leads',
                 params: {
                     $select: LEAD_SELECT_FIELDS.join(','),
-                    $orderby: 'modifiedon asc',
+                    $orderby: 'versionnumber asc',
                     $top: PAGE_SIZE,
-                    ...(watermark !== undefined && { $filter: `modifiedon gt ${watermark}` })
+                    ...(watermark !== undefined && { $filter: `versionnumber gt ${watermark}` })
                 },
                 retries: 3
             });
 
             const page = DataverseLeadListSchema.parse(response.data).value;
-            const firstRecord = page.at(0);
             const lastRecord = page.at(-1);
 
-            if (firstRecord === undefined || lastRecord === undefined) {
+            // Delete tracking opens only once the first page has been fetched and parsed
+            // successfully, so a failure before any data is seen never leaves the window open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('Lead');
+            }
+            isFirstPage = false;
+
+            if (lastRecord === undefined) {
                 break;
             }
 
-            // Keyset pagination on modifiedon would silently skip leads when more than
-            // PAGE_SIZE records share the exact same modifiedon timestamp (bulk imports).
-            // Fail loudly instead of dropping them.
-            if (page.length === PAGE_SIZE && firstRecord.modifiedon === lastRecord.modifiedon) {
-                throw new Error(
-                    `More than ${PAGE_SIZE} leads share the same modifiedon timestamp (${firstRecord.modifiedon}); keyset pagination on modifiedon cannot page through them safely`
-                );
-            }
-
+            // versionnumber is a unique, monotonically increasing rowversion, so (unlike
+            // modifiedon) keyset pagination on it can never tie across a page boundary and
+            // silently drop the remaining leads of that page.
             await nango.batchSave(page.map(toLead), 'Lead');
-            watermark = lastRecord.modifiedon;
+            watermark = lastRecord.versionnumber;
 
             // Mid-scan checkpoints are only saved on incremental runs. A full refresh must
             // persist its checkpoint once the complete scan finishes, otherwise a crash
             // would make the retry look incremental and skip deletion detection.
             if (!isFullRefresh) {
                 await nango.saveCheckpoint({
-                    last_modified_on: lastRecord.modifiedon,
+                    last_version_number: lastRecord.versionnumber,
                     last_full_refresh: checkpoint.last_full_refresh
                 });
             }
@@ -281,7 +280,7 @@ const sync = createSync({
         if (isFullRefresh) {
             await nango.trackDeletesEnd('Lead');
             await nango.saveCheckpoint({
-                last_modified_on: watermark ?? checkpoint.last_modified_on,
+                last_version_number: watermark ?? checkpoint.last_version_number,
                 last_full_refresh: new Date().toISOString()
             });
         }

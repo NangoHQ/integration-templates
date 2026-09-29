@@ -30,10 +30,10 @@ const UserSchema = z
 
 // Checkpoint fields must be non-optional: the SDK's ZodCheckpoint constraint only accepts plain string/number/boolean fields.
 const CheckpointSchema = z.object({
-    modified_after: z
-        .string()
+    last_version_number: z
+        .number()
         .describe(
-            'ISO 8601 UTC high-water mark: the greatest modifiedon timestamp saved so far. Incremental runs fetch only records with modifiedon after this value.'
+            'Dataverse versionnumber high-water mark of the last synced record. Incremental runs fetch only records with versionnumber greater than this value. versionnumber is a unique, monotonically increasing rowversion, so unlike modifiedon it never ties across a page boundary or between runs.'
         ),
     last_full_sync: z
         .string()
@@ -46,6 +46,7 @@ const CheckpointSchema = z.object({
 // Null-valued attributes are omitted entirely from fetchXml responses, and may be explicit null in plain OData responses.
 const SystemUserRecordSchema = z.object({
     systemuserid: z.string(),
+    versionnumber: z.number(),
     fullname: z.string().nullable().optional(),
     firstname: z.string().nullable().optional(),
     lastname: z.string().nullable().optional(),
@@ -68,6 +69,7 @@ type SystemUserRecord = z.infer<typeof SystemUserRecordSchema>;
 
 const FETCH_ATTRIBUTES = [
     'systemuserid',
+    'versionnumber',
     'fullname',
     'firstname',
     'lastname',
@@ -87,13 +89,10 @@ function escapeXmlAttribute(value: string): string {
     return value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-function buildFetchXml(page: number, pagingCookie: string | undefined, modifiedAfter: string | undefined): string {
+function buildFetchXml(page: number, pagingCookie: string | undefined, versionAfter: number | undefined): string {
     const cookieAttribute = pagingCookie === undefined ? '' : ` paging-cookie="${escapeXmlAttribute(pagingCookie)}"`;
-    const filter =
-        modifiedAfter === undefined
-            ? ''
-            : `<filter type="and"><condition attribute="modifiedon" operator="gt" value="${escapeXmlAttribute(modifiedAfter)}"/></filter>`;
-    return `<fetch page="${page}" count="${PAGE_SIZE}"${cookieAttribute}><entity name="systemuser">${FETCH_ATTRIBUTES}<order attribute="modifiedon" descending="false"/>${filter}</entity></fetch>`;
+    const filter = versionAfter === undefined ? '' : `<filter type="and"><condition attribute="versionnumber" operator="gt" value="${versionAfter}"/></filter>`;
+    return `<fetch page="${page}" count="${PAGE_SIZE}"${cookieAttribute}><entity name="systemuser">${FETCH_ATTRIBUTES}<order attribute="versionnumber" descending="false"/>${filter}</entity></fetch>`;
 }
 
 // The paging cookie arrives URL-encoded through the proxy (double-encoded in practice); decode the inner
@@ -143,18 +142,14 @@ const sync = createSync({
         const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
         // A missing or unparseable checkpoint falls back to a full refresh instead of crashing.
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : null;
-        const isFullRefresh = checkpoint === null || Date.now() - new Date(checkpoint.last_full_sync).getTime() >= FULL_REFRESH_INTERVAL_MS;
+        const lastFullSyncMs = checkpoint === null ? Number.NaN : Date.parse(checkpoint.last_full_sync);
+        const isFullRefresh = checkpoint === null || Number.isNaN(lastFullSyncMs) || Date.now() - lastFullSyncMs >= FULL_REFRESH_INTERVAL_MS;
 
-        if (isFullRefresh) {
-            // The full refresh crawl is intentionally unfiltered: trackDeletesEnd would falsely
-            // delete unchanged users if a changed-only modifiedon filter were applied here.
-            await nango.trackDeletesStart('User');
-        }
-
-        let maxModifiedOn: string | undefined = checkpoint?.modified_after;
+        let maxVersionNumber: number | undefined = checkpoint?.last_version_number;
         let page = 1;
         let pagingCookie: string | undefined;
         let hasMorePages = true;
+        let isFirstPage = true;
 
         // Paging uses fetchXml page/count with a paging cookie: verified live that this endpoint never
         // emits @odata.nextLink for $top-capped OData queries (Prefer: odata.maxpagesize is ignored too)
@@ -166,7 +161,7 @@ const sync = createSync({
                 // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/overview
                 endpoint: '/api/data/v9.2/systemusers',
                 params: {
-                    fetchXml: buildFetchXml(page, pagingCookie, isFullRefresh || checkpoint === null ? undefined : checkpoint.modified_after)
+                    fetchXml: buildFetchXml(page, pagingCookie, isFullRefresh || checkpoint === null ? undefined : checkpoint.last_version_number)
                 },
                 retries: 3
             };
@@ -175,17 +170,26 @@ const sync = createSync({
             // record would be falsely marked as deleted.
             const parsed = SystemUserListResponseSchema.parse(response.data);
 
+            // The full refresh crawl is intentionally unfiltered: trackDeletesEnd would falsely
+            // delete unchanged users if a changed-only version filter were applied here. The window
+            // opens only once the first page has been fetched and parsed, so a failure before any
+            // data is seen never leaves it open.
+            if (isFirstPage && isFullRefresh) {
+                await nango.trackDeletesStart('User');
+            }
+            isFirstPage = false;
+
             if (parsed.value.length > 0) {
                 const users = parsed.value.map(toUser);
                 await nango.batchSave(users, 'User');
-                const lastUser = users[users.length - 1];
-                if (lastUser !== undefined) {
-                    maxModifiedOn = lastUser.modifiedon;
+                const lastRecord = parsed.value[parsed.value.length - 1];
+                if (lastRecord !== undefined) {
+                    maxVersionNumber = lastRecord.versionnumber;
                 }
-                // Incremental runs checkpoint the last-seen modifiedon after every page. The
+                // Incremental runs checkpoint the last-seen versionnumber after every page. The
                 // delete-tracked full refresh persists progress only once, after the whole scan.
-                if (!isFullRefresh && checkpoint !== null && maxModifiedOn !== undefined) {
-                    await nango.saveCheckpoint({ modified_after: maxModifiedOn, last_full_sync: checkpoint.last_full_sync });
+                if (!isFullRefresh && checkpoint !== null && maxVersionNumber !== undefined) {
+                    await nango.saveCheckpoint({ last_version_number: maxVersionNumber, last_full_sync: checkpoint.last_full_sync });
                 }
             }
 
@@ -206,7 +210,7 @@ const sync = createSync({
 
         if (isFullRefresh) {
             await nango.trackDeletesEnd('User');
-            await nango.saveCheckpoint({ modified_after: maxModifiedOn ?? new Date().toISOString(), last_full_sync: new Date().toISOString() });
+            await nango.saveCheckpoint({ last_version_number: maxVersionNumber ?? 0, last_full_sync: new Date().toISOString() });
         }
     }
 });

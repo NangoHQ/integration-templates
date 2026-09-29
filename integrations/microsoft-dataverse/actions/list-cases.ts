@@ -2,17 +2,39 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
+const DEFAULT_SELECT_FIELDS = 'incidentid,ticketnumber,title,description,prioritycode,severitycode,statecode,statuscode,createdon,modifiedon,_customerid_value';
+
 const InputSchema = z
     .object({
         select: z
             .string()
             .optional()
-            .describe('Comma-separated logical attribute names to return ($select). Example: "ticketnumber,title,createdon". Omit to return all attributes.'),
-        filter: z.string().optional().describe('OData $filter expression using logical attribute names. Example: "prioritycode eq 1 and statecode eq 0".'),
-        orderby: z.string().optional().describe('OData $orderby expression. Example: "createdon desc".'),
-        top: z.number().int().positive().optional().describe('Maximum number of cases to return ($top). Example: 50.')
+            .describe(
+                'Comma-separated logical attribute names to return ($select). Example: "ticketnumber,title,createdon". Omit to return a curated default set of case attributes rather than every attribute Dataverse defines, which keeps the response well within the action output size limit. Ignored when cursor is provided.'
+            ),
+        filter: z
+            .string()
+            .optional()
+            .describe(
+                'OData $filter expression using logical attribute names. Example: "prioritycode eq 1 and statecode eq 0". Ignored when cursor is provided.'
+            ),
+        orderby: z.string().optional().describe('OData $orderby expression. Example: "createdon desc". Ignored when cursor is provided.'),
+        top: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe(
+                'Maximum number of cases to return ($top). Example: 50. This is a hard cap in Dataverse: when set, results are truncated at this count and no next_link is returned for the remaining matches. Omit to let Dataverse apply its own server-side page size and receive a next_link when more cases exist. Ignored when cursor is provided.'
+            ),
+        cursor: z
+            .string()
+            .optional()
+            .describe(
+                'Opaque pagination cursor: pass the next_link value returned by a previous response unchanged to fetch the next page. Omit for the first page. When set, select/filter/orderby/top are ignored because the cursor already encodes the original query.'
+            )
     })
-    .describe('Filters controlling which cases are returned. All fields are optional; with no input, all cases are listed.');
+    .describe('Filters and pagination controlling which cases are returned. All fields are optional; with no input, the first page of all cases is listed.');
 
 const CaseSchema = z
     .looseObject({
@@ -45,10 +67,14 @@ const ProviderResponseSchema = z.object({
     '@odata.nextLink': z.string().optional()
 });
 
+// Keep the serialized response safely under Nango's 2 MB action output limit even when a caller
+// requests a wide select (z.looseObject preserves any extra attributes Dataverse returns).
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 /**
  * @tags: [read]
  * @tagReason: Only reads case (incident) records through a single GET request; performs no provider mutations.
- * @pitfalls: Result order is nondeterministic unless orderby is provided, so top without orderby returns an arbitrary subset. There is no way to page: top truncates the result without a next_link, and a returned next_link cannot be followed through this action.
+ * @pitfalls: Result order is nondeterministic unless orderby is provided, so top without orderby returns an arbitrary subset. top is a hard cap: when set, Dataverse does not emit @odata.nextLink beyond it, so no next_link is returned for records past the cap. A wide select (or the curated default) combined with a large unbounded page can still approach the 2 MB action output limit; this action rejects a response that would exceed a safe size.
  */
 const action = createAction({
     description: 'List customer service cases (incidents).',
@@ -57,25 +83,68 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
-            endpoint: '/api/data/v9.2/incidents',
-            params: {
-                ...(input.select !== undefined && { $select: input.select }),
+        let endpoint = '/api/data/v9.2/incidents';
+        let params: Record<string, string | number>;
+
+        if (input.cursor !== undefined) {
+            let cursorUrl: URL;
+            // @allowTryCatch: an unparsable cursor must surface as a caller-facing ActionError instead of an uncaught TypeError from the URL constructor.
+            try {
+                cursorUrl = new URL(input.cursor);
+            } catch {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor must be a valid next_link value returned by a previous list-cases call.'
+                });
+            }
+            // Restricted to the incidents (cases) collection specifically so a caller cannot redirect
+            // this action into returning another entity's records by passing a cursor that points elsewhere.
+            if (cursorUrl.pathname !== '/api/data/v9.2/incidents') {
+                throw new nango.ActionError({
+                    type: 'invalid_cursor',
+                    message: 'cursor does not point at the Dataverse incidents entity set.'
+                });
+            }
+            endpoint = cursorUrl.pathname;
+            // $skiptoken must be replayed together with the original $select/$filter/$orderby, so the
+            // full next-link query string (not just the bare skiptoken) is preserved and reissued verbatim.
+            params = Object.fromEntries(cursorUrl.searchParams.entries());
+        } else {
+            params = {
+                $select: input.select ?? DEFAULT_SELECT_FIELDS,
                 ...(input.filter !== undefined && { $filter: input.filter }),
                 ...(input.orderby !== undefined && { $orderby: input.orderby }),
+                // top is only forwarded when explicitly requested: Dataverse treats $top as a hard cap
+                // on the whole result set and never emits @odata.nextLink for a $top-capped request, so
+                // a default top here would silently disable pagination.
                 ...(input.top !== undefined && { $top: input.top })
-            },
+            };
+        }
+
+        const config: ProxyConfiguration = {
+            // https://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-data-web-api
+            endpoint,
+            params,
             retries: 3
         };
         const response = await nango.get(config);
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
-        return {
+        const output: z.infer<typeof OutputSchema> = {
             cases: parsed.value,
             ...(parsed['@odata.nextLink'] !== undefined && { next_link: parsed['@odata.nextLink'] })
         };
+
+        const outputSize = new TextEncoder().encode(JSON.stringify(output)).length;
+        if (outputSize > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'response_too_large',
+                message: `The response (~${Math.round(outputSize / 1024)} KB) is too large to return safely. Narrow the request with a smaller top, a more restrictive select, or a filter, and try again.`
+            });
+        }
+
+        return output;
     }
 });
 
