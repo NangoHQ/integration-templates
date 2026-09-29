@@ -1,0 +1,63 @@
+{
+  "input": {
+    "logicalName": "account"
+  },
+  "output": {
+    "logicalName": "account",
+    "entitySetName": "accounts"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/EntityDefinitions(LogicalName='account')": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#EntityDefinitions(LogicalName,EntitySetName)/$entity",
+          "MetadataId": "70816501-edb9-4740-a16c-6a5efbc05d84",
+          "LogicalName": "account",
+          "EntitySetName": "accounts"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:28:20 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "237",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1926",
+          "x-ratelimit-reset": "1790702920",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E533F6F6EC00000000419860496; path=/; secure; HttpOnly, ReqClientId=948db80e-bab8-4741-8f85-6442aa78e2ac; expires=Tue, 29-Sep-2076 17:28:20 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:28:20 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E533F6F6EC00000000419860496; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "bd5c7bf7-db97-430f-90d8-3c971cbd1602",
+          "req_id": "bd5c7bf7-db97-430f-90d8-3c971cbd1602",
+          "authactivityid": "c943ed7f-e042-42ef-bcc8-630e3d1fdc59",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,160.42",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7874",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 322102061281359476997419619872612919810824319640132551176913016125335232230236234105",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"ed-Zby6DFnbeIMLXmyc9fNOyKA8Fso\""
+        },
+        "hash": "777a1bdf3544ed297463805014cb649197080700",
+        "request": {
+          "params": {
+            "$select": "LogicalName,EntitySetName"
+          }
+        }
+      }
+    }
+  }
+}

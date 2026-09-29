@@ -1,0 +1,53 @@
+{
+  "input": {
+    "entitySetName": "leads",
+    "id": "b3c2a1d4-5e6f-47a8-9b0c-1d2e3f4a5b6c"
+  },
+  "output": {
+    "success": true,
+    "id": "b3c2a1d4-5e6f-47a8-9b0c-1d2e3f4a5b6c",
+    "entitySetName": "leads"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/api/data/v9.2/leads(b3c2a1d4-5e6f-47a8-9b0c-1d2e3f4a5b6c)": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:29:11 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1929",
+          "x-ratelimit-reset": "1790702980",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E535CCC18720000000450902436; path=/; secure; HttpOnly, ReqClientId=492e3fac-00bf-47c7-9389-45ab9dd801f4; expires=Tue, 29-Sep-2076 17:29:09 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:29:09 GMT; path=/; secure; HttpOnly, last_commit_time=2026-09-29 17:29:11Z; expires=Tue, 29-Sep-2026 17:30:11 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E535CCC18720000000450902436; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "4db140af-5507-4ad5-b3aa-6437934cfd03",
+          "req_id": "4db140af-5507-4ad5-b3aa-6437934cfd03",
+          "authactivityid": "f0f964ba-7d87-4ae4-9b8b-5aa39eb9052d",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,145.35",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7836",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 19415122282215199166447818113459233126214117153186203791791971219518180135225245253",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "bbf08e4486040c1ad912181b26f173062ec16ca8",
+        "request": {}
+      }
+    }
+  }
+}

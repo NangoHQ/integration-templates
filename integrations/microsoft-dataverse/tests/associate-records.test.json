@@ -1,0 +1,60 @@
+{
+  "input": {
+    "entitySetName": "contacts",
+    "id": "ed1c5323-2bbc-f111-aaad-7ced8d717fa5",
+    "navigationProperty": "parentcustomerid_account",
+    "relationshipType": "single",
+    "relatedEntitySetName": "accounts",
+    "relatedId": "e91c5323-2bbc-f111-aaad-7ced8d717fa5",
+    "environmentUrl": "org98374485.crm.dynamics.com"
+  },
+  "output": {
+    "success": true
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/api/data/v9.2/contacts(ed1c5323-2bbc-f111-aaad-7ced8d717fa5)/parentcustomerid_account/$ref": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:35:05 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1790703349",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "9c860379-3234-4484-8333-99b1c7e1ad63",
+          "req_id": "9c860379-3234-4484-8333-99b1c7e1ad63",
+          "authactivityid": "2d71069e-e101-4ba9-ad65-535b3134c674",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,064.67",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7730",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 12914415818512559651671801227132232101116128664197815524040159134229157249205208",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "2676a30127fa22d38b791b368c08e782a3cbeabf",
+        "request": {
+          "data": {
+            "@odata.id": "https://org98374485.crm.dynamics.com/api/data/v9.2/accounts(e91c5323-2bbc-f111-aaad-7ced8d717fa5)"
+          }
+        }
+      }
+    }
+  }
+}
