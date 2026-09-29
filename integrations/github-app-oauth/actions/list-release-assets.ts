@@ -68,14 +68,14 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List assets uploaded to a repository release.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-        if (Number.isNaN(page) || page < 1) {
+        const page = input.cursor ? Number(input.cursor) : 1;
+        if (!Number.isInteger(page) || page < 1) {
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'cursor must be a valid positive integer page number.'

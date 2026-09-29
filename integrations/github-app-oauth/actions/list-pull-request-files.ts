@@ -46,6 +46,16 @@ const ProviderFileSchema = z.object({
     contents_url: z.string().nullish()
 });
 
+// Bounds each file's patch text so that a full page of large diffs can't exceed Nango's action
+// output size limit; GitHub itself omits `patch` once a single file's diff is too large.
+const MAX_PATCH_LENGTH = 10_000;
+
+const TRUNCATION_SUFFIX = '\n... (patch truncated)';
+
+const truncatePatch = (patch: string): string => {
+    return patch.length > MAX_PATCH_LENGTH ? `${patch.slice(0, MAX_PATCH_LENGTH - TRUNCATION_SUFFIX.length)}${TRUNCATION_SUFFIX}` : patch;
+};
+
 function extractNextCursor(linkHeader: string | string[] | undefined): string | undefined {
     if (!linkHeader) {
         return undefined;
@@ -96,7 +106,7 @@ const action = createAction({
                 additions: raw.additions ?? 0,
                 deletions: raw.deletions ?? 0,
                 changes: raw.changes ?? 0,
-                ...(raw.patch != null && { patch: raw.patch }),
+                ...(raw.patch != null && { patch: truncatePatch(raw.patch) }),
                 ...(raw.previous_filename != null && { previous_filename: raw.previous_filename }),
                 ...(raw.blob_url != null && { blob_url: raw.blob_url }),
                 ...(raw.raw_url != null && { raw_url: raw.raw_url }),

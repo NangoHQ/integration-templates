@@ -20,8 +20,8 @@ const ProviderCommitSchema = z.object({
     sha: z.string(),
     commit: z.object({
         message: z.string(),
-        author: ProviderCommitAuthorSchema.optional(),
-        committer: ProviderCommitAuthorSchema.optional()
+        author: ProviderCommitAuthorSchema.optional().nullable(),
+        committer: ProviderCommitAuthorSchema.optional().nullable()
     }),
     html_url: z.string().optional()
 });
@@ -115,14 +115,14 @@ const action = createAction({
             commits: compare.commits.map((commit) => ({
                 sha: commit.sha,
                 message: commit.commit.message,
-                ...(commit.commit.author !== undefined && {
+                ...(commit.commit.author != null && {
                     author: {
                         ...(commit.commit.author.name !== undefined && { name: commit.commit.author.name }),
                         ...(commit.commit.author.email !== undefined && { email: commit.commit.author.email }),
                         ...(commit.commit.author.date !== undefined && { date: commit.commit.author.date })
                     }
                 }),
-                ...(commit.commit.committer !== undefined && {
+                ...(commit.commit.committer != null && {
                     committer: {
                         ...(commit.commit.committer.name !== undefined && { name: commit.commit.committer.name }),
                         ...(commit.commit.committer.email !== undefined && { email: commit.commit.committer.email }),

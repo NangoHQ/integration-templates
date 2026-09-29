@@ -6,7 +6,11 @@ const InputSchema = z
         owner: z.string().describe('The account owner of the repository. The name is not case sensitive.'),
         repo: z.string().describe('The name of the repository without the .git extension. The name is not case sensitive.'),
         pull_number: z.number().describe('The number that identifies the pull request.'),
-        cursor: z.string().optional().describe('Pagination cursor representing the page number to fetch. Omit for the first page.'),
+        cursor: z
+            .string()
+            .regex(/^\d+$/)
+            .optional()
+            .describe('Pagination cursor representing the page number to fetch. Omit for the first page.'),
         per_page: z.number().optional().describe('The number of results per page (max 100). Defaults to 30 if omitted.')
     })
     .describe('Input parameters for listing pull request reviews.');

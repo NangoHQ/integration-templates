@@ -20,8 +20,8 @@ const UserSchema = z.object({
 const LabelSchema = z.object({
     id: z.number().describe('Label ID.'),
     name: z.string().describe('Label name.'),
-    color: z.string().describe('Hex color code.').optional(),
-    description: z.string().describe('Label description.').optional()
+    color: z.string().describe('Hex color code.').optional().nullable(),
+    description: z.string().describe('Label description.').optional().nullable()
 });
 
 const MilestoneSchema = z.object({

@@ -25,7 +25,7 @@ const InputSchema = z
 
 const OutputSchema = z
     .object({
-        tags: z.array(TagSchema).describe('Array of tags in the repository.'),
+        items: z.array(TagSchema).describe('Array of tags in the repository.'),
         next_cursor: z.string().optional().describe('The next page cursor. Omit when there are no more pages.')
     })
     .describe('Output for listing repository tags.');
@@ -37,7 +37,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List tags in a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],
@@ -56,18 +56,19 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/tags`,
             params: {
-                per_page: perPage + 1,
+                per_page: perPage,
                 page: page
             },
             retries: 3
         });
 
         const tags = z.array(TagSchema).parse(response.data);
-        const hasNextPage = tags.length > perPage;
-        const resultTags = hasNextPage ? tags.slice(0, perPage) : tags;
+
+        const linkHeader = response.headers?.['link'];
+        const hasNextPage = typeof linkHeader === 'string' && linkHeader.includes('rel="next"');
 
         return {
-            tags: resultTags,
+            items: tags,
             ...(hasNextPage && { next_cursor: String(page + 1) })
         };
     }

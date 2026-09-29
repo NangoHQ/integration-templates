@@ -22,13 +22,16 @@ const CommitSchema = z
         sha: z.string().describe('SHA of the commit that deleted the file. Example: "7638417db6d59f3c431d3e1f261cc637155684cd"'),
         message: z.string().describe('Message of the commit that deleted the file'),
         url: z.string().describe('API URL of the commit that deleted the file'),
-        html_url: z.string().describe('Browser URL of the commit that deleted the file')
+        html_url: z.string().optional().describe('Browser URL of the commit that deleted the file')
     })
     .describe('Commit that deleted the file');
 
 const OutputSchema = z
     .object({
-        commit: CommitSchema
+        commit_sha: z.string().describe('SHA of the commit that deleted the file. Example: "7638417db6d59f3c431d3e1f261cc637155684cd"'),
+        commit_message: z.string().describe('Message of the commit that deleted the file'),
+        commit_url: z.string().optional().describe('Browser URL of the commit that deleted the file'),
+        commit: CommitSchema.optional().describe('Full commit details for the commit that deleted the file')
     })
     .describe('Result of deleting a file from a GitHub repository');
 
@@ -37,7 +40,7 @@ const GitHubDeleteFileResponseSchema = z.object({
         sha: z.string(),
         message: z.string(),
         url: z.string(),
-        html_url: z.string()
+        html_url: z.string().optional()
     })
 });
 
@@ -48,7 +51,7 @@ const GitHubDeleteFileResponseSchema = z.object({
  */
 const action = createAction({
     description: 'Deletes a file from a GitHub repository via a single commit',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:write'],
@@ -68,6 +71,9 @@ const action = createAction({
         const deleted = GitHubDeleteFileResponseSchema.parse(response.data);
 
         return {
+            commit_sha: deleted.commit.sha,
+            commit_message: deleted.commit.message,
+            ...(deleted.commit.html_url !== undefined && { commit_url: deleted.commit.html_url }),
             commit: deleted.commit
         };
     }

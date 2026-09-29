@@ -14,14 +14,27 @@ const InputSchema = z
     })
     .describe('Input parameters for listing repository deployments.');
 
+const CreatorSchema = z
+    .object({
+        login: z.string().describe('Username of the deployment creator.'),
+        id: z.number().describe('Unique identifier of the creator user.'),
+        node_id: z.string().describe('Global node ID of the creator user.'),
+        avatar_url: z.string().describe('Avatar URL of the creator.'),
+        html_url: z.string().describe('GitHub profile URL of the creator.')
+    })
+    .describe('The user who created the deployment.');
+
 const DeploymentSchema = z.object({
     id: z.number().describe('Unique identifier of the deployment.'),
+    url: z.string().describe('API URL of the deployment.'),
+    node_id: z.string().describe('Global node ID of the deployment.'),
     sha: z.string().describe('SHA hash of the commit being deployed.'),
     ref: z.string().describe('The ref (branch, tag, or SHA) being deployed.'),
     task: z.string().describe('The deployment task, typically "deploy".'),
     payload: z.unknown().describe('Optional payload attached to the deployment.'),
     environment: z.string().describe('The target environment of the deployment.'),
     description: z.string().nullable().describe('Optional description of the deployment.'),
+    creator: CreatorSchema,
     created_at: z.string().describe('ISO 8601 timestamp when the deployment was created.'),
     updated_at: z.string().describe('ISO 8601 timestamp when the deployment was last updated.'),
     statuses_url: z.string().describe('URL to fetch deployment statuses.'),
@@ -45,7 +58,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List deployments for a repository',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],

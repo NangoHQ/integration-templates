@@ -61,7 +61,8 @@ const action = createAction({
                 state: input.state,
                 ...(input.description !== undefined && { description: input.description })
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Deployment statuses are append-only and non-idempotent; retrying after a lost response would create a duplicate status instead of replaying the original one.
+            retries: 0
         });
 
         const status = DeploymentStatusResponseSchema.parse(response.data);

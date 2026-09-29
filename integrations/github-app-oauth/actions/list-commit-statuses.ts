@@ -6,7 +6,11 @@ const InputSchema = z
         owner: z.string().describe('Repository owner username. Example: "octocat"'),
         repo: z.string().describe('Repository name. Example: "hello-world"'),
         sha: z.string().describe('Commit SHA, branch name, or tag name. Example: "abc123"'),
-        cursor: z.string().optional().describe('Pagination cursor from the previous response. Omit for the first page.')
+        cursor: z
+            .string()
+            .regex(/^[1-9]\d*$/, 'cursor must be a positive integer')
+            .optional()
+            .describe('Pagination cursor from the previous response. Omit for the first page.')
     })
     .describe('Input parameters to list commit statuses for a specific commit.');
 
@@ -21,7 +25,7 @@ const ProviderStatusSchema = z.object({
 });
 
 const StatusSchema = z.object({
-    id: z.number().describe('Unique identifier of the commit status.'),
+    id: z.string().describe('Unique identifier of the commit status.'),
     state: z.string().describe('State of the status. Can be "pending", "success", "failure", or "error".'),
     context: z.string().describe('A string label to differentiate this status from other systems. Example: "continuous-integration/jenkins".'),
     description: z.string().optional().describe('Short description of the status.'),
@@ -32,7 +36,7 @@ const StatusSchema = z.object({
 
 const OutputSchema = z
     .object({
-        statuses: z.array(StatusSchema).describe('Array of commit statuses for the requested commit.'),
+        items: z.array(StatusSchema).describe('Array of commit statuses for the requested commit.'),
         next_cursor: z.string().optional().describe('Pagination cursor for the next page of results.')
     })
     .describe('List of commit statuses and pagination cursor for the requested commit.');
@@ -44,7 +48,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List all statuses posted for a specific commit.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['statuses:read'],
@@ -81,7 +85,7 @@ const action = createAction({
         }
 
         const statuses = rawStatuses.data.map((status) => ({
-            id: status.id,
+            id: String(status.id),
             state: status.state,
             context: status.context,
             ...(status.description != null && { description: status.description }),
@@ -93,7 +97,7 @@ const action = createAction({
         const nextCursor = rawStatuses.data.length === perPage ? String(page + 1) : undefined;
 
         return {
-            statuses,
+            items: statuses,
             ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }

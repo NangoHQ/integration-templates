@@ -8,12 +8,21 @@
     "deployments": [
       {
         "id": 5850133226,
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/deployments/5850133226",
+        "node_id": "DE_kwDOT1NNv88AAAABXLHy6g",
         "sha": "56e002425a9ae58fa6d9f925db841ca7653c31e2",
         "ref": "master",
         "task": "deploy",
         "payload": {},
         "environment": "nango-registry-test",
         "description": null,
+        "creator": {
+          "login": "nangoapp1[bot]",
+          "id": 280313874,
+          "node_id": "BOT_kgDOELVAEg",
+          "avatar_url": "https://avatars.githubusercontent.com/in/3541661?v=4",
+          "html_url": "https://github.com/apps/nangoapp1"
+        },
         "created_at": "2026-08-11T12:11:01Z",
         "updated_at": "2026-08-11T15:45:06Z",
         "statuses_url": "https://api.github.com/repos/nango-provisioned-apps/nango/deployments/5850133226/statuses",

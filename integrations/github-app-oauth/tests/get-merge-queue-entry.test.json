@@ -1,0 +1,32 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "pr_number": 1
+  },
+  "output": {
+    "found": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/graphql": {
+        "response": {
+          "data": {
+            "repository": {
+              "pullRequest": {
+                "mergeQueueEntry": null
+              }
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "content-type": "application/json; charset=utf-8"
+        },
+        "hash": "get-merge-queue-entry-not-enqueued",
+        "request": {}
+      }
+    }
+  }
+}

@@ -41,8 +41,8 @@ const IssueItemSchema = z
                     .object({
                         id: z.number().optional().describe('Label ID'),
                         name: z.string().describe('Label name'),
-                        color: z.string().optional().describe('Label color hex code'),
-                        description: z.string().optional().describe('Label description')
+                        color: z.string().optional().nullable().describe('Label color hex code'),
+                        description: z.string().optional().nullable().describe('Label description')
                     })
                     .passthrough()
             )

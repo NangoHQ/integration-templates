@@ -39,7 +39,8 @@ const action = createAction({
                 ref: input.ref,
                 ...(input.inputs !== undefined && { inputs: input.inputs })
             },
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Workflow dispatch is non-idempotent; retrying after a lost response can trigger a duplicate workflow run.
+            retries: 0
         });
 
         return null;

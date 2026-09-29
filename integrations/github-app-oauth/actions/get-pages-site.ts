@@ -67,62 +67,28 @@ const PagesSiteSchema = z
     })
     .describe('The GitHub Pages site configuration as returned by the GitHub REST API');
 
-const OutputSchema = z
-    .object({
-        site: PagesSiteSchema.nullable().describe(
-            'The GitHub Pages site configuration, or null when Pages has never been enabled for the repository (GitHub responds 404 in that case)'
-        )
-    })
-    .describe('Result of fetching the repository GitHub Pages site configuration');
-
-function getErrorStatus(error: unknown): number | null {
-    if (typeof error !== 'object' || error === null || !('response' in error)) {
-        return null;
-    }
-    const { response } = error;
-    if (typeof response !== 'object' || response === null || !('status' in response)) {
-        return null;
-    }
-    const { status } = response;
-    return typeof status === 'number' ? status : null;
-}
+const OutputSchema = PagesSiteSchema;
 
 /**
  * @tags: [read]
  * @tagReason: Performs a single read-only GET of the repository's GitHub Pages site configuration and never mutates provider state.
- * @pitfalls: Returns { site: null } whenever GitHub responds 404, which is the expected signal when Pages was never enabled on the repository. GitHub also responds 404 instead of 403 when the repository does not exist or the token lacks the GitHub App Pages read permission, so a null site alone cannot prove Pages is disabled.
+ * @pitfalls: GitHub responds 404 when Pages has never been enabled for the repository, and also when the repository does not exist or the token lacks the GitHub App Pages read permission; that 404 propagates as an error rather than a special return value.
  */
 const action = createAction({
     description: 'Get the GitHub Pages site configuration of a repository',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pages:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // @allowTryCatch: GitHub's Pages API responds 404 when Pages was never enabled on the repository; that expected not-configured state is
-        // returned as { site: null } instead of propagating as an error.
-        try {
-            // https://docs.github.com/en/rest/pages/pages#get-a-github-pages-site
-            const response = await nango.get<unknown>({
-                endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pages`,
-                retries: 3
-            });
+        // https://docs.github.com/en/rest/pages/pages#get-a-github-pages-site
+        const response = await nango.get<unknown>({
+            endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pages`,
+            retries: 3
+        });
 
-            if (response.status === 404) {
-                // Recorded test fixtures resolve with a 404 status instead of throwing like the live proxy does.
-                return { site: null };
-            }
-
-            const site = PagesSiteSchema.parse(response.data);
-
-            return { site };
-        } catch (error) {
-            if (getErrorStatus(error) === 404) {
-                return { site: null };
-            }
-            throw error;
-        }
+        return OutputSchema.parse(response.data);
     }
 });
 

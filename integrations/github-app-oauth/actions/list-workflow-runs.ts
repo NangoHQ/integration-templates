@@ -65,7 +65,7 @@ const WorkflowRunSchema = z.object({
     html_url: z.string().describe('Browser URL for the workflow run.'),
     created_at: z.string().describe('ISO 8601 timestamp when the run was created.'),
     updated_at: z.string().describe('ISO 8601 timestamp when the run was last updated.'),
-    run_started_at: z.string().optional().describe('ISO 8601 timestamp when the run started.'),
+    run_started_at: z.string().optional().nullable().describe('ISO 8601 timestamp when the run started.'),
     jobs_url: z.string().describe('API URL to list jobs for this run.'),
     logs_url: z.string().describe('API URL to download logs for this run.'),
     check_suite_url: z.string().describe('API URL for the associated check suite.'),

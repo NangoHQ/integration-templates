@@ -38,7 +38,13 @@ const OutputSchema = z
         draft: z.boolean().optional().describe('Whether the pull request is a draft.'),
         head: PullRequestRefSchema.describe('The head branch of the pull request.'),
         base: PullRequestRefSchema.describe('The base branch of the pull request.'),
-        body: z.string().optional().describe('The contents of the pull request.')
+        body: z.string().optional().describe('The contents of the pull request.'),
+        user: z
+            .object({
+                login: z.string().describe('Username of the pull request creator.'),
+                id: z.number().describe('Unique identifier of the pull request creator.')
+            })
+            .describe('The user who created the pull request.')
     })
     .describe('Output of a newly created pull request.');
 
@@ -49,7 +55,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a new pull request.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],
@@ -92,7 +98,11 @@ const action = createAction({
                     sha: z.string(),
                     repo: z.object({}).passthrough()
                 }),
-                body: z.string().nullable()
+                body: z.string().nullable(),
+                user: z.object({
+                    login: z.string(),
+                    id: z.number()
+                })
             })
             .parse(response.data);
 
@@ -109,7 +119,11 @@ const action = createAction({
             ...(providerPullRequest.draft != null && { draft: providerPullRequest.draft }),
             head: providerPullRequest.head,
             base: providerPullRequest.base,
-            ...(providerPullRequest.body != null && { body: providerPullRequest.body })
+            ...(providerPullRequest.body != null && { body: providerPullRequest.body }),
+            user: {
+                login: providerPullRequest.user.login,
+                id: providerPullRequest.user.id
+            }
         };
     }
 });

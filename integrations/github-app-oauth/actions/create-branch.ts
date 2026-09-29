@@ -5,7 +5,14 @@ const InputSchema = z
     .object({
         owner: z.string().describe('The account owner of the repository. Example: "nango-provisioned-apps"'),
         repo: z.string().describe('The name of the repository, without the .git extension. Example: "nango"'),
-        branch: z.string().describe('The name of the branch to create, without the refs/heads/ prefix. Example: "feature/new-ui"'),
+        branch_name: z
+            .string()
+            .optional()
+            .describe('(Legacy) The name of the branch to create, without the refs/heads/ prefix. Prefer `branch`. Example: "feature/new-ui"'),
+        branch: z
+            .string()
+            .optional()
+            .describe('The name of the branch to create, without the refs/heads/ prefix. Example: "feature/new-ui"'),
         sha: z.string().describe('The SHA1 of the commit the new branch should point at. Example: "aa218f56b14c9653891f9e74264a383fa43fefbd"')
     })
     .describe('Input for creating a branch in a repository');
@@ -43,16 +50,26 @@ const ProviderRefSchema = z.object({
  */
 const action = createAction({
     description: 'Create a new branch (git ref) pointing at an existing commit.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:write'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // `branch_name` is the legacy field name; `branch` is the current one. Accept either, preferring
+        // `branch_name` when both are provided so existing callers keep their exact prior behavior.
+        const branchName = input.branch_name ?? input.branch;
+        if (!branchName) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Either `branch_name` or `branch` must be provided.'
+            });
+        }
+
         // https://docs.github.com/rest/git/refs#create-a-reference
         const response = await nango.post({
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/git/refs`,
             data: {
-                ref: `refs/heads/${input.branch}`,
+                ref: `refs/heads/${branchName}`,
                 sha: input.sha
             },
             retries: 3

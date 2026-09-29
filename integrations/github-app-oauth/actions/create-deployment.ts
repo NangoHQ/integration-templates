@@ -26,6 +26,14 @@ const InputSchema = z
     })
     .describe('Input for creating a GitHub deployment');
 
+const ProviderCreatorSchema = z.object({
+    login: z.string(),
+    id: z.number(),
+    node_id: z.string(),
+    avatar_url: z.string(),
+    html_url: z.string()
+});
+
 const ProviderDeploymentSchema = z.object({
     id: z.number(),
     node_id: z.string(),
@@ -33,6 +41,8 @@ const ProviderDeploymentSchema = z.object({
     sha: z.string(),
     ref: z.string(),
     task: z.string().optional(),
+    payload: z.unknown().optional(),
+    original_environment: z.string(),
     environment: z.string(),
     description: z.string().nullable().optional(),
     created_at: z.string(),
@@ -40,8 +50,19 @@ const ProviderDeploymentSchema = z.object({
     statuses_url: z.string(),
     repository_url: z.string(),
     transient_environment: z.boolean().optional(),
-    production_environment: z.boolean().optional()
+    production_environment: z.boolean().optional(),
+    creator: ProviderCreatorSchema
 });
+
+const CreatorSchema = z
+    .object({
+        login: z.string().describe('Username of the deployment creator.'),
+        id: z.number().describe('Unique identifier of the creator user.'),
+        node_id: z.string().describe('Global node ID of the creator user.'),
+        avatar_url: z.string().describe('Avatar URL of the creator.'),
+        html_url: z.string().describe('GitHub profile URL of the creator.')
+    })
+    .describe('The user who created the deployment.');
 
 const OutputSchema = z
     .object({
@@ -51,6 +72,8 @@ const OutputSchema = z
         sha: z.string().describe('Commit SHA the deployment was created for.'),
         ref: z.string().describe('The ref that was deployed. Example: "master"'),
         task: z.string().optional().describe('The deployment task. Example: "deploy"'),
+        payload: z.unknown().optional().describe('Payload attached to the deployment, when one was provided.'),
+        original_environment: z.string().describe('The original environment specified when the deployment was created.'),
         environment: z.string().describe('The environment the deployment targets. Example: "nango-registry-test"'),
         description: z.string().optional().describe('Description of the deployment, when one was set.'),
         created_at: z.string().describe('ISO 8601 timestamp of when the deployment was created.'),
@@ -61,7 +84,8 @@ const OutputSchema = z
             .boolean()
             .optional()
             .describe('Whether the deployment environment is specific to this deployment and will no longer exist at some point.'),
-        production_environment: z.boolean().optional().describe('Whether the deployment environment is one that end-users directly interact with.')
+        production_environment: z.boolean().optional().describe('Whether the deployment environment is one that end-users directly interact with.'),
+        creator: CreatorSchema.describe('The user or app that created the deployment.')
     })
     .describe('The created GitHub deployment');
 
@@ -72,7 +96,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a new deployment.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:write'],
@@ -100,6 +124,8 @@ const action = createAction({
             sha: deployment.sha,
             ref: deployment.ref,
             ...(deployment.task !== undefined && { task: deployment.task }),
+            ...(deployment.payload !== undefined && { payload: deployment.payload }),
+            original_environment: deployment.original_environment,
             environment: deployment.environment,
             ...(deployment.description != null && { description: deployment.description }),
             created_at: deployment.created_at,
@@ -107,7 +133,14 @@ const action = createAction({
             statuses_url: deployment.statuses_url,
             repository_url: deployment.repository_url,
             ...(deployment.transient_environment !== undefined && { transient_environment: deployment.transient_environment }),
-            ...(deployment.production_environment !== undefined && { production_environment: deployment.production_environment })
+            ...(deployment.production_environment !== undefined && { production_environment: deployment.production_environment }),
+            creator: {
+                login: deployment.creator.login,
+                id: deployment.creator.id,
+                node_id: deployment.creator.node_id,
+                avatar_url: deployment.creator.avatar_url,
+                html_url: deployment.creator.html_url
+            }
         };
     }
 });

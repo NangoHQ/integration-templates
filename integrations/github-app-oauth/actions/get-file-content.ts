@@ -19,7 +19,7 @@ const DirectoryItemSchema = z.object({
     url: z.string().describe('The API URL for the item.'),
     html_url: z.string().optional().describe('The HTML URL to view the item on GitHub.'),
     git_url: z.string().optional().describe('The Git URL for the item.'),
-    download_url: z.string().optional().describe('The direct download URL for the item.')
+    download_url: z.string().nullable().optional().describe('The direct download URL for the item.')
 });
 
 const FileOutputSchema = z.object({
@@ -110,7 +110,7 @@ const action = createAction({
                     url: parsed.url,
                     ...(parsed.html_url !== undefined && { html_url: parsed.html_url }),
                     ...(parsed.git_url !== undefined && { git_url: parsed.git_url }),
-                    ...(parsed.download_url !== undefined && { download_url: parsed.download_url })
+                    ...(parsed.download_url != null && { download_url: parsed.download_url })
                 };
             });
             return {
@@ -135,7 +135,7 @@ const action = createAction({
                     url: z.string(),
                     html_url: z.string().optional(),
                     git_url: z.string().optional(),
-                    download_url: z.string().optional()
+                    download_url: z.string().nullable().optional()
                 })
                 .parse(response.data);
 
@@ -152,7 +152,7 @@ const action = createAction({
                 ...(file.encoding !== undefined && { encoding: file.encoding }),
                 ...(file.html_url !== undefined && { html_url: file.html_url }),
                 ...(file.git_url !== undefined && { git_url: file.git_url }),
-                ...(file.download_url !== undefined && { download_url: file.download_url })
+                ...(file.download_url != null && { download_url: file.download_url })
             };
         }
 
@@ -168,7 +168,7 @@ const action = createAction({
                     url: z.string(),
                     html_url: z.string().optional(),
                     git_url: z.string().optional(),
-                    download_url: z.string().optional()
+                    download_url: z.string().nullable().optional()
                 })
                 .parse(response.data);
 
@@ -182,7 +182,7 @@ const action = createAction({
                 ...(symlink.target !== undefined && { target: symlink.target }),
                 ...(symlink.html_url !== undefined && { html_url: symlink.html_url }),
                 ...(symlink.git_url !== undefined && { git_url: symlink.git_url }),
-                ...(symlink.download_url !== undefined && { download_url: symlink.download_url })
+                ...(symlink.download_url != null && { download_url: symlink.download_url })
             };
         }
 
@@ -198,7 +198,7 @@ const action = createAction({
                     url: z.string(),
                     html_url: z.string().optional(),
                     git_url: z.string().optional(),
-                    download_url: z.string().optional()
+                    download_url: z.string().nullable().optional()
                 })
                 .parse(response.data);
 
@@ -212,7 +212,7 @@ const action = createAction({
                 ...(submodule.submodule_git_url !== undefined && { submodule_git_url: submodule.submodule_git_url }),
                 ...(submodule.html_url !== undefined && { html_url: submodule.html_url }),
                 ...(submodule.git_url !== undefined && { git_url: submodule.git_url }),
-                ...(submodule.download_url !== undefined && { download_url: submodule.download_url })
+                ...(submodule.download_url != null && { download_url: submodule.download_url })
             };
         }
 

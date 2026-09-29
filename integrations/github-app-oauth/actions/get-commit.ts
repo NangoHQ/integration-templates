@@ -58,6 +58,15 @@ const GitHubUserSchema = z
     })
     .passthrough();
 
+// Permissive envelope used only to safely extract `author`/`committer` as unknown values from the
+// raw provider response, without asserting anything about their shape up front.
+const RawCommitEnvelopeSchema = z
+    .object({
+        author: z.unknown().optional(),
+        committer: z.unknown().optional()
+    })
+    .passthrough();
+
 const ParentSchema = z.object({
     sha: z.string().describe('SHA of the parent commit.'),
     url: z.string().describe('REST API URL of the parent commit.'),
@@ -141,7 +150,21 @@ const action = createAction({
             });
         }
 
-        const providerCommit = OutputSchema.parse(raw);
+        // GitHub can return `author`/`committer` as a full user object, `null`, or an empty
+        // object `{}` when the commit's git identity can't be mapped to a GitHub account.
+        // Extract them permissively and normalize anything that doesn't match the strict
+        // GitHubUserSchema to `null` before validating the full output.
+        const rawCommit = RawCommitEnvelopeSchema.parse(raw);
+        const parsedAuthor = GitHubUserSchema.safeParse(rawCommit.author);
+        const parsedCommitter = GitHubUserSchema.safeParse(rawCommit.committer);
+
+        const normalizedCommit = {
+            ...rawCommit,
+            author: parsedAuthor.success ? parsedAuthor.data : null,
+            committer: parsedCommitter.success ? parsedCommitter.data : null
+        };
+
+        const providerCommit = OutputSchema.parse(normalizedCommit);
 
         return providerCommit;
     }

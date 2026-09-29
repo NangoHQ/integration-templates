@@ -48,7 +48,7 @@ const OutputSchema = z
         html_url: z.string().describe('GitHub web URL for this workflow run'),
         created_at: z.string().describe('Creation timestamp in ISO 8601 format'),
         updated_at: z.string().describe('Last update timestamp in ISO 8601 format'),
-        run_started_at: z.string().describe('When the run started in ISO 8601 format'),
+        run_started_at: z.string().nullable().optional().describe('When the run started in ISO 8601 format'),
         run_attempt: z.number().describe('Attempt number for this run'),
         jobs_url: z.string().describe('API URL for the jobs in this run'),
         logs_url: z.string().describe('API URL for the run logs'),

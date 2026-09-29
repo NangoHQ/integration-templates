@@ -57,6 +57,7 @@ const ProviderCommitSchema = z.object({
 
 const CommitSchema = z.object({
     sha: z.string().describe('SHA of the commit.'),
+    node_id: z.string().optional().describe('The node ID of the commit.'),
     message: z.string().describe('Commit message.'),
     author_name: z.string().optional().describe('Name of the commit author.'),
     author_email: z.string().optional().describe('Email of the commit author.'),
@@ -65,6 +66,8 @@ const CommitSchema = z.object({
     committer_email: z.string().optional().describe('Email of the commit committer.'),
     committer_date: z.string().optional().describe('Date the commit was committed.'),
     html_url: z.string().optional().describe('URL to view the commit on GitHub.'),
+    url: z.string().optional().describe('The API URL for the commit.'),
+    comments_url: z.string().optional().describe('The API URL for the commit comments.'),
     parents: z
         .array(
             z.object({
@@ -90,7 +93,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List the commits included in a pull request.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:read'],
@@ -117,6 +120,7 @@ const action = createAction({
 
         const items = commits.map((c) => ({
             sha: c.sha,
+            ...(c.node_id != null && { node_id: c.node_id }),
             message: c.commit.message,
             ...(c.commit.author?.name != null && { author_name: c.commit.author.name }),
             ...(c.commit.author?.email != null && { author_email: c.commit.author.email }),
@@ -125,6 +129,8 @@ const action = createAction({
             ...(c.commit.committer?.email != null && { committer_email: c.commit.committer.email }),
             ...(c.commit.committer?.date != null && { committer_date: c.commit.committer.date }),
             ...(c.html_url != null && { html_url: c.html_url }),
+            ...(c.url != null && { url: c.url }),
+            ...(c.comments_url != null && { comments_url: c.comments_url }),
             ...(c.parents != null && {
                 parents: c.parents.map((p) => ({
                     sha: p.sha,

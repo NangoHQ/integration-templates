@@ -22,7 +22,11 @@ const ProviderBranchSchema = z.object({
 const OutputSchema = z
     .object({
         name: z.string().describe('The name of the branch.'),
-        commit_sha: z.string().describe('The SHA of the latest commit on this branch.'),
+        commit: z
+            .object({
+                sha: z.string().describe('The SHA of the latest commit on the branch.')
+            })
+            .describe('The latest commit on the branch.'),
         protected: z.boolean().optional().describe('Whether the branch is protected.'),
         protection_url: z.string().optional().describe('The API URL for branch protection details.'),
         html_url: z.string().optional().describe('The URL to view the branch on GitHub.')
@@ -36,7 +40,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Get details of a single branch, including its latest commit sha.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['contents:read'],
@@ -52,7 +56,9 @@ const action = createAction({
 
         return {
             name: branch.name,
-            commit_sha: branch.commit.sha,
+            commit: {
+                sha: branch.commit.sha
+            },
             ...(branch.protected !== undefined && { protected: branch.protected }),
             ...(branch.protection_url !== undefined && { protection_url: branch.protection_url }),
             ...(branch.html_url !== undefined && { html_url: branch.html_url })

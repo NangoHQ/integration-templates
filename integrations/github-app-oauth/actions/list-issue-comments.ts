@@ -27,7 +27,7 @@ const CommentSchema = z.object({
     body: z.string().describe('Comment body in markdown format.'),
     body_text: z.string().optional().describe('Plain-text body of the comment.'),
     body_html: z.string().optional().describe('HTML body of the comment.'),
-    user: CommentUserSchema.optional().describe('Author of the comment.'),
+    user: CommentUserSchema.nullable().optional().describe('Author of the comment.'),
     created_at: z.string().describe('ISO 8601 timestamp of when the comment was created.'),
     updated_at: z.string().describe('ISO 8601 timestamp of when the comment was last updated.'),
     issue_url: z.string().describe('API URL of the issue or pull request.'),
