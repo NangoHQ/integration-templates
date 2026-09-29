@@ -1,89 +1,71 @@
 import { z } from 'zod';
-import { createAction, ProxyConfiguration } from 'nango';
+import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner login. Example: "octocat".'),
-        repo: z.string().describe('Repository name. Example: "Hello-World".'),
-        pull_number: z.number().int().positive().describe('Pull request number to update. Example: 1.'),
+        owner: z.string().describe('Repository owner login. Example: "octocat"'),
+        repo: z.string().describe('Repository name. Example: "Hello-World"'),
+        pull_number: z.number().describe('Pull request number. Example: 1'),
         title: z.string().optional().describe('New title for the pull request.'),
-        body: z.string().nullable().optional().describe('New body for the pull request. Pass null to clear the body.'),
-        state: z.enum(['open', 'closed']).optional().describe('New state for the pull request. Either "open" or "closed".'),
+        body: z.string().nullable().optional().describe('New body content for the pull request. Pass null to clear it.'),
+        state: z.enum(['open', 'closed']).optional().describe('New state for the pull request.'),
         base: z.string().optional().describe('New base branch name for the pull request.')
     })
-    .describe('Input parameters to update a pull request.');
+    .describe('Input for updating a pull request.');
 
-const ProviderUserSchema = z.object({
-    login: z.string(),
-    id: z.number()
-});
-
-const ProviderHeadBaseSchema = z.object({
-    ref: z.string(),
-    sha: z.string()
-});
-
-const ProviderPullRequestSchema = z.object({
+const ProviderPullSchema = z.object({
     number: z.number(),
     title: z.string(),
     body: z.string().nullable(),
     state: z.string(),
+    base: z.object({
+        ref: z.string()
+    }),
+    head: z.object({
+        ref: z.string()
+    }),
     html_url: z.string(),
-    user: ProviderUserSchema.nullable(),
-    head: ProviderHeadBaseSchema,
-    base: ProviderHeadBaseSchema,
     created_at: z.string(),
     updated_at: z.string(),
-    draft: z.boolean()
+    user: z.object({
+        login: z.string()
+    }),
+    draft: z.boolean(),
+    merged: z.boolean()
 });
 
 const OutputSchema = z
     .object({
         number: z.number().describe('Pull request number.'),
         title: z.string().describe('Pull request title.'),
-        body: z.string().optional().describe('Pull request body. Omitted when null.'),
-        state: z.string().describe('Pull request state. Either "open" or "closed".'),
+        body: z.string().optional().describe('Pull request body content.'),
+        state: z.string().describe('Pull request state.'),
+        base_ref: z.string().describe('Base branch name.'),
+        head_ref: z.string().describe('Head branch name.'),
         html_url: z.string().describe('URL to view the pull request in a browser.'),
-        user: z
-            .object({
-                login: z.string().describe('GitHub username of the PR author.'),
-                id: z.number().describe('GitHub user ID of the PR author.')
-            })
-            .optional()
-            .describe('User who created the pull request, when known.'),
-        head: z
-            .object({
-                ref: z.string().describe('Name of the branch the PR changes come from.'),
-                sha: z.string().describe('SHA of the head commit.')
-            })
-            .describe('The branch that contains the changes.'),
-        base: z
-            .object({
-                ref: z.string().describe('Name of the branch the PR targets.'),
-                sha: z.string().describe('SHA of the base commit.')
-            })
-            .describe('The branch the PR targets.'),
-        created_at: z.string().describe('ISO 8601 timestamp when the PR was created.'),
-        updated_at: z.string().describe('ISO 8601 timestamp when the PR was last updated.'),
-        draft: z.boolean().describe('Whether the PR is a draft.')
+        created_at: z.string().describe('ISO 8601 timestamp when the pull request was created.'),
+        updated_at: z.string().describe('ISO 8601 timestamp when the pull request was last updated.'),
+        user_login: z.string().describe('Login of the pull request author.'),
+        draft: z.boolean().describe('Whether the pull request is a draft.'),
+        merged: z.boolean().describe('Whether the pull request has been merged.')
     })
-    .describe('The updated pull request.');
+    .describe('Output of an updated pull request.');
 
 /**
  * @tags: [write]
- * @tagReason: Mutates the pull request by patching its title, body, state, or base branch.
- * @pitfalls: Closing a PR with state "closed" does not merge it; reopening a closed PR fails if its head branch has been deleted.
+ * @tagReason: Mutates an existing pull request via PATCH.
+ * @pitfalls: Closing a PR via state does not merge it. Changing the base branch fails when the new base and the PR head have merge conflicts.
  */
 const action = createAction({
     description: "Update a pull request's title, body, state, or base branch.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const config: ProxyConfiguration = {
-            // https://docs.github.com/en/rest/pulls/pulls#update-a-pull-request
+        // https://docs.github.com/rest/pulls/pulls#update-a-pull-request
+        const response = await nango.patch({
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${input.pull_number}`,
             data: {
                 ...(input.title !== undefined && { title: input.title }),
@@ -92,24 +74,23 @@ const action = createAction({
                 ...(input.base !== undefined && { base: input.base })
             },
             retries: 3
-        };
+        });
 
-        const response = await nango.patch(config);
-
-        const providerPull = ProviderPullRequestSchema.parse(response.data);
+        const providerPull = ProviderPullSchema.parse(response.data);
 
         return {
             number: providerPull.number,
             title: providerPull.title,
-            ...(providerPull.body !== null && { body: providerPull.body }),
             state: providerPull.state,
+            base_ref: providerPull.base.ref,
+            head_ref: providerPull.head.ref,
             html_url: providerPull.html_url,
-            ...(providerPull.user != null && { user: providerPull.user }),
-            head: providerPull.head,
-            base: providerPull.base,
             created_at: providerPull.created_at,
             updated_at: providerPull.updated_at,
-            draft: providerPull.draft
+            user_login: providerPull.user.login,
+            draft: providerPull.draft,
+            merged: providerPull.merged,
+            ...(providerPull.body != null && { body: providerPull.body })
         };
     }
 });

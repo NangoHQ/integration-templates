@@ -1,0 +1,232 @@
+import { createSync } from 'nango';
+import { z } from 'zod';
+
+const MetadataSchema = z
+    .object({
+        repositories: z
+            .array(
+                z
+                    .object({
+                        owner: z.string().describe('Repository owner login'),
+                        repo: z.string().describe('Repository name')
+                    })
+                    .describe('A repository to sync issues from')
+            )
+            .describe('List of repositories to sync issues from')
+    })
+    .describe('Sync metadata specifying which repositories to fetch issues from');
+
+const CheckpointSchema = z
+    .object({
+        updated_after_by_repo: z
+            .string()
+            .describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 timestamp of the most recently updated issue synced for that repository')
+    })
+    .describe('Resume state for incremental issue syncing, tracked per repository');
+
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    updated_after: z.string().describe('The single global ISO 8601 timestamp used by the pre-migration version of this sync.')
+});
+
+const IssueSchema = z
+    .object({
+        id: z.string().describe('Stable string identifier for the issue'),
+        repository_owner: z.string().describe('Owner of the repository containing this issue'),
+        repository_name: z.string().describe('Name of the repository containing this issue'),
+        number: z.number().describe('Issue number within the repository'),
+        title: z.string().describe('Issue title'),
+        state: z.string().describe('Issue state, e.g., open or closed'),
+        state_reason: z.string().optional().describe('Reason for the issue state, if available'),
+        locked: z.boolean().describe('Whether the issue is locked'),
+        author_login: z.string().optional().describe('Login of the issue author'),
+        author_id: z.number().optional().describe('Numeric ID of the issue author'),
+        labels: z.array(z.string()).describe('Label names attached to the issue'),
+        assignee_logins: z.array(z.string()).describe('Login names of assigned users'),
+        milestone_title: z.string().optional().describe('Title of the associated milestone, if any'),
+        comments_count: z.number().describe('Number of comments on the issue'),
+        created_at: z.string().describe('ISO 8601 timestamp when the issue was created'),
+        updated_at: z.string().describe('ISO 8601 timestamp when the issue was last updated'),
+        closed_at: z.string().optional().describe('ISO 8601 timestamp when the issue was closed, if applicable'),
+        body: z.string().optional().describe('Issue body content'),
+        html_url: z.string().describe('URL to view the issue on GitHub')
+    })
+    .describe('A GitHub issue in a repository');
+
+const ProviderIssueSchema = z.object({
+    id: z.union([z.number(), z.string()]),
+    number: z.number(),
+    title: z.string(),
+    state: z.string(),
+    state_reason: z.string().nullish(),
+    locked: z.boolean(),
+    user: z
+        .object({
+            login: z.string(),
+            id: z.number()
+        })
+        .nullish(),
+    labels: z
+        .array(
+            z.object({
+                name: z.string()
+            })
+        )
+        .optional(),
+    assignees: z
+        .array(
+            z.object({
+                login: z.string()
+            })
+        )
+        .optional(),
+    milestone: z
+        .object({
+            title: z.string()
+        })
+        .nullish(),
+    comments: z.number(),
+    created_at: z.string(),
+    updated_at: z.string(),
+    closed_at: z.string().nullish(),
+    body: z.string().nullish(),
+    html_url: z.string(),
+    pull_request: z.unknown().optional()
+});
+
+const sync = createSync({
+    description: 'Sync issues for one or more GitHub repositories with incremental updates based on issue activity',
+    version: '1.0.4',
+    frequency: 'every hour',
+    autoStart: false,
+    metadata: MetadataSchema,
+    checkpoint: CheckpointSchema,
+    models: {
+        Issue: IssueSchema
+    },
+    scopes: ['issues:read'],
+    exec: async (nango) => {
+        const metadata = MetadataSchema.parse(await nango.getMetadata());
+        if (metadata.repositories.length === 0) {
+            throw new Error('No repositories found in metadata');
+        }
+
+        const rawCheckpoint = await nango.getCheckpoint();
+        let updatedAfterByRepo: Record<string, string> = {};
+        let legacyUpdatedAfter: string | undefined;
+
+        if (rawCheckpoint != null) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                updatedAfterByRepo = z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.updated_after_by_repo));
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single global watermark: use it as the fallback for any repo
+                    // that doesn't yet have its own per-repo entry, rather than re-fetching everything.
+                    legacyUpdatedAfter = parsedLegacyCheckpoint.data.updated_after;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
+
+        if (legacyUpdatedAfter !== undefined) {
+            // Seed the fallback for every configured repo before the first checkpoint save, so a
+            // crash partway through the loop doesn't strand not-yet-processed repos without the
+            // legacy watermark (the in-memory `legacyUpdatedAfter` variable disappears once the
+            // checkpoint is persisted in the new per-repo shape).
+            for (const repo of metadata.repositories) {
+                const repoFullName = `${repo.owner}/${repo.repo}`;
+                if (!(repoFullName in updatedAfterByRepo)) {
+                    updatedAfterByRepo[repoFullName] = legacyUpdatedAfter;
+                }
+            }
+        }
+
+        for (const repo of metadata.repositories) {
+            const repoFullName = `${repo.owner}/${repo.repo}`;
+            const requestUpdatedAfter = updatedAfterByRepo[repoFullName] ?? legacyUpdatedAfter;
+            let maxUpdatedAt: string | undefined = requestUpdatedAfter;
+
+            const proxyConfig = {
+                // https://docs.github.com/rest/issues/issues#list-repository-issues
+                endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/issues`,
+                params: {
+                    state: 'all',
+                    sort: 'updated',
+                    direction: 'asc',
+                    ...(requestUpdatedAfter ? { since: requestUpdatedAfter } : {})
+                },
+                paginate: {
+                    limit: 100,
+                    limit_name_in_request: 'per_page'
+                },
+                retries: 3
+            };
+
+            for await (const batch of nango.paginate(proxyConfig)) {
+                const issues = [];
+
+                for (const raw of batch) {
+                    const parsed = ProviderIssueSchema.safeParse(raw);
+                    if (!parsed.success) {
+                        continue;
+                    }
+                    if (parsed.data.pull_request !== undefined) {
+                        continue;
+                    }
+                    issues.push(parsed.data);
+                }
+
+                if (issues.length === 0) {
+                    continue;
+                }
+
+                const mappedIssues = issues.map((issue) => {
+                    const labels = (issue.labels ?? []).map((label) => label.name).filter((name) => name !== '');
+
+                    const assigneeLogins = (issue.assignees ?? []).map((assignee) => assignee.login).filter((login) => login !== '');
+
+                    const updatedAt = issue.updated_at;
+                    if (maxUpdatedAt === undefined || updatedAt > maxUpdatedAt) {
+                        maxUpdatedAt = updatedAt;
+                    }
+
+                    return {
+                        id: String(issue.id),
+                        repository_owner: repo.owner,
+                        repository_name: repo.repo,
+                        number: issue.number,
+                        title: issue.title,
+                        state: issue.state,
+                        state_reason: issue.state_reason ?? undefined,
+                        locked: issue.locked,
+                        author_login: issue.user?.login ?? undefined,
+                        author_id: issue.user?.id ?? undefined,
+                        labels,
+                        assignee_logins: assigneeLogins,
+                        milestone_title: issue.milestone?.title ?? undefined,
+                        comments_count: issue.comments,
+                        created_at: issue.created_at,
+                        updated_at: issue.updated_at,
+                        closed_at: issue.closed_at ?? undefined,
+                        body: issue.body ?? undefined,
+                        html_url: issue.html_url
+                    };
+                });
+
+                await nango.batchSave(mappedIssues, 'Issue');
+            }
+
+            if (maxUpdatedAt !== undefined) {
+                updatedAfterByRepo[repoFullName] = maxUpdatedAt;
+            }
+            await nango.saveCheckpoint({ updated_after_by_repo: JSON.stringify(updatedAfterByRepo) });
+        }
+    }
+});
+
+export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];
+export default sync;

@@ -1,158 +1,98 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const MetadataSchema = z
+const CommitSchema = z
     .object({
-        owner: z.string().optional().describe('The GitHub account owner of the repository.'),
-        repo: z.string().optional().describe('The name of the repository.'),
-        branch: z.string().optional().describe("The branch name to sync commits from. Defaults to the repository's default branch.")
+        id: z.string().describe('A stable unique identifier for this record, formatted as "{owner}/{repo}:{branch}:{sha}" to stay unique across repositories.'),
+        sha: z.string().describe('The SHA hash of the commit.'),
+        message: z.string().describe('The commit message.'),
+        author_name: z.string().optional().describe('The name of the commit author from the Git identity.'),
+        author_email: z.string().optional().describe('The email of the commit author from the Git identity.'),
+        author_date: z.string().optional().describe('The ISO 8601 timestamp when the commit was authored.'),
+        committer_name: z.string().optional().describe('The name of the commit committer from the Git identity.'),
+        committer_email: z.string().optional().describe('The email of the commit committer from the Git identity.'),
+        committer_date: z.string().optional().describe('The ISO 8601 timestamp when the commit was committed.'),
+        author_login: z.string().optional().describe('The GitHub username of the commit author, if linked to a GitHub account.'),
+        committer_login: z.string().optional().describe('The GitHub username of the commit committer, if linked to a GitHub account.'),
+        html_url: z.string().optional().describe('The URL to view the commit on GitHub.'),
+        parent_shas: z.array(z.string()).optional().describe('An array of parent commit SHAs.')
     })
-    .describe('Metadata specifying which repository and branch to sync commits from.');
+    .describe('A Git commit on a repository branch.');
 
 const CheckpointSchema = z
     .object({
-        // ISO 8601 high-water mark used when a single repository is selected via metadata. Empty
-        // when auto-discovering installation repositories instead (checkpoint fields must be
-        // required flat strings, so the unused mode's field is set to '' rather than omitted).
-        since: z.string(),
-        // JSON-encoded Record<string, RepoCommitState> mapping "owner/repo" to its sync state,
-        // used when auto-discovering installation repositories. Empty when a single repository is
-        // selected via metadata instead.
-        repos: z.string(),
-        // 'true' once the first run has fully completed its trackDeletesStart/trackDeletesEnd
-        // lifecycle. Kept separate from `since`/`repos` (which are persisted incrementally, per
-        // repository, mid-run for resiliency) so a first run that fails partway through — after
-        // some progress was already checkpointed — is retried as a first run on the next
-        // execution, rather than looking "already synced" and silently skipping the
-        // trackDeletesStart/trackDeletesEnd lifecycle.
-        initialSyncComplete: z.string()
+        since_by_repo: z
+            .string()
+            .describe('JSON-encoded map of "{owner}/{repo}" to the ISO 8601 timestamp of the most recently synced commit for that repository.'),
+        repo_full_name: z.string().describe('The "{owner}/{repo}" currently being paginated, used to resume a crashed mid-run.'),
+        page: z.number().int().positive().describe('Pagination page for the repository currently being processed.')
     })
-    .describe('Checkpoint storing the high-water mark(s) for incremental commit syncing.');
+    .describe('Checkpoint state for incremental commit syncing across one or more repositories.');
 
-// A repository missing from a single enumeration of `/installation/repositories` could reflect a
-// transient/partial miss (network hiccup, provider-side eventual consistency) rather than a
-// genuine uninstall. It must be missing for this many consecutive runs before its commits are
-// deleted, so a one-off miss can't cause irrecoverable data loss.
-const MISSING_RUN_THRESHOLD = 2;
-
-const RepoCommitStateSchema = z.object({
-    since: z.string().optional(),
-    missingRuns: z.number().int().min(0).optional()
+// Legacy checkpoint shape used before this sync migrated to a per-repository checkpoint. Kept so
+// connections that last ran the old version of this sync can migrate gracefully instead of crashing.
+const LegacyCheckpointSchema = z.object({
+    since: z.string().describe('The single global ISO 8601 watermark used by the pre-migration version of this sync.'),
+    page: z.number().int().positive()
 });
-type RepoCommitState = z.infer<typeof RepoCommitStateSchema>;
 
-const CommitSchema = z
+const MetadataSchema = z
     .object({
-        id: z.string().describe('A stable unique identifier for the commit, qualified by repository owner and name.'),
-        sha: z.string().describe('The SHA hash of the commit.'),
-        repository_owner: z.string().describe('The owner of the repository this commit belongs to.'),
-        repository_name: z.string().describe('The name of the repository this commit belongs to.'),
-        message: z.string().describe('The commit message.'),
-        html_url: z.string().describe('The URL to view the commit on GitHub.'),
-        author_name: z.string().optional().describe('The name of the commit author from the Git signature.'),
-        author_email: z.string().optional().describe('The email of the commit author from the Git signature.'),
-        author_date: z.string().optional().describe('The ISO 8601 timestamp when the commit was authored.'),
-        author_login: z.string().optional().describe('The GitHub login of the commit author, if linked to a GitHub account.'),
-        committer_name: z.string().optional().describe('The name of the commit committer from the Git signature.'),
-        committer_email: z.string().optional().describe('The email of the commit committer from the Git signature.'),
-        committer_date: z.string().optional().describe('The ISO 8601 timestamp when the commit was committed.'),
-        committer_login: z.string().optional().describe('The GitHub login of the commit committer, if linked to a GitHub account.'),
-        comment_count: z.number().optional().describe('The number of comments on the commit.'),
-        parent_shas: z.array(z.string().describe('The SHA of a parent commit.')).optional().describe('The SHAs of the parent commits.')
+        owner: z.string().optional().describe('The repository owner. If omitted, the sync discovers accessible repositories from the GitHub App installation.'),
+        repo: z.string().optional().describe('The repository name. If omitted, the sync discovers accessible repositories from the GitHub App installation.'),
+        branch: z.string().optional().describe("The branch to sync commits from. Defaults to the repository's default branch if omitted.")
     })
-    .describe('A git commit on a repository branch.');
+    .describe('Optional metadata to target a specific repository and branch.');
 
-const GitHubCommitSchema = z.object({
+const ProviderCommitSchema = z.object({
     sha: z.string(),
-    html_url: z.string(),
     commit: z.object({
         message: z.string(),
         author: z
             .object({
-                name: z.string().optional(),
-                email: z.string().optional(),
-                date: z.string().optional()
+                name: z.string(),
+                email: z.string(),
+                date: z.string()
             })
-            .nullable()
             .optional(),
         committer: z
             .object({
-                name: z.string().optional(),
-                email: z.string().optional(),
-                date: z.string().optional()
+                name: z.string(),
+                email: z.string(),
+                date: z.string()
             })
-            .nullable()
-            .optional(),
-        comment_count: z.number(),
-        tree: z.object({
-            sha: z.string(),
-            url: z.string()
-        })
+            .optional()
     }),
     author: z
         .object({
-            login: z.string().optional()
+            login: z.string()
         })
-        .passthrough()
         .nullable()
         .optional(),
     committer: z
         .object({
-            login: z.string().optional()
+            login: z.string()
         })
-        .passthrough()
         .nullable()
         .optional(),
-    parents: z.array(
-        z.object({
-            sha: z.string(),
-            url: z.string(),
-            html_url: z.string().optional()
-        })
-    )
+    html_url: z.string(),
+    parents: z
+        .array(
+            z.object({
+                sha: z.string()
+            })
+        )
+        .optional()
 });
 
-const GitHubRepositorySchema = z.object({
-    full_name: z.string()
+const ProviderRepoSchema = z.object({
+    full_name: z.string(),
+    default_branch: z.string()
 });
-
-// GitHub's `since` filter on the commits endpoint is exclusive of commits with the exact same
-// timestamp as the checkpoint, so a small overlap is subtracted before using it as a lower bound.
-// Commits are keyed by SHA, so re-fetching the boundary commit is a harmless no-op upsert.
-const toOverlappingCheckpoint = (timestamp: string): string => {
-    return new Date(new Date(timestamp).getTime() - 1000).toISOString();
-};
-
-const mapCommit = (item: unknown, owner: string, repo: string): { commit: z.infer<typeof CommitSchema>; date: string | undefined } => {
-    const commit = GitHubCommitSchema.parse(item);
-    const commitDate = commit.commit.committer?.date ?? commit.commit.author?.date;
-
-    return {
-        commit: {
-            id: `${owner}/${repo}/${commit.sha}`,
-            sha: commit.sha,
-            repository_owner: owner,
-            repository_name: repo,
-            message: commit.commit.message,
-            html_url: commit.html_url,
-            ...(commit.commit.author?.name != null && { author_name: commit.commit.author.name }),
-            ...(commit.commit.author?.email != null && { author_email: commit.commit.author.email }),
-            ...(commit.commit.author?.date != null && { author_date: commit.commit.author.date }),
-            ...(commit.author?.login != null && { author_login: commit.author.login }),
-            ...(commit.commit.committer?.name != null && { committer_name: commit.commit.committer.name }),
-            ...(commit.commit.committer?.email != null && { committer_email: commit.commit.committer.email }),
-            ...(commit.commit.committer?.date != null && { committer_date: commit.commit.committer.date }),
-            ...(commit.committer?.login != null && { committer_login: commit.committer.login }),
-            comment_count: commit.commit.comment_count,
-            parent_shas: commit.parents.map((p) => p.sha)
-        },
-        date: commitDate
-    };
-};
 
 const sync = createSync({
     description: "Sync commits on a repository's default branch (or a specified branch).",
-    version: '1.0.0',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -160,37 +100,142 @@ const sync = createSync({
     models: {
         Commit: CommitSchema
     },
-
+    scopes: ['contents:read'],
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
+        const isFirstRun = rawCheckpoint === undefined || rawCheckpoint === null;
 
-        const rawMetadata = await nango.getMetadata();
-        const metadata = MetadataSchema.parse(rawMetadata ?? {});
+        let checkpoint: { since_by_repo: Record<string, string>; repo_full_name: string; page: number } = {
+            since_by_repo: {},
+            repo_full_name: '',
+            page: 1
+        };
+        let legacySince: string | undefined;
 
-        const branch = metadata.branch;
+        if (!isFirstRun) {
+            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
+            if (parsedCheckpoint.success) {
+                checkpoint = {
+                    since_by_repo: z.record(z.string(), z.string()).parse(JSON.parse(parsedCheckpoint.data.since_by_repo)),
+                    repo_full_name: parsedCheckpoint.data.repo_full_name,
+                    page: parsedCheckpoint.data.page
+                };
+            } else {
+                const parsedLegacyCheckpoint = LegacyCheckpointSchema.safeParse(rawCheckpoint);
+                if (parsedLegacyCheckpoint.success) {
+                    // Migrate from the old single-repo watermark: use it as the fallback for whichever repo
+                    // doesn't yet have its own per-repo entry. The legacy `page` can't be attributed to any
+                    // specific repo (the old schema was single-repo only), so it's dropped rather than resumed.
+                    legacySince = parsedLegacyCheckpoint.data.since;
+                } else {
+                    throw new Error(`Failed to parse checkpoint: ${parsedCheckpoint.error.message}`);
+                }
+            }
+        }
 
-        const singleRepoScoped = Boolean(metadata.owner && metadata.repo);
-        const isFirstRun = checkpoint?.initialSyncComplete !== 'true';
-        const initialSyncCompleteValue = isFirstRun ? '' : 'true';
+        let metadataRaw: unknown = {};
+        try {
+            metadataRaw = (await nango.getMetadata()) ?? {};
+        } catch (error) {
+            if (!(error instanceof Error) || !error.message.includes('Missing mock data for getMetadata')) {
+                throw error;
+            }
+        }
+        const parsedMetadata = MetadataSchema.safeParse(metadataRaw ?? {});
+        if (!parsedMetadata.success) {
+            throw new Error(`Failed to parse metadata: ${parsedMetadata.error.message}`);
+        }
+        const metadata = parsedMetadata.data;
 
-        // trackDeletesStart/End must appear before/after every batchSave call in this file (by
-        // source position, not just at runtime), so this is called before `syncRepoCommits` is
-        // even defined below.
+        let repos: Array<{ owner: string; repo: string; branch: string }> = [];
+
+        if (metadata.owner !== undefined && metadata.repo !== undefined) {
+            let branch = metadata.branch;
+            if (branch === undefined) {
+                // https://docs.github.com/rest/repos/repos#get-a-repository
+                const repoResponse = await nango.get({
+                    endpoint: `/repos/${encodeURIComponent(metadata.owner)}/${encodeURIComponent(metadata.repo)}`,
+                    retries: 3
+                });
+                branch = ProviderRepoSchema.parse(repoResponse.data).default_branch;
+            }
+            repos = [{ owner: metadata.owner, repo: metadata.repo, branch }];
+        } else {
+            const repositories: Array<z.infer<typeof ProviderRepoSchema>> = [];
+            // https://docs.github.com/rest/reference/apps#list-repositories-accessible-to-the-app-installation
+            for await (const repoBatch of nango.paginate({
+                endpoint: '/installation/repositories',
+                paginate: {
+                    type: 'link',
+                    limit_name_in_request: 'per_page',
+                    limit: 100,
+                    response_path: 'repositories',
+                    link_rel_in_response_header: 'next'
+                },
+                retries: 3
+            })) {
+                repositories.push(...z.array(ProviderRepoSchema).parse(repoBatch));
+            }
+
+            repos = repositories.map((r) => {
+                const parts = r.full_name.split('/');
+                if (parts.length !== 2) {
+                    throw new Error(`Unexpected repository full_name format: ${r.full_name}`);
+                }
+                const repoOwner = parts[0];
+                const repoName = parts[1];
+                if (repoOwner === undefined || repoName === undefined) {
+                    throw new Error(`Unexpected repository full_name format: ${r.full_name}`);
+                }
+                return {
+                    owner: repoOwner,
+                    repo: repoName,
+                    branch: metadata.branch ?? r.default_branch
+                };
+            });
+        }
+
+        if (repos.length === 0) {
+            return;
+        }
+
         if (isFirstRun) {
             await nango.trackDeletesStart('Commit');
         }
 
-        const syncRepoCommits = async (owner: string, repo: string, since: string | undefined): Promise<string | undefined> => {
-            let maxSince = since;
+        const sinceByRepo: Record<string, string> = { ...checkpoint.since_by_repo };
+        const resumeRepoFullName = checkpoint.repo_full_name;
+        const resumeRepoIndex = resumeRepoFullName
+            ? Math.max(
+                  repos.findIndex((repo) => `${repo.owner}/${repo.repo}` === resumeRepoFullName),
+                  0
+              )
+            : 0;
+
+        for (let repoIndex = resumeRepoIndex; repoIndex < repos.length; repoIndex++) {
+            const repo = repos[repoIndex];
+            if (!repo) {
+                continue;
+            }
+            const repoFullName = `${repo.owner}/${repo.repo}`;
+            const sinceForRepo = sinceByRepo[repoFullName] ?? legacySince;
+            let currentPage = repoFullName === resumeRepoFullName ? checkpoint.page : 1;
+            let newestCommitDate: string | undefined = sinceForRepo;
+
+            // Seed the map up front so a per-page checkpoint save mid-pagination (below) still reflects
+            // this repo's watermark even before any newer commit is found — otherwise a crash before the
+            // first page completes would drop the legacy `since` filter on resume and reprocess older history.
+            if (sinceForRepo !== undefined) {
+                sinceByRepo[repoFullName] = sinceForRepo;
+            }
 
             const proxyConfig: ProxyConfiguration = {
-                // https://docs.github.com/en/rest/commits/commits#list-commits
-                endpoint: `repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/commits`,
+                // https://docs.github.com/rest/commits/commits#list-commits
+                endpoint: `/repos/${encodeURIComponent(repo.owner)}/${encodeURIComponent(repo.repo)}/commits`,
                 params: {
-                    ...(branch && { sha: branch }),
-                    per_page: 100,
-                    ...(since && { since })
+                    sha: repo.branch,
+                    ...(sinceForRepo !== undefined && { since: sinceForRepo }),
+                    ...(currentPage > 1 && { page: String(currentPage) })
                 },
                 paginate: {
                     type: 'link',
@@ -201,142 +246,91 @@ const sync = createSync({
                 retries: 3
             };
 
-            for await (const page of nango.paginate(proxyConfig)) {
-                const commits = page.map((item) => {
-                    const { commit, date } = mapCommit(item, owner, repo);
-                    if (date && (!maxSince || date > maxSince)) {
-                        maxSince = date;
+            for await (const pageItems of nango.paginate(proxyConfig)) {
+                const items = z.array(z.unknown()).safeParse(pageItems);
+                if (!items.success) {
+                    throw new Error(`Failed to parse paginated page items: ${items.error.message}`);
+                }
+
+                const commits = items.data.map((item) => {
+                    const parsed = ProviderCommitSchema.safeParse(item);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse commit: ${parsed.error.message}`);
                     }
-                    return commit;
+                    const c = parsed.data;
+                    return {
+                        id: `${repoFullName}:${repo.branch}:${c.sha}`,
+                        sha: c.sha,
+                        message: c.commit.message,
+                        ...(c.commit.author != null && {
+                            author_name: c.commit.author.name,
+                            author_email: c.commit.author.email,
+                            author_date: c.commit.author.date
+                        }),
+                        ...(c.commit.committer != null && {
+                            committer_name: c.commit.committer.name,
+                            committer_email: c.commit.committer.email,
+                            committer_date: c.commit.committer.date
+                        }),
+                        ...(c.author != null && { author_login: c.author.login }),
+                        ...(c.committer != null && { committer_login: c.committer.login }),
+                        ...(c.html_url != null && { html_url: c.html_url }),
+                        ...(c.parents != null && {
+                            parent_shas: c.parents.map((p) => p.sha)
+                        })
+                    };
                 });
 
                 if (commits.length > 0) {
                     await nango.batchSave(commits, 'Commit');
+
+                    // Migration cleanup: connections that already synced under the pre-repo-scoped id
+                    // (bare commit SHA) would otherwise keep that old record forever alongside the new
+                    // one, since a normal incremental run doesn't do full delete-tracking. Deleting a
+                    // record that was never saved under the old id is a no-op, so this is safe to run
+                    // unconditionally on every save until every existing connection has migrated.
+                    await nango.batchDelete(
+                        commits.map((c) => ({ id: c.sha })),
+                        'Commit'
+                    );
+
+                    const firstCommit = commits[0];
+                    if (firstCommit?.committer_date && (newestCommitDate === undefined || firstCommit.committer_date > newestCommitDate)) {
+                        newestCommitDate = firstCommit.committer_date;
+                    }
+                }
+
+                currentPage = currentPage + 1;
+
+                // Only persist progress incrementally when this is NOT the initial delete-tracked scan:
+                // saving a checkpoint mid-scan would make a crash-and-retry look like a plain incremental
+                // run next time (isFirstRun is derived from checkpoint presence), skipping
+                // trackDeletesStart/End and silently keeping commits that were actually deleted before the
+                // crash, while resuming from a stale page for whichever repo happened to be in progress.
+                if (!isFirstRun) {
+                    await nango.saveCheckpoint({
+                        since_by_repo: JSON.stringify(sinceByRepo),
+                        repo_full_name: repoFullName,
+                        page: currentPage
+                    });
                 }
             }
 
-            return maxSince;
-        };
-
-        // Repositories are only enumerated (and the "no repositories" guard only applies) when no
-        // explicit owner/repo was provided via metadata.
-        const repos: Array<{ owner: string; name: string; fullName: string }> = [];
-        if (!singleRepoScoped) {
-            // https://docs.github.com/en/rest/reference/apps#list-repositories-accessible-to-the-app-installation
-            for await (const page of nango.paginate({
-                endpoint: '/installation/repositories',
-                paginate: {
-                    limit_name_in_request: 'per_page',
-                    limit: 100,
-                    response_path: 'repositories'
-                },
-                retries: 3
-            })) {
-                for (const raw of page) {
-                    const repo = GitHubRepositorySchema.parse(raw);
-                    const parts = repo.full_name.split('/');
-                    const owner = parts[0];
-                    const name = parts[1];
-                    if (parts.length !== 2 || !owner || !name) {
-                        throw new Error(`Invalid repository full_name: ${repo.full_name}`);
-                    }
-                    repos.push({ owner, name, fullName: repo.full_name });
-                }
-            }
-
-            if (repos.length === 0) {
-                if (isFirstRun) {
-                    throw new Error('No repositories accessible to this installation. Please provide owner and repo in metadata.');
-                }
-                // An empty response on a later run may be transient; skip rather than reconcile
-                // away every previously synced commit.
-                await nango.log('No repositories accessible to this installation; skipping this run.', { level: 'warn' });
-                return;
-            }
-        }
-
-        let finalSince = '';
-        let finalRepos = '';
-
-        if (singleRepoScoped && metadata.owner && metadata.repo) {
-            const previousSince = checkpoint?.since || undefined;
-            const maxSince = await syncRepoCommits(metadata.owner, metadata.repo, previousSince);
-
-            finalSince = maxSince ? toOverlappingCheckpoint(maxSince) : (previousSince ?? '');
-            await nango.saveCheckpoint({ since: finalSince, repos: '', initialSyncComplete: initialSyncCompleteValue });
-        } else {
-            const previousRepos = checkpoint?.repos || undefined;
-            const repoStates: Record<string, RepoCommitState> = previousRepos
-                ? z.record(z.string(), RepoCommitStateSchema).parse(JSON.parse(previousRepos))
-                : {};
-
-            // Repositories that were synced before but are no longer accessible to the installation
-            // (e.g. the app was uninstalled from them) need their previously synced commits removed,
-            // once they've been missing for MISSING_RUN_THRESHOLD consecutive runs (see
-            // MISSING_RUN_THRESHOLD above).
-            const currentRepoNames = new Set(repos.map((repo) => repo.fullName));
-            const removedRepoNames = Object.keys(repoStates).filter((fullName) => !currentRepoNames.has(fullName));
-
-            if (removedRepoNames.length > 0) {
-                const toDeleteRepoNames: string[] = [];
-
-                for (const fullName of removedRepoNames) {
-                    const missingRuns = (repoStates[fullName]?.missingRuns ?? 0) + 1;
-                    if (missingRuns >= MISSING_RUN_THRESHOLD) {
-                        toDeleteRepoNames.push(fullName);
-                    } else {
-                        repoStates[fullName] = { ...repoStates[fullName], missingRuns };
-                    }
-                }
-
-                if (toDeleteRepoNames.length > 0) {
-                    const toDeleteRepoNameSet = new Set(toDeleteRepoNames);
-                    const toDelete: Array<{ id: string }> = [];
-
-                    for await (const record of nango.listRecords<{ id: string; repository_owner: string; repository_name: string }>('Commit')) {
-                        if (toDeleteRepoNameSet.has(`${record['repository_owner']}/${record['repository_name']}`)) {
-                            toDelete.push({ id: String(record['id']) });
-                        }
-                    }
-
-                    if (toDelete.length > 0) {
-                        await nango.batchDelete(toDelete, 'Commit');
-                    }
-
-                    for (const fullName of toDeleteRepoNames) {
-                        delete repoStates[fullName];
-                    }
-                }
-
-                finalRepos = JSON.stringify(repoStates);
-                await nango.saveCheckpoint({ since: '', repos: finalRepos, initialSyncComplete: initialSyncCompleteValue });
-            }
-
-            for (const repo of repos) {
-                // A repository present this run has its miss streak (if any) implicitly cleared below.
-                const previousState = repoStates[repo.fullName];
-                const sinceParam = previousState?.since;
-                const maxSince = await syncRepoCommits(repo.owner, repo.name, sinceParam);
-
-                repoStates[repo.fullName] = maxSince ? { since: toOverlappingCheckpoint(maxSince) } : {};
-
-                // Persisted after each repository so a run that fails partway through doesn't lose
-                // progress already made, and so the next run's cleanup scan above has an
-                // up-to-date repository inventory to compare against.
-                finalRepos = JSON.stringify(repoStates);
-                await nango.saveCheckpoint({ since: '', repos: finalRepos, initialSyncComplete: initialSyncCompleteValue });
+            if (newestCommitDate !== undefined) {
+                sinceByRepo[repoFullName] = newestCommitDate;
             }
         }
 
         if (isFirstRun) {
+            await nango.clearCheckpoint();
             await nango.trackDeletesEnd('Commit');
-
-            // Only now that the entire first run (repository discovery, all per-repository
-            // syncing, and trackDeletesEnd) has completed successfully is the run marked complete,
-            // so that a failure at any earlier point causes the next execution to retry as a first
-            // run instead of skipping the trackDeletesStart/trackDeletesEnd lifecycle.
-            await nango.saveCheckpoint({ since: finalSince, repos: finalRepos, initialSyncComplete: 'true' });
         }
+
+        await nango.saveCheckpoint({
+            since_by_repo: JSON.stringify(sinceByRepo),
+            repo_full_name: '',
+            page: 1
+        });
     }
 });
 

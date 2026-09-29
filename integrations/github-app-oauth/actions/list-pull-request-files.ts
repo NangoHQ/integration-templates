@@ -3,13 +3,48 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        owner: z.string().describe('Repository owner username. Example: "nango-provisioned-apps"'),
-        repo: z.string().describe('Repository name. Example: "nango"'),
-        pull_number: z.number().int().positive().describe('Pull request number. Example: 1'),
-        cursor: z.string().optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
-        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Maximum 100. Defaults to 30.')
+        owner: z.string().describe('Repository owner username or organization name.'),
+        repo: z.string().describe('Repository name.'),
+        pull_number: z.number().int().describe('Pull request number.'),
+        cursor: z.string().regex(/^\d+$/).optional().describe('Pagination cursor (page number) from the previous response. Omit for the first page.'),
+        per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page (max 100). Defaults to 30 if omitted.')
     })
-    .describe('Input parameters for listing pull request files');
+    .describe('Input parameters for listing files changed in a pull request.');
+
+const FileSchema = z.object({
+    sha: z.string().describe('SHA hash of the file blob.'),
+    filename: z.string().describe('Name of the file.'),
+    status: z.string().describe('Status of the file change (e.g., added, removed, modified).'),
+    additions: z.number().int().describe('Number of lines added in the file.'),
+    deletions: z.number().int().describe('Number of lines deleted in the file.'),
+    changes: z.number().int().describe('Total number of changes in the file.'),
+    patch: z.string().optional().describe('Unified diff patch of the file change.'),
+    previous_filename: z.string().optional().describe('Previous filename if the file was renamed.'),
+    blob_url: z.string().optional().describe('URL to view the file blob on GitHub.'),
+    raw_url: z.string().optional().describe('URL to the raw file contents.'),
+    contents_url: z.string().optional().describe('URL to the file contents API endpoint.')
+});
+
+const OutputSchema = z
+    .object({
+        items: z.array(FileSchema).describe('Array of files changed in the pull request.'),
+        next_cursor: z.string().optional().describe('Pagination cursor to retrieve the next page of results.')
+    })
+    .describe('List of files changed in a pull request, with optional pagination cursor.');
+
+const ProviderFileSchema = z.object({
+    sha: z.string().nullish(),
+    filename: z.string().nullish(),
+    status: z.string().nullish(),
+    additions: z.number().int().nullish(),
+    deletions: z.number().int().nullish(),
+    changes: z.number().int().nullish(),
+    patch: z.string().nullish(),
+    previous_filename: z.string().nullish(),
+    blob_url: z.string().nullish(),
+    raw_url: z.string().nullish(),
+    contents_url: z.string().nullish()
+});
 
 // Bounds each file's patch text so that a full page of large diffs can't exceed Nango's action
 // output size limit; GitHub itself omits `patch` once a single file's diff is too large.
@@ -21,94 +56,70 @@ const truncatePatch = (patch: string): string => {
     return patch.length > MAX_PATCH_LENGTH ? `${patch.slice(0, MAX_PATCH_LENGTH - TRUNCATION_SUFFIX.length)}${TRUNCATION_SUFFIX}` : patch;
 };
 
-const ProviderFileSchema = z.object({
-    sha: z.string(),
-    filename: z.string(),
-    status: z.string(),
-    additions: z.number().int(),
-    deletions: z.number().int(),
-    changes: z.number().int(),
-    blob_url: z.string(),
-    raw_url: z.string(),
-    contents_url: z.string(),
-    patch: z.string().optional(),
-    previous_filename: z.string().optional()
-});
-
-const OutputSchema = z
-    .object({
-        files: z
-            .array(
-                z.object({
-                    sha: z.string().describe('SHA hash of the file blob.'),
-                    filename: z.string().describe('Name of the file.'),
-                    status: z.string().describe('Status of the file change (added, removed, modified, renamed, copied, changed, unchanged).'),
-                    additions: z.number().int().describe('Number of lines added.'),
-                    deletions: z.number().int().describe('Number of lines deleted.'),
-                    changes: z.number().int().describe('Total number of changes.'),
-                    blob_url: z.string().describe('URL to view the blob.'),
-                    raw_url: z.string().describe('URL to the raw file content.'),
-                    contents_url: z.string().describe('URL to the file contents API endpoint.'),
-                    patch: z.string().optional().describe('Patch diff text for the file change.'),
-                    previous_filename: z.string().optional().describe('Previous filename if the file was renamed.')
-                })
-            )
-            .describe('Array of files changed in the pull request.'),
-        next_cursor: z.string().optional().describe('Cursor to fetch the next page of results. Omitted when there are no more pages.')
-    })
-    .describe('Output containing the list of changed files and pagination cursor.');
+function extractNextCursor(linkHeader: string | string[] | undefined): string | undefined {
+    if (!linkHeader) {
+        return undefined;
+    }
+    const header = Array.isArray(linkHeader) ? linkHeader.join(',') : linkHeader;
+    const match = header.match(/<[^>]*[?&]page=(\d+)[^>]*>;\s*rel=["']next["']/);
+    if (match) {
+        return match[1];
+    }
+    return undefined;
+}
 
 /**
  * @tags: [read]
- * @tagReason: Reads the list of files changed in an existing pull request.
- * @pitfalls: This endpoint returns a maximum of 3000 changed files per pull request; larger diffs are silently truncated.
+ * @tagReason: Reads the list of files changed in a pull request.
+ * @pitfalls: GitHub limits this endpoint to 300 changed files; larger pull requests require the GraphQL API.
  */
 const action = createAction({
     description: 'List the files changed in a pull request.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['pull_requests:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        if (input.cursor !== undefined && !/^[1-9]\d*$/.test(input.cursor)) {
-            throw new nango.ActionError({
-                type: 'invalid_cursor',
-                message: 'Cursor must be a positive integer representing a page number.'
-            });
+        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
+        const params: Record<string, string | number> = {
+            page
+        };
+        if (input.per_page !== undefined) {
+            params['per_page'] = input.per_page;
         }
 
-        const page = input.cursor ? parseInt(input.cursor, 10) : 1;
-
-        const perPage = input.per_page ?? 30;
-
-        // https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#list-pull-requests-files
+        // https://docs.github.com/en/rest/pulls/pulls?apiVersion=2022-11-28#list-pull-request-files
         const response = await nango.get({
             endpoint: `/repos/${encodeURIComponent(input.owner)}/${encodeURIComponent(input.repo)}/pulls/${encodeURIComponent(String(input.pull_number))}/files`,
-            params: {
-                page: String(page),
-                per_page: String(perPage)
-            },
+            params,
             retries: 3
         });
 
-        const files = z.array(ProviderFileSchema).parse(response.data);
+        const items = z.array(z.unknown()).parse(response.data);
+        const parsedItems = items.map((item: unknown) => {
+            const raw = ProviderFileSchema.parse(item);
+            return {
+                sha: raw.sha ?? '',
+                filename: raw.filename ?? '',
+                status: raw.status ?? '',
+                additions: raw.additions ?? 0,
+                deletions: raw.deletions ?? 0,
+                changes: raw.changes ?? 0,
+                ...(raw.patch != null && { patch: truncatePatch(raw.patch) }),
+                ...(raw.previous_filename != null && { previous_filename: raw.previous_filename }),
+                ...(raw.blob_url != null && { blob_url: raw.blob_url }),
+                ...(raw.raw_url != null && { raw_url: raw.raw_url }),
+                ...(raw.contents_url != null && { contents_url: raw.contents_url })
+            };
+        });
+
+        const linkHeader = response.headers['link'] || response.headers['Link'];
+        const nextCursor = extractNextCursor(linkHeader);
 
         return {
-            files: files.map((file) => ({
-                sha: file.sha,
-                filename: file.filename,
-                status: file.status,
-                additions: file.additions,
-                deletions: file.deletions,
-                changes: file.changes,
-                blob_url: file.blob_url,
-                raw_url: file.raw_url,
-                contents_url: file.contents_url,
-                ...(file.patch !== undefined && { patch: truncatePatch(file.patch) }),
-                ...(file.previous_filename !== undefined && { previous_filename: file.previous_filename })
-            })),
-            ...(files.length === perPage && { next_cursor: String(page + 1) })
+            items: parsedItems,
+            ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
 });

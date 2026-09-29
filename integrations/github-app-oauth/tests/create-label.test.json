@@ -1,0 +1,77 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "name": "nango-dryrun-label-202609251401",
+    "color": "ff0000",
+    "description": "Test label created by Nango dryrun"
+  },
+  "output": {
+    "id": 12368388048,
+    "node_id": "LA_kwDOT1NNv88AAAAC4Taf0A",
+    "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251401",
+    "name": "nango-dryrun-label-202609251401",
+    "description": "Test label created by Nango dryrun",
+    "color": "ff0000",
+    "default": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/nango-provisioned-apps/nango/labels": {
+        "response": {
+          "id": 12368388048,
+          "node_id": "LA_kwDOT1NNv88AAAAC4Taf0A",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251401",
+          "name": "nango-dryrun-label-202609251401",
+          "color": "ff0000",
+          "default": false,
+          "description": "Test label created by Nango dryrun",
+          "archived_at": null,
+          "archived_by": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 25 Sep 2026 13:34:07 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "324",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4970",
+          "x-ratelimit-reset": "1790346775",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "\"50077ae0c28c3bf1e674a33f9a96d5cd3eeaeedb9d7683454979269923596fe6\"",
+          "location": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251401",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "issues=write; pull_requests=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "30",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "9FED:3DB250:2D6CD:2F721:6AB6784D",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "357fa5b38dbc9d3e3d358a6129db2cfec225d7f8",
+        "request": {
+          "data": {
+            "name": "nango-dryrun-label-202609251401",
+            "color": "ff0000",
+            "description": "Test label created by Nango dryrun"
+          }
+        }
+      }
+    }
+  }
+}
