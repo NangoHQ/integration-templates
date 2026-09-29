@@ -10,7 +10,7 @@ const InputSchema = z
         task: z.string().optional().describe('Deployment task to filter by. Default: "deploy".'),
         environment: z.string().optional().describe('Name of the environment to filter by.'),
         per_page: z.number().int().min(1).max(100).optional().describe('Number of results per page. Max: 100.'),
-        page: z.number().optional().describe('Page number of the results to fetch.')
+        page: z.number().int().min(1).optional().describe('Page number of the results to fetch.')
     })
     .describe('Input parameters for listing repository deployments.');
 
@@ -58,7 +58,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List deployments for a repository',
-    version: '1.0.4',
+    version: '1.0.5',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['deployments:read'],

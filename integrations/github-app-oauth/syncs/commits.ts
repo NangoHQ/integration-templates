@@ -92,7 +92,7 @@ const ProviderRepoSchema = z.object({
 
 const sync = createSync({
     description: "Sync commits on a repository's default branch (or a specified branch).",
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -283,6 +283,16 @@ const sync = createSync({
 
                 if (commits.length > 0) {
                     await nango.batchSave(commits, 'Commit');
+
+                    // Migration cleanup: connections that already synced under the pre-repo-scoped id
+                    // (bare commit SHA) would otherwise keep that old record forever alongside the new
+                    // one, since a normal incremental run doesn't do full delete-tracking. Deleting a
+                    // record that was never saved under the old id is a no-op, so this is safe to run
+                    // unconditionally on every save until every existing connection has migrated.
+                    await nango.batchDelete(
+                        commits.map((c) => ({ id: c.sha })),
+                        'Commit'
+                    );
 
                     const firstCommit = commits[0];
                     if (firstCommit?.committer_date && (newestCommitDate === undefined || firstCommit.committer_date > newestCommitDate)) {

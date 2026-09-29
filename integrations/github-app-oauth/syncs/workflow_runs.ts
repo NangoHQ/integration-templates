@@ -12,6 +12,12 @@ const LegacyCheckpointSchema = z.object({
     created_after: z.string().describe('The single global ISO 8601 created_at watermark used by the pre-migration version of this sync.')
 });
 
+const HttpErrorSchema = z.object({
+    response: z.object({
+        status: z.number()
+    })
+});
+
 const WorkflowRunSchema = z
     .object({
         id: z.string().describe('The unique identifier of the workflow run.'),
@@ -59,7 +65,7 @@ const ProviderRepositorySchema = z.object({
 
 const sync = createSync({
     description: 'Sync GitHub Actions workflow runs for a repository.',
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -136,11 +142,30 @@ const sync = createSync({
             // below only ever discovers newly-created runs and would otherwise never see a queued/in_progress
             // run transition to its final status/conclusion.
             for (const runId of pendingRunIdsByRepo[repoFullName] ?? []) {
-                // https://docs.github.com/rest/actions/workflow-runs#get-a-workflow-run
-                const runResponse = await nango.get<unknown>({
-                    endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/actions/runs/${runId}`,
-                    retries: 3
-                });
+                let runResponse;
+                // @allowTryCatch: GitHub returns 404 when a previously-pending run has since been deleted
+                // (e.g. retention cleanup); that's treated as the run reaching a terminal (removed) state
+                // instead of aborting the whole sync and repeating the same failure on every future run.
+                try {
+                    // https://docs.github.com/rest/actions/workflow-runs#get-a-workflow-run
+                    runResponse = await nango.get<unknown>({
+                        endpoint: `/repos/${encodeURIComponent(owner)}/${encodeURIComponent(name)}/actions/runs/${runId}`,
+                        retries: 3
+                    });
+                } catch (err) {
+                    const parsedError = HttpErrorSchema.safeParse(err);
+                    if (parsedError.success && parsedError.data.response.status === 404) {
+                        await nango.batchDelete([{ id: String(runId) }], 'WorkflowRun');
+                        continue;
+                    }
+                    throw err;
+                }
+
+                if (runResponse.status === 404) {
+                    // Mocked replays resolve with the recorded error response instead of throwing like the live proxy.
+                    await nango.batchDelete([{ id: String(runId) }], 'WorkflowRun');
+                    continue;
+                }
 
                 const parsedRun = ProviderWorkflowRunSchema.safeParse(runResponse.data);
                 if (!parsedRun.success) {
