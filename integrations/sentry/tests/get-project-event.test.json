@@ -1,0 +1,349 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev",
+    "project_id_or_slug": "nango-seed-project",
+    "event_id": "63be9f2fdd3f438d951b2bae4e847b51"
+  },
+  "output": {
+    "id": "63be9f2fdd3f438d951b2bae4e847b51",
+    "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+    "groupID": "7761433611",
+    "projectID": "4512170111991808",
+    "type": "error",
+    "title": "TypeError: undefined is not a function",
+    "message": "Nango seed test error: TypeError undefined is not a function",
+    "platform": "node",
+    "culprit": "handler(app.js)",
+    "location": "app.js",
+    "dist": null,
+    "size": 2049,
+    "dateCreated": "2026-09-29T14:27:47.062000Z",
+    "dateReceived": "2026-09-29T14:27:47.062201Z",
+    "previousEventID": null,
+    "nextEventID": null,
+    "crashFile": null,
+    "metadata": {
+      "filename": "app.js",
+      "function": "handler",
+      "in_app_frame_mix": "system-only",
+      "synthetic": false,
+      "type": "TypeError",
+      "value": "undefined is not a function"
+    },
+    "tags": [
+      {
+        "key": "interface_type",
+        "value": "exception"
+      },
+      {
+        "key": "level",
+        "value": "error"
+      },
+      {
+        "key": "seed",
+        "value": "nango"
+      }
+    ],
+    "errors": [],
+    "entries": [
+      {
+        "type": "message",
+        "data": {
+          "formatted": "Nango seed test error: TypeError undefined is not a function"
+        }
+      },
+      {
+        "type": "exception",
+        "data": {
+          "values": [
+            {
+              "type": "TypeError",
+              "value": "undefined is not a function",
+              "mechanism": null,
+              "threadId": null,
+              "module": null,
+              "stacktrace": {
+                "frames": [
+                  {
+                    "filename": "app.js",
+                    "absPath": "app.js",
+                    "module": null,
+                    "package": null,
+                    "platform": null,
+                    "instructionAddr": null,
+                    "symbolAddr": null,
+                    "function": "handler",
+                    "rawFunction": null,
+                    "symbol": null,
+                    "context": [],
+                    "lineNo": 42,
+                    "colNo": null,
+                    "parentIndex": null,
+                    "sampleCount": null,
+                    "inApp": false,
+                    "trust": null,
+                    "errors": null,
+                    "lock": null,
+                    "sourceLink": null,
+                    "vars": null
+                  }
+                ],
+                "framesOmitted": null,
+                "registers": null,
+                "hasSystemFrames": false
+              },
+              "rawStacktrace": null,
+              "rawValue": null,
+              "rawModule": null,
+              "rawType": null
+            }
+          ],
+          "hasSystemFrames": false,
+          "excOmitted": null
+        }
+      }
+    ],
+    "user": {
+      "id": null,
+      "email": null,
+      "username": null,
+      "ip_address": null,
+      "name": null,
+      "geo": {
+        "country_code": "CA",
+        "city": "Toronto",
+        "region": "Canada"
+      },
+      "data": null
+    },
+    "sdk": {
+      "name": "nango-seed",
+      "version": "1.0"
+    },
+    "contexts": {
+      "trace": {
+        "trace_id": "63be9f2fdd3f438d951b2bae4e847b51",
+        "span_id": "63be9f2fdd3f438d",
+        "status": "unknown",
+        "type": "trace"
+      }
+    },
+    "context": {},
+    "packages": {},
+    "fingerprints": [
+      "6c701a804c12ae1ad3aa5f8243765198"
+    ],
+    "release": null,
+    "groupingConfig": {
+      "id": "newstyle:2026-01-20",
+      "enhancements": "KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA#KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA#KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA"
+    },
+    "occurrence": null,
+    "resolvedWith": [],
+    "sdkUpdates": [],
+    "userReport": null,
+    "_meta": {
+      "entries": {},
+      "message": null,
+      "user": null,
+      "contexts": null,
+      "sdk": null,
+      "context": null,
+      "packages": null,
+      "tags": {}
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/0/projects/nangodev/nango-seed-project/events/63be9f2fdd3f438d951b2bae4e847b51/": {
+        "response": {
+          "id": "63be9f2fdd3f438d951b2bae4e847b51",
+          "groupID": "7761433611",
+          "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+          "projectID": "4512170111991808",
+          "size": 2049,
+          "entries": [
+            {
+              "data": {
+                "formatted": "Nango seed test error: TypeError undefined is not a function"
+              },
+              "type": "message"
+            },
+            {
+              "data": {
+                "values": [
+                  {
+                    "type": "TypeError",
+                    "value": "undefined is not a function",
+                    "mechanism": null,
+                    "threadId": null,
+                    "module": null,
+                    "stacktrace": {
+                      "frames": [
+                        {
+                          "filename": "app.js",
+                          "absPath": "app.js",
+                          "module": null,
+                          "package": null,
+                          "platform": null,
+                          "instructionAddr": null,
+                          "symbolAddr": null,
+                          "function": "handler",
+                          "rawFunction": null,
+                          "symbol": null,
+                          "context": [],
+                          "lineNo": 42,
+                          "colNo": null,
+                          "parentIndex": null,
+                          "sampleCount": null,
+                          "inApp": false,
+                          "trust": null,
+                          "errors": null,
+                          "lock": null,
+                          "sourceLink": null,
+                          "vars": null
+                        }
+                      ],
+                      "framesOmitted": null,
+                      "registers": null,
+                      "hasSystemFrames": false
+                    },
+                    "rawStacktrace": null,
+                    "rawValue": null,
+                    "rawModule": null,
+                    "rawType": null
+                  }
+                ],
+                "hasSystemFrames": false,
+                "excOmitted": null
+              },
+              "type": "exception"
+            }
+          ],
+          "dist": null,
+          "message": "Nango seed test error: TypeError undefined is not a function",
+          "title": "TypeError: undefined is not a function",
+          "location": "app.js",
+          "user": {
+            "id": null,
+            "email": null,
+            "username": null,
+            "ip_address": null,
+            "name": null,
+            "geo": {
+              "country_code": "CA",
+              "city": "Toronto",
+              "region": "Canada"
+            },
+            "data": null
+          },
+          "contexts": {
+            "trace": {
+              "trace_id": "63be9f2fdd3f438d951b2bae4e847b51",
+              "span_id": "63be9f2fdd3f438d",
+              "status": "unknown",
+              "type": "trace"
+            }
+          },
+          "sdk": {
+            "name": "nango-seed",
+            "version": "1.0"
+          },
+          "context": {},
+          "packages": {},
+          "type": "error",
+          "metadata": {
+            "filename": "app.js",
+            "function": "handler",
+            "in_app_frame_mix": "system-only",
+            "synthetic": false,
+            "type": "TypeError",
+            "value": "undefined is not a function"
+          },
+          "tags": [
+            {
+              "key": "interface_type",
+              "value": "exception"
+            },
+            {
+              "key": "level",
+              "value": "error"
+            },
+            {
+              "key": "seed",
+              "value": "nango"
+            }
+          ],
+          "platform": "node",
+          "dateReceived": "2026-09-29T14:27:47.062201Z",
+          "errors": [],
+          "occurrence": null,
+          "_meta": {
+            "entries": {},
+            "message": null,
+            "user": null,
+            "contexts": null,
+            "sdk": null,
+            "context": null,
+            "packages": null,
+            "tags": {}
+          },
+          "crashFile": null,
+          "culprit": "handler(app.js)",
+          "dateCreated": "2026-09-29T14:27:47.062000Z",
+          "fingerprints": [
+            "6c701a804c12ae1ad3aa5f8243765198"
+          ],
+          "groupingConfig": {
+            "enhancements": "KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA#KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA#KLUv_SAd6QAAkwORuGFsbC1wbGF0Zm9ybXM6MjAyNi0wMS0yMJA",
+            "id": "newstyle:2026-01-20"
+          },
+          "release": null,
+          "userReport": null,
+          "sdkUpdates": [],
+          "resolvedWith": [],
+          "nextEventID": null,
+          "previousEventID": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:10:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1899",
+          "x-ratelimit-reset": "1790694671",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "4",
+          "x-sentry-rate-limit-limit": "5",
+          "x-sentry-rate-limit-reset": "1790694651",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; worker-src 'self' blob:; media-src *; object-src 'none'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; base-uri 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; default-src 'none'; font-src * data:; style-src * 'unsafe-inline'; img-src * blob: data:; frame-ancestors 'self' *.sentry.io; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "291",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "254df728c2675999e86458c1b12da58e11b99886",
+        "request": {}
+      }
+    }
+  }
+}

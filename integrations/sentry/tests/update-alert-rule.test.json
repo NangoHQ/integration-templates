@@ -1,0 +1,99 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev",
+    "workflow_id": "6085959",
+    "name": "Nango Seed Alert",
+    "enabled": false
+  },
+  "output": {
+    "id": "6085959",
+    "name": "Nango Seed Alert",
+    "organizationId": "4512170041409536",
+    "enabled": false,
+    "dateCreated": "2026-09-29T14:35:10.632282Z",
+    "dateUpdated": "2026-09-29T15:11:03.157124Z",
+    "config": {},
+    "createdBy": "5026258",
+    "detectorIds": [],
+    "triggers": {
+      "id": "14688629",
+      "organizationId": "4512170041409536",
+      "logicType": "any",
+      "conditions": [],
+      "actions": []
+    },
+    "actionFilters": []
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/0/organizations/nangodev/workflows/6085959/": {
+        "response": {
+          "id": "6085959",
+          "name": "Nango Seed Alert",
+          "organizationId": "4512170041409536",
+          "createdBy": "5026258",
+          "dateCreated": "2026-09-29T14:35:10.632282Z",
+          "dateUpdated": "2026-09-29T15:11:03.157124Z",
+          "triggers": {
+            "id": "14688629",
+            "organizationId": "4512170041409536",
+            "logicType": "any",
+            "conditions": [],
+            "actions": []
+          },
+          "actionFilters": [],
+          "environment": null,
+          "config": {},
+          "detectorIds": [],
+          "enabled": false,
+          "lastTriggered": null,
+          "owner": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:11:03 GMT",
+          "content-type": "application/json",
+          "content-length": "417",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1867",
+          "x-ratelimit-reset": "1790694671",
+          "server": "nginx",
+          "allow": "GET, PUT, DELETE, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694664",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; media-src *; object-src 'none'; frame-ancestors 'self' *.sentry.io; font-src * data:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; default-src 'none'; style-src * 'unsafe-inline'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; base-uri 'none'; img-src * blob: data:; worker-src 'self' blob:; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "145",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"1a1-sEWmq8LW542Ldg4kArmOO8N9SWY\""
+        },
+        "hash": "a155a6659fddc935379a513b6b8fe2644e178852",
+        "request": {
+          "data": {
+            "name": "Nango Seed Alert",
+            "enabled": false
+          }
+        }
+      }
+    }
+  }
+}
