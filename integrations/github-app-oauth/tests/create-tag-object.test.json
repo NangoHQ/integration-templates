@@ -1,0 +1,104 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "tag": "nango-registry-test-tag-object",
+    "message": "Nango registry test tag object",
+    "object": "98a410652e9368009da6a54483b58f793c1aecbb",
+    "type": "commit"
+  },
+  "output": {
+    "node_id": "TA_kwDOT1NNv9oAKDY0N2VjOWM1OGMzM2M0Y2YzOTBkNmIyNjA4ODlmMjYyMTE3ZmNkY2Q",
+    "tag": "nango-registry-test-tag-object",
+    "sha": "647ec9c58c33c4cf390d6b260889f262117fcdcd",
+    "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/tags/647ec9c58c33c4cf390d6b260889f262117fcdcd",
+    "message": "Nango registry test tag object",
+    "tagger": {
+      "name": "nango-oauth-app[bot]",
+      "email": "318402831+nango-oauth-app[bot]@users.noreply.github.com",
+      "date": "2026-09-28T16:21:56Z"
+    },
+    "object": {
+      "type": "commit",
+      "sha": "98a410652e9368009da6a54483b58f793c1aecbb",
+      "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/98a410652e9368009da6a54483b58f793c1aecbb"
+    },
+    "verification": {
+      "verified": false,
+      "reason": "unsigned"
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/nango-provisioned-apps/nango/git/tags": {
+        "response": {
+          "node_id": "TA_kwDOT1NNv9oAKDY0N2VjOWM1OGMzM2M0Y2YzOTBkNmIyNjA4ODlmMjYyMTE3ZmNkY2Q",
+          "sha": "647ec9c58c33c4cf390d6b260889f262117fcdcd",
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/tags/647ec9c58c33c4cf390d6b260889f262117fcdcd",
+          "tagger": {
+            "name": "nango-oauth-app[bot]",
+            "email": "318402831+nango-oauth-app[bot]@users.noreply.github.com",
+            "date": "2026-09-28T16:21:56Z"
+          },
+          "object": {
+            "sha": "98a410652e9368009da6a54483b58f793c1aecbb",
+            "type": "commit",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/git/commits/98a410652e9368009da6a54483b58f793c1aecbb"
+          },
+          "tag": "nango-registry-test-tag-object",
+          "message": "Nango registry test tag object",
+          "verification": {
+            "verified": false,
+            "reason": "unsigned",
+            "signature": null,
+            "payload": null,
+            "verified_at": null
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Mon, 28 Sep 2026 16:21:56 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "768",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4945",
+          "x-ratelimit-reset": "1790615002",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "\"29f17b085fd9c69a49f793b7c0758f8eb7ba9583b6606f742477e41ae17364d0\"",
+          "location": "https://api.github.com/repos/nango-provisioned-apps/nango/git/tags/647ec9c58c33c4cf390d6b260889f262117fcdcd",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "contents=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "55",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "06E5:25E7BD:9BAD3B:A14E02:6ABA9410",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "0f4dc6d8b44adf8298f1f4f636b6dc5d2f7e8609",
+        "request": {
+          "data": {
+            "tag": "nango-registry-test-tag-object",
+            "message": "Nango registry test tag object",
+            "object": "98a410652e9368009da6a54483b58f793c1aecbb",
+            "type": "commit"
+          }
+        }
+      }
+    }
+  }
+}

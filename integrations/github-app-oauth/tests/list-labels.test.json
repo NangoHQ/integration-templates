@@ -1,0 +1,277 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango"
+  },
+  "output": {
+    "labels": [
+      {
+        "id": 11800879185,
+        "node_id": "LA_kwDOT1NNv88AAAACv2MgUQ",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/bug",
+        "name": "bug",
+        "description": "Something isn't working",
+        "color": "d73a4a",
+        "default": true
+      },
+      {
+        "id": 11800879196,
+        "node_id": "LA_kwDOT1NNv88AAAACv2MgXA",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/documentation",
+        "name": "documentation",
+        "description": "Improvements or additions to documentation",
+        "color": "0075ca",
+        "default": true
+      },
+      {
+        "id": 11800879206,
+        "node_id": "LA_kwDOT1NNv88AAAACv2MgZg",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/duplicate",
+        "name": "duplicate",
+        "description": "This issue or pull request already exists",
+        "color": "cfd3d7",
+        "default": true
+      },
+      {
+        "id": 11800879215,
+        "node_id": "LA_kwDOT1NNv88AAAACv2Mgbw",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/enhancement",
+        "name": "enhancement",
+        "description": "New feature or request",
+        "color": "a2eeef",
+        "default": true
+      },
+      {
+        "id": 11800879228,
+        "node_id": "LA_kwDOT1NNv88AAAACv2MgfA",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/good%20first%20issue",
+        "name": "good first issue",
+        "description": "Good for newcomers",
+        "color": "7057ff",
+        "default": true
+      },
+      {
+        "id": 11800879222,
+        "node_id": "LA_kwDOT1NNv88AAAACv2Mgdg",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/help%20wanted",
+        "name": "help wanted",
+        "description": "Extra attention is needed",
+        "color": "008672",
+        "default": true
+      },
+      {
+        "id": 11800879236,
+        "node_id": "LA_kwDOT1NNv88AAAACv2MghA",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/invalid",
+        "name": "invalid",
+        "description": "This doesn't seem right",
+        "color": "e4e669",
+        "default": true
+      },
+      {
+        "id": 12368382645,
+        "node_id": "LA_kwDOT1NNv88AAAAC4TaKtQ",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251400",
+        "name": "nango-dryrun-label-202609251400",
+        "description": "Test label created by Nango dryrun",
+        "color": "ff0000",
+        "default": false
+      },
+      {
+        "id": 12368388048,
+        "node_id": "LA_kwDOT1NNv88AAAAC4Taf0A",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251401",
+        "name": "nango-dryrun-label-202609251401",
+        "description": "Test label created by Nango dryrun",
+        "color": "ff0000",
+        "default": false
+      },
+      {
+        "id": 11800879246,
+        "node_id": "LA_kwDOT1NNv88AAAACv2Mgjg",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/question",
+        "name": "question",
+        "description": "Further information is requested",
+        "color": "d876e3",
+        "default": true
+      },
+      {
+        "id": 11800879254,
+        "node_id": "LA_kwDOT1NNv88AAAACv2Mglg",
+        "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/wontfix",
+        "name": "wontfix",
+        "description": "This will not be worked on",
+        "color": "ffffff",
+        "default": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/nango-provisioned-apps/nango/labels": {
+        "response": [
+          {
+            "id": 11800879185,
+            "node_id": "LA_kwDOT1NNv88AAAACv2MgUQ",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/bug",
+            "name": "bug",
+            "color": "d73a4a",
+            "default": true,
+            "description": "Something isn't working",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879196,
+            "node_id": "LA_kwDOT1NNv88AAAACv2MgXA",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/documentation",
+            "name": "documentation",
+            "color": "0075ca",
+            "default": true,
+            "description": "Improvements or additions to documentation",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879206,
+            "node_id": "LA_kwDOT1NNv88AAAACv2MgZg",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/duplicate",
+            "name": "duplicate",
+            "color": "cfd3d7",
+            "default": true,
+            "description": "This issue or pull request already exists",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879215,
+            "node_id": "LA_kwDOT1NNv88AAAACv2Mgbw",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/enhancement",
+            "name": "enhancement",
+            "color": "a2eeef",
+            "default": true,
+            "description": "New feature or request",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879228,
+            "node_id": "LA_kwDOT1NNv88AAAACv2MgfA",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/good%20first%20issue",
+            "name": "good first issue",
+            "color": "7057ff",
+            "default": true,
+            "description": "Good for newcomers",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879222,
+            "node_id": "LA_kwDOT1NNv88AAAACv2Mgdg",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/help%20wanted",
+            "name": "help wanted",
+            "color": "008672",
+            "default": true,
+            "description": "Extra attention is needed",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879236,
+            "node_id": "LA_kwDOT1NNv88AAAACv2MghA",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/invalid",
+            "name": "invalid",
+            "color": "e4e669",
+            "default": true,
+            "description": "This doesn't seem right",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12368382645,
+            "node_id": "LA_kwDOT1NNv88AAAAC4TaKtQ",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251400",
+            "name": "nango-dryrun-label-202609251400",
+            "color": "ff0000",
+            "default": false,
+            "description": "Test label created by Nango dryrun",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 12368388048,
+            "node_id": "LA_kwDOT1NNv88AAAAC4Taf0A",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/nango-dryrun-label-202609251401",
+            "name": "nango-dryrun-label-202609251401",
+            "color": "ff0000",
+            "default": false,
+            "description": "Test label created by Nango dryrun",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879246,
+            "node_id": "LA_kwDOT1NNv88AAAACv2Mgjg",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/question",
+            "name": "question",
+            "color": "d876e3",
+            "default": true,
+            "description": "Further information is requested",
+            "archived_at": null,
+            "archived_by": null
+          },
+          {
+            "id": 11800879254,
+            "node_id": "LA_kwDOT1NNv88AAAACv2Mglg",
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/labels/wontfix",
+            "name": "wontfix",
+            "color": "ffffff",
+            "default": true,
+            "description": "This will not be worked on",
+            "archived_at": null,
+            "archived_by": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 25 Sep 2026 13:36:04 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4889",
+          "x-ratelimit-reset": "1790346775",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "W/\"39da0f5c13dd48cb6e30b8105834277a7c234601ac600217ffa63a239c013109\"",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "issues=read; pull_requests=read",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "111",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "DDED:39D46:88E8:B98B:6AB678C3",
+          "x-github-edge-region": "westus2"
+        },
+        "hash": "114864afd52a80da6bed5bbadfaf8840cce8c69a",
+        "request": {
+          "params": {
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

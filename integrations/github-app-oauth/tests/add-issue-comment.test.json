@@ -1,0 +1,166 @@
+{
+  "input": {
+    "owner": "nango-provisioned-apps",
+    "repo": "nango",
+    "issue_number": 1,
+    "body": "Test comment from add-issue-comment action dryrun v2"
+  },
+  "output": {
+    "id": 5833306694,
+    "node_id": "IC_kwDOT1NNv88AAAABW7EyRg",
+    "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#issuecomment-5833306694",
+    "body": "Test comment from add-issue-comment action dryrun v2",
+    "user": {
+      "login": "nango-oauth-app[bot]",
+      "id": 318402831,
+      "node_id": "BOT_kgDOEvpxDw",
+      "avatar_url": "https://avatars.githubusercontent.com/in/4640518?v=4",
+      "html_url": "https://github.com/apps/nango-oauth-app",
+      "type": "Bot"
+    },
+    "created_at": "2026-09-25T13:35:43Z",
+    "updated_at": "2026-09-25T13:35:43Z",
+    "issue_url": "https://api.github.com/repos/nango-provisioned-apps/nango/issues/1"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/repos/nango-provisioned-apps/nango/issues/1/comments": {
+        "response": {
+          "url": "https://api.github.com/repos/nango-provisioned-apps/nango/issues/comments/5833306694",
+          "html_url": "https://github.com/nango-provisioned-apps/nango/pull/1#issuecomment-5833306694",
+          "issue_url": "https://api.github.com/repos/nango-provisioned-apps/nango/issues/1",
+          "id": 5833306694,
+          "node_id": "IC_kwDOT1NNv88AAAABW7EyRg",
+          "user": {
+            "login": "nango-oauth-app[bot]",
+            "id": 318402831,
+            "node_id": "BOT_kgDOEvpxDw",
+            "avatar_url": "https://avatars.githubusercontent.com/in/4640518?v=4",
+            "gravatar_id": "",
+            "url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D",
+            "html_url": "https://github.com/apps/nango-oauth-app",
+            "followers_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/followers",
+            "following_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/following{/other_user}",
+            "gists_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/gists{/gist_id}",
+            "starred_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/starred{/owner}{/repo}",
+            "subscriptions_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/subscriptions",
+            "organizations_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/orgs",
+            "repos_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/repos",
+            "events_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/events{/privacy}",
+            "received_events_url": "https://api.github.com/users/nango-oauth-app%5Bbot%5D/received_events",
+            "type": "Bot",
+            "user_view_type": "public",
+            "site_admin": false
+          },
+          "created_at": "2026-09-25T13:35:43Z",
+          "updated_at": "2026-09-25T13:35:43Z",
+          "author_association": "NONE",
+          "body": "Test comment from add-issue-comment action dryrun v2",
+          "reactions": {
+            "url": "https://api.github.com/repos/nango-provisioned-apps/nango/issues/comments/5833306694/reactions",
+            "total_count": 0,
+            "+1": 0,
+            "-1": 0,
+            "laugh": 0,
+            "hooray": 0,
+            "confused": 0,
+            "heart": 0,
+            "rocket": 0,
+            "eyes": 0
+          },
+          "performed_via_github_app": {
+            "id": 4640518,
+            "slug": "nango-oauth-app",
+            "node_id": "A_kwDODY4gS84ARs8G",
+            "owner": {
+              "login": "nango-provisioned-apps",
+              "id": 227418187,
+              "node_id": "U_kgDODY4gSw",
+              "avatar_url": "https://avatars.githubusercontent.com/u/227418187?v=4",
+              "gravatar_id": "",
+              "url": "https://api.github.com/users/nango-provisioned-apps",
+              "html_url": "https://github.com/nango-provisioned-apps",
+              "followers_url": "https://api.github.com/users/nango-provisioned-apps/followers",
+              "following_url": "https://api.github.com/users/nango-provisioned-apps/following{/other_user}",
+              "gists_url": "https://api.github.com/users/nango-provisioned-apps/gists{/gist_id}",
+              "starred_url": "https://api.github.com/users/nango-provisioned-apps/starred{/owner}{/repo}",
+              "subscriptions_url": "https://api.github.com/users/nango-provisioned-apps/subscriptions",
+              "organizations_url": "https://api.github.com/users/nango-provisioned-apps/orgs",
+              "repos_url": "https://api.github.com/users/nango-provisioned-apps/repos",
+              "events_url": "https://api.github.com/users/nango-provisioned-apps/events{/privacy}",
+              "received_events_url": "https://api.github.com/users/nango-provisioned-apps/received_events",
+              "type": "User",
+              "user_view_type": "public",
+              "site_admin": false
+            },
+            "name": "Nango Oauth App",
+            "description": "",
+            "external_url": "https://nango.dev",
+            "html_url": "https://github.com/apps/nango-oauth-app",
+            "created_at": "2026-08-18T21:36:55Z",
+            "updated_at": "2026-08-18T21:54:35Z",
+            "permissions": {
+              "administration": "read",
+              "contents": "read",
+              "issues": "write",
+              "metadata": "read",
+              "organization_events": "read",
+              "organization_projects": "read",
+              "pull_requests": "write",
+              "statuses": "write",
+              "workflows": "write"
+            },
+            "events": [
+              "issues",
+              "pull_request",
+              "push",
+              "repository"
+            ]
+          },
+          "minimized": null,
+          "pin": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 25 Sep 2026 13:35:44 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3516",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "origin-when-cross-origin, strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubdomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "5000",
+          "x-ratelimit-remaining": "4905",
+          "x-ratelimit-reset": "1790346775",
+          "cache-control": "private, max-age=60, s-maxage=60",
+          "vary": "Accept, Authorization, Cookie, X-GitHub-OTP,Accept-Encoding, Accept, X-Requested-With",
+          "etag": "\"bda698a638fc6a31c81a41b4984029f9307aa98da37eeaefeeafbcfd11abb76f\"",
+          "location": "https://api.github.com/repos/nango-provisioned-apps/nango/issues/comments/5833306694",
+          "x-github-media-type": "github.v3",
+          "x-accepted-github-permissions": "issues=write; pull_requests=write",
+          "x-github-api-version-selected": "2022-11-28",
+          "content-security-policy": "default-src 'none'",
+          "server": "github.com",
+          "x-ratelimit-used": "95",
+          "x-ratelimit-resource": "core",
+          "x-github-request-id": "2E47:161F:323A938:3412D3B:6AB678A7",
+          "x-github-edge-region": "sea"
+        },
+        "hash": "6fb90420187a8dc8310f1f25530ceec876d50e4a",
+        "request": {
+          "data": {
+            "body": "Test comment from add-issue-comment action dryrun v2"
+          }
+        }
+      }
+    }
+  }
+}
