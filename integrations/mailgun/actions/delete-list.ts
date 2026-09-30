@@ -34,8 +34,9 @@ const action = createAction({
         // https://documentation.mailgun.com/docs/mailgun (DELETE /v3/lists/{list_address})
         const response = await nango.delete({
             endpoint: `/v3/lists/${encodeURIComponent(input.list_address)}`,
-            // retries: 0 because a retry after a lost-but-successful delete would 404 and mask the original success.
-            retries: 10
+            // Not idempotent: retrying after a lost-but-successful delete would 404 and mask the original success.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const deleted = DeleteListResponseSchema.parse(response.data);

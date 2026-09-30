@@ -13,7 +13,7 @@ const MemberVarsSchema = z.record(z.string(), z.unknown());
 
 const MemberSchema = z.object({
     address: z.string(),
-    name: z.string().optional(),
+    name: z.string().nullable().optional(),
     subscribed: z.boolean().optional(),
     vars: MemberVarsSchema.optional()
 });
@@ -54,7 +54,7 @@ const action = createAction({
 
         return {
             address: member.address,
-            ...(member.name !== undefined && { name: member.name }),
+            ...(member.name != null && member.name !== '' && { name: member.name }),
             ...(member.subscribed !== undefined && { subscribed: member.subscribed }),
             ...(member.vars !== undefined && { vars: member.vars })
         };

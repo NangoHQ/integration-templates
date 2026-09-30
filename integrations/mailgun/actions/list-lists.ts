@@ -70,10 +70,26 @@ const ProviderResponseSchema = z.object({
         .optional()
 });
 
+const SingleListResponseSchema = z.object({
+    list: ProviderListSchema
+});
+
+function toOutputList(list: z.infer<typeof ProviderListSchema>): z.infer<typeof MailingListSchema> {
+    return {
+        address: list.address,
+        ...(list.name !== undefined && { name: list.name }),
+        ...(list.description !== undefined && { description: list.description }),
+        ...(list.access_level !== undefined && { access_level: list.access_level }),
+        ...(list.reply_preference != null && { reply_preference: list.reply_preference }),
+        ...(list.members_count !== undefined && { members_count: list.members_count }),
+        ...(list.created_at !== undefined && { created_at: list.created_at })
+    };
+}
+
 /**
  * @tags: [read]
  * @tagReason: Performs a single provider GET to list mailing lists and never mutates provider state.
- * @pitfalls: The provider can return an empty page while still providing a `next_cursor`, so stop paging when `items` is empty rather than when the cursor disappears. Lists show access_level "readonly" unless it was explicitly set otherwise at creation time, since that is the provider default.
+ * @pitfalls: The provider can return an empty page while still providing a `next_cursor`, so stop paging when `items` is empty rather than when the cursor disappears. Lists show access_level "readonly" unless it was explicitly set otherwise at creation time, since that is the provider default. `address` is resolved through the provider's single-list endpoint, not the paginated one (the provider only accepts `address` there as a pagination pivot, not a filter), so a nonexistent address fails with a 404 error instead of returning an empty page.
  */
 const action = createAction({
     description: 'List mailing lists on the account.',
@@ -82,6 +98,18 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.cursor === undefined && input.address !== undefined) {
+            const config: ProxyConfiguration = {
+                // https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Mailing-Lists/ (GET /v3/lists/{address})
+                endpoint: `/v3/lists/${encodeURIComponent(input.address)}`,
+                retries: 3
+            };
+            const response = await nango.get(config);
+            const providerResponse = SingleListResponseSchema.parse(response.data);
+
+            return { items: [toOutputList(providerResponse.list)] };
+        }
+
         const params: Record<string, string> = {};
 
         if (input.cursor !== undefined) {
@@ -98,8 +126,6 @@ const action = createAction({
             parsed.searchParams.forEach((value, key) => {
                 params[key] = value;
             });
-        } else if (input.address !== undefined) {
-            params['address'] = input.address;
         }
 
         if (input.limit !== undefined) {
@@ -120,15 +146,7 @@ const action = createAction({
         const nextCursor = next !== undefined && next !== '' ? next : undefined;
 
         return {
-            items: providerResponse.items.map((list) => ({
-                address: list.address,
-                ...(list.name !== undefined && { name: list.name }),
-                ...(list.description !== undefined && { description: list.description }),
-                ...(list.access_level !== undefined && { access_level: list.access_level }),
-                ...(list.reply_preference != null && { reply_preference: list.reply_preference }),
-                ...(list.members_count !== undefined && { members_count: list.members_count }),
-                ...(list.created_at !== undefined && { created_at: list.created_at })
-            })),
+            items: providerResponse.items.map(toOutputList),
             ...(nextCursor !== undefined && { next_cursor: nextCursor })
         };
     }
