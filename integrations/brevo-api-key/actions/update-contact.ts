@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        identifier: z.string().describe('Email address or numeric ID of the contact to update. Example: "user@example.com" or "42".'),
+        identifier: z.string().min(1).describe('Email address or numeric ID of the contact to update. Example: "user@example.com" or "42".'),
         attributes: z
             .record(z.string(), z.unknown())
             .optional()

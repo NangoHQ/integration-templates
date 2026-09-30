@@ -89,7 +89,7 @@ const OutputSchema = z
         createdAt: z.string().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
         modifiedAt: z.string().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
         listIds: z.array(z.number()).describe('IDs of the lists the contact belongs to.'),
-        listUnsubscribed: z.array(z.number()).optional().describe('IDs of the lists the contact has unsubscribed from.'),
+        listUnsubscribed: z.array(z.number()).nullable().optional().describe('IDs of the lists the contact has unsubscribed from.'),
         attributes: z.record(z.string(), z.unknown()).describe('Set of attributes of the contact, keyed by attribute name.'),
         subscriptions: z
             .record(z.string(), z.unknown())

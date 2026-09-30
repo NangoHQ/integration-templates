@@ -4,7 +4,7 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        email: z.string().describe('Email address of the contact to create. Example: "jane.doe@example.com"'),
+        email: z.string().email().describe('Email address of the contact to create. Example: "jane.doe@example.com"'),
         attributes: z
             .record(z.string(), z.unknown())
             .optional()

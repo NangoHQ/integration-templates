@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        identifier: z.string().describe('Email address or numeric ID of the contact to delete. Examples: "jane.doe@example.com" or "42".')
+        identifier: z.string().min(1).describe('Email address or numeric ID of the contact to delete. Examples: "jane.doe@example.com" or "42".')
     })
     .describe('Input for deleting a Brevo contact.');
 
