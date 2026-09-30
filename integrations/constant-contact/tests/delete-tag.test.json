@@ -1,0 +1,61 @@
+{
+  "input": {
+    "tag_id": "2ebb3132-bc35-11f1-9faa-02420a320002"
+  },
+  "output": {
+    "activity_id": "338e389e-bc35-11f1-bccd-02420a320002",
+    "state": "initialized"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/v3/contact_tags/2ebb3132-bc35-11f1-9faa-02420a320002": {
+        "response": {
+          "activity_id": "338e389e-bc35-11f1-bccd-02420a320002",
+          "state": "initialized",
+          "created_at": "2026-09-29T18:40:10Z",
+          "updated_at": "2026-09-29T18:40:10Z",
+          "percent_done": 1,
+          "activity_errors": [],
+          "status": {},
+          "_links": {
+            "self": {
+              "href": "/contacts-service/v3/accounts/1142349074886/activities/338e389e-bc35-11f1-bccd-02420a320002"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:40:11 GMT",
+          "content-type": "application/json",
+          "content-length": "319",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1908",
+          "x-ratelimit-reset": "1790707227",
+          "x-amzn-trace-id": "Root=1-6abc060a-327880d21f721c2701ec022d;Parent=3c5e8be1ba4dfcb9;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "91d3fb22-f907-46b6-9a5d-00ff3bca2bdb",
+          "x-amz-apigw-id": "EeXhvELnoAMEVUg=",
+          "x-eig-tracking-id": "d98052d9-b6d0-48ff-90e3-cab570d97799",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 eb0793aa61a19aaf4bd31bd6f3628f9a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "hM74vuclreuXIbk_Zb-4WTqFhzu_Mhc_-aLmZeCZKvBuDwwqxbdIHg==",
+          "etag": "W/\"13f-dRd0QQQnCqMthnbV/w9t0vwqK5c\""
+        },
+        "hash": "a60b451b962368b0ea8a510540ef845bb41f726d",
+        "request": {}
+      }
+    }
+  }
+}

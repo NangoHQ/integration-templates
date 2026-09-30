@@ -1,0 +1,76 @@
+{
+  "input": {
+    "activity_id": "9390ec42-bc34-11f1-94f6-02420a320002"
+  },
+  "output": {
+    "activity_id": "9390ec42-bc34-11f1-94f6-02420a320002",
+    "state": "completed",
+    "percent_done": 100,
+    "status": {
+      "items_total_count": 1,
+      "items_completed_count": 1
+    },
+    "activity_errors": [],
+    "created_at": "2026-09-29T18:35:42Z",
+    "started_at": "2026-09-29T18:35:42Z",
+    "updated_at": "2026-09-29T18:35:42Z",
+    "completed_at": "2026-09-29T18:35:42Z"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/activities/9390ec42-bc34-11f1-94f6-02420a320002": {
+        "response": {
+          "activity_id": "9390ec42-bc34-11f1-94f6-02420a320002",
+          "state": "completed",
+          "started_at": "2026-09-29T18:35:42Z",
+          "completed_at": "2026-09-29T18:35:42Z",
+          "created_at": "2026-09-29T18:35:42Z",
+          "updated_at": "2026-09-29T18:35:42Z",
+          "percent_done": 100,
+          "activity_errors": [],
+          "status": {
+            "items_total_count": 1,
+            "items_completed_count": 1
+          },
+          "_links": {
+            "self": {
+              "href": "/v3/activities/9390ec42-bc34-11f1-94f6-02420a320002"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:37:43 GMT",
+          "content-type": "application/json",
+          "content-length": "400",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1922",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc0577-2e0658011ce6791b365743b7;Parent=772bb06ef70e4aa2;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "3bfd49dd-06c0-452f-aaa8-f68e4e1a487a",
+          "x-amz-apigw-id": "EeXKzHFVoAMEHMg=",
+          "x-eig-tracking-id": "be6bc4ea-f38b-4c17-b601-4aeffe4af26d",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 a1f8044693d3f7f5c5e4c6cb7ec5cb9c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "qzGMD-rEpn_BoQDkDJaPgowTNd_IFBtTujoc_SfuxGf-MF0d7rEzeQ==",
+          "etag": "W/\"190-kLmbvKWv/n9cS4ObmrCq0piQVbU\""
+        },
+        "hash": "4f922b2476ee8caca26525884b89f5d39da05a87",
+        "request": {}
+      }
+    }
+  }
+}

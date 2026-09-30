@@ -1,0 +1,72 @@
+{
+  "input": {
+    "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35"
+  },
+  "output": {
+    "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+    "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+    "role": "primary_email",
+    "current_status": "DRAFT",
+    "subject": "Field Notes: 3 Ways to Make Tech Work Better",
+    "preheader": "Practical tips for clearer systems, calmer workflows, and better technology decisions.",
+    "from_email": "api@nango.dev",
+    "from_name": "Nango",
+    "reply_to_email": "api@nango.dev",
+    "contact_list_ids": [],
+    "segment_ids": [],
+    "document_id": "63d5683e-546f-4c6b-872a-a38271fc81e7"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/emails/activities/2979c38c-221b-4a03-a3b2-c52310f60f35": {
+        "response": {
+          "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+          "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+          "role": "primary_email",
+          "contact_list_ids": [],
+          "segment_ids": [],
+          "current_status": "DRAFT",
+          "format_type": 4,
+          "from_email": "api@nango.dev",
+          "from_name": "Nango",
+          "reply_to_email": "api@nango.dev",
+          "subject": "Field Notes: 3 Ways to Make Tech Work Better",
+          "preheader": "Practical tips for clearer systems, calmer workflows, and better technology decisions.",
+          "document_id": "63d5683e-546f-4c6b-872a-a38271fc81e7"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:39:31 GMT",
+          "content-type": "application/json",
+          "content-length": "512",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1984",
+          "x-ratelimit-reset": "1790707227",
+          "x-amzn-trace-id": "Root=1-6abc05e3-0070e74e53dfdbb6003dad71;Parent=0e6ca0965a331a0c;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "d5088a7a-37d3-4902-8107-16b9c30e6efc",
+          "x-amz-apigw-id": "EeXbnEJ5IAMEK1A=",
+          "x-eig-tracking-id": "b30a1b51-11be-453b-b92f-3e3310de63f0",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 3bbe2b9a1067c049fd5ff2d57048d36a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "hXOL3cr2bSOJgt7HfwoTjWT9SCf_e9Y0Ies4bQrLxHuh6tUkhltL8Q==",
+          "etag": "W/\"200-81sN4wQR2sTEISBnuFZvx/VvpmI\""
+        },
+        "hash": "4f130dd9f4bbdc52e6f68cc8ac421ed7bf2b4aa1",
+        "request": {}
+      }
+    }
+  }
+}

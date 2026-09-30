@@ -1,0 +1,149 @@
+{
+  "input": {},
+  "output": {
+    "contacts": [
+      {
+        "contact_id": "4e6345f6-bc35-11f1-959b-02420a320002",
+        "email_address": {
+          "address": "nango-update-test-20260929@example.com",
+          "permission_to_send": "explicit",
+          "created_at": "2026-09-29T18:40:55Z",
+          "updated_at": "2026-09-29T18:40:55Z",
+          "opt_in_source": "Contact",
+          "opt_in_date": "2026-09-29T18:40:55Z",
+          "confirm_status": "off"
+        },
+        "first_name": "Update",
+        "last_name": "Target",
+        "create_source": "Contact",
+        "created_at": "2026-09-29T18:40:55Z",
+        "updated_at": "2026-09-29T18:40:55Z"
+      },
+      {
+        "contact_id": "3893d4de-bc35-11f1-bccd-02420a320002",
+        "email_address": {
+          "address": "nango-notes-probe@example.com",
+          "permission_to_send": "implicit",
+          "created_at": "2026-09-29T18:40:19Z",
+          "updated_at": "2026-09-29T18:40:19Z",
+          "opt_in_source": "Account",
+          "opt_in_date": "2026-09-29T18:40:19Z",
+          "confirm_status": "off"
+        },
+        "create_source": "Account",
+        "created_at": "2026-09-29T18:40:19Z",
+        "updated_at": "2026-09-29T18:40:19Z"
+      },
+      {
+        "contact_id": "c36c8dda-bc12-11f1-aa3a-02420a320002",
+        "email_address": {
+          "address": "api@nango.dev",
+          "permission_to_send": "implicit",
+          "created_at": "2026-09-29T14:33:39Z",
+          "updated_at": "2026-09-29T14:33:39Z",
+          "opt_in_source": "Account",
+          "opt_in_date": "2026-09-29T14:33:39Z",
+          "confirm_status": "off"
+        },
+        "first_name": "Nango",
+        "last_name": "Developer",
+        "create_source": "Account",
+        "update_source": "Account",
+        "created_at": "2026-09-29T14:33:39Z",
+        "updated_at": "2026-09-29T14:33:39Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/contacts": {
+        "response": {
+          "contacts": [
+            {
+              "contact_id": "4e6345f6-bc35-11f1-959b-02420a320002",
+              "email_address": {
+                "address": "nango-update-test-20260929@example.com",
+                "permission_to_send": "explicit",
+                "created_at": "2026-09-29T18:40:55Z",
+                "updated_at": "2026-09-29T18:40:55Z",
+                "opt_in_source": "Contact",
+                "opt_in_date": "2026-09-29T18:40:55Z",
+                "confirm_status": "off"
+              },
+              "first_name": "Update",
+              "last_name": "Target",
+              "create_source": "Contact",
+              "created_at": "2026-09-29T18:40:55Z",
+              "updated_at": "2026-09-29T18:40:55Z"
+            },
+            {
+              "contact_id": "3893d4de-bc35-11f1-bccd-02420a320002",
+              "email_address": {
+                "address": "nango-notes-probe@example.com",
+                "permission_to_send": "implicit",
+                "created_at": "2026-09-29T18:40:19Z",
+                "updated_at": "2026-09-29T18:40:19Z",
+                "opt_in_source": "Account",
+                "opt_in_date": "2026-09-29T18:40:19Z",
+                "confirm_status": "off"
+              },
+              "create_source": "Account",
+              "created_at": "2026-09-29T18:40:19Z",
+              "updated_at": "2026-09-29T18:40:19Z"
+            },
+            {
+              "contact_id": "c36c8dda-bc12-11f1-aa3a-02420a320002",
+              "email_address": {
+                "address": "api@nango.dev",
+                "permission_to_send": "implicit",
+                "created_at": "2026-09-29T14:33:39Z",
+                "updated_at": "2026-09-29T14:33:39Z",
+                "opt_in_source": "Account",
+                "opt_in_date": "2026-09-29T14:33:39Z",
+                "confirm_status": "off"
+              },
+              "first_name": "Nango",
+              "last_name": "Developer",
+              "update_source": "Account",
+              "create_source": "Account",
+              "created_at": "2026-09-29T14:33:39Z",
+              "updated_at": "2026-09-29T14:33:39Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:40:56 GMT",
+          "content-type": "application/json",
+          "content-length": "1327",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1970",
+          "x-ratelimit-reset": "1790707287",
+          "x-amzn-trace-id": "Root=1-6abc0638-29ec08293256328b4ebb97ca;Parent=2e7e647ee14f685b;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "40e62729-c501-484b-a7f7-47c0de8293cd",
+          "x-amz-apigw-id": "EeXo3ECVIAMEEUg=",
+          "x-eig-tracking-id": "ee0e8be2-ca84-46d7-b72b-53a5b8c92675",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 3bbe2b9a1067c049fd5ff2d57048d36a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "_tbsWZ3fi-mANfgpqQeFXxkReWb_7rIiZjVXT2B0h9h0aD-d2Xj5zQ==",
+          "etag": "W/\"52f-otGbrlLlw3T+7VNsptyOtvO+ER8\""
+        },
+        "hash": "7214d3f7b356b31ad8f051bc880ff960e24a779d",
+        "request": {}
+      }
+    }
+  }
+}
