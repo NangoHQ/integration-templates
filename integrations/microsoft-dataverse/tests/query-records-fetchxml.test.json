@@ -1,0 +1,93 @@
+{
+  "input": {
+    "entitySetName": "accounts",
+    "fetchXml": "<fetch top=\"3\"><entity name=\"account\"><attribute name=\"name\"/><attribute name=\"accountid\"/><order attribute=\"name\" descending=\"false\"/></entity></fetch>"
+  },
+  "output": {
+    "records": [
+      {
+        "@odata.etag": "W/\"7009004\"",
+        "accountid": "83883308-7ad5-ea11-a813-000d3a33f3b4",
+        "name": "A. Datum Corporation"
+      },
+      {
+        "@odata.etag": "W/\"7009020\"",
+        "accountid": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+        "name": "Alpine Ski House"
+      },
+      {
+        "@odata.etag": "W/\"7009018\"",
+        "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+        "name": "Fabrikam, Inc."
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/accounts": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#accounts(name,accountid)",
+          "value": [
+            {
+              "@odata.etag": "W/\"7009004\"",
+              "accountid": "83883308-7ad5-ea11-a813-000d3a33f3b4",
+              "name": "A. Datum Corporation"
+            },
+            {
+              "@odata.etag": "W/\"7009020\"",
+              "accountid": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+              "name": "Alpine Ski House"
+            },
+            {
+              "@odata.etag": "W/\"7009018\"",
+              "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+              "name": "Fabrikam, Inc."
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:27:10 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "445",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1969",
+          "x-ratelimit-reset": "1790702859",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "11ba9b79-229f-4ff5-a2b2-36b0db0afdbf",
+          "req_id": "11ba9b79-229f-4ff5-a2b2-36b0db0afdbf",
+          "authactivityid": "b1e21480-1e80-43f4-87a0-75a91fdf9e7a",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,184.07",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7943",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 220104102837511378126189665640179211115261157024036253119163200151248236313511740",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"1bd-ARVJ57Un9LH7VPg21eEsM2E4LXs\""
+        },
+        "hash": "4ee6b70095beb9ccef27f45ec06b50f60293e9b1",
+        "request": {
+          "params": {
+            "fetchXml": "<fetch top=\"3\"><entity name=\"account\"><attribute name=\"name\"/><attribute name=\"accountid\"/><order attribute=\"name\" descending=\"false\"/></entity></fetch>"
+          }
+        }
+      }
+    }
+  }
+}

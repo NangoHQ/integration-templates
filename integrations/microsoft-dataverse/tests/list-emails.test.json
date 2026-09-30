@@ -1,0 +1,195 @@
+{
+  "input": {
+    "select": [
+      "subject",
+      "directioncode",
+      "statuscode",
+      "statecode",
+      "sender",
+      "torecipients",
+      "createdon",
+      "modifiedon"
+    ],
+    "orderby": "createdon desc",
+    "top": 5
+  },
+  "output": {
+    "emails": [
+      {
+        "activityid": "6099b08a-2bbc-f111-aaad-7ced8d717fa5",
+        "subject": "NANGO-TEST create-email dryrun",
+        "directioncode": true,
+        "statuscode": 1,
+        "statecode": 0,
+        "sender": null,
+        "torecipients": null,
+        "createdon": "2026-09-29T17:31:03Z",
+        "modifiedon": "2026-09-29T17:31:03Z",
+        "@odata.etag": "W/\"8529972\""
+      },
+      {
+        "activityid": "66570f83-2bbc-f111-aaad-7ced8d717fa5",
+        "subject": "NANGO-TEST create-email dryrun",
+        "directioncode": true,
+        "statuscode": 1,
+        "statecode": 0,
+        "sender": null,
+        "torecipients": null,
+        "createdon": "2026-09-29T17:30:55Z",
+        "modifiedon": "2026-09-29T17:30:55Z",
+        "@odata.etag": "W/\"8529937\""
+      },
+      {
+        "activityid": "43f9a24a-99b3-f111-aaac-0022480c377a",
+        "subject": "Introduction mail",
+        "directioncode": true,
+        "statuscode": 1,
+        "statecode": 0,
+        "sender": "titandeveloper@hotmail-int.com",
+        "torecipients": "dwayne@alpineskihouse.com;",
+        "createdon": "2026-09-18T19:44:00Z",
+        "modifiedon": "2026-09-18T19:44:00Z",
+        "@odata.etag": "W/\"6616512\""
+      },
+      {
+        "activityid": "4cf9a24a-99b3-f111-aaac-0022480c377a",
+        "subject": "Introduction mail",
+        "directioncode": true,
+        "statuscode": 1,
+        "statecode": 0,
+        "sender": "titandeveloper@hotmail-int.com",
+        "torecipients": "cacilia@alpineskihouse.com;",
+        "createdon": "2026-09-18T19:44:00Z",
+        "modifiedon": "2026-09-18T19:44:00Z",
+        "@odata.etag": "W/\"6616531\""
+      },
+      {
+        "activityid": "55f9a24a-99b3-f111-aaac-0022480c377a",
+        "subject": "Introduction mail",
+        "directioncode": true,
+        "statuscode": 1,
+        "statecode": 0,
+        "sender": "titandeveloper@hotmail-int.com",
+        "torecipients": "cacilia@alpineskihouse.com;",
+        "createdon": "2026-09-18T19:44:00Z",
+        "modifiedon": "2026-09-18T19:44:00Z",
+        "@odata.etag": "W/\"6616550\""
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/emails": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#emails(subject,directioncode,statuscode,statecode,sender,torecipients,createdon,modifiedon,activityid)",
+          "value": [
+            {
+              "@odata.etag": "W/\"8529972\"",
+              "modifiedon": "2026-09-29T17:31:03Z",
+              "activityid": "6099b08a-2bbc-f111-aaad-7ced8d717fa5",
+              "statecode": 0,
+              "subject": "NANGO-TEST create-email dryrun",
+              "createdon": "2026-09-29T17:31:03Z",
+              "statuscode": 1,
+              "torecipients": null,
+              "directioncode": true,
+              "sender": null
+            },
+            {
+              "@odata.etag": "W/\"8529937\"",
+              "modifiedon": "2026-09-29T17:30:55Z",
+              "activityid": "66570f83-2bbc-f111-aaad-7ced8d717fa5",
+              "statecode": 0,
+              "subject": "NANGO-TEST create-email dryrun",
+              "createdon": "2026-09-29T17:30:55Z",
+              "statuscode": 1,
+              "torecipients": null,
+              "directioncode": true,
+              "sender": null
+            },
+            {
+              "@odata.etag": "W/\"6616512\"",
+              "modifiedon": "2026-09-18T19:44:00Z",
+              "activityid": "43f9a24a-99b3-f111-aaac-0022480c377a",
+              "statecode": 0,
+              "subject": "Introduction mail",
+              "createdon": "2026-09-18T19:44:00Z",
+              "statuscode": 1,
+              "torecipients": "dwayne@alpineskihouse.com;",
+              "directioncode": true,
+              "sender": "titandeveloper@hotmail-int.com"
+            },
+            {
+              "@odata.etag": "W/\"6616531\"",
+              "modifiedon": "2026-09-18T19:44:00Z",
+              "activityid": "4cf9a24a-99b3-f111-aaac-0022480c377a",
+              "statecode": 0,
+              "subject": "Introduction mail",
+              "createdon": "2026-09-18T19:44:00Z",
+              "statuscode": 1,
+              "torecipients": "cacilia@alpineskihouse.com;",
+              "directioncode": true,
+              "sender": "titandeveloper@hotmail-int.com"
+            },
+            {
+              "@odata.etag": "W/\"6616550\"",
+              "modifiedon": "2026-09-18T19:44:00Z",
+              "activityid": "55f9a24a-99b3-f111-aaac-0022480c377a",
+              "statecode": 0,
+              "subject": "Introduction mail",
+              "createdon": "2026-09-18T19:44:00Z",
+              "statuscode": 1,
+              "torecipients": "cacilia@alpineskihouse.com;",
+              "directioncode": true,
+              "sender": "titandeveloper@hotmail-int.com"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:31:11 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "1723",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1879",
+          "x-ratelimit-reset": "1790703101",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A5186BC60000000488796400; path=/; secure; HttpOnly, ReqClientId=608de993-2824-4165-96e9-d1f4fa9752c7; expires=Tue, 29-Sep-2076 17:31:11 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:31:11 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A5186BC60000000488796400; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "651d048a-751b-4c80-80f7-2e4988f9ada3",
+          "req_id": "651d048a-751b-4c80-80f7-2e4988f9ada3",
+          "authactivityid": "32b9098c-030d-485b-91a3-e957e66f1292",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,076.85",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7662",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 322102061281359476997419619872612919810824319640132551176913016125335232230236234105",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"6bb-u4dSgo2dTpfFZYJ7/kFITmVtR9M\""
+        },
+        "hash": "24f2f41c6591f6a2718edca847d6ccb0e09e91b6",
+        "request": {
+          "params": {
+            "$orderby": "createdon desc",
+            "$select": "subject,directioncode,statuscode,statecode,sender,torecipients,createdon,modifiedon,activityid",
+            "$top": "5"
+          }
+        }
+      }
+    }
+  }
+}

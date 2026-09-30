@@ -1,0 +1,165 @@
+{
+  "input": {
+    "top": 3
+  },
+  "output": {
+    "opportunities": [
+      {
+        "@odata.etag": "W/\"6617799\"",
+        "statuscode": 1,
+        "name": "10 Airpot XL Coffee Makers for Alpine Ski House",
+        "closeprobability": 65,
+        "estimatedclosedate": "2026-10-23",
+        "estimatedvalue": 4990,
+        "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+        "description": "Adding coffee machines to HQ",
+        "modifiedon": "2026-09-18T19:44:35Z",
+        "stepname": "1-Qualify",
+        "opportunityid": "e90a0493-e8f0-ea11-a815-000d3a1b14a2",
+        "statecode": 0,
+        "_customerid_value": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+        "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+        "createdon": "2026-09-18T19:43:18Z"
+      },
+      {
+        "@odata.etag": "W/\"6623474\"",
+        "statuscode": 1,
+        "name": "18 Airpot Coffee Makers for Northwind Traders",
+        "closeprobability": 93,
+        "estimatedclosedate": "2026-10-14",
+        "estimatedvalue": 30582,
+        "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+        "description": "Buying new machines for their current offices",
+        "modifiedon": "2026-09-18T19:47:06Z",
+        "stepname": "4-Close",
+        "opportunityid": "b052fc98-e8f0-ea11-a815-000d3a1b14a2",
+        "statecode": 0,
+        "_customerid_value": "b4cea450-cb0c-ea11-a813-000d3a1b1223",
+        "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+        "createdon": "2026-09-18T19:43:18Z"
+      },
+      {
+        "@odata.etag": "W/\"6617919\"",
+        "statuscode": 1,
+        "name": "1 Caf\u00e9 Grande Espresso Machine for Alpine Ski House",
+        "closeprobability": 70,
+        "estimatedclosedate": "2026-10-16",
+        "estimatedvalue": 14900,
+        "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+        "description": "Supply coffee machines for their new Building",
+        "modifiedon": "2026-09-18T19:44:37Z",
+        "stepname": "1-Qualify",
+        "opportunityid": "becc5dba-b1f1-ea11-a815-000d3a1b14a2",
+        "statecode": 0,
+        "_customerid_value": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+        "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+        "createdon": "2026-09-18T19:43:19Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/opportunities": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#opportunities(opportunityid,name,estimatedvalue,estimatedclosedate,statecode,statuscode,closeprobability,stepname,description,createdon,modifiedon,_customerid_value,_ownerid_value)",
+          "value": [
+            {
+              "@odata.etag": "W/\"6617799\"",
+              "statuscode": 1,
+              "name": "10 Airpot XL Coffee Makers for Alpine Ski House",
+              "closeprobability": 65,
+              "estimatedclosedate": "2026-10-23",
+              "estimatedvalue": 4990,
+              "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "description": "Adding coffee machines to HQ",
+              "modifiedon": "2026-09-18T19:44:35Z",
+              "stepname": "1-Qualify",
+              "opportunityid": "e90a0493-e8f0-ea11-a815-000d3a1b14a2",
+              "statecode": 0,
+              "_customerid_value": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "createdon": "2026-09-18T19:43:18Z"
+            },
+            {
+              "@odata.etag": "W/\"6623474\"",
+              "statuscode": 1,
+              "name": "18 Airpot Coffee Makers for Northwind Traders",
+              "closeprobability": 93,
+              "estimatedclosedate": "2026-10-14",
+              "estimatedvalue": 30582,
+              "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "description": "Buying new machines for their current offices",
+              "modifiedon": "2026-09-18T19:47:06Z",
+              "stepname": "4-Close",
+              "opportunityid": "b052fc98-e8f0-ea11-a815-000d3a1b14a2",
+              "statecode": 0,
+              "_customerid_value": "b4cea450-cb0c-ea11-a813-000d3a1b1223",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "createdon": "2026-09-18T19:43:18Z"
+            },
+            {
+              "@odata.etag": "W/\"6617919\"",
+              "statuscode": 1,
+              "name": "1 Caf\u00e9 Grande Espresso Machine for Alpine Ski House",
+              "closeprobability": 70,
+              "estimatedclosedate": "2026-10-16",
+              "estimatedvalue": 14900,
+              "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "description": "Supply coffee machines for their new Building",
+              "modifiedon": "2026-09-18T19:44:37Z",
+              "stepname": "1-Qualify",
+              "opportunityid": "becc5dba-b1f1-ea11-a815-000d3a1b14a2",
+              "statecode": 0,
+              "_customerid_value": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "createdon": "2026-09-18T19:43:19Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:28:51 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "2071",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1977",
+          "x-ratelimit-reset": "1790702980",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "cb7db19b-9984-444e-81c4-e54d833a33e3",
+          "req_id": "cb7db19b-9984-444e-81c4-e54d833a33e3",
+          "authactivityid": "df5ec40c-fa4c-4066-a174-6ed984e2b397",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,152.62",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7854",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 19415122282215199166447818113459233126214117153186203791791971219518180135225245253",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"817-AHCtTZdc7pQ+gtrWD3IMH7AvDCk\""
+        },
+        "hash": "9bf1e7f2e6b00084332a47cb6034e433aa1a7f35",
+        "request": {
+          "params": {
+            "$select": "opportunityid,name,estimatedvalue,estimatedclosedate,statecode,statuscode,closeprobability,stepname,description,createdon,modifiedon,_customerid_value,_ownerid_value",
+            "$top": "3"
+          }
+        }
+      }
+    }
+  }
+}
