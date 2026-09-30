@@ -1055,6 +1055,13 @@ import './box/actions/update-file.js';
 import './box/actions/update-folder.js';
 import './box/actions/update-user.js';
 
+// -- Integration: brevo-api-key
+import './brevo-api-key/actions/create-contact.js';
+import './brevo-api-key/actions/delete-contact.js';
+import './brevo-api-key/actions/get-contact.js';
+import './brevo-api-key/actions/list-contacts.js';
+import './brevo-api-key/actions/update-contact.js';
+
 // -- Integration: brightcrowd
 import './brightcrowd/syncs/book-analytics.js';
 import './brightcrowd/syncs/books.js';
@@ -1080,6 +1087,7 @@ import './cal-com-v2/actions/delete-event-type.js';
 import './cal-com-v2/actions/delete-team.js';
 import './cal-com-v2/actions/delete-webhook.js';
 import './cal-com-v2/actions/get-availability-schedule.js';
+import './cal-com-v2/actions/get-available-slots.js';
 import './cal-com-v2/actions/get-booking.js';
 import './cal-com-v2/actions/get-event-type.js';
 import './cal-com-v2/actions/get-team.js';
@@ -1470,6 +1478,51 @@ import './connectsecure/actions/list-settings.js';
 import './connectsecure/actions/list-users.js';
 import './connectsecure/actions/list-vulnerabilities.js';
 import './connectsecure/actions/update-user-role.js';
+
+// -- Integration: constant-contact
+import './constant-contact/syncs/campaigns.js';
+import './constant-contact/syncs/contact-lists.js';
+import './constant-contact/syncs/contacts.js';
+import './constant-contact/syncs/custom-fields.js';
+import './constant-contact/syncs/tags.js';
+import './constant-contact/actions/create-campaign.js';
+import './constant-contact/actions/create-contact-list.js';
+import './constant-contact/actions/create-contact.js';
+import './constant-contact/actions/create-custom-field.js';
+import './constant-contact/actions/create-tag.js';
+import './constant-contact/actions/delete-campaign.js';
+import './constant-contact/actions/delete-contact-list.js';
+import './constant-contact/actions/delete-contact.js';
+import './constant-contact/actions/delete-custom-field.js';
+import './constant-contact/actions/delete-tag.js';
+import './constant-contact/actions/get-account-summary.js';
+import './constant-contact/actions/get-account-user-privileges.js';
+import './constant-contact/actions/get-activity.js';
+import './constant-contact/actions/get-campaign-activity.js';
+import './constant-contact/actions/get-campaign-summary-report.js';
+import './constant-contact/actions/get-campaign.js';
+import './constant-contact/actions/get-contact-list.js';
+import './constant-contact/actions/get-contact.js';
+import './constant-contact/actions/get-custom-field.js';
+import './constant-contact/actions/get-tag.js';
+import './constant-contact/actions/list-account-verified-email-addresses.js';
+import './constant-contact/actions/list-activities.js';
+import './constant-contact/actions/list-campaign-schedules.js';
+import './constant-contact/actions/list-campaigns.js';
+import './constant-contact/actions/list-contact-lists.js';
+import './constant-contact/actions/list-contacts.js';
+import './constant-contact/actions/list-custom-fields.js';
+import './constant-contact/actions/list-tags.js';
+import './constant-contact/actions/schedule-campaign.js';
+import './constant-contact/actions/submit-contact-sign-up-form.js';
+import './constant-contact/actions/unschedule-campaign.js';
+import './constant-contact/actions/update-account-summary.js';
+import './constant-contact/actions/update-campaign-activity.js';
+import './constant-contact/actions/update-campaign.js';
+import './constant-contact/actions/update-contact-list.js';
+import './constant-contact/actions/update-contact.js';
+import './constant-contact/actions/update-custom-field.js';
+import './constant-contact/actions/update-tag.js';
 
 // -- Integration: databricks-workspace
 import './databricks-workspace/actions/list-warehouses.js';

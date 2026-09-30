@@ -1,0 +1,75 @@
+{
+  "input": {
+    "first_name": "Nango",
+    "last_name": "Developer",
+    "organization_name": "Nango",
+    "time_zone_id": "Africa/Nairobi",
+    "country_code": "ke"
+  },
+  "output": {
+    "contact_email": "api@nango.dev",
+    "contact_phone": "2542222222222",
+    "country_code": "ke",
+    "encoded_account_id": "a07eksd57eu5dl",
+    "first_name": "Nango",
+    "last_name": "Developer",
+    "organization_name": "Nango",
+    "time_zone_id": "Africa/Nairobi"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v3/account/summary": {
+        "response": {
+          "contact_email": "api@nango.dev",
+          "contact_phone": "2542222222222",
+          "country_code": "ke",
+          "encoded_account_id": "a07eksd57eu5dl",
+          "first_name": "Nango",
+          "last_name": "Developer",
+          "organization_name": "Nango",
+          "time_zone_id": "Africa/Nairobi"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:38:52 GMT",
+          "content-type": "application/json",
+          "content-length": "228",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1931",
+          "x-ratelimit-reset": "1790707166",
+          "x-amzn-trace-id": "Root=1-6abc05bc-501011074f99b8660e78994d;Parent=7e94b6c9aaec8ec3;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "2ad70681-2841-4978-9be0-aae813764cb1",
+          "x-amz-apigw-id": "EeXVgFPXIAMEJtQ=",
+          "x-eig-tracking-id": "3a9e9e86-a025-4944-b339-f920c52bfaaa",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 f899e87b32a4b595456b11b0a317a23c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "eNrFFUYU_-DhPgicDWIZC4442TaI2q0QpIswq7s4syS9E5-F_PVwkg==",
+          "etag": "W/\"e4-IDIvXQQKtgk8kwpxd4ZSRjAonXU\""
+        },
+        "hash": "9ee34be7407fe1cadb93a508e72fa57be8ba29a7",
+        "request": {
+          "data": {
+            "first_name": "Nango",
+            "last_name": "Developer",
+            "organization_name": "Nango",
+            "time_zone_id": "Africa/Nairobi",
+            "country_code": "ke"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "input": {
+    "campaign_id": "192740f0-1bcc-4a57-b554-84e08e676829",
+    "name": "Nango Tmp Update Campaign Test Renamed"
+  },
+  "output": {
+    "campaign_id": "192740f0-1bcc-4a57-b554-84e08e676829",
+    "name": "Nango Tmp Update Campaign Test Renamed",
+    "current_status": "DRAFT",
+    "type": "CUSTOM_CODE_EMAIL",
+    "type_code": 26,
+    "created_at": "2026-09-29T18:36:18.000Z",
+    "updated_at": "2026-09-29T18:37:35.000Z",
+    "campaign_activities": [
+      {
+        "campaign_activity_id": "daa9cfeb-23a3-4478-a3e8-09451bbe3ae1",
+        "role": "permalink"
+      },
+      {
+        "campaign_activity_id": "78fe183c-1b46-457f-8bb5-cec72cee330e",
+        "role": "primary_email"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/v3/emails/192740f0-1bcc-4a57-b554-84e08e676829": {
+        "response": {
+          "campaign_activities": [
+            {
+              "campaign_activity_id": "daa9cfeb-23a3-4478-a3e8-09451bbe3ae1",
+              "role": "permalink"
+            },
+            {
+              "campaign_activity_id": "78fe183c-1b46-457f-8bb5-cec72cee330e",
+              "role": "primary_email"
+            }
+          ],
+          "campaign_id": "192740f0-1bcc-4a57-b554-84e08e676829",
+          "created_at": "2026-09-29T18:36:18.000Z",
+          "current_status": "DRAFT",
+          "name": "Nango Tmp Update Campaign Test Renamed",
+          "type": "CUSTOM_CODE_EMAIL",
+          "type_code": 26,
+          "updated_at": "2026-09-29T18:37:35.000Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:37:35 GMT",
+          "content-type": "application/json",
+          "content-length": "443",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1958",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc056f-3394139d467d88f701f96c2c;Parent=11e0f26c5b90af11;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "fcf9c98a-0750-401d-b63c-1c3a8e70e634",
+          "x-amz-apigw-id": "EeXJgHTNIAMEJXg=",
+          "x-eig-tracking-id": "fbc12e51-89e5-4d34-bd77-6ce900431734",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 a1f8044693d3f7f5c5e4c6cb7ec5cb9c.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "rzLJXuvouI4mQlfQSSyLDmbnVDDz4YDPEKQXTi4HS-C0lwT0899bWg==",
+          "etag": "W/\"1bb-oztP1E7Hc7WXi4mUtFbS3nrBSV4\""
+        },
+        "hash": "e574fc79b2a7baaee784a56a55ab56faca86f161",
+        "request": {
+          "data": {
+            "name": "Nango Tmp Update Campaign Test Renamed"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "input": {
+    "label": "Nango Dryrun CF",
+    "type": "string"
+  },
+  "output": {
+    "custom_field_id": "f3b16d04-bc34-11f1-959b-02420a320002",
+    "label": "Nango Dryrun CF",
+    "name": "nango_dryrun_cf",
+    "type": "string",
+    "version": 1,
+    "created_at": "2026-09-29T18:38:23Z",
+    "updated_at": "2026-09-29T18:38:23Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/contact_custom_fields": {
+        "response": {
+          "custom_field_id": "f3b16d04-bc34-11f1-959b-02420a320002",
+          "label": "Nango Dryrun CF",
+          "name": "nango_dryrun_cf",
+          "type": "string",
+          "version": 1,
+          "updated_at": "2026-09-29T18:38:23Z",
+          "created_at": "2026-09-29T18:38:23Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:38:23 GMT",
+          "content-type": "application/json",
+          "content-length": "209",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1800",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc059f-270280202cd7b3470cc56cd8;Parent=768749c1d0655592;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "c88ab6af-1fbc-4099-a6af-8145a6c6ca79",
+          "x-amz-apigw-id": "EeXRCEHqIAMETMQ=",
+          "x-eig-tracking-id": "a8ac5422-9eab-4079-9768-bd8424b06145",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 26c05953458c39f3149d18defede0790.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "aKfzQdciGg4_Eq5nifeZcoxoyF-g0ytv5r83L9lpPA1RD_VEwGT6dw==",
+          "etag": "W/\"d1-/y8bJMa1VSGIgA6GEIzWHJpjdHU\""
+        },
+        "hash": "bfdd94b7d5e4a3d0a33c63182be9347e742133be",
+        "request": {
+          "data": {
+            "label": "Nango Dryrun CF",
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

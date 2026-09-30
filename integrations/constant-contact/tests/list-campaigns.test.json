@@ -1,0 +1,103 @@
+{
+  "input": {},
+  "output": {
+    "campaigns": [
+      {
+        "campaign_id": "20f8c15d-2d60-4fed-b6a0-9e320cbf1c7a",
+        "created_at": "2026-09-29T18:37:30.000Z",
+        "current_status": "Draft",
+        "name": "Nango Tmp UCA NullProbe",
+        "type": "CUSTOM_CODE_EMAIL",
+        "type_code": 26,
+        "updated_at": "2026-09-29T18:37:32.000Z"
+      },
+      {
+        "campaign_id": "037d94b2-b29e-487c-bac2-4a8bea56f185",
+        "created_at": "2026-09-29T18:36:24.000Z",
+        "current_status": "Draft",
+        "name": "Nango Tmp UCA Test ft5",
+        "type": "CUSTOM_CODE_EMAIL",
+        "type_code": 26,
+        "updated_at": "2026-09-29T18:39:11.000Z"
+      },
+      {
+        "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+        "created_at": "2026-09-29T14:34:37.000Z",
+        "current_status": "Draft",
+        "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+        "type": "NEWSLETTER",
+        "type_code": 10,
+        "updated_at": "2026-09-29T14:34:37.000Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/emails": {
+        "response": {
+          "campaigns": [
+            {
+              "campaign_id": "20f8c15d-2d60-4fed-b6a0-9e320cbf1c7a",
+              "created_at": "2026-09-29T18:37:30.000Z",
+              "current_status": "Draft",
+              "name": "Nango Tmp UCA NullProbe",
+              "type": "CUSTOM_CODE_EMAIL",
+              "type_code": 26,
+              "updated_at": "2026-09-29T18:37:32.000Z"
+            },
+            {
+              "campaign_id": "037d94b2-b29e-487c-bac2-4a8bea56f185",
+              "created_at": "2026-09-29T18:36:24.000Z",
+              "current_status": "Draft",
+              "name": "Nango Tmp UCA Test ft5",
+              "type": "CUSTOM_CODE_EMAIL",
+              "type_code": 26,
+              "updated_at": "2026-09-29T18:39:11.000Z"
+            },
+            {
+              "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+              "created_at": "2026-09-29T14:34:37.000Z",
+              "current_status": "Draft",
+              "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+              "type": "NEWSLETTER",
+              "type_code": 10,
+              "updated_at": "2026-09-29T14:34:37.000Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:39:57 GMT",
+          "content-type": "application/json",
+          "content-length": "734",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1930",
+          "x-ratelimit-reset": "1790707227",
+          "x-amzn-trace-id": "Root=1-6abc05fc-4a1bc4b35731b07005e362e4;Parent=1d4c058e01b3a76f;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "09a3655e-3557-4cf0-a2cd-cb707e766e08",
+          "x-amz-apigw-id": "EeXfjFz9IAMEJrA=",
+          "x-eig-tracking-id": "b552d46b-98f6-479d-8771-fcc0ff1bd420",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 6daec11ce051cffaa3e440291c9bdce2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "fWl4lbjurTFNjtEiPGM_36U4WBapc3as3IEB434soyVTh8fL25ip_w==",
+          "etag": "W/\"2de-qCRfT97c2l3XP1Lp67B6Jtva3iM\""
+        },
+        "hash": "7ae2c0323dc999ceea05a174f36b7e5fd3eb2382",
+        "request": {}
+      }
+    }
+  }
+}
