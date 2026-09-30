@@ -1,0 +1,239 @@
+{
+  "input": {
+    "contact_id": "4e6345f6-bc35-11f1-959b-02420a320002",
+    "update_source": "Contact",
+    "email_address": {
+      "address": "nango-update-test-20260929@example.com"
+    },
+    "first_name": "Updated",
+    "last_name": "Contact",
+    "job_title": "QA Engineer",
+    "company_name": "Nango",
+    "birthday_day": 14,
+    "birthday_month": 6,
+    "anniversary": "2020-06-14",
+    "phone_numbers": [
+      {
+        "phone_number": "+1-555-0100",
+        "kind": "mobile"
+      }
+    ],
+    "street_addresses": [
+      {
+        "kind": "work",
+        "street": "1 Market St",
+        "city": "San Francisco",
+        "state": "CA",
+        "postal_code": "94105",
+        "country": "US"
+      }
+    ],
+    "custom_fields": [
+      {
+        "custom_field_id": "4f06ba9c-bc35-11f1-bccd-02420a320002",
+        "value": "gold-tier"
+      }
+    ],
+    "list_memberships": [
+      "c3639a04-bc12-11f1-aa3a-02420a320002"
+    ],
+    "taggings": [
+      "4ea9217a-bc35-11f1-9faa-02420a320002"
+    ]
+  },
+  "output": {
+    "contact_id": "4e6345f6-bc35-11f1-959b-02420a320002",
+    "email_address": {
+      "address": "nango-update-test-20260929@example.com",
+      "permission_to_send": "explicit",
+      "created_at": "2026-09-29T18:40:55Z",
+      "updated_at": "2026-09-29T18:40:55Z",
+      "opt_in_source": "Contact",
+      "opt_in_date": "2026-09-29T18:40:55Z",
+      "confirm_status": "off"
+    },
+    "first_name": "Updated",
+    "last_name": "Contact",
+    "job_title": "QA Engineer",
+    "company_name": "Nango",
+    "birthday_day": 14,
+    "birthday_month": 6,
+    "anniversary": "2020-06-14",
+    "create_source": "Contact",
+    "update_source": "Contact",
+    "created_at": "2026-09-29T18:40:55Z",
+    "updated_at": "2026-09-29T18:44:28Z",
+    "custom_fields": [
+      {
+        "custom_field_id": "4f06ba9c-bc35-11f1-bccd-02420a320002",
+        "value": "gold-tier"
+      }
+    ],
+    "phone_numbers": [
+      {
+        "phone_number_id": "c777da88-bc35-11f1-aa3a-02420a320002",
+        "phone_number": "+1-555-0100",
+        "kind": "mobile",
+        "created_at": "2026-09-29T18:44:19Z",
+        "updated_at": "2026-09-29T18:44:19Z"
+      }
+    ],
+    "street_addresses": [
+      {
+        "street_address_id": "cd39e7c2-bc35-11f1-959b-02420a320002",
+        "kind": "work",
+        "street": "1 Market St",
+        "city": "San Francisco",
+        "state": "California",
+        "postal_code": "94105",
+        "country": "United States",
+        "created_at": "2026-09-29T18:44:28Z",
+        "updated_at": "2026-09-29T18:44:28Z"
+      }
+    ],
+    "list_memberships": [
+      "c3639a04-bc12-11f1-aa3a-02420a320002"
+    ],
+    "taggings": [
+      "4ea9217a-bc35-11f1-9faa-02420a320002"
+    ]
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/v3/contacts/4e6345f6-bc35-11f1-959b-02420a320002": {
+        "response": {
+          "contact_id": "4e6345f6-bc35-11f1-959b-02420a320002",
+          "email_address": {
+            "address": "nango-update-test-20260929@example.com",
+            "permission_to_send": "explicit",
+            "created_at": "2026-09-29T18:40:55Z",
+            "updated_at": "2026-09-29T18:40:55Z",
+            "opt_in_source": "Contact",
+            "opt_in_date": "2026-09-29T18:40:55Z",
+            "confirm_status": "off"
+          },
+          "first_name": "Updated",
+          "last_name": "Contact",
+          "job_title": "QA Engineer",
+          "company_name": "Nango",
+          "birthday_month": 6,
+          "birthday_day": 14,
+          "anniversary": "2020-06-14",
+          "update_source": "Contact",
+          "create_source": "Contact",
+          "created_at": "2026-09-29T18:40:55Z",
+          "updated_at": "2026-09-29T18:44:28Z",
+          "custom_fields": [
+            {
+              "custom_field_id": "4f06ba9c-bc35-11f1-bccd-02420a320002",
+              "value": "gold-tier"
+            }
+          ],
+          "phone_numbers": [
+            {
+              "phone_number_id": "c777da88-bc35-11f1-aa3a-02420a320002",
+              "phone_number": "+1-555-0100",
+              "kind": "mobile",
+              "created_at": "2026-09-29T18:44:19Z",
+              "updated_at": "2026-09-29T18:44:19Z",
+              "update_source": "Contact"
+            }
+          ],
+          "street_addresses": [
+            {
+              "street_address_id": "cd39e7c2-bc35-11f1-959b-02420a320002",
+              "kind": "work",
+              "street": "1 Market St",
+              "city": "San Francisco",
+              "state": "California",
+              "postal_code": "94105",
+              "country": "United States",
+              "created_at": "2026-09-29T18:44:28Z",
+              "updated_at": "2026-09-29T18:44:28Z"
+            }
+          ],
+          "list_memberships": [
+            "c3639a04-bc12-11f1-aa3a-02420a320002"
+          ],
+          "taggings": [
+            "4ea9217a-bc35-11f1-9faa-02420a320002"
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:44:28 GMT",
+          "content-type": "application/json",
+          "content-length": "1306",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1966",
+          "x-ratelimit-reset": "1790707480",
+          "x-amzn-trace-id": "Root=1-6abc070c-6111795f76b2fc48355c0384;Parent=061d47f3fef31483;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "6f859109-00dc-4a7d-b158-b776fe1e41ea",
+          "x-amz-apigw-id": "EeYKBHQdIAMEXqQ=",
+          "x-eig-tracking-id": "b4a673d6-6a21-464d-84a0-ac752a3945a1",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 3bbe2b9a1067c049fd5ff2d57048d36a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "1_AkSGfC2SdGGO0MfD9ltNIkITliwf8nszazObv0cxCHyfarH1_B6w==",
+          "etag": "W/\"51a-05n3yatHn0AXgLsBuYXmttIruZ8\""
+        },
+        "hash": "114c0d79898483a373544a530a3e07936cc6d213",
+        "request": {
+          "data": {
+            "update_source": "Contact",
+            "email_address": {
+              "address": "nango-update-test-20260929@example.com"
+            },
+            "first_name": "Updated",
+            "last_name": "Contact",
+            "job_title": "QA Engineer",
+            "company_name": "Nango",
+            "birthday_day": 14,
+            "birthday_month": 6,
+            "anniversary": "2020-06-14",
+            "phone_numbers": [
+              {
+                "phone_number": "+1-555-0100",
+                "kind": "mobile"
+              }
+            ],
+            "street_addresses": [
+              {
+                "kind": "work",
+                "street": "1 Market St",
+                "city": "San Francisco",
+                "state": "CA",
+                "postal_code": "94105",
+                "country": "US"
+              }
+            ],
+            "custom_fields": [
+              {
+                "custom_field_id": "4f06ba9c-bc35-11f1-bccd-02420a320002",
+                "value": "gold-tier"
+              }
+            ],
+            "list_memberships": [
+              "c3639a04-bc12-11f1-aa3a-02420a320002"
+            ],
+            "taggings": [
+              "4ea9217a-bc35-11f1-9faa-02420a320002"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

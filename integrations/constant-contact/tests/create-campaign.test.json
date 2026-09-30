@@ -1,0 +1,111 @@
+{
+  "input": {
+    "name": "Nango Dryrun Campaign B2E9",
+    "email_campaign_activities": [
+      {
+        "format_type": 5,
+        "from_name": "Nango Developer",
+        "from_email": "api@nango.dev",
+        "reply_to_email": "api@nango.dev",
+        "subject": "Dryrun Subject",
+        "preheader": "Dryrun preheader",
+        "html_content": "<html><body>Hello from Nango dryrun</body></html>"
+      }
+    ]
+  },
+  "output": {
+    "campaign_id": "39f9664c-b0a9-4768-be05-0168d94788fb",
+    "name": "Nango Dryrun Campaign B2E9",
+    "type": "CUSTOM_CODE_EMAIL",
+    "type_code": 26,
+    "current_status": "Draft",
+    "created_at": "2026-09-29T18:44:12.382Z",
+    "updated_at": "2026-09-29T18:44:12.382Z",
+    "campaign_activities": [
+      {
+        "campaign_activity_id": "e74654ae-64b3-4d07-8cbe-829d2028e773",
+        "role": "primary_email",
+        "document_id": "52b4ab01-9e96-45e9-8f0a-529a81fd6642"
+      },
+      {
+        "campaign_activity_id": "9fdb6ea1-9896-4957-b988-0202743262af",
+        "role": "permalink",
+        "document_id": "52b4ab01-9e96-45e9-8f0a-529a81fd6642"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/emails": {
+        "response": {
+          "campaign_activities": [
+            {
+              "campaign_activity_id": "e74654ae-64b3-4d07-8cbe-829d2028e773",
+              "role": "primary_email",
+              "document_id": "52b4ab01-9e96-45e9-8f0a-529a81fd6642"
+            },
+            {
+              "campaign_activity_id": "9fdb6ea1-9896-4957-b988-0202743262af",
+              "role": "permalink",
+              "document_id": "52b4ab01-9e96-45e9-8f0a-529a81fd6642"
+            }
+          ],
+          "campaign_id": "39f9664c-b0a9-4768-be05-0168d94788fb",
+          "created_at": "2026-09-29T18:44:12.382Z",
+          "current_status": "Draft",
+          "name": "Nango Dryrun Campaign B2E9",
+          "type": "CUSTOM_CODE_EMAIL",
+          "type_code": 26,
+          "updated_at": "2026-09-29T18:44:12.382Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:44:12 GMT",
+          "content-type": "application/json",
+          "content-length": "537",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1790707480",
+          "x-amzn-trace-id": "Root=1-6abc06fb-1efa547801a54b4b7583aab5;Parent=1c0f86467046a98b;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "2ee4e172-188c-4ef6-a517-11883c144514",
+          "x-amz-apigw-id": "EeYHaGXBIAMEWVw=",
+          "x-eig-tracking-id": "a64a33aa-ea1c-4c54-a468-7a5acaef8323",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 949f02beb00874a68d9d2ac605c9b938.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "zY0mfTDhFhVS-3RSfamkrLL5ES6HtBUrsnf3TwnpyQxh6PnUH4IMcQ==",
+          "etag": "W/\"219-g/t17gmH/nb0gAuZn1GtH0f9s/E\""
+        },
+        "hash": "c41fad80cdc37c388b2c030ef025fdb2b4095052",
+        "request": {
+          "data": {
+            "name": "Nango Dryrun Campaign B2E9",
+            "email_campaign_activities": [
+              {
+                "format_type": 5,
+                "from_name": "Nango Developer",
+                "from_email": "api@nango.dev",
+                "reply_to_email": "api@nango.dev",
+                "subject": "Dryrun Subject",
+                "preheader": "Dryrun preheader",
+                "html_content": "<html><body>Hello from Nango dryrun</body></html>"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

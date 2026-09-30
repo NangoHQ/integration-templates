@@ -1,0 +1,182 @@
+{
+  "nango": {
+    "batchSave": {
+      "Campaign": [
+        {
+          "id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+          "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+          "current_status": "DRAFT",
+          "type": "NEWSLETTER",
+          "type_code": 10,
+          "created_at": "2026-09-29T14:34:37.000Z",
+          "updated_at": "2026-09-29T14:34:37.000Z",
+          "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+          "activity_status": "DRAFT",
+          "subject": "Field Notes: 3 Ways to Make Tech Work Better",
+          "preheader": "Practical tips for clearer systems, calmer workflows, and better technology decisions.",
+          "from_email": "api@nango.dev",
+          "from_name": "Nango",
+          "reply_to_email": "api@nango.dev",
+          "contact_list_ids": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Campaign": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/emails": {
+        "response": {
+          "campaigns": [
+            {
+              "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+              "created_at": "2026-09-29T14:34:37.000Z",
+              "current_status": "Draft",
+              "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+              "type": "NEWSLETTER",
+              "type_code": 10,
+              "updated_at": "2026-09-29T14:34:37.000Z"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 20:42:01 GMT",
+          "content-type": "application/json",
+          "content-length": "265",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1790714576",
+          "x-amzn-trace-id": "Root=1-6abc2299-50c06d507f4affc96e3e6550;Parent=5c22e7ac60a72b50;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "af5e22f1-abea-40df-83ad-b5f9344924cc",
+          "x-amz-apigw-id": "EepYGFWxIAMEr_Q=",
+          "x-eig-tracking-id": "c037bb58-c568-4033-808d-ac365d7fde3d",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 4b63c15595b60dbcca6db6aeea9d3d72.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "r4i-4LBeSthfgOVImZKKdvBPhj1mTznkwvZgqB_CTfPmq8qGWy_xNg==",
+          "etag": "W/\"109-GHOXod/DpSrJW++/1FLIO9bORZ4\""
+        },
+        "hash": "a241dc98b5d6ac4ff0b94bc3a84a385e5504ed66",
+        "request": {
+          "params": {
+            "limit": "50"
+          }
+        }
+      },
+      "/v3/emails/ff5368e0-2da3-4b2e-a234-a5371795df96": {
+        "response": {
+          "campaign_activities": [
+            {
+              "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+              "role": "primary_email"
+            },
+            {
+              "campaign_activity_id": "68aafb3b-0e94-4815-af9a-7e25e53c2015",
+              "role": "permalink"
+            }
+          ],
+          "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+          "created_at": "2026-09-29T14:34:37.000Z",
+          "current_status": "DRAFT",
+          "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+          "type": "NEWSLETTER",
+          "type_code": 10,
+          "updated_at": "2026-09-29T14:34:37.000Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 20:42:02 GMT",
+          "content-type": "application/json",
+          "content-length": "443",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1790714576",
+          "x-amzn-trace-id": "Root=1-6abc229a-2ef93bd65d3dc10e39a30920;Parent=3fec606667fa7558;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "6b36457f-dbd0-40cc-b7b1-a3f4e5e8ca69",
+          "x-amz-apigw-id": "EepYLGrYoAMEWRg=",
+          "x-eig-tracking-id": "cebee996-d108-417d-9a92-003075ba8786",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 e27e33d2ef7d91c8ffc1afbdd6d85df0.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "dfqAw8-aIefzFgIEU9nKp6t750N39EfXrh61T_Z6TweWPfHjMQFjqA==",
+          "etag": "W/\"1bb-1Nf0kcK0qxhcgjHTQkUVrNH+Qc4\""
+        },
+        "hash": "06fb21ef75cc2d3fadb9ce18c69a16946c8f6716",
+        "request": {}
+      },
+      "/v3/emails/activities/2979c38c-221b-4a03-a3b2-c52310f60f35": {
+        "response": {
+          "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+          "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+          "role": "primary_email",
+          "contact_list_ids": [],
+          "segment_ids": [],
+          "current_status": "DRAFT",
+          "format_type": 4,
+          "from_email": "api@nango.dev",
+          "from_name": "Nango",
+          "reply_to_email": "api@nango.dev",
+          "subject": "Field Notes: 3 Ways to Make Tech Work Better",
+          "preheader": "Practical tips for clearer systems, calmer workflows, and better technology decisions.",
+          "document_id": "63d5683e-546f-4c6b-872a-a38271fc81e7"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 20:42:03 GMT",
+          "content-type": "application/json",
+          "content-length": "512",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1790714576",
+          "x-amzn-trace-id": "Root=1-6abc229a-0e2f6ce94aad05241d67eef4;Parent=123d3f5ddc5cfa79;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "fc7fe823-e5ab-402e-bdd8-cd652d8555e8",
+          "x-amz-apigw-id": "EepYSGr1IAMEEJg=",
+          "x-eig-tracking-id": "e98a1c38-c1aa-46ef-9eae-10334ec4cb06",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 949f02beb00874a68d9d2ac605c9b938.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "de3ubJH0aq9RZlQ7eqlOd9nighuF6lH7YgWniuKbJ5AsoVOHUInuNg==",
+          "etag": "W/\"200-81sN4wQR2sTEISBnuFZvx/VvpmI\""
+        },
+        "hash": "4f130dd9f4bbdc52e6f68cc8ac421ed7bf2b4aa1",
+        "request": {}
+      }
+    }
+  }
+}

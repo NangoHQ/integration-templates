@@ -1,0 +1,799 @@
+{
+  "input": {},
+  "output": {
+    "privileges": [
+      {
+        "privilege_id": 90,
+        "privilege_name": "logo:update"
+      },
+      {
+        "privilege_id": 93,
+        "privilege_name": "controlData:update"
+      },
+      {
+        "privilege_id": 91,
+        "privilege_name": "user:readAll"
+      },
+      {
+        "privilege_id": 94,
+        "privilege_name": "account:info:update"
+      },
+      {
+        "privilege_id": 89,
+        "privilege_name": "account:emails:write"
+      },
+      {
+        "privilege_id": 92,
+        "privilege_name": "license:update"
+      },
+      {
+        "privilege_id": 1,
+        "privilege_name": "account:create"
+      },
+      {
+        "privilege_id": 2,
+        "privilege_name": "account:read"
+      },
+      {
+        "privilege_id": 3,
+        "privilege_name": "account:update"
+      },
+      {
+        "privilege_id": 4,
+        "privilege_name": "account:delete"
+      },
+      {
+        "privilege_id": 5,
+        "privilege_name": "user:create"
+      },
+      {
+        "privilege_id": 6,
+        "privilege_name": "user:read"
+      },
+      {
+        "privilege_id": 7,
+        "privilege_name": "user:update"
+      },
+      {
+        "privilege_id": 8,
+        "privilege_name": "user:delete"
+      },
+      {
+        "privilege_id": 9,
+        "privilege_name": "userAccount:create"
+      },
+      {
+        "privilege_id": 10,
+        "privilege_name": "userAccount:read"
+      },
+      {
+        "privilege_id": 11,
+        "privilege_name": "userAccount:update"
+      },
+      {
+        "privilege_id": 12,
+        "privilege_name": "userAccount:delete"
+      },
+      {
+        "privilege_id": 13,
+        "privilege_name": "billing:read"
+      },
+      {
+        "privilege_id": 14,
+        "privilege_name": "billing:update"
+      },
+      {
+        "privilege_id": 15,
+        "privilege_name": "ui:myAccount:cmtnyLogin"
+      },
+      {
+        "privilege_id": 16,
+        "privilege_name": "ui:myAccount:addTrial"
+      },
+      {
+        "privilege_id": 17,
+        "privilege_name": "ui:myAccount:buyProduct"
+      },
+      {
+        "privilege_id": 18,
+        "privilege_name": "ui:myAccount:cancelProduct"
+      },
+      {
+        "privilege_id": 19,
+        "privilege_name": "ui:myAccount:viewPricingPage"
+      },
+      {
+        "privilege_id": 20,
+        "privilege_name": "ui:myAccount:marketPlace"
+      },
+      {
+        "privilege_id": 21,
+        "privilege_name": "ui:myAccount:help"
+      },
+      {
+        "privilege_id": 22,
+        "privilege_name": "product:create"
+      },
+      {
+        "privilege_id": 23,
+        "privilege_name": "product:update"
+      },
+      {
+        "privilege_id": 24,
+        "privilege_name": "product:delete"
+      },
+      {
+        "privilege_id": 25,
+        "privilege_name": "product:read"
+      },
+      {
+        "privilege_id": 26,
+        "privilege_name": "billing:create"
+      },
+      {
+        "privilege_id": 27,
+        "privilege_name": "ui:myAccount:cmtnyUpdate"
+      },
+      {
+        "privilege_id": 28,
+        "privilege_name": "api:v1:access"
+      },
+      {
+        "privilege_id": 29,
+        "privilege_name": "campaign:list"
+      },
+      {
+        "privilege_id": 30,
+        "privilege_name": "campaign:create"
+      },
+      {
+        "privilege_id": 31,
+        "privilege_name": "campaign:read"
+      },
+      {
+        "privilege_id": 32,
+        "privilege_name": "campaign:write"
+      },
+      {
+        "privilege_id": 33,
+        "privilege_name": "campaign:content:write"
+      },
+      {
+        "privilege_id": 34,
+        "privilege_name": "campaign:delete"
+      },
+      {
+        "privilege_id": 35,
+        "privilege_name": "campaign:restore"
+      },
+      {
+        "privilege_id": 36,
+        "privilege_name": "campaign:send"
+      },
+      {
+        "privilege_id": 37,
+        "privilege_name": "campaign:activate"
+      },
+      {
+        "privilege_id": 38,
+        "privilege_name": "campaign:stop"
+      },
+      {
+        "privilege_id": 39,
+        "privilege_name": "ui:campaign:metrics"
+      },
+      {
+        "privilege_id": 40,
+        "privilege_name": "ui:mysettings:read"
+      },
+      {
+        "privilege_id": 41,
+        "privilege_name": "ui:mysettings:write"
+      },
+      {
+        "privilege_id": 42,
+        "privilege_name": "contacts:read"
+      },
+      {
+        "privilege_id": 43,
+        "privilege_name": "contacts:write"
+      },
+      {
+        "privilege_id": 44,
+        "privilege_name": "lists:read"
+      },
+      {
+        "privilege_id": 45,
+        "privilege_name": "lists:write"
+      },
+      {
+        "privilege_id": 46,
+        "privilege_name": "tags:read"
+      },
+      {
+        "privilege_id": 47,
+        "privilege_name": "tags:write"
+      },
+      {
+        "privilege_id": 48,
+        "privilege_name": "ui:contacts:signuptools"
+      },
+      {
+        "privilege_id": 49,
+        "privilege_name": "ui:contacts:contactreports"
+      },
+      {
+        "privilege_id": 50,
+        "privilege_name": "archive:read"
+      },
+      {
+        "privilege_id": 51,
+        "privilege_name": "archive:write"
+      },
+      {
+        "privilege_id": 52,
+        "privilege_name": "contacts:lists:read"
+      },
+      {
+        "privilege_id": 53,
+        "privilege_name": "contacts:lists:write"
+      },
+      {
+        "privilege_id": 54,
+        "privilege_name": "contacts:tags:read"
+      },
+      {
+        "privilege_id": 55,
+        "privilege_name": "contacts:tags:write"
+      },
+      {
+        "privilege_id": 56,
+        "privilege_name": "ui:welcomeletter"
+      },
+      {
+        "privilege_id": 57,
+        "privilege_name": "campaign:copy"
+      },
+      {
+        "privilege_id": 58,
+        "privilege_name": "paymentconfig:create"
+      },
+      {
+        "privilege_id": 59,
+        "privilege_name": "paymentconfig:read"
+      },
+      {
+        "privilege_id": 60,
+        "privilege_name": "paymentconfig:update"
+      },
+      {
+        "privilege_id": 61,
+        "privilege_name": "paymentconfig:delete"
+      },
+      {
+        "privilege_id": 62,
+        "privilege_name": "campaign:promote"
+      },
+      {
+        "privilege_id": 63,
+        "privilege_name": "campaign:manage"
+      },
+      {
+        "privilege_id": 64,
+        "privilege_name": "mylibrary:file:delete"
+      },
+      {
+        "privilege_id": 65,
+        "privilege_name": "mylibrary:file:create"
+      },
+      {
+        "privilege_id": 66,
+        "privilege_name": "mylibrary:file:update"
+      },
+      {
+        "privilege_id": 67,
+        "privilege_name": "mylibrary:file:read"
+      },
+      {
+        "privilege_id": 68,
+        "privilege_name": "mylibrary:folder:delete"
+      },
+      {
+        "privilege_id": 69,
+        "privilege_name": "mylibrary:folder:create"
+      },
+      {
+        "privilege_id": 70,
+        "privilege_name": "mylibrary:folder:update"
+      },
+      {
+        "privilege_id": 71,
+        "privilege_name": "mylibrary:folder:read"
+      },
+      {
+        "privilege_id": 72,
+        "privilege_name": "contacts:signuptools:create"
+      },
+      {
+        "privilege_id": 73,
+        "privilege_name": "customer-journey:publish"
+      },
+      {
+        "privilege_id": 74,
+        "privilege_name": "customer-journey:read"
+      },
+      {
+        "privilege_id": 75,
+        "privilege_name": "customer-journey:create"
+      },
+      {
+        "privilege_id": 76,
+        "privilege_name": "customer-journey:update"
+      },
+      {
+        "privilege_id": 77,
+        "privilege_name": "customer-journey:delete"
+      },
+      {
+        "privilege_id": 78,
+        "privilege_name": "customer-journey:list"
+      },
+      {
+        "privilege_id": 79,
+        "privilege_name": "customer-journey-tmplt:publish"
+      },
+      {
+        "privilege_id": 80,
+        "privilege_name": "customer-journey-tmplt:read"
+      },
+      {
+        "privilege_id": 81,
+        "privilege_name": "customer-journey-tmplt:create"
+      },
+      {
+        "privilege_id": 82,
+        "privilege_name": "customer-journey-tmplt:update"
+      },
+      {
+        "privilege_id": 83,
+        "privilege_name": "customer-journey-tmplt:delete"
+      },
+      {
+        "privilege_id": 84,
+        "privilege_name": "customer-journey-tmplt:list"
+      },
+      {
+        "privilege_id": 85,
+        "privilege_name": "ui:myAccount:domainkey:read"
+      },
+      {
+        "privilege_id": 86,
+        "privilege_name": "ui:myAccount:domainkey:update"
+      },
+      {
+        "privilege_id": 87,
+        "privilege_name": "sms:registration:read"
+      },
+      {
+        "privilege_id": 88,
+        "privilege_name": "sms:registration:write"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/account/user/privileges": {
+        "response": [
+          {
+            "privilege_id": 90,
+            "privilege_name": "logo:update"
+          },
+          {
+            "privilege_id": 93,
+            "privilege_name": "controlData:update"
+          },
+          {
+            "privilege_id": 91,
+            "privilege_name": "user:readAll"
+          },
+          {
+            "privilege_id": 94,
+            "privilege_name": "account:info:update"
+          },
+          {
+            "privilege_id": 89,
+            "privilege_name": "account:emails:write"
+          },
+          {
+            "privilege_id": 92,
+            "privilege_name": "license:update"
+          },
+          {
+            "privilege_id": 1,
+            "privilege_name": "account:create"
+          },
+          {
+            "privilege_id": 2,
+            "privilege_name": "account:read"
+          },
+          {
+            "privilege_id": 3,
+            "privilege_name": "account:update"
+          },
+          {
+            "privilege_id": 4,
+            "privilege_name": "account:delete"
+          },
+          {
+            "privilege_id": 5,
+            "privilege_name": "user:create"
+          },
+          {
+            "privilege_id": 6,
+            "privilege_name": "user:read"
+          },
+          {
+            "privilege_id": 7,
+            "privilege_name": "user:update"
+          },
+          {
+            "privilege_id": 8,
+            "privilege_name": "user:delete"
+          },
+          {
+            "privilege_id": 9,
+            "privilege_name": "userAccount:create"
+          },
+          {
+            "privilege_id": 10,
+            "privilege_name": "userAccount:read"
+          },
+          {
+            "privilege_id": 11,
+            "privilege_name": "userAccount:update"
+          },
+          {
+            "privilege_id": 12,
+            "privilege_name": "userAccount:delete"
+          },
+          {
+            "privilege_id": 13,
+            "privilege_name": "billing:read"
+          },
+          {
+            "privilege_id": 14,
+            "privilege_name": "billing:update"
+          },
+          {
+            "privilege_id": 15,
+            "privilege_name": "ui:myAccount:cmtnyLogin"
+          },
+          {
+            "privilege_id": 16,
+            "privilege_name": "ui:myAccount:addTrial"
+          },
+          {
+            "privilege_id": 17,
+            "privilege_name": "ui:myAccount:buyProduct"
+          },
+          {
+            "privilege_id": 18,
+            "privilege_name": "ui:myAccount:cancelProduct"
+          },
+          {
+            "privilege_id": 19,
+            "privilege_name": "ui:myAccount:viewPricingPage"
+          },
+          {
+            "privilege_id": 20,
+            "privilege_name": "ui:myAccount:marketPlace"
+          },
+          {
+            "privilege_id": 21,
+            "privilege_name": "ui:myAccount:help"
+          },
+          {
+            "privilege_id": 22,
+            "privilege_name": "product:create"
+          },
+          {
+            "privilege_id": 23,
+            "privilege_name": "product:update"
+          },
+          {
+            "privilege_id": 24,
+            "privilege_name": "product:delete"
+          },
+          {
+            "privilege_id": 25,
+            "privilege_name": "product:read"
+          },
+          {
+            "privilege_id": 26,
+            "privilege_name": "billing:create"
+          },
+          {
+            "privilege_id": 27,
+            "privilege_name": "ui:myAccount:cmtnyUpdate"
+          },
+          {
+            "privilege_id": 28,
+            "privilege_name": "api:v1:access"
+          },
+          {
+            "privilege_id": 29,
+            "privilege_name": "campaign:list"
+          },
+          {
+            "privilege_id": 30,
+            "privilege_name": "campaign:create"
+          },
+          {
+            "privilege_id": 31,
+            "privilege_name": "campaign:read"
+          },
+          {
+            "privilege_id": 32,
+            "privilege_name": "campaign:write"
+          },
+          {
+            "privilege_id": 33,
+            "privilege_name": "campaign:content:write"
+          },
+          {
+            "privilege_id": 34,
+            "privilege_name": "campaign:delete"
+          },
+          {
+            "privilege_id": 35,
+            "privilege_name": "campaign:restore"
+          },
+          {
+            "privilege_id": 36,
+            "privilege_name": "campaign:send"
+          },
+          {
+            "privilege_id": 37,
+            "privilege_name": "campaign:activate"
+          },
+          {
+            "privilege_id": 38,
+            "privilege_name": "campaign:stop"
+          },
+          {
+            "privilege_id": 39,
+            "privilege_name": "ui:campaign:metrics"
+          },
+          {
+            "privilege_id": 40,
+            "privilege_name": "ui:mysettings:read"
+          },
+          {
+            "privilege_id": 41,
+            "privilege_name": "ui:mysettings:write"
+          },
+          {
+            "privilege_id": 42,
+            "privilege_name": "contacts:read"
+          },
+          {
+            "privilege_id": 43,
+            "privilege_name": "contacts:write"
+          },
+          {
+            "privilege_id": 44,
+            "privilege_name": "lists:read"
+          },
+          {
+            "privilege_id": 45,
+            "privilege_name": "lists:write"
+          },
+          {
+            "privilege_id": 46,
+            "privilege_name": "tags:read"
+          },
+          {
+            "privilege_id": 47,
+            "privilege_name": "tags:write"
+          },
+          {
+            "privilege_id": 48,
+            "privilege_name": "ui:contacts:signuptools"
+          },
+          {
+            "privilege_id": 49,
+            "privilege_name": "ui:contacts:contactreports"
+          },
+          {
+            "privilege_id": 50,
+            "privilege_name": "archive:read"
+          },
+          {
+            "privilege_id": 51,
+            "privilege_name": "archive:write"
+          },
+          {
+            "privilege_id": 52,
+            "privilege_name": "contacts:lists:read"
+          },
+          {
+            "privilege_id": 53,
+            "privilege_name": "contacts:lists:write"
+          },
+          {
+            "privilege_id": 54,
+            "privilege_name": "contacts:tags:read"
+          },
+          {
+            "privilege_id": 55,
+            "privilege_name": "contacts:tags:write"
+          },
+          {
+            "privilege_id": 56,
+            "privilege_name": "ui:welcomeletter"
+          },
+          {
+            "privilege_id": 57,
+            "privilege_name": "campaign:copy"
+          },
+          {
+            "privilege_id": 58,
+            "privilege_name": "paymentconfig:create"
+          },
+          {
+            "privilege_id": 59,
+            "privilege_name": "paymentconfig:read"
+          },
+          {
+            "privilege_id": 60,
+            "privilege_name": "paymentconfig:update"
+          },
+          {
+            "privilege_id": 61,
+            "privilege_name": "paymentconfig:delete"
+          },
+          {
+            "privilege_id": 62,
+            "privilege_name": "campaign:promote"
+          },
+          {
+            "privilege_id": 63,
+            "privilege_name": "campaign:manage"
+          },
+          {
+            "privilege_id": 64,
+            "privilege_name": "mylibrary:file:delete"
+          },
+          {
+            "privilege_id": 65,
+            "privilege_name": "mylibrary:file:create"
+          },
+          {
+            "privilege_id": 66,
+            "privilege_name": "mylibrary:file:update"
+          },
+          {
+            "privilege_id": 67,
+            "privilege_name": "mylibrary:file:read"
+          },
+          {
+            "privilege_id": 68,
+            "privilege_name": "mylibrary:folder:delete"
+          },
+          {
+            "privilege_id": 69,
+            "privilege_name": "mylibrary:folder:create"
+          },
+          {
+            "privilege_id": 70,
+            "privilege_name": "mylibrary:folder:update"
+          },
+          {
+            "privilege_id": 71,
+            "privilege_name": "mylibrary:folder:read"
+          },
+          {
+            "privilege_id": 72,
+            "privilege_name": "contacts:signuptools:create"
+          },
+          {
+            "privilege_id": 73,
+            "privilege_name": "customer-journey:publish"
+          },
+          {
+            "privilege_id": 74,
+            "privilege_name": "customer-journey:read"
+          },
+          {
+            "privilege_id": 75,
+            "privilege_name": "customer-journey:create"
+          },
+          {
+            "privilege_id": 76,
+            "privilege_name": "customer-journey:update"
+          },
+          {
+            "privilege_id": 77,
+            "privilege_name": "customer-journey:delete"
+          },
+          {
+            "privilege_id": 78,
+            "privilege_name": "customer-journey:list"
+          },
+          {
+            "privilege_id": 79,
+            "privilege_name": "customer-journey-tmplt:publish"
+          },
+          {
+            "privilege_id": 80,
+            "privilege_name": "customer-journey-tmplt:read"
+          },
+          {
+            "privilege_id": 81,
+            "privilege_name": "customer-journey-tmplt:create"
+          },
+          {
+            "privilege_id": 82,
+            "privilege_name": "customer-journey-tmplt:update"
+          },
+          {
+            "privilege_id": 83,
+            "privilege_name": "customer-journey-tmplt:delete"
+          },
+          {
+            "privilege_id": 84,
+            "privilege_name": "customer-journey-tmplt:list"
+          },
+          {
+            "privilege_id": 85,
+            "privilege_name": "ui:myAccount:domainkey:read"
+          },
+          {
+            "privilege_id": 86,
+            "privilege_name": "ui:myAccount:domainkey:update"
+          },
+          {
+            "privilege_id": 87,
+            "privilege_name": "sms:registration:read"
+          },
+          {
+            "privilege_id": 88,
+            "privilege_name": "sms:registration:write"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:37:30 GMT",
+          "content-type": "application/json",
+          "content-length": "5471",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1979",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc056a-136fba7130b668ba4e83133d;Parent=55ad03c3788ad3a5;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "f579ff57-7ab1-4436-ab19-00773d99d515",
+          "x-amz-apigw-id": "EeXIrFcRIAMEmFA=",
+          "x-eig-tracking-id": "86c92b39-0e48-4ce3-9b12-5522d624afdd",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 eb0793aa61a19aaf4bd31bd6f3628f9a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "ji2qhwn6y5PFgdXMf0NDg67lqCKclVWO-BANVWPYGy7zMgC7PFlsmQ==",
+          "etag": "W/\"155f-4m3xhb+zd4xu2PyWsGfmo/ImkIM\""
+        },
+        "hash": "e137937880ad2069c7df542ccd40fb4527512c8f",
+        "request": {}
+      }
+    }
+  }
+}
