@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
 const AnswerSchema = z.object({
-    qid: z.string().describe('Numeric question ID (qid) of the question being answered, as returned by the form\'s questions list. Example: "3"'),
+    qid: z
+        .string()
+        .regex(/^\d+$/, 'qid must be a numeric string, e.g. "3".')
+        .describe('Numeric question ID (qid) of the question being answered, as returned by the form\'s questions list. Example: "3"'),
     value: z
         .union([z.string(), z.record(z.string(), z.string())])
         .describe(
@@ -17,6 +20,9 @@ const InputSchema = z
         answers: z
             .array(AnswerSchema)
             .min(1)
+            .refine((answers) => new Set(answers.map((answer) => answer.qid)).size === answers.length, {
+                message: 'Each qid must appear at most once in answers.'
+            })
             .describe(
                 "One or more answers keyed by question qid. Use the list-form-questions action first to discover each question's qid, field type, and sublabel keys."
             )

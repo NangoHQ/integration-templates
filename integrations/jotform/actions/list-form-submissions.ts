@@ -44,6 +44,7 @@ const InputSchema = z
             .number()
             .int()
             .positive()
+            .max(1000)
             .optional()
             .describe('Maximum number of submissions to return in this page. Falls back to the provider default (20) when omitted. Example: 50'),
         filter: z

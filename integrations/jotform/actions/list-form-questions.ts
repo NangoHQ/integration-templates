@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        form_id: z.string().describe('ID of the Jotform form whose questions to list. Example: "262715780901055"')
+        form_id: z.string().min(1).describe('ID of the Jotform form whose questions to list. Example: "262715780901055"')
     })
     .describe('Input for listing the questions of a Jotform form');
 

@@ -35,8 +35,9 @@ const action = createAction({
         // https://api.jotform.com/docs/ (DELETE /submission/{id})
         const response = await nango.delete({
             endpoint: `/submission/${encodeURIComponent(input.submission_id)}`,
-            // DELETE on a single resource is idempotent in effect: a retry after a lost response cannot repeat the deletion, so the standard retry ceiling applies.
-            retries: 3
+            // Not idempotent: a retry after a lost-but-successful delete fails (see @pitfalls), masking the original success.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const result = DeleteSubmissionResponseSchema.parse(response.data);
