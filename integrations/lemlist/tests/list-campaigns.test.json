@@ -1,0 +1,78 @@
+{
+  "input": {},
+  "output": {
+    "campaigns": [
+      {
+        "id": "cam_vyzp8v33RBTfNQRvz",
+        "name": "Nango Seed Campaign",
+        "status": "draft",
+        "emoji": "😇",
+        "createdAt": "2026-09-29T18:48:27.096Z",
+        "createdBy": "usr_22HzEMYb8ZvdNstrC",
+        "sequenceId": "seq_8Xp3uSRQrBAdTGffc"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/campaigns": {
+        "response": {
+          "campaigns": [
+            {
+              "_id": "cam_vyzp8v33RBTfNQRvz",
+              "name": "Nango Seed Campaign",
+              "sequenceId": "seq_8Xp3uSRQrBAdTGffc",
+              "emoji": "😇",
+              "createdAt": "2026-09-29T18:48:27.096Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "draft"
+            }
+          ],
+          "pagination": {
+            "totalRecords": 1,
+            "currentPage": 1,
+            "nextPage": 1,
+            "totalPage": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 30 Sep 2026 15:08:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "20",
+          "x-ratelimit-remaining": "19",
+          "x-ratelimit-reset": "Wed Sep 30 2026 17:08:37 GMT+0200 (Central European Summer Time)",
+          "retry-after": "2",
+          "via": "1.1 Caddy",
+          "x-cache-debug": "api.main",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IM33ItvS8si2%2F%2FM535%2F1CLTmFbRsAW2ZOHnI8HLeT3vtbJWlJPYSpWpN1A2If%2Fu5gpRom%2FkHNj0K9kz4W7Fa8DtWeO%2B69ippArJWS7SDAMDbiBouXBYkHt6xgLY%2BtZCvHQ%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a43424d2cff7ef38-PDX"
+        },
+        "hash": "7f27f7734adeb33fec868a0359ea8073788c7123",
+        "request": {
+          "params": {
+            "limit": "100",
+            "page": "1",
+            "version": "v2"
+          }
+        }
+      }
+    }
+  }
+}
