@@ -1055,6 +1055,13 @@ import './box/actions/update-file.js';
 import './box/actions/update-folder.js';
 import './box/actions/update-user.js';
 
+// -- Integration: brevo-api-key
+import './brevo-api-key/actions/create-contact.js';
+import './brevo-api-key/actions/delete-contact.js';
+import './brevo-api-key/actions/get-contact.js';
+import './brevo-api-key/actions/list-contacts.js';
+import './brevo-api-key/actions/update-contact.js';
+
 // -- Integration: brightcrowd
 import './brightcrowd/syncs/book-analytics.js';
 import './brightcrowd/syncs/books.js';
