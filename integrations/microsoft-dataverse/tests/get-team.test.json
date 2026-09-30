@@ -1,0 +1,78 @@
+{
+    "input": {
+        "team_id": "5e3835b4-9bb2-f111-aaac-000d3a3bd5b5"
+    },
+    "output": {
+        "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#teams(teamid,name,description,teamtype,isdefault,azureactivedirectoryobjectid,createdon,modifiedon)/$entity",
+        "@odata.etag": "W/\"7008842\"",
+        "ownerid": "5e3835b4-9bb2-f111-aaac-000d3a3bd5b5",
+        "teamtype": 0,
+        "modifiedon": "2026-09-17T13:28:57Z",
+        "isdefault": true,
+        "name": "org98374485",
+        "createdon": "2026-09-17T13:28:51Z",
+        "description": "Default team for the parent business unit. The name and membership for default team are inherited from their parent business unit.",
+        "teamid": "5e3835b4-9bb2-f111-aaac-000d3a3bd5b5"
+    },
+    "nango": {},
+    "api": {
+        "get": {
+            "/api/data/v9.2/teams(5e3835b4-9bb2-f111-aaac-000d3a3bd5b5)": {
+                "response": {
+                    "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#teams(teamid,name,description,teamtype,isdefault,azureactivedirectoryobjectid,createdon,modifiedon)/$entity",
+                    "@odata.etag": "W/\"7008842\"",
+                    "ownerid": "5e3835b4-9bb2-f111-aaac-000d3a3bd5b5",
+                    "teamtype": 0,
+                    "modifiedon": "2026-09-17T13:28:57Z",
+                    "isdefault": true,
+                    "name": "org98374485",
+                    "azureactivedirectoryobjectid": null,
+                    "createdon": "2026-09-17T13:28:51Z",
+                    "description": "Default team for the parent business unit. The name and membership for default team are inherited from their parent business unit.",
+                    "teamid": "5e3835b4-9bb2-f111-aaac-000d3a3bd5b5"
+                },
+                "status": 200,
+                "headers": {
+                    "date": "Tue, 29 Sep 2026 17:27:34 GMT",
+                    "content-type": "application/json; odata.metadata=minimal",
+                    "content-length": "621",
+                    "connection": "keep-alive",
+                    "x-xss-protection": "0",
+                    "x-content-type-options": "nosniff",
+                    "x-download-options": "noopen",
+                    "x-frame-options": "SAMEORIGIN",
+                    "x-dns-prefetch-control": "off",
+                    "referrer-policy": "strict-origin",
+                    "strict-transport-security": "max-age=31536000; includeSubDomains",
+                    "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+                    "access-control-allow-origin": "*",
+                    "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+                    "x-ratelimit-limit": "2000",
+                    "x-ratelimit-remaining": "1948",
+                    "x-ratelimit-reset": "1790702859",
+                    "cache-control": "no-cache",
+                    "allow": "OPTIONS,GET,HEAD,POST",
+                    "expires": "-1",
+                    "etag": "W/\"7008842\"",
+                    "vary": "Accept-Encoding",
+                    "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E532424BDA40000001238471658; path=/; secure; HttpOnly, ReqClientId=70e9fac2-586a-4af7-93f9-1fc9184d033c; expires=Tue, 29-Sep-2076 17:27:34 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:27:34 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E532424BDA40000001238471658; path=/; secure; HttpOnly",
+                    "x-ms-service-request-id": "a358c579-b6f1-4092-b0dc-153d28dede0c",
+                    "req_id": "a358c579-b6f1-4092-b0dc-153d28dede0c",
+                    "authactivityid": "dc87490b-6402-4e90-9165-589743d52045",
+                    "x-ms-dop-hint": "4",
+                    "x-ms-ratelimit-time-remaining-xrm-requests": "1,182.55",
+                    "x-ms-ratelimit-burst-remaining-xrm-requests": "7928",
+                    "odata-version": "4.0",
+                    "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 19415122282215199166447818113459233126214117153186203791791971219518180135225245253",
+                    "public": "OPTIONS,GET,HEAD,POST"
+                },
+                "hash": "dafd33ac4639e9fa0a94ca00f5b8d85f736d4d92",
+                "request": {
+                    "params": {
+                        "$select": "teamid,name,description,teamtype,isdefault,azureactivedirectoryobjectid,createdon,modifiedon"
+                    }
+                }
+            }
+        }
+    }
+}

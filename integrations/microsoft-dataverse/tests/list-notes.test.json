@@ -1,0 +1,93 @@
+{
+  "input": {
+    "parent_record_id": "88cea450-cb0c-ea11-a813-000d3a1b1223"
+  },
+  "output": {
+    "notes": [
+      {
+        "id": "1fe4857b-2bbc-f111-aaad-7ced8d717fa5",
+        "subject": "List-notes fixture note",
+        "isdocument": false,
+        "filesize": 0,
+        "parent_record_id": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+        "parent_entity_type": "account",
+        "createdon": "2026-09-29T17:30:46Z",
+        "modifiedon": "2026-09-29T17:30:46Z",
+        "created_by_id": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+        "modified_by_id": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+        "owner_id": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/annotations": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#annotations(annotationid,subject,notetext,isdocument,filename,filesize,mimetype,_objectid_value,objecttypecode,createdon,modifiedon,_createdby_value,_modifiedby_value,_ownerid_value)",
+          "value": [
+            {
+              "@odata.etag": "W/\"8529913\"",
+              "filesize": 0,
+              "mimetype": null,
+              "modifiedon": "2026-09-29T17:30:46Z",
+              "objecttypecode": "account",
+              "isdocument": false,
+              "subject": "List-notes fixture note",
+              "_modifiedby_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "createdon": "2026-09-29T17:30:46Z",
+              "_objectid_value": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+              "annotationid": "1fe4857b-2bbc-f111-aaad-7ced8d717fa5",
+              "_createdby_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "_ownerid_value": "1dbc2dba-9bb2-f111-aaac-000d3a3bd5b5",
+              "filename": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:32:25 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "863",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1901",
+          "x-ratelimit-reset": "1790703161",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "da0a6a9c-1d53-4830-9274-23832ff5bfbe",
+          "req_id": "da0a6a9c-1d53-4830-9274-23832ff5bfbe",
+          "authactivityid": "4a7d798f-a3b0-4e47-bec1-d8bcaca18e1a",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,041.35",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7641",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 19415122282215199166447818113459233126214117153186203791791971219518180135225245253",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"35f-tDDdzmon06B+oESGXeyMBXPw1I4\""
+        },
+        "hash": "fe642c8a6b6dfd4d4c8115c1f0745ed2c4975e0e",
+        "request": {
+          "params": {
+            "$filter": "_objectid_value eq 88cea450-cb0c-ea11-a813-000d3a1b1223",
+            "$orderby": "createdon desc",
+            "$select": "annotationid,subject,isdocument,filename,filesize,mimetype,_objectid_value,objecttypecode,createdon,modifiedon,_createdby_value,_modifiedby_value,_ownerid_value"
+          }
+        }
+      }
+    }
+  }
+}

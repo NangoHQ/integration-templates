@@ -1,0 +1,230 @@
+{
+  "input": {
+    "top": 5,
+    "orderby": "name asc"
+  },
+  "output": {
+    "accounts": [
+      {
+        "accountid": "83883308-7ad5-ea11-a813-000d3a33f3b4",
+        "name": "A. Datum Corporation",
+        "accountnumber": null,
+        "emailaddress1": null,
+        "telephone1": "425-555-0158",
+        "websiteurl": "http://www.adatum.com/",
+        "address1_city": "Redmond",
+        "address1_country": "United States",
+        "industrycode": null,
+        "numberofemployees": 2000,
+        "revenue": 35000000,
+        "createdon": "2026-09-18T19:43:05Z",
+        "modifiedon": "2026-09-18T19:46:59Z"
+      },
+      {
+        "accountid": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+        "name": "Alpine Ski House",
+        "accountnumber": null,
+        "emailaddress1": null,
+        "telephone1": "281-555-0157",
+        "websiteurl": "http://www.alpineskihouse.com/",
+        "address1_city": "Dallas",
+        "address1_country": "United States",
+        "industrycode": null,
+        "numberofemployees": 350,
+        "revenue": 4830000,
+        "createdon": "2026-09-18T19:43:05Z",
+        "modifiedon": "2026-09-18T19:46:59Z"
+      },
+      {
+        "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+        "name": "Fabrikam, Inc.",
+        "accountnumber": null,
+        "emailaddress1": null,
+        "telephone1": "423-555-0103",
+        "websiteurl": "http://www.fabrikaminc.com",
+        "address1_city": "Lynnwood",
+        "address1_country": "United States",
+        "industrycode": null,
+        "numberofemployees": 50,
+        "revenue": 8000000,
+        "createdon": "2026-09-18T19:43:05Z",
+        "modifiedon": "2026-09-18T19:46:58Z"
+      },
+      {
+        "accountid": "dbdd0b93-4a1b-4848-b83a-39352f6b2e7a",
+        "name": "Fourth Coffee",
+        "accountnumber": null,
+        "emailaddress1": null,
+        "telephone1": "415-555-0179",
+        "websiteurl": null,
+        "address1_city": "San Francisco",
+        "address1_country": "United States",
+        "industrycode": null,
+        "numberofemployees": 50,
+        "revenue": 8000000,
+        "createdon": "2026-09-18T19:43:03Z",
+        "modifiedon": "2026-09-18T19:46:58Z"
+      },
+      {
+        "accountid": "e91c5323-2bbc-f111-aaad-7ced8d717fa5",
+        "name": "Nango Associate Test Account",
+        "accountnumber": null,
+        "emailaddress1": null,
+        "telephone1": null,
+        "websiteurl": null,
+        "address1_city": null,
+        "address1_country": null,
+        "industrycode": null,
+        "numberofemployees": null,
+        "revenue": null,
+        "createdon": "2026-09-29T17:28:10Z",
+        "modifiedon": "2026-09-29T17:28:10Z"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/accounts": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#accounts(accountid,name,accountnumber,emailaddress1,telephone1,websiteurl,address1_city,address1_country,industrycode,numberofemployees,revenue,createdon,modifiedon)",
+          "value": [
+            {
+              "@odata.etag": "W/\"7009004\"",
+              "websiteurl": "http://www.adatum.com/",
+              "accountid": "83883308-7ad5-ea11-a813-000d3a33f3b4",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "accountnumber": null,
+              "emailaddress1": null,
+              "address1_city": "Redmond",
+              "numberofemployees": 2000,
+              "address1_composite": "Redmond\r\nUnited States",
+              "address1_country": "United States",
+              "modifiedon": "2026-09-18T19:46:59Z",
+              "name": "A. Datum Corporation",
+              "industrycode": null,
+              "revenue": 35000000,
+              "createdon": "2026-09-18T19:43:05Z",
+              "telephone1": "425-555-0158"
+            },
+            {
+              "@odata.etag": "W/\"7009020\"",
+              "websiteurl": "http://www.alpineskihouse.com/",
+              "accountid": "81883308-7ad5-ea11-a813-000d3a33f3b4",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "accountnumber": null,
+              "emailaddress1": null,
+              "address1_city": "Dallas",
+              "numberofemployees": 350,
+              "address1_composite": "Dallas\r\nUnited States",
+              "address1_country": "United States",
+              "modifiedon": "2026-09-18T19:46:59Z",
+              "name": "Alpine Ski House",
+              "industrycode": null,
+              "revenue": 4830000,
+              "createdon": "2026-09-18T19:43:05Z",
+              "telephone1": "281-555-0157"
+            },
+            {
+              "@odata.etag": "W/\"7009018\"",
+              "websiteurl": "http://www.fabrikaminc.com",
+              "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "accountnumber": null,
+              "emailaddress1": null,
+              "address1_city": "Lynnwood",
+              "numberofemployees": 50,
+              "address1_composite": "Lynnwood\r\nUnited States",
+              "address1_country": "United States",
+              "modifiedon": "2026-09-18T19:46:58Z",
+              "name": "Fabrikam, Inc.",
+              "industrycode": null,
+              "revenue": 8000000,
+              "createdon": "2026-09-18T19:43:05Z",
+              "telephone1": "423-555-0103"
+            },
+            {
+              "@odata.etag": "W/\"7009014\"",
+              "websiteurl": null,
+              "accountid": "dbdd0b93-4a1b-4848-b83a-39352f6b2e7a",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "accountnumber": null,
+              "emailaddress1": null,
+              "address1_city": "San Francisco",
+              "numberofemployees": 50,
+              "address1_composite": "San Francisco\r\nUnited States",
+              "address1_country": "United States",
+              "modifiedon": "2026-09-18T19:46:58Z",
+              "name": "Fourth Coffee",
+              "industrycode": null,
+              "revenue": 8000000,
+              "createdon": "2026-09-18T19:43:03Z",
+              "telephone1": "415-555-0179"
+            },
+            {
+              "@odata.etag": "W/\"8529519\"",
+              "websiteurl": null,
+              "accountid": "e91c5323-2bbc-f111-aaad-7ced8d717fa5",
+              "_transactioncurrencyid_value": "443153aa-91b3-f111-aaac-000d3a3bd5b5",
+              "accountnumber": null,
+              "emailaddress1": null,
+              "address1_city": null,
+              "numberofemployees": null,
+              "address1_composite": null,
+              "address1_country": null,
+              "modifiedon": "2026-09-29T17:28:10Z",
+              "name": "Nango Associate Test Account",
+              "industrycode": null,
+              "revenue": null,
+              "createdon": "2026-09-29T17:28:10Z",
+              "telephone1": null
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:32:29 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "2891",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1895",
+          "x-ratelimit-reset": "1790703161",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "bf5daa8a-3599-468c-9946-382b85e56b62",
+          "req_id": "bf5daa8a-3599-468c-9946-382b85e56b62",
+          "authactivityid": "52287e30-835a-48fd-ac69-28b01b52efb6",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,041.35",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7638",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 16922910017516219025196929611913018120115194214613420921020773139501822720522332250",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"b4b-MIc6AR276cuqFpp08d4PcBLFQrg\""
+        },
+        "hash": "0abbabe48c74de0a01070583002fc25cfbdbcabc",
+        "request": {
+          "params": {
+            "$orderby": "name asc",
+            "$select": "accountid,name,accountnumber,emailaddress1,telephone1,websiteurl,address1_city,address1_country,industrycode,numberofemployees,revenue,createdon,modifiedon",
+            "$top": "5"
+          }
+        }
+      }
+    }
+  }
+}
