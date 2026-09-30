@@ -10,9 +10,7 @@ const InputSchema = z
             ),
         end: z
             .string()
-            .describe(
-                'Time until which available slots should be checked, in UTC as an ISO 8601 datestring. Example: "2033-09-06" or "2033-09-06T18:00:00Z".'
-            ),
+            .describe('Time until which available slots should be checked, in UTC as an ISO 8601 datestring. Example: "2033-09-06" or "2033-09-06T18:00:00Z".'),
         eventTypeId: z.number().optional().describe('The ID of the event type for which available slots should be checked.'),
         eventTypeSlug: z
             .string()
@@ -20,10 +18,7 @@ const InputSchema = z
             .describe('The slug of the event type. If provided, username or teamSlug must be provided too (and organizationSlug if relevant).'),
         username: z.string().optional().describe('The username of the event owner. Used together with eventTypeSlug for an individual event type.'),
         teamSlug: z.string().optional().describe('The slug of the team that owns the event type. Used together with eventTypeSlug for a team event type.'),
-        organizationSlug: z
-            .string()
-            .optional()
-            .describe('The slug of the organization to which the user (username) or team (teamSlug) belongs.'),
+        organizationSlug: z.string().optional().describe('The slug of the organization to which the user (username) or team (teamSlug) belongs.'),
         usernames: z
             .string()
             .optional()
@@ -42,7 +37,7 @@ const InputSchema = z
         bookingUidToReschedule: z
             .string()
             .optional()
-            .describe("The unique identifier of the booking being rescheduled, so its original time is included among the returned available slots.")
+            .describe('The unique identifier of the booking being rescheduled, so its original time is included among the returned available slots.')
     })
     .describe('Input for getting available slots from Cal.com.');
 
