@@ -3838,6 +3838,16 @@ import './mailchimp/actions/update-segment.js';
 import './mailchimp/actions/update-store.js';
 import './mailchimp/actions/update-template.js';
 
+// -- Integration: mailgun
+import './mailgun/actions/add-list-member.js';
+import './mailgun/actions/create-list.js';
+import './mailgun/actions/delete-list.js';
+import './mailgun/actions/get-list-member.js';
+import './mailgun/actions/list-list-members.js';
+import './mailgun/actions/list-lists.js';
+import './mailgun/actions/remove-list-member.js';
+import './mailgun/actions/update-list-member.js';
+
 // -- Integration: make
 import './make/syncs/connections.js';
 import './make/syncs/data-store-records.js';
