@@ -1,0 +1,148 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev",
+    "project_id_or_slug": "nango-seed-project",
+    "key_id": "4131819035ec5b634cdf5a530ead7f30",
+    "name": "Default"
+  },
+  "output": {
+    "id": "4131819035ec5b634cdf5a530ead7f30",
+    "name": "Default",
+    "label": "Default",
+    "public": "4131819035ec5b634cdf5a530ead7f30",
+    "secret": "7ed8435a650947970fa79a83e4d65c1a",
+    "projectId": 4512170111991808,
+    "isActive": true,
+    "rateLimit": null,
+    "browserSdkVersion": "10.x",
+    "dateCreated": "2026-09-29T14:26:57.823710Z",
+    "dsn": {
+      "secret": "https://4131819035ec5b634cdf5a530ead7f30:7ed8435a650947970fa79a83e4d65c1a@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+      "public": "https://4131819035ec5b634cdf5a530ead7f30@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+      "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+      "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+      "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+      "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+      "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4131819035ec5b634cdf5a530ead7f30/",
+      "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4131819035ec5b634cdf5a530ead7f30/",
+      "cdn": "https://js.sentry-cdn.com/4131819035ec5b634cdf5a530ead7f30.min.js",
+      "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+      "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+      "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+      "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+    },
+    "dynamicSdkLoaderOptions": {
+      "hasReplay": true,
+      "hasPerformance": true,
+      "hasDebug": false,
+      "hasFeedback": false,
+      "hasLogsAndMetrics": false
+    }
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/0/projects/nangodev/nango-seed-project/keys/4131819035ec5b634cdf5a530ead7f30/": {
+        "response": {
+          "id": "4131819035ec5b634cdf5a530ead7f30",
+          "name": "Default",
+          "label": "Default",
+          "public": "4131819035ec5b634cdf5a530ead7f30",
+          "secret": "7ed8435a650947970fa79a83e4d65c1a",
+          "projectId": 4512170111991808,
+          "isActive": true,
+          "rateLimit": null,
+          "dsn": {
+            "secret": "https://4131819035ec5b634cdf5a530ead7f30:7ed8435a650947970fa79a83e4d65c1a@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "public": "https://4131819035ec5b634cdf5a530ead7f30@o4512170041409536.ingest.us.sentry.io/4512170111991808",
+            "csp": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/csp-report/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "security": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/security/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "minidump": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/minidump/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "nel": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/nel/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "unreal": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/unreal/4131819035ec5b634cdf5a530ead7f30/",
+            "crons": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/cron/___MONITOR_SLUG___/4131819035ec5b634cdf5a530ead7f30/",
+            "cdn": "https://js.sentry-cdn.com/4131819035ec5b634cdf5a530ead7f30.min.js",
+            "playstation": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/playstation/?sentry_key=4131819035ec5b634cdf5a530ead7f30",
+            "integration": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/",
+            "otlp_traces": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/traces",
+            "otlp_logs": "https://o4512170041409536.ingest.us.sentry.io/api/4512170111991808/integration/otlp/v1/logs"
+          },
+          "browserSdkVersion": "10.x",
+          "browserSdk": {
+            "choices": [
+              [
+                "11.x",
+                "11.x"
+              ],
+              [
+                "10.x",
+                "10.x"
+              ],
+              [
+                "9.x",
+                "9.x"
+              ],
+              [
+                "8.x",
+                "8.x"
+              ],
+              [
+                "7.x",
+                "7.x"
+              ]
+            ]
+          },
+          "dateCreated": "2026-09-29T14:26:57.823710Z",
+          "dynamicSdkLoaderOptions": {
+            "hasReplay": true,
+            "hasPerformance": true,
+            "hasDebug": false,
+            "hasFeedback": false,
+            "hasLogsAndMetrics": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:11:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1863",
+          "x-ratelimit-reset": "1790694671",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "allow": "GET, PUT, DELETE, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694666",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "object-src 'none'; font-src * data:; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; media-src *; frame-ancestors 'self' *.sentry.io; worker-src 'self' blob:; default-src 'none'; img-src * blob: data:; base-uri 'none'; style-src * 'unsafe-inline'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "217",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "9bbddf568607ec056527ce5194ee20388d141914",
+        "request": {
+          "data": {
+            "name": "Default"
+          }
+        }
+      }
+    }
+  }
+}

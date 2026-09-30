@@ -1,0 +1,267 @@
+{
+  "input": {
+    "organization_id_or_slug": "nangodev",
+    "version": "nango-create-release-dryrun-1.0.0",
+    "projects": [
+      "nango-seed-project"
+    ],
+    "ref": "nango-create-release-dryrun-1.0.0",
+    "url": "https://github.com/nangohq/nango/releases/tag/nango-create-release-dryrun-1.0.0",
+    "dateReleased": "2026-09-29T00:00:00Z",
+    "commits": [
+      {
+        "id": "0a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d",
+        "message": "Dryrun seed commit for the create-release action",
+        "author_name": "Nango Seed",
+        "author_email": "api@nango.dev",
+        "timestamp": "2026-09-29T00:00:00Z"
+      }
+    ]
+  },
+  "output": {
+    "id": 1999835636,
+    "version": "nango-create-release-dryrun-1.0.0",
+    "shortVersion": "nango-create-release-dryrun-1.0.0",
+    "status": "open",
+    "ref": "nango-create-release-dryrun-1.0.0",
+    "url": "https://github.com/nangohq/nango/releases/tag/nango-create-release-dryrun-1.0.0",
+    "dateReleased": "2026-09-29T00:00:00Z",
+    "dateCreated": "2026-09-29T15:09:35.293580Z",
+    "newGroups": 0,
+    "commitCount": 1,
+    "deployCount": 0,
+    "projects": [
+      {
+        "id": 4512170111991808,
+        "slug": "nango-seed-project",
+        "name": "Nango Seed Project",
+        "platform": "node",
+        "platforms": [],
+        "hasHealthData": false,
+        "newGroups": 0
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/0/organizations/nangodev/releases/": {
+        "response": {
+          "id": 1999835636,
+          "version": "nango-create-release-dryrun-1.0.0",
+          "status": "open",
+          "shortVersion": "nango-create-release-dryrun-1.0.0",
+          "versionInfo": {
+            "package": null,
+            "version": {
+              "raw": "nango-create-release-dryrun-1.0.0"
+            },
+            "description": "nango-create-release-dryrun-1.0.0",
+            "buildHash": null
+          },
+          "ref": "nango-create-release-dryrun-1.0.0",
+          "url": "https://github.com/nangohq/nango/releases/tag/nango-create-release-dryrun-1.0.0",
+          "dateReleased": "2026-09-29T00:00:00Z",
+          "dateCreated": "2026-09-29T15:09:35.293580Z",
+          "data": {},
+          "newGroups": 0,
+          "owner": null,
+          "commitCount": 1,
+          "lastCommit": {
+            "id": "0a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d",
+            "message": "Dryrun seed commit for the create-release action",
+            "dateCreated": "2026-09-29T00:00:00Z",
+            "pullRequest": null,
+            "suspectCommitType": "",
+            "releases": [
+              {
+                "version": "nango-create-release-dryrun-1.0.0",
+                "shortVersion": "nango-create-release-dryrun-1.0.0",
+                "ref": "nango-create-release-dryrun-1.0.0",
+                "url": "https://github.com/nangohq/nango/releases/tag/nango-create-release-dryrun-1.0.0",
+                "dateReleased": "2026-09-29T00:00:00Z",
+                "dateCreated": "2026-09-29T15:09:35.293580Z"
+              }
+            ],
+            "repository": {
+              "id": "7603525",
+              "name": "organization-4512170041409536",
+              "url": null,
+              "provider": {
+                "id": "unknown",
+                "name": "Unknown Provider"
+              },
+              "status": "active",
+              "dateCreated": "2026-09-29T15:09:35.343460Z",
+              "integrationId": null,
+              "externalSlug": null,
+              "externalId": null
+            },
+            "author": {
+              "id": "5026258",
+              "name": "api@nango.dev",
+              "username": "api@nango.dev",
+              "email": "api@nango.dev",
+              "avatarUrl": "https://gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=32&d=mm",
+              "isActive": true,
+              "isSuspended": false,
+              "hasPasswordAuth": true,
+              "isManaged": false,
+              "dateJoined": "2026-09-29T14:09:00.725342Z",
+              "lastLogin": "2026-09-29T14:46:21.419972Z",
+              "has2fa": false,
+              "lastActive": "2026-09-29T14:46:27.025685Z",
+              "isSuperuser": false,
+              "isStaff": false,
+              "emails": [
+                {
+                  "id": "5232320",
+                  "email": "api@nango.dev",
+                  "is_verified": true
+                }
+              ],
+              "experiments": {},
+              "options": {
+                "theme": "system",
+                "language": "en",
+                "stacktraceOrder": -1,
+                "defaultIssueEvent": "recommended",
+                "timezone": "UTC",
+                "clock24Hours": false,
+                "prefersIssueDetailsStreamlinedUI": null
+              },
+              "flags": {
+                "newsletter_consent_prompt": false
+              },
+              "avatar": {
+                "avatarType": "letter_avatar",
+                "avatarUuid": null,
+                "avatarUrl": null
+              },
+              "identities": []
+            }
+          },
+          "deployCount": 0,
+          "lastDeploy": null,
+          "authors": [
+            {
+              "id": "5026258",
+              "name": "api@nango.dev",
+              "username": "api@nango.dev",
+              "email": "api@nango.dev",
+              "avatarUrl": "https://gravatar.com/avatar/c89d19930bbb731cfec48ff1584648234d177e53d3c5641a51797a3d16ac420d?s=32&d=mm",
+              "isActive": true,
+              "isSuspended": false,
+              "hasPasswordAuth": true,
+              "isManaged": false,
+              "dateJoined": "2026-09-29T14:09:00.725342Z",
+              "lastLogin": "2026-09-29T14:46:21.419972Z",
+              "has2fa": false,
+              "lastActive": "2026-09-29T14:46:27.025685Z",
+              "isSuperuser": false,
+              "isStaff": false,
+              "emails": [
+                {
+                  "id": "5232320",
+                  "email": "api@nango.dev",
+                  "is_verified": true
+                }
+              ],
+              "experiments": {},
+              "options": {
+                "theme": "system",
+                "language": "en",
+                "stacktraceOrder": -1,
+                "defaultIssueEvent": "recommended",
+                "timezone": "UTC",
+                "clock24Hours": false,
+                "prefersIssueDetailsStreamlinedUI": null
+              },
+              "flags": {
+                "newsletter_consent_prompt": false
+              },
+              "avatar": {
+                "avatarType": "letter_avatar",
+                "avatarUuid": null,
+                "avatarUrl": null
+              },
+              "identities": []
+            }
+          ],
+          "projects": [
+            {
+              "id": 4512170111991808,
+              "slug": "nango-seed-project",
+              "name": "Nango Seed Project",
+              "newGroups": 0,
+              "platform": "node",
+              "platforms": [],
+              "hasHealthData": false
+            }
+          ],
+          "firstEvent": null,
+          "lastEvent": null,
+          "currentProjectMeta": {},
+          "userAgent": "axios/1.18.0"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:10:01 GMT",
+          "content-type": "application/json",
+          "content-length": "3362",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1857",
+          "x-ratelimit-reset": "1790694610",
+          "server": "nginx",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694602",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "worker-src 'self' blob:; font-src * data:; media-src *; default-src 'none'; img-src * blob: data:; style-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; base-uri 'none'; frame-ancestors 'self' *.sentry.io; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; object-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "218",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"d22-UAka+O67swop1hPnANKwHZy3y/E\""
+        },
+        "hash": "1a1ecca2802fe12c54e5aab492341469e1cc0021",
+        "request": {
+          "data": {
+            "version": "nango-create-release-dryrun-1.0.0",
+            "projects": [
+              "nango-seed-project"
+            ],
+            "ref": "nango-create-release-dryrun-1.0.0",
+            "url": "https://github.com/nangohq/nango/releases/tag/nango-create-release-dryrun-1.0.0",
+            "dateReleased": "2026-09-29T00:00:00Z",
+            "commits": [
+              {
+                "id": "0a1b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d",
+                "message": "Dryrun seed commit for the create-release action",
+                "author_name": "Nango Seed",
+                "author_email": "api@nango.dev",
+                "timestamp": "2026-09-29T00:00:00Z"
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
