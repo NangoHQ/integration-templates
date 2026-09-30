@@ -35,7 +35,7 @@ const InputSchema = z
 
 const ProviderWarningSchema = z.object({
     code: z.string(),
-    message: z.string(),
+    message: z.string().optional(),
     params: z.record(z.string(), z.unknown()).optional()
 });
 
@@ -62,7 +62,7 @@ const ProviderLeadSchema = z.object({
 
 const WarningOutputSchema = z.object({
     code: z.string().describe('Machine-readable warning code, e.g. "FIELDS_KEPT" or "invalid-company-domain".'),
-    message: z.string().describe('Human-readable warning message.'),
+    message: z.string().optional().describe('Human-readable warning message.'),
     params: z.record(z.string(), z.unknown()).optional().describe('Additional warning details, e.g. the list of fields that were kept unchanged.')
 });
 
@@ -121,8 +121,9 @@ const action = createAction({
                 ...(input.timezone !== undefined && { timezone: input.timezone }),
                 ...(input.contactOwner !== undefined && { contactOwner: input.contactOwner })
             },
-            // Verified live: the API refuses a duplicate campaign+email with a 400 and writes nothing, so a retry after a lost response cannot create a duplicate lead.
-            retries: 3
+            // No idempotency key: a retry after a lost response would repeat the create and 400 once the lead already exists, so disable automatic retries.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.post(config);
