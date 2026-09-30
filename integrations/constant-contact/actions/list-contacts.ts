@@ -33,6 +33,9 @@ const EmailAddressSchema = z.object({
     updated_at: z.string().optional().describe('ISO 8601 timestamp when the email address was last updated.'),
     opt_in_source: z.string().optional().describe('Who opted the contact in: Account or Contact.'),
     opt_in_date: z.string().optional().describe('ISO 8601 timestamp of the opt-in.'),
+    opt_out_source: z.string().optional().describe('Who opted the contact out: Account or Contact. Present only when unsubscribed.'),
+    opt_out_date: z.string().optional().describe('ISO 8601 timestamp of the opt-out. Present only when unsubscribed.'),
+    opt_out_reason: z.string().optional().describe('Reason recorded for the opt-out. Present only when unsubscribed.'),
     confirm_status: z.string().optional().describe('Confirmed-opt-in status of the email address.')
 });
 

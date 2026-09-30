@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        name: z.string().describe('Name of the tag to create. Example: "event-registrants"')
+        name: z.string().min(1).max(255).describe('Name of the tag to create, 1-255 characters. Example: "event-registrants"')
     })
     .describe('Input for creating a contact tag');
 

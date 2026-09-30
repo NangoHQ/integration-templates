@@ -56,7 +56,9 @@ const ContactNoteSchema = z
     .describe('A note about the contact');
 
 const contactShape = {
-    email_address: ContactEmailAddressSchema,
+    email_address: ContactEmailAddressSchema.optional().describe(
+        "The contact's primary email address with its permission and opt-in details. Absent on SMS-only contacts, which have no email address."
+    ),
     first_name: z.string().optional().describe("The contact's first name"),
     last_name: z.string().optional().describe("The contact's last name"),
     job_title: z.string().optional().describe("The contact's job title"),
@@ -131,10 +133,7 @@ const sync = createSync({
 
         const runsSinceFullRefresh = checkpoint?.runs_since_full_refresh ?? 0;
         const isFullRefresh = !checkpoint || checkpoint.updated_after === '' || runsSinceFullRefresh >= FULL_REFRESH_INTERVAL;
-
-        if (isFullRefresh) {
-            await nango.trackDeletesStart('Contact');
-        }
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://v3.developer.constantcontact.com/api_reference/index.html
@@ -173,6 +172,13 @@ const sync = createSync({
                 contacts.push({ id: contact_id, ...fields });
             }
 
+            // Only start delete tracking once this page's records have passed validation above,
+            // so a parsing failure on the first page never leaves an open tracking window.
+            if (isFullRefresh && !deleteTrackingStarted) {
+                await nango.trackDeletesStart('Contact');
+                deleteTrackingStarted = true;
+            }
+
             if (contacts.length > 0) {
                 await nango.batchSave(contacts, 'Contact');
             }
@@ -186,7 +192,7 @@ const sync = createSync({
             }
         }
 
-        if (isFullRefresh) {
+        if (deleteTrackingStarted) {
             await nango.trackDeletesEnd('Contact');
         }
 

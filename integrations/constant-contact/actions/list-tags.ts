@@ -7,9 +7,12 @@ const InputSchema = z
         limit: z
             .number()
             .int()
-            .positive()
+            .min(1)
+            .max(500)
             .optional()
-            .describe('Maximum number of tags to return per page. Example: 50. When omitted, the provider default page size of 50 is used.'),
+            .describe(
+                'Maximum number of tags to return per page, between 1 and 500 (the provider caps the account at 500 tags total). Example: 50. When omitted, the provider default page size of 50 is used.'
+            ),
         cursor: z.string().optional().describe('Opaque pagination cursor from the next_cursor field of a previous response. Omit to fetch the first page.')
     })
     .describe('Pagination options for listing contact tags.');

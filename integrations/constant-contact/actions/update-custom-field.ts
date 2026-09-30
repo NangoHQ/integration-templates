@@ -6,8 +6,10 @@ const InputSchema = z
         custom_field_id: z.string().describe('The unique ID of the contact custom field definition to rename. Example: "d97b8ee1-5f47-4f38-9d2f-2c9b1a8e4c10"'),
         label: z
             .string()
+            .min(1)
+            .max(50)
             .describe(
-                'The new display label for the custom field. Renaming the label also regenerates the machine-readable name slug. Example: "Favorite Color"'
+                'The new display label for the custom field, 1-50 characters. Renaming the label also regenerates the machine-readable name slug. Example: "Favorite Color"'
             )
     })
     .describe('Input for renaming a contact custom field definition');

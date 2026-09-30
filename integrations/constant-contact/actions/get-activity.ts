@@ -11,10 +11,11 @@ const InputSchema = z
     })
     .describe('Input for getting the status of an asynchronous activity job');
 
-const ActivityStatusSchema = z.object({
-    items_total_count: z.number().optional().describe('Total number of items the activity will process.'),
-    items_completed_count: z.number().optional().describe('Number of items the activity has processed so far.')
-});
+const ActivityStatusSchema = z
+    .record(z.string(), z.number())
+    .describe(
+        'Job progress counters, keyed by counter name. Common keys include items_total_count and items_completed_count; bulk contact import/export and delete jobs may also report person_count, error_count, correctable_count, cannot_add_to_list_count, and list_count. Which keys are present depends on the job type.'
+    );
 
 const OutputSchema = z
     .object({
@@ -25,11 +26,11 @@ const OutputSchema = z
                 'Current state of the activity. Confirmed values include "initialized" and "completed"; the job is finished once it reaches a terminal state such as "completed".'
             ),
         percent_done: z.number().optional().describe('Progress of the activity as a percentage from 0 to 100.'),
-        status: ActivityStatusSchema.optional().describe('Job progress counters. Which counters are present depends on the job type.'),
+        status: ActivityStatusSchema.optional(),
         activity_errors: z
-            .array(z.record(z.string(), z.unknown()))
+            .array(z.string())
             .optional()
-            .describe('Error details reported by the activity. Empty when the job has not reported errors; entry fields vary by job type.'),
+            .describe('Error messages reported by the activity, one string per error condition. Empty when the job has not reported errors.'),
         created_at: z.string().optional().describe('ISO 8601 timestamp when the activity was created.'),
         started_at: z.string().optional().describe('ISO 8601 timestamp when the activity started processing. Absent until the job starts.'),
         updated_at: z.string().optional().describe('ISO 8601 timestamp when the activity was last updated.'),
@@ -42,7 +43,7 @@ const ProviderActivitySchema = z.object({
     state: z.string(),
     percent_done: z.number().optional(),
     status: ActivityStatusSchema.optional(),
-    activity_errors: z.array(z.record(z.string(), z.unknown())).optional(),
+    activity_errors: z.array(z.string()).optional(),
     created_at: z.string().optional(),
     started_at: z.string().optional(),
     updated_at: z.string().optional(),

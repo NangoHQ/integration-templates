@@ -13,6 +13,9 @@ const InputSchema = z
         last_name: z.string().optional().describe('The last name of the contact. Example: "Doe"'),
         job_title: z.string().optional().describe('The job title of the contact. Example: "Marketing Manager"'),
         company_name: z.string().optional().describe('The company name of the contact. Example: "Acme Corp"'),
+        birthday_month: z.number().int().min(1).max(12).optional().describe("The month of the contact's birthday, 1-12. Always pair with birthday_day."),
+        birthday_day: z.number().int().min(1).max(31).optional().describe("The day of the contact's birthday, 1-31. Always pair with birthday_month."),
+        anniversary: z.string().optional().describe('The anniversary date of the contact, in YYYY-MM-DD format. Example: "2020-06-14"'),
         phone_numbers: z
             .array(
                 z.object({
@@ -81,6 +84,9 @@ const OutputSchema = z
         last_name: z.string().optional().describe('The last name of the contact. Example: "Doe"'),
         job_title: z.string().optional().describe('The job title of the contact. Example: "Marketing Manager"'),
         company_name: z.string().optional().describe('The company name of the contact. Example: "Acme Corp"'),
+        birthday_month: z.number().optional().describe("The month of the contact's birthday, when set."),
+        birthday_day: z.number().optional().describe("The day of the contact's birthday, when set."),
+        anniversary: z.string().optional().describe('The anniversary date of the contact, when set.'),
         create_source: z.string().optional().describe('Identifies who added the contact. Example: "Contact"'),
         created_at: z.string().optional().describe('The date and time the contact was created, in ISO-8601 format.'),
         updated_at: z.string().optional().describe('The date and time the contact was last updated, in ISO-8601 format.'),
@@ -155,6 +161,9 @@ const action = createAction({
                 ...(input.last_name !== undefined && { last_name: input.last_name }),
                 ...(input.job_title !== undefined && { job_title: input.job_title }),
                 ...(input.company_name !== undefined && { company_name: input.company_name }),
+                ...(input.birthday_month !== undefined && { birthday_month: input.birthday_month }),
+                ...(input.birthday_day !== undefined && { birthday_day: input.birthday_day }),
+                ...(input.anniversary !== undefined && { anniversary: input.anniversary }),
                 ...(input.phone_numbers !== undefined && { phone_numbers: input.phone_numbers }),
                 ...(input.street_addresses !== undefined && { street_addresses: input.street_addresses }),
                 ...(input.list_memberships !== undefined && { list_memberships: input.list_memberships }),

@@ -102,6 +102,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['campaign_data'],
     checkpoint: CheckpointSchema,
     models: {
         Campaign: CampaignSchema
@@ -116,8 +117,7 @@ const sync = createSync({
         const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
         let nextPagePath = normalizeNextPagePath(checkpoint?.next_page_path);
-
-        await nango.trackDeletesStart('Campaign');
+        let deleteTrackingStarted = false;
 
         const listConfig: ProxyConfiguration = {
             // https://v3.developer.constantcontact.com/api_reference/index.html
@@ -193,6 +193,13 @@ const sync = createSync({
                 }
             }
 
+            // Only start delete tracking once this page's records have passed validation above,
+            // so a parsing failure on the first page never leaves an open tracking window.
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Campaign');
+                deleteTrackingStarted = true;
+            }
+
             if (campaigns.length > 0) {
                 await nango.batchSave(campaigns, 'Campaign');
             }
@@ -203,7 +210,9 @@ const sync = createSync({
         }
 
         await nango.clearCheckpoint();
-        await nango.trackDeletesEnd('Campaign');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('Campaign');
+        }
     }
 });
 

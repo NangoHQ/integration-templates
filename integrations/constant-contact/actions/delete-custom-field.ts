@@ -12,7 +12,7 @@ const OutputSchema = z.null().describe('Always null: the provider returns 204 No
 /**
  * @tags: [write, destructive]
  * @tagReason: Permanently deletes a contact custom field definition from the provider account.
- * @pitfalls: Deletion takes effect immediately and cannot be undone. Identify the field by its custom_field_id rather than its name slug, which is silently regenerated whenever the field's label is renamed.
+ * @pitfalls: The provider's 204 response only confirms the custom field definition itself was deleted; per Constant Contact's documentation, removing the custom_field subresource from every contact it was applied to is a separate step that completes asynchronously afterward, so a contact fetched immediately after this call can still briefly show a value for the deleted field. This deletion cannot be undone. Identify the field by its custom_field_id rather than its name slug, which is silently regenerated whenever the field's label is renamed.
  */
 const action = createAction({
     description: 'Delete a contact custom field definition.',

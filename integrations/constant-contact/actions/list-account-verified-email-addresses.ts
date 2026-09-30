@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({}).describe('No input parameters. Returns every email address registered on the Constant Contact account.');
+const InputSchema = z.object({}).describe('No input parameters. Returns the confirmed email addresses registered on the Constant Contact account.');
 
 const ProviderEmailAddressSchema = z.object({
     email_id: z.number(),
@@ -19,7 +19,7 @@ const EmailAddressSchema = z
         confirm_status: z
             .string()
             .optional()
-            .describe('Confirmation status of the address, e.g. "CONFIRMED" or "UNCONFIRMED". Only confirmed addresses can send campaigns.'),
+            .describe('Confirmation status of the address. Always "CONFIRMED", since this action only returns confirmed addresses.'),
         confirm_time: z.string().optional().describe('ISO 8601 timestamp of when the address was confirmed. Omitted when the address has not been confirmed.'),
         roles: z
             .array(z.string())
@@ -31,26 +31,29 @@ const EmailAddressSchema = z
 
 const OutputSchema = z
     .object({
-        emails: z.array(EmailAddressSchema).describe('Email addresses registered on the account, with their confirmation status and roles.')
+        emails: z.array(EmailAddressSchema).describe('Confirmed sender/reply-to email addresses registered on the account, with their roles.')
     })
-    .describe("The Constant Contact account's registered sender/reply-to email addresses and their roles.");
+    .describe("The Constant Contact account's confirmed sender/reply-to email addresses and their roles.");
 
 /**
  * @tags: [read]
- * @tagReason: Performs a single GET request to list the account's email addresses; it does not mutate any provider state.
- * @pitfalls: Results include every email address registered on the account, not only confirmed ones; check each item's confirm_status (e.g. "CONFIRMED") before using an address as a sender or reply-to.
+ * @tagReason: Performs a single GET request to list the account's confirmed email addresses; it does not mutate any provider state.
+ * @pitfalls: Only addresses with confirm_status "CONFIRMED" are returned (filtered server-side via confirm_status=CONFIRMED), matching this action's verified-email contract; an address the account owner has added but not yet confirmed will not appear here.
  */
 const action = createAction({
-    description: "List the account's verified sender/reply-to email addresses and their roles.",
+    description: "List the account's verified (confirmed) sender/reply-to email addresses and their roles.",
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account_read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://v3.developer.constantcontact.com/api_reference/index.html
+        // https://v3.developer.constantcontact.com/api_reference/index.html — confirm_status query param supports CONFIRMED/UNCONFIRMED
         const response = await nango.get({
             endpoint: '/v3/account/emails',
+            params: {
+                confirm_status: 'CONFIRMED'
+            },
             retries: 3
         });
 

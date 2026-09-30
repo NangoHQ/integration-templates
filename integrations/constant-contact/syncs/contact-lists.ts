@@ -66,8 +66,7 @@ const sync = createSync({
         const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
         const checkpoint = parsedCheckpoint.success ? parsedCheckpoint.data : undefined;
         let nextPagePath = normalizeNextPagePath(checkpoint?.next_page_path);
-
-        await nango.trackDeletesStart('ContactList');
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://v3.developer.constantcontact.com/api_reference/index.html#/Contact_Lists/getLists
@@ -108,6 +107,13 @@ const sync = createSync({
                 };
             });
 
+            // Only start delete tracking once this page's records have passed validation above,
+            // so a parsing failure on the first page never leaves an open tracking window.
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('ContactList');
+                deleteTrackingStarted = true;
+            }
+
             if (contactLists.length > 0) {
                 await nango.batchSave(contactLists, 'ContactList');
             }
@@ -120,7 +126,9 @@ const sync = createSync({
         await nango.clearCheckpoint();
 
         // Close the delete-tracking window exactly once, only after every page was crawled and saved.
-        await nango.trackDeletesEnd('ContactList');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('ContactList');
+        }
     }
 });
 

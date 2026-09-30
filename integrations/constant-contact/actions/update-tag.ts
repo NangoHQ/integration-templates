@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         tag_id: z.string().describe('The unique identifier of the contact tag to rename. Example: "f81e4a72-7f4c-4b3a-9a3d-2f6d3f0c9a11"'),
-        name: z.string().describe('The new name for the contact tag. Example: "vip-customers"')
+        name: z.string().min(1).max(255).describe('The new name for the contact tag, 1-255 characters. Example: "vip-customers"')
     })
     .describe('Input for renaming a Constant Contact contact tag');
 

@@ -4,12 +4,6 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        status: z
-            .string()
-            .optional()
-            .describe(
-                'Filter by campaign status, e.g. "DRAFT", "SCHEDULED", "EXECUTING", "DONE", "ERROR" or "REMOVED". Note: the provider currently accepts but silently ignores this filter.'
-            ),
         limit: z
             .number()
             .int()
@@ -17,23 +11,17 @@ const InputSchema = z
             .max(500)
             .optional()
             .describe('Maximum number of campaigns to return per page, between 1 and 500. Provider default: 50. Example: 100'),
-        created_after: z
-            .string()
-            .optional()
-            .describe(
-                'ISO-8601 timestamp; return campaigns created after this date. Example: "2026-01-01T00:00:00Z". Note: the provider currently accepts but silently ignores this filter.'
-            ),
-        created_before: z
-            .string()
-            .optional()
-            .describe(
-                'ISO-8601 timestamp; return campaigns created before this date. Example: "2026-12-31T23:59:59Z". Note: the provider currently accepts but silently ignores this filter.'
-            ),
         updated_after: z
             .string()
             .optional()
             .describe(
-                'ISO-8601 timestamp; return campaigns updated after this date. Example: "2026-01-01T00:00:00Z". Note: the provider currently accepts but silently ignores this filter.'
+                'ISO-8601 timestamp; return campaigns whose updated_at is after this date/time. Example: "2026-01-01T00:00:00Z". Sent to the provider as after_date.'
+            ),
+        updated_before: z
+            .string()
+            .optional()
+            .describe(
+                'ISO-8601 timestamp; return campaigns whose updated_at is before this date/time. Example: "2026-12-31T23:59:59Z". Sent to the provider as before_date.'
             ),
         cursor: z.string().optional().describe('Pagination cursor from the previous response next_cursor field. Omit for the first page.')
     })
@@ -82,7 +70,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Performs a read-only GET request that lists email campaigns without mutating any provider data.
- * @pitfalls: The status, created_after, created_before and updated_after filters are accepted but silently ignored by the provider, so results are always the full unfiltered list and any filtering must be done client-side; only limit and cursor pagination take effect. Returned current_status values use mixed-case provider casing (e.g. "Draft"), not the uppercase constants documented for the status filter.
+ * @pitfalls: The provider only supports filtering email campaigns by updated_at (via after_date/before_date); there is no status or created_at filter, so filtering by status must be done client-side. Returned current_status values use mixed-case provider casing (e.g. "Draft").
  */
 const action = createAction({
     description: 'List email campaigns.',
@@ -93,14 +81,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://v3.developer.constantcontact.com/api_reference/index.html#/Email_Campaigns/getEmailCampaigns
+            // https://v3.developer.constantcontact.com/api_guide/email_campaigns_collection.html
             endpoint: '/v3/emails',
             params: {
-                ...(input.status !== undefined && { status: input.status }),
                 ...(input.limit !== undefined && { limit: input.limit }),
-                ...(input.created_after !== undefined && { created_after: input.created_after }),
-                ...(input.created_before !== undefined && { created_before: input.created_before }),
-                ...(input.updated_after !== undefined && { updated_after: input.updated_after }),
+                ...(input.updated_after !== undefined && { after_date: input.updated_after }),
+                ...(input.updated_before !== undefined && { before_date: input.updated_before }),
                 ...(input.cursor !== undefined && { next: input.cursor })
             },
             retries: 3

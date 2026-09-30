@@ -43,8 +43,9 @@ const action = createAction({
             data: {
                 scheduled_date: input.scheduled_date
             },
-            // Scheduling queues a real email send and Constant Contact offers no idempotency key, so a retry after a lost response could repeat the mutation.
-            retries: 10
+            // Scheduling queues a real email send and Constant Contact offers no idempotency key, so retrying after a lost response could duplicate or ambiguously reschedule the send.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = z.array(ScheduleSchema).safeParse(response.data);

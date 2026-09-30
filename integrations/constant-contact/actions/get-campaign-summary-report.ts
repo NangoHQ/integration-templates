@@ -17,16 +17,20 @@ const InputSchema = z
     })
     .describe('Input for the account-wide email campaign summary report.');
 
+// The provider's documented examples show these counts and percentages as both JSON numbers and
+// quoted numeric strings depending on the response; accept either and normalize to a number.
+const NumericSchema = z.union([z.number(), z.string().regex(/^-?\d+(\.\d+)?$/)]).transform((value) => Number(value));
+
 const UniqueCountsSchema = z
     .object({
-        sends: z.number().optional().describe('Total number of unique contacts the campaign was sent to.'),
-        opens: z.number().optional().describe('Total number of unique contacts who opened the campaign.'),
-        clicks: z.number().optional().describe('Total number of unique contacts who clicked a link in the campaign.'),
-        forwards: z.number().optional().describe('Total number of unique contacts who forwarded the campaign.'),
-        optouts: z.number().optional().describe('Total number of unique contacts who unsubscribed through the campaign.'),
-        abuse: z.number().optional().describe('Total number of unique contacts who reported the campaign as abuse (spam).'),
-        bounces: z.number().optional().describe('Total number of unique contacts for whom delivery of the campaign bounced.'),
-        not_opened: z.number().optional().describe('Total number of unique contacts who were sent the campaign but did not open it.')
+        sends: NumericSchema.optional().describe('Total number of unique contacts the campaign was sent to.'),
+        opens: NumericSchema.optional().describe('Total number of unique contacts who opened the campaign.'),
+        clicks: NumericSchema.optional().describe('Total number of unique contacts who clicked a link in the campaign.'),
+        forwards: NumericSchema.optional().describe('Total number of unique contacts who forwarded the campaign.'),
+        optouts: NumericSchema.optional().describe('Total number of unique contacts who unsubscribed through the campaign.'),
+        abuse: NumericSchema.optional().describe('Total number of unique contacts who reported the campaign as abuse (spam).'),
+        bounces: NumericSchema.optional().describe('Total number of unique contacts for whom delivery of the campaign bounced.'),
+        not_opened: NumericSchema.optional().describe('Total number of unique contacts who were sent the campaign but did not open it.')
     })
     .describe('Unique per-contact interaction counts for the campaign.');
 
@@ -41,11 +45,11 @@ const CampaignSummarySchema = z
 
 const AggregatePercentsSchema = z
     .object({
-        click: z.number().optional().describe('Aggregate click rate, in percent, across the campaigns on this page.'),
-        open: z.number().optional().describe('Aggregate open rate, in percent, across the campaigns on this page.'),
-        did_not_open: z.number().optional().describe('Aggregate did-not-open rate, in percent, across the campaigns on this page.'),
-        bounce: z.number().optional().describe('Aggregate bounce rate, in percent, across the campaigns on this page.'),
-        unsubscribe: z.number().optional().describe('Aggregate unsubscribe (opt-out) rate, in percent, across the campaigns on this page.')
+        click: NumericSchema.optional().describe('Aggregate click rate, in percent, across the campaigns on this page.'),
+        open: NumericSchema.optional().describe('Aggregate open rate, in percent, across the campaigns on this page.'),
+        did_not_open: NumericSchema.optional().describe('Aggregate did-not-open rate, in percent, across the campaigns on this page.'),
+        bounce: NumericSchema.optional().describe('Aggregate bounce rate, in percent, across the campaigns on this page.'),
+        unsubscribe: NumericSchema.optional().describe('Aggregate unsubscribe (opt-out) rate, in percent, across the campaigns on this page.')
     })
     .describe('Aggregate percentage rates across all campaigns included in this page of results.');
 
@@ -103,8 +107,8 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data ?? {});
 
         const nextHref = parsed._links?.next?.href;
-        const nextCursorMatch = nextHref ? /[?&]next=([^&]+)/.exec(nextHref) : null;
-        const nextCursor = nextCursorMatch?.[1];
+        const queryIndex = nextHref ? nextHref.indexOf('?') : -1;
+        const nextCursor = queryIndex !== -1 ? (new URLSearchParams(nextHref!.slice(queryIndex + 1)).get('next') ?? undefined) : undefined;
 
         return {
             bulk_email_campaign_summaries: parsed.bulk_email_campaign_summaries ?? [],

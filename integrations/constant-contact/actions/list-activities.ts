@@ -29,9 +29,9 @@ const ActivitySchema = z
             .optional()
             .describe('Job-specific progress counters such as items_total_count, items_completed_count, or list_count. Keys vary by activity type.'),
         activity_errors: z
-            .array(z.record(z.string(), z.unknown()))
+            .array(z.string())
             .optional()
-            .describe('Errors reported by the job. Entry shape varies by activity type and error kind; empty when the job finished without errors.')
+            .describe('Error messages reported by the job, one string per error condition; empty when the job finished without errors.')
     })
     .describe('A single asynchronous bulk-operation activity job.');
 
@@ -51,7 +51,7 @@ const ProviderActivitySchema = z.object({
     completed_at: z.string().optional(),
     updated_at: z.string().optional(),
     status: z.record(z.string(), z.number()).optional(),
-    activity_errors: z.array(z.record(z.string(), z.unknown())).optional()
+    activity_errors: z.array(z.string()).optional()
 });
 
 const ProviderActivitiesResponseSchema = z.object({

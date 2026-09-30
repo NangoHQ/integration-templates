@@ -39,8 +39,11 @@ const action = createAction({
         // https://v3.developer.constantcontact.com/api_reference/index.html
         const response = await nango.delete({
             endpoint: `/v3/contact_lists/${encodeURIComponent(input.list_id)}`,
-            // A repeated delete of the same list returns a 400 "list_id not found" with no duplicate side effects, so a single bounded retry is safe; 0 would be ideal but the workspace lint rules require a positive integer.
-            retries: 1
+            // Deletion is an asynchronous, non-idempotent background job with no idempotency key: a retry after a lost
+            // response could queue a second delete job (or 400 with "list_id not found" if the first already completed),
+            // so do not retry.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const activity = ActivityJobSchema.parse(response.data);

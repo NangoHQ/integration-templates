@@ -14,15 +14,19 @@ const ActivityJobSchema = z.object({
 
 const OutputSchema = z
     .object({
-        activity_id: z.string().describe('The ID of the background activity job that performed the tag deletion'),
-        state: z.string().describe('The final state of the deletion activity job. "completed" confirms the tag was deleted')
+        activity_id: z
+            .string()
+            .describe(
+                'ID of the asynchronous activity job processing the tag deletion. Poll the get-activity action with this ID to confirm completion. Example: "338e389e-bc35-11f1-bccd-02420a320002"'
+            ),
+        state: z.string().describe('State of the deletion activity job when the delete request was accepted. Example: "initialized"')
     })
-    .describe('Result of the contact tag deletion');
+    .describe('Handle of the asynchronous activity job that processes the contact tag deletion.');
 
 /**
- * @tags: [read, write, destructive]
- * @tagReason: Deletes a contact tag (destructive provider write) and reads the resulting background activity job status until the deletion completes.
- * @pitfalls: Tag deletion runs as an asynchronous background job: the action waits for the job to finish, so the call is not instant and can throw an error if the job fails to complete after the provider accepted the delete.
+ * @tags: [write, destructive]
+ * @tagReason: Deletes a contact tag, which is a destructive provider mutation.
+ * @pitfalls: Deletion is asynchronous: the action returns as soon as the provider accepts a background job, so the tag can still exist briefly afterwards; poll get-activity with the returned activity_id to confirm removal.
  */
 const action = createAction({
     description: 'Delete a contact tag',
@@ -42,32 +46,9 @@ const action = createAction({
 
         const activity = ActivityJobSchema.parse(response.data);
 
-        // Tag deletion is asynchronous: poll the activity job until it reports "completed".
-        let state = activity.state;
-        const maxAttempts = 10;
-        for (let attempt = 0; attempt < maxAttempts && state !== 'completed'; attempt += 1) {
-            await new Promise((resolve) => setTimeout(resolve, 250));
-            // https://v3.developer.constantcontact.com/api_reference/index.html (GET /v3/activities/{activity_id})
-            const statusResponse = await nango.get({
-                endpoint: `/v3/activities/${encodeURIComponent(activity.activity_id)}`,
-                retries: 3
-            });
-            const job = ActivityJobSchema.parse(statusResponse.data);
-            state = job.state;
-        }
-
-        if (state !== 'completed') {
-            throw new nango.ActionError({
-                type: 'delete_tag_incomplete',
-                message: `Tag deletion job did not complete in time; last reported state: ${state}`,
-                activity_id: activity.activity_id,
-                state
-            });
-        }
-
         return {
             activity_id: activity.activity_id,
-            state
+            state: activity.state
         };
     }
 });
