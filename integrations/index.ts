@@ -3619,6 +3619,14 @@ import './jira-basic/actions/create-user.js';
 import './jira-basic/actions/delete-user.js';
 import './jira-basic/actions/fetch-teams.js';
 
+// -- Integration: jotform
+import './jotform/actions/delete-submission.js';
+import './jotform/actions/get-submission.js';
+import './jotform/actions/list-form-questions.js';
+import './jotform/actions/list-form-submissions.js';
+import './jotform/actions/list-forms.js';
+import './jotform/actions/submit-form.js';
+
 // -- Integration: judgeme-oauth
 import './judgeme-oauth/syncs/orders.js';
 import './judgeme-oauth/syncs/products.js';
