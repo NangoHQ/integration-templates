@@ -1,0 +1,73 @@
+{
+  "nango": {
+    "batchSave": {
+      "ContactList": [
+        {
+          "id": "c3639a04-bc12-11f1-aa3a-02420a320002",
+          "name": "My Contacts",
+          "favorite": false,
+          "created_at": "2026-09-29T14:33:39Z",
+          "updated_at": "2026-09-29T14:33:39Z",
+          "membership_count": 1
+        }
+      ]
+    },
+    "batchDelete": {
+      "ContactList": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/contact_lists": {
+        "response": {
+          "lists": [
+            {
+              "list_id": "c3639a04-bc12-11f1-aa3a-02420a320002",
+              "name": "My Contacts",
+              "favorite": false,
+              "created_at": "2026-09-29T14:33:39Z",
+              "updated_at": "2026-09-29T14:33:39Z",
+              "membership_count": 1
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 20:42:19 GMT",
+          "content-type": "application/json",
+          "content-length": "193",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1984",
+          "x-ratelimit-reset": "1790714576",
+          "x-amzn-trace-id": "Root=1-6abc22ab-5ce25a041d68d75d7299f531;Parent=540e1810103b867c;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "eaa14b2a-6c8c-4c85-9bd8-ae59cddb5611",
+          "x-amz-apigw-id": "Eepa0FeNIAMEFZg=",
+          "x-eig-tracking-id": "4c681443-d779-4ffe-a8a2-89941e55e6cd",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 6daec11ce051cffaa3e440291c9bdce2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "s7Xtt8Ln9GF_3JbqQwEK1QCrSWdey6brp7GI8qBoJSpRKXxv_U_7wg==",
+          "etag": "W/\"c1-b+FKtFkccgEkA4sYLtz7HxR2wqM\""
+        },
+        "hash": "d94e60afa5eacb2667eaa33bba558e8c15bee79e",
+        "request": {
+          "params": {
+            "include_membership_count": "all",
+            "limit": "100"
+          }
+        }
+      }
+    }
+  }
+}

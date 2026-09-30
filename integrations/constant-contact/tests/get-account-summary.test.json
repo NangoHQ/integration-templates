@@ -1,0 +1,63 @@
+{
+  "input": {},
+  "output": {
+    "contact_email": "api@nango.dev",
+    "contact_phone": "2542222222222",
+    "country_code": "ke",
+    "encoded_account_id": "a07eksd57eu5dl",
+    "encoded_partner_id": "a01-15dl",
+    "first_name": "Nango",
+    "last_name": "Developer",
+    "organization_name": "Nango",
+    "time_zone_id": "Africa/Nairobi"
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/account/summary": {
+        "response": {
+          "contact_email": "api@nango.dev",
+          "contact_phone": "2542222222222",
+          "country_code": "ke",
+          "encoded_account_id": "a07eksd57eu5dl",
+          "encoded_partner_id": "a01-15dl",
+          "first_name": "Nango",
+          "last_name": "Developer",
+          "organization_name": "Nango",
+          "time_zone_id": "Africa/Nairobi"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:37:39 GMT",
+          "content-type": "application/json",
+          "content-length": "260",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc0573-43ef9fd06df5b2fe3d108776;Parent=7b61bde5a94633ec;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "01f9be76-c894-4f29-94f2-f79b08d0bc41",
+          "x-amz-apigw-id": "EeXKEF5oIAMErQA=",
+          "x-eig-tracking-id": "882bef63-0bd9-4208-a802-03a4fa89421d",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 3bbe2b9a1067c049fd5ff2d57048d36a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "gSA4IvACMfeAKApwUkuqmX35VsjEzmjg5sjyov6llDUCugG6HCWjJg==",
+          "etag": "W/\"104-SeV8sPCQzacxtDqhQFAOlPUJIFA\""
+        },
+        "hash": "118ef716cf1fe6f5bfc25d8b5815915e6449f4ff",
+        "request": {}
+      }
+    }
+  }
+}

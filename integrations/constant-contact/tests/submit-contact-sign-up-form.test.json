@@ -1,0 +1,65 @@
+{
+  "input": {
+    "email_address": "nango-test-signup-form@example.com",
+    "first_name": "Nango",
+    "last_name": "Test",
+    "list_memberships": [
+      "c3639a04-bc12-11f1-aa3a-02420a320002"
+    ]
+  },
+  "output": {
+    "contact_id": "5147d0de-bc35-11f1-959b-02420a320002",
+    "action": "updated"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/contacts/sign_up_form": {
+        "response": {
+          "contact_id": "5147d0de-bc35-11f1-959b-02420a320002",
+          "action": "updated"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:42:02 GMT",
+          "content-type": "application/json",
+          "content-length": "72",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1790707353",
+          "x-amzn-trace-id": "Root=1-6abc0679-21430498781b13d6319e2bc4;Parent=492195b64793458a;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "73b3f5a0-a3d2-4a89-ab80-561e92187cdd",
+          "x-amz-apigw-id": "EeXzIFzIIAMEqGA=",
+          "x-eig-tracking-id": "614203ad-f94c-4f4c-8644-309dcc913cde",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 eb0793aa61a19aaf4bd31bd6f3628f9a.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "Q6_lgyb39Gx9wGnhg4LAJzmGXoL2dC4YaQfrY1RR-WuJDFuHp9EK1Q==",
+          "etag": "W/\"48-qxHrNwa3XfkYpe1AEMd4B9nckIk\""
+        },
+        "hash": "160008a00ec83a37d59f9c6e953955fab9037aab",
+        "request": {
+          "data": {
+            "email_address": "nango-test-signup-form@example.com",
+            "first_name": "Nango",
+            "last_name": "Test",
+            "list_memberships": [
+              "c3639a04-bc12-11f1-aa3a-02420a320002"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

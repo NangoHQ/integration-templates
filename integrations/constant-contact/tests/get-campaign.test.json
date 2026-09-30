@@ -1,0 +1,81 @@
+{
+  "input": {
+    "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96"
+  },
+  "output": {
+    "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+    "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+    "current_status": "DRAFT",
+    "type": "NEWSLETTER",
+    "type_code": 10,
+    "created_at": "2026-09-29T14:34:37.000Z",
+    "updated_at": "2026-09-29T14:34:37.000Z",
+    "campaign_activities": [
+      {
+        "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+        "role": "primary_email"
+      },
+      {
+        "campaign_activity_id": "68aafb3b-0e94-4815-af9a-7e25e53c2015",
+        "role": "permalink"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/emails/ff5368e0-2da3-4b2e-a234-a5371795df96": {
+        "response": {
+          "campaign_activities": [
+            {
+              "campaign_activity_id": "2979c38c-221b-4a03-a3b2-c52310f60f35",
+              "role": "primary_email"
+            },
+            {
+              "campaign_activity_id": "68aafb3b-0e94-4815-af9a-7e25e53c2015",
+              "role": "permalink"
+            }
+          ],
+          "campaign_id": "ff5368e0-2da3-4b2e-a234-a5371795df96",
+          "created_at": "2026-09-29T14:34:37.000Z",
+          "current_status": "DRAFT",
+          "name": "Technology Field Notes 2026/09/29, 5:34:36 PM",
+          "type": "NEWSLETTER",
+          "type_code": 10,
+          "updated_at": "2026-09-29T14:34:37.000Z"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:36:56 GMT",
+          "content-type": "application/json",
+          "content-length": "443",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1927",
+          "x-ratelimit-reset": "1790707042",
+          "x-amzn-trace-id": "Root=1-6abc0548-73ebcb6d1744e1d83b9924f2;Parent=306d9ef47eca22f5;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "5406127e-58e1-4814-a41c-a8a58c435d28",
+          "x-amz-apigw-id": "EeXDYHA2IAMEiaA=",
+          "x-eig-tracking-id": "591ee816-2d0f-4e75-a763-0f9a8c7951eb",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 f0d7632c883c9599147ea9f71dcc8ed2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "59GWTyl8XBeiD3dV2j51w-HxjiCAWSncpATQ1HASk3OOd__fWI4Yuw==",
+          "etag": "W/\"1bb-1Nf0kcK0qxhcgjHTQkUVrNH+Qc4\""
+        },
+        "hash": "06fb21ef75cc2d3fadb9ce18c69a16946c8f6716",
+        "request": {}
+      }
+    }
+  }
+}
