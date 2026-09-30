@@ -1,0 +1,79 @@
+{
+  "input": {
+    "campaignId": "cam_vyzp8v33RBTfNQRvz",
+    "email": "nango-save-lead@example.com",
+    "firstName": "Nango",
+    "lastName": "SaveLead",
+    "companyName": "Nango Test Co",
+    "customVariables": {
+      "companySize": "50-100"
+    }
+  },
+  "output": {
+    "id": "lea_aAadaiLJwAYAL8X2v",
+    "campaignId": "cam_vyzp8v33RBTfNQRvz",
+    "campaignName": "Nango Seed Campaign",
+    "email": "nango-save-lead@example.com",
+    "firstName": "Nango",
+    "lastName": "SaveLead",
+    "companyName": "Nango Test Co",
+    "isPaused": false,
+    "contactId": "ctc_GfXdAT75MLmzjaWtd"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/campaigns/cam_vyzp8v33RBTfNQRvz/leads/nango-save-lead%40example.com": {
+        "response": {
+          "campaignId": "cam_vyzp8v33RBTfNQRvz",
+          "campaignName": "Nango Seed Campaign",
+          "companyName": "Nango Test Co",
+          "companySize": "50-100",
+          "email": "nango-save-lead@example.com",
+          "firstName": "Nango",
+          "lastName": "SaveLead",
+          "_id": "lea_aAadaiLJwAYAL8X2v",
+          "isPaused": false,
+          "contactId": "ctc_GfXdAT75MLmzjaWtd"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Wed, 30 Sep 2026 15:10:54 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "20",
+          "x-ratelimit-remaining": "19",
+          "x-ratelimit-reset": "Wed Sep 30 2026 17:10:56 GMT+0200 (Central European Summer Time)",
+          "retry-after": "2",
+          "via": "1.1 Caddy",
+          "x-cache-debug": "api.main",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=2qTSxLgQp5ElfXFalnCVmYDULtbdi97Dt7AT19YZNAhnLByNuRChnyFPCX2RQHY7InaG0KEDzRFF9GE7lCCzB%2BpW%2BX2%2FyJt8lt5xlQjvuHhjFmDPWMqtwu0YJWRRQ32aYA%3D%3D\"}]}",
+          "cf-cache-status": "DYNAMIC",
+          "server": "cloudflare",
+          "cf-ray": "a4342834088d28b9-PDX"
+        },
+        "hash": "6803c7080d9d2ced7a586dd481141d595f4ffd46",
+        "request": {
+          "data": {
+            "companySize": "50-100",
+            "firstName": "Nango",
+            "lastName": "SaveLead",
+            "companyName": "Nango Test Co"
+          }
+        }
+      }
+    }
+  }
+}

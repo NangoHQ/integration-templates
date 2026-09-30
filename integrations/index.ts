@@ -3753,6 +3753,13 @@ import './lastpass/actions/delete-user.js';
 // -- Integration: lattice
 import './lattice/syncs/users.js';
 
+// -- Integration: lemlist
+import './lemlist/actions/add-campaign-lead.js';
+import './lemlist/actions/get-lead.js';
+import './lemlist/actions/list-campaigns.js';
+import './lemlist/actions/remove-campaign-lead.js';
+import './lemlist/actions/update-campaign-lead.js';
+
 // -- Integration: lever
 import './lever/syncs/opportunities.js';
 import './lever/syncs/opportunities-applications.js';
@@ -3898,6 +3905,16 @@ import './mailchimp/actions/update-member.js';
 import './mailchimp/actions/update-segment.js';
 import './mailchimp/actions/update-store.js';
 import './mailchimp/actions/update-template.js';
+
+// -- Integration: mailgun
+import './mailgun/actions/add-list-member.js';
+import './mailgun/actions/create-list.js';
+import './mailgun/actions/delete-list.js';
+import './mailgun/actions/get-list-member.js';
+import './mailgun/actions/list-list-members.js';
+import './mailgun/actions/list-lists.js';
+import './mailgun/actions/remove-list-member.js';
+import './mailgun/actions/update-list-member.js';
 
 // -- Integration: make
 import './make/syncs/connections.js';
