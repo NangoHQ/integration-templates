@@ -51,7 +51,7 @@ const sync = createSync({
         // Full refresh: the endpoint has no changed-since filter and the dataset is
         // bounded (max 100 custom fields per account), so every run re-crawls the
         // complete collection between trackDeletesStart/trackDeletesEnd.
-        await nango.trackDeletesStart('CustomField');
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://v3.developer.constantcontact.com/api_reference/index.html
@@ -83,12 +83,23 @@ const sync = createSync({
                 };
             });
 
+            // Only start delete tracking once a page has actually produced validated records,
+            // so neither a parsing failure nor a transient empty response can leave delete
+            // tracking open (and later wipe every previously synced custom field) without ever
+            // having seen real data.
+            if (!deleteTrackingStarted && customFields.length > 0) {
+                await nango.trackDeletesStart('CustomField');
+                deleteTrackingStarted = true;
+            }
+
             if (customFields.length > 0) {
                 await nango.batchSave(customFields, 'CustomField');
             }
         }
 
-        await nango.trackDeletesEnd('CustomField');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('CustomField');
+        }
     }
 });
 

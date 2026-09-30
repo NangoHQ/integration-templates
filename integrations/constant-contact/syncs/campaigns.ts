@@ -193,9 +193,11 @@ const sync = createSync({
                 }
             }
 
-            // Only start delete tracking once this page's records have passed validation above,
-            // so a parsing failure on the first page never leaves an open tracking window.
-            if (!deleteTrackingStarted) {
+            // Only start delete tracking once a page has actually produced validated records,
+            // so neither a parsing failure nor a transient empty/all-skipped response can leave
+            // delete tracking open (and later wipe every previously synced campaign) without ever
+            // having seen real data.
+            if (!deleteTrackingStarted && campaigns.length > 0) {
                 await nango.trackDeletesStart('Campaign');
                 deleteTrackingStarted = true;
             }

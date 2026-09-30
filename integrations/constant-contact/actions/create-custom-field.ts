@@ -33,10 +33,11 @@ const InputSchema = z
             .optional()
             .describe('Selectable options. Required (non-empty) when type is "single_select" or "multi_select"; ignored for all other types.'),
         version: z
-            .number()
-            .int()
+            .union([z.literal(1), z.literal(2)])
             .optional()
-            .describe('For "date" type only: 1 for legacy string-based date values (default) or 2 for actual date values that support comparisons.')
+            .describe(
+                'For "date" type only: 1 for legacy string-based date values (default) or 2 for actual date values that support comparisons. Not applicable to any other type.'
+            )
     })
     .describe('Input for creating a contact custom field definition.')
     .superRefine((value, ctx) => {
@@ -45,6 +46,13 @@ const InputSchema = z
                 code: z.ZodIssueCode.custom,
                 path: ['choices'],
                 message: `choices must be a non-empty array when type is "${value.type}"`
+            });
+        }
+        if (value.version !== undefined && value.type !== 'date') {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['version'],
+                message: `version is only applicable when type is "date" (got type "${value.type}")`
             });
         }
     });
@@ -99,10 +107,7 @@ const OutputSchema = z
             .describe(
                 'Additional type-specific metadata returned by Constant Contact, e.g. display_format for date fields, allow_negative/decimal_places/integer for number/currency fields, currency_code for currency fields, or display_type for single_select/multi_select fields.'
             ),
-        choices: z
-            .array(OutputChoiceSchema)
-            .optional()
-            .describe('Selectable options. Present only when type is "single_select" or "multi_select".'),
+        choices: z.array(OutputChoiceSchema).optional().describe('Selectable options. Present only when type is "single_select" or "multi_select".'),
         version: z.number().describe('Version number of the custom field definition. Example: 1'),
         created_at: z.string().describe('ISO 8601 timestamp when the custom field was created. Example: "2026-09-29T18:35:43Z"'),
         updated_at: z.string().describe('ISO 8601 timestamp when the custom field was last updated. Example: "2026-09-29T18:35:43Z"')

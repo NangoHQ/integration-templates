@@ -32,7 +32,7 @@ const sync = createSync({
         // deleted-tags endpoint, so this stays a full refresh with delete tracking.
         // No checkpoint is needed: Constant Contact caps tags at 500 per account and
         // this sync already requests limit=500, so the collection fits in one page.
-        await nango.trackDeletesStart('Tag');
+        let deleteTrackingStarted = false;
 
         const proxyConfig: ProxyConfiguration = {
             // https://v3.developer.constantcontact.com/api_reference/index.html
@@ -56,6 +56,15 @@ const sync = createSync({
                 continue;
             }
 
+            // Only start delete tracking once a page has actually produced validated records,
+            // so neither a parsing failure nor a transient empty response can leave delete
+            // tracking open (and later wipe every previously synced tag) without ever having
+            // seen real data.
+            if (!deleteTrackingStarted) {
+                await nango.trackDeletesStart('Tag');
+                deleteTrackingStarted = true;
+            }
+
             await nango.batchSave(
                 tags.map((tag) => ({
                     id: tag.tag_id,
@@ -67,7 +76,9 @@ const sync = createSync({
             );
         }
 
-        await nango.trackDeletesEnd('Tag');
+        if (deleteTrackingStarted) {
+            await nango.trackDeletesEnd('Tag');
+        }
     }
 });
 

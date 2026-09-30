@@ -26,17 +26,16 @@ const OutputSchema = z
             .describe(
                 'The data type of the custom field value. Possible values: "string", "date", "datetime", "number", "boolean", "currency", "text_area", "single_select", "multi_select".'
             ),
-        version: z.number().describe('Version number of the custom field definition. For "date" type: 1 for legacy string-based dates, 2 for actual date values. Example: 1'),
+        version: z
+            .number()
+            .describe('Version number of the custom field definition. For "date" type: 1 for legacy string-based dates, 2 for actual date values. Example: 1'),
         metadata: z
             .record(z.string(), z.unknown())
             .optional()
             .describe(
                 'Additional type-specific metadata, e.g. display_format for date fields, allow_negative/decimal_places/integer for number/currency fields, currency_code for currency fields, or display_type for single_select/multi_select fields.'
             ),
-        choices: z
-            .array(ChoiceSchema)
-            .optional()
-            .describe('Selectable options. Present only when type is "single_select" or "multi_select".'),
+        choices: z.array(ChoiceSchema).optional().describe('Selectable options. Present only when type is "single_select" or "multi_select".'),
         created_at: z.string().describe('ISO 8601 timestamp of when the custom field was created. Example: "2021-01-21T18:05:31Z"'),
         updated_at: z.string().describe('ISO 8601 timestamp of when the custom field was last updated. Example: "2021-01-21T18:05:31Z"')
     })

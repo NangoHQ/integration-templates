@@ -3,10 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        include_physical_address: z
-            .boolean()
-            .optional()
-            .describe('When true, also request the physical_address extra field. Example: true')
+        include_physical_address: z.boolean().optional().describe('When true, also request the physical_address extra field. Example: true')
     })
     .describe('No required input; the summary always describes the connected account.');
 
@@ -41,9 +38,7 @@ const OutputSchema = z
         state_code: z.string().nullable().optional().describe('The two-letter US/CA state or province code configured on the account, when applicable.'),
         website: z.string().nullable().optional().describe('The organization website URL, or null when not set. Example: "https://example.com"'),
         time_zone_id: z.string().describe('The IANA time zone identifier configured for the account. Example: "America/New_York"'),
-        physical_address: PhysicalAddressSchema.optional().describe(
-            'The account physical mailing address. Only present when include_physical_address is true.'
-        )
+        physical_address: PhysicalAddressSchema.optional().describe('The account physical mailing address. Only present when include_physical_address is true.')
     })
     .describe("The account's organization and contact profile summary");
 

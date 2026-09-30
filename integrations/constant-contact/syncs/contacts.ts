@@ -172,9 +172,11 @@ const sync = createSync({
                 contacts.push({ id: contact_id, ...fields });
             }
 
-            // Only start delete tracking once this page's records have passed validation above,
-            // so a parsing failure on the first page never leaves an open tracking window.
-            if (isFullRefresh && !deleteTrackingStarted) {
+            // Only start delete tracking once a page has actually produced validated records,
+            // so neither a parsing failure nor a transient empty response can leave delete
+            // tracking open (and later wipe every previously synced contact) without ever
+            // having seen real data.
+            if (isFullRefresh && !deleteTrackingStarted && contacts.length > 0) {
                 await nango.trackDeletesStart('Contact');
                 deleteTrackingStarted = true;
             }
