@@ -1080,6 +1080,7 @@ import './cal-com-v2/actions/delete-event-type.js';
 import './cal-com-v2/actions/delete-team.js';
 import './cal-com-v2/actions/delete-webhook.js';
 import './cal-com-v2/actions/get-availability-schedule.js';
+import './cal-com-v2/actions/get-available-slots.js';
 import './cal-com-v2/actions/get-booking.js';
 import './cal-com-v2/actions/get-event-type.js';
 import './cal-com-v2/actions/get-team.js';

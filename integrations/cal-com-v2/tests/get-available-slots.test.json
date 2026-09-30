@@ -1,19 +1,162 @@
 {
   "input": {
     "eventTypeId": 6732808,
-    "start": "2033-09-05",
-    "end": "2033-09-06",
+    "start": "2026-10-05",
+    "end": "2026-10-07",
     "timeZone": "America/New_York"
   },
   "output": {
     "status": "success",
     "data": {
-      "2033-09-05": [
-        { "start": "2033-09-05T09:00:00.000-04:00" },
-        { "start": "2033-09-05T09:30:00.000-04:00" }
+      "2026-10-05": [
+        {
+          "start": "2026-10-05T02:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T02:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T03:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T03:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T04:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T04:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T05:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T05:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T06:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T06:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T07:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T07:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T08:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T08:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T09:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-05T09:30:00.000-04:00"
+        }
       ],
-      "2033-09-06": [
-        { "start": "2033-09-06T09:00:00.000-04:00" }
+      "2026-10-06": [
+        {
+          "start": "2026-10-06T02:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T02:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T03:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T03:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T04:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T04:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T05:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T05:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T06:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T06:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T07:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T07:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T08:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T08:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T09:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-06T09:30:00.000-04:00"
+        }
+      ],
+      "2026-10-07": [
+        {
+          "start": "2026-10-07T02:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T02:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T03:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T03:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T04:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T04:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T05:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T05:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T06:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T06:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T07:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T07:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T08:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T08:30:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T09:00:00.000-04:00"
+        },
+        {
+          "start": "2026-10-07T09:30:00.000-04:00"
+        }
       ]
     }
   },
@@ -22,23 +165,204 @@
     "get": {
       "/slots": {
         "response": {
-          "status": "success",
           "data": {
-            "2033-09-05": [
-              { "start": "2033-09-05T09:00:00.000-04:00" },
-              { "start": "2033-09-05T09:30:00.000-04:00" }
+            "2026-10-05": [
+              {
+                "start": "2026-10-05T02:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T02:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T03:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T03:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T04:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T04:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T05:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T05:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T06:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T06:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T07:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T07:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T08:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T08:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T09:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-05T09:30:00.000-04:00"
+              }
             ],
-            "2033-09-06": [
-              { "start": "2033-09-06T09:00:00.000-04:00" }
+            "2026-10-06": [
+              {
+                "start": "2026-10-06T02:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T02:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T03:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T03:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T04:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T04:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T05:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T05:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T06:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T06:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T07:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T07:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T08:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T08:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T09:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-06T09:30:00.000-04:00"
+              }
+            ],
+            "2026-10-07": [
+              {
+                "start": "2026-10-07T02:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T02:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T03:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T03:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T04:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T04:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T05:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T05:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T06:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T06:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T07:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T07:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T08:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T08:30:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T09:00:00.000-04:00"
+              },
+              {
+                "start": "2026-10-07T09:30:00.000-04:00"
+              }
             ]
-          }
+          },
+          "status": "success"
         },
         "status": 200,
+        "headers": {
+          "date": "Wed, 30 Sep 2026 15:28:15 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "no-referrer",
+          "strict-transport-security": "max-age=15552000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1790782133",
+          "cf-ray": "a434419c9d859b30-PDX",
+          "cf-cache-status": "DYNAMIC",
+          "cache-control": "public, max-age=0, must-revalidate",
+          "etag": "W/\"82a-R+3nQFODkrfc0Jz4MVjDvA0EteI\"",
+          "server": "cloudflare",
+          "vary": "accept-encoding",
+          "content-security-policy": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests",
+          "cross-origin-opener-policy": "same-origin",
+          "cross-origin-resource-policy": "same-origin",
+          "origin-agent-cluster": "?1",
+          "x-permitted-cross-domain-policies": "none",
+          "x-ratelimit-limit-default": "120",
+          "x-ratelimit-remaining-default": "119",
+          "x-ratelimit-reset-default": "60",
+          "x-request-id": "pdx1::2z9mm-1790782094832-9643ec05b111",
+          "x-vercel-cache": "BYPASS",
+          "x-vercel-id": "pdx1::cle1::2z9mm-1790782094832-9643ec05b111",
+          "set-cookie": "__cf_bm=jXfUhssBdyTVImRFKEkrorIjW_KTs62M29mZS7dRaHI-1790782094.8184128-1.0.1.1-0V9ARLFFKIWY75DtEUVqU48uQ.k5GOi9c1G1Rf4VSFat3WQq_yceLLNJbLghqp61W3HjGZbyrRm8j.KuTiUUXi_1BYVOvMmIb2oTIESXIaVOzHDL0rxK_YUuVscJ6hjG; HttpOnly; SameSite=None; Secure; Path=/; Domain=cal.com; Expires=Wed, 30 Sep 2026 15:58:15 GMT"
+        },
+        "hash": "0efc4d94ecd50b04c0e134931c7eb683012ef3be",
         "request": {
           "params": {
-            "eventTypeId": 6732808,
-            "start": "2033-09-05",
-            "end": "2033-09-06",
+            "end": "2026-10-07",
+            "eventTypeId": "6732808",
+            "start": "2026-10-05",
             "timeZone": "America/New_York"
           },
           "headers": {
