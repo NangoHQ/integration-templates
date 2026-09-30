@@ -3699,6 +3699,13 @@ import './lastpass/actions/delete-user.js';
 // -- Integration: lattice
 import './lattice/syncs/users.js';
 
+// -- Integration: lemlist
+import './lemlist/actions/add-campaign-lead.js';
+import './lemlist/actions/get-lead.js';
+import './lemlist/actions/list-campaigns.js';
+import './lemlist/actions/remove-campaign-lead.js';
+import './lemlist/actions/update-campaign-lead.js';
+
 // -- Integration: lever
 import './lever/syncs/opportunities.js';
 import './lever/syncs/opportunities-applications.js';
