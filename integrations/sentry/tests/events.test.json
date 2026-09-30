@@ -1,0 +1,929 @@
+{
+  "nango": {
+    "batchSave": {
+      "Event": [
+        {
+          "id": "024b86932d124b7fada69a1e8b33e1f6",
+          "dateCreated": "2026-09-29T15:15:10Z",
+          "eventID": "024b86932d124b7fada69a1e8b33e1f6",
+          "projectID": "4512170111991808",
+          "groupID": "7761526207",
+          "title": "Error: nango disposable bulk delete B",
+          "message": "nango disposable bulk delete B",
+          "location": "seed.js",
+          "culprit": "main(seed.js)",
+          "platform": "node",
+          "eventType": "error",
+          "metadata": {
+            "filename": "seed.js",
+            "function": "main",
+            "in_app_frame_mix": "system-only",
+            "synthetic": false,
+            "type": "Error",
+            "value": "nango disposable bulk delete B"
+          },
+          "user": {
+            "geo": {
+              "country_code": "US",
+              "region": "United States"
+            }
+          },
+          "tags": [
+            {
+              "key": "interface_type",
+              "value": "exception"
+            },
+            {
+              "key": "level",
+              "value": "error"
+            },
+            {
+              "key": "logger",
+              "value": "nango-seed"
+            }
+          ]
+        },
+        {
+          "id": "eb7d3f8e98e54b3189c8a80462856d4f",
+          "dateCreated": "2026-09-29T14:27:55.048000Z",
+          "eventID": "eb7d3f8e98e54b3189c8a80462856d4f",
+          "projectID": "4512170111991808",
+          "groupID": "7761433968",
+          "title": "ValueError: bad input",
+          "message": "Nango seed test error 2: ValueError bad input",
+          "location": "worker.js",
+          "culprit": "process(worker.js)",
+          "platform": "node",
+          "eventType": "error",
+          "metadata": {
+            "filename": "worker.js",
+            "function": "process",
+            "in_app_frame_mix": "system-only",
+            "synthetic": false,
+            "type": "ValueError",
+            "value": "bad input"
+          },
+          "user": {
+            "geo": {
+              "country_code": "CA",
+              "city": "Toronto",
+              "region": "Canada"
+            }
+          },
+          "tags": [
+            {
+              "key": "interface_type",
+              "value": "exception"
+            },
+            {
+              "key": "level",
+              "value": "error"
+            },
+            {
+              "key": "seed",
+              "value": "nango"
+            }
+          ]
+        },
+        {
+          "id": "63be9f2fdd3f438d951b2bae4e847b51",
+          "dateCreated": "2026-09-29T14:27:47.062000Z",
+          "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+          "projectID": "4512170111991808",
+          "groupID": "7761433611",
+          "title": "TypeError: undefined is not a function",
+          "message": "Nango seed test error: TypeError undefined is not a function",
+          "location": "app.js",
+          "culprit": "handler(app.js)",
+          "platform": "node",
+          "eventType": "error",
+          "metadata": {
+            "filename": "app.js",
+            "function": "handler",
+            "in_app_frame_mix": "system-only",
+            "synthetic": false,
+            "type": "TypeError",
+            "value": "undefined is not a function"
+          },
+          "user": {
+            "geo": {
+              "country_code": "CA",
+              "city": "Toronto",
+              "region": "Canada"
+            }
+          },
+          "tags": [
+            {
+              "key": "interface_type",
+              "value": "exception"
+            },
+            {
+              "key": "level",
+              "value": "error"
+            },
+            {
+              "key": "seed",
+              "value": "nango"
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Event": []
+    }
+  },
+  "api": {
+    "get": {
+      "/0/organizations/": {
+        "response": [
+          {
+            "id": "4512170041409536",
+            "slug": "nangodev",
+            "name": "NangoDev",
+            "status": {
+              "id": "active",
+              "name": "active"
+            },
+            "dateCreated": "2026-09-29T14:09:02.024798Z",
+            "isEarlyAdopter": false,
+            "require2FA": false,
+            "allowMemberInvite": true,
+            "allowMemberProjectCreation": true,
+            "allowSuperuserAccess": true,
+            "avatar": {
+              "avatarType": "letter_avatar",
+              "avatarUuid": null,
+              "avatarUrl": null
+            },
+            "links": {
+              "organizationUrl": "https://nangodev.sentry.io",
+              "regionUrl": "https://us.sentry.io"
+            },
+            "hasAuthProvider": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:00 GMT",
+          "content-type": "application/json",
+          "content-length": "468",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/organizations/?per_page=100&cursor=1790690942024:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"1790690942024:0:1\", <https://sentry.io/api/0/organizations/?per_page=100&cursor=1790690942025:100:0>; rel=\"next\"; results=\"false\"; cursor=\"1790690942025:100:0\"",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790696340",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "img-src * blob: data:; frame-ancestors 'self' *.sentry.io; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; style-src * 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com plausible.io app.intercom.io widget.intercom.io js.intercomcdn.com; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com plausible.io api.github.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; worker-src 'self' blob:; media-src *; base-uri 'none'; default-src 'none'; font-src * data:; object-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"1d4-egKfNymycs+mFuFq6MWIkc0gvTQ\""
+        },
+        "hash": "b92f30d4eee7dd82333c404bb2dd542ac1cd7b34",
+        "request": {
+          "params": {
+            "per_page": "100"
+          }
+        }
+      },
+      "/0/organizations/nangodev/projects/": {
+        "response": [
+          {
+            "team": {
+              "id": "4512170111401984",
+              "slug": "nango-seed-team",
+              "name": "nango-seed-team"
+            },
+            "teams": [
+              {
+                "id": "4512170111401984",
+                "slug": "nango-seed-team",
+                "name": "nango-seed-team"
+              }
+            ],
+            "id": "4512170111991808",
+            "name": "Nango Seed Project",
+            "slug": "nango-seed-project",
+            "isBookmarked": true,
+            "isMember": true,
+            "access": [
+              "project:releases",
+              "team:admin",
+              "org:read",
+              "team:write",
+              "event:read",
+              "member:read",
+              "event:admin",
+              "project:read",
+              "project:write",
+              "team:read",
+              "alerts:write",
+              "alerts:read",
+              "event:write",
+              "org:integrations",
+              "project:admin"
+            ],
+            "hasAccess": true,
+            "dateCreated": "2026-09-29T14:26:57.696902Z",
+            "environments": [
+              "production"
+            ],
+            "features": [
+              "issue-action-log-write-to-db",
+              "similarity-embeddings",
+              "discard-transaction",
+              "custom-inbound-filters",
+              "span-metrics-extraction",
+              "defer-attachment-storage",
+              "servicehooks",
+              "similarity-grouping-skip-fallback",
+              "similarity-grouping-model-next",
+              "profile-functions-metrics-eap-ingestion",
+              "rate-limits",
+              "discard-groups",
+              "span-metrics-extraction-addons",
+              "similarity-indexing",
+              "similarity-view",
+              "releases"
+            ],
+            "firstEvent": "2026-09-29T14:27:47.062201Z",
+            "firstTransactionEvent": false,
+            "hasSessions": false,
+            "hasProfiles": false,
+            "hasReplays": false,
+            "hasFeedbacks": false,
+            "hasNewFeedbacks": false,
+            "hasMonitors": true,
+            "hasMinifiedStackTrace": false,
+            "hasInsightsHttp": false,
+            "hasInsightsDb": false,
+            "hasInsightsAssets": false,
+            "hasInsightsAppStart": false,
+            "hasInsightsScreenLoad": false,
+            "hasInsightsVitals": false,
+            "hasInsightsCaches": false,
+            "hasInsightsQueues": false,
+            "hasInsightsAgentMonitoring": false,
+            "hasInsightsMCP": false,
+            "hasLogs": false,
+            "hasTraceMetrics": false,
+            "platform": "node",
+            "platforms": [],
+            "latestRelease": {
+              "version": "nango-seed-1.0.0"
+            },
+            "hasUserReports": false,
+            "hasFlags": false,
+            "latestDeploys": {
+              "production": {
+                "version": "nango-seed-1.0.0",
+                "dateFinished": "2026-09-29T15:09:55.023524Z"
+              }
+            }
+          },
+          {
+            "team": {
+              "id": "4512170111401984",
+              "slug": "nango-seed-team",
+              "name": "nango-seed-team"
+            },
+            "teams": [
+              {
+                "id": "4512170111401984",
+                "slug": "nango-seed-team",
+                "name": "nango-seed-team"
+              }
+            ],
+            "id": "4512170269605888",
+            "name": "Nango Dryrun Project",
+            "slug": "nango-dryrun-project",
+            "isBookmarked": false,
+            "isMember": true,
+            "access": [
+              "project:releases",
+              "team:admin",
+              "org:read",
+              "team:write",
+              "event:read",
+              "member:read",
+              "event:admin",
+              "project:read",
+              "project:write",
+              "team:read",
+              "alerts:write",
+              "alerts:read",
+              "event:write",
+              "org:integrations",
+              "project:admin"
+            ],
+            "hasAccess": true,
+            "dateCreated": "2026-09-29T15:07:02.621094Z",
+            "environments": [],
+            "features": [
+              "issue-action-log-write-to-db",
+              "similarity-embeddings",
+              "discard-transaction",
+              "custom-inbound-filters",
+              "span-metrics-extraction",
+              "defer-attachment-storage",
+              "servicehooks",
+              "similarity-grouping-skip-fallback",
+              "similarity-grouping-model-next",
+              "profile-functions-metrics-eap-ingestion",
+              "rate-limits",
+              "discard-groups",
+              "span-metrics-extraction-addons",
+              "similarity-indexing",
+              "similarity-view"
+            ],
+            "firstEvent": null,
+            "firstTransactionEvent": false,
+            "hasSessions": false,
+            "hasProfiles": false,
+            "hasReplays": false,
+            "hasFeedbacks": false,
+            "hasNewFeedbacks": false,
+            "hasMonitors": false,
+            "hasMinifiedStackTrace": false,
+            "hasInsightsHttp": false,
+            "hasInsightsDb": false,
+            "hasInsightsAssets": false,
+            "hasInsightsAppStart": false,
+            "hasInsightsScreenLoad": false,
+            "hasInsightsVitals": false,
+            "hasInsightsCaches": false,
+            "hasInsightsQueues": false,
+            "hasInsightsAgentMonitoring": false,
+            "hasInsightsMCP": false,
+            "hasLogs": false,
+            "hasTraceMetrics": false,
+            "platform": "node",
+            "platforms": [],
+            "latestRelease": null,
+            "hasUserReports": false,
+            "hasFlags": false,
+            "latestDeploys": null
+          },
+          {
+            "team": {
+              "id": "4512170111401984",
+              "slug": "nango-seed-team",
+              "name": "nango-seed-team"
+            },
+            "teams": [
+              {
+                "id": "4512170111401984",
+                "slug": "nango-seed-team",
+                "name": "nango-seed-team"
+              }
+            ],
+            "id": "4512170270654464",
+            "name": "Nango Dryrun Project 2",
+            "slug": "nango-dryrun-project-2",
+            "isBookmarked": false,
+            "isMember": true,
+            "access": [
+              "project:releases",
+              "team:admin",
+              "org:read",
+              "team:write",
+              "event:read",
+              "member:read",
+              "event:admin",
+              "project:read",
+              "project:write",
+              "team:read",
+              "alerts:write",
+              "alerts:read",
+              "event:write",
+              "org:integrations",
+              "project:admin"
+            ],
+            "hasAccess": true,
+            "dateCreated": "2026-09-29T15:07:18.815433Z",
+            "environments": [],
+            "features": [
+              "issue-action-log-write-to-db",
+              "similarity-embeddings",
+              "discard-transaction",
+              "custom-inbound-filters",
+              "span-metrics-extraction",
+              "defer-attachment-storage",
+              "servicehooks",
+              "similarity-grouping-skip-fallback",
+              "similarity-grouping-model-next",
+              "profile-functions-metrics-eap-ingestion",
+              "rate-limits",
+              "discard-groups",
+              "span-metrics-extraction-addons",
+              "similarity-indexing",
+              "similarity-view"
+            ],
+            "firstEvent": null,
+            "firstTransactionEvent": false,
+            "hasSessions": false,
+            "hasProfiles": false,
+            "hasReplays": false,
+            "hasFeedbacks": false,
+            "hasNewFeedbacks": false,
+            "hasMonitors": false,
+            "hasMinifiedStackTrace": false,
+            "hasInsightsHttp": false,
+            "hasInsightsDb": false,
+            "hasInsightsAssets": false,
+            "hasInsightsAppStart": false,
+            "hasInsightsScreenLoad": false,
+            "hasInsightsVitals": false,
+            "hasInsightsCaches": false,
+            "hasInsightsQueues": false,
+            "hasInsightsAgentMonitoring": false,
+            "hasInsightsMCP": false,
+            "hasLogs": false,
+            "hasTraceMetrics": false,
+            "platform": "node",
+            "platforms": [],
+            "latestRelease": null,
+            "hasUserReports": false,
+            "hasFlags": false,
+            "latestDeploys": null
+          },
+          {
+            "team": {
+              "id": "4512170111401984",
+              "slug": "nango-seed-team",
+              "name": "nango-seed-team"
+            },
+            "teams": [
+              {
+                "id": "4512170111401984",
+                "slug": "nango-seed-team",
+                "name": "nango-seed-team"
+              }
+            ],
+            "id": "4512170271703040",
+            "name": "Nango Dryrun Project 2",
+            "slug": "nango-dryrun-project-2-0p",
+            "isBookmarked": false,
+            "isMember": true,
+            "access": [
+              "project:releases",
+              "team:admin",
+              "org:read",
+              "team:write",
+              "event:read",
+              "member:read",
+              "event:admin",
+              "project:read",
+              "project:write",
+              "team:read",
+              "alerts:write",
+              "alerts:read",
+              "event:write",
+              "org:integrations",
+              "project:admin"
+            ],
+            "hasAccess": true,
+            "dateCreated": "2026-09-29T15:07:34.925567Z",
+            "environments": [],
+            "features": [
+              "issue-action-log-write-to-db",
+              "similarity-embeddings",
+              "discard-transaction",
+              "custom-inbound-filters",
+              "span-metrics-extraction",
+              "defer-attachment-storage",
+              "servicehooks",
+              "similarity-grouping-skip-fallback",
+              "similarity-grouping-model-next",
+              "profile-functions-metrics-eap-ingestion",
+              "rate-limits",
+              "discard-groups",
+              "span-metrics-extraction-addons",
+              "similarity-indexing",
+              "similarity-view"
+            ],
+            "firstEvent": null,
+            "firstTransactionEvent": false,
+            "hasSessions": false,
+            "hasProfiles": false,
+            "hasReplays": false,
+            "hasFeedbacks": false,
+            "hasNewFeedbacks": false,
+            "hasMonitors": false,
+            "hasMinifiedStackTrace": false,
+            "hasInsightsHttp": false,
+            "hasInsightsDb": false,
+            "hasInsightsAssets": false,
+            "hasInsightsAppStart": false,
+            "hasInsightsScreenLoad": false,
+            "hasInsightsVitals": false,
+            "hasInsightsCaches": false,
+            "hasInsightsQueues": false,
+            "hasInsightsAgentMonitoring": false,
+            "hasInsightsMCP": false,
+            "hasLogs": false,
+            "hasTraceMetrics": false,
+            "platform": "node",
+            "platforms": [],
+            "latestRelease": null,
+            "hasUserReports": false,
+            "hasFlags": false,
+            "latestDeploys": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:00 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "link": "<https://sentry.io/api/0/organizations/nangodev/projects/?per_page=100&cursor=100:-1:1>; rel=\"previous\"; results=\"false\"; cursor=\"100:-1:1\", <https://sentry.io/api/0/organizations/nangodev/projects/?per_page=100&cursor=100:1:0>; rel=\"next\"; results=\"false\"; cursor=\"100:1:0\"",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790696341",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "frame-ancestors 'self' *.sentry.io; object-src 'none'; img-src * blob: data:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; font-src * data:; default-src 'none'; style-src * 'unsafe-inline'; worker-src 'self' blob:; base-uri 'none'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; media-src *; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=752a1b2bd61de015e9ad225feb27321d961281ac",
+          "x-envoy-upstream-service-time": "176",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "0963461f614790e3d5641743a9a53211ed126343",
+        "request": {
+          "params": {
+            "per_page": "100"
+          }
+        }
+      },
+      "/0/projects/nangodev/nango-seed-project/events/": {
+        "response": [
+          {
+            "id": "024b86932d124b7fada69a1e8b33e1f6",
+            "event.type": "error",
+            "groupID": "7761526207",
+            "eventID": "024b86932d124b7fada69a1e8b33e1f6",
+            "projectID": "4512170111991808",
+            "message": "nango disposable bulk delete B",
+            "title": "Error: nango disposable bulk delete B",
+            "location": "seed.js",
+            "culprit": "main(seed.js)",
+            "user": {
+              "id": null,
+              "email": null,
+              "username": null,
+              "ip_address": null,
+              "name": null,
+              "geo": {
+                "country_code": "US",
+                "region": "United States"
+              },
+              "data": null
+            },
+            "tags": [
+              {
+                "key": "interface_type",
+                "value": "exception"
+              },
+              {
+                "key": "level",
+                "value": "error"
+              },
+              {
+                "key": "logger",
+                "value": "nango-seed"
+              }
+            ],
+            "platform": "node",
+            "dateCreated": "2026-09-29T15:15:10Z",
+            "crashFile": null,
+            "metadata": {
+              "filename": "seed.js",
+              "function": "main",
+              "in_app_frame_mix": "system-only",
+              "synthetic": false,
+              "type": "Error",
+              "value": "nango disposable bulk delete B"
+            }
+          },
+          {
+            "id": "eb7d3f8e98e54b3189c8a80462856d4f",
+            "event.type": "error",
+            "groupID": "7761433968",
+            "eventID": "eb7d3f8e98e54b3189c8a80462856d4f",
+            "projectID": "4512170111991808",
+            "message": "Nango seed test error 2: ValueError bad input",
+            "title": "ValueError: bad input",
+            "location": "worker.js",
+            "culprit": "process(worker.js)",
+            "user": {
+              "id": null,
+              "email": null,
+              "username": null,
+              "ip_address": null,
+              "name": null,
+              "geo": {
+                "country_code": "CA",
+                "city": "Toronto",
+                "region": "Canada"
+              },
+              "data": null
+            },
+            "tags": [
+              {
+                "key": "interface_type",
+                "value": "exception"
+              },
+              {
+                "key": "level",
+                "value": "error"
+              },
+              {
+                "key": "seed",
+                "value": "nango"
+              }
+            ],
+            "platform": "node",
+            "dateCreated": "2026-09-29T14:27:55.048000Z",
+            "crashFile": null,
+            "metadata": {
+              "filename": "worker.js",
+              "function": "process",
+              "in_app_frame_mix": "system-only",
+              "synthetic": false,
+              "type": "ValueError",
+              "value": "bad input"
+            }
+          },
+          {
+            "id": "63be9f2fdd3f438d951b2bae4e847b51",
+            "event.type": "error",
+            "groupID": "7761433611",
+            "eventID": "63be9f2fdd3f438d951b2bae4e847b51",
+            "projectID": "4512170111991808",
+            "message": "Nango seed test error: TypeError undefined is not a function",
+            "title": "TypeError: undefined is not a function",
+            "location": "app.js",
+            "culprit": "handler(app.js)",
+            "user": {
+              "id": null,
+              "email": null,
+              "username": null,
+              "ip_address": null,
+              "name": null,
+              "geo": {
+                "country_code": "CA",
+                "city": "Toronto",
+                "region": "Canada"
+              },
+              "data": null
+            },
+            "tags": [
+              {
+                "key": "interface_type",
+                "value": "exception"
+              },
+              {
+                "key": "level",
+                "value": "error"
+              },
+              {
+                "key": "seed",
+                "value": "nango"
+              }
+            ],
+            "platform": "node",
+            "dateCreated": "2026-09-29T14:27:47.062000Z",
+            "crashFile": null,
+            "metadata": {
+              "filename": "app.js",
+              "function": "handler",
+              "in_app_frame_mix": "system-only",
+              "synthetic": false,
+              "type": "TypeError",
+              "value": "undefined is not a function"
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:00 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "link": "<https://sentry.io/api/0/projects/nangodev/nango-seed-project/events/?statsPeriod=90d&cursor=0:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"0:0:1\", <https://sentry.io/api/0/projects/nangodev/nango-seed-project/events/?statsPeriod=90d&cursor=0:100:0>; rel=\"next\"; results=\"false\"; cursor=\"0:100:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "59",
+          "x-sentry-rate-limit-limit": "60",
+          "x-sentry-rate-limit-reset": "1790696400",
+          "x-sentry-rate-limit-concurrentremaining": "0",
+          "x-sentry-rate-limit-concurrentlimit": "1",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "media-src *; style-src * 'unsafe-inline'; img-src * blob: data:; frame-ancestors 'self' *.sentry.io; object-src 'none'; font-src * data:; default-src 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; base-uri 'none'; worker-src 'self' blob:; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=752a1b2bd61de015e9ad225feb27321d961281ac",
+          "x-envoy-upstream-service-time": "166",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "d9ce7bdf675e7ccf7e0043f0d9b9a5e69ac9eb5b",
+        "request": {
+          "params": {
+            "statsPeriod": "90d"
+          }
+        }
+      },
+      "/0/projects/nangodev/nango-dryrun-project/events/": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:01 GMT",
+          "content-type": "application/json",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/projects/nangodev/nango-dryrun-project/events/?statsPeriod=90d&cursor=0:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"0:0:1\", <https://sentry.io/api/0/projects/nangodev/nango-dryrun-project/events/?statsPeriod=90d&cursor=0:100:0>; rel=\"next\"; results=\"false\"; cursor=\"0:100:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "58",
+          "x-sentry-rate-limit-limit": "60",
+          "x-sentry-rate-limit-reset": "1790696400",
+          "x-sentry-rate-limit-concurrentremaining": "0",
+          "x-sentry-rate-limit-concurrentlimit": "1",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "frame-ancestors 'self' *.sentry.io; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; media-src *; style-src * 'unsafe-inline'; font-src * data:; object-src 'none'; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; img-src * blob: data:; worker-src 'self' blob:; base-uri 'none'; default-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=752a1b2bd61de015e9ad225feb27321d961281ac",
+          "x-envoy-upstream-service-time": "289",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "0296b6354c3dbd01e70650fc85080190637e3f12",
+        "request": {
+          "params": {
+            "statsPeriod": "90d"
+          }
+        }
+      },
+      "/0/projects/nangodev/nango-dryrun-project-2/events/": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:01 GMT",
+          "content-type": "application/json",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/projects/nangodev/nango-dryrun-project-2/events/?statsPeriod=90d&cursor=0:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"0:0:1\", <https://sentry.io/api/0/projects/nangodev/nango-dryrun-project-2/events/?statsPeriod=90d&cursor=0:100:0>; rel=\"next\"; results=\"false\"; cursor=\"0:100:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "57",
+          "x-sentry-rate-limit-limit": "60",
+          "x-sentry-rate-limit-reset": "1790696400",
+          "x-sentry-rate-limit-concurrentremaining": "0",
+          "x-sentry-rate-limit-concurrentlimit": "1",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; object-src 'none'; img-src * blob: data:; worker-src 'self' blob:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; default-src 'none'; base-uri 'none'; font-src * data:; frame-ancestors 'self' *.sentry.io; style-src * 'unsafe-inline'; media-src *; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=752a1b2bd61de015e9ad225feb27321d961281ac",
+          "x-envoy-upstream-service-time": "137",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "240fa382a048556ec526a2dfbdbda63d53dcba1a",
+        "request": {
+          "params": {
+            "statsPeriod": "90d"
+          }
+        }
+      },
+      "/0/projects/nangodev/nango-dryrun-project-2-0p/events/": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:39:02 GMT",
+          "content-type": "application/json",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1790696378",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/projects/nangodev/nango-dryrun-project-2-0p/events/?statsPeriod=90d&cursor=0:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"0:0:1\", <https://sentry.io/api/0/projects/nangodev/nango-dryrun-project-2-0p/events/?statsPeriod=90d&cursor=0:100:0>; rel=\"next\"; results=\"false\"; cursor=\"0:100:0\"",
+          "allow": "GET, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "56",
+          "x-sentry-rate-limit-limit": "60",
+          "x-sentry-rate-limit-reset": "1790696400",
+          "x-sentry-rate-limit-concurrentremaining": "0",
+          "x-sentry-rate-limit-concurrentlimit": "1",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; img-src * blob: data:; worker-src 'self' blob:; object-src 'none'; style-src * 'unsafe-inline'; font-src * data:; media-src *; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; base-uri 'none'; frame-ancestors 'self' *.sentry.io; default-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=752a1b2bd61de015e9ad225feb27321d961281ac",
+          "x-envoy-upstream-service-time": "153",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "bafe13644061d87466be37ea522882ab31ab9ee7",
+        "request": {
+          "params": {
+            "statsPeriod": "90d"
+          }
+        }
+      }
+    }
+  }
+}

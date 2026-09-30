@@ -1,0 +1,1385 @@
+{
+  "nango": {
+    "batchSave": {
+      "AlertRule": [
+        {
+          "id": "6085839",
+          "name": "Send a notification when pull requests are ready",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T14:09:04.156678Z",
+          "dateUpdated": "2026-09-29T14:09:04.156661Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [
+            "10481596"
+          ],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14688062",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21969865",
+                "type": "seer_activity_trigger",
+                "comparison": [
+                  "pr_ready_for_review"
+                ],
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14688063",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16776047",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6085910",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T14:26:57.945658Z",
+          "dateUpdated": "2026-09-29T14:26:57.945642Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": "2026-09-29T15:15:33.393249Z",
+          "detectorIds": [
+            "10481727"
+          ],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14688437",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21970229",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21970230",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14688438",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16776346",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6085932",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T14:31:32.614164Z",
+          "dateUpdated": "2026-09-29T14:31:32.614147Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14688526",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21971835",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21971836",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14688527",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16776413",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6085959",
+          "name": "Nango Seed Alert",
+          "organizationId": "4512170041409536",
+          "createdBy": "5026258",
+          "dateCreated": "2026-09-29T14:35:10.632282Z",
+          "dateUpdated": "2026-09-29T15:11:14.771184Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {},
+          "triggers": {
+            "id": "14688629",
+            "organizationId": "4512170041409536",
+            "logicType": "any",
+            "conditions": [],
+            "actions": []
+          },
+          "actionFilters": []
+        },
+        {
+          "id": "6086122",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:02:53.826815Z",
+          "dateUpdated": "2026-09-29T15:02:53.826802Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689357",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972644",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972645",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689358",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777053",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086142",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:06:17.172597Z",
+          "dateUpdated": "2026-09-29T15:06:17.172585Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689430",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972686",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972687",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689431",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777106",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086143",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:06:18.115903Z",
+          "dateUpdated": "2026-09-29T15:06:18.115889Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689433",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972689",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972690",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689434",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777108",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086148",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:07:02.883785Z",
+          "dateUpdated": "2026-09-29T15:07:02.883771Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [
+            "10482192"
+          ],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689451",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972699",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972700",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689452",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777121",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086153",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:07:19.115214Z",
+          "dateUpdated": "2026-09-29T15:07:19.115197Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [
+            "10482198"
+          ],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689464",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972711",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972712",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689465",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777129",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086158",
+          "name": "Send a notification for high priority issues",
+          "organizationId": "4512170041409536",
+          "createdBy": null,
+          "dateCreated": "2026-09-29T15:07:35.116885Z",
+          "dateUpdated": "2026-09-29T15:07:35.116863Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [
+            "10482203"
+          ],
+          "config": {
+            "frequency": 0
+          },
+          "triggers": {
+            "id": "14689480",
+            "organizationId": "4512170041409536",
+            "logicType": "any-short",
+            "conditions": [
+              {
+                "id": "21972724",
+                "type": "new_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              },
+              {
+                "id": "21972725",
+                "type": "existing_high_priority_issue",
+                "comparison": true,
+                "conditionResult": true
+              }
+            ],
+            "actions": []
+          },
+          "actionFilters": [
+            {
+              "id": "14689481",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [],
+              "actions": [
+                {
+                  "id": "16777140",
+                  "type": "email",
+                  "integrationId": null,
+                  "data": {
+                    "fallthroughType": "ActiveMembers"
+                  },
+                  "config": {
+                    "targetType": "issue_owners",
+                    "targetIdentifier": null
+                  },
+                  "status": "active"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "6086191",
+          "name": "Nango Dryrun Alert",
+          "organizationId": "4512170041409536",
+          "createdBy": "5026258",
+          "dateCreated": "2026-09-29T15:12:05.886704Z",
+          "dateUpdated": "2026-09-29T15:12:05.886683Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {},
+          "triggers": {
+            "id": "14689605",
+            "organizationId": "4512170041409536",
+            "logicType": "any",
+            "conditions": [],
+            "actions": []
+          },
+          "actionFilters": []
+        },
+        {
+          "id": "6086194",
+          "name": "Nango Dryrun Alert",
+          "organizationId": "4512170041409536",
+          "createdBy": "5026258",
+          "dateCreated": "2026-09-29T15:12:23.123838Z",
+          "dateUpdated": "2026-09-29T15:12:23.123822Z",
+          "enabled": true,
+          "environment": null,
+          "owner": null,
+          "lastTriggered": null,
+          "detectorIds": [],
+          "config": {},
+          "triggers": {
+            "id": "14689614",
+            "organizationId": "4512170041409536",
+            "logicType": "any",
+            "conditions": [],
+            "actions": []
+          },
+          "actionFilters": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "AlertRule": []
+    }
+  },
+  "api": {
+    "get": {
+      "/0/organizations/": {
+        "response": [
+          {
+            "id": "4512170041409536",
+            "slug": "nangodev",
+            "name": "NangoDev",
+            "status": {
+              "id": "active",
+              "name": "active"
+            },
+            "dateCreated": "2026-09-29T14:09:02.024798Z",
+            "isEarlyAdopter": false,
+            "require2FA": false,
+            "allowMemberInvite": true,
+            "allowMemberProjectCreation": true,
+            "allowSuperuserAccess": true,
+            "avatar": {
+              "avatarType": "letter_avatar",
+              "avatarUuid": null,
+              "avatarUrl": null
+            },
+            "links": {
+              "organizationUrl": "https://nangodev.sentry.io",
+              "regionUrl": "https://us.sentry.io"
+            },
+            "hasAuthProvider": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:15:53 GMT",
+          "content-type": "application/json",
+          "content-length": "468",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1966",
+          "x-ratelimit-reset": "1790694975",
+          "server": "nginx",
+          "link": "<https://sentry.io/api/0/organizations/?&cursor=1790690942024:0:1>; rel=\"previous\"; results=\"false\"; cursor=\"1790690942024:0:1\", <https://sentry.io/api/0/organizations/?&cursor=1790690942025:100:0>; rel=\"next\"; results=\"false\"; cursor=\"1790690942025:100:0\"",
+          "allow": "GET, POST, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694953",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com plausible.io api.github.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; img-src * blob: data:; frame-ancestors 'self' *.sentry.io; font-src * data:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com plausible.io app.intercom.io widget.intercom.io js.intercomcdn.com; worker-src 'self' blob:; style-src * 'unsafe-inline'; media-src *; base-uri 'none'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; default-src 'none'; object-src 'none'; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=b6c25df1608b6e4ff930ab89c850c332411c7f2e",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000",
+          "etag": "W/\"1d4-egKfNymycs+mFuFq6MWIkc0gvTQ\""
+        },
+        "hash": "98f78848b1260898740dd4bb313fbbca50a5abaa",
+        "request": {}
+      },
+      "/0/organizations/nangodev/workflows/": {
+        "response": [
+          {
+            "id": "6085839",
+            "name": "Send a notification when pull requests are ready",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T14:09:04.156678Z",
+            "dateUpdated": "2026-09-29T14:09:04.156661Z",
+            "triggers": {
+              "id": "14688062",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21969865",
+                  "type": "seer_activity_trigger",
+                  "comparison": [
+                    "pr_ready_for_review"
+                  ],
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14688063",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16776047",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [
+              "10481596"
+            ],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6085910",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T14:26:57.945658Z",
+            "dateUpdated": "2026-09-29T14:26:57.945642Z",
+            "triggers": {
+              "id": "14688437",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21970229",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21970230",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14688438",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16776346",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [
+              "10481727"
+            ],
+            "enabled": true,
+            "lastTriggered": "2026-09-29T15:15:33.393249Z",
+            "owner": null
+          },
+          {
+            "id": "6085932",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T14:31:32.614164Z",
+            "dateUpdated": "2026-09-29T14:31:32.614147Z",
+            "triggers": {
+              "id": "14688526",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21971835",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21971836",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14688527",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16776413",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6085959",
+            "name": "Nango Seed Alert",
+            "organizationId": "4512170041409536",
+            "createdBy": "5026258",
+            "dateCreated": "2026-09-29T14:35:10.632282Z",
+            "dateUpdated": "2026-09-29T15:11:14.771184Z",
+            "triggers": {
+              "id": "14688629",
+              "organizationId": "4512170041409536",
+              "logicType": "any",
+              "conditions": [],
+              "actions": []
+            },
+            "actionFilters": [],
+            "environment": null,
+            "config": {},
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086122",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:02:53.826815Z",
+            "dateUpdated": "2026-09-29T15:02:53.826802Z",
+            "triggers": {
+              "id": "14689357",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972644",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972645",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689358",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777053",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086142",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:06:17.172597Z",
+            "dateUpdated": "2026-09-29T15:06:17.172585Z",
+            "triggers": {
+              "id": "14689430",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972686",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972687",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689431",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777106",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086143",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:06:18.115903Z",
+            "dateUpdated": "2026-09-29T15:06:18.115889Z",
+            "triggers": {
+              "id": "14689433",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972689",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972690",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689434",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777108",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086148",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:07:02.883785Z",
+            "dateUpdated": "2026-09-29T15:07:02.883771Z",
+            "triggers": {
+              "id": "14689451",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972699",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972700",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689452",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777121",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [
+              "10482192"
+            ],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086153",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:07:19.115214Z",
+            "dateUpdated": "2026-09-29T15:07:19.115197Z",
+            "triggers": {
+              "id": "14689464",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972711",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972712",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689465",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777129",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [
+              "10482198"
+            ],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086158",
+            "name": "Send a notification for high priority issues",
+            "organizationId": "4512170041409536",
+            "createdBy": null,
+            "dateCreated": "2026-09-29T15:07:35.116885Z",
+            "dateUpdated": "2026-09-29T15:07:35.116863Z",
+            "triggers": {
+              "id": "14689480",
+              "organizationId": "4512170041409536",
+              "logicType": "any-short",
+              "conditions": [
+                {
+                  "id": "21972724",
+                  "type": "new_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                },
+                {
+                  "id": "21972725",
+                  "type": "existing_high_priority_issue",
+                  "comparison": true,
+                  "conditionResult": true
+                }
+              ],
+              "actions": []
+            },
+            "actionFilters": [
+              {
+                "id": "14689481",
+                "organizationId": "4512170041409536",
+                "logicType": "any-short",
+                "conditions": [],
+                "actions": [
+                  {
+                    "id": "16777140",
+                    "type": "email",
+                    "integrationId": null,
+                    "data": {
+                      "fallthroughType": "ActiveMembers"
+                    },
+                    "config": {
+                      "targetType": "issue_owners",
+                      "targetIdentifier": null
+                    },
+                    "status": "active"
+                  }
+                ]
+              }
+            ],
+            "environment": null,
+            "config": {
+              "frequency": 0
+            },
+            "detectorIds": [
+              "10482203"
+            ],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086191",
+            "name": "Nango Dryrun Alert",
+            "organizationId": "4512170041409536",
+            "createdBy": "5026258",
+            "dateCreated": "2026-09-29T15:12:05.886704Z",
+            "dateUpdated": "2026-09-29T15:12:05.886683Z",
+            "triggers": {
+              "id": "14689605",
+              "organizationId": "4512170041409536",
+              "logicType": "any",
+              "conditions": [],
+              "actions": []
+            },
+            "actionFilters": [],
+            "environment": null,
+            "config": {},
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          },
+          {
+            "id": "6086194",
+            "name": "Nango Dryrun Alert",
+            "organizationId": "4512170041409536",
+            "createdBy": "5026258",
+            "dateCreated": "2026-09-29T15:12:23.123838Z",
+            "dateUpdated": "2026-09-29T15:12:23.123822Z",
+            "triggers": {
+              "id": "14689614",
+              "organizationId": "4512170041409536",
+              "logicType": "any",
+              "conditions": [],
+              "actions": []
+            },
+            "actionFilters": [],
+            "environment": null,
+            "config": {},
+            "detectorIds": [],
+            "enabled": true,
+            "lastTriggered": null,
+            "owner": null
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:15:53 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1964",
+          "x-ratelimit-reset": "1790694975",
+          "server": "nginx",
+          "vary": "Accept-Encoding,Accept-Language, Cookie",
+          "x-hits": "9",
+          "x-max-hits": "1000",
+          "link": "<https://sentry.io/api/0/organizations/nangodev/workflows/?per_page=100&cursor=100:-1:1>; rel=\"previous\"; results=\"false\"; cursor=\"100:-1:1\", <https://sentry.io/api/0/organizations/nangodev/workflows/?per_page=100&cursor=100:1:0>; rel=\"next\"; results=\"false\"; cursor=\"100:1:0\"",
+          "allow": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "39",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694954",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; font-src * data:; img-src * blob: data:; object-src 'none'; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; default-src 'none'; style-src * 'unsafe-inline'; worker-src 'self' blob:; base-uri 'none'; frame-ancestors 'self' *.sentry.io; media-src *; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "115",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "0ea9db5ac4848368379cf9d67f5967fba4cf5c76",
+        "request": {
+          "params": {
+            "per_page": "100"
+          }
+        }
+      },
+      "/api/0/organizations/nangodev/workflows/": {
+        "response": [],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 15:15:53 GMT",
+          "content-type": "application/json",
+          "content-length": "2",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "deny",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1790694975",
+          "server": "nginx",
+          "x-hits": "9",
+          "x-max-hits": "1000",
+          "link": "<https://sentry.io/api/0/organizations/nangodev/workflows/?per_page=100&cursor=100:0:1>; rel=\"previous\"; results=\"true\"; cursor=\"100:0:1\", <https://sentry.io/api/0/organizations/nangodev/workflows/?per_page=100&cursor=100:2:0>; rel=\"next\"; results=\"false\"; cursor=\"100:2:0\"",
+          "allow": "GET, POST, PUT, DELETE, HEAD, OPTIONS",
+          "x-sentry-rate-limit-remaining": "38",
+          "x-sentry-rate-limit-limit": "40",
+          "x-sentry-rate-limit-reset": "1790694954",
+          "x-sentry-rate-limit-concurrentremaining": "24",
+          "x-sentry-rate-limit-concurrentlimit": "25",
+          "vary": "Accept-Language, Cookie",
+          "content-language": "en",
+          "cross-origin-opener-policy-report-only": "same-origin; report-to=\"coop-endpoint\"",
+          "report-to": "{\"group\":\"coop-endpoint\",\"max_age\":86400,\"endpoints\":[{\"url\":\"https://sentry-coop-302178938983.us-central1.run.app/coop\"}]}",
+          "content-security-policy": "img-src * blob: data:; script-src 'self' 'unsafe-inline' 'report-sample' s1.sentry-cdn.com js.sentry-cdn.com browser.sentry-cdn.com statuspage-production.s3.amazonaws.com aui-cdn.atlassian.com connect-cdn.atl-paas.net js.stripe.com 'strict-dynamic' cdn.pendo.io data.pendo.io pendo-io-static.storage.googleapis.com pendo-static-5634074999128064.storage.googleapis.com app.intercom.io widget.intercom.io js.intercomcdn.com; style-src * 'unsafe-inline'; frame-ancestors 'self' *.sentry.io; connect-src 'self' *.algolia.net *.algolianet.com *.algolia.io browser.sentry-cdn.com sentry.io *.sentry.io s1.sentry-cdn.com o1.ingest.sentry.io api2.amplitude.com app.pendo.io data.pendo.io reload.getsentry.net t687h3m0nh65.statuspage.io maps.googleapis.com *.intercom.io wss://*.intercom.io *.intercom-messenger.com wss://*.intercom-messenger.com uploads.intercomcdn.com uploads.intercomusercontent.com; font-src * data:; base-uri 'none'; media-src *; worker-src 'self' blob:; object-src 'none'; default-src 'none'; frame-src app.pendo.io demo.arcade.software js.stripe.com sentry.io 'self' intercom-sheets.com www.intercom-reporting.com; report-uri https://o1.ingest.sentry.io/api/54785/security/?sentry_key=f724a8a027db45f5b21507e7142ff78e&sentry_release=5e41ec882b17aaa8d78889b092fb4c3c25c01662",
+          "x-envoy-upstream-service-time": "129",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000",
+          "etag": "W/\"2-l9Fw4VUO7kr8CvBlt4zaMCqXZ0w\""
+        },
+        "hash": "b452abaedd6b11341670282a8489fca993b02ea8",
+        "request": {
+          "params": {
+            "cursor": "100:1:0",
+            "per_page": "100"
+          }
+        }
+      }
+    }
+  }
+}
