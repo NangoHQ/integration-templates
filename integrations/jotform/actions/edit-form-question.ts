@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         form_id: z.string().describe('ID of the form that owns the question. Example: "262715780901055"'),
-        question_id: z.string().describe('Numeric qid of the existing question to edit. Run list-form-questions on the form to discover qids. Example: "3"'),
+        question_id: z
+            .string()
+            .regex(/^\d+$/, 'question_id must be a numeric qid, e.g. "3".')
+            .describe('Numeric qid of the existing question to edit. Run list-form-questions on the form to discover qids. Example: "3"'),
         properties: z
             .record(z.string(), z.string())
             .describe(
@@ -62,6 +65,15 @@ const action = createAction({
         });
 
         const parsed = JotformEditResponseSchema.parse(response.data);
+        if (parsed.responseCode !== 200) {
+            throw new nango.ActionError({
+                type: 'edit_failed',
+                message: `Jotform failed to edit question ${input.question_id} on form ${input.form_id}.`,
+                form_id: input.form_id,
+                question_id: input.question_id
+            });
+        }
+
         const echo = parsed.content[0];
         const type = echo?.['type'];
 

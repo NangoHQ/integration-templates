@@ -6,14 +6,14 @@ const InputSchema = z
     .object({
         id: z.string().describe('The ID of the form to delete. Example: "262715780901055".')
     })
-    .describe('Identifies the Jotform form to permanently delete.');
+    .describe('Identifies the Jotform form to delete.');
 
 const OutputSchema = z
     .object({
         id: z.string().describe('The ID of the deleted form. Example: "262715780901055".'),
-        status: z.string().describe('The status of the form after deletion. Always "DELETED" on success.')
+        status: z.string().describe('The status of the form after deletion. Always "DELETED" on success; the form record itself remains retrievable.')
     })
-    .describe('Confirmation that the form was deleted.');
+    .describe('Confirmation that the form was marked as deleted.');
 
 const ProviderDeleteFormSchema = z.object({
     content: z.object({
@@ -24,11 +24,11 @@ const ProviderDeleteFormSchema = z.object({
 
 /**
  * @tags: [write, destructive]
- * @tagReason: Permanently deletes a form through the provider API, which is a difficult-to-reverse mutation.
+ * @tagReason: Marks a form as deleted through the provider API; the effect is hard to reverse through this API even though the record is not scrubbed.
  * @pitfalls: Deletion is soft: the form record remains retrievable with status DELETED rather than being permanently scrubbed. Deleting an already-deleted form succeeds again without error, so callers cannot distinguish a fresh delete from a repeat. A form ID that does not exist fails with a 401 authorization error instead of a not-found error.
  */
 const action = createAction({
-    description: 'Permanently delete a form.',
+    description: 'Delete a form. Jotform marks it DELETED rather than permanently scrubbing the record.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,

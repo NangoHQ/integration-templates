@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         form_id: z.string().describe('ID of the existing Jotform form to duplicate. Example: "262715780901055"'),
-        title: z.string().describe('Title to set on the newly created duplicate form. Example: "Duplicated Intake Form v2"')
+        title: z.string().min(1).describe('Title to set on the newly created duplicate form. Example: "Duplicated Intake Form v2"')
     })
     .describe('Input for duplicating a Jotform form: the source form to clone and the title for the new copy');
 
@@ -25,7 +25,9 @@ const JotformResponseEnvelopeSchema = z.object({
 const ClonedFormSchema = z.object({
     id: z.string(),
     title: z.string(),
-    url: z.string()
+    // Optional to match the sibling clone-form action: a response without it must not fail parsing
+    // before the rename step runs, since the id alone is enough to derive the form's public URL.
+    url: z.string().optional()
 });
 
 /**
@@ -83,7 +85,7 @@ const action = createAction({
         return {
             id: clonedForm.id,
             title: input.title,
-            url: clonedForm.url
+            url: clonedForm.url ?? `https://form.jotform.com/${clonedForm.id}`
         };
     }
 });

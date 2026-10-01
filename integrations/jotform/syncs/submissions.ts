@@ -44,7 +44,12 @@ const CheckpointSchema = z.object({
     created_after: z
         .string()
         .describe(
-            'Highest submission created_at ("YYYY-MM-DD HH:MM:SS") from the last fully completed sync run; the next run requests submissions created after this value minus a 1 second overlap'
+            'Highest submission created_at ("YYYY-MM-DD HH:MM:SS") from the last fully completed sync run; the next run requests newly created submissions after this value minus a 1 second overlap'
+        ),
+    updated_after: z
+        .string()
+        .describe(
+            'Highest submission updated_at ("YYYY-MM-DD HH:MM:SS") observed so far, seeded from created_after on the first completed run; the next run requests edited submissions after this value minus a 1 second overlap'
         )
 });
 
@@ -69,54 +74,81 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const createdAfter = checkpoint?.created_after;
+        const updatedAfter = checkpoint?.updated_after;
         let maxCreatedAt = createdAfter;
+        let maxUpdatedAt = updatedAfter;
 
-        const params: Record<string, string> = {
-            orderby: 'created_at'
-        };
-
-        if (createdAfter) {
-            // Jotform's created_at:gt comparison is exclusive at second granularity,
-            // so subtract one second to avoid missing submissions at the boundary.
-            params['filter'] = JSON.stringify({ 'created_at:gt': oneSecondEarlier(createdAfter) });
-        }
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://api.jotform.com/docs/#user-submissions
-            endpoint: '/user/submissions',
-            params,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'offset',
-                offset_start_value: 0,
-                offset_calculation_method: 'by-response-size',
-                limit_name_in_request: 'limit',
-                limit: 100,
-                response_path: 'content'
-            },
-            retries: 3
-        };
-
-        for await (const page of nango.paginate<z.infer<typeof SubmissionSchema>>(proxyConfig)) {
-            if (page.length === 0) {
-                continue;
+        // Deleted submissions disappear outright from GET /user/submissions (Jotform hard-deletes
+        // them, unlike forms which are soft-deleted), and Jotform exposes no feed of deleted
+        // submission IDs. Detecting deletions would require diffing a full enumeration of every
+        // submission on every run, which defeats the point of this 5-minute incremental sync and
+        // would also exhaust Jotform's daily API quota, so deletions are not tracked here: a
+        // submission removed on Jotform remains in Nango's synced records.
+        async function fetchAndSave(filterField: 'created_at' | 'updated_at', after: string | undefined): Promise<void> {
+            const params: Record<string, string> = { orderby: filterField };
+            if (after) {
+                // Jotform's "field:gt" comparison is exclusive at second granularity,
+                // so subtract one second to avoid missing submissions at the boundary.
+                params['filter'] = JSON.stringify({ [`${filterField}:gt`]: oneSecondEarlier(after) });
             }
 
-            const submissions = page.map((raw) => SubmissionSchema.parse(raw));
-            await nango.batchSave(submissions, 'Submission');
+            const proxyConfig: ProxyConfiguration = {
+                // https://api.jotform.com/docs/#user-submissions
+                endpoint: '/user/submissions',
+                params,
+                paginate: {
+                    type: 'offset',
+                    offset_name_in_request: 'offset',
+                    offset_start_value: 0,
+                    offset_calculation_method: 'by-response-size',
+                    limit_name_in_request: 'limit',
+                    limit: 100,
+                    response_path: 'content'
+                },
+                retries: 3
+            };
 
-            for (const submission of submissions) {
-                if (!maxCreatedAt || submission.created_at > maxCreatedAt) {
-                    maxCreatedAt = submission.created_at;
+            for await (const page of nango.paginate<z.infer<typeof SubmissionSchema>>(proxyConfig)) {
+                if (page.length === 0) {
+                    continue;
+                }
+
+                const submissions = page.map((raw) => SubmissionSchema.parse(raw));
+                await nango.batchSave(submissions, 'Submission');
+
+                for (const submission of submissions) {
+                    if (!maxCreatedAt || submission.created_at > maxCreatedAt) {
+                        maxCreatedAt = submission.created_at;
+                    }
+                    if (submission.updated_at && (!maxUpdatedAt || submission.updated_at > maxUpdatedAt)) {
+                        maxUpdatedAt = submission.updated_at;
+                    }
                 }
             }
         }
 
-        // Jotform can return newest submissions first for created_at ordering, so only
-        // advance the checkpoint once the full filtered window has been processed.
-        // Saving per page could skip older pages from the same run after an interruption.
-        if (maxCreatedAt && maxCreatedAt !== createdAfter) {
-            await nango.saveCheckpoint({ created_after: maxCreatedAt });
+        // Pass 1: submissions created since the last run (every submission, on the first run).
+        await fetchAndSave('created_at', createdAfter);
+
+        // Pass 2: submissions edited since the last run. Jotform's submissions list has no single
+        // filter for "created OR updated", so edits are caught with a second, separate request.
+        // Skipped on the very first run: pass 1 above already fetched every submission's current
+        // state, so there is nothing edited yet to catch - the watermark below seeds a baseline
+        // for future edits instead.
+        if (updatedAfter) {
+            await fetchAndSave('updated_at', updatedAfter);
+        }
+
+        // Jotform can return submissions out of order for a given sort field, so only advance the
+        // checkpoint once the full filtered window of both passes has been processed. Saving per
+        // page could skip older pages from the same run after an interruption.
+        if (maxCreatedAt && (maxCreatedAt !== createdAfter || maxUpdatedAt !== updatedAfter)) {
+            await nango.saveCheckpoint({
+                created_after: maxCreatedAt,
+                // Seed the edit watermark from the newest known submission the first time a
+                // checkpoint is saved, so pass 2 has a baseline to catch edits against going forward.
+                updated_after: maxUpdatedAt ?? maxCreatedAt
+            });
         }
     }
 });

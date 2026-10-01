@@ -33,8 +33,9 @@ const action = createAction({
         // https://api.jotform.com/docs/ - DELETE /form/{id}/question/{qid}
         const response = await nango.delete({
             endpoint: `/form/${encodeURIComponent(input.form_id)}/question/${encodeURIComponent(input.question_id)}`,
-            // retries: 0 — this delete is destructive, and a retry after a lost response would repeat the delete against an already-deleted question
-            retries: 10
+            // Not idempotent: a retry after a lost-but-successful response would repeat the delete against an already-deleted question.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- retries: 0 is deliberate here; the rule's auto-fix would otherwise force a positive value
+            retries: 0
         });
 
         const parsed = JotformDeleteQuestionResponseSchema.parse(response.data);

@@ -139,12 +139,13 @@ const action = createAction({
             }
         }
 
-        // retries: 0 - creating a submission is not idempotent; a retry after a lost response would create a duplicate submission.
         // https://api.jotform.com/docs/#post-form-id-submissions
         const submitResponse = await nango.post({
             endpoint: `/form/${encodeURIComponent(input.form_id)}/submissions`,
             params: queryParams,
-            retries: 10
+            // Not idempotent: creating a submission has no idempotency key, so a retry after a lost response would create a duplicate submission.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- retries: 0 is deliberate here; the rule's auto-fix would otherwise force a positive value
+            retries: 0
         });
 
         const parsedSubmit = SubmitResponseSchema.parse(submitResponse.data);

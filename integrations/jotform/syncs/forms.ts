@@ -70,8 +70,12 @@ const sync = createSync({
         // walks all pages. Deleted forms keep appearing in the list with status
         // "DELETED" instead of disappearing, so deletions are detected from the
         // status field rather than from absence in the list.
-        const checkpoint = await nango.getCheckpoint();
-        let offset = checkpoint?.offset ?? 0;
+        // getCheckpoint() is only typed against CheckpointSchema at compile time, not validated
+        // at runtime, so a malformed persisted value (e.g. a negative or fractional offset from
+        // an older schema version) is re-validated here and discarded rather than passed straight
+        // to Jotform's pagination, which would otherwise fail the run or resume from the wrong page.
+        const parsedCheckpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());
+        let offset = parsedCheckpoint.success ? parsedCheckpoint.data.offset : 0;
 
         const proxyConfig: ProxyConfiguration = {
             // https://api.jotform.com/docs/#user-forms

@@ -49,8 +49,7 @@ const action = createAction({
         const response = await nango.post(config);
 
         const parsed = AddWebhookResponseSchema.parse(response.data);
-        const registeredUrls = Object.values(parsed.content);
-        const registeredUrl = registeredUrls.find((url) => url === input.webhook_url) ?? registeredUrls[0];
+        const registeredUrl = Object.values(parsed.content).find((url) => url === input.webhook_url);
 
         if (!registeredUrl) {
             throw new nango.ActionError({

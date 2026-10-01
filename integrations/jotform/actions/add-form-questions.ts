@@ -93,7 +93,8 @@ const action = createAction({
             endpoint: `/form/${encodeURIComponent(input.form_id)}/questions`,
             data,
             // Adding questions is not idempotent: retrying after a lost response would create duplicate questions.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- retries: 0 is deliberate here; the rule's auto-fix would otherwise force a positive value
+            retries: 0
         };
         const response = await nango.put(config);
 

@@ -22,7 +22,7 @@ const CreatedFormSchema = z.object({
 const CreateFormResponseSchema = z.object({
     responseCode: z.number(),
     message: z.string().optional(),
-    content: CreatedFormSchema
+    content: z.unknown()
 });
 
 const OutputSchema = z
@@ -62,20 +62,22 @@ const action = createAction({
 
         const response = await nango.post(config);
 
-        const parsed = CreateFormResponseSchema.parse(response.data);
+        const envelope = CreateFormResponseSchema.parse(response.data);
 
-        if (parsed.responseCode !== 200) {
+        if (envelope.responseCode !== 200) {
             throw new nango.ActionError({
                 type: 'create_form_failed',
-                message: `Jotform failed to create the form: ${parsed.message ?? 'unknown error'}`,
-                responseCode: parsed.responseCode
+                message: `Jotform failed to create the form: ${envelope.message ?? 'unknown error'}`,
+                responseCode: envelope.responseCode
             });
         }
 
+        const content = CreatedFormSchema.parse(envelope.content);
+
         return {
-            id: parsed.content.id,
-            ...(parsed.content.title != null && { title: parsed.content.title }),
-            ...(parsed.content.url != null && { url: parsed.content.url })
+            id: content.id,
+            ...(content.title != null && { title: content.title }),
+            ...(content.url != null && { url: content.url })
         };
     }
 });

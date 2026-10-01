@@ -21,12 +21,10 @@ const SubmissionResponseSchema = z.object({
 });
 
 const QuestionsResponseSchema = z.object({
-    content: z.record(
-        z.string(),
-        z.object({
-            text: z.string().optional()
-        })
-    )
+    // An empty question set comes back as an empty array instead of an object keyed by qid.
+    content: z
+        .union([z.record(z.string(), z.object({ text: z.string().optional() })), z.array(z.unknown())])
+        .transform((content) => (Array.isArray(content) ? {} : content))
 });
 
 const OutputSchema = z

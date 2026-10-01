@@ -23,7 +23,9 @@ const JotformFormSchema = z.object({
 });
 
 const CloneFormResponseSchema = z.object({
-    content: JotformFormSchema
+    responseCode: z.number(),
+    message: z.string().optional(),
+    content: z.unknown()
 });
 
 const OutputSchema = z
@@ -69,8 +71,15 @@ const action = createAction({
         };
         const response = await nango.post(config);
 
-        const parsed = CloneFormResponseSchema.parse(response.data);
-        const form = parsed.content;
+        const envelope = CloneFormResponseSchema.parse(response.data);
+        if (envelope.responseCode !== 200) {
+            throw new nango.ActionError({
+                type: 'clone_failed',
+                message: envelope.message ?? 'Jotform failed to clone the form.',
+                form_id: input.form_id
+            });
+        }
+        const form = JotformFormSchema.parse(envelope.content);
 
         return {
             id: form.id,

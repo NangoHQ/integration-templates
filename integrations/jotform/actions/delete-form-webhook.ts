@@ -6,10 +6,8 @@ const InputSchema = z
     .object({
         form_id: z.string().min(1).describe('The ID of the form the webhook is registered on. Example: "262715780901055"'),
         webhook_index: z
-            .number()
-            .int()
-            .min(0)
-            .describe('The zero-based positional index of the webhook on the form, as returned by list-form-webhooks or add-form-webhook. Example: 0')
+            .union([z.string().regex(/^\d+$/, 'webhook_index must be a non-negative integer, e.g. "0".'), z.number().int().min(0)])
+            .describe('The zero-based positional index of the webhook on the form, as returned by list-form-webhooks (a string). Example: "0"')
     })
     .describe('Input for removing a webhook from a Jotform form');
 
