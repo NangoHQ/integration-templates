@@ -1,0 +1,155 @@
+{
+  "nango": {
+    "batchSave": {
+      "Campaign": [
+        {
+          "id": "cam_vyzp8v33RBTfNQRvz",
+          "name": "Nango Seed Campaign",
+          "status": "draft",
+          "sequenceId": "seq_8Xp3uSRQrBAdTGffc",
+          "emoji": "😇",
+          "createdAt": "2026-09-29T18:48:27.096Z",
+          "createdBy": "usr_22HzEMYb8ZvdNstrC"
+        },
+        {
+          "id": "cam_suajL2SXxmH7NdZ6F",
+          "name": "Nango Seed Campaign 2",
+          "status": "paused",
+          "sequenceId": "seq_GCPNzb4wAxLDjgEKY",
+          "emoji": "🍰",
+          "createdAt": "2026-10-01T17:20:31.449Z",
+          "createdBy": "usr_22HzEMYb8ZvdNstrC"
+        },
+        {
+          "id": "cam_m8bKzxuhyAc92oZE8",
+          "name": "Nango Create Campaign Action Test",
+          "status": "draft",
+          "sequenceId": "seq_EYQ7KoHTfTByqgnPc",
+          "emoji": "⚡️",
+          "createdAt": "2026-10-01T20:54:04.452Z",
+          "createdBy": "usr_22HzEMYb8ZvdNstrC"
+        },
+        {
+          "id": "cam_7FQCcnyjQoLJmona8",
+          "name": "Nango Create Campaign Action Test",
+          "status": "draft",
+          "sequenceId": "seq_zsdpqtLwSJ4Ptwibu",
+          "emoji": "🌈",
+          "createdAt": "2026-10-01T20:54:15.092Z",
+          "createdBy": "usr_22HzEMYb8ZvdNstrC"
+        },
+        {
+          "id": "cam_tWpCFrJj7oW8ip39e",
+          "name": "Nango Seed Campaign 3 (pause fixture)",
+          "status": "paused",
+          "sequenceId": "seq_7gvDdGHhTD4dwo3Wy",
+          "emoji": "🏹",
+          "createdAt": "2026-10-01T20:57:39.016Z",
+          "createdBy": "usr_22HzEMYb8ZvdNstrC"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Campaign": []
+    }
+  },
+  "api": {
+    "get": {
+      "/api/campaigns": {
+        "response": {
+          "campaigns": [
+            {
+              "_id": "cam_vyzp8v33RBTfNQRvz",
+              "name": "Nango Seed Campaign",
+              "sequenceId": "seq_8Xp3uSRQrBAdTGffc",
+              "emoji": "😇",
+              "createdAt": "2026-09-29T18:48:27.096Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "draft"
+            },
+            {
+              "_id": "cam_suajL2SXxmH7NdZ6F",
+              "name": "Nango Seed Campaign 2",
+              "sequenceId": "seq_GCPNzb4wAxLDjgEKY",
+              "emoji": "🍰",
+              "createdAt": "2026-10-01T17:20:31.449Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "paused"
+            },
+            {
+              "_id": "cam_m8bKzxuhyAc92oZE8",
+              "name": "Nango Create Campaign Action Test",
+              "sequenceId": "seq_EYQ7KoHTfTByqgnPc",
+              "emoji": "⚡️",
+              "createdAt": "2026-10-01T20:54:04.452Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "draft"
+            },
+            {
+              "_id": "cam_7FQCcnyjQoLJmona8",
+              "name": "Nango Create Campaign Action Test",
+              "sequenceId": "seq_zsdpqtLwSJ4Ptwibu",
+              "emoji": "🌈",
+              "createdAt": "2026-10-01T20:54:15.092Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "draft"
+            },
+            {
+              "_id": "cam_tWpCFrJj7oW8ip39e",
+              "name": "Nango Seed Campaign 3 (pause fixture)",
+              "sequenceId": "seq_7gvDdGHhTD4dwo3Wy",
+              "emoji": "🏹",
+              "createdAt": "2026-10-01T20:57:39.016Z",
+              "createdBy": "usr_22HzEMYb8ZvdNstrC",
+              "status": "paused"
+            }
+          ],
+          "pagination": {
+            "totalRecords": 5,
+            "currentPage": 1,
+            "nextPage": 1,
+            "totalPage": 1
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 21:57:29 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "20",
+          "x-ratelimit-remaining": "18",
+          "x-ratelimit-reset": "Thu Oct 01 2026 23:57:30 GMT+0200 (Central European Summer Time)",
+          "retry-after": "0.702",
+          "via": "1.1 Caddy",
+          "x-cache-debug": "api.main",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=CxZ3ycTgLjbJ0s%2Bi3thD659Nh5BCo7%2BDDr0NRieST6rIc4on18EO1pveXaZuhNC9jMB9rkjSd2s4lYVtJLuiN6xpPz5zTQqTD%2BNdKKeAXniqNCtFG%2F6WBiKvE6kjW%2BiE9g%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a43eb92bf9f8fef4-PDX"
+        },
+        "hash": "ea21bc89032322ac839e5387bdd9ad2de0733370",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0",
+            "sortBy": "createdAt",
+            "sortOrder": "asc",
+            "version": "v2"
+          }
+        }
+      }
+    }
+  }
+}
