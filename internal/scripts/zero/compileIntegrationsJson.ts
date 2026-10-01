@@ -5,7 +5,7 @@
 /* eslint-disable @nangohq/custom-integrations-linting/no-console-log */
 /* eslint-disable @nangohq/custom-integrations-linting/no-try-catch-unless-explicitly-allowed */
 
-import { readFile, writeFile, readdir, lstat, mkdir, copyFile, rm } from 'fs/promises';
+import { readFile, writeFile, readdir, readlink, lstat, mkdir, copyFile, rm } from 'fs/promises';
 import { join, dirname } from 'path';
 import { execSync } from 'child_process';
 import { fileURLToPath } from 'url';
@@ -19,31 +19,56 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const root = join(__dirname, '..', '..', '..');
 
-// Symlink mappings: symlink name -> target name
-const SYMLINKS: Record<string, string> = {
-    'airtable-pat': 'airtable',
-    'avalara-sandbox': 'avalara',
-    bamboo: 'bamboohr-basic',
-    'bill-sandbox': 'bill',
-    'dialpad-sandbox': 'dialpad',
-    'docusign-sandbox': 'docusign',
-    'github-app-oauth': 'github-app',
-    'gong-oauth': 'gong',
-    'gorgias-basic': 'gorgias',
-    greenhouse: 'greenhouse-basic',
-    'gusto-demo': 'gusto',
-    'lever-basic': 'lever',
-    'lever-basic-sandbox': 'lever',
-    'lever-sandbox': 'lever',
-    'okta-cc': 'okta',
-    'okta-preview': 'okta',
-    'quickbooks-sandbox': 'quickbooks',
-    'ramp-sandbox': 'ramp',
-    'ring-central-sandbox': 'ring-central',
-    'salesforce-sandbox': 'salesforce',
-    'squareup-sandbox': 'squareup',
-    'stripe-app-sandbox': 'stripe-app'
-};
+/**
+ * Discovers the symlink mappings under `integrations/`, returning symlink name -> target name.
+ *
+ * `nango compile` skips symlinked directories entirely, so this is the only source of truth for
+ * which providers are aliases. Discovering them here means adding a symlink is all that is required
+ * for the alias to show up in flows.zero.json; no manual registration.
+ *
+ * Chains are resolved to their final non-symlink target (e.g. `stripe-app -> stripe-app -> stripe`
+ * becomes `stripe-app -> stripe`) so the alias always points at an integration that was compiled.
+ */
+async function discoverSymlinks(integrationsPath: string): Promise<Record<string, string>> {
+    const entries = await readdir(integrationsPath, { withFileTypes: true });
+    const directTargets = new Map<string, string>();
+
+    for (const entry of entries) {
+        if (!entry.isSymbolicLink()) {
+            continue;
+        }
+
+        const target = (await readlink(join(integrationsPath, entry.name))).replace(/\/+$/, '');
+
+        if (target.includes('/')) {
+            throw new Error(
+                `Symlink integrations/${entry.name} points outside of integrations/ (${target}); only relative names within integrations/ are supported`
+            );
+        }
+
+        directTargets.set(entry.name, target);
+    }
+
+    const symlinks: Record<string, string> = {};
+
+    for (const [name, directTarget] of directTargets) {
+        const seen = new Set<string>([name]);
+        let target = directTarget;
+
+        while (directTargets.has(target)) {
+            if (seen.has(target)) {
+                throw new Error(`Symlink cycle detected: ${[...seen, target].join(' -> ')}`);
+            }
+
+            seen.add(target);
+            target = directTargets.get(target) as string;
+        }
+
+        symlinks[name] = target;
+    }
+
+    return symlinks;
+}
 
 async function main(): Promise<void> {
     console.log('Compiling all integration templates to flows.zero.json');
@@ -175,7 +200,10 @@ async function main(): Promise<void> {
     console.log('Adding symlink entries...');
     const integrationsByKey = new Map(aggregatedFlows.map((flow) => [flow.providerConfigKey, flow]));
 
-    for (const [symlinkName, targetName] of Object.entries(SYMLINKS)) {
+    const symlinks = await discoverSymlinks(integrationsPath);
+    const unresolved: string[] = [];
+
+    for (const [symlinkName, targetName] of Object.entries(symlinks)) {
         const targetFlow = integrationsByKey.get(targetName);
         if (targetFlow) {
             const symlinkFlow: ZeroFlow = {
@@ -186,8 +214,22 @@ async function main(): Promise<void> {
             aggregatedFlows.push(symlinkFlow);
             console.log(`  ${chalk.blue(symlinkName)} -> ${targetName}`);
         } else {
-            console.log(`  ${chalk.yellow('warn')} Target ${targetName} not found for symlink ${symlinkName}`);
+            unresolved.push(`${symlinkName} -> ${targetName}`);
         }
+    }
+
+    // Fail loudly rather than silently dropping providers from flows.zero.json. A symlink whose
+    // target was not compiled means the target is broken or no longer exists.
+    if (unresolved.length > 0) {
+        console.error();
+        console.error(`${chalk.red('err')} ${unresolved.length} symlink(s) could not be resolved to a compiled integration:`);
+        for (const entry of unresolved) {
+            console.error(`  ${chalk.red('x')} ${entry}`);
+        }
+        console.error();
+        console.error(`Their targets are missing from the compiled output. Check that each symlink points`);
+        console.error(`at an existing integration directory under integrations/.`);
+        process.exit(1);
     }
 
     // Sort by providerConfigKey for consistent output
