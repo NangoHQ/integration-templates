@@ -55,8 +55,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = (await nango.getCheckpoint()) as z.infer<typeof CheckpointSchema> | null;
-        let nextCampaignOffset = checkpoint?.nextCampaignOffset ?? 0;
+        const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});
+        let nextCampaignOffset = checkpoint.nextCampaignOffset ?? 0;
 
         // Full refresh with delete detection: GET /api/campaigns/{campaignId}/leads
         // returns only {_id, contactId, state} with no timestamp and no

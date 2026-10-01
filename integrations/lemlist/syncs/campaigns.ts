@@ -42,8 +42,8 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        const checkpoint = (await nango.getCheckpoint()) as z.infer<typeof CheckpointSchema> | null;
-        let offset = checkpoint?.offset ?? 0;
+        const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});
+        let offset = checkpoint.offset ?? 0;
 
         // Full refresh with delete detection: GET /api/campaigns has no changed-since
         // filter or delete feed, so every run still scans the full dataset. The API does
