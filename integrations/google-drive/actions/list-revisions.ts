@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
-    documentId: z.string().describe('Google Docs document ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
+    fileId: z.string().describe('The Drive file ID. Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     pageToken: z.string().optional().describe('Pagination token from the previous response. Omit for the first page.')
 });
 
@@ -34,8 +34,8 @@ const DriveRevisionsResponseSchema = z.object({
 });
 
 const action = createAction({
-    description: 'List the revision history for a Google Doc.',
-    version: '1.0.1',
+    description: 'List the revision history for a Drive file.',
+    version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['drive.readonly'],
@@ -43,13 +43,12 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/drive/api/reference/rest/v3/revisions/list
         const response = await nango.get({
-            endpoint: `/drive/v3/files/${encodeURIComponent(input.documentId)}/revisions`,
+            endpoint: `/drive/v3/files/${encodeURIComponent(input.fileId)}/revisions`,
             params: {
                 fields: 'nextPageToken,revisions(id,modifiedTime,lastModifyingUser,keepForever,published)',
                 pageSize: '100',
                 ...(input.pageToken !== undefined && { pageToken: input.pageToken })
             },
-            baseUrlOverride: 'https://www.googleapis.com',
             retries: 3
         });
 

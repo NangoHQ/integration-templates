@@ -1,12 +1,12 @@
 import { vi, expect, it, describe } from 'vitest';
 
-import createAction from '../actions/export-document.js';
+import createAction from '../actions/list-revisions.js';
 
-describe('google-docs export-document tests', () => {
+describe('google-drive list-revisions tests', () => {
     const nangoMock = new global.vitest.NangoActionMock({
         dirname: __dirname,
-        name: 'export-document',
-        Model: 'ActionOutput_google_docs_exportdocument'
+        name: 'list-revisions',
+        Model: 'ActionOutput_google_drive_listrevisions'
     });
 
     it('should output the action output that is expected', async () => {
