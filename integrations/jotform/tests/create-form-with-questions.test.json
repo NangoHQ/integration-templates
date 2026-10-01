@@ -1,0 +1,166 @@
+{
+  "input": {
+    "title": "Composite Created Form",
+    "questions": [
+      {
+        "type": "control_textbox",
+        "text": "Your Name"
+      },
+      {
+        "type": "control_email",
+        "text": "Your Email"
+      }
+    ]
+  },
+  "output": {
+    "id": "262735424059561",
+    "title": "Composite Created Form",
+    "url": "https://form.jotform.com/262735424059561",
+    "questions": [
+      {
+        "qid": "1",
+        "type": "control_textbox",
+        "text": "Your Name",
+        "order": "1"
+      },
+      {
+        "qid": "2",
+        "type": "control_email",
+        "text": "Your Email",
+        "order": "2"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/form": {
+        "response": {
+          "responseCode": 200,
+          "message": "success",
+          "content": {
+            "id": "262735424059561",
+            "username": "Developer_Nango",
+            "title": "Composite Created Form",
+            "height": "690",
+            "status": "ENABLED",
+            "created_at": null,
+            "updated_at": null,
+            "last_submission": null,
+            "new": 0,
+            "count": 0,
+            "type": null,
+            "favorite": null,
+            "archived": null,
+            "url": "https://form.jotform.com/262735424059561"
+          },
+          "duration": "269.78ms",
+          "info": null,
+          "limit-left": 626
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 18:41:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1978",
+          "x-ratelimit-reset": "1790880127",
+          "cache-control": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+          "jf-entrypoint": "1",
+          "jf-trace-id": "3686e83153602e33",
+          "last-modified": "Thu, 01 Oct 2026 18:41:31 GMT",
+          "p3p": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "x-httpx-dc": "uw2",
+          "x-httpx-id": "01a0f8c5-8bbb-7059-baee-f1b5b899d09a",
+          "x-raw-uri": "form",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "eef5ea0d45ceab93af0a68006f43b438e80e8822",
+        "request": {
+          "params": {
+            "properties[title]": "Composite Created Form"
+          }
+        }
+      }
+    },
+    "put": {
+      "/form/262735424059561/questions": {
+        "response": {
+          "responseCode": 200,
+          "message": "success",
+          "content": [
+            {
+              "type": "control_textbox",
+              "text": "Your Name",
+              "order": "1",
+              "qid": 1
+            },
+            {
+              "type": "control_email",
+              "text": "Your Email",
+              "order": "2",
+              "qid": 2
+            }
+          ],
+          "duration": "358.21ms",
+          "info": null,
+          "limit-left": 623
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 18:41:31 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1790880127",
+          "cache-control": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+          "jf-entrypoint": "1",
+          "jf-telemetry-id": "a3c7847c677bb7925046caec9c342f0f",
+          "jf-trace-id": "15aebc9886e333aa",
+          "last-modified": "Thu, 01 Oct 2026 18:41:31 GMT",
+          "p3p": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "x-httpx-dc": "uw2",
+          "x-httpx-id": "01a0f8c5-8d65-7936-abfe-5cb9fb7611fb",
+          "x-raw-uri": "form/:id/questions",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "0ff79736cf175f37f32413d920fdddd07384825d",
+        "request": {
+          "data": "questions%5B0%5D%5Btype%5D=control_textbox&questions%5B0%5D%5Btext%5D=Your+Name&questions%5B0%5D%5Border%5D=1&questions%5B1%5D%5Btype%5D=control_email&questions%5B1%5D%5Btext%5D=Your+Email&questions%5B1%5D%5Border%5D=2"
+        }
+      }
+    }
+  }
+}
