@@ -1,0 +1,195 @@
+{
+  "input": {
+    "domain_name": "xn--zeitfr-7ya.xyz"
+  },
+  "output": {
+    "domain": {
+      "id": "69aeedd584d39943e1a587f1",
+      "name": "xn--zeitfr-7ya.xyz",
+      "type": "custom",
+      "state": "active",
+      "created_at": "Mon, 09 Mar 2026 15:57:09 GMT",
+      "smtp_login": "",
+      "spam_action": "disabled",
+      "wildcard": false,
+      "require_tls": false,
+      "skip_verification": false,
+      "is_disabled": false,
+      "use_automatic_sender_security": true,
+      "web_prefix": "email",
+      "web_scheme": "http",
+      "encrypt_incoming_message": false,
+      "message_ttl": 86400
+    },
+    "receiving_dns_records": [
+      {
+        "is_active": true,
+        "cached": [],
+        "priority": "10",
+        "record_type": "MX",
+        "valid": "unknown",
+        "value": "mxa.mailgun.org"
+      },
+      {
+        "is_active": true,
+        "cached": [],
+        "priority": "10",
+        "record_type": "MX",
+        "valid": "unknown",
+        "value": "mxb.mailgun.org"
+      }
+    ],
+    "sending_dns_records": [
+      {
+        "is_active": true,
+        "cached": [
+          "brevo-code:931bf6a9356b30f18c46efda3847253b",
+          "v=spf1 include:dc-77d78235e8._spfm.xn--zeitfr-7ya.xyz ~all"
+        ],
+        "name": "xn--zeitfr-7ya.xyz",
+        "record_type": "TXT",
+        "valid": "valid",
+        "value": "v=spf1 include:mailgun.org ~all"
+      },
+      {
+        "is_active": false,
+        "cached": [
+          "pdk1._domainkey.8351680.dkim2.us.mgsend.org"
+        ],
+        "name": "pdk1._domainkey.xn--zeitfr-7ya.xyz",
+        "record_type": "CNAME",
+        "valid": "valid",
+        "value": "pdk1._domainkey.8351680.dkim2.us.mgsend.org"
+      },
+      {
+        "is_active": true,
+        "cached": [],
+        "name": "pdk2._domainkey.xn--zeitfr-7ya.xyz",
+        "record_type": "CNAME",
+        "valid": "valid",
+        "value": "pdk2._domainkey.8351680.dkim2.us.mgsend.org"
+      },
+      {
+        "is_active": true,
+        "cached": [
+          "mailgun.org"
+        ],
+        "name": "email.xn--zeitfr-7ya.xyz",
+        "record_type": "CNAME",
+        "valid": "valid",
+        "value": "mailgun.org"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/domains/xn--zeitfr-7ya.xyz": {
+        "response": {
+          "domain": {
+            "created_at": "Mon, 09 Mar 2026 15:57:09 GMT",
+            "id": "69aeedd584d39943e1a587f1",
+            "is_disabled": false,
+            "name": "xn--zeitfr-7ya.xyz",
+            "require_tls": false,
+            "skip_verification": false,
+            "smtp_login": "",
+            "spam_action": "disabled",
+            "state": "active",
+            "type": "custom",
+            "use_automatic_sender_security": true,
+            "web_prefix": "email",
+            "web_scheme": "http",
+            "wildcard": false,
+            "encrypt_incoming_message": false,
+            "message_ttl": 86400
+          },
+          "receiving_dns_records": [
+            {
+              "is_active": true,
+              "cached": [],
+              "priority": "10",
+              "record_type": "MX",
+              "valid": "unknown",
+              "value": "mxa.mailgun.org"
+            },
+            {
+              "is_active": true,
+              "cached": [],
+              "priority": "10",
+              "record_type": "MX",
+              "valid": "unknown",
+              "value": "mxb.mailgun.org"
+            }
+          ],
+          "sending_dns_records": [
+            {
+              "is_active": true,
+              "cached": [
+                "brevo-code:931bf6a9356b30f18c46efda3847253b",
+                "v=spf1 include:dc-77d78235e8._spfm.xn--zeitfr-7ya.xyz ~all"
+              ],
+              "name": "xn--zeitfr-7ya.xyz",
+              "record_type": "TXT",
+              "valid": "valid",
+              "value": "v=spf1 include:mailgun.org ~all"
+            },
+            {
+              "is_active": false,
+              "cached": [
+                "pdk1._domainkey.8351680.dkim2.us.mgsend.org"
+              ],
+              "name": "pdk1._domainkey.xn--zeitfr-7ya.xyz",
+              "record_type": "CNAME",
+              "valid": "valid",
+              "value": "pdk1._domainkey.8351680.dkim2.us.mgsend.org"
+            },
+            {
+              "is_active": true,
+              "cached": [],
+              "name": "pdk2._domainkey.xn--zeitfr-7ya.xyz",
+              "record_type": "CNAME",
+              "valid": "valid",
+              "value": "pdk2._domainkey.8351680.dkim2.us.mgsend.org"
+            },
+            {
+              "is_active": true,
+              "cached": [
+                "mailgun.org"
+              ],
+              "name": "email.xn--zeitfr-7ya.xyz",
+              "record_type": "CNAME",
+              "valid": "valid",
+              "value": "mailgun.org"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:21:32 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "1437",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1882",
+          "x-ratelimit-reset": "1790900509",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "etag": "W/\"59d-NVS8u5Av0A+Nl5AGTt/docF4Kr8\""
+        },
+        "hash": "aeee89aff0a323b1108a6482a904942b0f3f8a01",
+        "request": {}
+      }
+    }
+  }
+}

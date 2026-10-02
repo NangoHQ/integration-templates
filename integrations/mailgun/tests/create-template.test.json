@@ -1,0 +1,82 @@
+{
+  "input": {
+    "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+    "name": "nango-seed-template",
+    "description": "Seed template for create-template validation",
+    "template": "Hello {{name}}",
+    "comment": "created via nango dryrun"
+  },
+  "output": {
+    "id": "01a0f9fd-e132-7700-b1ba-ff8a55f3edc0",
+    "name": "nango-seed-template",
+    "description": "Seed template for create-template validation",
+    "createdAt": "Fri, 02 Oct 2026 00:22:40 UTC",
+    "domain": "65d8822c5c899f9accba6155",
+    "version": {
+      "id": "01a0f9fd-e238-7a32-8e37-2bd019b34e2b",
+      "tag": "initial",
+      "template": "Hello {{name}}",
+      "engine": "handlebars",
+      "active": true
+    }
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/templates": {
+        "response": {
+          "message": "template has been stored",
+          "template": {
+            "name": "nango-seed-template",
+            "description": "Seed template for create-template validation",
+            "createdAt": "Fri, 02 Oct 2026 00:22:40 UTC",
+            "id": "01a0f9fd-e132-7700-b1ba-ff8a55f3edc0",
+            "domain": "65d8822c5c899f9accba6155",
+            "version": {
+              "tag": "initial",
+              "template": "Hello {{name}}",
+              "engine": "handlebars",
+              "mjml": "",
+              "createdAt": "Fri, 02 Oct 2026 00:22:40 UTC",
+              "comment": "created via nango dryrun",
+              "active": true,
+              "id": "01a0f9fd-e238-7a32-8e37-2bd019b34e2b"
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:22:40 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "493",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1935",
+          "x-ratelimit-reset": "1790900576",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "etag": "W/\"1ed-aEAUKjudDqVQlvaXAmeWCQeZ/Ms\""
+        },
+        "hash": "0268765ec691dfa1522ff05b3aaf0fd22e301c78",
+        "request": {
+          "params": {
+            "comment": "created via nango dryrun",
+            "description": "Seed template for create-template validation",
+            "name": "nango-seed-template",
+            "template": "Hello {{name}}"
+          }
+        }
+      }
+    }
+  }
+}
