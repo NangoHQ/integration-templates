@@ -68,7 +68,11 @@ const ProviderResponseSchema = z.object({
 });
 
 const EventSchema = z.object({
-    date: z.string().describe('UTC date-time on which the event was generated. Example: "2026-09-30T12:30:00Z".'),
+    date: z
+        .string()
+        .describe(
+            'Date-time on which the event was generated, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-09-30T12:30:00+03:00"), not necessarily "Z"/UTC.'
+        ),
     email: z.string().describe('Email address which generated the event.'),
     event: EventTypeSchema.describe('Event which occurred (e.g. requests, delivered, opened, clicks, hardBounces).'),
     messageId: z.string().describe('Message ID which generated the event.'),
@@ -112,6 +116,17 @@ const action = createAction({
                 type: 'invalid_input',
                 message: 'startDate must be lower than or equal to endDate.'
             });
+        }
+        if (input.startDate !== undefined && input.endDate !== undefined) {
+            // Brevo documents a 90-day maximum for this range (https://developers.brevo.com/reference/getemaileventreport-1)
+            // and otherwise rejects a longer range with its own provider error. Fail fast locally instead.
+            const rangeDays = (Date.parse(`${input.endDate}T00:00:00Z`) - Date.parse(`${input.startDate}T00:00:00Z`)) / (24 * 60 * 60 * 1000);
+            if (rangeDays > 90) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'The startDate/endDate range cannot exceed 90 days.'
+                });
+            }
         }
 
         const config: ProxyConfiguration = {

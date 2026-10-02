@@ -29,8 +29,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/delete-list
             endpoint: `/contacts/lists/${encodeURIComponent(input.id)}`,
-            // Retries are safe here: DELETE by ID is idempotent, so a retry after a lost response has no additional effect (the list is already gone).
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted list and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.delete(config);
 

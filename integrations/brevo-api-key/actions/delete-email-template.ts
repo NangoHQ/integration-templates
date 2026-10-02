@@ -30,7 +30,8 @@ const action = createAction({
         await nango.delete({
             endpoint: `/smtp/templates/${encodeURIComponent(input.templateId)}`,
             // retries: 0 — a retry after a lost 204 response would 404 on the already-deleted template, misreporting a successful delete as a failure.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

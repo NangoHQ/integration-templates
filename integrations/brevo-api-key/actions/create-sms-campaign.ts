@@ -61,6 +61,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.scheduledAt !== undefined && (!input.recipients || input.recipients.listIds.length === 0)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'recipients.listIds is required and must contain at least one list ID when scheduledAt is set.'
+            });
+        }
+
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/create-sms-campaign
             endpoint: '/smsCampaigns',

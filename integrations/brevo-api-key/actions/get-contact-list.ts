@@ -40,22 +40,34 @@ const OutputSchema = z
         id: z.number().describe('ID of the contact list'),
         name: z.string().describe('Name of the contact list'),
         folderId: z.number().describe('ID of the folder the contact list belongs to'),
-        createdAt: z.string().describe('Creation UTC date-time of the list (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        totalBlacklisted: z.number().describe('Number of blacklisted contacts in the list'),
-        totalSubscribers: z.number().describe('Number of contacts in the list'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time at which the list was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC.'
+            ),
+        totalBlacklisted: z
+            .number()
+            .describe(
+                'Number of blacklisted contacts in the list. Brevo is phasing this field out, so it may always report 0 regardless of actual list membership; prefer uniqueSubscribers.'
+            ),
+        totalSubscribers: z
+            .number()
+            .describe(
+                'Number of contacts in the list. Brevo is phasing this field out, so it may always report 0 regardless of actual list membership; prefer uniqueSubscribers.'
+            ),
         uniqueSubscribers: z.number().describe('Number of unique contacts in the list'),
         dynamicList: z.boolean().optional().describe('Whether the list is dynamic (true) or not (false). Omitted when Brevo does not report it'),
         startDate: z
             .string()
             .optional()
             .describe(
-                'Start of the date range over which campaignStats are aggregated (UTC date-time). Brevo defaults this to a rolling window ending at call time when no explicit range is requested'
+                'Start of the date range over which campaignStats are aggregated, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC. Brevo defaults this to a rolling window ending at call time when no explicit range is requested'
             ),
         endDate: z
             .string()
             .optional()
             .describe(
-                'End of the date range over which campaignStats are aggregated (UTC date-time). Brevo defaults this to the time of the call when no explicit range is requested'
+                'End of the date range over which campaignStats are aggregated, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC. Brevo defaults this to the time of the call when no explicit range is requested'
             ),
         campaignStats: z.array(CampaignStatsSchema).optional().describe('Per-campaign engagement statistics for email campaigns sent to this list')
     })

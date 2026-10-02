@@ -50,7 +50,8 @@ const action = createAction({
                 ...(input.linkedContactsIds !== undefined && { linkedContactsIds: input.linkedContactsIds })
             },
             // retries: 0 — creating a deal is not idempotent; Brevo has no idempotency key, so a retry after a lost response would create a duplicate deal
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const createdDeal = ProviderCreateDealResponseSchema.parse(response.data);

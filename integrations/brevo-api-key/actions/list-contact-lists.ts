@@ -22,17 +22,36 @@ const ContactListSchema = z
         name: z.string().describe('Name of the contact list. Example: "Your first list"'),
         folderId: z.number().int().describe('ID of the folder this contact list belongs to. Example: 1'),
         uniqueSubscribers: z.number().int().describe('Number of unique subscribed contacts in the list. Example: 1'),
-        totalBlacklisted: z.number().int().describe('Number of blacklisted contacts in the list. Example: 0'),
-        totalSubscribers: z.number().int().describe('Number of contacts in the list. Example: 0')
+        totalBlacklisted: z
+            .number()
+            .int()
+            .optional()
+            .describe('Number of blacklisted contacts in the list. Brevo is deprecating this attribute, so it may be omitted or reported as 0.'),
+        totalSubscribers: z
+            .number()
+            .int()
+            .optional()
+            .describe('Number of contacts in the list. Brevo is deprecating this attribute, so it may be omitted or reported as 0.')
     })
     .describe('A contact list in the Brevo account.');
 
 const OutputSchema = z
     .object({
         lists: z.array(ContactListSchema).describe('The contact lists in the account for the requested page.'),
-        count: z.number().int().describe('Total number of contact lists in the account across all pages. Example: 1')
+        count: z.number().int().describe('Total number of contact lists in the account across all pages. Example: 1'),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe('Offset value to pass as input.offset to fetch the next page of lists. Omitted when no further lists remain. Example: 50')
     })
     .describe('The requested page of contact lists plus the total list count.');
+
+// Internal schema for the raw provider response, kept separate from OutputSchema so the
+// derived nextOffset field below is not expected to come from the provider payload itself.
+const ProviderResponseSchema = z.object({
+    lists: z.array(ContactListSchema),
+    count: z.number().int()
+});
 
 /**
  * @tags: [read]
@@ -58,7 +77,15 @@ const action = createAction({
             retries: 3
         });
 
-        return OutputSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.parse(response.data);
+        const offset = input.offset ?? 0;
+        const nextOffset = offset + parsed.lists.length < parsed.count ? offset + parsed.lists.length : undefined;
+
+        return {
+            lists: parsed.lists,
+            count: parsed.count,
+            ...(nextOffset !== undefined && { nextOffset })
+        };
     }
 });
 

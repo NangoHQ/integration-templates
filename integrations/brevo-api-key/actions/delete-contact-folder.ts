@@ -29,8 +29,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/delete-folder
             endpoint: `/contacts/folders/${encodeURIComponent(input.folderId)}`,
-            // DELETE is idempotent here: a retry after a lost response only re-deletes an already-deleted folder (404), causing no further mutation.
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted folder and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.delete(config);
 

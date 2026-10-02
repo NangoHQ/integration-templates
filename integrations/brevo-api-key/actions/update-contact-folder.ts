@@ -49,8 +49,9 @@ const action = createAction({
             // https://developers.brevo.com/reference/update-folder
             endpoint: `/contacts/folders/${input.folderId}`,
             data: { name: input.name },
-            // Safe to retry: Brevo rejects a rename to the folder's current name with a 400 instead of applying it twice, so a retried PUT cannot repeat the mutation.
-            retries: 3
+            // Not retried: a retry after a lost success response would resend the same name, which Brevo rejects with a 400 since the name no longer differs, misreporting a completed rename as an error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.put(updateConfig);
 

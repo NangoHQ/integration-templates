@@ -26,20 +26,38 @@ const ContactSchema = z
         whatsappBlacklisted: z.boolean().describe('Blacklist status of the contact for WhatsApp campaigns (true=blacklisted, false=not blacklisted)'),
         listIds: z.array(z.number()).describe('IDs of the contact lists the contact belongs to'),
         listUnsubscribed: z.array(z.number()).optional().describe('IDs of the contact lists the contact has unsubscribed from'),
-        createdAt: z.string().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        modifiedAt: z.string().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)')
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            )
     })
     .describe('A contact belonging to the requested list');
 
 const OutputSchema = z
     .object({
         contacts: z.array(ContactSchema).describe('Contacts belonging to the requested list, sorted by creation date'),
-        count: z.number().describe('Total number of contacts in the list matching the applied filters')
+        count: z.number().describe('Total number of contacts in the list matching the applied filters'),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe('Offset value to pass as input.offset to fetch the next page of contacts. Omitted when no further contacts remain. Example: 50')
     })
     .describe('Paginated contacts of a Brevo contact list');
 
+const ProviderContactSchema = ContactSchema.extend({
+    // Confirmed live: Brevo returns listUnsubscribed as explicit null for contacts that
+    // have never unsubscribed from any list, not as an omitted field.
+    listUnsubscribed: z.array(z.number()).nullable().optional()
+});
+
 const ProviderResponseSchema = z.object({
-    contacts: z.array(ContactSchema),
+    contacts: z.array(ProviderContactSchema),
     count: z.number()
 });
 
@@ -68,10 +86,16 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
+        const offset = input.offset ?? 0;
+        const nextOffset = offset + parsed.contacts.length < parsed.count ? offset + parsed.contacts.length : undefined;
 
         return {
-            contacts: parsed.contacts,
-            count: parsed.count
+            contacts: parsed.contacts.map(({ listUnsubscribed, ...contact }) => ({
+                ...contact,
+                ...(listUnsubscribed != null && { listUnsubscribed })
+            })),
+            count: parsed.count,
+            ...(nextOffset !== undefined && { nextOffset })
         };
     }
 });

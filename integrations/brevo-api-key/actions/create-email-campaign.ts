@@ -18,6 +18,7 @@ const InputSchema = z
                     .array(z.number())
                     .describe('Numeric IDs of the contact lists to send the campaign to. Each list must contain at least one contact. Example: [2, 7]')
             })
+            .optional()
             .describe('Recipient selection for the campaign. Omit to create a draft without recipients.'),
         htmlContent: z
             .string()
@@ -61,6 +62,13 @@ const action = createAction({
             });
         }
 
+        if (input.htmlContent !== undefined && input.templateId !== undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide only one of htmlContent or templateId, not both.'
+            });
+        }
+
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/create-email-campaign
             endpoint: '/emailCampaigns',
@@ -80,7 +88,8 @@ const action = createAction({
                 ...(input.templateId !== undefined && { templateId: input.templateId })
             },
             // Non-idempotent create: retrying after a lost response would create a duplicate campaign.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.post(config);

@@ -64,6 +64,18 @@ const CompanySchema = z
 
 type Company = z.infer<typeof CompanySchema>;
 
+// Checkpoint fields must be plain ZodString/ZodNumber per the Nango SDK's
+// ZodCheckpoint constraint; "no checkpoint yet" is represented by a null
+// checkpoint rather than by absent fields.
+const CheckpointSchema = z.object({
+    modified_since: z.string(),
+    runs_since_full: z.number().int()
+});
+
+// A modifiedSince-only crawl can never observe deletions, so every Nth run
+// crawls the full company list inside a delete-tracking window instead.
+const FULL_REFRESH_INTERVAL = 24;
+
 function toCompany(raw: z.infer<typeof BrevoCompanySchema>): Company {
     const attributes = raw.attributes ?? {};
 
@@ -90,24 +102,37 @@ function toCompany(raw: z.infer<typeof BrevoCompanySchema>): Company {
 }
 
 const sync = createSync({
-    description:
-        'Full refresh of Brevo CRM companies. GET /companies has no confirmed incremental filter, so every run re-fetches all companies and removes records that no longer exist.',
+    description: 'Sync Brevo CRM companies, incrementally via the modifiedSince filter with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Company: CompanySchema
     },
 
     exec: async (nango) => {
-        // Full refresh: GET /companies supports exact-match filters[...] but no
-        // confirmed modifiedSince/incremental filter, so deletion detection via
-        // trackDeletesStart/trackDeletesEnd around a complete crawl from page 1.
-        await nango.trackDeletesStart('Company');
+        const checkpoint = await nango.getCheckpoint();
+
+        const modifiedSince = checkpoint?.modified_since;
+        const runsSinceFull = checkpoint?.runs_since_full ?? FULL_REFRESH_INTERVAL;
+        // Full refresh on the first run (no checkpoint) and every FULL_REFRESH_INTERVAL
+        // runs afterwards. A full crawl must not pass modifiedSince: unchanged companies
+        // would be absent from the run and trackDeletesEnd would falsely mark them deleted.
+        const isFullRefresh = checkpoint === null || runsSinceFull >= FULL_REFRESH_INTERVAL;
+
+        if (isFullRefresh) {
+            await nango.trackDeletesStart('Company');
+        }
+
+        let maxModifiedAt = modifiedSince;
 
         const proxyConfig: ProxyConfiguration = {
             // https://developers.brevo.com/reference/get-all-companies
             endpoint: '/companies',
+            params: {
+                ...(!isFullRefresh && modifiedSince !== undefined ? { modifiedSince } : {})
+            },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',
@@ -125,12 +150,34 @@ const sync = createSync({
             // delete-tracked crawl would mark it as deleted.
             const companies = page.map((item) => toCompany(BrevoCompanySchema.parse(item)));
 
+            for (const company of companies) {
+                if (company.last_updated_at !== undefined && (maxModifiedAt === undefined || Date.parse(company.last_updated_at) > Date.parse(maxModifiedAt))) {
+                    maxModifiedAt = company.last_updated_at;
+                }
+            }
+
             if (companies.length > 0) {
                 await nango.batchSave(companies, 'Company');
             }
         }
 
-        await nango.trackDeletesEnd('Company');
+        if (isFullRefresh) {
+            // Persist progress only once the full scan completes: a mid-scan checkpoint
+            // would make a crashed run look like a plain incremental run on retry and
+            // silently skip delete tracking. Close the delete window before saving the
+            // checkpoint so a crash in between forces another full refresh next time.
+            await nango.trackDeletesEnd('Company');
+            if (maxModifiedAt !== undefined) {
+                await nango.saveCheckpoint({ modified_since: maxModifiedAt, runs_since_full: 0 });
+            }
+        } else if (maxModifiedAt !== undefined) {
+            // Save the incremental checkpoint only after the crawl finishes. Advancing it
+            // mid-run risks skipping later pages if the sync crashes before completion.
+            await nango.saveCheckpoint({
+                modified_since: maxModifiedAt,
+                runs_since_full: runsSinceFull + 1
+            });
+        }
     }
 });
 

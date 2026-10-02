@@ -86,8 +86,16 @@ const OutputSchema = z
         emailBlacklisted: z.boolean().describe('Blacklist status for email campaigns (true=blacklisted, false=not blacklisted).'),
         smsBlacklisted: z.boolean().describe('Blacklist status for SMS campaigns (true=blacklisted, false=not blacklisted).'),
         whatsappBlacklisted: z.boolean().describe('Blacklist status for WhatsApp campaigns (true=blacklisted, false=not blacklisted).'),
-        createdAt: z.string().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-        modifiedAt: z.string().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            ),
         listIds: z.array(z.number()).describe('IDs of the lists the contact belongs to.'),
         listUnsubscribed: z.array(z.number()).nullable().optional().describe('IDs of the lists the contact has unsubscribed from.'),
         attributes: z.record(z.string(), z.unknown()).describe('Set of attributes of the contact, keyed by attribute name.'),

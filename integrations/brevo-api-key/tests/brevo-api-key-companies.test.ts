@@ -56,7 +56,7 @@ describe('brevo-api-key companies tests', () => {
 
         for (const model of models) {
             const batchDeleteData = await nangoMock.getBatchDeleteData(model);
-            if (batchDeleteData && batchDeleteData.length > 0) {
+            if (batchDeleteData) {
                 const spiedData = batchDeleteSpy.mock.calls.flatMap((call) => {
                     if (call[1] === model) {
                         return call[0];

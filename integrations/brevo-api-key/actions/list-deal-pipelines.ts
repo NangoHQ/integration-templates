@@ -22,8 +22,8 @@ const OutputSchema = z
     .describe("The account's CRM deal pipelines and their stages.");
 
 /**
- * @tags: [read]
- * @tagReason: Read-only call that lists the account's CRM deal pipelines and their stages without mutating anything.
+ * @tags: [read, write]
+ * @tagReason: Primarily reads the account's CRM deal pipelines and their stages, but when no pipelines are configured yet Brevo auto-creates and returns a default pipeline as a side effect of this GET, so it can also change account state (write).
  * @pitfalls: The result is never empty: if no pipelines are configured yet, Brevo automatically creates and returns a default pipeline, so this read-only call can still change account state.
  */
 const action = createAction({

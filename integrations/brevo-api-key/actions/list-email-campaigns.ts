@@ -68,11 +68,26 @@ const CampaignSchema = z
         sentDate: z
             .string()
             .optional()
-            .describe('UTC date-time when the campaign was sent. Only present for sent campaigns. Example: "2026-10-01T17:22:41.000Z"'),
-        scheduledAt: z.string().optional().describe('UTC date-time on which the campaign is scheduled to be sent. Example: "2026-12-31T09:00:00.000Z"'),
+            .describe(
+                'Date-time when the campaign was sent, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:41.000+03:00"), not necessarily "Z"/UTC. Only present for sent campaigns.'
+            ),
+        scheduledAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time on which the campaign is scheduled to be sent, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-12-31T12:00:00.000+03:00"), not necessarily "Z"/UTC.'
+            ),
         shareLink: z.string().optional().describe('Public link to share the campaign. Example: "https://sh1.sendinblue.com/example.html"'),
-        createdAt: z.string().describe('UTC date-time when the campaign was created. Example: "2026-09-15T10:00:00.000Z"'),
-        modifiedAt: z.string().describe('UTC date-time when the campaign was last modified. Example: "2026-09-16T11:00:00.000Z"'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time when the campaign was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:21.000+03:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time when the campaign was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:32.000+03:00"), not necessarily "Z"/UTC.'
+            ),
         sender: SenderSchema.optional(),
         recipients: RecipientsSchema.optional()
     })
@@ -94,13 +109,16 @@ const BrevoCampaignSchema = z.object({
     name: z.string(),
     status: z.string(),
     type: z.string(),
-    subject: z.string().optional(),
-    previewText: z.string().optional(),
-    tag: z.string().optional(),
+    // Brevo can return these as an explicit null (e.g. subject for A/B test campaigns,
+    // sentDate/scheduledAt/shareLink before the campaign is sent) rather than omitting
+    // them, so accept null here and normalize it to "omitted" in the public output below.
+    subject: z.string().nullable().optional(),
+    previewText: z.string().nullable().optional(),
+    tag: z.string().nullable().optional(),
     testSent: z.boolean().optional(),
-    sentDate: z.string().optional(),
-    scheduledAt: z.string().optional(),
-    shareLink: z.string().optional(),
+    sentDate: z.string().nullable().optional(),
+    scheduledAt: z.string().nullable().optional(),
+    shareLink: z.string().nullable().optional(),
     createdAt: z.string(),
     modifiedAt: z.string(),
     sender: z
@@ -166,13 +184,13 @@ const action = createAction({
                     name: campaign.name,
                     status: campaign.status,
                     type: campaign.type,
-                    ...(campaign.subject !== undefined && { subject: campaign.subject }),
-                    ...(campaign.previewText !== undefined && { previewText: campaign.previewText }),
-                    ...(campaign.tag !== undefined && { tag: campaign.tag }),
+                    ...(campaign.subject != null && { subject: campaign.subject }),
+                    ...(campaign.previewText != null && { previewText: campaign.previewText }),
+                    ...(campaign.tag != null && { tag: campaign.tag }),
                     ...(campaign.testSent !== undefined && { testSent: campaign.testSent }),
-                    ...(campaign.sentDate !== undefined && { sentDate: campaign.sentDate }),
-                    ...(campaign.scheduledAt !== undefined && { scheduledAt: campaign.scheduledAt }),
-                    ...(campaign.shareLink !== undefined && { shareLink: campaign.shareLink }),
+                    ...(campaign.sentDate != null && { sentDate: campaign.sentDate }),
+                    ...(campaign.scheduledAt != null && { scheduledAt: campaign.scheduledAt }),
+                    ...(campaign.shareLink != null && { shareLink: campaign.shareLink }),
                     createdAt: campaign.createdAt,
                     modifiedAt: campaign.modifiedAt,
                     ...(campaign.sender !== undefined && { sender: campaign.sender }),

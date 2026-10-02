@@ -11,8 +11,18 @@ const ContactSchema = z
         emailBlacklisted: z.boolean().optional().describe('Whether the contact is blacklisted for email campaigns.'),
         smsBlacklisted: z.boolean().optional().describe('Whether the contact is blacklisted for SMS campaigns.'),
         whatsappBlacklisted: z.boolean().optional().describe('Whether the contact is blacklisted for WhatsApp campaigns.'),
-        createdAt: z.string().optional().describe('Creation UTC date-time of the contact (ISO 8601, e.g. "2017-05-01T17:05:03Z").'),
-        modifiedAt: z.string().optional().describe('Last modification UTC date-time of the contact (ISO 8601, e.g. "2017-05-01T17:05:03Z").'),
+        createdAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-01T17:05:03+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-01T17:05:03+02:00"), not necessarily "Z"/UTC.'
+            ),
         attributes: z
             .record(z.string(), z.unknown())
             .optional()

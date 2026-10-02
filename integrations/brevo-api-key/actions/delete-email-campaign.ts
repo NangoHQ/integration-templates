@@ -29,8 +29,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/deleteemailcampaign
             endpoint: `/emailCampaigns/${encodeURIComponent(input.campaignId)}`,
-            // DELETE is idempotent here: repeating it cannot re-delete the campaign (a repeat just 404s), so bounded retries are safe.
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted campaign and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         await nango.delete(config);

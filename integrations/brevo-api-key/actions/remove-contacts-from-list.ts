@@ -50,8 +50,9 @@ const action = createAction({
             data: {
                 emails: input.emails
             },
-            // Removing list membership is state-idempotent (re-removing an already-removed contact changes nothing), so bounded retries are safe.
-            retries: 3
+            // Not retried: a retry after Brevo already removed a contact would report that contact as a non-member in `failure`, misreporting a completed removal as an error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         const response = await nango.post(config);
 

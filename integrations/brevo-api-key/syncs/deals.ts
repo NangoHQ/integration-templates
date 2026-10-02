@@ -47,25 +47,50 @@ const DealApiSchema = z.object({
     linkedCompaniesIds: z.array(z.string()).optional()
 });
 
+// Checkpoint fields must be plain ZodString/ZodNumber per the Nango SDK's
+// ZodCheckpoint constraint; "no checkpoint yet" is represented by a null
+// checkpoint rather than by absent fields.
+const CheckpointSchema = z.object({
+    modified_since: z.string(),
+    runs_since_full: z.number().int()
+});
+
+// A modifiedSince-only crawl can never observe deletions, so every Nth run
+// crawls the full deal list inside a delete-tracking window instead.
+const FULL_REFRESH_INTERVAL = 24;
+
 const sync = createSync({
-    description: 'Full refresh of Brevo CRM deals (opportunities) with deletion detection via a complete crawl',
+    description: 'Sync Brevo CRM deals, incrementally via the modifiedSince filter with a periodic full refresh to detect deletions.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    checkpoint: CheckpointSchema,
     models: {
         Deal: DealSchema
     },
 
     exec: async (nango) => {
-        // No incremental date filter is confirmed for GET /crm/deals, so this is a
-        // full-refresh sync: every run walks all pages from the first page (no cursor
-        // checkpoint) and trackDeletesStart/trackDeletesEnd detect records removed
-        // since the previous complete crawl.
-        await nango.trackDeletesStart('Deal');
+        const checkpoint = await nango.getCheckpoint();
+
+        const modifiedSince = checkpoint?.modified_since;
+        const runsSinceFull = checkpoint?.runs_since_full ?? FULL_REFRESH_INTERVAL;
+        // Full refresh on the first run (no checkpoint) and every FULL_REFRESH_INTERVAL
+        // runs afterwards. A full crawl must not pass modifiedSince: unchanged deals
+        // would be absent from the run and trackDeletesEnd would falsely mark them deleted.
+        const isFullRefresh = checkpoint === null || runsSinceFull >= FULL_REFRESH_INTERVAL;
+
+        if (isFullRefresh) {
+            await nango.trackDeletesStart('Deal');
+        }
+
+        let maxModifiedAt = modifiedSince;
 
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/get-all-deals
             endpoint: '/crm/deals',
+            params: {
+                ...(!isFullRefresh && modifiedSince !== undefined ? { modifiedSince } : {})
+            },
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'offset',
@@ -101,12 +126,37 @@ const sync = createSync({
                 };
             });
 
+            for (const deal of deals) {
+                if (
+                    deal.last_updated_date !== undefined &&
+                    (maxModifiedAt === undefined || Date.parse(deal.last_updated_date) > Date.parse(maxModifiedAt))
+                ) {
+                    maxModifiedAt = deal.last_updated_date;
+                }
+            }
+
             if (deals.length > 0) {
                 await nango.batchSave(deals, 'Deal');
             }
         }
 
-        await nango.trackDeletesEnd('Deal');
+        if (isFullRefresh) {
+            // Persist progress only once the full scan completes: a mid-scan checkpoint
+            // would make a crashed run look like a plain incremental run on retry and
+            // silently skip delete tracking. Close the delete window before saving the
+            // checkpoint so a crash in between forces another full refresh next time.
+            await nango.trackDeletesEnd('Deal');
+            if (maxModifiedAt !== undefined) {
+                await nango.saveCheckpoint({ modified_since: maxModifiedAt, runs_since_full: 0 });
+            }
+        } else if (maxModifiedAt !== undefined) {
+            // Save the incremental checkpoint only after the crawl finishes. Advancing it
+            // mid-run risks skipping later pages if the sync crashes before completion.
+            await nango.saveCheckpoint({
+                modified_since: maxModifiedAt,
+                runs_since_full: runsSinceFull + 1
+            });
+        }
     }
 });
 

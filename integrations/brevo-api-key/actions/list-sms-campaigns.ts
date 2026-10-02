@@ -35,8 +35,16 @@ const SmsCampaignSchema = z.object({
     status: SmsCampaignStatusSchema.describe('Current status of the SMS campaign: "draft", "sent", "archive", "queued", "suspended" or "inProcess".'),
     content: z.string().describe('Text content of the SMS campaign message.'),
     sender: z.string().describe('Sender name or number displayed to recipients.'),
-    createdAt: z.string().describe('UTC date-time when the campaign was created (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-    modifiedAt: z.string().describe('UTC date-time when the campaign was last modified (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
+    createdAt: z
+        .string()
+        .describe(
+            'Date-time when the campaign was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC.'
+        ),
+    modifiedAt: z
+        .string()
+        .describe(
+            'Date-time when the campaign was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC.'
+        ),
     scheduledAt: z.string().optional().describe('UTC date-time the campaign is scheduled for. Empty string when not scheduled.'),
     sentDate: z.string().optional().describe('UTC date-time the campaign was sent. Only present when the status is "sent".'),
     organisationPrefix: z.string().optional().describe('Brand-name prefix added before the message content. Empty string when not set.'),
@@ -73,7 +81,11 @@ const ProviderListResponseSchema = z.object({
 const OutputSchema = z
     .object({
         campaigns: z.array(SmsCampaignSchema).describe('SMS campaigns matching the filters, sorted by creation date. Empty when the account has none.'),
-        count: z.number().describe('Total number of SMS campaigns matching the filters across all pages. 0 when the account has none.')
+        count: z.number().describe('Total number of SMS campaigns matching the filters across all pages. 0 when the account has none.'),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe('Offset value to pass as input.offset to fetch the next page of campaigns. Omitted when no further campaigns remain. Example: 100')
     })
     .describe('List of SMS campaigns in the account with the total matching count.');
 
@@ -104,9 +116,15 @@ const action = createAction({
 
         const parsed = ProviderListResponseSchema.parse(response.data);
 
+        const campaigns = parsed.campaigns ?? [];
+        const count = parsed.count ?? 0;
+        const offset = input.offset ?? 0;
+        const nextOffset = offset + campaigns.length < count ? offset + campaigns.length : undefined;
+
         return {
-            campaigns: parsed.campaigns ?? [],
-            count: parsed.count ?? 0
+            campaigns,
+            count,
+            ...(nextOffset !== undefined && { nextOffset })
         };
     }
 });

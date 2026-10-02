@@ -42,7 +42,11 @@ const ProviderDealSchema = z.object({
             deal_owner: z.string().optional(),
             pipeline: z.string().optional(),
             created_at: z.string().optional(),
-            last_updated_date: z.string().optional()
+            last_updated_date: z.string().optional(),
+            stage_updated_at: z.string().optional(),
+            last_activity_date: z.string().optional(),
+            number_of_contacts: z.number().optional(),
+            number_of_activities: z.number().optional()
         })
         .catchall(z.unknown())
         .optional(),
@@ -60,6 +64,10 @@ const OutputSchema = z
         deal_owner: z.string().optional().describe('Id or email of the account user who owns the deal.'),
         created_at: z.string().optional().describe('ISO 8601 timestamp of when the deal was created. Example: "2022-05-30T07:42:05.671Z"'),
         last_updated_date: z.string().optional().describe('ISO 8601 timestamp of when the deal was last modified. Example: "2022-06-06T08:38:36.761Z"'),
+        stage_updated_at: z.string().optional().describe('ISO 8601 timestamp of when the deal last changed stage.'),
+        last_activity_date: z.string().optional().describe('ISO 8601 timestamp of the last activity recorded on the deal.'),
+        number_of_contacts: z.number().optional().describe('Number of contacts linked to the deal.'),
+        number_of_activities: z.number().optional().describe('Number of activities recorded on the deal.'),
         linked_contacts_ids: z.array(z.number()).describe('Ids of the contacts linked to the deal. Empty when no contacts are linked.'),
         linked_companies_ids: z.array(z.string()).describe('Ids of the companies linked to the deal. Empty when no companies are linked.'),
         custom_fields: z
@@ -130,6 +138,10 @@ const action = createAction({
             ...(dealAttributes.deal_owner !== undefined && { deal_owner: dealAttributes.deal_owner }),
             ...(dealAttributes.created_at !== undefined && { created_at: dealAttributes.created_at }),
             ...(dealAttributes.last_updated_date !== undefined && { last_updated_date: dealAttributes.last_updated_date }),
+            ...(dealAttributes.stage_updated_at !== undefined && { stage_updated_at: dealAttributes.stage_updated_at }),
+            ...(dealAttributes.last_activity_date !== undefined && { last_activity_date: dealAttributes.last_activity_date }),
+            ...(dealAttributes.number_of_contacts !== undefined && { number_of_contacts: dealAttributes.number_of_contacts }),
+            ...(dealAttributes.number_of_activities !== undefined && { number_of_activities: dealAttributes.number_of_activities }),
             linked_contacts_ids: deal.linkedContactsIds ?? [],
             linked_companies_ids: deal.linkedCompaniesIds ?? [],
             ...(Object.keys(customFields).length > 0 && { custom_fields: customFields })

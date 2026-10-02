@@ -32,7 +32,26 @@ const InputSchema = z
                 'Instructions to unsubscribe from future communications, appended after the message content. Must include the STOP keyword. Recommended by U.S. carriers.'
             )
     })
-    .describe('Update fields of a draft SMS campaign. Provide campaignId plus at least one field to change.');
+    .describe('Update fields of a draft SMS campaign. Provide campaignId plus at least one field to change.')
+    .superRefine((data, ctx) => {
+        const hasMutableField =
+            data.name !== undefined ||
+            data.sender !== undefined ||
+            data.content !== undefined ||
+            data.recipients !== undefined ||
+            data.scheduledAt !== undefined ||
+            data.organisationPrefix !== undefined ||
+            data.unicodeEnabled !== undefined ||
+            data.unsubscribeInstruction !== undefined;
+
+        if (!hasMutableField) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                message:
+                    'Provide at least one field to update besides campaignId: name, sender, content, recipients, scheduledAt, organisationPrefix, unicodeEnabled, or unsubscribeInstruction. Brevo rejects an update with no fields.'
+            });
+        }
+    });
 
 const RecipientListSchema = z.object({
     id: z.number().optional().describe('ID of the contact list.'),
@@ -46,8 +65,16 @@ const OutputSchema = z
         status: z.enum(['draft', 'sent', 'archive', 'queued', 'suspended', 'inProcess']).describe('Status of the SMS campaign.'),
         content: z.string().describe('Content of the SMS message.'),
         sender: z.string().describe('Sender name of the SMS campaign.'),
-        createdAt: z.string().describe('Creation UTC date-time of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-        modifiedAt: z.string().describe('UTC date-time of the last modification of the SMS campaign (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time of creation of the SMS campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T00:58:14.000+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time of the last modification of the SMS campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T00:59:58.000+02:00"), not necessarily "Z"/UTC.'
+            ),
         recipients: z
             .object({
                 lists: z.array(RecipientListSchema).optional().describe('Contact lists the campaign will be sent to.'),
@@ -69,11 +96,15 @@ const OutputSchema = z
         scheduledAt: z
             .string()
             .optional()
-            .describe('UTC date-time on which the SMS campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ). Empty string if not scheduled.'),
+            .describe(
+                'Date-time on which the SMS campaign is scheduled, as an ISO 8601 timestamp with a provider-determined UTC offset, not necessarily "Z"/UTC. Empty string if not scheduled.'
+            ),
         sentDate: z
             .string()
             .optional()
-            .describe('UTC date-time on which the SMS campaign was sent (YYYY-MM-DDTHH:mm:ss.SSSZ). Only present when the campaign status is sent.'),
+            .describe(
+                'Date-time on which the SMS campaign was sent, as an ISO 8601 timestamp with a provider-determined UTC offset, not necessarily "Z"/UTC. Only present when the campaign status is sent.'
+            ),
         unsubscribeInstruction: z.string().optional().describe('Unsubscribe instructions appended to the message content. Empty string if not set.'),
         tags: z.array(z.string()).optional().describe('Tags (labels) associated with the SMS campaign.')
     })

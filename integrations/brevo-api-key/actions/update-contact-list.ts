@@ -40,8 +40,9 @@ const action = createAction({
                 ...(input.name !== undefined && { name: input.name }),
                 ...(input.folderId !== undefined && { folderId: input.folderId })
             },
-            // This PUT sets absolute values on a specific list, so repeating it is harmless and retries are safe.
-            retries: 3
+            // Not retried: a retry after a lost success response would resend the same name, which Brevo rejects with a 400 since the name no longer differs, misreporting a completed rename as an error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         await nango.put(config);

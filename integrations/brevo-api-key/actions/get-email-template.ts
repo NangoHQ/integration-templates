@@ -26,7 +26,9 @@ const OutputSchema = z
         isActive: z.boolean().describe('Whether the template is active'),
         testSent: z.boolean().describe('Whether a test email has been sent for this template'),
         sender: SenderSchema,
-        replyTo: z.string().describe('Email defined as the "Reply to" for the template. Empty string when not set.'),
+        replyTo: z
+            .string()
+            .describe('Email address defined as the "Reply to" for the template. Brevo returns the literal "[DEFAULT_REPLY_TO]" when none was set.'),
         toField: z.string().describe('Customisation of the "To" field for the template. Empty string when not set.'),
         tag: z.string().describe('Tag of the template. Empty string when not set.'),
         htmlContent: z.string().describe('HTML content of the template'),

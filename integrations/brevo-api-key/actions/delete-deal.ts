@@ -30,7 +30,8 @@ const action = createAction({
         await nango.delete({
             endpoint: `/crm/deals/${encodeURIComponent(input.dealId)}`,
             // Not retried: a retry after a lost 204 response would 404 on the already-deleted deal and surface a false failure.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

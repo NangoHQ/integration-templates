@@ -16,7 +16,7 @@ const InputSchema = z
             .describe('ID of the transactional email template to update. Accepts a numeric template ID or a custom template identifier string. Example: 4'),
         templateName: z.string().optional().describe('New name of the template. Example: "Order confirmation"'),
         subject: z.string().optional().describe('New subject line of the email. Example: "Your order has shipped"'),
-        htmlContent: z.string().optional().describe('New HTML body of the email. Must contain more than 10 characters.'),
+        htmlContent: z.string().min(11).optional().describe('New HTML body of the email. Must contain more than 10 characters.'),
         sender: SenderSchema.optional().describe('New sender details for the template.'),
         isActive: z.boolean().optional().describe('Set to false to deactivate the template or true to (re)activate it.')
     })
@@ -40,6 +40,13 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.sender !== undefined && (input.sender.email !== undefined) === (input.sender.id !== undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide exactly one of sender.email or sender.id.'
+            });
+        }
+
         const data: {
             templateName?: string;
             subject?: string;

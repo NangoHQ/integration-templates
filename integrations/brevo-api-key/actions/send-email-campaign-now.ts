@@ -32,7 +32,8 @@ const action = createAction({
             endpoint: `/emailCampaigns/${encodeURIComponent(String(input.campaignId))}/sendNow`,
             data: {},
             // No retries: this dispatch-style POST is not idempotent and a retry after a lost 204 response would attempt to send the campaign twice.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         await nango.post(config);

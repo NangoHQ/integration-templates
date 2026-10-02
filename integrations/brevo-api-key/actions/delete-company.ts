@@ -28,7 +28,9 @@ const action = createAction({
         // https://developers.brevo.com/reference/delete_companies-id
         await nango.delete({
             endpoint: `/companies/${encodeURIComponent(input.id)}`,
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted company and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return { success: true };

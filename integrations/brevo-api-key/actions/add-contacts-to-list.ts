@@ -43,7 +43,8 @@ const action = createAction({
                 emails: input.emails
             },
             // Not idempotent: re-adding a contact that is already in the list is rejected with a 400, so a retry after a lost response could turn a success into an error.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = AddContactsResponseSchema.parse(response.data);

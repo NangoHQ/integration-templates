@@ -3,7 +3,7 @@ import { z } from 'zod';
 
 const SenderSchema = z
     .object({
-        id: z.string().optional().describe('Brevo sender ID used as the "From" sender of the template, e.g. "1"'),
+        id: z.union([z.string(), z.number()]).optional().describe('Brevo sender ID used as the "From" sender of the template, e.g. "1"'),
         name: z.string().optional().describe('Sender name shown as the "From" name, e.g. "Nango Test"'),
         email: z.string().optional().describe('Sender email address used as the "From" address, e.g. "api@nango.dev"')
     })
@@ -21,10 +21,11 @@ const EmailTemplateSchema = z
         sender: SenderSchema,
         replyTo: z
             .string()
+            .optional()
             .describe('Email address defined as the "Reply-To" for the template. Brevo returns the literal "[DEFAULT_REPLY_TO]" when none was set'),
-        toField: z.string().describe('Customisation of the "To" field for the template. Empty string when not customised'),
-        tag: z.string().describe('Tag of the template used for grouping and filtering. Empty string when not set'),
-        htmlContent: z.string().describe('Full HTML content of the template'),
+        toField: z.string().optional().describe('Customisation of the "To" field for the template. Empty string when not customised'),
+        tag: z.string().optional().describe('Tag of the template used for grouping and filtering. Empty string when not set'),
+        htmlContent: z.string().optional().describe('Full HTML content of the template'),
         doiTemplate: z
             .boolean()
             .optional()
@@ -36,7 +37,7 @@ const EmailTemplateSchema = z
     .describe('Brevo transactional email template');
 
 const BrevoSenderSchema = z.object({
-    id: z.string().optional(),
+    id: z.union([z.string(), z.number()]).optional(),
     name: z.string().optional(),
     email: z.string().optional()
 });
@@ -48,10 +49,10 @@ const BrevoTemplateSchema = z.object({
     isActive: z.boolean(),
     testSent: z.boolean(),
     sender: BrevoSenderSchema,
-    replyTo: z.string(),
-    toField: z.string(),
-    tag: z.string(),
-    htmlContent: z.string(),
+    replyTo: z.string().optional(),
+    toField: z.string().optional(),
+    tag: z.string().optional(),
+    htmlContent: z.string().optional(),
     doiTemplate: z.boolean().optional(),
     customTemplateId: z.string().optional(),
     createdAt: z.string(),
@@ -109,10 +110,10 @@ const sync = createSync({
                         isActive: template.isActive,
                         testSent: template.testSent,
                         sender: template.sender,
-                        replyTo: template.replyTo,
-                        toField: template.toField,
-                        tag: template.tag,
-                        htmlContent: template.htmlContent,
+                        ...(template.replyTo !== undefined && { replyTo: template.replyTo }),
+                        ...(template.toField !== undefined && { toField: template.toField }),
+                        ...(template.tag !== undefined && { tag: template.tag }),
+                        ...(template.htmlContent !== undefined && { htmlContent: template.htmlContent }),
                         ...(template.doiTemplate !== undefined && { doiTemplate: template.doiTemplate }),
                         ...(template.customTemplateId !== undefined && { customTemplateId: template.customTemplateId }),
                         createdAt: template.createdAt,

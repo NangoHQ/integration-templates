@@ -66,11 +66,21 @@ const OutputSchema = z
         scheduledAt: z
             .string()
             .optional()
-            .describe('UTC date-time on which the campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ). Present only when the campaign is scheduled.'),
+            .describe(
+                'Date-time on which the campaign is scheduled, as an ISO 8601 timestamp with a provider-determined UTC offset, not necessarily "Z"/UTC. Present only when the campaign is scheduled.'
+            ),
         sender: SenderOutputSchema.describe('Sender details of the campaign.'),
         recipients: RecipientsOutputSchema.describe('Recipient lists and segments of the campaign.'),
-        createdAt: z.string().describe('Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-        modifiedAt: z.string().describe('UTC date-time of last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ).')
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time of creation of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T01:42:35.000+03:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time of last modification of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T01:42:54.000+03:00"), not necessarily "Z"/UTC.'
+            )
     })
     .describe('The email campaign as it stands after the update.');
 
@@ -99,6 +109,13 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'invalid_input',
                 message: 'Provide at least one field to update: name, subject, htmlContent, sender, recipients, scheduledAt, or status.'
+            });
+        }
+
+        if (input.sender !== undefined && (input.sender.email !== undefined) === (input.sender.id !== undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide exactly one of sender.email or sender.id.'
             });
         }
 

@@ -19,8 +19,16 @@ const OutputSchema = z
         status: z.enum(['draft', 'sent', 'archive', 'queued', 'suspended', 'inProcess']).describe('Current status of the SMS campaign'),
         content: z.string().describe('Text content of the SMS message'),
         sender: z.string().describe('SMS sender name or number shown to recipients. Plain string (e.g. "NangoDev"), not an email-style sender object'),
-        createdAt: z.string().describe('UTC date-time at which the campaign was created (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        modifiedAt: z.string().describe('UTC date-time at which the campaign was last modified (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time at which the campaign was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time at which the campaign was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2023-01-20T14:53:02.000+01:00"), not necessarily "Z"/UTC.'
+            ),
         recipients: z
             .object({
                 lists: z.array(SmsCampaignListSchema).optional().describe('Recipient contact lists, returned as objects with id and name'),

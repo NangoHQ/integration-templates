@@ -35,7 +35,62 @@ const InputSchema = z
             ),
         isRecurring: z.boolean().optional().describe('Whether the attribute is recurring. Used only when attributeCategory is "calculated" or "global".')
     })
-    .describe('Definition of the contact attribute to create on the account.');
+    .describe('Definition of the contact attribute to create on the account.')
+    .superRefine((data, ctx) => {
+        const TYPE_ALLOWED_CATEGORIES: Record<string, Array<typeof data.attributeCategory>> = {
+            text: ['normal', 'transactional'],
+            date: ['normal', 'transactional'],
+            float: ['normal', 'transactional'],
+            boolean: ['normal', 'transactional'],
+            id: ['transactional'],
+            category: ['category'],
+            'multiple-choice': ['normal'],
+            user: ['normal']
+        };
+
+        if (data.type !== undefined) {
+            const allowedCategories = TYPE_ALLOWED_CATEGORIES[data.type] ?? [];
+            if (!allowedCategories.includes(data.attributeCategory)) {
+                ctx.addIssue({
+                    code: z.ZodIssueCode.custom,
+                    path: ['type'],
+                    message: `type "${data.type}" is not valid for attributeCategory "${data.attributeCategory}". Allowed attributeCategory values for type "${data.type}": ${allowedCategories.join(', ')}.`
+                });
+            }
+        }
+
+        if (data.enumeration !== undefined && data.attributeCategory !== 'category') {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['enumeration'],
+                message: 'enumeration is only valid when attributeCategory is "category".'
+            });
+        }
+
+        if (data.multiCategoryOptions !== undefined && !(data.attributeCategory === 'normal' && data.type === 'multiple-choice')) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['multiCategoryOptions'],
+                message: 'multiCategoryOptions is only valid when attributeCategory is "normal" and type is "multiple-choice".'
+            });
+        }
+
+        if (data.value !== undefined && !(data.attributeCategory === 'calculated' || data.attributeCategory === 'global')) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['value'],
+                message: 'value is only valid when attributeCategory is "calculated" or "global".'
+            });
+        }
+
+        if (data.isRecurring !== undefined && !(data.attributeCategory === 'calculated' || data.attributeCategory === 'global')) {
+            ctx.addIssue({
+                code: z.ZodIssueCode.custom,
+                path: ['isRecurring'],
+                message: 'isRecurring is only valid when attributeCategory is "calculated" or "global".'
+            });
+        }
+    });
 
 const OutputSchema = z
     .object({

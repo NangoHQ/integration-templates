@@ -18,7 +18,7 @@ const TemplateSenderSchema = z
     .object({
         name: z.string().optional().describe('Sender name of the template.'),
         email: z.string().optional().describe('From email address of the template.'),
-        id: z.string().optional().describe('Sender ID in Brevo. Example: "1"')
+        id: z.union([z.string(), z.number()]).optional().describe('Sender ID in Brevo. Example: "1"')
     })
     .describe('Sender identity of the template.');
 
@@ -30,7 +30,10 @@ const TemplateSchema = z
         isActive: z.boolean().describe('Whether the template is active (true) or inactive (false).'),
         testSent: z.boolean().describe('Whether a test email has been sent for the template.'),
         sender: TemplateSenderSchema,
-        replyTo: z.string().optional().describe('Reply-to email address defined for the template.'),
+        replyTo: z
+            .string()
+            .optional()
+            .describe('Reply-to email address defined for the template. Brevo returns the literal "[DEFAULT_REPLY_TO]" when none was set.'),
         toField: z.string().optional().describe('Customisation of the "to" field for the template; an empty string when not customised.'),
         tag: z.string().optional().describe('Tag associated with the template.'),
         htmlContent: z.string().optional().describe('Full HTML content of the template.'),
@@ -42,7 +45,11 @@ const TemplateSchema = z
 const OutputSchema = z
     .object({
         count: z.number().describe('Total number of transactional email templates matching the filters.'),
-        templates: z.array(TemplateSchema).describe('Transactional email templates on the requested page.')
+        templates: z.array(TemplateSchema).describe('Transactional email templates on the requested page.'),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe('Offset value to pass as input.offset to fetch the next page of templates. Omitted when no further templates remain. Example: 50')
     })
     .describe('Paginated list of transactional email templates.');
 
@@ -81,9 +88,15 @@ const action = createAction({
         const response = await nango.get(config);
         const parsed = ProviderResponseSchema.parse(response.data ?? {});
 
+        const templates = parsed.templates ?? [];
+        const count = parsed.count ?? 0;
+        const offset = input.offset ?? 0;
+        const nextOffset = offset + templates.length < count ? offset + templates.length : undefined;
+
         return {
-            count: parsed.count ?? 0,
-            templates: parsed.templates ?? []
+            count,
+            templates,
+            ...(nextOffset !== undefined && { nextOffset })
         };
     }
 });

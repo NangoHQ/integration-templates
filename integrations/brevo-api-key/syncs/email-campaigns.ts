@@ -146,13 +146,25 @@ const EmailCampaignSchema = z
         scheduledAt: z
             .string()
             .optional()
-            .describe('UTC date-time on which the campaign is scheduled (YYYY-MM-DDTHH:mm:ss.SSSZ). Only present when the campaign has a schedule'),
+            .describe(
+                'Date-time on which the campaign is scheduled, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2027-01-15T12:00:00.000+03:00"), not necessarily "Z"/UTC. Only present when the campaign has a schedule'
+            ),
         sentDate: z
             .string()
             .optional()
-            .describe('UTC date-time on which the campaign was sent (YYYY-MM-DDTHH:mm:ss.SSSZ). Only present when the campaign status is "sent"'),
-        createdAt: z.string().describe('UTC creation date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        modifiedAt: z.string().describe('UTC date-time of the last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
+            .describe(
+                'Date-time on which the campaign was sent, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T02:05:38.000+03:00"), not necessarily "Z"/UTC. Only present when the campaign status is "sent"'
+            ),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time of creation of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T02:09:51.000+03:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time of the last modification of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T02:10:13.000+03:00"), not necessarily "Z"/UTC.'
+            ),
         statistics: z
             .object({
                 globalStats: EmailCampaignStatsSchema.optional().describe('Aggregate delivery statistics of the campaign across all recipients'),

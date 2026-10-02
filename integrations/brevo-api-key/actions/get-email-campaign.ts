@@ -55,13 +55,17 @@ const RecipientsSchema = z.object({
 });
 
 const StatisticsSchema = z.object({
-    campaignStats: z.array(CampaignStatsSchema).describe('List-wise delivery statistics of the campaign'),
-    globalStats: CampaignStatsSchema.describe('Overall delivery statistics of the campaign'),
+    // When the `statistics` input filter selects a single section (e.g. globalStats),
+    // Brevo's response omits the fields for every other section, so all of these must
+    // be optional rather than always-present.
+    campaignStats: z.array(CampaignStatsSchema).optional().describe('List-wise delivery statistics of the campaign'),
+    globalStats: CampaignStatsSchema.optional().describe('Overall delivery statistics of the campaign'),
     linksStats: z
         .record(z.string(), z.union([z.number(), z.object({ nbClick: z.number() })]))
+        .optional()
         .describe('Click statistics keyed by link URL; each value is either a click count or an object with an nbClick count'),
-    mirrorClick: z.number().describe('Number of clicks on the mirror link'),
-    remaining: z.number().describe('Number of remaining emails to send'),
+    mirrorClick: z.number().optional().describe('Number of clicks on the mirror link'),
+    remaining: z.number().optional().describe('Number of remaining emails to send'),
     statsByDomain: z.record(z.string(), CampaignStatsSchema).optional().describe('Delivery statistics grouped by recipient email domain'),
     statsByDevice: z
         .object({
@@ -90,14 +94,32 @@ const OutputSchema = z
         type: z.enum(['classic', 'trigger']).describe('Type of the campaign'),
         subject: z.string().optional().describe('Subject of the campaign. Present when A/B testing is disabled'),
         previewText: z.string().optional().describe('Preview text (preheader) of the campaign email'),
-        createdAt: z.string().describe('Creation UTC date-time of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        modifiedAt: z.string().describe('UTC date-time of the last modification of the campaign (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
-        scheduledAt: z.string().optional().describe('UTC date-time the campaign is scheduled for. Present only when the campaign is scheduled'),
-        sentDate: z.string().optional().describe('UTC date-time the campaign was sent. Present only when the campaign status is sent'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time of creation of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:21.000+03:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time of the last modification of the campaign, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:32.000+03:00"), not necessarily "Z"/UTC.'
+            ),
+        scheduledAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time the campaign is scheduled for, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:33.000+03:00"), not necessarily "Z"/UTC. Present only when the campaign is scheduled'
+            ),
+        sentDate: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time the campaign was sent, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-01T20:22:41.000+03:00"), not necessarily "Z"/UTC. Present only when the campaign status is sent'
+            ),
         htmlContent: z.string().describe('HTML content of the campaign email. Empty string when excludeHtmlContent is true'),
         header: z.string().describe('Header of the campaign email'),
         footer: z.string().describe('Footer of the campaign email'),
-        replyTo: z.string().describe('Reply-to email address of the campaign'),
+        replyTo: z.string().describe('Reply-to email address of the campaign. Brevo returns the literal "[DEFAULT_REPLY_TO]" when none was set.'),
         toField: z.string().optional().describe('Customization of the "To" field of the campaign email'),
         sender: SenderSchema.describe('Sender of the campaign'),
         testSent: z.boolean().describe('Whether a test email has been sent for the campaign'),

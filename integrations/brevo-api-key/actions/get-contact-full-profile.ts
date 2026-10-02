@@ -87,11 +87,25 @@ const ContactSchema = z.object({
     smsBlacklisted: z.boolean().describe('Whether the contact is blacklisted for SMS campaigns'),
     whatsappBlacklisted: z.boolean().describe('Whether the contact is blacklisted for WhatsApp campaigns'),
     attributes: z.record(z.string(), z.unknown()).optional().describe('Contact attributes keyed by attribute name (e.g. FIRSTNAME, LASTNAME, SMS)'),
-    createdAt: z.string().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ). Example: "2017-05-02T16:40:31Z"'),
-    modifiedAt: z.string().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ)'),
+    createdAt: z
+        .string()
+        .describe(
+            'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+        ),
+    modifiedAt: z
+        .string()
+        .describe(
+            'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+        ),
     listIds: z.array(z.number()).describe('IDs of the contact lists the contact belongs to'),
     listUnsubscribed: z.array(z.number()).optional().describe('IDs of the contact lists the contact has unsubscribed from'),
     statistics: ContactStatisticsSchema.optional().describe('Campaign engagement statistics of the contact (recent 90 days by default)')
+});
+
+const ProviderContactSchema = ContactSchema.extend({
+    // Confirmed live: Brevo returns listUnsubscribed as explicit null for contacts that
+    // have never unsubscribed from any list, not as an omitted field.
+    listUnsubscribed: z.array(z.number()).nullable().optional()
 });
 
 const CompanySchema = z.object({
@@ -145,7 +159,11 @@ const action = createAction({
             retries: 3
         };
         const contactResponse = await nango.get(contactConfig);
-        const contact = ContactSchema.parse(contactResponse.data);
+        const { listUnsubscribed, ...parsedContact } = ProviderContactSchema.parse(contactResponse.data);
+        const contact: z.infer<typeof ContactSchema> = {
+            ...parsedContact,
+            ...(listUnsubscribed != null && { listUnsubscribed })
+        };
 
         const companiesConfig: ProxyConfiguration = {
             // https://developers.brevo.com/reference/get-all-companies

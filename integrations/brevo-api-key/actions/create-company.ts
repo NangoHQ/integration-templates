@@ -1,25 +1,29 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const CompanyAttributesSchema = z.object({
-    website: z.string().optional().describe('Website URL of the company. Example: "https://acme.com"'),
-    linkedin: z.string().optional().describe('LinkedIn page URL of the company. Example: "https://www.linkedin.com/company/acme"'),
-    industry: z.string().optional().describe('Industry of the company. Example: "Software"'),
-    number_of_employees: z.number().optional().describe('Number of employees at the company. Example: 50'),
-    revenue: z.number().optional().describe('Annual revenue of the company. Example: 1000000'),
-    phone_number: z
-        .string()
-        .optional()
-        .describe('Phone number of the company. The API expects countryCode to be set at the top level when a phone number is passed. Example: "+14155552671"'),
-    owner: z.string().optional().describe('ID of the Brevo account user to assign as the company owner. Example: "61a5cd07ca1347c82306ad06"'),
-    domain: z.string().optional().describe('Domain of the company. Example: "acme.com"')
-});
+const CompanyAttributesSchema = z
+    .object({
+        website: z.string().optional().describe('Website URL of the company. Example: "https://acme.com"'),
+        linkedin: z.string().optional().describe('LinkedIn page URL of the company. Example: "https://www.linkedin.com/company/acme"'),
+        industry: z.string().optional().describe('Industry of the company. Example: "Software"'),
+        number_of_employees: z.number().optional().describe('Number of employees at the company. Example: 50'),
+        revenue: z.number().optional().describe('Annual revenue of the company. Example: 1000000'),
+        phone_number: z
+            .string()
+            .optional()
+            .describe(
+                'Phone number of the company. The API expects countryCode to be set at the top level when a phone number is passed. Example: "+14155552671"'
+            ),
+        owner: z.string().optional().describe('ID of the Brevo account user to assign as the company owner. Example: "61a5cd07ca1347c82306ad06"'),
+        domain: z.string().optional().describe('Domain of the company. Example: "acme.com"')
+    })
+    .passthrough();
 
 const InputSchema = z
     .object({
         name: z.string().describe('Name of the company. Example: "Acme Inc."'),
         attributes: CompanyAttributesSchema.optional().describe(
-            'Additional attributes of the company, keyed by the internal attribute names from the Brevo company attributes schema. All fields are optional.'
+            'Additional attributes of the company, keyed by the internal attribute names from the Brevo company attributes schema. The listed fields are documented standard attributes; account-defined custom attribute keys are also passed through as-is. All fields are optional.'
         ),
         countryCode: z
             .number()

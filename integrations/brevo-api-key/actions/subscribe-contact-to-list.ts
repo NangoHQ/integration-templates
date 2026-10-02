@@ -28,7 +28,9 @@ const BrevoContactSchema = z.object({
     createdAt: z.string(),
     modifiedAt: z.string(),
     listIds: z.array(z.number()),
-    listUnsubscribed: z.array(z.number()).optional(),
+    // Confirmed live: Brevo returns listUnsubscribed as explicit null for contacts that
+    // have never unsubscribed from any list, not as an omitted field.
+    listUnsubscribed: z.array(z.number()).nullable().optional(),
     attributes: z.record(z.string(), AttributeValueSchema).optional(),
     statistics: z.record(z.string(), z.unknown()).optional()
 });
@@ -45,8 +47,16 @@ const OutputSchema = z
         emailBlacklisted: z.boolean().describe('Whether the contact is blacklisted for email campaigns.'),
         smsBlacklisted: z.boolean().describe('Whether the contact is blacklisted for SMS campaigns.'),
         whatsappBlacklisted: z.boolean().optional().describe('Whether the contact is blacklisted for WhatsApp campaigns.'),
-        createdAt: z.string().describe('UTC date-time when the contact was created. Example: "2023-01-20T14:53:02.000+01:00"'),
-        modifiedAt: z.string().describe('UTC date-time when the contact was last modified. Example: "2023-04-25T18:03:29.000+02:00"'),
+        createdAt: z
+            .string()
+            .describe(
+                'Date-time when the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T01:04:35.151+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .describe(
+                'Date-time when the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2026-10-02T01:04:35.151+02:00"), not necessarily "Z"/UTC.'
+            ),
         listIds: z.array(z.number()).describe('IDs of the Brevo lists the contact belongs to, including the list it was just subscribed to. Example: [2]'),
         listUnsubscribed: z.array(z.number()).optional().describe('IDs of the lists the contact has unsubscribed from. Example: [5]'),
         attributes: z
@@ -85,7 +95,8 @@ const action = createAction({
                 ...(input.attributes !== undefined && { attributes: input.attributes })
             },
             // retries: 0 — the response status is the created-vs-merged signal, so a retry after a lost create response (id returned) would hit the 204 merge branch and misreport the contact as pre-existing.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         // Brevo signals the branch via status code: a 2xx with {"id": <n>} body means the contact was created, 204 No Content means it already existed and was merged.
@@ -109,7 +120,7 @@ const action = createAction({
             createdAt: contact.createdAt,
             modifiedAt: contact.modifiedAt,
             listIds: contact.listIds,
-            ...(contact.listUnsubscribed !== undefined && { listUnsubscribed: contact.listUnsubscribed }),
+            ...(contact.listUnsubscribed != null && { listUnsubscribed: contact.listUnsubscribed }),
             ...(contact.attributes !== undefined && { attributes: contact.attributes }),
             ...(contact.statistics !== undefined && { statistics: contact.statistics })
         };

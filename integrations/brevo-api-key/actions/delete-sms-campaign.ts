@@ -30,8 +30,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://developers.brevo.com/reference/deletesmscampaign
             endpoint: `/smsCampaigns/${encodeURIComponent(input.campaignId)}`,
-            // DELETE is idempotent: retrying after a lost response leaves the campaign deleted
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted campaign and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.delete(config);
 

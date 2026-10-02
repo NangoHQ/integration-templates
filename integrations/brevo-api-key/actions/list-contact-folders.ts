@@ -4,7 +4,13 @@ import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        limit: z.number().int().min(1).optional().describe('Maximum number of folders to return in a single page. Defaults to 10 when omitted. Example: 50'),
+        limit: z
+            .number()
+            .int()
+            .min(1)
+            .max(50)
+            .optional()
+            .describe('Maximum number of folders to return in a single page. Brevo default is 10, maximum is 50. Example: 50'),
         offset: z
             .number()
             .int()
@@ -26,9 +32,20 @@ const FolderSchema = z.object({
 const OutputSchema = z
     .object({
         folders: z.array(FolderSchema).describe('The page of contact folders returned for the requested limit and offset.'),
-        count: z.number().describe('Total number of contact folders in the account, across all pages.')
+        count: z
+            .number()
+            .optional()
+            .describe(
+                'Total number of contact folders in the account, across all pages. Omitted when Brevo does not report a total in its response; absence does not mean there are no further pages, so paginate by requesting the next offset until a page comes back shorter than limit.'
+            ),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe(
+                'Offset value to pass as input.offset to fetch the next page of folders. Omitted when no further folders remain, or when Brevo did not report a total count to determine that. Example: 10'
+            )
     })
-    .describe("The account's contact folders for the requested page, plus the total folder count.");
+    .describe("The account's contact folders for the requested page, plus the total folder count when Brevo reports one.");
 
 // Internal schema for the raw Brevo response. The docs mark both envelope keys as
 // optional, so they are parsed defensively and normalized in the returned output.
@@ -72,6 +89,8 @@ const action = createAction({
         const response = await nango.get(config);
         const parsed = ProviderResponseSchema.parse(response.data);
         const folders = parsed.folders ?? [];
+        const offset = input.offset ?? 0;
+        const nextOffset = parsed.count !== undefined && offset + folders.length < parsed.count ? offset + folders.length : undefined;
 
         return {
             folders: folders.map((folder) => ({
@@ -81,7 +100,11 @@ const action = createAction({
                 ...(folder.totalSubscribers !== undefined && { totalSubscribers: folder.totalSubscribers }),
                 ...(folder.totalBlacklisted !== undefined && { totalBlacklisted: folder.totalBlacklisted })
             })),
-            count: parsed.count ?? folders.length
+            // Do not fall back to folders.length: that is only the current page's size, not
+            // the account-wide total, and reporting it as the total would make callers stop
+            // paging early when more folders actually remain.
+            ...(parsed.count !== undefined && { count: parsed.count }),
+            ...(nextOffset !== undefined && { nextOffset })
         };
     }
 });
