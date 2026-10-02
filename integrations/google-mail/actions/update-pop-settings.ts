@@ -19,9 +19,20 @@ const OutputSchema = z.object({
     disposition: z.string().optional()
 });
 
+// Gmail returns an empty body (null) when POP settings are already at the
+// requested state (e.g. disposition stays unspecified, access window stays
+// disabled), so accept both a null response and a partial POP settings
+// object. Fields are each optional because the API also returns subsets.
+const ProviderResponseSchema = z
+    .object({
+        accessWindow: z.string().optional(),
+        disposition: z.string().optional()
+    })
+    .nullish();
+
 const action = createAction({
     description: 'Update POP access settings for the mailbox',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
@@ -41,12 +52,15 @@ const action = createAction({
             retries: 3
         });
 
-        const ProviderResponseSchema = z.object({
-            accessWindow: z.string().optional(),
-            disposition: z.string().optional()
-        });
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Gmail updatePop API'
+            });
+        }
 
-        const validatedSettings = ProviderResponseSchema.parse(response.data);
+        const validatedSettings = parsed.data ?? {};
 
         return {
             ...(validatedSettings.accessWindow !== undefined && {
