@@ -36,7 +36,9 @@ const ProviderQuestionSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     // An empty question set comes back as an empty array instead of an object keyed by qid
-    content: z.union([z.record(z.string(), ProviderQuestionSchema), z.array(z.unknown())]).transform((content) => (Array.isArray(content) ? {} : content))
+    content: z
+        .union([z.record(z.string(), ProviderQuestionSchema), z.array(z.unknown()).length(0)])
+        .transform((content) => (Array.isArray(content) ? {} : content))
 });
 
 function toOrder(raw: string | number | undefined): number | undefined {
@@ -73,7 +75,7 @@ function parseSublabels(raw: string | Record<string, string> | undefined): Recor
  */
 const action = createAction({
     description: 'List the questions/fields of a form, including the numeric ID (qid), type, and field name of each question.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 

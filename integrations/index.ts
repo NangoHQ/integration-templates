@@ -3680,12 +3680,35 @@ import './jira-basic/actions/delete-user.js';
 import './jira-basic/actions/fetch-teams.js';
 
 // -- Integration: jotform
+import './jotform/syncs/forms.js';
+import './jotform/syncs/submissions.js';
+import './jotform/actions/add-form-questions.js';
+import './jotform/actions/add-form-webhook.js';
+import './jotform/actions/clone-form.js';
+import './jotform/actions/create-form-report.js';
+import './jotform/actions/create-form-with-questions.js';
+import './jotform/actions/create-form.js';
+import './jotform/actions/delete-form-question.js';
+import './jotform/actions/delete-form-webhook.js';
+import './jotform/actions/delete-form.js';
+import './jotform/actions/delete-report.js';
 import './jotform/actions/delete-submission.js';
+import './jotform/actions/duplicate-form.js';
+import './jotform/actions/edit-form-question.js';
+import './jotform/actions/get-form.js';
+import './jotform/actions/get-report.js';
+import './jotform/actions/get-submission-with-labels.js';
 import './jotform/actions/get-submission.js';
+import './jotform/actions/get-user-usage.js';
+import './jotform/actions/get-user.js';
 import './jotform/actions/list-form-questions.js';
+import './jotform/actions/list-form-reports.js';
 import './jotform/actions/list-form-submissions.js';
+import './jotform/actions/list-form-webhooks.js';
 import './jotform/actions/list-forms.js';
+import './jotform/actions/submit-form-by-field-label.js';
 import './jotform/actions/submit-form.js';
+import './jotform/actions/update-form-title.js';
 
 // -- Integration: judgeme-oauth
 import './judgeme-oauth/syncs/orders.js';
@@ -3814,11 +3837,29 @@ import './lastpass/actions/delete-user.js';
 import './lattice/syncs/users.js';
 
 // -- Integration: lemlist
+import './lemlist/syncs/campaign-leads.js';
+import './lemlist/syncs/campaigns.js';
 import './lemlist/actions/add-campaign-lead.js';
+import './lemlist/actions/create-campaign.js';
+import './lemlist/actions/enroll-lead-in-campaigns.js';
+import './lemlist/actions/get-campaign-stats.js';
+import './lemlist/actions/get-lead-full-status.js';
 import './lemlist/actions/get-lead.js';
+import './lemlist/actions/get-team-credits.js';
+import './lemlist/actions/get-team.js';
+import './lemlist/actions/get-user.js';
+import './lemlist/actions/list-campaign-activities.js';
 import './lemlist/actions/list-campaigns.js';
+import './lemlist/actions/list-unsubscribes.js';
+import './lemlist/actions/pause-campaign.js';
 import './lemlist/actions/remove-campaign-lead.js';
+import './lemlist/actions/remove-lead-everywhere.js';
+import './lemlist/actions/resubscribe-contact.js';
+import './lemlist/actions/resume-campaign.js';
+import './lemlist/actions/unsubscribe-contact.js';
 import './lemlist/actions/update-campaign-lead.js';
+import './lemlist/actions/update-campaign.js';
+import './lemlist/actions/verify-email.js';
 
 // -- Integration: lever
 import './lever/syncs/opportunities.js';
