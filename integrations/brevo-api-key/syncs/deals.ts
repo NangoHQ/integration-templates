@@ -127,10 +127,7 @@ const sync = createSync({
             });
 
             for (const deal of deals) {
-                if (
-                    deal.last_updated_date !== undefined &&
-                    (maxModifiedAt === undefined || Date.parse(deal.last_updated_date) > Date.parse(maxModifiedAt))
-                ) {
+                if (deal.last_updated_date !== undefined && (maxModifiedAt === undefined || Date.parse(deal.last_updated_date) > Date.parse(maxModifiedAt))) {
                     maxModifiedAt = deal.last_updated_date;
                 }
             }
