@@ -30,7 +30,9 @@ const action = createAction({
         // https://developers.brevo.com/reference/deletecontact
         await nango.delete({
             endpoint: `/contacts/${encodeURIComponent(input.identifier)}`,
-            retries: 3
+            // Not retried: a retry after a lost 204 response would 404 on the already-deleted contact and surface a false failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

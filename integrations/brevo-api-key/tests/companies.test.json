@@ -1,0 +1,150 @@
+{
+  "nango": {
+    "batchSave": {
+      "Company": [
+        {
+          "id": "6abee805c7e81b8eebb3a537",
+          "name": "Nango Companies Sync Seed Gamma",
+          "domain": "seed-Gamma.example.com",
+          "number_of_contacts": 0,
+          "owner": "6abbf6c2ce2b3e2509040bd6",
+          "owner_assign_date": "2026-10-01T23:08:53.267Z",
+          "created_at": "2026-10-01T23:08:53.267Z",
+          "last_updated_at": "2026-10-01T23:08:53.267Z",
+          "linkedContactsIds": [],
+          "linkedDealsIds": [],
+          "createdBy": "6abbf6c2ce2b3e2509040bd6"
+        },
+        {
+          "id": "6abee804663f6f9656ead89c",
+          "name": "Nango Companies Sync Seed Beta",
+          "domain": "seed-Beta.example.com",
+          "number_of_contacts": 0,
+          "owner": "6abbf6c2ce2b3e2509040bd6",
+          "owner_assign_date": "2026-10-01T23:08:52.894Z",
+          "created_at": "2026-10-01T23:08:52.894Z",
+          "last_updated_at": "2026-10-01T23:08:52.894Z",
+          "linkedContactsIds": [],
+          "linkedDealsIds": [],
+          "createdBy": "6abbf6c2ce2b3e2509040bd6"
+        },
+        {
+          "id": "6abee804c7e81b8eebb3a536",
+          "name": "Nango Companies Sync Seed Alpha",
+          "domain": "seed-Alpha.example.com",
+          "number_of_contacts": 0,
+          "owner": "6abbf6c2ce2b3e2509040bd6",
+          "owner_assign_date": "2026-10-01T23:08:52.547Z",
+          "created_at": "2026-10-01T23:08:52.547Z",
+          "last_updated_at": "2026-10-01T23:08:52.547Z",
+          "linkedContactsIds": [],
+          "linkedDealsIds": [],
+          "createdBy": "6abbf6c2ce2b3e2509040bd6"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Company": []
+    }
+  },
+  "api": {
+    "get": {
+      "/companies": {
+        "response": {
+          "items": [
+            {
+              "id": "6abee805c7e81b8eebb3a537",
+              "attributes": {
+                "created_at": "2026-10-01T23:08:53.267Z",
+                "domain": "seed-Gamma.example.com",
+                "last_updated_at": "2026-10-01T23:08:53.267Z",
+                "name": "Nango Companies Sync Seed Gamma",
+                "number_of_contacts": 0,
+                "owner": "6abbf6c2ce2b3e2509040bd6",
+                "owner_assign_date": "2026-10-01T23:08:53.267Z"
+              },
+              "linkedContactsIds": [],
+              "createdBy": "6abbf6c2ce2b3e2509040bd6",
+              "linkedDealsIds": []
+            },
+            {
+              "id": "6abee804663f6f9656ead89c",
+              "attributes": {
+                "created_at": "2026-10-01T23:08:52.894Z",
+                "domain": "seed-Beta.example.com",
+                "last_updated_at": "2026-10-01T23:08:52.894Z",
+                "name": "Nango Companies Sync Seed Beta",
+                "number_of_contacts": 0,
+                "owner": "6abbf6c2ce2b3e2509040bd6",
+                "owner_assign_date": "2026-10-01T23:08:52.894Z"
+              },
+              "linkedContactsIds": [],
+              "createdBy": "6abbf6c2ce2b3e2509040bd6",
+              "linkedDealsIds": []
+            },
+            {
+              "id": "6abee804c7e81b8eebb3a536",
+              "attributes": {
+                "created_at": "2026-10-01T23:08:52.547Z",
+                "domain": "seed-Alpha.example.com",
+                "last_updated_at": "2026-10-01T23:08:52.547Z",
+                "name": "Nango Companies Sync Seed Alpha",
+                "number_of_contacts": 0,
+                "owner": "6abbf6c2ce2b3e2509040bd6",
+                "owner_assign_date": "2026-10-01T23:08:52.547Z"
+              },
+              "linkedContactsIds": [],
+              "createdBy": "6abbf6c2ce2b3e2509040bd6",
+              "linkedDealsIds": []
+            }
+          ],
+          "pager": {
+            "current": 1,
+            "limit": 100,
+            "from": 0,
+            "to": 100,
+            "count": 3,
+            "total": 3,
+            "max": 1
+          },
+          "refs": {
+            "linkedContacts": []
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:09:35 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1982",
+          "x-ratelimit-reset": "1790896202",
+          "cache-control": "no-cache",
+          "x-envoy-upstream-service-time": "35",
+          "sib-request-id": "251242be-baa0-9163-acc2-4edf494d5662",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f22c6cf340471-CDG"
+        },
+        "hash": "c87d58242b041f837318388edfed27ca5b87b8d0",
+        "request": {
+          "params": {
+            "limit": "100",
+            "page": "1"
+          }
+        }
+      }
+    }
+  }
+}

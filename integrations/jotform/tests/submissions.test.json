@@ -1,0 +1,627 @@
+{
+  "nango": {
+    "batchSave": {
+      "Submission": [
+        {
+          "id": "6665953522666321061",
+          "form_id": "262715780901055",
+          "ip": "136.69.166.2",
+          "created_at": "2026-09-30 12:35:52",
+          "status": "ACTIVE",
+          "new": "1",
+          "flag": "0",
+          "notes": "",
+          "updated_at": null,
+          "answers": {
+            "1": {
+              "name": "q1_header",
+              "order": "1",
+              "text": "Feature Showcase Form",
+              "type": "control_head"
+            },
+            "2": {
+              "name": "q2_fullname0",
+              "order": "2",
+              "text": "Full Name",
+              "type": "control_fullname",
+              "sublabels": "{\"prefix\":\"Prefix\",\"first\":\"First Name\",\"middle\":\"Middle Name\",\"last\":\"Last Name\",\"suffix\":\"Suffix\"}",
+              "answer": {
+                "first": "Direct",
+                "last": "Test"
+              },
+              "prettyFormat": "Direct Test"
+            },
+            "3": {
+              "name": "q3_email1",
+              "order": "3",
+              "text": "Email Address",
+              "type": "control_email",
+              "answer": "direct@example.com"
+            },
+            "4": {
+              "name": "q4_phone2",
+              "order": "4",
+              "text": "Phone Number",
+              "type": "control_phone",
+              "sublabels": "{\"country\":\"Country Code\",\"area\":\"Area Code\",\"phone\":\"Phone Number\",\"full\":\"Phone Number\",\"masked\":\"Please enter a valid phone number.\"}"
+            },
+            "5": {
+              "name": "q5_address3",
+              "order": "5",
+              "text": "Address",
+              "type": "control_address",
+              "sublabels": "{\"addr_line1\":\"Street Address\",\"addr_line2\":\"Street Address Line 2\",\"city\":\"City\",\"state\":\"State \\/ Province\",\"postal\":\"Postal \\/ Zip Code\",\"country\":\"Country\"}"
+            },
+            "6": {
+              "name": "q6_datetime4",
+              "order": "6",
+              "text": "Date of Birth",
+              "type": "control_datetime",
+              "sublabels": "{\"day\":\"Day\",\"month\":\"Month\",\"year\":\"Year\",\"last\":\"Last Name\",\"hour\":\"Hour\",\"minutes\":\"Minutes\",\"litemode\":\"Date\"}"
+            },
+            "7": {
+              "name": "q7_time5",
+              "order": "7",
+              "text": "Preferred Contact Time",
+              "type": "control_time",
+              "sublabels": "{\"hour\":\"Hour\",\"minutes\":\"Minutes\",\"hourRange\":\"Hour\",\"minutesRange\":\"Minutes\"}"
+            },
+            "8": {
+              "name": "q8_textbox6",
+              "order": "8",
+              "text": "Short Answer",
+              "type": "control_textbox"
+            },
+            "9": {
+              "name": "q9_textarea7",
+              "order": "9",
+              "text": "Long Answer",
+              "type": "control_textarea"
+            },
+            "10": {
+              "name": "q10_number8",
+              "order": "10",
+              "text": "Number Input",
+              "type": "control_number"
+            },
+            "11": {
+              "name": "q11_dropdown9",
+              "order": "11",
+              "text": "Dropdown Selection",
+              "type": "control_dropdown"
+            },
+            "12": {
+              "name": "q12_radio10",
+              "order": "12",
+              "text": "Single Choice",
+              "type": "control_radio"
+            },
+            "13": {
+              "name": "q13_checkbox11",
+              "order": "13",
+              "text": "Multiple Choice",
+              "type": "control_checkbox"
+            },
+            "14": {
+              "name": "q14_rating12",
+              "order": "14",
+              "text": "Rate Your Experience",
+              "type": "control_rating"
+            },
+            "15": {
+              "name": "q15_scale13",
+              "order": "15",
+              "text": "Satisfaction Scale",
+              "type": "control_scale"
+            },
+            "16": {
+              "name": "q16_matrix14",
+              "order": "16",
+              "text": "Feedback Table",
+              "type": "control_matrix"
+            },
+            "17": {
+              "name": "q17_fileupload15",
+              "order": "17",
+              "text": "Upload a File",
+              "type": "control_fileupload",
+              "answer": []
+            },
+            "18": {
+              "name": "q18_signature16",
+              "order": "18",
+              "text": "Draw Your Signature",
+              "type": "control_signature",
+              "selectedField": ""
+            },
+            "19": {
+              "name": "q19_widget_TakePhoto17",
+              "order": "19",
+              "text": "Take a Photo",
+              "type": "control_widget",
+              "selectedField": "529c8286a75dae5e7f000005"
+            },
+            "20": {
+              "name": "q20_widget_QRCode18",
+              "order": "20",
+              "text": "Scan this QR Code",
+              "type": "control_widget",
+              "selectedField": "52900b6557a7644251000004"
+            },
+            "21": {
+              "name": "q21_widget_Inventory19",
+              "order": "21",
+              "text": "Inventory Demo",
+              "type": "control_widget",
+              "selectedField": "53bbb6f656bbf16119000011"
+            },
+            "22": {
+              "name": "q22_widget_OrderableList20",
+              "order": "22",
+              "text": "Orderable List Example",
+              "type": "control_widget",
+              "selectedField": "52943d56dacb3d5320000010"
+            },
+            "23": {
+              "name": "q23_widget_ConfigurableList21",
+              "order": "23",
+              "text": "Configurable List Example",
+              "type": "control_widget",
+              "selectedField": "533946093c1ad0c45d000070"
+            },
+            "24": {
+              "name": "q24_widget_CheckList22",
+              "order": "24",
+              "text": "Checklist Example",
+              "type": "control_widget",
+              "selectedField": "52961c97e3e5266570000004"
+            },
+            "25": {
+              "name": "q25_widget_MultipleText23",
+              "order": "25",
+              "text": "Multiple Text Fields Example",
+              "type": "control_widget",
+              "selectedField": "538dddaa976bf61129000004"
+            },
+            "26": {
+              "name": "q26_autoincrement24",
+              "order": "26",
+              "text": "Auto-generated Submission ID",
+              "type": "control_autoincrement",
+              "selectedField": "",
+              "answer": "4"
+            },
+            "27": {
+              "name": "input27",
+              "order": "27",
+              "text": "Fill in the blank: Jotform is a _____ tool for creating _____ forms.",
+              "type": "control_inline"
+            },
+            "28": {
+              "name": "q28_widget_TermsAndConditions26",
+              "order": "28",
+              "text": "Terms and Conditions",
+              "type": "control_widget",
+              "selectedField": "52948fb29322cd302b00000c"
+            },
+            "29": {
+              "name": "q29_calculation27",
+              "order": "29",
+              "text": "Calculation Example",
+              "type": "control_calculation",
+              "selectedField": "52f88bddfa5c747d4c000004"
+            },
+            "30": {
+              "name": "q30_captcha28",
+              "order": "30",
+              "text": "Captcha Verification",
+              "type": "control_captcha"
+            },
+            "31": {
+              "name": "q31_text29",
+              "order": "31",
+              "text": "Informative Paragraph Example",
+              "type": "control_text"
+            },
+            "32": {
+              "name": "q32_image30",
+              "order": "32",
+              "text": "Sample Image",
+              "type": "control_image"
+            },
+            "33": {
+              "name": "q33_payment31",
+              "order": "33",
+              "text": "Product List Demo",
+              "type": "control_payment"
+            },
+            "34": {
+              "name": "q34_submit",
+              "order": "34",
+              "text": "Submit Demo Form",
+              "type": "control_button"
+            }
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Submission": []
+    }
+  },
+  "api": {
+    "get": {
+      "/user/submissions": {
+        "response": {
+          "responseCode": 200,
+          "message": "success",
+          "content": [
+            {
+              "id": "6665953522666321061",
+              "form_id": "262715780901055",
+              "ip": "136.69.166.2",
+              "created_at": "2026-09-30 12:35:52",
+              "status": "ACTIVE",
+              "new": "1",
+              "flag": "0",
+              "notes": "",
+              "updated_at": null,
+              "answers": {
+                "1": {
+                  "name": "q1_header",
+                  "order": "1",
+                  "text": "Feature Showcase Form",
+                  "type": "control_head"
+                },
+                "2": {
+                  "name": "q2_fullname0",
+                  "order": "2",
+                  "sublabels": "{\"prefix\":\"Prefix\",\"first\":\"First Name\",\"middle\":\"Middle Name\",\"last\":\"Last Name\",\"suffix\":\"Suffix\"}",
+                  "text": "Full Name",
+                  "type": "control_fullname",
+                  "answer": {
+                    "first": "Direct",
+                    "last": "Test"
+                  },
+                  "prettyFormat": "Direct Test"
+                },
+                "3": {
+                  "name": "q3_email1",
+                  "order": "3",
+                  "text": "Email Address",
+                  "type": "control_email",
+                  "answer": "direct@example.com"
+                },
+                "4": {
+                  "countryCode": "No",
+                  "inputMask": "enable",
+                  "inputMaskValue": "(###) ###-####",
+                  "name": "q4_phone2",
+                  "order": "4",
+                  "sublabels": "{\"country\":\"Country Code\",\"area\":\"Area Code\",\"phone\":\"Phone Number\",\"full\":\"Phone Number\",\"masked\":\"Please enter a valid phone number.\"}",
+                  "text": "Phone Number",
+                  "type": "control_phone"
+                },
+                "5": {
+                  "name": "q5_address3",
+                  "order": "5",
+                  "sublabels": "{\"addr_line1\":\"Street Address\",\"addr_line2\":\"Street Address Line 2\",\"city\":\"City\",\"state\":\"State \\/ Province\",\"postal\":\"Postal \\/ Zip Code\",\"country\":\"Country\"}",
+                  "text": "Address",
+                  "type": "control_address"
+                },
+                "6": {
+                  "name": "q6_datetime4",
+                  "order": "6",
+                  "sublabels": "{\"day\":\"Day\",\"month\":\"Month\",\"year\":\"Year\",\"last\":\"Last Name\",\"hour\":\"Hour\",\"minutes\":\"Minutes\",\"litemode\":\"Date\"}",
+                  "text": "Date of Birth",
+                  "timeFormat": "AM/PM",
+                  "type": "control_datetime"
+                },
+                "7": {
+                  "name": "q7_time5",
+                  "order": "7",
+                  "range": "No",
+                  "sublabels": "{\"hour\":\"Hour\",\"minutes\":\"Minutes\",\"hourRange\":\"Hour\",\"minutesRange\":\"Minutes\"}",
+                  "text": "Preferred Contact Time",
+                  "timeFormat": "AM/PM",
+                  "type": "control_time"
+                },
+                "8": {
+                  "name": "q8_textbox6",
+                  "order": "8",
+                  "text": "Short Answer",
+                  "type": "control_textbox"
+                },
+                "9": {
+                  "name": "q9_textarea7",
+                  "order": "9",
+                  "text": "Long Answer",
+                  "type": "control_textarea"
+                },
+                "10": {
+                  "maxValue": "100",
+                  "name": "q10_number8",
+                  "order": "10",
+                  "text": "Number Input",
+                  "type": "control_number"
+                },
+                "11": {
+                  "name": "q11_dropdown9",
+                  "order": "11",
+                  "text": "Dropdown Selection",
+                  "type": "control_dropdown"
+                },
+                "12": {
+                  "name": "q12_radio10",
+                  "order": "12",
+                  "text": "Single Choice",
+                  "type": "control_radio"
+                },
+                "13": {
+                  "name": "q13_checkbox11",
+                  "order": "13",
+                  "text": "Multiple Choice",
+                  "type": "control_checkbox"
+                },
+                "14": {
+                  "name": "q14_rating12",
+                  "order": "14",
+                  "scaleAmount": "5",
+                  "stars": "5",
+                  "starStyle": "Stars",
+                  "text": "Rate Your Experience",
+                  "type": "control_rating"
+                },
+                "15": {
+                  "name": "q15_scale13",
+                  "order": "15",
+                  "scaleAmount": "10",
+                  "text": "Satisfaction Scale",
+                  "type": "control_scale"
+                },
+                "16": {
+                  "dcolumns": "[{\"type\":\"Radio Button\",\"text\":\"Poor\",\"id\":\"0\"},{\"type\":\"Radio Button\",\"text\":\"Average\",\"id\":\"1\"},{\"type\":\"Radio Button\",\"text\":\"Good\",\"id\":\"2\"},{\"type\":\"Radio Button\",\"text\":\"Excellent\",\"id\":\"3\"}]",
+                  "drows": "[{\"text\":\"Service\",\"id\":0},{\"text\":\"Quality\",\"id\":1},{\"text\":\"Value\",\"id\":2}]",
+                  "emojiCount": "5",
+                  "featureSet": "[\"useDcols\", \"useIds\"]",
+                  "inputType": "Radio Button",
+                  "mcolumns": "Poor|Average|Good|Excellent",
+                  "mrows": "Service|Quality|Value",
+                  "name": "q16_matrix14",
+                  "order": "16",
+                  "text": "Feedback Table",
+                  "toggleText": "Yes|No",
+                  "type": "control_matrix"
+                },
+                "17": {
+                  "name": "q17_fileupload15",
+                  "order": "17",
+                  "text": "Upload a File",
+                  "type": "control_fileupload",
+                  "answer": []
+                },
+                "18": {
+                  "name": "q18_signature16",
+                  "order": "18",
+                  "selectedField": "",
+                  "text": "Draw Your Signature",
+                  "type": "control_signature"
+                },
+                "19": {
+                  "cfname": "Take Photo",
+                  "name": "q19_widget_TakePhoto17",
+                  "order": "19",
+                  "selectedField": "529c8286a75dae5e7f000005",
+                  "static": "No",
+                  "text": "Take a Photo",
+                  "type": "control_widget"
+                },
+                "20": {
+                  "cfname": "QR Code",
+                  "name": "q20_widget_QRCode18",
+                  "order": "20",
+                  "selectedField": "52900b6557a7644251000004",
+                  "static": "No",
+                  "text": "Scan this QR Code",
+                  "type": "control_widget"
+                },
+                "21": {
+                  "cfname": "Inventory",
+                  "inputType": "Dropdown",
+                  "name": "q21_widget_Inventory19",
+                  "order": "21",
+                  "range": "1-50",
+                  "selectedField": "53bbb6f656bbf16119000011",
+                  "static": "No",
+                  "text": "Inventory Demo",
+                  "type": "control_widget"
+                },
+                "22": {
+                  "cfname": "Orderable List",
+                  "name": "q22_widget_OrderableList20",
+                  "order": "22",
+                  "selectedField": "52943d56dacb3d5320000010",
+                  "static": "No",
+                  "text": "Orderable List Example",
+                  "type": "control_widget"
+                },
+                "23": {
+                  "name": "q23_widget_ConfigurableList21",
+                  "order": "23",
+                  "selectedField": "533946093c1ad0c45d000070",
+                  "static": "No",
+                  "text": "Configurable List Example",
+                  "type": "control_widget"
+                },
+                "24": {
+                  "name": "q24_widget_CheckList22",
+                  "order": "24",
+                  "selectedField": "52961c97e3e5266570000004",
+                  "static": "No",
+                  "text": "Checklist Example",
+                  "type": "control_widget"
+                },
+                "25": {
+                  "name": "q25_widget_MultipleText23",
+                  "order": "25",
+                  "selectedField": "538dddaa976bf61129000004",
+                  "static": "No",
+                  "text": "Multiple Text Fields Example",
+                  "type": "control_widget"
+                },
+                "26": {
+                  "name": "q26_autoincrement24",
+                  "order": "26",
+                  "selectedField": "",
+                  "text": "Auto-generated Submission ID",
+                  "type": "control_autoincrement",
+                  "answer": "4"
+                },
+                "27": {
+                  "name": "input27",
+                  "order": "27",
+                  "text": "Fill in the blank: Jotform is a _____ tool for creating _____ forms.",
+                  "type": "control_inline"
+                },
+                "28": {
+                  "cfname": "Terms & Conditions",
+                  "name": "q28_widget_TermsAndConditions26",
+                  "order": "28",
+                  "selectedField": "52948fb29322cd302b00000c",
+                  "static": "No",
+                  "text": "Terms and Conditions",
+                  "type": "control_widget"
+                },
+                "29": {
+                  "name": "q29_calculation27",
+                  "order": "29",
+                  "selectedField": "52f88bddfa5c747d4c000004",
+                  "text": "Calculation Example",
+                  "type": "control_calculation"
+                },
+                "30": {
+                  "name": "q30_captcha28",
+                  "order": "30",
+                  "text": "Captcha Verification",
+                  "type": "control_captcha"
+                },
+                "31": {
+                  "name": "q31_text29",
+                  "order": "31",
+                  "text": "Informative Paragraph Example",
+                  "type": "control_text"
+                },
+                "32": {
+                  "name": "q32_image30",
+                  "order": "32",
+                  "text": "Sample Image",
+                  "type": "control_image"
+                },
+                "33": {
+                  "name": "q33_payment31",
+                  "order": "33",
+                  "paymentType": "product",
+                  "text": "Product List Demo",
+                  "type": "control_payment",
+                  "products": [
+                    {
+                      "description": "A sample product for demonstration.",
+                      "fitImageToCanvas": "Yes",
+                      "hasExpandedOption": "",
+                      "hasQuantity": "1",
+                      "hasSpecialPricing": "1",
+                      "icon": "",
+                      "images": "[]",
+                      "name": "Sample Product A",
+                      "options": "[{\"type\":\"quantity\",\"properties\":\"1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10\",\"name\":\"Quantity\",\"defaultQuantity\":\"10\",\"specialPricing\":false,\"specialPrices\":\"\",\"expanded\":false},{\"type\":\"custom\",\"name\":\"Color\",\"properties\":\"Red\\nBlue\\nGreen\",\"defaultQuantity\":\"\",\"expanded\":false,\"specialPricing\":true,\"specialPrices\":\"19.99,21.99,20.99\",\"specialPricingAllowed\":false}]",
+                      "order": "0",
+                      "paymentUUID": "01a0ee86f890700090894d324ee37287848f",
+                      "pid": "1000",
+                      "price": "19.99",
+                      "required": "0",
+                      "selected": "0"
+                    },
+                    {
+                      "description": "Another example product.",
+                      "fitImageToCanvas": "Yes",
+                      "hasExpandedOption": "",
+                      "hasQuantity": "1",
+                      "hasSpecialPricing": "",
+                      "icon": "",
+                      "images": "[]",
+                      "name": "Sample Product B",
+                      "options": "[{\"type\":\"quantity\",\"properties\":\"1\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10\",\"name\":\"Quantity\",\"defaultQuantity\":\"10\",\"specialPricing\":false,\"specialPrices\":\"\",\"expanded\":false}]",
+                      "order": "1",
+                      "paymentUUID": "01a0ee86f8907000b8a0fa65a19d071d8d4d",
+                      "pid": "1001",
+                      "price": "9.99",
+                      "required": "0",
+                      "selected": "0"
+                    }
+                  ]
+                },
+                "34": {
+                  "hackRecipients": "No",
+                  "name": "q34_submit",
+                  "order": "34",
+                  "text": "Submit Demo Form",
+                  "type": "control_button"
+                }
+              }
+            }
+          ],
+          "duration": "22.81ms",
+          "info": null,
+          "resultSet": {
+            "offset": 0,
+            "limit": 100,
+            "orderby": "created_at",
+            "count": 1
+          },
+          "limit-left": 519
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 19:42:49 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1790883807",
+          "cache-control": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+          "jf-entrypoint": "1",
+          "jf-trace-id": "5eadbe80d4e15571",
+          "last-modified": "Thu, 01 Oct 2026 19:42:49 GMT",
+          "p3p": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "x-httpx-dc": "uw2",
+          "x-httpx-id": "01a0f8fd-aaaf-710e-9d03-585a42c8a3f7",
+          "x-raw-uri": "user/submissions",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "4f92144da9d7279225f75eb410446d51c3cb5156",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0",
+            "orderby": "created_at"
+          }
+        }
+      }
+    }
+  }
+}

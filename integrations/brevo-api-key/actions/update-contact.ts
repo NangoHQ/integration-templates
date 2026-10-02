@@ -48,8 +48,18 @@ const OutputSchema = z
         whatsappBlacklisted: z.boolean().optional().describe('Whether the contact is blacklisted for WhatsApp campaigns after the update.'),
         listIds: z.array(z.number()).optional().describe('IDs of the contact lists the contact belongs to after the update. Example: [2, 4].'),
         listUnsubscribed: z.array(z.number()).optional().describe('IDs of the contact lists the contact has unsubscribed from.'),
-        createdAt: z.string().optional().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-        modifiedAt: z.string().optional().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).')
+        createdAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            ),
+        modifiedAt: z
+            .string()
+            .optional()
+            .describe(
+                'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+            )
     })
     .describe('The contact as stored in Brevo after the update, read back so the returned state reflects the partial merge.');
 
