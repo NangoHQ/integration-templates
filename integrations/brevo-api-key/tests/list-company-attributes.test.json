@@ -1,0 +1,310 @@
+{
+  "input": {},
+  "output": {
+    "attributes": [
+      {
+        "internalName": "website",
+        "attributeTypeName": "text",
+        "label": "Website",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "linkedin",
+        "attributeTypeName": "text",
+        "label": "LinkedIn",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "last_updated_at",
+        "attributeTypeName": "date",
+        "label": "Last Updated At",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "created_at",
+        "attributeTypeName": "date",
+        "label": "Created At",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "industry",
+        "attributeTypeName": "text",
+        "label": "Industry",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "number_of_employees",
+        "attributeTypeName": "number",
+        "label": "No Of Employees",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "revenue",
+        "attributeTypeName": "number",
+        "label": "Revenue",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "phone_number",
+        "attributeTypeName": "text",
+        "label": "Phone",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "owner",
+        "attributeTypeName": "user",
+        "label": "Owner",
+        "required": false,
+        "attributeOptions": [
+          {
+            "key": "6abbf6c2ce2b3e2509040bd6",
+            "value": "api@nango.dev"
+          }
+        ],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "name",
+        "attributeTypeName": "text",
+        "label": "Name",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "domain",
+        "attributeTypeName": "text",
+        "label": "Domain",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": false
+      },
+      {
+        "internalName": "linked_contacts",
+        "attributeTypeName": "number",
+        "label": "Related Contacts",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "next_activity_date",
+        "attributeTypeName": "date",
+        "label": "Next Activity Date",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "owner_assign_date",
+        "attributeTypeName": "date",
+        "label": "Owner Assign Date",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "number_of_contacts",
+        "attributeTypeName": "number",
+        "label": "Number Of Contacts",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      },
+      {
+        "internalName": "number_of_activities",
+        "attributeTypeName": "number",
+        "label": "Number Of Activities",
+        "required": false,
+        "attributeOptions": [],
+        "isValueReadonly": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/crm/attributes/companies": {
+        "response": [
+          {
+            "internalName": "website",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "Website",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "linkedin",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "LinkedIn",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "last_updated_at",
+            "attributeTypeName": "date",
+            "required": false,
+            "label": "Last Updated At",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "created_at",
+            "attributeTypeName": "date",
+            "required": false,
+            "label": "Created At",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "industry",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "Industry",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "number_of_employees",
+            "attributeTypeName": "number",
+            "required": false,
+            "label": "No Of Employees",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "revenue",
+            "attributeTypeName": "number",
+            "required": false,
+            "label": "Revenue",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "phone_number",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "Phone",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "owner",
+            "attributeTypeName": "user",
+            "required": false,
+            "label": "Owner",
+            "attributeOptions": [
+              {
+                "key": "6abbf6c2ce2b3e2509040bd6",
+                "value": "api@nango.dev"
+              }
+            ],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "name",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "Name",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "domain",
+            "attributeTypeName": "text",
+            "required": false,
+            "label": "Domain",
+            "attributeOptions": [],
+            "isValueReadonly": false
+          },
+          {
+            "internalName": "linked_contacts",
+            "attributeTypeName": "number",
+            "required": false,
+            "label": "Related Contacts",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "next_activity_date",
+            "attributeTypeName": "date",
+            "required": false,
+            "label": "Next Activity Date",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "owner_assign_date",
+            "attributeTypeName": "date",
+            "required": false,
+            "label": "Owner Assign Date",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "number_of_contacts",
+            "attributeTypeName": "number",
+            "required": false,
+            "label": "Number Of Contacts",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          },
+          {
+            "internalName": "number_of_activities",
+            "attributeTypeName": "number",
+            "required": false,
+            "label": "Number Of Activities",
+            "attributeOptions": [],
+            "isValueReadonly": true
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 22:40:49 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1972",
+          "x-ratelimit-reset": "1790894452",
+          "cache-control": "no-cache",
+          "x-envoy-upstream-service-time": "80",
+          "sib-request-id": "4e483b16-7ccd-977f-920b-0217c2c2072c",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43ef8a5bba234e8-WAW"
+        },
+        "hash": "3c5c990d3a911324f3919580b19533d077d001c2",
+        "request": {}
+      }
+    }
+  }
+}

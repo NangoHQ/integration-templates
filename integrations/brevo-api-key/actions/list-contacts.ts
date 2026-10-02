@@ -46,14 +46,26 @@ const ContactOutputSchema = z.object({
     whatsappBlacklisted: z.boolean().describe('Whether the contact is blacklisted from WhatsApp campaigns.'),
     listIds: z.array(z.number()).describe('IDs of the contact lists the contact belongs to. Empty when the contact is on no list.'),
     listUnsubscribed: z.array(z.number()).optional().describe('IDs of the contact lists the contact has unsubscribed from, when any.'),
-    createdAt: z.string().describe('Creation UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).'),
-    modifiedAt: z.string().describe('Last modification UTC date-time of the contact (YYYY-MM-DDTHH:mm:ss.SSSZ).')
+    createdAt: z
+        .string()
+        .describe(
+            'Date-time at which the contact was created, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+        ),
+    modifiedAt: z
+        .string()
+        .describe(
+            'Date-time at which the contact was last modified, as an ISO 8601 timestamp with a provider-determined UTC offset (e.g. "2017-05-02T16:40:31+02:00"), not necessarily "Z"/UTC.'
+        )
 });
 
 const OutputSchema = z
     .object({
         contacts: z.array(ContactOutputSchema).describe('Contacts of the account for the requested page.'),
-        count: z.number().describe('Total number of contacts in the account matching the given filters, across all pages.')
+        count: z.number().describe('Total number of contacts in the account matching the given filters, across all pages.'),
+        nextOffset: z
+            .number()
+            .optional()
+            .describe('Offset value to pass as input.offset to fetch the next page of contacts. Omitted when no further contacts remain. Example: 50')
     })
     .describe('Page of contacts and the total contact count.');
 
@@ -83,6 +95,8 @@ const action = createAction({
         const response = await nango.get(config);
 
         const parsed = ProviderResponseSchema.parse(response.data);
+        const offset = input.offset ?? 0;
+        const nextOffset = offset + parsed.contacts.length < parsed.count ? offset + parsed.contacts.length : undefined;
 
         return {
             contacts: parsed.contacts.map((contact) => ({
@@ -97,7 +111,8 @@ const action = createAction({
                 createdAt: contact.createdAt,
                 modifiedAt: contact.modifiedAt
             })),
-            count: parsed.count
+            count: parsed.count,
+            ...(nextOffset !== undefined && { nextOffset })
         };
     }
 });

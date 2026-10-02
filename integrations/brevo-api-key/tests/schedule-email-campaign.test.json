@@ -1,0 +1,315 @@
+{
+  "input": {
+    "campaignId": 35,
+    "scheduledAt": "2027-01-15T10:00:00.000+01:00"
+  },
+  "output": {
+    "id": 35,
+    "name": "Nango Schedule Action Test Campaign",
+    "status": "queued",
+    "scheduledAt": "2027-01-15T12:00:00.000+03:00"
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/emailCampaigns/35": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:10:13 GMT",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1790896262",
+          "x-envoy-upstream-service-time": "158",
+          "sib-request-id": "1028d54f-aeac-9bab-9817-bc5bb5e91dde",
+          "x-sib-ratelimit-limit": "100",
+          "x-sib-ratelimit-remaining": "54",
+          "x-sib-ratelimit-reset": "2987",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f23b5e9d33540-WAW"
+        },
+        "hash": "ce06a9efd50ff9d71819e36f09ff9ad11e1b596c",
+        "request": {
+          "data": {
+            "scheduledAt": "2027-01-15T10:00:00.000+01:00"
+          }
+        }
+      }
+    },
+    "get": {
+      "/emailCampaigns/35": {
+        "response": {
+          "id": 35,
+          "name": "Nango Schedule Action Test Campaign",
+          "subject": "Schedule Action Test",
+          "previewText": "",
+          "type": "classic",
+          "status": "queued",
+          "scheduledAt": "2027-01-15T12:00:00.000+03:00",
+          "testSent": false,
+          "header": "[DEFAULT_HEADER]",
+          "footer": "[DEFAULT_FOOTER]",
+          "sender": {
+            "email": "api@nango.dev",
+            "name": "[DEFAULT_FROM_NAME]",
+            "id": 1
+          },
+          "replyTo": "[DEFAULT_REPLY_TO]",
+          "toField": "",
+          "htmlContent": "",
+          "shareLink": "Share link not available for classic campaigns which are not sent",
+          "tag": "",
+          "createdAt": "2026-10-02T02:09:51.000+03:00",
+          "modifiedAt": "2026-10-02T02:10:13.000+03:00",
+          "inlineImageActivation": false,
+          "mirrorActive": false,
+          "recipients": {
+            "lists": [
+              22
+            ],
+            "exclusionLists": [],
+            "segments": [],
+            "excludedSegments": []
+          },
+          "statistics": {
+            "globalStats": {
+              "uniqueClicks": 0,
+              "clickers": 0,
+              "complaints": 0,
+              "delivered": 0,
+              "sent": 0,
+              "softBounces": 0,
+              "hardBounces": 0,
+              "uniqueViews": 0,
+              "unsubscriptions": 0,
+              "viewed": 0,
+              "trackableViews": 0,
+              "trackableViewsRate": 0,
+              "estimatedViews": 0,
+              "opensRate": 0,
+              "appleMppOpens": 0
+            },
+            "campaignStats": [],
+            "mirrorClick": 0,
+            "remaining": 2,
+            "linksStats": {},
+            "statsByDomain": {},
+            "statsByDevice": {
+              "desktop": {
+                "mac": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "othersystem": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "windows": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              },
+              "mobile": {
+                "androidmobile": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "iphone": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              },
+              "tablet": {
+                "androidtablet": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "appleipad": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              }
+            },
+            "statsByBrowser": {
+              "android": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "chrome": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "edge": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "electron": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "firefox": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "internetexplorer": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "mailchannelsscanner": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "microsoft": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "mozilla": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "opera": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "outlookexpress": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "safari": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "thunderbird": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "unknown": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "yahoomailproxy": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              }
+            }
+          },
+          "abTesting": false,
+          "sendAtBestTime": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:10:13 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1790896262",
+          "x-envoy-upstream-service-time": "57",
+          "sib-request-id": "3fd6a101-f1af-9285-9a77-18ebff659283",
+          "x-sib-ratelimit-limit": "100",
+          "x-sib-ratelimit-remaining": "53",
+          "x-sib-ratelimit-reset": "2987",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f23b889600471-CDG"
+        },
+        "hash": "37a42df76c36fcdd1ac26e3014b25c227f9fbdfb",
+        "request": {
+          "params": {
+            "excludeHtmlContent": "true"
+          }
+        }
+      }
+    }
+  }
+}
