@@ -4,7 +4,7 @@ import { z } from 'zod';
 import { toList } from '../mappers/to-list.js';
 import { toPaginationMeta } from '../mappers/to-pagination-meta.js';
 import { ClarifyList, ClarifyPaginationMeta } from '../models.js';
-import type { ClarifyListResource, ClarifyPaginatedResponse } from '../types.js';
+import type { ClarifyListResource, ClarifyPaginatedResponse, ClarifyPaginationMeta as ClarifyPaginationMetaApi } from '../types.js';
 import { getWorkspaceApiBase } from '../utils/workspace-api-path.js';
 
 const ListListsInput = z.object({
@@ -42,22 +42,25 @@ function buildParams(input: z.infer<typeof ListListsInput>, listType: 'static' |
     return params;
 }
 
+function hasNextPage(meta: ClarifyPaginationMetaApi): boolean {
+    return meta.offset + meta.limit < meta.total_records;
+}
+
 const action = createAction({
     description: 'List Clarify workspace lists across all object types.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListListsInput,
     output: ListListsOutput,
 
     exec: async (nango, input): Promise<z.infer<typeof ListListsOutput>> => {
         // https://developer.clarify.ai/docs/api-reference/lists/getWorkspaceLists
         const workspaceBase = await getWorkspaceApiBase(nango);
+        const listTypeMode = input.listType ?? 'all';
         const typesToFetch: Array<'static' | 'dynamic'> =
-            input.listType === 'all' ? ['static', 'dynamic'] : [input.listType];
+            listTypeMode === 'all' ? ['static', 'dynamic'] : [listTypeMode];
 
         const listsById = new Map<string, ClarifyList>();
-        let totalRecords = 0;
-        let limit = input.limit ?? 50;
-        let offset = input.offset ?? 0;
+        const pageMetas: ClarifyPaginationMetaApi[] = [];
 
         for (const listType of typesToFetch) {
             const response = await nango.get<ClarifyPaginatedResponse<ClarifyListResource>>({
@@ -70,24 +73,26 @@ const action = createAction({
                 listsById.set(resource.id, toList(resource));
             }
 
-            totalRecords += response.data.meta.total_records;
-            limit = response.data.meta.limit;
-            offset = response.data.meta.offset;
+            pageMetas.push(response.data.meta);
         }
 
         const lists = [...listsById.values()];
+        const limit = pageMetas[0]?.limit ?? input.limit ?? 50;
+        const offset = pageMetas[0]?.offset ?? input.offset ?? 0;
+        const totalRecords = pageMetas.reduce((sum, meta) => sum + meta.total_records, 0);
+        const anyTypeHasNextPage = pageMetas.some(hasNextPage);
+
         const meta: ClarifyPaginationMeta = {
             totalRecords,
             totalPages: limit > 0 ? Math.ceil(totalRecords / limit) : 0,
             offset,
             limit
         };
-        const nextOffset = meta.offset + meta.limit < meta.totalRecords ? meta.offset + meta.limit : undefined;
 
         return {
             lists,
             meta,
-            ...(nextOffset !== undefined && { nextOffset })
+            ...(anyTypeHasNextPage && { nextOffset: offset + limit })
         };
     }
 });

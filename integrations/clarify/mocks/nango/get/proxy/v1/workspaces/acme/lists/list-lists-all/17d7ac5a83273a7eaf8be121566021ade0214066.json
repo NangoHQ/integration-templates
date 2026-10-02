@@ -1,0 +1,43 @@
+{
+    "method": "get",
+    "endpoint": "v1/workspaces/acme/lists",
+    "requestIdentityHash": "17d7ac5a83273a7eaf8be121566021ade0214066",
+    "requestIdentity": {
+        "method": "get",
+        "endpoint": "v1/workspaces/acme/lists",
+        "params": [
+            ["filter[type]", "static"],
+            ["page[limit]", "1"]
+        ],
+        "headers": []
+    },
+    "response": {
+        "links": {
+            "next": null,
+            "prev": null
+        },
+        "meta": {
+            "total_records": 15,
+            "total_pages": 15,
+            "offset": 0,
+            "limit": 1
+        },
+        "data": [
+            {
+                "type": "list",
+                "id": "9d2c4e6f-8a1b-4c3d-9e5f-7a9b1c3d5e7f",
+                "attributes": {
+                    "_id": "9d2c4e6f-8a1b-4c3d-9e5f-7a9b1c3d5e7f",
+                    "entity": "deal",
+                    "title": "Enterprise deals",
+                    "emoji": "🏢",
+                    "description": "Open deals with enterprise accounts.",
+                    "type": "static",
+                    "state": "published",
+                    "_created_at": "2026-01-15T09:30:00.000Z",
+                    "_updated_at": "2026-02-01T17:45:00.000Z"
+                }
+            }
+        ]
+    }
+}
