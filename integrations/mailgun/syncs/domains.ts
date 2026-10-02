@@ -117,6 +117,16 @@ const sync = createSync({
             const page = await fetchPage(skip);
             totalCount = page.total_count;
             if (page.items.length === 0) {
+                // A legitimate end-of-list empty page only happens when total_count has caught up
+                // with skip (e.g. domains were removed between requests, shrinking the account).
+                // An empty page while total_count still says more domains remain is the same
+                // transient/incomplete-response risk as the first page: silently treating it as
+                // completion would let trackDeletesEnd mark every not-yet-fetched domain deleted.
+                if (skip < totalCount) {
+                    throw new Error(
+                        `Mailgun /v3/domains returned an empty page at skip=${skip} while total_count was ${totalCount}; aborting without completing delete tracking.`
+                    );
+                }
                 break;
             }
             await nango.batchSave(page.items, 'Domain');

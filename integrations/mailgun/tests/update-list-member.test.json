@@ -5,15 +5,12 @@
     "subscribed": false
   },
   "output": {
-    "member": {
-      "address": "nango-update-member@example.com",
-      "name": "Original Name",
-      "subscribed": false,
-      "vars": {
-        "foo": "bar"
-      }
-    },
-    "message": "Mailing list member has been updated"
+    "address": "nango-update-member@example.com",
+    "name": "Original Name",
+    "subscribed": false,
+    "vars": {
+      "foo": "bar"
+    }
   },
   "nango": {},
   "api": {
