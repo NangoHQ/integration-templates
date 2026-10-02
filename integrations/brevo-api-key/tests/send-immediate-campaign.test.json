@@ -1,0 +1,365 @@
+{
+  "input": {
+    "name": "Nango Immediate Send Test",
+    "subject": "Nango composite action test",
+    "sender": {
+      "name": "Nango",
+      "email": "api@nango.dev"
+    },
+    "htmlContent": "<html><body><p>Hello from the Nango send-immediate-campaign action test.</p></body></html>",
+    "listIds": [
+      21
+    ]
+  },
+  "output": {
+    "id": 32,
+    "status": "queued"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/emailCampaigns": {
+        "response": {
+          "id": 32
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:03:08 GMT",
+          "content-type": "application/json",
+          "content-length": "10",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1790895828",
+          "x-envoy-upstream-service-time": "153",
+          "sib-request-id": "d8eb9098-2888-902e-be5f-3087d847fda7",
+          "x-sib-ratelimit-limit": "100",
+          "x-sib-ratelimit-remaining": "95",
+          "x-sib-ratelimit-reset": "3412",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f19551b3e0471-CDG",
+          "etag": "W/\"a-hZZzVO0Kl1hz37wDwns388Q2Bag\""
+        },
+        "hash": "548cff85194dc9553e5e799071b0b4b3300a7f24",
+        "request": {
+          "data": {
+            "name": "Nango Immediate Send Test",
+            "subject": "Nango composite action test",
+            "sender": {
+              "email": "api@nango.dev",
+              "name": "Nango"
+            },
+            "htmlContent": "<html><body><p>Hello from the Nango send-immediate-campaign action test.</p></body></html>",
+            "recipients": {
+              "listIds": [
+                21
+              ]
+            }
+          }
+        }
+      },
+      "/emailCampaigns/32/sendNow": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:03:08 GMT",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=0; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1962",
+          "x-ratelimit-reset": "1790895828",
+          "vary": "Origin",
+          "etag": "W/\"2-vyGp6PvFo4RvsFtPoIWeCReyIC8\"",
+          "x-envoy-upstream-service-time": "75",
+          "sib-request-id": "25100670-8512-9f52-9122-48b97a56d6c7",
+          "x-sib-ratelimit-limit": "100",
+          "x-sib-ratelimit-remaining": "98",
+          "x-sib-ratelimit-reset": "3412",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f195779d6f5b2-AMS"
+        },
+        "hash": "84ca9070219ccbcf4335b7acb2c29d3282f0148c",
+        "request": {}
+      }
+    },
+    "get": {
+      "/emailCampaigns/32": {
+        "response": {
+          "id": 32,
+          "name": "Nango Immediate Send Test",
+          "subject": "Nango composite action test",
+          "previewText": "",
+          "type": "classic",
+          "status": "queued",
+          "scheduledAt": "2026-10-02T02:03:08.000+03:00",
+          "testSent": false,
+          "header": "[DEFAULT_HEADER]",
+          "footer": "[DEFAULT_FOOTER]",
+          "sender": {
+            "email": "api@nango.dev",
+            "name": "Nango",
+            "id": 1
+          },
+          "replyTo": "[DEFAULT_REPLY_TO]",
+          "toField": "",
+          "htmlContent": "<html><body><p>Hello from the Nango send-immediate-campaign action test.</p></body></html>",
+          "shareLink": "Share link not available for classic campaigns which are not sent",
+          "tag": "",
+          "createdAt": "2026-10-02T02:03:08.000+03:00",
+          "modifiedAt": "2026-10-02T02:03:08.000+03:00",
+          "inlineImageActivation": false,
+          "mirrorActive": false,
+          "recipients": {
+            "lists": [
+              21
+            ],
+            "exclusionLists": [],
+            "segments": [],
+            "excludedSegments": []
+          },
+          "statistics": {
+            "globalStats": {
+              "uniqueClicks": 0,
+              "clickers": 0,
+              "complaints": 0,
+              "delivered": 0,
+              "sent": 0,
+              "softBounces": 0,
+              "hardBounces": 0,
+              "uniqueViews": 0,
+              "unsubscriptions": 0,
+              "viewed": 0,
+              "trackableViews": 0,
+              "trackableViewsRate": 0,
+              "estimatedViews": 0,
+              "opensRate": 0,
+              "appleMppOpens": 0
+            },
+            "campaignStats": [],
+            "mirrorClick": 0,
+            "remaining": 0,
+            "linksStats": {},
+            "statsByDomain": {},
+            "statsByDevice": {
+              "desktop": {
+                "mac": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "othersystem": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "windows": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              },
+              "mobile": {
+                "androidmobile": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "iphone": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              },
+              "tablet": {
+                "androidtablet": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                },
+                "appleipad": {
+                  "clickers": 0,
+                  "uniqueClicks": 0,
+                  "viewed": 0,
+                  "uniqueViews": 0,
+                  "trackableViews": 0
+                }
+              }
+            },
+            "statsByBrowser": {
+              "android": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "chrome": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "edge": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "electron": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "firefox": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "internetexplorer": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "mailchannelsscanner": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "microsoft": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "mozilla": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "opera": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "outlookexpress": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "safari": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "thunderbird": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "unknown": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              },
+              "yahoomailproxy": {
+                "clickers": 0,
+                "uniqueClicks": 0,
+                "viewed": 0,
+                "uniqueViews": 0,
+                "trackableViews": 0
+              }
+            }
+          },
+          "abTesting": false,
+          "sendAtBestTime": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 23:03:09 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1961",
+          "x-ratelimit-reset": "1790895828",
+          "x-envoy-upstream-service-time": "67",
+          "sib-request-id": "92a84fac-7fb5-9fdf-aeb3-4bb3d295e73d",
+          "x-sib-ratelimit-limit": "100",
+          "x-sib-ratelimit-remaining": "94",
+          "x-sib-ratelimit-reset": "3411",
+          "server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a43f19596ac4998c-CDG"
+        },
+        "hash": "a09c9bc6e578724fc43dc6168d326bc53ef07cbc",
+        "request": {}
+      }
+    }
+  }
+}
