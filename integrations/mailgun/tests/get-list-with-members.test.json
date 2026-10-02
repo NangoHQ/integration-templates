@@ -1,0 +1,692 @@
+{
+  "input": {
+    "list_address": "qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+    "page_limit": 2
+  },
+  "output": {
+    "list": {
+      "address": "qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+      "name": "QA list",
+      "access_level": "readonly",
+      "created_at": "Tue, 15 Sep 2026 16:29:03 -0000",
+      "description": "testing",
+      "members_count": 40,
+      "reply_preference": "list"
+    },
+    "members": [
+      {
+        "address": "andrewmuller@gmail.com",
+        "name": "Steven",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972559221288"
+        }
+      },
+      {
+        "address": "daniel@test.com",
+        "name": "Daniel",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "daniella@gmail.com",
+        "name": "Daniella",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "dimaroma@gmail.com",
+        "name": "Dimon",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972553477878"
+        }
+      },
+      {
+        "address": "dragosnake@hogwarts.com",
+        "name": "Draco Malfoy",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "ellie@gmail.com",
+        "name": "elizaveta",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "iiliabukovetz@gmail.com",
+        "name": "SEl",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972543000508"
+        }
+      },
+      {
+        "address": "inbalfirst@gmail.com",
+        "name": "Inbal",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972553758797"
+        }
+      },
+      {
+        "address": "inessaimmers@gmail.com",
+        "name": "Inessa",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "ivan@test.com",
+        "name": "Ivan",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972556000655"
+        }
+      },
+      {
+        "address": "joek@gmail.com",
+        "name": "Joe K",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "krisf@gmail.com",
+        "name": "Karmel",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972557780723"
+        }
+      },
+      {
+        "address": "larisa@fma.com",
+        "name": "larisa",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "larisak79@gmail.com",
+        "name": "Sasha",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "lesiaukr@gmail.com",
+        "name": "Lesiya",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "letsseehowtelegramworks@business.com",
+        "name": "letsseehowtelegramworks",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "linakostenko@gmail.com",
+        "name": "Lina",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "liran345@gmail.com",
+        "name": "Liran",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "lovelybunnny@test.com",
+        "name": "Lovely",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972556909707"
+        }
+      },
+      {
+        "address": "marinkaryab@gmail.com",
+        "name": "Marina",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "matyannnnaa@gmail.com",
+        "name": "Maryana",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972552965436"
+        }
+      },
+      {
+        "address": "maximiliane.alexandra@some-long-company-name.example.com",
+        "name": "Maximiliane Alexandra von Hohenzollern",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "mykolal@gmail.com",
+        "name": "Mykola",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "nadya@ukr.net",
+        "name": "nadya",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "olgarudenko52@gmail.com",
+        "name": "Olga Trohumivna",
+        "subscribed": true,
+        "vars": {
+          "phone": "+380958763798"
+        }
+      },
+      {
+        "address": "qatesting@gmail.com",
+        "name": "test3",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "rebbeccaalexandradisengoff@gmail.com",
+        "name": "Rebecca Alexandra",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "sebastianmoreee@gmail.com",
+        "name": "",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "sergiykostenko@org.com",
+        "name": "Sergiy",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972557960900"
+        }
+      },
+      {
+        "address": "sherlock@gmail.com",
+        "name": "Sherlock",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972540975766"
+        }
+      },
+      {
+        "address": "tanyafutenko@gmail.com",
+        "name": "Tanya",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "tarasshevchenko@gmail.com",
+        "name": "Tatas",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "testing@gmil.com",
+        "name": "Karina",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972329589034"
+        }
+      },
+      {
+        "address": "tristan@test.com",
+        "name": "<Tristan>",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "vasylsolomaha@gmail.com",
+        "name": "Vasyl",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972553960882"
+        }
+      },
+      {
+        "address": "vitaliysemenko@gmail.com",
+        "name": "Vitaliy",
+        "subscribed": true,
+        "vars": {
+          "phone": "+9725524242234234"
+        }
+      },
+      {
+        "address": "vladzaiko@gmail.com",
+        "name": "Vladyslav",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "yaroslankrav99@gmail.com",
+        "name": "Yaroslav",
+        "subscribed": true,
+        "vars": {}
+      },
+      {
+        "address": "yuliahonch@gmail.com",
+        "name": "Yulia",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972325234526"
+        }
+      },
+      {
+        "address": "zhanettauba@test.com",
+        "name": "Zhaneta",
+        "subscribed": true,
+        "vars": {
+          "phone": "+972557659879"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/lists/qa_list%40sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org": {
+        "response": {
+          "list": {
+            "access_level": "readonly",
+            "address": "qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+            "created_at": "Tue, 15 Sep 2026 16:29:03 -0000",
+            "description": "testing",
+            "members_count": 40,
+            "name": "QA list",
+            "reply_preference": "list"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:21:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "242",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1960",
+          "x-ratelimit-reset": "1790900509",
+          "cache-control": "no-store",
+          "content-disposition": "inline",
+          "server": "TwistedWeb/22.10.0",
+          "x-mailgun-key-id": "7543e985-24037526"
+        },
+        "hash": "3a6c997adc49855030ffa0f2f1aee63070ab62fd",
+        "request": {}
+      },
+      "/v3/lists/qa_list%40sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages": {
+        "response": {
+          "items": [
+            {
+              "address": "andrewmuller@gmail.com",
+              "name": "Steven",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972559221288"
+              }
+            },
+            {
+              "address": "daniel@test.com",
+              "name": "Daniel",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "daniella@gmail.com",
+              "name": "Daniella",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "dimaroma@gmail.com",
+              "name": "Dimon",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972553477878"
+              }
+            },
+            {
+              "address": "dragosnake@hogwarts.com",
+              "name": "Draco Malfoy",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "ellie@gmail.com",
+              "name": "elizaveta",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "iiliabukovetz@gmail.com",
+              "name": "SEl",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972543000508"
+              }
+            },
+            {
+              "address": "inbalfirst@gmail.com",
+              "name": "Inbal",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972553758797"
+              }
+            },
+            {
+              "address": "inessaimmers@gmail.com",
+              "name": "Inessa",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "ivan@test.com",
+              "name": "Ivan",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972556000655"
+              }
+            },
+            {
+              "address": "joek@gmail.com",
+              "name": "Joe K",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "krisf@gmail.com",
+              "name": "Karmel",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972557780723"
+              }
+            },
+            {
+              "address": "larisa@fma.com",
+              "name": "larisa",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "larisak79@gmail.com",
+              "name": "Sasha",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "lesiaukr@gmail.com",
+              "name": "Lesiya",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "letsseehowtelegramworks@business.com",
+              "name": "letsseehowtelegramworks",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "linakostenko@gmail.com",
+              "name": "Lina",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "liran345@gmail.com",
+              "name": "Liran",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "lovelybunnny@test.com",
+              "name": "Lovely",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972556909707"
+              }
+            },
+            {
+              "address": "marinkaryab@gmail.com",
+              "name": "Marina",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "matyannnnaa@gmail.com",
+              "name": "Maryana",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972552965436"
+              }
+            },
+            {
+              "address": "maximiliane.alexandra@some-long-company-name.example.com",
+              "name": "Maximiliane Alexandra von Hohenzollern",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "mykolal@gmail.com",
+              "name": "Mykola",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "nadya@ukr.net",
+              "name": "nadya",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "olgarudenko52@gmail.com",
+              "name": "Olga Trohumivna",
+              "subscribed": true,
+              "vars": {
+                "phone": "+380958763798"
+              }
+            },
+            {
+              "address": "qatesting@gmail.com",
+              "name": "test3",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "rebbeccaalexandradisengoff@gmail.com",
+              "name": "Rebecca Alexandra",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "sebastianmoreee@gmail.com",
+              "name": "",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "sergiykostenko@org.com",
+              "name": "Sergiy",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972557960900"
+              }
+            },
+            {
+              "address": "sherlock@gmail.com",
+              "name": "Sherlock",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972540975766"
+              }
+            },
+            {
+              "address": "tanyafutenko@gmail.com",
+              "name": "Tanya",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "tarasshevchenko@gmail.com",
+              "name": "Tatas",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "testing@gmil.com",
+              "name": "Karina",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972329589034"
+              }
+            },
+            {
+              "address": "tristan@test.com",
+              "name": "<Tristan>",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "vasylsolomaha@gmail.com",
+              "name": "Vasyl",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972553960882"
+              }
+            },
+            {
+              "address": "vitaliysemenko@gmail.com",
+              "name": "Vitaliy",
+              "subscribed": true,
+              "vars": {
+                "phone": "+9725524242234234"
+              }
+            },
+            {
+              "address": "vladzaiko@gmail.com",
+              "name": "Vladyslav",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "yaroslankrav99@gmail.com",
+              "name": "Yaroslav",
+              "subscribed": true,
+              "vars": {}
+            },
+            {
+              "address": "yuliahonch@gmail.com",
+              "name": "Yulia",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972325234526"
+              }
+            },
+            {
+              "address": "zhanettauba@test.com",
+              "name": "Zhaneta",
+              "subscribed": true,
+              "vars": {
+                "phone": "+972557659879"
+              }
+            }
+          ],
+          "paging": {
+            "first": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=first",
+            "last": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=last",
+            "next": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?address=zhanettauba%40test.com&limit=100&page=next",
+            "previous": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?address=andrewmuller%40gmail.com&limit=100&page=previous"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:21:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1956",
+          "x-ratelimit-reset": "1790900509",
+          "cache-control": "no-store",
+          "content-disposition": "inline",
+          "server": "TwistedWeb/22.10.0",
+          "x-mailgun-key-id": "7543e985-24037526"
+        },
+        "hash": "da647a78722bd0a79903033fa30bdc08415d77cb",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages": {
+        "response": {
+          "items": [],
+          "paging": {
+            "first": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=first",
+            "last": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=last",
+            "next": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=next",
+            "previous": "https://api.mailgun.net/v3/lists/qa_list@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/members/pages?limit=100&page=previous"
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:21:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "578",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1955",
+          "x-ratelimit-reset": "1790900509",
+          "cache-control": "no-store",
+          "content-disposition": "inline",
+          "server": "TwistedWeb/22.10.0",
+          "x-mailgun-key-id": "7543e985-24037526"
+        },
+        "hash": "87d36f1a0a4491f380182a686c8f5b28baab3454",
+        "request": {
+          "params": {
+            "address": "zhanettauba@test.com",
+            "limit": "100",
+            "page": "next"
+          }
+        }
+      }
+    }
+  }
+}

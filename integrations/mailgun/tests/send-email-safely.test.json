@@ -1,0 +1,162 @@
+{
+  "input": {
+    "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+    "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+    "to": "clean-test@example.com",
+    "subject": "Nango send-email-safely dryrun",
+    "text": "Test body from nango dryrun"
+  },
+  "output": {
+    "sent": false,
+    "suppressed": false,
+    "error": {
+      "status": 403,
+      "message": "Domain sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org is not allowed to send: Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces/clean-test%40example.com": {
+        "response": {
+          "message": "Address not found in bounces table"
+        },
+        "status": 404,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:29:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "49",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1915",
+          "x-ratelimit-reset": "1790901001",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "x-request-limit": "2500",
+          "x-request-remaining": "2495",
+          "x-request-reset": "1790900986252",
+          "etag": "W/\"31-vtVvZPDCAHi2WfYjRQv5/mDJ76Q\""
+        },
+        "hash": "f58c849a8a4904258d3899ad955a54457d09dacd",
+        "request": {}
+      },
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/complaints/clean-test%40example.com": {
+        "response": {
+          "message": "No spam complaints found for this address"
+        },
+        "status": 404,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:29:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "56",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1914",
+          "x-ratelimit-reset": "1790901001",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "x-request-limit": "2500",
+          "x-request-remaining": "2496",
+          "x-request-reset": "1790900986380",
+          "etag": "W/\"38-ZRfjD7dKypnQRIbYgwHUPLB3yco\""
+        },
+        "hash": "77d4b07d840e01620cc8ca873b510cfa2f428ac1",
+        "request": {}
+      },
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/unsubscribes/clean-test%40example.com": {
+        "response": {
+          "message": "Address not found in unsubscribers table"
+        },
+        "status": 404,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:29:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "55",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1913",
+          "x-ratelimit-reset": "1790901001",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "x-request-limit": "2500",
+          "x-request-remaining": "2496",
+          "x-request-reset": "1790900986380",
+          "etag": "W/\"37-tfVb1YvJg41eIO8AXsathQXKxso\""
+        },
+        "hash": "45dd266cd1ad83cf4d3fa43603c02795eec8eee3",
+        "request": {}
+      }
+    },
+    "post": {
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/messages": {
+        "response": {
+          "message": "Domain sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org is not allowed to send: Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+        },
+        "status": 403,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:29:42 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "221",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1912",
+          "x-ratelimit-reset": "1790901001",
+          "account-id": "65d88228df373ecfbe8bda37",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "x-server": "influx",
+          "etag": "W/\"dd-AoPUkgiu1Ccm0wZOx6JDiRMm/Mo\""
+        },
+        "hash": "93ef34e9315b27d9b489c8fecfd33df682a70f1d",
+        "request": {
+          "params": {
+            "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+            "subject": "Nango send-email-safely dryrun",
+            "text": "Test body from nango dryrun",
+            "to": "clean-test@example.com"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1044 @@
+{
+  "nango": {
+    "batchSave": {
+      "Event": [
+        {
+          "id": "xn--zeitfr-7ya.xyz:0_j20QZ_TJ2iOoRwo0TK1A",
+          "event_id": "0_j20QZ_TJ2iOoRwo0TK1A",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "accepted",
+          "timestamp": 1790875135.5160465,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "test@xn--zeitfr-7ya.xyz",
+          "subject": "Nango registry test custom domain",
+          "message_id": "20261001171855.a0270cd53d7ce72c@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "method": "HTTP",
+          "originating_ip": "52.34.139.153",
+          "tags": [],
+          "storage_url": "https://storage-us-west1.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ"
+        },
+        {
+          "id": "xn--zeitfr-7ya.xyz:-onbcrTfRLO01gix1FP2VA",
+          "event_id": "-onbcrTfRLO01gix1FP2VA",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "delivered",
+          "timestamp": 1790875136.2817214,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "test@xn--zeitfr-7ya.xyz",
+          "subject": "Nango registry test custom domain",
+          "message_id": "20261001171855.a0270cd53d7ce72c@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "sending_ip": "143.55.232.62",
+          "tags": [],
+          "storage_url": "https://storage-us-west1.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ",
+          "delivery_status": {
+            "code": 250,
+            "message": "2.0.0 OK  1790875136 af79cd13be357-93cc755297bsi45646485a.544 - gsmtp",
+            "description": "",
+            "enhanced_code": "2.0.0",
+            "mx_host": "aspmx.l.google.com",
+            "mx_host_ip": "173.194.45.27",
+            "attempt_no": 1,
+            "session_seconds": 0.762,
+            "first_delivery_attempt_seconds": 0.11,
+            "tls": true,
+            "certificate_verified": true
+          }
+        },
+        {
+          "id": "xn--zeitfr-7ya.xyz:BYZjLtk3TxGY6BvQe87oPQ",
+          "event_id": "BYZjLtk3TxGY6BvQe87oPQ",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "accepted",
+          "timestamp": 1790900471.5633316,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+          "subject": "Nango send-message dryrun test",
+          "message_id": "20261002002111.01f86a9d771c78fd@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "method": "HTTP",
+          "originating_ip": "52.26.211.56",
+          "tags": [],
+          "storage_url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg"
+        },
+        {
+          "id": "xn--zeitfr-7ya.xyz:F75yT02oQy-oG2eelsGDhw",
+          "event_id": "F75yT02oQy-oG2eelsGDhw",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "delivered",
+          "timestamp": 1790900473.0866516,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+          "subject": "Nango send-message dryrun test",
+          "message_id": "20261002002111.01f86a9d771c78fd@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "sending_ip": "204.220.184.57",
+          "tags": [],
+          "storage_url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg",
+          "delivery_status": {
+            "code": 250,
+            "message": "2.0.0 OK  1790900473 6a1803df08f44-917e0b88ad1si8245846d6.163 - gsmtp",
+            "description": "",
+            "enhanced_code": "2.0.0",
+            "mx_host": "aspmx.l.google.com",
+            "mx_host_ip": "192.178.218.27",
+            "attempt_no": 1,
+            "session_seconds": 1.518,
+            "first_delivery_attempt_seconds": 0.041,
+            "tls": true,
+            "certificate_verified": true
+          }
+        },
+        {
+          "id": "xn--zeitfr-7ya.xyz:Tp6Riba9QNqyrQelE8x1gA",
+          "event_id": "Tp6Riba9QNqyrQelE8x1gA",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "accepted",
+          "timestamp": 1790900484.4707,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+          "subject": "Nango send-message dryrun test",
+          "message_id": "20261002002124.4f412f1c1cd0e8f5@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "method": "HTTP",
+          "originating_ip": "44.247.133.183",
+          "tags": [],
+          "storage_url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg"
+        },
+        {
+          "id": "xn--zeitfr-7ya.xyz:Dsnt5yn6QTitGq8dIAROIw",
+          "event_id": "Dsnt5yn6QTitGq8dIAROIw",
+          "domain": "xn--zeitfr-7ya.xyz",
+          "event": "delivered",
+          "timestamp": 1790900485.7912793,
+          "recipient": "victor@nango.dev",
+          "recipient_domain": "nango.dev",
+          "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+          "subject": "Nango send-message dryrun test",
+          "message_id": "20261002002124.4f412f1c1cd0e8f5@xn--zeitfr-7ya.xyz",
+          "log_level": "info",
+          "sending_ip": "204.220.184.57",
+          "tags": [],
+          "storage_url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg",
+          "delivery_status": {
+            "code": 250,
+            "message": "2.0.0 OK  1790900485 d75a77b69052e-53398d95f91si12482741cf.221 - gsmtp",
+            "description": "",
+            "enhanced_code": "2.0.0",
+            "mx_host": "aspmx.l.google.com",
+            "mx_host_ip": "192.178.218.27",
+            "attempt_no": 1,
+            "session_seconds": 1.319,
+            "first_delivery_attempt_seconds": 0.026,
+            "tls": true,
+            "certificate_verified": true
+          }
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:hPpjxDSlSY2MYEJbFC7M6g",
+          "event_id": "hPpjxDSlSY2MYEJbFC7M6g",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790776798.7479305,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Direct test",
+          "message_id": "20260930135958.39361df11dba9c59@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "129.222.187.243",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:FaDClW6FTPCT1_ct15dlvw",
+          "event_id": "FaDClW6FTPCT1_ct15dlvw",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790875124.955052,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango registry test",
+          "message_id": "20261001171844.fe8df6c3b94db206@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "44.247.133.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:73lG_WAyQTqjQxX6HHc_Mg",
+          "event_id": "73lG_WAyQTqjQxX6HHc_Mg",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790875268.1454208,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango safe-send test",
+          "message_id": "20261001172108.73598b0205359d32@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "52.26.211.56",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:0bImgkDyROOCPXhPtgtJpg",
+          "event_id": "0bImgkDyROOCPXhPtgtJpg",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900733.8487732,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002533.8cad9bf2fcae377f@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "44.247.133.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:fxjXHNCVQJ2ijYjW2EU_Ow",
+          "event_id": "fxjXHNCVQJ2ijYjW2EU_Ow",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900746.5330534,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002546.e5ff5784c925be22@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "54.69.127.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:fYmR9iEyT9CkDZ90Oj5zYw",
+          "event_id": "fYmR9iEyT9CkDZ90Oj5zYw",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900870.5571527,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002750.b9f29b09a42796b2@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "44.247.133.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:mv89EwTnSSSxsUR1gCx_Ew",
+          "event_id": "mv89EwTnSSSxsUR1gCx_Ew",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900882.653286,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002802.2ca197eef3d5f26a@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "44.247.133.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:42FejUn-SGC9Xym-pyz4lg",
+          "event_id": "42FejUn-SGC9Xym-pyz4lg",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900971.6554863,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002931.79bb3cfaf73c8e0c@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "44.247.133.183",
+          "tags": []
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org:VT8ZOporQ9CSsAuLzg7JaA",
+          "event_id": "VT8ZOporQ9CSsAuLzg7JaA",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "event": "rejected",
+          "timestamp": 1790900982.5049615,
+          "recipient": "",
+          "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "subject": "Nango send-email-safely dryrun",
+          "message_id": "20261002002942.7cd43b362d285764@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+          "method": "",
+          "originating_ip": "52.26.211.56",
+          "tags": []
+        }
+      ]
+    },
+    "batchDelete": {
+      "Event": []
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/domains": {
+        "response": {
+          "total_count": 2,
+          "items": [
+            {
+              "created_at": "Mon, 09 Mar 2026 15:57:09 GMT",
+              "id": "69aeedd584d39943e1a587f1",
+              "is_disabled": false,
+              "name": "xn--zeitfr-7ya.xyz",
+              "require_tls": false,
+              "skip_verification": false,
+              "smtp_login": "",
+              "spam_action": "disabled",
+              "state": "active",
+              "type": "custom",
+              "use_automatic_sender_security": true,
+              "web_prefix": "email",
+              "web_scheme": "http",
+              "wildcard": false,
+              "encrypt_incoming_message": false,
+              "message_ttl": 86400
+            },
+            {
+              "created_at": "Fri, 23 Feb 2024 11:31:56 GMT",
+              "id": "65d8822c5c899f9accba6155",
+              "is_disabled": false,
+              "name": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+              "require_tls": false,
+              "skip_verification": false,
+              "smtp_login": "",
+              "spam_action": "disabled",
+              "state": "active",
+              "type": "sandbox",
+              "use_automatic_sender_security": false,
+              "web_prefix": "email",
+              "web_scheme": "http",
+              "wildcard": false,
+              "encrypt_incoming_message": false,
+              "message_ttl": 0
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 01:51:48 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "849",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1790905961",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "7543e985-24037526",
+          "etag": "W/\"351-BpbcBxRc1a+dcy/ppbXVavw2YZ8\""
+        },
+        "hash": "ea5b8aa2ea2eaf3a8ca65d957cb7f6c2ce7da785",
+        "request": {
+          "params": {
+            "limit": "1000"
+          }
+        }
+      },
+      "/v3/xn--zeitfr-7ya.xyz/events": {
+        "response": {
+          "items": [
+            {
+              "timestamp": 1790875135.5160465,
+              "method": "HTTP",
+              "tags": [],
+              "envelope": {
+                "transport": "smtp",
+                "sender": "postmaster@zeitfür.xyz",
+                "targets": "victor@nango.dev"
+              },
+              "recipient": "victor@nango.dev",
+              "event": "accepted",
+              "recipient_pat": "victor@nango.dev",
+              "log-level": "info",
+              "message": {
+                "size": 375,
+                "attachments": [],
+                "headers": {
+                  "to": "victor@nango.dev",
+                  "from": "test@xn--zeitfr-7ya.xyz",
+                  "message-id": "20261001171855.a0270cd53d7ce72c@xn--zeitfr-7ya.xyz",
+                  "subject": "Nango registry test custom domain"
+                }
+              },
+              "id": "0_j20QZ_TJ2iOoRwo0TK1A",
+              "storage": {
+                "key": "BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ",
+                "env": "production",
+                "region": "us-west1",
+                "url": "https://storage-us-west1.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ"
+              },
+              "recipient-domain": "nango.dev",
+              "user-variables": {},
+              "originating-ip": "52.34.139.153",
+              "api-key-id": "7543e985-24037526",
+              "flags": {
+                "is-system-test": false,
+                "is-test-mode": false,
+                "is-routed": false,
+                "is-authenticated": true
+              }
+            },
+            {
+              "timestamp": 1790875136.2817214,
+              "recipient_pat": "victor@nango.dev",
+              "flags": {
+                "is-test-mode": false,
+                "is-authenticated": true,
+                "is-routed": false,
+                "is-system-test": false
+              },
+              "recipient-domain": "nango.dev",
+              "recipient-provider": "Google Workspace",
+              "message": {
+                "headers": {
+                  "from": "test@xn--zeitfr-7ya.xyz",
+                  "to": "victor@nango.dev",
+                  "subject": "Nango registry test custom domain",
+                  "message-id": "20261001171855.a0270cd53d7ce72c@xn--zeitfr-7ya.xyz"
+                },
+                "size": 375,
+                "attachments": []
+              },
+              "id": "-onbcrTfRLO01gix1FP2VA",
+              "log-level": "info",
+              "api-key-id": "7543e985-24037526",
+              "tags": [],
+              "user-variables": {},
+              "campaigns": [],
+              "event": "delivered",
+              "recipient": "victor@nango.dev",
+              "storage": {
+                "key": "BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ",
+                "env": "production",
+                "region": "us-west1",
+                "url": "https://storage-us-west1.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAQHsweyGST9xQ8NGbI2Q9-SkowmzYQ"
+              },
+              "primary-dkim": "pdk2._domainkey.xn--zeitfr-7ya.xyz",
+              "envelope": {
+                "sending-ip": "143.55.232.62",
+                "sender": "postmaster@zeitfür.xyz",
+                "targets": "victor@nango.dev",
+                "transport": "smtp"
+              },
+              "delivery-status": {
+                "enhanced-code": "2.0.0",
+                "mx-host-ip": "173.194.45.27",
+                "session-seconds": 0.762,
+                "code": 250,
+                "certificate-verified": true,
+                "utf8": true,
+                "description": "",
+                "first-delivery-attempt-seconds": 0.11,
+                "tls": true,
+                "message": "2.0.0 OK  1790875136 af79cd13be357-93cc755297bsi45646485a.544 - gsmtp",
+                "mx-host": "aspmx.l.google.com",
+                "attempt-no": 1
+              }
+            },
+            {
+              "api-key-id": "7543e985-24037526",
+              "tags": [],
+              "log-level": "info",
+              "id": "BYZjLtk3TxGY6BvQe87oPQ",
+              "recipient": "victor@nango.dev",
+              "method": "HTTP",
+              "timestamp": 1790900471.5633316,
+              "event": "accepted",
+              "recipient_pat": "victor@nango.dev",
+              "message": {
+                "size": 447,
+                "attachments": [],
+                "headers": {
+                  "to": "victor@nango.dev",
+                  "subject": "Nango send-message dryrun test",
+                  "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+                  "message-id": "20261002002111.01f86a9d771c78fd@xn--zeitfr-7ya.xyz"
+                }
+              },
+              "originating-ip": "52.26.211.56",
+              "storage": {
+                "region": "us-east4",
+                "env": "production",
+                "key": "BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg",
+                "url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg"
+              },
+              "recipient-domain": "nango.dev",
+              "envelope": {
+                "targets": "victor@nango.dev",
+                "sender": "postmaster@zeitfür.xyz",
+                "transport": "smtp"
+              },
+              "flags": {
+                "is-test-mode": false,
+                "is-authenticated": true,
+                "is-routed": false,
+                "is-system-test": false
+              },
+              "user-variables": {}
+            },
+            {
+              "user-variables": {},
+              "campaigns": [],
+              "tags": [],
+              "recipient_pat": "victor@nango.dev",
+              "message": {
+                "size": 447,
+                "attachments": [],
+                "headers": {
+                  "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+                  "message-id": "20261002002111.01f86a9d771c78fd@xn--zeitfr-7ya.xyz",
+                  "to": "victor@nango.dev",
+                  "subject": "Nango send-message dryrun test"
+                }
+              },
+              "storage": {
+                "key": "BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg",
+                "region": "us-east4",
+                "env": "production",
+                "url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAE2YxNZrIF5jwdBE4KtTudHku8IYg"
+              },
+              "event": "delivered",
+              "timestamp": 1790900473.0866516,
+              "recipient": "victor@nango.dev",
+              "id": "F75yT02oQy-oG2eelsGDhw",
+              "recipient-provider": "Google Workspace",
+              "envelope": {
+                "sending-ip": "204.220.184.57",
+                "sender": "postmaster@zeitfür.xyz",
+                "transport": "smtp",
+                "targets": "victor@nango.dev"
+              },
+              "delivery-status": {
+                "description": "",
+                "attempt-no": 1,
+                "session-seconds": 1.518,
+                "mx-host": "aspmx.l.google.com",
+                "mx-host-ip": "192.178.218.27",
+                "enhanced-code": "2.0.0",
+                "utf8": true,
+                "code": 250,
+                "message": "2.0.0 OK  1790900473 6a1803df08f44-917e0b88ad1si8245846d6.163 - gsmtp",
+                "tls": true,
+                "certificate-verified": true,
+                "first-delivery-attempt-seconds": 0.041
+              },
+              "log-level": "info",
+              "recipient-domain": "nango.dev",
+              "primary-dkim": "pdk2._domainkey.xn--zeitfr-7ya.xyz",
+              "flags": {
+                "is-test-mode": false,
+                "is-routed": false,
+                "is-system-test": false,
+                "is-authenticated": true
+              },
+              "api-key-id": "7543e985-24037526"
+            },
+            {
+              "storage": {
+                "region": "us-east4",
+                "env": "production",
+                "key": "BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg",
+                "url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg"
+              },
+              "method": "HTTP",
+              "user-variables": {},
+              "recipient_pat": "victor@nango.dev",
+              "id": "Tp6Riba9QNqyrQelE8x1gA",
+              "originating-ip": "44.247.133.183",
+              "timestamp": 1790900484.4707,
+              "recipient": "victor@nango.dev",
+              "log-level": "info",
+              "message": {
+                "size": 447,
+                "headers": {
+                  "message-id": "20261002002124.4f412f1c1cd0e8f5@xn--zeitfr-7ya.xyz",
+                  "to": "victor@nango.dev",
+                  "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+                  "subject": "Nango send-message dryrun test"
+                },
+                "attachments": []
+              },
+              "flags": {
+                "is-system-test": false,
+                "is-routed": false,
+                "is-test-mode": false,
+                "is-authenticated": true
+              },
+              "api-key-id": "7543e985-24037526",
+              "tags": [],
+              "event": "accepted",
+              "envelope": {
+                "sender": "postmaster@zeitfür.xyz",
+                "targets": "victor@nango.dev",
+                "transport": "smtp"
+              },
+              "recipient-domain": "nango.dev"
+            },
+            {
+              "campaigns": [],
+              "recipient": "victor@nango.dev",
+              "recipient_pat": "victor@nango.dev",
+              "recipient-domain": "nango.dev",
+              "id": "Dsnt5yn6QTitGq8dIAROIw",
+              "recipient-provider": "Google Workspace",
+              "delivery-status": {
+                "mx-host-ip": "192.178.218.27",
+                "code": 250,
+                "description": "",
+                "mx-host": "aspmx.l.google.com",
+                "session-seconds": 1.319,
+                "tls": true,
+                "first-delivery-attempt-seconds": 0.026,
+                "enhanced-code": "2.0.0",
+                "certificate-verified": true,
+                "attempt-no": 1,
+                "message": "2.0.0 OK  1790900485 d75a77b69052e-53398d95f91si12482741cf.221 - gsmtp",
+                "utf8": true
+              },
+              "flags": {
+                "is-authenticated": true,
+                "is-routed": false,
+                "is-test-mode": false,
+                "is-system-test": false
+              },
+              "message": {
+                "size": 447,
+                "attachments": [],
+                "headers": {
+                  "to": "victor@nango.dev",
+                  "message-id": "20261002002124.4f412f1c1cd0e8f5@xn--zeitfr-7ya.xyz",
+                  "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
+                  "subject": "Nango send-message dryrun test"
+                }
+              },
+              "envelope": {
+                "sender": "postmaster@zeitfür.xyz",
+                "transport": "smtp",
+                "sending-ip": "204.220.184.57",
+                "targets": "victor@nango.dev"
+              },
+              "user-variables": {},
+              "event": "delivered",
+              "primary-dkim": "pdk2._domainkey.xn--zeitfr-7ya.xyz",
+              "storage": {
+                "region": "us-east4",
+                "key": "BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg",
+                "env": "production",
+                "url": "https://storage-us-east4.api.mailgun.net/v3/domains/xn--zeitfr-7ya.xyz/messages/BAABAAGTMUqcbjzehuBOUJ1EVXZPnJIpZg"
+              },
+              "timestamp": 1790900485.7912793,
+              "tags": [],
+              "log-level": "info",
+              "api-key-id": "7543e985-24037526"
+            }
+          ],
+          "paging": {
+            "previous": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OC41NzgrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAxVDE3OjE4OjU1LjUxNiswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ4LjU3OCswMDowMCJ9LCJfZG9jIzBfajIwUVpfVEoyaU9vUndvMFRLMUEiLFsiZiIsInAiXSxudWxsLFtbImFjY291bnQuaWQiLCI2NWQ4ODIyOGRmMzczZWNmYmU4YmRhMzciXSxbImRvbWFpbi5uYW1lIiwieG4tLXplaXRmci03eWEueHl6Il1dLDMwMF0=",
+            "next": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OC41NzgrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjIxOjI1Ljc5MSswMDowMCIsImEiOnRydWV9LCJfZG9jI0RzbnQ1eW42UVRpdEdxOGRJQVJPSXciLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJ4bi0temVpdGZyLTd5YS54eXoiXV0sMzAwXQ==",
+            "first": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OC41NzgrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTA5LTI3VDAxOjUxOjQ4LjU3OCswMDowMCIsImEiOnRydWV9LG51bGwsWyJmIl0sbnVsbCxbWyJhY2NvdW50LmlkIiwiNjVkODgyMjhkZjM3M2VjZmJlOGJkYTM3Il0sWyJkb21haW4ubmFtZSIsInhuLS16ZWl0ZnItN3lhLnh5eiJdXSwzMDBd",
+            "last": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OC41NzgrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDM3LTEyLTMxVDIzOjU5OjU5Ljk5OSswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ4LjU3OCswMDowMCJ9LG51bGwsWyJmIiwicCJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJ4bi0temVpdGZyLTd5YS54eXoiXV0sMzAwXQ=="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 01:51:48 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1790905961",
+          "cache-control": "no-store",
+          "server": "TwistedWeb/22.10.0"
+        },
+        "hash": "4b9716ab5e6a28079f7b1114a4d9da9fc653f1b1",
+        "request": {
+          "params": {
+            "ascending": "yes",
+            "begin": "0",
+            "limit": "300"
+          }
+        }
+      },
+      "/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OC41NzgrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjIxOjI1Ljc5MSswMDowMCIsImEiOnRydWV9LCJfZG9jI0RzbnQ1eW42UVRpdEdxOGRJQVJPSXciLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJ4bi0temVpdGZyLTd5YS54eXoiXV0sMzAwXQ==": {
+        "response": {
+          "items": [],
+          "paging": {
+            "previous": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS4zMDUrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjIxOjI1Ljc5MSswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5LjMwNSswMDowMCJ9LCJfZG9jI0RzbnQ1eW42UVRpdEdxOGRJQVJPSXciLFsicCIsImYiXSxudWxsLFtbImFjY291bnQuaWQiLCI2NWQ4ODIyOGRmMzczZWNmYmU4YmRhMzciXSxbImRvbWFpbi5uYW1lIiwieG4tLXplaXRmci03eWEueHl6Il1dLDMwMF0=",
+            "next": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS4zMDUrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjIxOjI1Ljc5MSswMDowMCIsImEiOnRydWV9LCJfZG9jI0RzbnQ1eW42UVRpdEdxOGRJQVJPSXciLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJ4bi0temVpdGZyLTd5YS54eXoiXV0sMzAwXQ==",
+            "first": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS4zMDUrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5LjMwNSswMDowMCIsImEiOnRydWV9LG51bGwsWyJmIl0sbnVsbCxbWyJhY2NvdW50LmlkIiwiNjVkODgyMjhkZjM3M2VjZmJlOGJkYTM3Il0sWyJkb21haW4ubmFtZSIsInhuLS16ZWl0ZnItN3lhLnh5eiJdXSwzMDBd",
+            "last": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS4zMDUrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDM3LTEyLTMxVDIzOjU5OjU5Ljk5OSswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5LjMwNSswMDowMCJ9LG51bGwsWyJwIiwiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJ4bi0temVpdGZyLTd5YS54eXoiXV0sMzAwXQ=="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 01:51:49 GMT",
+          "content-type": "application/json",
+          "content-length": "1528",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1790905961",
+          "cache-control": "no-store",
+          "server": "TwistedWeb/22.10.0",
+          "etag": "W/\"5f8-kJhavybmkxl2IoEFDLsFtSYHh/8\""
+        },
+        "hash": "4ef3d100a9a5fa959a8aea75fd28d5230ffc8104",
+        "request": {}
+      },
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events": {
+        "response": {
+          "items": [
+            {
+              "storage": {},
+              "event": "rejected",
+              "timestamp": 1790776798.7479305,
+              "recipient": "",
+              "id": "hPpjxDSlSY2MYEJbFC7M6g",
+              "originating-ip": "129.222.187.243",
+              "campaigns": null,
+              "tags": [],
+              "message": {
+                "headers": {
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "message-id": "20260930135958.39361df11dba9c59@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "to": "api@nango.dev",
+                  "subject": "Direct test"
+                }
+              },
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "flags": {
+                "is-authenticated": true
+              },
+              "method": ""
+            },
+            {
+              "event": "rejected",
+              "reject": {
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+                "description": ""
+              },
+              "tags": [],
+              "flags": {
+                "is-authenticated": true
+              },
+              "timestamp": 1790875124.955052,
+              "campaigns": null,
+              "method": "",
+              "message": {
+                "headers": {
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "message-id": "20261001171844.fe8df6c3b94db206@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "to": "victor@nango.dev",
+                  "subject": "Nango registry test"
+                }
+              },
+              "storage": {},
+              "recipient": "",
+              "originating-ip": "44.247.133.183",
+              "id": "FaDClW6FTPCT1_ct15dlvw"
+            },
+            {
+              "flags": {
+                "is-authenticated": true
+              },
+              "campaigns": null,
+              "tags": [],
+              "id": "73lG_WAyQTqjQxX6HHc_Mg",
+              "storage": {},
+              "originating-ip": "52.26.211.56",
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "method": "",
+              "timestamp": 1790875268.1454208,
+              "event": "rejected",
+              "message": {
+                "headers": {
+                  "message-id": "20261001172108.73598b0205359d32@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "to": "clean-test@example.com",
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "subject": "Nango safe-send test"
+                }
+              },
+              "recipient": ""
+            },
+            {
+              "campaigns": null,
+              "recipient": "",
+              "method": "",
+              "event": "rejected",
+              "timestamp": 1790900733.8487732,
+              "storage": {},
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "originating-ip": "44.247.133.183",
+              "id": "0bImgkDyROOCPXhPtgtJpg",
+              "message": {
+                "headers": {
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "to": "clean-test@example.com",
+                  "message-id": "20261002002533.8cad9bf2fcae377f@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "subject": "Nango send-email-safely dryrun"
+                }
+              },
+              "flags": {
+                "is-authenticated": true
+              },
+              "tags": []
+            },
+            {
+              "campaigns": null,
+              "reject": {
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+                "description": ""
+              },
+              "flags": {
+                "is-authenticated": true
+              },
+              "tags": [],
+              "event": "rejected",
+              "timestamp": 1790900746.5330534,
+              "originating-ip": "54.69.127.183",
+              "id": "fxjXHNCVQJ2ijYjW2EU_Ow",
+              "method": "",
+              "storage": {},
+              "message": {
+                "headers": {
+                  "subject": "Nango send-email-safely dryrun",
+                  "to": "clean-test@example.com",
+                  "message-id": "20261002002546.e5ff5784c925be22@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org"
+                }
+              },
+              "recipient": ""
+            },
+            {
+              "flags": {
+                "is-authenticated": true
+              },
+              "campaigns": null,
+              "originating-ip": "44.247.133.183",
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "id": "fYmR9iEyT9CkDZ90Oj5zYw",
+              "method": "",
+              "storage": {},
+              "event": "rejected",
+              "message": {
+                "headers": {
+                  "message-id": "20261002002750.b9f29b09a42796b2@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "subject": "Nango send-email-safely dryrun",
+                  "to": "clean-test@example.com",
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org"
+                }
+              },
+              "timestamp": 1790900870.5571527,
+              "recipient": "",
+              "tags": []
+            },
+            {
+              "id": "mv89EwTnSSSxsUR1gCx_Ew",
+              "storage": {},
+              "recipient": "",
+              "flags": {
+                "is-authenticated": true
+              },
+              "campaigns": null,
+              "tags": [],
+              "method": "",
+              "timestamp": 1790900882.653286,
+              "message": {
+                "headers": {
+                  "to": "clean-test@example.com",
+                  "message-id": "20261002002802.2ca197eef3d5f26a@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "subject": "Nango send-email-safely dryrun",
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org"
+                }
+              },
+              "event": "rejected",
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "originating-ip": "44.247.133.183"
+            },
+            {
+              "campaigns": null,
+              "recipient": "",
+              "method": "",
+              "event": "rejected",
+              "timestamp": 1790900971.6554863,
+              "storage": {},
+              "reject": {
+                "description": "",
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients."
+              },
+              "originating-ip": "44.247.133.183",
+              "id": "42FejUn-SGC9Xym-pyz4lg",
+              "message": {
+                "headers": {
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "to": "clean-test@example.com",
+                  "message-id": "20261002002931.79bb3cfaf73c8e0c@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "subject": "Nango send-email-safely dryrun"
+                }
+              },
+              "flags": {
+                "is-authenticated": true
+              },
+              "tags": []
+            },
+            {
+              "originating-ip": "52.26.211.56",
+              "campaigns": null,
+              "storage": {},
+              "reject": {
+                "reason": "Sandbox subdomains are for test purposes only. Please add your own domain or add the address to your authorized recipients.",
+                "description": ""
+              },
+              "tags": [],
+              "id": "VT8ZOporQ9CSsAuLzg7JaA",
+              "recipient": "",
+              "method": "",
+              "timestamp": 1790900982.5049615,
+              "flags": {
+                "is-authenticated": true
+              },
+              "event": "rejected",
+              "message": {
+                "headers": {
+                  "to": "clean-test@example.com",
+                  "subject": "Nango send-email-safely dryrun",
+                  "from": "postmaster@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+                  "message-id": "20261002002942.7cd43b362d285764@sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org"
+                }
+              }
+            }
+          ],
+          "paging": {
+            "previous": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS43NjcrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTA5LTMwVDEzOjU5OjU4Ljc0NyswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5Ljc2NyswMDowMCJ9LCJfZG9jI2hQcGp4RFNsU1kyTVlFSmJGQzdNNmciLFsicCIsImYiXSxudWxsLFtbImFjY291bnQuaWQiLCI2NWQ4ODIyOGRmMzczZWNmYmU4YmRhMzciXSxbImRvbWFpbi5uYW1lIiwic2FuZGJveGZhOTY1NGI1N2VkMTRkNDBhOTQ2MDcxN2NmNTVkZTAzLm1haWxndW4ub3JnIl1dLDMwMF0=",
+            "next": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS43NjcrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjI5OjQyLjUwNCswMDowMCIsImEiOnRydWV9LCJfZG9jI1ZUOFpPcG9yUTlDU3NBdUx6ZzdKYUEiLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJzYW5kYm94ZmE5NjU0YjU3ZWQxNGQ0MGE5NDYwNzE3Y2Y1NWRlMDMubWFpbGd1bi5vcmciXV0sMzAwXQ==",
+            "first": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS43NjcrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5Ljc2NyswMDowMCIsImEiOnRydWV9LG51bGwsWyJmIl0sbnVsbCxbWyJhY2NvdW50LmlkIiwiNjVkODgyMjhkZjM3M2VjZmJlOGJkYTM3Il0sWyJkb21haW4ubmFtZSIsInNhbmRib3hmYTk2NTRiNTdlZDE0ZDQwYTk0NjA3MTdjZjU1ZGUwMy5tYWlsZ3VuLm9yZyJdXSwzMDBd",
+            "last": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS43NjcrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDM3LTEyLTMxVDIzOjU5OjU5Ljk5OSswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjQ5Ljc2NyswMDowMCJ9LG51bGwsWyJwIiwiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJzYW5kYm94ZmE5NjU0YjU3ZWQxNGQ0MGE5NDYwNzE3Y2Y1NWRlMDMubWFpbGd1bi5vcmciXV0sMzAwXQ=="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 01:51:50 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1790905961",
+          "cache-control": "no-store",
+          "server": "TwistedWeb/22.10.0"
+        },
+        "hash": "5bbeaf1098de15534d8cf1fc5dbf68052194f91f",
+        "request": {
+          "params": {
+            "ascending": "yes",
+            "begin": "0",
+            "limit": "300"
+          }
+        }
+      },
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo0OS43NjcrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjI5OjQyLjUwNCswMDowMCIsImEiOnRydWV9LCJfZG9jI1ZUOFpPcG9yUTlDU3NBdUx6ZzdKYUEiLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJzYW5kYm94ZmE5NjU0YjU3ZWQxNGQ0MGE5NDYwNzE3Y2Y1NWRlMDMubWFpbGd1bi5vcmciXV0sMzAwXQ==": {
+        "response": {
+          "items": [],
+          "paging": {
+            "previous": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo1MC4zOTIrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjI5OjQyLjUwNCswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjUwLjM5MiswMDowMCJ9LCJfZG9jI1ZUOFpPcG9yUTlDU3NBdUx6ZzdKYUEiLFsiZiIsInAiXSxudWxsLFtbImFjY291bnQuaWQiLCI2NWQ4ODIyOGRmMzczZWNmYmU4YmRhMzciXSxbImRvbWFpbi5uYW1lIiwic2FuZGJveGZhOTY1NGI1N2VkMTRkNDBhOTQ2MDcxN2NmNTVkZTAzLm1haWxndW4ub3JnIl1dLDMwMF0=",
+            "next": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo1MC4zOTIrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTEwLTAyVDAwOjI5OjQyLjUwNCswMDowMCIsImEiOnRydWV9LCJfZG9jI1ZUOFpPcG9yUTlDU3NBdUx6ZzdKYUEiLFsiZiJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJzYW5kYm94ZmE5NjU0YjU3ZWQxNGQ0MGE5NDYwNzE3Y2Y1NWRlMDMubWFpbGd1bi5vcmciXV0sMzAwXQ==",
+            "first": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo1MC4zOTIrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDI2LTA5LTI3VDAxOjUxOjUwLjM5MiswMDowMCIsImEiOnRydWV9LG51bGwsWyJmIl0sbnVsbCxbWyJhY2NvdW50LmlkIiwiNjVkODgyMjhkZjM3M2VjZmJlOGJkYTM3Il0sWyJkb21haW4ubmFtZSIsInNhbmRib3hmYTk2NTRiNTdlZDE0ZDQwYTk0NjA3MTdjZjU1ZGUwMy5tYWlsZ3VuLm9yZyJdXSwzMDBd",
+            "last": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/events/WzMseyJiIjoiMjAyNi0wOS0yN1QwMTo1MTo1MC4zOTIrMDA6MDAiLCJhIjp0cnVlfSx7ImIiOiIyMDM3LTEyLTMxVDIzOjU5OjU5Ljk5OSswMDowMCIsImUiOiIyMDI2LTA5LTI3VDAxOjUxOjUwLjM5MiswMDowMCJ9LG51bGwsWyJmIiwicCJdLG51bGwsW1siYWNjb3VudC5pZCIsIjY1ZDg4MjI4ZGYzNzNlY2ZiZThiZGEzNyJdLFsiZG9tYWluLm5hbWUiLCJzYW5kYm94ZmE5NjU0YjU3ZWQxNGQ0MGE5NDYwNzE3Y2Y1NWRlMDMubWFpbGd1bi5vcmciXV0sMzAwXQ=="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 01:51:50 GMT",
+          "content-type": "application/json",
+          "content-length": "1836",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1986",
+          "x-ratelimit-reset": "1790905961",
+          "cache-control": "no-store",
+          "server": "TwistedWeb/22.10.0",
+          "etag": "W/\"72c-vgSqH3f24K9emXrVs6yMHlBlA7c\""
+        },
+        "hash": "b0c997e07fa7dc5216ac487264bda8c91dc6d3ec",
+        "request": {}
+      }
+    }
+  }
+}
