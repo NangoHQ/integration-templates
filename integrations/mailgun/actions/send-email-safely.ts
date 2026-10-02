@@ -48,9 +48,9 @@ const OutputSchema = z
 
 const BounceRecordSchema = z.object({
     address: z.string(),
-    code: z.string(),
-    error: z.string(),
-    created_at: z.string()
+    code: z.union([z.string(), z.number()]).optional(),
+    error: z.string().optional(),
+    created_at: z.string().optional()
 });
 
 const ComplaintRecordSchema = z.object({
@@ -156,9 +156,9 @@ const action = createAction({
                 reason: 'bounced',
                 details: {
                     address: bounce.address,
-                    created_at: bounce.created_at,
-                    code: bounce.code,
-                    error: bounce.error
+                    ...(bounce.created_at !== undefined && { created_at: bounce.created_at }),
+                    ...(bounce.code !== undefined && { code: String(bounce.code) }),
+                    ...(bounce.error !== undefined && { error: bounce.error })
                 }
             };
         }

@@ -62,6 +62,12 @@ function cursorToEndpoint(cursor: string): string {
     return trimmed;
 }
 
+const BOUNCES_PATH_PATTERN = /^\/v3\/[^/]+\/bounces(?:\?.*)?$/;
+
+function isBouncesPath(endpoint: string): boolean {
+    return BOUNCES_PATH_PATTERN.test(endpoint);
+}
+
 /**
  * @tags: [read]
  * @tagReason: Performs only a read-only GET of a domain's bounce suppression entries and never mutates provider state.
@@ -77,6 +83,12 @@ const action = createAction({
         const cursor = input.cursor !== undefined ? input.cursor.trim() : '';
         const useCursor = cursor !== '';
         const endpoint = useCursor ? cursorToEndpoint(cursor) : `/v3/${encodeURIComponent(input.domain)}/bounces`;
+        if (useCursor && !isBouncesPath(endpoint)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'cursor must be a bounces pagination URL (/v3/<domain>/bounces).'
+            });
+        }
         const params: { limit?: number; term?: string } = useCursor
             ? {}
             : {

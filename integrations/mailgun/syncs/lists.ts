@@ -23,13 +23,13 @@ const MailingListSchema = z
     .describe('A Mailgun mailing list on the account.');
 
 const MailgunListSchema = z.object({
-    access_level: z.string(),
+    access_level: z.string().optional(),
     address: z.string(),
-    created_at: z.string(),
-    description: z.string(),
-    members_count: z.number(),
-    name: z.string(),
-    reply_preference: z.string().nullable()
+    created_at: z.string().optional(),
+    description: z.string().optional(),
+    members_count: z.number().optional(),
+    name: z.string().optional(),
+    reply_preference: z.string().nullable().optional()
 });
 
 const MailgunListsPageSchema = z.object({
@@ -79,12 +79,12 @@ const sync = createSync({
                 const lists = page.items.map((item) => ({
                     id: item.address,
                     address: item.address,
-                    name: item.name,
-                    description: item.description,
-                    access_level: item.access_level,
-                    ...(item.reply_preference !== null ? { reply_preference: item.reply_preference } : {}),
-                    members_count: item.members_count,
-                    created_at: item.created_at
+                    ...(item.name !== undefined && { name: item.name }),
+                    ...(item.description !== undefined && { description: item.description }),
+                    ...(item.access_level !== undefined && { access_level: item.access_level }),
+                    ...(item.reply_preference != null && { reply_preference: item.reply_preference }),
+                    ...(item.members_count !== undefined && { members_count: item.members_count }),
+                    ...(item.created_at !== undefined && { created_at: item.created_at })
                 }));
 
                 await nango.batchSave(lists, 'MailingList');

@@ -9,15 +9,15 @@ const InputSchema = z
             .number()
             .int()
             .min(1)
-            .max(10000)
+            .max(1000)
             .optional()
-            .describe('Maximum number of complaint entries to return in a single page (1-10000). The provider defaults to 100 when omitted.'),
+            .describe('Maximum number of complaint entries to return in a single page (1-1000). The provider defaults to 100 when omitted.'),
         cursor: z
             .string()
             .url()
             .optional()
             .describe(
-                'Full `next` page URL returned by a previous call, used to fetch the following page. When provided, `domain` and `limit` are ignored because the URL already encodes them. Omit for the first page.'
+                'Full `next` page URL returned by a previous call for this same domain, used to fetch the following page. Must be a complaints pagination URL for `domain`; `limit` is ignored because the URL already encodes it. Omit for the first page.'
             )
     })
     .describe('Input for listing spam-complaint suppression entries of a Mailgun domain');
@@ -78,6 +78,13 @@ const action = createAction({
 
         if (input.cursor) {
             const cursorUrl = new URL(input.cursor);
+            const expectedPath = `/v3/${encodeURIComponent(input.domain)}/complaints`;
+            if (cursorUrl.pathname !== expectedPath) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'cursor must be a complaints pagination URL for the requested domain.'
+                });
+            }
             endpoint = cursorUrl.pathname;
             params = Object.fromEntries(cursorUrl.searchParams);
         } else {

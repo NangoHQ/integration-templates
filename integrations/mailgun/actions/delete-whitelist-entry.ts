@@ -36,8 +36,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/allowlist/delete-v3--domainid--whitelists--value-
             endpoint: `/v3/${encodeURIComponent(input.domain)}/whitelists/${encodeURIComponent(input.address)}`,
-            // Deleting a path-addressed allowlist entry is idempotent: a repeated call changes no further state, so retries are safe.
-            retries: 3
+            // Not idempotent: retrying after a lost-but-successful delete would 404 and mask the original success.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.delete(config);

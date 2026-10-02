@@ -42,21 +42,20 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // Mailgun v3 requires form-encoded bodies, but the Nango proxy only forwards Content-Type when it is
-        // prefixed (Nango-Proxy-Content-Type) and re-serializes an empty form/JSON body into a 400 "Invalid JSON"
-        // upstream response, so the parameters must travel as query-string params (Mailgun accepts them
-        // equivalently). The SDK's HTTP client still sends a default form Content-Type with an empty body on
-        // body-less POSTs, which trips that same proxy behavior, so Content-Type is overridden to text/plain.
+        const body = new URLSearchParams({ address: input.address });
+        if (input.tag !== undefined) {
+            body.append('tag', input.tag);
+        }
+
+        // Mailgun's v3 API requires a form-urlencoded body for this endpoint, so the body is sent pre-encoded with an explicit form Content-Type.
         const config: ProxyConfiguration = {
+            method: 'POST',
             // https://documentation.mailgun.com/docs/mailgun/api-reference/
             endpoint: `/v3/${encodeURIComponent(input.domain)}/unsubscribes`,
-            params: {
-                address: input.address,
-                ...(input.tag !== undefined && { tag: input.tag })
-            },
             headers: {
-                'Content-Type': 'text/plain'
+                'Content-Type': 'application/x-www-form-urlencoded'
             },
+            data: body.toString(),
             // Safe to retry: re-adding the same address with the same tag is an upsert on Mailgun's side,
             // so a repeated call after a lost response leaves the suppression table in the same state.
             retries: 3

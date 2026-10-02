@@ -35,8 +35,9 @@ const action = createAction({
         // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/complaints/delete-v3--domainid--complaints--address-
         const response = await nango.delete({
             endpoint: `/v3/${encodeURIComponent(input.domain)}/complaints/${encodeURIComponent(input.address)}`,
-            // Removing a suppression entry is naturally idempotent: repeating the delete cannot repeat the mutation.
-            retries: 3
+            // Not idempotent: retrying after a lost-but-successful delete would 404 and mask the original success.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = DeleteComplaintResponseSchema.parse(response.data);

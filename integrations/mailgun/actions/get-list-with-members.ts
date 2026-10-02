@@ -17,7 +17,7 @@ const InputSchema = z
 const ListSchema = z
     .object({
         address: z.string().describe('Email-style address identifying the mailing list.'),
-        name: z.string().describe('Human-readable name of the mailing list.'),
+        name: z.string().optional().describe('Human-readable name of the mailing list. Omitted when Mailgun returns none.'),
         access_level: z.string().describe('Who can read and post to the list (e.g. "readonly", "members", "everyone").'),
         created_at: z.string().describe('Creation timestamp of the list in RFC 2822 format.'),
         description: z.string().nullable().optional().describe('Description of the mailing list, or null when unset.'),
@@ -33,7 +33,7 @@ const ListSchema = z
 const MemberSchema = z
     .object({
         address: z.string().describe('Email address of the list member.'),
-        name: z.string().describe('Full name of the member, or an empty string when unset.'),
+        name: z.string().optional().describe('Full name of the member, when set.'),
         subscribed: z.boolean().describe('Whether the member is subscribed to the list.'),
         vars: z.record(z.string(), z.unknown()).optional().describe('Custom JSON variables attached to the member.')
     })
@@ -42,16 +42,41 @@ const MemberSchema = z
 const OutputSchema = z
     .object({
         list: ListSchema,
-        members: z.array(MemberSchema).describe('Full roster of the mailing list, assembled across all fetched member pages.')
+        members: z.array(MemberSchema).describe('Roster of the mailing list, assembled across all fetched member pages.'),
+        truncated: z
+            .boolean()
+            .optional()
+            .describe(
+                'True when more members exist beyond the returned roster because the default page cap was reached without an explicit page_limit. Present only when truncated.'
+            )
     })
     .describe('A mailing list combined with its member roster.');
 
+// Provider payload schemas accept the nullable shapes Mailgun actually returns; the public
+// ListSchema/MemberSchema above keep `name` as optional-only, so null is normalized away below.
+const ProviderListSchema = z.object({
+    address: z.string(),
+    name: z.string().nullish(),
+    access_level: z.string(),
+    created_at: z.string(),
+    description: z.string().nullish(),
+    members_count: z.number(),
+    reply_preference: z.string().nullish()
+});
+
+const ProviderMemberSchema = z.object({
+    address: z.string(),
+    name: z.string().nullish(),
+    subscribed: z.boolean(),
+    vars: z.record(z.string(), z.unknown()).optional()
+});
+
 const ListResponseSchema = z.object({
-    list: ListSchema
+    list: ProviderListSchema
 });
 
 const MembersPageSchema = z.object({
-    items: z.array(MemberSchema),
+    items: z.array(ProviderMemberSchema),
     paging: z.object({
         first: z.url().optional(),
         last: z.url().optional(),
@@ -59,6 +84,12 @@ const MembersPageSchema = z.object({
         previous: z.url().optional()
     })
 });
+
+// Bound on pages fetched when the caller omits page_limit, so a very large mailing list cannot
+// grow the action output past Nango's 2 MB limit. At 100 members/page this caps the default
+// roster at 5000 members; callers needing more should pass an explicit page_limit and follow up
+// with list-list-members for the remainder.
+const DEFAULT_MAX_PAGES = 50;
 
 /**
  * @tags: [read]
@@ -80,14 +111,28 @@ const action = createAction({
             retries: 3
         };
         const listResponse = await nango.get(listConfig);
-        const { list } = ListResponseSchema.parse(listResponse.data);
+        const { list: providerList } = ListResponseSchema.parse(listResponse.data);
+        const list: z.infer<typeof ListSchema> = {
+            address: providerList.address,
+            ...(providerList.name != null && { name: providerList.name }),
+            access_level: providerList.access_level,
+            created_at: providerList.created_at,
+            ...(providerList.description != null && { description: providerList.description }),
+            members_count: providerList.members_count,
+            ...(providerList.reply_preference != null && { reply_preference: providerList.reply_preference })
+        };
+
+        // An explicit page_limit is honored exactly (even past the default cap); omitting it
+        // bounds the walk to DEFAULT_MAX_PAGES so the roster cannot grow past the action output
+        // size limit, surfacing `truncated: true` instead.
+        const effectivePageLimit = input.page_limit ?? DEFAULT_MAX_PAGES;
 
         const members: z.infer<typeof MemberSchema>[] = [];
         let nextEndpoint: string | undefined = `/v3/lists/${encodedListAddress}/members/pages`;
         let nextParams: Record<string, string | number> = { limit: 100 };
         let pagesFetched = 0;
 
-        while (nextEndpoint !== undefined && (input.page_limit === undefined || pagesFetched < input.page_limit)) {
+        while (nextEndpoint !== undefined && pagesFetched < effectivePageLimit) {
             const membersConfig: ProxyConfiguration = {
                 // https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Mailing-Lists/#tag/Mailing-Lists/operation/GET-v3-lists--list_address--members-pages
                 endpoint: nextEndpoint,
@@ -97,7 +142,14 @@ const action = createAction({
             const membersResponse = await nango.get(membersConfig);
             const page = MembersPageSchema.parse(membersResponse.data);
 
-            members.push(...page.items);
+            for (const member of page.items) {
+                members.push({
+                    address: member.address,
+                    ...(member.name != null && { name: member.name }),
+                    subscribed: member.subscribed,
+                    ...(member.vars !== undefined && { vars: member.vars })
+                });
+            }
             pagesFetched += 1;
 
             if (page.items.length === 0 || page.paging.next === undefined) {
@@ -109,7 +161,9 @@ const action = createAction({
             }
         }
 
-        return { list, members };
+        const truncated = input.page_limit === undefined && nextEndpoint !== undefined;
+
+        return { list, members, ...(truncated && { truncated }) };
     }
 });
 

@@ -21,9 +21,6 @@
           "created_at": "Fri, 02 Oct 2026 00:31:02 UTC"
         }
       ]
-    },
-    "batchDelete": {
-      "Complaint": []
     }
   },
   "api": {

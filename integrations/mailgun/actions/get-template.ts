@@ -11,7 +11,7 @@ const InputSchema = z
 
 const ProviderTemplateSchema = z.object({
     name: z.string(),
-    description: z.string().optional(),
+    description: z.string().nullish(),
     createdAt: z.string(),
     id: z.string(),
     domain: z.string()
@@ -54,7 +54,7 @@ const action = createAction({
 
         return {
             name: template.name,
-            ...(template.description !== undefined && { description: template.description }),
+            ...(template.description != null && { description: template.description }),
             createdAt: template.createdAt,
             id: template.id,
             domain: template.domain

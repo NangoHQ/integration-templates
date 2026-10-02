@@ -68,7 +68,7 @@ const CheckpointSchema = z.object({
     domain_timestamps: z.string()
 });
 
-const DomainTimestampsSchema = z.json().pipe(z.record(z.string(), z.number()));
+const DomainTimestampsSchema = z.record(z.string(), z.number());
 
 // Raw Mailgun event payload. Events are loosely structured JSON documents whose exact shape depends on the
 // event type; `id`, `event` and `timestamp` are the only fields guaranteed on every event. Only the fields
@@ -143,7 +143,18 @@ function decodeDomainTimestamps(checkpoint: z.infer<typeof CheckpointSchema> | n
     if (!checkpoint) {
         return {};
     }
-    const parsed = DomainTimestampsSchema.safeParse(checkpoint.domain_timestamps);
+    // The checkpoint stores a JSON-encoded string (see CheckpointSchema above), so it must be
+    // parsed before validating its shape; validating the raw string against a record schema
+    // would always fail and silently discard every domain's watermark.
+    let decoded: unknown;
+    // @allowTryCatch: a corrupt or unparseable checkpoint must not crash the run; falling back
+    // to an empty watermark map is a safe, self-healing default (every domain re-baselines).
+    try {
+        decoded = JSON.parse(checkpoint.domain_timestamps);
+    } catch {
+        return {};
+    }
+    const parsed = DomainTimestampsSchema.safeParse(decoded);
     return parsed.success ? parsed.data : {};
 }
 
@@ -208,12 +219,27 @@ const sync = createSync({
         const syncEnd = Math.floor(Date.now() / 1000);
 
         // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/domains/get-v3-domains
-        const domainsResponse = await nango.get({
-            endpoint: '/v3/domains',
-            params: { limit: 1000 },
-            retries: 3
-        });
-        const domains = DomainsResponseSchema.parse(domainsResponse.data).items.map((domain) => domain.name);
+        // Paginated to completion: a single page caps at 1000 domains, which would silently drop
+        // every later domain's events for an account with more domains than that.
+        const domains: string[] = [];
+        let skip = 0;
+        let totalDomainCount: number | undefined;
+        while (totalDomainCount === undefined || skip < totalDomainCount) {
+            const domainsResponse = await nango.get({
+                endpoint: '/v3/domains',
+                params: { limit: 1000, skip },
+                retries: 3
+            });
+            const page = DomainsResponseSchema.parse(domainsResponse.data);
+            totalDomainCount = page.total_count;
+            if (page.items.length === 0) {
+                break;
+            }
+            for (const domain of page.items) {
+                domains.push(domain.name);
+            }
+            skip += page.items.length;
+        }
 
         for (const domain of domains) {
             const watermark = domainTimestamps[domain];

@@ -43,12 +43,7 @@
         },
         "hash": "9afe8571d52fe11c97edd831671b4b2d81a198a9",
         "request": {
-          "params": {
-            "address": "nango-unsub-test@example.com"
-          },
-          "headers": {
-            "Content-Type": "text/plain"
-          }
+          "data": "address=nango-unsub-test%40example.com"
         }
       }
     }

@@ -48,12 +48,7 @@
         },
         "hash": "950f9145fb71314f8a7b0758b270b9097d210e9d",
         "request": {
-          "params": {
-            "from": "Nango Integrations <postmaster@xn--zeitfr-7ya.xyz>",
-            "subject": "Nango send-message dryrun test",
-            "text": "This is a live dryrun test of the Nango Mailgun send-message action.",
-            "to": "victor@nango.dev"
-          }
+          "data": "from=Nango+Integrations+%3Cpostmaster%40xn--zeitfr-7ya.xyz%3E&to=victor%40nango.dev&subject=Nango+send-message+dryrun+test&text=This+is+a+live+dryrun+test+of+the+Nango+Mailgun+send-message+action."
         }
       }
     }

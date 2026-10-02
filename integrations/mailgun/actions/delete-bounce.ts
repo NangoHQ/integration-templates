@@ -35,10 +35,10 @@ const action = createAction({
         // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/bounces/delete-v3--domainid--bounces--address-
         const response = await nango.delete({
             endpoint: `/v3/${encodeURIComponent(input.domain)}/bounces/${encodeURIComponent(input.address)}`,
-            // A repeat of this delete cannot duplicate the mutation (Mailgun answers 404 with no state change once the
-            // address is absent), but retries are kept to the minimum the integration linter allows so a retry after a
-            // lost response is unlikely to remove a new bounce record re-created for the address in the meantime.
-            retries: 1
+            // Not idempotent: retrying after a lost-but-successful delete would 404 and mask the original success,
+            // and could even remove a new bounce record re-created for the address in the meantime.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = DeleteBounceResponseSchema.parse(response.data);

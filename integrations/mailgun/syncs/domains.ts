@@ -69,8 +69,6 @@ const sync = createSync({
         // saved offset is therefore intentionally discarded and never persisted mid-scan.
         await nango.getCheckpoint();
 
-        await nango.trackDeletesStart('Domain');
-
         const proxyConfig: ProxyConfiguration = {
             // https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Domains/#tag/Domains/operation/GET-v3-domains
             endpoint: '/v3/domains',
@@ -86,17 +84,39 @@ const sync = createSync({
             retries: 3
         };
 
-        for await (const batch of nango.paginate<unknown>(proxyConfig)) {
+        // The delete-tracking window is opened only after the first page has been fetched and
+        // validated, so a request or parse failure before any data is confirmed leaves the
+        // window closed instead of open indefinitely. trackDeletesStart/trackDeletesEnd may each
+        // only appear once in this function, so the first page is pulled manually ahead of the
+        // loop that pulls the rest, rather than via a second call site inside/after a for-await.
+        const pageIterator = nango.paginate<unknown>(proxyConfig);
+
+        function parsePage(batch: unknown[]): Domain[] {
             const domains: Domain[] = [];
             for (const item of batch) {
                 // Throw on parse failure: silently skipping a record inside a delete-tracked scan
                 // would cause trackDeletesEnd() to falsely mark it as deleted.
                 domains.push(MailgunDomainSchema.parse(item));
             }
+            return domains;
+        }
 
+        const firstResult = await pageIterator.next();
+        const firstDomains = firstResult.done ? [] : parsePage(firstResult.value);
+
+        await nango.trackDeletesStart('Domain');
+
+        if (firstDomains.length > 0) {
+            await nango.batchSave(firstDomains, 'Domain');
+        }
+
+        let nextResult = await pageIterator.next();
+        while (!nextResult.done) {
+            const domains = parsePage(nextResult.value);
             if (domains.length > 0) {
                 await nango.batchSave(domains, 'Domain');
             }
+            nextResult = await pageIterator.next();
         }
 
         // The full domain list has been walked: clear any stale pagination state, then close the

@@ -17,12 +17,6 @@ const UnsubscribeSchema = z
     })
     .describe('A Mailgun unsubscribe suppression entry for a sending domain');
 
-const CheckpointSchema = z.object({
-    created_after: z
-        .string()
-        .describe('ISO 8601 high-water mark of the newest unsubscribe entry synced by the previous run; strictly older entries are skipped on the next run')
-});
-
 // Internal schemas used only to parse provider responses.
 const MailgunDomainSchema = z.object({
     name: z.string()
@@ -40,30 +34,20 @@ const MailgunUnsubscribesPageSchema = z.object({
 
 const PAGE_LIMIT = 100;
 
-function parseCheckpointMs(createdAfter: string | undefined): number | undefined {
-    if (!createdAfter) {
-        return undefined;
-    }
-    const ms = Date.parse(createdAfter);
-    // A corrupt checkpoint must not crash the run; fall back to a full re-walk.
-    return Number.isNaN(ms) ? undefined : ms;
-}
-
 const sync = createSync({
     description: 'Sync domain-wide unsubscribe suppression entries, fanned out across all Mailgun domains',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         Unsubscribe: UnsubscribeSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        const checkpointMs = parseCheckpointMs(checkpoint?.created_after);
-        let newestMs = checkpointMs;
-
+        // Full refresh with deletion detection: the unsubscribes endpoint has no changed-since
+        // filter, so every run re-walks every domain's full unsubscribe list (batchSave upserts
+        // by id, so this is safe) and trackDeletesStart/trackDeletesEnd detects suppressions
+        // removed via delete-unsubscribe.
         const domainsConfig: ProxyConfiguration = {
             // https://documentation.mailgun.com/ — GET /v3/domains (list domains)
             endpoint: '/v3/domains',
@@ -78,76 +62,59 @@ const sync = createSync({
             retries: 3
         };
 
+        // Prerequisite: enumerate every domain before opening the delete-tracking window, so a
+        // failure here cannot cause trackDeletesEnd to falsely mark unsubscribes as deleted.
+        const domains: z.infer<typeof MailgunDomainSchema>[] = [];
         for await (const domainsPage of nango.paginate<unknown>(domainsConfig)) {
-            const domains = z.array(MailgunDomainSchema).parse(domainsPage);
+            domains.push(...z.array(MailgunDomainSchema).parse(domainsPage));
+        }
 
-            for (const domain of domains) {
-                // Mailgun paginates suppressions with address-keyed `paging` URLs whose `next`
-                // link never disappears (the final page points back at the plain endpoint), so
-                // nango.paginate link mode would loop forever. Pages are walked manually
-                // instead: request `page=next&address=<last address seen>` until a short page
-                // (< limit) comes back.
-                let cursor: string | undefined;
-                let hasMore = true;
-                while (hasMore) {
-                    // https://documentation.mailgun.com/ — GET /v3/{domain}/unsubscribes (list unsubscribe suppression entries)
-                    const response = await nango.get({
-                        endpoint: `/v3/${encodeURIComponent(domain.name)}/unsubscribes`,
-                        params: {
-                            limit: PAGE_LIMIT,
-                            ...(cursor ? { page: 'next', address: cursor } : {})
-                        },
-                        retries: 3
-                    });
-                    const { items } = MailgunUnsubscribesPageSchema.parse(response.data);
+        await nango.trackDeletesStart('Unsubscribe');
 
-                    const records: z.infer<typeof UnsubscribeSchema>[] = [];
-                    for (const item of items) {
-                        const createdMs = Date.parse(item.created_at);
-                        if (Number.isNaN(createdMs)) {
-                            throw new Error(`Mailgun unsubscribe entry ${item.address} has an unparseable created_at: ${item.created_at}`);
-                        }
-                        if (newestMs === undefined || createdMs > newestMs) {
-                            newestMs = createdMs;
-                        }
-                        // Skip entries already synced by a previous run. Entries at the exact
-                        // watermark are re-saved (idempotent upsert) so an entry created in the
-                        // same second as the watermark is never missed after a crash.
-                        if (checkpointMs !== undefined && createdMs < checkpointMs) {
-                            continue;
-                        }
-                        records.push({
-                            id: `${domain.name}/${item.address}`,
-                            address: item.address,
-                            domain: domain.name,
-                            tags: item.tags ?? ['*'],
-                            created_at: item.created_at
-                        });
-                    }
+        for (const domain of domains) {
+            // Mailgun paginates suppressions with address-keyed `paging` URLs whose `next`
+            // link never disappears (the final page points back at the plain endpoint), so
+            // nango.paginate link mode would loop forever. Pages are walked manually
+            // instead: request `page=next&address=<last address seen>` until a short page
+            // (< limit) comes back.
+            let cursor: string | undefined;
+            let hasMore = true;
+            while (hasMore) {
+                // https://documentation.mailgun.com/ — GET /v3/{domain}/unsubscribes (list unsubscribe suppression entries)
+                const response = await nango.get({
+                    endpoint: `/v3/${encodeURIComponent(domain.name)}/unsubscribes`,
+                    params: {
+                        limit: PAGE_LIMIT,
+                        ...(cursor ? { page: 'next', address: cursor } : {})
+                    },
+                    retries: 3
+                });
+                const { items } = MailgunUnsubscribesPageSchema.parse(response.data);
 
-                    if (records.length > 0) {
-                        await nango.batchSave(records, 'Unsubscribe');
-                    }
+                const records: z.infer<typeof UnsubscribeSchema>[] = items.map((item) => ({
+                    id: `${domain.name}/${item.address}`,
+                    address: item.address,
+                    domain: domain.name,
+                    tags: item.tags ?? ['*'],
+                    created_at: item.created_at
+                }));
 
-                    const lastItem = items[items.length - 1];
-                    if (items.length < PAGE_LIMIT || !lastItem) {
-                        hasMore = false;
-                    } else {
-                        cursor = lastItem.address;
-                    }
+                if (records.length > 0) {
+                    await nango.batchSave(records, 'Unsubscribe');
+                }
+
+                const lastItem = items[items.length - 1];
+                if (items.length < PAGE_LIMIT || !lastItem) {
+                    hasMore = false;
+                } else {
+                    cursor = lastItem.address;
                 }
             }
         }
 
-        // Persist the high-water mark only once every domain has been fully walked. Pages are
-        // ordered by address, not by created_at, so a mid-run checkpoint could permanently skip
-        // never-saved entries of unprocessed domains after a crash; a full re-walk is safe
-        // because batchSave upserts by id.
-        if (newestMs !== undefined && (checkpointMs === undefined || newestMs > checkpointMs)) {
-            await nango.saveCheckpoint({
-                created_after: new Date(newestMs).toISOString()
-            });
-        }
+        // Closed once every domain has been fully scanned, so a suppression entry on a
+        // not-yet-processed domain is never falsely marked as deleted.
+        await nango.trackDeletesEnd('Unsubscribe');
     }
 });
 

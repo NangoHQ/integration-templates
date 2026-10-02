@@ -39,7 +39,7 @@ const OutputSchema = z
 
 const MailgunTemplateSchema = z.object({
     name: z.string(),
-    description: z.string().optional(),
+    description: z.string().nullish(),
     createdAt: z.string().optional(),
     createdBy: z.string().optional(),
     id: z.string().optional(),
@@ -86,7 +86,7 @@ const action = createAction({
 
         const items = (parsed.items ?? []).map((template) => ({
             name: template.name,
-            ...(template.description !== undefined && { description: template.description }),
+            ...(template.description != null && { description: template.description }),
             ...(template.createdAt !== undefined && { createdAt: template.createdAt }),
             ...(template.createdBy !== undefined && { createdBy: template.createdBy }),
             ...(template.id !== undefined && { id: template.id }),

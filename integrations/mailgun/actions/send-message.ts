@@ -56,20 +56,30 @@ const action = createAction({
             });
         }
 
+        const body = new URLSearchParams({ from: input.from, to: input.to, subject: input.subject });
+        if (input.text !== undefined) {
+            body.append('text', input.text);
+        }
+        if (input.html !== undefined) {
+            body.append('html', input.html);
+        }
+        if (input.cc !== undefined) {
+            body.append('cc', input.cc);
+        }
+        if (input.bcc !== undefined) {
+            body.append('bcc', input.bcc);
+        }
+
+        // Mailgun's v3 API requires a form-urlencoded body for this endpoint, so the body is sent pre-encoded with an explicit form Content-Type.
         const config: ProxyConfiguration = {
+            method: 'POST',
             // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/messages/post-v3--domain-name--messages
             endpoint: `/v3/${encodeURIComponent(input.domain)}/messages`,
-            // Mailgun requires a form-encoded body, which the Nango proxy does not forward correctly; this endpoint accepts the same fields as query params, which sidesteps the body-serialization issue.
-            params: {
-                from: input.from,
-                to: input.to,
-                subject: input.subject,
-                ...(input.text !== undefined && { text: input.text }),
-                ...(input.html !== undefined && { html: input.html }),
-                ...(input.cc !== undefined && { cc: input.cc }),
-                ...(input.bcc !== undefined && { bcc: input.bcc })
-            },
-            retries: 10 // Sending is not idempotent: a retry after a lost response would deliver duplicate emails to the recipient.
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            data: body.toString(),
+            // Sending is not idempotent: a retry after a lost response would deliver duplicate emails to the recipient.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.post(config);

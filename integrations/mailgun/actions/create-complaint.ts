@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+import type { ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
@@ -32,21 +33,21 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/complaints/post-v3--domainid--complaints
-        // Params go in the query string (Mailgun's v3 API requires form-encoded params, and the Nango proxy
-        // mis-serializes plain JS object bodies as JSON). The form Content-Type header is forwarded to Mailgun
-        // and prevents the proxy from sending the empty body as JSON, which Mailgun rejects with "Invalid JSON".
-        const response = await nango.post({
+        const body = new URLSearchParams({ address: input.address });
+
+        // Mailgun's v3 API requires a form-urlencoded body for this endpoint, so the body is sent pre-encoded with an explicit form Content-Type.
+        const config: ProxyConfiguration = {
+            method: 'POST',
+            // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/complaints/post-v3--domainid--complaints
             endpoint: `/v3/${encodeURIComponent(input.domain)}/complaints`,
-            params: {
-                address: input.address
-            },
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
+            data: body.toString(),
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- create-style POST with no idempotency key; a retry after a lost response would repeat the mutation
             retries: 0
-        });
+        };
+        const response = await nango.post(config);
 
         const complaint = ProviderComplaintSchema.parse(response.data);
 

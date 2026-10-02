@@ -42,7 +42,9 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://documentation.mailgun.com/ (DELETE /v3/{domain}/templates/{name})
             endpoint: `/v3/${encodeURIComponent(input.domain)}/templates/${encodeURIComponent(input.name)}`,
-            retries: 3
+            // Not idempotent: retrying after a lost-but-successful delete would 404 and mask the original success.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         const response = await nango.delete(config);
 

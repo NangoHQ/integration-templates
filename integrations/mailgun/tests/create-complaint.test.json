@@ -43,9 +43,7 @@
         },
         "hash": "64b5516c2c8b92ed03acfdbe98c560e51cb9064d",
         "request": {
-          "params": {
-            "address": "nango-create-complaint-test@example.com"
-          }
+          "data": "address=nango-create-complaint-test%40example.com"
         }
       }
     }

@@ -23,7 +23,7 @@ const OutputSchema = z
     .describe("Result of checking an address against a domain's spam-complaint suppression list.");
 
 const ComplaintSchema = z.object({
-    address: z.string().optional(),
+    address: z.string(),
     created_at: z.string().optional()
 });
 
@@ -59,11 +59,14 @@ const action = createAction({
         // @allowTryCatch: Mailgun answers a plain 404 when the address has no complaints on this domain; that is an expected outcome mapped to on_complaint_list: false, not a failure.
         try {
             const response = await nango.get(config);
+            if (response.status === 404) {
+                return { on_complaint_list: false };
+            }
             const complaint = ComplaintSchema.parse(response.data);
 
             return {
                 on_complaint_list: true,
-                ...(complaint.address !== undefined && { address: complaint.address }),
+                address: complaint.address,
                 ...(complaint.created_at !== undefined && { created_at: complaint.created_at })
             };
         } catch (error: unknown) {

@@ -26,7 +26,7 @@ const OutputSchema = z
 
 const ProviderBounceSchema = z.object({
     address: z.string(),
-    code: z.string().optional(),
+    code: z.union([z.string(), z.number()]).optional(),
     error: z.string().optional(),
     created_at: z.string().optional()
 });
@@ -62,12 +62,18 @@ const action = createAction({
                 retries: 3
             };
             const response = await nango.get(config);
+            if (response.status === 404) {
+                return {
+                    bounced: false,
+                    address: input.address
+                };
+            }
             const bounce = ProviderBounceSchema.parse(response.data);
 
             return {
                 bounced: true,
                 address: bounce.address,
-                ...(bounce.code !== undefined && { code: bounce.code }),
+                ...(bounce.code !== undefined && { code: String(bounce.code) }),
                 ...(bounce.error !== undefined && { error: bounce.error }),
                 ...(bounce.created_at !== undefined && { created_at: bounce.created_at })
             };

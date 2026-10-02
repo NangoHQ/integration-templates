@@ -23,14 +23,6 @@ const ListMemberSchema = z
     })
     .describe('A member of a Mailgun mailing list, tagged with the address of its parent list');
 
-const CheckpointSchema = z.object({
-    last_full_sync_at: z
-        .string()
-        .describe(
-            'ISO 8601 timestamp of when the last full refresh across every mailing list completed; written once per successful run and never used to skip or resume pages'
-        )
-});
-
 // Internal schemas used only to parse provider responses; descriptions intentionally omitted.
 const MailingListItemSchema = z.object({
     address: z.string()
@@ -38,7 +30,7 @@ const MailingListItemSchema = z.object({
 
 const MemberItemSchema = z.object({
     address: z.string(),
-    name: z.string().optional(),
+    name: z.string().nullish(),
     subscribed: z.boolean().optional(),
     vars: z.record(z.string(), z.unknown()).optional()
 });
@@ -112,7 +104,6 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
-    checkpoint: CheckpointSchema,
     models: {
         ListMember: ListMemberSchema
     },
@@ -120,13 +111,7 @@ const sync = createSync({
     exec: async (nango) => {
         // Full refresh per list on every run: member objects carry no updated-at field and the
         // members endpoint exposes no modified-since filter, so there is no change source to
-        // checkpoint against. This run is delete-tracked, therefore it always starts from page
-        // 1, never restores a cursor from the checkpoint, and persists progress exactly once,
-        // after the whole fan-out has completed successfully.
-        const checkpoint = await nango.getCheckpoint();
-        if (checkpoint?.last_full_sync_at) {
-            await nango.log(`Starting mailing list member full refresh; last completed at ${checkpoint.last_full_sync_at}`);
-        }
+        // checkpoint against. This run is delete-tracked, therefore it always starts from page 1.
 
         // Prerequisite: enumerate every mailing list before opening the delete-tracking window,
         // so a failure in this step cannot cause members to be falsely marked as deleted.
@@ -146,7 +131,7 @@ const sync = createSync({
                     id: `${listAddress}/${member.address}`,
                     list_address: listAddress,
                     address: member.address,
-                    ...(member.name !== undefined && { name: member.name }),
+                    ...(member.name != null && { name: member.name }),
                     ...(member.subscribed !== undefined && { subscribed: member.subscribed }),
                     ...(member.vars !== undefined && { vars: member.vars })
                 }));
@@ -157,9 +142,7 @@ const sync = createSync({
             }
         }
 
-        // Persist progress only now that the full scan has completed, then close the
-        // delete-tracking window opened above.
-        await nango.saveCheckpoint({ last_full_sync_at: new Date().toISOString() });
+        // Close the delete-tracking window opened above now that the full scan has completed.
         await nango.trackDeletesEnd('ListMember');
     }
 });
