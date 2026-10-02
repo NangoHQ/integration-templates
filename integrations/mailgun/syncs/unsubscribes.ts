@@ -34,6 +34,56 @@ const MailgunUnsubscribesPageSchema = z.object({
 
 const PAGE_LIMIT = 100;
 
+/**
+ * Yields every non-empty page of unsubscribes across every domain, as already-mapped Unsubscribe
+ * records. Pulling this out as a generator lets the caller peel off and validate the very first
+ * page before opening the delete-tracking window, while still sharing the same fetch/parse/map
+ * logic for every subsequent page.
+ */
+async function* fetchAllUnsubscribePages(
+    nango: NangoSyncLocal,
+    domains: z.infer<typeof MailgunDomainSchema>[]
+): AsyncGenerator<z.infer<typeof UnsubscribeSchema>[]> {
+    for (const domain of domains) {
+        // Mailgun paginates suppressions with address-keyed `paging` URLs whose `next`
+        // link never disappears (the final page points back at the plain endpoint), so
+        // nango.paginate link mode would loop forever. Pages are walked manually
+        // instead: request `page=next&address=<last address seen>` until a short page
+        // (< limit) comes back.
+        let cursor: string | undefined;
+        let hasMore = true;
+        while (hasMore) {
+            // https://documentation.mailgun.com/ — GET /v3/{domain}/unsubscribes (list unsubscribe suppression entries)
+            const response = await nango.get({
+                endpoint: `/v3/${encodeURIComponent(domain.name)}/unsubscribes`,
+                params: {
+                    limit: PAGE_LIMIT,
+                    ...(cursor ? { page: 'next', address: cursor } : {})
+                },
+                retries: 3
+            });
+            const { items } = MailgunUnsubscribesPageSchema.parse(response.data);
+
+            if (items.length > 0) {
+                yield items.map((item) => ({
+                    id: `${domain.name}/${item.address}`,
+                    address: item.address,
+                    domain: domain.name,
+                    tags: item.tags ?? ['*'],
+                    created_at: item.created_at
+                }));
+            }
+
+            const lastItem = items[items.length - 1];
+            if (items.length < PAGE_LIMIT || !lastItem) {
+                hasMore = false;
+            } else {
+                cursor = lastItem.address;
+            }
+        }
+    }
+}
+
 const sync = createSync({
     description: 'Sync domain-wide unsubscribe suppression entries, fanned out across all Mailgun domains',
     version: '1.0.0',
@@ -69,47 +119,26 @@ const sync = createSync({
             domains.push(...z.array(MailgunDomainSchema).parse(domainsPage));
         }
 
+        // trackDeletesStart/trackDeletesEnd may each only appear once in this function, so the
+        // first unsubscribe page (across all domains) is fetched and validated ahead of the loop
+        // that drains the rest, rather than via a second call site. This way a request or Zod
+        // failure on the very first page aborts before the window ever opens, instead of leaving
+        // an opened window unclosed.
+        const pageIterator = fetchAllUnsubscribePages(nango, domains);
+        const first = await pageIterator.next();
+
         await nango.trackDeletesStart('Unsubscribe');
 
-        for (const domain of domains) {
-            // Mailgun paginates suppressions with address-keyed `paging` URLs whose `next`
-            // link never disappears (the final page points back at the plain endpoint), so
-            // nango.paginate link mode would loop forever. Pages are walked manually
-            // instead: request `page=next&address=<last address seen>` until a short page
-            // (< limit) comes back.
-            let cursor: string | undefined;
-            let hasMore = true;
-            while (hasMore) {
-                // https://documentation.mailgun.com/ — GET /v3/{domain}/unsubscribes (list unsubscribe suppression entries)
-                const response = await nango.get({
-                    endpoint: `/v3/${encodeURIComponent(domain.name)}/unsubscribes`,
-                    params: {
-                        limit: PAGE_LIMIT,
-                        ...(cursor ? { page: 'next', address: cursor } : {})
-                    },
-                    retries: 3
-                });
-                const { items } = MailgunUnsubscribesPageSchema.parse(response.data);
+        if (!first.done && first.value.length > 0) {
+            await nango.batchSave(first.value, 'Unsubscribe');
+        }
 
-                const records: z.infer<typeof UnsubscribeSchema>[] = items.map((item) => ({
-                    id: `${domain.name}/${item.address}`,
-                    address: item.address,
-                    domain: domain.name,
-                    tags: item.tags ?? ['*'],
-                    created_at: item.created_at
-                }));
-
-                if (records.length > 0) {
-                    await nango.batchSave(records, 'Unsubscribe');
-                }
-
-                const lastItem = items[items.length - 1];
-                if (items.length < PAGE_LIMIT || !lastItem) {
-                    hasMore = false;
-                } else {
-                    cursor = lastItem.address;
-                }
+        let next = await pageIterator.next();
+        while (!next.done) {
+            if (next.value.length > 0) {
+                await nango.batchSave(next.value, 'Unsubscribe');
             }
+            next = await pageIterator.next();
         }
 
         // Closed once every domain has been fully scanned, so a suppression entry on a

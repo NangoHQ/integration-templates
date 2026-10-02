@@ -48,7 +48,10 @@ const MailgunDomainSchema = z.object({
     message_ttl: z.number().optional()
 });
 
-type Domain = z.infer<typeof DomainSchema>;
+const MailgunDomainsPageSchema = z.object({
+    total_count: z.number(),
+    items: z.array(MailgunDomainSchema)
+});
 
 const sync = createSync({
     description: 'Sync all sending domains on the Mailgun account.',
@@ -69,54 +72,55 @@ const sync = createSync({
         // saved offset is therefore intentionally discarded and never persisted mid-scan.
         await nango.getCheckpoint();
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Domains/#tag/Domains/operation/GET-v3-domains
-            endpoint: '/v3/domains',
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'skip',
-                offset_start_value: 0,
-                offset_calculation_method: 'by-response-size',
-                limit_name_in_request: 'limit',
-                limit: LIMIT,
-                response_path: 'items'
-            },
-            retries: 3
-        };
+        // Paginated manually (rather than via nango.paginate, which would strip the envelope down
+        // to just `items`) so `total_count` stays available to validate an empty page below.
+        async function fetchPage(skip: number) {
+            const proxyConfig: ProxyConfiguration = {
+                // https://documentation.mailgun.com/docs/mailgun/api-reference/openapi-final/tag/Domains/#tag/Domains/operation/GET-v3-domains
+                endpoint: '/v3/domains',
+                params: { limit: LIMIT, skip },
+                retries: 3
+            };
+            const response = await nango.get(proxyConfig);
+            // Throw on parse failure: silently skipping a record inside a delete-tracked scan
+            // would cause trackDeletesEnd() to falsely mark it as deleted.
+            return MailgunDomainsPageSchema.parse(response.data);
+        }
 
         // The delete-tracking window is opened only after the first page has been fetched and
         // validated, so a request or parse failure before any data is confirmed leaves the
         // window closed instead of open indefinitely. trackDeletesStart/trackDeletesEnd may each
-        // only appear once in this function, so the first page is pulled manually ahead of the
-        // loop that pulls the rest, rather than via a second call site inside/after a for-await.
-        const pageIterator = nango.paginate<unknown>(proxyConfig);
+        // only appear once in this function, so the first page is fetched manually ahead of the
+        // loop that fetches the rest, rather than via a second call site.
+        const firstPage = await fetchPage(0);
 
-        function parsePage(batch: unknown[]): Domain[] {
-            const domains: Domain[] = [];
-            for (const item of batch) {
-                // Throw on parse failure: silently skipping a record inside a delete-tracked scan
-                // would cause trackDeletesEnd() to falsely mark it as deleted.
-                domains.push(MailgunDomainSchema.parse(item));
-            }
-            return domains;
+        // An empty `items` page is ambiguous: it could mean the account genuinely has zero
+        // domains, or it could be a transient/incomplete provider response. `total_count`
+        // disambiguates the two - only a page that is empty AND reports zero total is treated as
+        // a real empty account; otherwise abort before the delete-tracking window ever opens, so
+        // a bad response can never wipe out every existing Domain record.
+        if (firstPage.items.length === 0 && firstPage.total_count > 0) {
+            throw new Error(
+                `Mailgun /v3/domains returned an empty page while total_count was ${firstPage.total_count}; aborting without starting delete tracking.`
+            );
         }
-
-        const firstResult = await pageIterator.next();
-        const firstDomains = firstResult.done ? [] : parsePage(firstResult.value);
 
         await nango.trackDeletesStart('Domain');
 
-        if (firstDomains.length > 0) {
-            await nango.batchSave(firstDomains, 'Domain');
+        if (firstPage.items.length > 0) {
+            await nango.batchSave(firstPage.items, 'Domain');
         }
 
-        let nextResult = await pageIterator.next();
-        while (!nextResult.done) {
-            const domains = parsePage(nextResult.value);
-            if (domains.length > 0) {
-                await nango.batchSave(domains, 'Domain');
+        let skip = firstPage.items.length;
+        let totalCount = firstPage.total_count;
+        while (skip < totalCount) {
+            const page = await fetchPage(skip);
+            totalCount = page.total_count;
+            if (page.items.length === 0) {
+                break;
             }
-            nextResult = await pageIterator.next();
+            await nango.batchSave(page.items, 'Domain');
+            skip += page.items.length;
         }
 
         // The full domain list has been walked: clear any stale pagination state, then close the
