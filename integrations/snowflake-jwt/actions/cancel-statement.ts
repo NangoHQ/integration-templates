@@ -19,19 +19,21 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Cancel a running Snowflake SQL statement.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
-            // https://docs.snowflake.com/en/developer-guide/sql-api/index
+            // Snowflake's cancel endpoint accepts no request body. Sending
+            // `data: {}` with `Content-Type: application/json` triggers a 415
+            // because Snowflake interprets the Content-Type header as a
+            // declaration that a body is present. Omit both to let Nango issue
+            // a bodyless POST, matching the SQL API spec.
+            //
+            // https://docs.snowflake.com/en/developer-guide/sql-api/submitting-requests#canceling-the-execution-of-a-sql-statement
             endpoint: `/api/v2/statements/${encodeURIComponent(input.statement_handle)}/cancel`,
-            data: {},
-            headers: {
-                'Content-Type': 'application/json'
-            },
             retries: 3
         };
 
