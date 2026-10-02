@@ -39,10 +39,7 @@ const BounceRecordSchema = z.object({
  * before opening the delete-tracking window, while still sharing the same fetch/parse/map logic
  * for every subsequent page.
  */
-async function* fetchAllBouncePages(
-    nango: NangoSyncLocal,
-    domains: z.infer<typeof DomainRecordSchema>[]
-): AsyncGenerator<z.infer<typeof BounceSchema>[]> {
+async function* fetchAllBouncePages(nango: NangoSyncLocal, domains: z.infer<typeof DomainRecordSchema>[]): AsyncGenerator<z.infer<typeof BounceSchema>[]> {
     for (const domain of domains) {
         // https://documentation.mailgun.com/docs/mailgun/api-reference/send/mailgun/bounces/get-v3--domainid--bounces
         const bouncesConfig: ProxyConfiguration = {
