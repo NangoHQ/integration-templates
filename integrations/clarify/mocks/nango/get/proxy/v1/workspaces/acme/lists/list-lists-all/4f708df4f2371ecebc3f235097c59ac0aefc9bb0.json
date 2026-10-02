@@ -13,7 +13,7 @@
     },
     "response": {
         "links": {
-            "next": null,
+            "next": "https://api.clarify.ai/v1/workspaces/acme/lists?filter%5Btype%5D=dynamic&page%5Blimit%5D=1&page%5Boffset%5D=1",
             "prev": null
         },
         "meta": {
