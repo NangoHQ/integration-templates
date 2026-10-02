@@ -75,7 +75,7 @@ function parseSublabels(raw: string | Record<string, string> | undefined): Recor
  */
 const action = createAction({
     description: 'List the questions/fields of a form, including the numeric ID (qid), type, and field name of each question.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
