@@ -1,0 +1,46 @@
+{
+  "input": {
+    "user_id": "2244994945"
+  },
+  "output": {
+    "items": [
+      {
+        "id": "6253282",
+        "username": "XAPI",
+        "name": "X API"
+      },
+      {
+        "id": "783214",
+        "username": "X",
+        "name": "X"
+      }
+    ],
+    "next_cursor": "DFEDBNRFT3MHCZZZ",
+    "result_count": 2
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/2/users/2244994945/following": {
+        "response": {
+          "data": [
+            {
+              "id": "6253282",
+              "username": "XAPI",
+              "name": "X API"
+            },
+            {
+              "id": "783214",
+              "username": "X",
+              "name": "X"
+            }
+          ],
+          "meta": {
+            "result_count": 2,
+            "next_token": "DFEDBNRFT3MHCZZZ"
+          }
+        }
+      }
+    }
+  }
+}

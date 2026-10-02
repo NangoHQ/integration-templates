@@ -1,0 +1,59 @@
+{
+  "input": {
+    "owner": "NangoHQ",
+    "repo": "integration-templates"
+  },
+  "output": {
+    "tags": [
+      {
+        "name": "v1.2.0",
+        "commit": {
+          "sha": "c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc",
+          "url": "https://api.github.com/repos/NangoHQ/integration-templates/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+        },
+        "zipball_url": "https://api.github.com/repos/NangoHQ/integration-templates/zipball/refs/tags/v1.2.0",
+        "tarball_url": "https://api.github.com/repos/NangoHQ/integration-templates/tarball/refs/tags/v1.2.0",
+        "node_id": "MDM6UmVmMTI5NjI2OTpyZWZzL3RhZ3MvdjEuMi4w"
+      },
+      {
+        "name": "v1.1.0",
+        "commit": {
+          "sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+          "url": "https://api.github.com/repos/NangoHQ/integration-templates/commits/9fceb02d0ae598e95dc970b74767f19372d61af8"
+        },
+        "zipball_url": "https://api.github.com/repos/NangoHQ/integration-templates/zipball/refs/tags/v1.1.0",
+        "tarball_url": "https://api.github.com/repos/NangoHQ/integration-templates/tarball/refs/tags/v1.1.0",
+        "node_id": "MDM6UmVmMTI5NjI2OTpyZWZzL3RhZ3MvdjEuMS4w"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/repos/NangoHQ/integration-templates/tags": {
+        "response": [
+          {
+            "name": "v1.2.0",
+            "commit": {
+              "sha": "c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc",
+              "url": "https://api.github.com/repos/NangoHQ/integration-templates/commits/c5b97d5ae6c19d5c5df71a34c7fbeeda2479ccbc"
+            },
+            "zipball_url": "https://api.github.com/repos/NangoHQ/integration-templates/zipball/refs/tags/v1.2.0",
+            "tarball_url": "https://api.github.com/repos/NangoHQ/integration-templates/tarball/refs/tags/v1.2.0",
+            "node_id": "MDM6UmVmMTI5NjI2OTpyZWZzL3RhZ3MvdjEuMi4w"
+          },
+          {
+            "name": "v1.1.0",
+            "commit": {
+              "sha": "9fceb02d0ae598e95dc970b74767f19372d61af8",
+              "url": "https://api.github.com/repos/NangoHQ/integration-templates/commits/9fceb02d0ae598e95dc970b74767f19372d61af8"
+            },
+            "zipball_url": "https://api.github.com/repos/NangoHQ/integration-templates/zipball/refs/tags/v1.1.0",
+            "tarball_url": "https://api.github.com/repos/NangoHQ/integration-templates/tarball/refs/tags/v1.1.0",
+            "node_id": "MDM6UmVmMTI5NjI2OTpyZWZzL3RhZ3MvdjEuMS4w"
+          }
+        ]
+      }
+    }
+  }
+}

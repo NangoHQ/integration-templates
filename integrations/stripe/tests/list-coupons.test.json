@@ -1,0 +1,55 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "jMT0WJUD",
+        "object": "coupon",
+        "amount_off": null,
+        "created": 1678037688,
+        "currency": null,
+        "duration": "repeating",
+        "duration_in_months": 3,
+        "livemode": false,
+        "max_redemptions": null,
+        "metadata": {},
+        "name": "25.5% off",
+        "percent_off": 25.5,
+        "redeem_by": null,
+        "times_redeemed": 0,
+        "valid": true
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/coupons": {
+        "response": {
+          "object": "list",
+          "url": "/v1/coupons",
+          "has_more": false,
+          "data": [
+            {
+              "id": "jMT0WJUD",
+              "object": "coupon",
+              "amount_off": null,
+              "created": 1678037688,
+              "currency": null,
+              "duration": "repeating",
+              "duration_in_months": 3,
+              "livemode": false,
+              "max_redemptions": null,
+              "metadata": {},
+              "name": "25.5% off",
+              "percent_off": 25.5,
+              "redeem_by": null,
+              "times_redeemed": 0,
+              "valid": true
+            }
+          ]
+        }
+      }
+    }
+  }
+}

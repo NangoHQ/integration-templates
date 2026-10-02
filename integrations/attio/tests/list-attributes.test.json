@@ -1,0 +1,120 @@
+{
+  "input": {
+    "identifier": "people"
+  },
+  "output": {
+    "attributes": [
+      {
+        "id": {
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+          "attribute_id": "41252299-f8c7-4b5e-99c9-4ff8321d2f96"
+        },
+        "title": "Name",
+        "description": null,
+        "api_slug": "name",
+        "type": "personal-name",
+        "is_system_attribute": true,
+        "is_writable": true,
+        "is_required": false,
+        "is_unique": false,
+        "is_multiselect": false,
+        "is_archived": false,
+        "is_default_value_enabled": false,
+        "default_value": null,
+        "relationship": null,
+        "created_at": "2023-11-06T10:36:35.216000000Z",
+        "config": {
+          "currency": null,
+          "record_reference": null
+        }
+      },
+      {
+        "id": {
+          "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+          "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+          "attribute_id": "9c9e60b2-2c21-44a7-b9a4-3fe906b02d21"
+        },
+        "title": "Email addresses",
+        "description": null,
+        "api_slug": "email_addresses",
+        "type": "email-address",
+        "is_system_attribute": true,
+        "is_writable": true,
+        "is_required": false,
+        "is_unique": true,
+        "is_multiselect": true,
+        "is_archived": false,
+        "is_default_value_enabled": false,
+        "default_value": null,
+        "relationship": null,
+        "created_at": "2023-11-06T10:36:35.216000000Z",
+        "config": {
+          "currency": null,
+          "record_reference": null
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v2/objects/people/attributes": {
+        "response": {
+          "data": [
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+                "attribute_id": "41252299-f8c7-4b5e-99c9-4ff8321d2f96"
+              },
+              "title": "Name",
+              "description": null,
+              "api_slug": "name",
+              "type": "personal-name",
+              "is_system_attribute": true,
+              "is_writable": true,
+              "is_required": false,
+              "is_unique": false,
+              "is_multiselect": false,
+              "is_archived": false,
+              "is_default_value_enabled": false,
+              "default_value": null,
+              "relationship": null,
+              "created_at": "2023-11-06T10:36:35.216000000Z",
+              "config": {
+                "currency": null,
+                "record_reference": null
+              }
+            },
+            {
+              "id": {
+                "workspace_id": "edbb5cd2-e046-4b4f-bd62-eeefa0a76787",
+                "object_id": "30ff61f7-6b37-414e-8d6f-fb42f963e996",
+                "attribute_id": "9c9e60b2-2c21-44a7-b9a4-3fe906b02d21"
+              },
+              "title": "Email addresses",
+              "description": null,
+              "api_slug": "email_addresses",
+              "type": "email-address",
+              "is_system_attribute": true,
+              "is_writable": true,
+              "is_required": false,
+              "is_unique": true,
+              "is_multiselect": true,
+              "is_archived": false,
+              "is_default_value_enabled": false,
+              "default_value": null,
+              "relationship": null,
+              "created_at": "2023-11-06T10:36:35.216000000Z",
+              "config": {
+                "currency": null,
+                "record_reference": null
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

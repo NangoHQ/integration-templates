@@ -1,0 +1,61 @@
+{
+  "input": {},
+  "output": {
+    "items": [
+      {
+        "id": "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+        "object": "dispute",
+        "amount": 1000,
+        "charge": "ch_1AZtxr2eZvKYlo2CJDX8whov",
+        "currency": "usd",
+        "created": 1680651737,
+        "evidence_details": {
+          "due_by": 1682294399,
+          "has_evidence": false,
+          "past_due": false,
+          "submission_count": 0
+        },
+        "is_charge_refundable": true,
+        "livemode": false,
+        "metadata": {},
+        "payment_intent": null,
+        "reason": "general",
+        "status": "warning_needs_response"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v1/disputes": {
+        "response": {
+          "object": "list",
+          "url": "/v1/disputes",
+          "has_more": false,
+          "data": [
+            {
+              "id": "dp_1MtJUT2eZvKYlo2CNaw2HvEv",
+              "object": "dispute",
+              "amount": 1000,
+              "charge": "ch_1AZtxr2eZvKYlo2CJDX8whov",
+              "currency": "usd",
+              "created": 1680651737,
+              "evidence_details": {
+                "due_by": 1682294399,
+                "has_evidence": false,
+                "past_due": false,
+                "submission_count": 0
+              },
+              "is_charge_refundable": true,
+              "livemode": false,
+              "metadata": {},
+              "payment_intent": null,
+              "reason": "general",
+              "status": "warning_needs_response"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

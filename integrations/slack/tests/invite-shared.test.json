@@ -1,0 +1,23 @@
+{
+  "input": {
+    "channel_id": "C024BE91L",
+    "emails": ["partner@example.com"]
+  },
+  "output": {
+    "ok": true,
+    "invite_id": "I012A3CDE45",
+    "is_legacy_shared_channel": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "conversations.inviteShared": {
+        "response": {
+          "ok": true,
+          "invite_id": "I012A3CDE45",
+          "is_legacy_shared_channel": false
+        }
+      }
+    }
+  }
+}

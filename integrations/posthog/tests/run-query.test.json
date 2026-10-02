@@ -1,0 +1,45 @@
+{
+  "input": {
+    "project_id": 309484,
+    "query": "select event, count() from events where timestamp > now() - interval 7 day group by event order by count() desc limit 3"
+  },
+  "output": {
+    "results": [
+      ["$pageview", 1284],
+      ["$autocapture", 912],
+      ["query completed", 87]
+    ],
+    "columns": ["event", "count()"],
+    "types": ["String", "UInt64"],
+    "hogql": "SELECT event, count() FROM events WHERE greater(timestamp, minus(now(), toIntervalDay(7))) GROUP BY event ORDER BY count() DESC LIMIT 3",
+    "clickhouse": "SELECT events.event AS event, count() FROM events WHERE and(equals(events.team_id, 309484), greater(toTimeZone(events.timestamp, 'UTC'), minus(now64(6, 'UTC'), toIntervalDay(7)))) GROUP BY events.event ORDER BY count() DESC LIMIT 3",
+    "hasMore": false,
+    "limit": 3,
+    "offset": 0,
+    "error": null
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/projects/309484/query/": {
+        "response": {
+          "results": [
+            ["$pageview", 1284],
+            ["$autocapture", 912],
+            ["query completed", 87]
+          ],
+          "columns": ["event", "count()"],
+          "types": ["String", "UInt64"],
+          "hogql": "SELECT event, count() FROM events WHERE greater(timestamp, minus(now(), toIntervalDay(7))) GROUP BY event ORDER BY count() DESC LIMIT 3",
+          "clickhouse": "SELECT events.event AS event, count() FROM events WHERE and(equals(events.team_id, 309484), greater(toTimeZone(events.timestamp, 'UTC'), minus(now64(6, 'UTC'), toIntervalDay(7)))) GROUP BY events.event ORDER BY count() DESC LIMIT 3",
+          "hasMore": false,
+          "limit": 3,
+          "offset": 0,
+          "error": null,
+          "query_status": null,
+          "timings": []
+        }
+      }
+    }
+  }
+}
