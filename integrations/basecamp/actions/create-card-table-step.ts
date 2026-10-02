@@ -105,9 +105,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Create a checklist step on a card table card.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {

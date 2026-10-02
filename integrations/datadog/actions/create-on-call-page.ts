@@ -83,9 +83,10 @@ function getOnCallBaseUrl(siteParameter: string): string {
 
 const action = createAction({
     description: 'Trigger a new On-Call page (alert a specific person or escalation policy immediately, independent of a monitor firing).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = ConnectionSchema.parse(await nango.getConnection());

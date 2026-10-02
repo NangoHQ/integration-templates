@@ -34,13 +34,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync general ledger journal headers.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         LedgerJournal: LedgerJournalSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: LedgerJournalHeaders exposes no filterable modified-timestamp field,

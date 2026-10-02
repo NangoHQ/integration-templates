@@ -44,9 +44,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query a metric time series data points over a time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['timeseries_query'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.datadoghq.com/api/latest/metrics/#query-timeseries-points

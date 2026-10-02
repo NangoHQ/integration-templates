@@ -59,10 +59,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Update (overwrite) tracking info on an existing fulfillment.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_orders', 'write_orders'],
+    scopes: ['write_orders'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

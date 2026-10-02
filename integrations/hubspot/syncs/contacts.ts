@@ -90,11 +90,12 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync contacts',
-    version: '4.0.0',
+    version: '4.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/contacts', group: 'Contacts' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
+    scopes: ['crm.objects.contacts.read'],
 
     models: {
         Contact: ContactSchema

@@ -50,9 +50,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync articles.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Desk.articles.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Article: ArticleSchema

@@ -17,13 +17,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete one or more custom groups',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/delete-groups',
         method: 'POST'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
@@ -39,7 +40,7 @@ const action = createAction({
         const groups = input.groupIds.map((id) => ({ groupId: id }));
 
         const response = await nango.delete({
-            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/groups/deletegroups/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/delete/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups`,
             data: {
                 groups

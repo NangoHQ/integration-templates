@@ -20,10 +20,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Ask a natural language question about a Gong entity using AI.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api:ai-ask:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // @allowTryCatch: The ask-entity endpoint is a Beta feature that may be plan-gated.

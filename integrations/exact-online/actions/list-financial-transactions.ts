@@ -25,18 +25,19 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List financial transaction headers.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/list-financial-transactions',
         method: 'GET'
     },
+    scopes: ['FinancialTransactions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit || 100;
 
-        // https://support.exactonline.com/doc/EN/RestAPI/Documentation/CurrentMe
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -65,7 +66,7 @@ const action = createAction({
             params['$skiptoken'] = input.cursor;
         }
 
-        // https://support.exactonline.com/doc/EN/RestAPI/Documentation/FinancialTransaction
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=FinancialTransactionTransactions
         const response = await nango.get({
             endpoint: `/api/v1/${encodeURIComponent(division)}/financialtransaction/Transactions`,
             params,

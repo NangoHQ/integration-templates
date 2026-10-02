@@ -104,9 +104,10 @@ function normalizePunchItem(item: z.infer<typeof ProviderPunchItemSchema>): z.in
 
 const action = createAction({
     description: 'List punch-list items (deficiency/completion tracking items) for a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {};

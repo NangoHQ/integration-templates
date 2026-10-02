@@ -24,7 +24,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a deal record in HubSpot',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,
@@ -41,7 +41,7 @@ const action = createAction({
         if (input.hubspot_owner_id) properties['hubspot_owner_id'] = input.hubspot_owner_id;
 
         const response = await nango.post({
-            // https://developers.hubspot.com/docs/api-reference/crm-api/deals
+            // https://developers.hubspot.com/docs/api-reference/crm-deals-v3/guide
             endpoint: '/crm/v3/objects/deals',
             data: { properties },
             retries: 3

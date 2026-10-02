@@ -97,7 +97,7 @@ function toCustomer(raw: z.infer<typeof CustomerSchema>): z.infer<typeof Custome
 
 const sync = createSync<{ Customer: typeof CustomerModelSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync customer records from QuickBooks Online.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/customers' }],
@@ -105,6 +105,7 @@ const sync = createSync<{ Customer: typeof CustomerModelSchema }, undefined, typ
     models: {
         Customer: CustomerModelSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getRealmId(nango);

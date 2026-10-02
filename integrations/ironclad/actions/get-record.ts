@@ -40,14 +40,14 @@ const OutputSchema = ProviderRecordSchema;
 
 const action = createAction({
     description: 'Get a single record by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public.records.readRecords'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/getrecord
+            // https://developer.ironcladapp.com/reference/retrieve-a-record
             endpoint: `/public/api/v1/records/${encodeURIComponent(input.recordId)}`,
             retries: 3
         });

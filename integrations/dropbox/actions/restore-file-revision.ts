@@ -32,10 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore a previous Dropbox file revision to the current path',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['files.content.write', 'files.metadata.read'],
+    scopes: ['files.content.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-restore

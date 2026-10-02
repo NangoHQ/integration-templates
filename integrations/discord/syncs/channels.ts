@@ -42,7 +42,7 @@ const ProviderChannelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync channels from Discord',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     models: {
@@ -54,6 +54,7 @@ const sync = createSync({
             path: '/syncs/channels'
         }
     ],
+    scopes: ['bot'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

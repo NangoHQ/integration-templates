@@ -32,13 +32,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Incrementally sync Close tasks using date_updated checkpoints.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Task: TaskSchema
     },
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

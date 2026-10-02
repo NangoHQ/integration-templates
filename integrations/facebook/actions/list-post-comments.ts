@@ -96,10 +96,10 @@ function extractPageId(postId: string): string | null {
 
 const action = createAction({
     description: 'List comments on a Facebook post with pagination support',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pages_read_engagement', 'pages_read_user_content'],
+    scopes: ['pages_show_list', 'pages_read_engagement', 'pages_read_user_content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Extract page ID from post ID
@@ -111,7 +111,7 @@ const action = createAction({
             });
         }
 
-        // https://developers.facebook.com/docs/graph-api/reference/me/accounts/
+        // https://developers.facebook.com/docs/graph-api/reference/object/comments/
         const accountsResponse = await nango.get({
             endpoint: '/me/accounts',
             retries: 3

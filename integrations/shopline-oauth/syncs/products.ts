@@ -280,9 +280,10 @@ function mapProduct(product: z.infer<typeof ProviderProductSchema>): z.infer<typ
 
 const sync = createSync({
     description: 'Sync products, including their embedded variants, options, and images/media.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_products'],
     checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema

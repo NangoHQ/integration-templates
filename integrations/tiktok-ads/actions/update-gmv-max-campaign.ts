@@ -75,10 +75,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a GMV Max campaign in TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ads.read', 'ads.write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         type UpdateBody = {

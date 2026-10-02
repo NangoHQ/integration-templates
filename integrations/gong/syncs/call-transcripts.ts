@@ -99,9 +99,10 @@ function getWindowEnd(): string {
 
 const sync = createSync({
     description: 'Sync call transcripts from Gong',
-    version: '4.0.1',
+    version: '4.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:calls:read:transcript'],
     checkpoint: CheckpointSchema,
     endpoints: [
         {

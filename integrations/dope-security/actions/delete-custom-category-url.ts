@@ -20,9 +20,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete one specific URL from a custom category',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedCategoryName = encodeURIComponent(input.customCategoryName);

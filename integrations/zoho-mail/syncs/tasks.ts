@@ -86,9 +86,10 @@ function getNextPageCursor(nextPage: string | undefined): string | undefined {
 
 const sync = createSync({
     description: 'Sync personal tasks from Zoho Mail.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoMail.tasks.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Task: TaskSchema

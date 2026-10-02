@@ -13,10 +13,11 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetch employees from Paylocity.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
+    scopes: ['address', 'all', 'email', 'offline_access', 'openid'],
 
     endpoints: [
         {

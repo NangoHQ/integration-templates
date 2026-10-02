@@ -107,9 +107,10 @@ function extractPathFromUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync organizations from Microsoft',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Organization.Read.All'],
     checkpoint: CheckpointSchema,
     models: {
         Organization: OrganizationSchema

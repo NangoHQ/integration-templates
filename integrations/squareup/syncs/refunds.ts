@@ -37,9 +37,10 @@ const RefundsPageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync refunds.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['PAYMENTS_READ'],
     checkpoint: CheckpointSchema,
     models: {
         Refund: RefundSchema

@@ -28,11 +28,12 @@ const GroupSchema = z.object({
 
 const sync = createSync({
     description: 'Sync user groups in this account.',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     models: {
         Group: GroupSchema
     },
+    scopes: ['account-idm-read'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -45,7 +46,7 @@ const sync = createSync({
         }
         const accountUuid = parsedMetadata.data.accountUuid;
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/groups-api
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/group-management-api/get-all-groups
         const response = await nango.get({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/groups`,
             retries: 3

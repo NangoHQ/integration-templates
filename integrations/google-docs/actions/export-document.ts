@@ -17,10 +17,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Export a Google Doc to PDF, DOCX, HTML, or plain text.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['drive.readonly', 'drive'],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

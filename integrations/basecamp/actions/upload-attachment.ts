@@ -26,9 +26,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Upload raw file bytes to Basecamp blob storage and get back an attachable_sgid',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const buffer = Buffer.from(input.content, 'base64');

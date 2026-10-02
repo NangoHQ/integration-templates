@@ -51,10 +51,11 @@ type SalesforceRecord = z.infer<typeof SalesforceRecordSchema>;
 
 const sync = createSync({
     description: 'Sync Salesforce Account records with a practical default field set',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ path: '/syncs/accounts', method: 'POST' }],
+    scopes: ['api'],
     checkpoint: CheckpointSchema,
     models: {
         Account: AccountSchema

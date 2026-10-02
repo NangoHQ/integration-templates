@@ -169,7 +169,7 @@ function toBillPayment(record: z.infer<typeof BillPaymentSchema>): z.infer<typeo
 
 const sync = createSync({
     description: 'Sync QuickBooks bill payments',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -182,6 +182,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getCompany(nango);

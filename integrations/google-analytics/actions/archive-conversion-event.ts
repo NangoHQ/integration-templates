@@ -13,10 +13,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a GA4 conversion event.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['analytics.edit'],
+    scopes: ['https://www.googleapis.com/auth/analytics.edit'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const name = `properties/${input.property_id}/conversionEvents/${input.conversion_event_id}`;

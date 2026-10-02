@@ -70,13 +70,14 @@ function extractIdFromUri(uri: string): string | null {
 
 const action = createAction({
     description: 'Create a new customer/account in Exact Online.',
-    version: '3.0.0',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         method: 'POST',
         path: '/actions/create-customer'
     },
+    scopes: ['crm.Accounts'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemMe

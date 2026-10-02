@@ -66,10 +66,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Schedule one or more interviews for an opportunity by creating an interview panel.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['opportunities:write'],
+    scopes: ['panels:write:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

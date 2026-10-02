@@ -88,7 +88,7 @@ const TaskCommentsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments from ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
@@ -103,6 +103,7 @@ const sync = createSync({
             path: '/syncs/comments'
         }
     ],
+    scopes: [],
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
         const config = SyncConfigSchema.parse(metadata);

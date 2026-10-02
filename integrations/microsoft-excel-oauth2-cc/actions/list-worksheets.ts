@@ -26,10 +26,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List worksheets in a workbook.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Files.ReadWrite.All'],
+    scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const proxyConfig: ProxyConfiguration = {

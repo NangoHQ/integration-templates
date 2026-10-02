@@ -31,10 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List automations from Mailchimp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['automations:read'],
+    scopes: [],
     exec: async (nango, input) => {
         const params: Record<string, string | number> = {};
         if (input.count !== undefined) {

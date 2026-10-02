@@ -21,10 +21,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single enrolled factor for a user.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['okta.factors.read'],
+    scopes: ['okta.users.read'],
 
     exec: async (nango, input) => {
         const response = await nango.get({

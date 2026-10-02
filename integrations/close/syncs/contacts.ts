@@ -37,13 +37,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Incrementally sync Close contacts using date_updated checkpoints.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema
     },
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

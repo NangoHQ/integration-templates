@@ -29,7 +29,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Generate a time-limited signed URL for accessing a private storage object.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['storage.objects.read'],
@@ -55,7 +55,7 @@ const action = createAction({
         const normalizedProjectUrl = projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`;
         const baseUrlOverride = normalizedProjectUrl;
 
-        // https://supabase.com/docs/reference/api/storage-get-bucket
+        // https://supabase.com/docs/reference/javascript/file-buckets-getbucket
         const bucketResponse = await nango.get({
             endpoint: `/storage/v1/bucket/${encodeURIComponent(input.bucket_id)}`,
             retries: 3,
@@ -73,7 +73,7 @@ const action = createAction({
 
         const expiresIn = input.expires_in ?? 3600;
 
-        // https://supabase.com/docs/reference/api/storage-create-signed-url
+        // https://supabase.com/docs/reference/javascript/file-buckets-createsignedurl
         const signResponse = await nango.post({
             endpoint: `/storage/v1/object/sign/${encodeURIComponent(input.bucket_id)}/${encodeURIComponent(input.path)}`,
             data: {

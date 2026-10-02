@@ -12,9 +12,10 @@ const OutputSchema = z.object({
 
 export default createAction({
     description: 'Delete a Help Center article',
-    version: '0.0.1',
+    version: '0.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango: NangoAction, input: z.infer<typeof InputSchema>): Promise<z.infer<typeof OutputSchema>> => {
         const proxyConfig: ProxyConfiguration = {
             // https://developers.intercom.com/docs/references/rest-api/api.intercom.io/Articles/deleteArticle

@@ -166,7 +166,7 @@ function toBill(record: ProviderBill): Bill {
 
 const sync = createSync({
     description: 'Sync vendor bills from QuickBooks Online.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/bills' }],
@@ -174,6 +174,7 @@ const sync = createSync({
     models: {
         Bill: BillSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getCompany(nango);

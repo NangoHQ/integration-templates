@@ -171,9 +171,10 @@ function stripNulls(value: unknown): unknown {
  */
 const action = createAction({
     description: 'Retrieve the user associated with the current API credentials.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['users.read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

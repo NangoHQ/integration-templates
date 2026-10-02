@@ -65,14 +65,14 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Set multiple custom field values on a ticket in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write', 'custom_fields:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({
-            // https://developers.gorgias.com/reference/put-api-tickets-ticket-id-custom-fields
+            // https://developers.gorgias.com/reference/update-ticket-custom-fields
             endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}/custom-fields`,
             data: input.custom_fields,
             retries: 3

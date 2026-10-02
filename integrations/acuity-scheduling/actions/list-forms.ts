@@ -24,10 +24,10 @@ const OutputSchema = z.array(FormSchema);
 
 const action = createAction({
     description: 'List intake forms.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: ['api-v1'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

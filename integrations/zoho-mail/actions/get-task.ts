@@ -51,10 +51,10 @@ const OutputSchema = ProviderTaskSchema;
 
 const action = createAction({
     description: 'Retrieve a single personal task from Zoho Mail.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoMail.tasks.ALL', 'ZohoMail.tasks.READ'],
+    scopes: ['ZohoMail.tasks.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/mail/help/api/get-single-task.html

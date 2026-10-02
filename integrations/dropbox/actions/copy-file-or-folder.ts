@@ -40,10 +40,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Copy a Dropbox file or folder to a different path.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['files.metadata.read', 'files.content.write'],
+    scopes: ['files.content.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.dropbox.com/developers/documentation/http/documentation#files-copy_v2

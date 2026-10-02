@@ -25,10 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List leave records within a date window.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['ZOHOPEOPLE.leave.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const startIndex = input.cursor ? parseInt(input.cursor, 10) : 1;

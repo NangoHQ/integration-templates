@@ -80,9 +80,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List all people visible to the current user across the whole account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const allPeople: Array<unknown> = [];

@@ -53,9 +53,10 @@ function extractPathFromUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync applications from Microsoft Graph',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Application.Read.All'],
     checkpoint: CheckpointSchema,
     models: {
         MicrosoftApplication: ApplicationSchema

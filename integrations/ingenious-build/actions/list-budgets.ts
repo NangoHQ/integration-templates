@@ -166,9 +166,10 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List budgets across projects in this workspace.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let page = 1;

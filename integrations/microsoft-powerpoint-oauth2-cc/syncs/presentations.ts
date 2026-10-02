@@ -81,9 +81,10 @@ const DeltaResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync .pptx files within a drive',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['Files.Read.All'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

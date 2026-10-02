@@ -20,10 +20,10 @@ const OutputSchema = z.object({
  */
 const action = createAction({
     description: 'Stop push notifications for a channel',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['https://www.googleapis.com/auth/calendar'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

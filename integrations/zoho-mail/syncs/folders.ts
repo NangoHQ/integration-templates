@@ -61,9 +61,10 @@ function isInvalidOAuthScopeResponse(data: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync all folders for each account from Zoho Mail',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoMail.accounts.READ', 'ZohoMail.folders.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Folder: FolderSchema

@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List teams within a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -52,7 +52,7 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/teams/list?view=azure-devops-rest-7.2
+            // https://learn.microsoft.com/en-us/rest/api/azure/devops/core/teams/get-teams?view=azure-devops-rest-7.2
             endpoint: `/_apis/projects/${encodeURIComponent(input.projectId)}/teams`,
             params: params,
             retries: 3

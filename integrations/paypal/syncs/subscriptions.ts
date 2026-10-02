@@ -94,13 +94,14 @@ const DEFAULT_STATUS_UPDATED_AFTER = '1970-01-01T00:00:00Z';
 
 const sync = createSync({
     description: 'Sync subscriptions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Subscription: SubscriptionSchema
     },
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

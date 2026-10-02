@@ -25,10 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available BambooHR employee fields.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['employee', 'field'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

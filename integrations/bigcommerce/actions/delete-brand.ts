@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a brand.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -22,7 +22,7 @@ const action = createAction({
         // convert them into a structured ActionError instead of letting the raw
         // AxiosError propagate to the caller.
         try {
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands#delete-a-brand
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/delete-brand
             await nango.delete({
                 endpoint: `/v3/catalog/brands/${encodeURIComponent(input.brand_id)}`,
                 retries: 3

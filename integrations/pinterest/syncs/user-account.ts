@@ -33,9 +33,10 @@ const ProviderAccountSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the connected user account profile as a single-record snapshot.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['user_accounts:read'],
     models: {
         UserAccount: UserAccountSchema
     },

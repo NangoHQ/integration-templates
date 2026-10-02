@@ -51,10 +51,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List creative assets from TikTok Ads',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ad'],
+    scopes: [],
 
     exec: async (nango, input) => {
         const params: { [key: string]: string } = {

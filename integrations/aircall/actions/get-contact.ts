@@ -51,10 +51,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single contact from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: { method: 'GET', path: '/actions/get-contact' },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.aircall.io/api-references/#retrieve-a-contact

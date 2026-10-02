@@ -44,20 +44,20 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List price lists.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-price-lists'
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['store_v2_products'],
+    scopes: ['store_v2_products_read_only'],
     exec: async (nango, input) => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;
         const limit = input.limit ?? 50;
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/pricing/price-lists#get-price-lists
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/price-lists/get-price-lists
             endpoint: '/v3/pricelists',
             params: {
                 page: String(page),

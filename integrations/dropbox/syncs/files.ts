@@ -123,9 +123,10 @@ function mapEntries(entries: z.infer<typeof MetadataEntrySchema>[]): { files: Fi
 
 const sync = createSync({
     description: 'Sync Dropbox file metadata from configured root paths using list folder cursors.',
-    version: '3.0.2',
+    version: '3.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['files.metadata.read'],
     metadata: MetadataSchema,
     models: {
         File: FileSchema

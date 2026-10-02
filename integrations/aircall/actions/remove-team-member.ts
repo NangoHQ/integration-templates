@@ -43,14 +43,14 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Remove a user from an Aircall team',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/remove-team-member'
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['team:write'],
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

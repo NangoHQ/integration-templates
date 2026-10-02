@@ -62,10 +62,11 @@ const ModelsMap = {
 
 const sync = createSync<typeof ModelsMap, undefined, CheckpointModel>({
     description: 'Sync Salesforce Contact records with a practical default field set',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],
+    scopes: ['api'],
     checkpoint: CheckpointSchema,
     models: ModelsMap,
 

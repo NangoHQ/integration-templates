@@ -115,7 +115,7 @@ function mapXeroItem(xeroItem: z.infer<typeof XeroItemSchema>): z.infer<typeof I
 
 const sync = createSync({
     description: 'Sync inventory and catalog items from Xero.',
-    version: '3.1.0',
+    version: '3.1.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -128,7 +128,7 @@ const sync = createSync({
             path: '/syncs/items'
         }
     ],
-    scopes: ['accounting.settings'],
+    scopes: ['accounting.invoices.read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

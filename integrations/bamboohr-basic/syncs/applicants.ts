@@ -63,9 +63,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync applicants from the BambooHR ATS.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hiring:applications'],
     checkpoint: CheckpointSchema,
     models: {
         Applicant: ApplicantSchema

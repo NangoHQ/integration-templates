@@ -36,9 +36,10 @@ const InvoicesPageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync invoices.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['MERCHANT_PROFILE_READ', 'INVOICES_READ'],
     checkpoint: CheckpointSchema,
     models: {
         Invoice: InvoiceSchema

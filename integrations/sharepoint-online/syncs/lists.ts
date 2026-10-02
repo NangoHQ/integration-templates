@@ -86,7 +86,7 @@ function parseSiteIdsJson(input: string): string[] | undefined {
 
 const sync = createSync({
     description: 'Sync SharePoint lists for selected sites.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     metadata: MetadataSchema,
@@ -100,6 +100,7 @@ const sync = createSync({
             path: '/syncs/lists'
         }
     ],
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
@@ -189,7 +190,7 @@ const sync = createSync({
 
             while (hasMoreLists) {
                 const response = await nango.get({
-                    // https://learn.microsoft.com/graph/api/lists-list
+                    // https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0
                     endpoint: nextListEndpoint,
                     ...(isFirstPageForSite ? { params: { $top: '100' } } : {}),
                     retries: 3

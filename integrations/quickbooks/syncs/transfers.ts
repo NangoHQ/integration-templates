@@ -110,7 +110,7 @@ function toTransfer(raw: QBTransfer): Transfer {
 
 const sync = createSync({
     description: 'Sync QuickBooks transfers',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -118,6 +118,7 @@ const sync = createSync({
     models: {
         Transfer: TransferSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getRealmId(nango);

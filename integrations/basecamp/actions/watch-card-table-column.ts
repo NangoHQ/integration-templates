@@ -14,9 +14,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Subscribe the current user to notifications for a Card Table column.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('Empty response indicating successful subscription.'),
+    scopes: [],
 
     exec: async (nango, input): Promise<null> => {
         // https://github.com/basecamp/bc3-api/blob/master/sections/card_table_columns.md

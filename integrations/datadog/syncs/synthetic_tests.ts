@@ -50,9 +50,10 @@ const PAGE_SIZE = 100;
 
 const sync = createSync({
     description: 'Sync Synthetic API/browser/mobile tests.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['synthetics_read'],
     syncType: 'full',
     models: {
         SyntheticTest: syntheticTestSchema

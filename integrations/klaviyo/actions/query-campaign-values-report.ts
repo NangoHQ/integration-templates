@@ -46,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query aggregate performance metrics for campaigns.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['campaigns:read'],
@@ -69,7 +69,7 @@ const action = createAction({
         };
 
         const response = await nango.post({
-            // https://developers.klaviyo.com/en/reference/query_campaign_values_report
+            // https://developers.klaviyo.com/en/reference/query_campaign_values
             endpoint: '/api/campaign-values-reports',
             headers: {
                 revision: '2026-04-15'

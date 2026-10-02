@@ -21,7 +21,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Facebook Pages the authenticated user can access',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -35,6 +35,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: ['pages_show_list'],
 
     exec: async (nango) => {
         // Blocker: The /me/accounts endpoint does not support timestamp filtering,

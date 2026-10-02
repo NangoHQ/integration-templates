@@ -49,13 +49,14 @@ const PurchaseOrderSchema = z
 
 const sync = createSync({
     description: 'Sync purchase order headers',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         PurchaseOrder: PurchaseOrderSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: PurchaseOrderHeadersV2 exposes no filterable modified timestamp

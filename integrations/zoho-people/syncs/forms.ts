@@ -30,9 +30,10 @@ const FormSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Zoho People form definitions',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZOHOPEOPLE.forms.READ'],
     models: {
         Form: FormSchema
     },

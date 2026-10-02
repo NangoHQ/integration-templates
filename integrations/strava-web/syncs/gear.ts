@@ -41,15 +41,15 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync gear.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Gear: GearSchema
     },
-    // Bikes and shoes are only visible on the athlete's own profile.
-    scopes: ['activity:read', 'activity:read_all'],
+    // Bikes and shoes are only present in the detailed athlete representation, which requires profile:read_all.
+    scopes: ['read', 'profile:read_all'],
 
     exec: async (nango) => {
         // Strava has no gear list endpoint, cursor, or modification timestamp. The

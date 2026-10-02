@@ -39,7 +39,7 @@ const CompanySchema = z.object({
 
 const sync = createSync({
     description: 'Sync Attio company records.',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -54,6 +54,7 @@ const sync = createSync({
             path: '/syncs/companies'
         }
     ],
+    scopes: ['record_permission:read', 'object_configuration:read'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});

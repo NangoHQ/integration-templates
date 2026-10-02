@@ -15,13 +15,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve current Canva user profile details.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['profile:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.canva.dev/docs/connect/api-reference/users/get-user-profile/
+        // https://www.canva.dev/docs/apps/rest-apis/reference/users/users-profile
         const response = await nango.get({
             endpoint: '/rest/v1/users/me/profile',
             retries: 3

@@ -29,8 +29,9 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Slack conversations including channel members',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/conversations' }],
+    scopes: ['channels:read', 'groups:read', 'im:read', 'mpim:read'],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,

@@ -22,11 +22,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a support ticket in HubSpot CRM',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tickets', 'crm.objects.tickets.write'],
+    scopes: ['tickets'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/basic/post-crm-v3-objects-tickets

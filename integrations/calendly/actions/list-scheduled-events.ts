@@ -58,10 +58,10 @@ const ListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List scheduled events from Calendly. Returns a paginated list of events with optional filters for date range, status, and invitee email.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['scheduling:read'],
+    scopes: ['scheduled_events:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.calendly.com/api-docs/9746674c5680c-get-current-user

@@ -21,9 +21,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List vendor groups (used as VendorGroupId on vendors).',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const pageSize = 100;

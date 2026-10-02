@@ -25,9 +25,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Continue a SOQL query using a nextRecordsUrl locator',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_query.htm

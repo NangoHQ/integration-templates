@@ -74,10 +74,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an appointment.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api'],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.acuityscheduling.com/reference/get-appointments-id

@@ -65,9 +65,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an invoice item in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body = new URLSearchParams();

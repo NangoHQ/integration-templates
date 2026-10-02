@@ -48,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List signing groups (shared signature groups) for the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -56,6 +56,7 @@ const action = createAction({
         method: 'GET',
         path: '/actions/list-signing-groups'
     },
+    scopes: ['signature'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

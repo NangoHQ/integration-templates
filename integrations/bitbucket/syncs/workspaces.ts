@@ -35,13 +35,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspaces the authenticated user belongs to.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         Workspace: WorkspaceSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['account'],
 
     exec: async (nango) => {
         await nango.trackDeletesStart('Workspace');

@@ -80,7 +80,7 @@ const SiteColumnSchema = z.object({
 
 const sync = createSync({
     description: 'Sync site-level column definitions for configured sites.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -94,6 +94,7 @@ const sync = createSync({
     models: {
         SiteColumn: SiteColumnSchema
     },
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

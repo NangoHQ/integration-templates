@@ -18,10 +18,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: "Change a to-do list's position within its to-do set.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('Empty response indicating the to-do list was successfully repositioned.'),
-    scopes: ['write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<null> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/todolists.md

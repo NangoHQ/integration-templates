@@ -77,9 +77,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List file uploads posted in a Campfire, newest first.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         // https://github.com/basecamp/bc3-api/blob/master/sections/campfires.md#get-campfire-uploads

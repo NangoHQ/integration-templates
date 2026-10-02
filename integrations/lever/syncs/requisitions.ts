@@ -103,13 +103,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all requisitions on the account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Requisition: RequisitionSchema
     },
+    scopes: ['requisitions:read:admin'],
 
     exec: async (nango) => {
         // Blocker: GET /v1/requisitions does not support an updated_after or modified_since

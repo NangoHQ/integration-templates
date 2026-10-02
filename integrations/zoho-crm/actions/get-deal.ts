@@ -130,10 +130,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single deal from Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.Deals.READ'],
+    scopes: ['ZohoCRM.modules.deals.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/crm/developer/docs/api/v2/get-records.html

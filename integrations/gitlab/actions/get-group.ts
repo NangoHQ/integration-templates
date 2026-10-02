@@ -45,10 +45,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single group from GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

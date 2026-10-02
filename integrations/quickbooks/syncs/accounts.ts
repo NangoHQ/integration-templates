@@ -147,7 +147,7 @@ function toAccount(record: z.infer<typeof QuickBooksAccountSchema>): z.infer<typ
 
 const sync = createSync<{ Account: typeof AccountSchema }, never, typeof CheckpointSchema>({
     description: 'Sync chart of accounts records from QuickBooks Online',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -160,6 +160,7 @@ const sync = createSync<{ Account: typeof AccountSchema }, never, typeof Checkpo
             method: 'POST'
         }
     ],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getCompany(nango);

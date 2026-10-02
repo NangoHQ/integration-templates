@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete contacts by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -41,7 +41,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/contacts-api-delete-contacts
+            // https://www.twilio.com/docs/sendgrid/api-reference/contacts/delete-contacts
             endpoint: '/v3/marketing/contacts',
             params,
             retries: 3

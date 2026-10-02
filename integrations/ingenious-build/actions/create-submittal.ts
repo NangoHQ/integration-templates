@@ -62,9 +62,10 @@ const SubmittalSchema = z.object({
 
 const action = createAction({
     description: 'Create a new submittal within a package.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: SubmittalSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof SubmittalSchema>> => {
         // https://api.ingenious.build/reference/v2-create-submittal.md

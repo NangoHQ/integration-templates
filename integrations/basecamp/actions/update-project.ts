@@ -98,9 +98,10 @@ const ProjectSchema = z
  */
 const action = createAction({
     description: "Update a project's name, description, schedule dates, or access policy.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProjectSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         const body: Record<string, unknown> = {

@@ -34,7 +34,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a data store's name, structure, or size limit.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['datastores:write'],
@@ -52,7 +52,7 @@ const action = createAction({
             body['maxSizeMB'] = input.maxSizeMB;
         }
 
-        // https://developers.make.com/api-documentation/api-reference/data-stores/patch--data-stores--datastoreid
+        // https://developers.make.com/api-documentation/api-reference/data-stores
         const response = await nango.patch({
             endpoint: `/data-stores/${encodeURIComponent(String(input.dataStoreId))}`,
             data: body,

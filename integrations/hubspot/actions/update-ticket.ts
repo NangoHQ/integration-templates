@@ -29,11 +29,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a support ticket',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['crm.objects.tickets.write'],
+    scopes: ['tickets'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const properties: Record<string, string> = {};
@@ -47,7 +47,7 @@ const action = createAction({
         if (input.pipelineStage) properties['hs_pipeline_stage'] = input.pipelineStage;
         if (input.ownerId) properties['hubspot_owner_id'] = input.ownerId;
 
-        // https://developers.hubspot.com/docs/api-reference/crm/objects/tickets
+        // https://developers.hubspot.com/docs/api-reference/crm-tickets-v3/guide
         const response = await nango.patch({
             endpoint: `/crm/v3/objects/tickets/${input.ticketId}`,
             data: { properties },

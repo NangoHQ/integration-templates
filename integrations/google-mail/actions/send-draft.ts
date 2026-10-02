@@ -29,10 +29,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send an existing draft message',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/gmail.modify'],
+    scopes: ['https://www.googleapis.com/auth/gmail.compose'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.drafts/send

@@ -155,9 +155,10 @@ function getNextPageToken(pagination?: { next_page?: string | null | undefined; 
 
 const sync = createSync({
     description: 'Sync event invitees from Calendly',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['scheduled_events:read'],
     endpoints: [{ method: 'GET', path: '/event-invitees' }],
     checkpoint: CheckpointSchema,
     models: {

@@ -44,15 +44,16 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List employees with pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZOHOPEOPLE.forms.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 200;
         const sIndex = input.cursor ? parseInt(input.cursor, 10) : 1;
 
-        // https://www.zoho.com/people/api/forms.html
+        // https://www.zoho.com/people/api/bulk-records.html
         const response = await nango.get({
             endpoint: '/people/api/forms/employee/getRecords',
             params: {

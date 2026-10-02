@@ -14,14 +14,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a site page.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://learn.microsoft.com/graph/api/sitepage-delete
+            // https://learn.microsoft.com/en-us/graph/api/basesitepage-delete?view=graph-rest-1.0
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/pages/${encodeURIComponent(input.pageId)}`,
             retries: 3
         });

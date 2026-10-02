@@ -25,11 +25,11 @@ const MetadataCacheSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Jira issue by ID or key',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataCacheSchema,
-    scopes: ['delete:issue'],
+    scopes: ['write:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Get connection to resolve cloudId

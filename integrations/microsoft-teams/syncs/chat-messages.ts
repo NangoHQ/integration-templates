@@ -124,10 +124,11 @@ function mapMessages(rawMessages: unknown[], fallbackChatId?: string): z.infer<t
 
 const sync = createSync({
     description: 'Sync chat messages across user chats.',
-    version: '1.2.1',
+    version: '1.2.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['Chat.Read'],
     models: {
         ChatMessage: ChatMessageSchema
     },

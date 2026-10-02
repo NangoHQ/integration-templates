@@ -65,7 +65,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync components from Figma.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -79,6 +79,7 @@ const sync = createSync({
     models: {
         Component: ComponentSchema
     },
+    scopes: ['team_library_content:read'],
 
     exec: async (nango) => {
         const metadataRaw = await nango.getMetadata();

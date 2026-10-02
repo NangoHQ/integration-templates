@@ -40,9 +40,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a merge request in GitLab',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
     exec: async (nango, input) => {
         const config: ProxyConfiguration = {
             // https://docs.gitlab.com/api/merge_requests/#create-mr

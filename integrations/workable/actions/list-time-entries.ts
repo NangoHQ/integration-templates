@@ -37,7 +37,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List time-tracking entries with employee/date/duration filters.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_time_tracking'],
@@ -62,7 +62,7 @@ const action = createAction({
             ...(input.limit !== undefined ? { limit: String(input.limit) } : {})
         };
 
-        // https://workable.readme.io/reference/listtimeentries
+        // https://workable.readme.io/reference/time-tracking-list-entries
         const response = await nango.get({
             endpoint: '/spi/v3/time-tracking/time-entries',
             params,

@@ -14,10 +14,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Move a project to the trash (recoverable for 30 days, then auto-deleted).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.void(),
-    scopes: ['write'],
+    scopes: [],
 
     // @ts-expect-error Nango runtime expects null for z.void() output.
     exec: async (nango, input) => {

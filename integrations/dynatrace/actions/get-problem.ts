@@ -86,14 +86,14 @@ const ProblemSchema = z
 
 const action = createAction({
     description: 'Get full details of a single problem.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProblemSchema,
     scopes: ['problems.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ProblemSchema>> => {
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems/problems-api/get-problem
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/get-problem-details
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}`,
             retries: 3
         });

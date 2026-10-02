@@ -170,7 +170,7 @@ function mapZohoAccountToAccount(record: z.infer<typeof ZohoAccountSchema>): z.i
 
 const sync = createSync({
     description: 'Sync accounts from Zoho CRM',
-    version: '2.0.0',
+    version: '2.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/accounts' }],
     frequency: 'every hour',
     autoStart: true,
@@ -178,6 +178,7 @@ const sync = createSync({
     models: {
         Account: AccountSchema
     },
+    scopes: ['ZohoCRM.modules.accounts.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

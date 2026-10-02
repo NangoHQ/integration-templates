@@ -63,9 +63,10 @@ function parseStateJson(json: string): z.infer<typeof StateSchema> {
 
 const sync = createSync({
     description: 'Sync clients across all organizations.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hubstaff:read'],
     checkpoint: CheckpointSchema,
     models: {
         Client: ClientModelSchema

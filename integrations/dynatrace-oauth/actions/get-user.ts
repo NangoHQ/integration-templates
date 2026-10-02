@@ -46,7 +46,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: "Get a single user's full details including their group memberships.",
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
@@ -65,7 +65,7 @@ const action = createAction({
 
         const accountUuid = metadataResult.data.accountUuid;
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management/get-user
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/get-user-groups
         const response = await nango.get({
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/users/${encodeURIComponent(input.email)}`,
             retries: 3

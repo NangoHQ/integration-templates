@@ -64,12 +64,12 @@ function parseBoolean(value: unknown): boolean {
 
 const action = createAction({
     description: 'List Snowflake warehouses with size, state, and resource usage.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.snowflake.com/en/developer-guide/sql-api/reference/api-reference-v2.html#post-api-v2-statements
+        // https://docs.snowflake.com/en/developer-guide/sql-api/reference#post-api-v2-statements
         const response = await nango.post({
             endpoint: '/api/v2/statements',
             data: {

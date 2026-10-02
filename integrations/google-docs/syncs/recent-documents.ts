@@ -55,12 +55,13 @@ interface DocumentRecord extends Record<string, unknown> {
 
 const sync = createSync({
     description: 'Sync recently modified Google Docs files from Drive and fetch current document content for each changed file.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/recent-documents' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     models: {
         RecentDocument: DocumentSchema
     },

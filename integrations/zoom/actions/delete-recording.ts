@@ -17,13 +17,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a recording in Zoom.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['recording:write', 'recording:write:admin', 'cloud_recording:delete:meeting_recording', 'cloud_recording:delete:meeting_recording:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.zoom.us/docs/api/rest/reference/zoom-api/cloud-recording/recordingdelete
+        // https://developers.zoom.us/docs/api/meetings/#tag/Cloud-Recording/operation/recordingDelete
         await nango.delete({
             endpoint: `/meetings/${encodeURIComponent(encodeURIComponent(input.meeting_id))}/recordings`,
             params: {

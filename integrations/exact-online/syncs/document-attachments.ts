@@ -41,7 +41,7 @@ const DocumentAttachmentPageSchema = z.array(
 
 const sync = createSync({
     description: 'Sync document attachment metadata as full snapshot',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -55,6 +55,7 @@ const sync = createSync({
             path: '/syncs/document-attachments'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

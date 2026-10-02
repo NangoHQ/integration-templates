@@ -23,13 +23,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync groups.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Group: GroupSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

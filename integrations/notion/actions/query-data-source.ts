@@ -19,10 +19,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Query entries in a Notion data source using filters and sorts.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_content'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {};
@@ -42,7 +42,7 @@ const action = createAction({
         if (input['in_trash'] !== undefined) {
             requestBody['in_trash'] = input['in_trash'];
         }
-        // https://developers.notion.com/reference/query-a-database
+        // https://developers.notion.com/reference/query-a-data-source
         const response = await nango.post({
             endpoint: `/v1/databases/${encodeURIComponent(input.data_source_id)}/query`,
             data: requestBody,

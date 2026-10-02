@@ -12,9 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a campaign in Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://mailchimp.com/developer/marketing/api/campaigns/

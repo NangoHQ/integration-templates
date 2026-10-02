@@ -15,14 +15,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a SharePoint list.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         await nango.delete({
-            // https://learn.microsoft.com/graph/api/list-delete
+            // https://learn.microsoft.com/en-us/graph/api/resources/list?view=graph-rest-1.0
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/lists/${encodeURIComponent(input.listId)}`,
             retries: 3
         });

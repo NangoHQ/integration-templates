@@ -12,13 +12,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all pipeline stages in Lever',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         LeverStage: LeverStageSchema
     },
+    scopes: ['stages:read:admin'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

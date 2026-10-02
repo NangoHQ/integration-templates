@@ -23,9 +23,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync agents.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Desk.basic.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Agent: AgentSchema

@@ -21,7 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List candidates for a specific job',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates'],
@@ -50,7 +50,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-candidates
+            // https://workable.readme.io/reference/job-candidates-index
             endpoint: '/spi/v3/candidates',
             params,
             retries: 3

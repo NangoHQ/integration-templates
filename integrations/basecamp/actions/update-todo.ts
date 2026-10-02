@@ -55,9 +55,10 @@ const ProviderTodoSchema = z.object({
  */
 const action = createAction({
     description: "Update a to-do's content, description, dates, or assignees.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: {

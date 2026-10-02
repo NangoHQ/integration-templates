@@ -41,9 +41,10 @@ const JiraUserSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Jira users visible to the authenticated account',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read:jira-user'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema

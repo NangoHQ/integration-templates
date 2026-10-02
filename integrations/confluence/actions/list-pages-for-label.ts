@@ -92,11 +92,11 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List Confluence pages attached to a label',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:page:confluence', 'read:label:confluence'],
+    scopes: ['read:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

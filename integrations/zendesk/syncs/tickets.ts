@@ -71,7 +71,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync tickets from Zendesk Support',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -80,6 +80,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['tickets:read'],
     checkpoint: CheckpointSchema,
     models: {
         Ticket: TicketSchema

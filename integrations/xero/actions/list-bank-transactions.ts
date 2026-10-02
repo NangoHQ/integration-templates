@@ -62,10 +62,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List bank transactions with filters and pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.banktransactions', 'accounting.banktransactions.read'],
+    scopes: ['accounting.banktransactions.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.xero.com/documentation/guides/oauth2/tenants

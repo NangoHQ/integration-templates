@@ -19,9 +19,10 @@ const ProviderOrderSchema = z
 
 const action = createAction({
     description: 'Retrieve an order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ProviderOrderSchema,
+    scopes: ['https://uri.paypal.com/services/payments/payment'],
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderOrderSchema>> => {
         const response = await nango.get({

@@ -133,13 +133,14 @@ function parseVaultQueue(json: string): Array<{ projectId: number; vaultId: numb
 
 const sync = createSync({
     description: 'Sync documents across all known projects vaults including sub-folders',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Document: DocumentSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const projects: Array<{ id: number; vaultId: number }> = [];

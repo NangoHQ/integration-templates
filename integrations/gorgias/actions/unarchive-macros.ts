@@ -17,12 +17,13 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Unarchive up to 30 macros in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null().describe('Empty response. The provider does not return a body for this endpoint.'),
+    scopes: ['write:all'],
 
     exec: async (nango, input) => {
-        // https://developers.gorgias.com/reference/unarchive-macros
+        // https://developers.gorgias.com/reference/bulk-unarchive-macros
         // @allowTryCatch: The Gorgias API requires write:all scope for this endpoint, which is not
         // available on all OAuth connections. We convert the 403 into a structured ActionError so
         // callers can distinguish a missing permission from a successful unarchive.

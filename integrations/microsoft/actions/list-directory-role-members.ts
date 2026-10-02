@@ -38,7 +38,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all members (users and service principals) assigned to a directory role in Microsoft.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['RoleManagement.Read.Directory'],

@@ -13,9 +13,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all permission profiles for the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
+    scopes: ['signature'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
@@ -33,7 +34,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/permissionprofiles/getpermissionprofiles/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountpermissionprofiles/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/permission_profiles`,
             retries: 3
         });

@@ -29,10 +29,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the teams joined by a user',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['Team.ReadBasic.All'],
     models: {
         JoinedTeam: JoinedTeamSchema
     },

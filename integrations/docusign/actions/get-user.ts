@@ -81,7 +81,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Retrieve a user's detailed profile and settings.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -103,7 +103,7 @@ const action = createAction({
 
         const accountId = metadata.accountId;
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountusers/getuser/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/users/users/get/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/users/${encodeURIComponent(input.userId)}`,
             retries: 3

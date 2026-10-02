@@ -73,7 +73,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync meetings from Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -86,7 +86,7 @@ const sync = createSync({
             path: '/syncs/meetings'
         }
     ],
-    scopes: ['meeting:read'],
+    scopes: ['meeting:read', 'record_permission:read'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});

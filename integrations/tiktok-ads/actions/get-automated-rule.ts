@@ -69,9 +69,10 @@ const ResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an automated rule by ID from TikTok Ads.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://business-api.tiktok.com/portal/docs?id=1738768750822466

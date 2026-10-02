@@ -19,12 +19,13 @@ const UserSchema = z.object({
 
 const sync = createSync({
     description: 'Full-refresh sync of organization users.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         User: UserSchema
     },
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango) => {
         // Blocker: GET /v1/user/ does not support incremental filters (e.g. date_updated__gt).

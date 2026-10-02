@@ -30,14 +30,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a user in Zoom',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user:write:admin', 'user:write'],
 
     exec: async (nango, input) => {
         const response = await nango.post({
-            // https://developers.zoom.us/docs/api/rest/reference/user-management/users/#post-users
+            // https://developers.zoom.us/docs/api/users/#tag/Users/operation/userCreate
             endpoint: '/users',
             data: {
                 action: input.action,

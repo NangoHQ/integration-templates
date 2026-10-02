@@ -44,10 +44,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the blocked word list for automatic comment moderation.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tt_user'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

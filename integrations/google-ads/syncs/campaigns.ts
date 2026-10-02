@@ -197,9 +197,10 @@ function extractSearchStreamRows(data: unknown): unknown[] {
 
 const sync = createSync({
     description: 'Sync campaigns for customer accounts in scope.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

@@ -45,9 +45,10 @@ interface UserResponse {
 
 const sync = createSync({
     description: 'Sync webhook subscriptions from Calendly',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['webhooks:read'],
     endpoints: [
         {
             // https://developer.calendly.com/api-docs/faac832d7c57d-list-webhook-subscriptions

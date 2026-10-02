@@ -163,14 +163,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single contact from ActiveCampaign.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.activecampaign.com/reference/retrieve-a-contact
+            // https://developers.activecampaign.com/reference/get-contact
             endpoint: `/3/contacts/${encodeURIComponent(String(input.id))}`,
             retries: 3
         });

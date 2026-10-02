@@ -247,9 +247,10 @@ function normalizeAssignee(assignee: z.infer<typeof ProviderAssigneeSchema>): z.
  */
 const action = createAction({
     description: 'Update a card step title, due date, or assignees.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {};

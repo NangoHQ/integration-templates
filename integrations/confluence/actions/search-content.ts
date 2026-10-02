@@ -70,11 +70,11 @@ const SearchResponseSchema = z
 
 const action = createAction({
     description: 'Search Confluence content with CQL',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:page:confluence', 'read:space:confluence'],
+    scopes: ['read:content-details:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Get metadata to check for cached cloudId

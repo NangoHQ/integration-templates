@@ -67,14 +67,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single execution log entry for a scenario.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/api-reference/scenarios/logs/get-scenario-log
+            // https://developers.make.com/api-documentation/api-reference/scenarios/logs
             endpoint: `/scenarios/${encodeURIComponent(String(input.scenarioId))}/logs/${encodeURIComponent(input.executionId)}`,
             retries: 3
         });

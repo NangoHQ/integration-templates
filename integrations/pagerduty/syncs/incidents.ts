@@ -290,9 +290,10 @@ function parseCheckpoint(rawCheckpoint: unknown): z.infer<typeof CheckpointSchem
 
 const sync = createSync({
     description: 'Sync incidents.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
+    scopes: ['incidents.read'],
     checkpoint: CheckpointSchema,
     models: {
         Incident: IncidentSchema

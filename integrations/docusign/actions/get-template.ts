@@ -61,13 +61,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a template by ID including documents, recipients, and tabs.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/get-template',
         method: 'GET'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

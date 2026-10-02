@@ -32,9 +32,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversion (tracking) tags.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ads:read'],
     checkpoint: CheckpointSchema,
     models: {
         ConversionTag: ConversionTagSchema

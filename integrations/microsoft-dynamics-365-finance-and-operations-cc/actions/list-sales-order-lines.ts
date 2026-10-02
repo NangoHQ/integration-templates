@@ -40,11 +40,10 @@ const ODataListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List sales order lines, optionally scoped to a parent sales order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['DataEntities.Read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const dataAreaId = input.dataAreaId ?? 'dat';
         const limit = input.limit ?? 1000;

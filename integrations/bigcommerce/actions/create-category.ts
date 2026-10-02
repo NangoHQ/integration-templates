@@ -69,7 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -117,7 +117,7 @@ const action = createAction({
             payload['custom_url'] = input.custom_url;
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#create-a-category
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/create-category
         const response = await nango.post({
             endpoint: '/v3/catalog/categories',
             data: payload,

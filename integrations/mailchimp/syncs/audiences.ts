@@ -43,9 +43,10 @@ const AudienceSchema = z.object({
 
 const sync = createSync({
     description: 'Sync audiences from Mailchimp.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     models: {
         Audience: AudienceSchema
     },

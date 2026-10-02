@@ -31,13 +31,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync products.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Product: ProductSchema
     },
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango) => {
         // Blocker: PayPal Catalog Products list only supports page-based pagination with no changed-since

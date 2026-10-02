@@ -123,9 +123,10 @@ const ProviderScheduleEntrySchema = z.object({
  */
 const action = createAction({
     description: "Update a schedule entry's summary, times, or other fields.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const payload: Record<string, unknown> = {

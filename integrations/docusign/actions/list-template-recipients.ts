@@ -49,14 +49,14 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List recipient roles defined in a template',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/list-template-recipients',
         method: 'GET'
     },
-    scopes: [],
+    scopes: ['signature'],
 
     exec: async (nango, input) => {
         const metadata = await nango.getMetadata();

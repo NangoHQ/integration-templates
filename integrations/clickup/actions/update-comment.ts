@@ -14,9 +14,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a comment in ClickUp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: {
@@ -35,7 +36,7 @@ const action = createAction({
             body.resolved = input.resolved;
         }
 
-        // https://developer.clickup.com/reference/update-comment
+        // https://developer.clickup.com/reference/updatecomment
         await nango.put({
             endpoint: `/api/v2/comment/${encodeURIComponent(input.comment_id)}`,
             data: body,

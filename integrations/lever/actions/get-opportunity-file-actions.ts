@@ -34,10 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List file-related actions (uploads/downloads) recorded against an opportunity.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['opportunities:read:admin', 'files:read:admin'],
+    scopes: ['files:read:admin'],
 
     exec: async (nango, input) => {
         const response = await nango.get({

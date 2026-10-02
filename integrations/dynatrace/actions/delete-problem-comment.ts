@@ -14,14 +14,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a problem comment',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.read', 'problems.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems/delete-problem-comment
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/del-comment
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments/${encodeURIComponent(input.commentId)}`,
             retries: 10
         });

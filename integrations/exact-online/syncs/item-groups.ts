@@ -42,7 +42,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync item groups as full snapshot (small static dataset).',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -55,9 +55,10 @@ const sync = createSync({
             path: '/syncs/item-groups'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
-        // https://start.exactonline.fr/docs/en_GB/rest/webservices/system/me.xml
+        // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=SystemSystemMe
         const meResponse = await nango.get({
             endpoint: '/api/v1/current/Me',
             retries: 3
@@ -81,7 +82,7 @@ const sync = createSync({
         await nango.trackDeletesStart('ItemGroup');
 
         while (hasMore) {
-            // https://start.exactonline.fr/docs/en_GB/rest/webservices/logistics/ItemGroups.xml
+            // https://start.exactonline.fr/docs/HlpRestAPIResourcesDetails.aspx?name=LogisticsItemGroups
             const response = await nango.get({
                 endpoint: `/api/v1/${encodeURIComponent(currentDivision)}/logistics/ItemGroups`,
                 params: {

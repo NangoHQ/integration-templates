@@ -62,13 +62,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync legal entities (companies/data areas).',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         LegalEntity: LegalEntitySchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: LegalEntities exposes no modified-timestamp field in this environment,

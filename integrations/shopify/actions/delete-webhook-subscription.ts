@@ -32,10 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Shopify webhook subscription.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_orders', 'write_orders'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const query = `

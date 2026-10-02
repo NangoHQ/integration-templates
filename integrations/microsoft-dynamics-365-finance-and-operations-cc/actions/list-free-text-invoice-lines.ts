@@ -35,11 +35,10 @@ const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List free text invoice lines, optionally scoped to a parent invoice.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['DynamicsOData.full_access'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const dataAreaId = input.dataAreaId ?? 'dat';
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;

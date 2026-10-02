@@ -70,10 +70,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List comments for a page or discussion thread.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read:comments'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

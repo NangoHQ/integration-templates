@@ -62,7 +62,7 @@ const PublishedVariablesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync published variables from Figma',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -76,6 +76,7 @@ const sync = createSync({
     models: {
         Variable: VariableModelSchema
     },
+    scopes: ['projects:read', 'file_variables:read'],
 
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();

@@ -104,10 +104,11 @@ function toRelativeEndpoint(url: string): string {
 
 const sync = createSync({
     description: 'Sync Zendesk Help Center articles',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/articles' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['hc:read'],
     checkpoint: CheckpointSchema,
     models: {
         Article: ArticleOutputSchema

@@ -44,15 +44,15 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List SharePoint lists on a site.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Sites.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://learn.microsoft.com/graph/api/site-list-lists
+        // https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0
         const response = await nango.get({
-            // https://learn.microsoft.com/graph/api/site-list-lists
+            // https://learn.microsoft.com/en-us/graph/api/list-list?view=graph-rest-1.0
             endpoint: `/v1.0/sites/${encodeURIComponent(input.siteId)}/lists`,
             params: {
                 $top: '50',

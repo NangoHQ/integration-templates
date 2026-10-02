@@ -54,10 +54,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update page content using markdown commands. Supports targeted edits, full replacement, insertion, and range replacement.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['update_content'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const commandMap: Record<string, unknown> = {

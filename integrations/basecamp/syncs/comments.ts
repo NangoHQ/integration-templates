@@ -321,13 +321,14 @@ function mapComment(comment: z.infer<typeof ProviderCommentSchema>): z.infer<typ
 
 const sync = createSync({
     description: 'Sync comments across all known recordings',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Comment: CommentSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

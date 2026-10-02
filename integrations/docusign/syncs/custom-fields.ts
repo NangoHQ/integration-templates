@@ -40,13 +40,14 @@ const CustomFieldsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync account-level custom field definitions (text and list types).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     models: {
         CustomField: CustomFieldSchema
     },
     metadata: MetadataSchema,
+    scopes: ['signature'],
     endpoints: [
         {
             method: 'POST',
@@ -61,7 +62,7 @@ const sync = createSync({
         }
         const accountId = parsedMetadata.data.accountId;
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountcustomfields/get/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountcustomfields/list/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/custom_fields`,
             retries: 3

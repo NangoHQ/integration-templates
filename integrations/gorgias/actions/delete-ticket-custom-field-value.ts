@@ -18,14 +18,14 @@ const OutputSchema = z.null().describe('No response body on success.');
  */
 const action = createAction({
     description: 'Clear a single custom field value on a ticket',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tickets:write'],
 
     exec: async (nango, input): Promise<null> => {
         const config: ProxyConfiguration = {
-            // https://developers.gorgias.com/reference/delete-ticket-custom-field-value
+            // https://developers.gorgias.com/reference/delete-ticket-custom-field
             endpoint: `/api/tickets/${encodeURIComponent(input.ticket_id)}/custom-fields/${encodeURIComponent(input.custom_field_id)}`,
             retries: 3
         };

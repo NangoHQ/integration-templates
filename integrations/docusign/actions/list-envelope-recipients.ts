@@ -38,7 +38,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'List all recipients for an envelope.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-envelope-recipients'
@@ -62,7 +62,7 @@ const action = createAction({
         const envelopeId = input.envelopeId;
 
         const response = await nango.get({
-            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/get/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipients/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(envelopeId)}/recipients`,
             retries: 3
         });

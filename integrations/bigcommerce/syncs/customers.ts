@@ -45,13 +45,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
+    scopes: ['store_v2_customers_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', page: 1 });
@@ -70,7 +71,7 @@ const sync = createSync({
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/customers
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/get-customers
             endpoint: '/v3/customers',
             params,
             paginate: {

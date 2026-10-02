@@ -26,10 +26,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single record from any form by record ID.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['ZOHOPEOPLE.forms.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

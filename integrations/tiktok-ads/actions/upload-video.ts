@@ -31,10 +31,10 @@ const TikTokApiResponseSchema = z.object({
 
 const action = createAction({
     description: 'Upload a video creative to TikTok Ads',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ads_management'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.upload_type === 'UPLOAD_BY_URL' && (!input.video_url || input.video_url.length === 0)) {

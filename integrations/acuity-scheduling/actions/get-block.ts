@@ -39,10 +39,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single calendar block.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

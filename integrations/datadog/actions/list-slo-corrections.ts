@@ -103,7 +103,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: "List SLO corrections (time windows excluded from an SLO's error-budget calculation, e.g. for planned maintenance).",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['slos_read'],
@@ -122,7 +122,7 @@ const action = createAction({
 
         const limit = input.limit ?? 25;
 
-        // https://docs.datadoghq.com/api/latest/slo-corrections/
+        // https://docs.datadoghq.com/api/latest/service-level-objective-corrections/get-all-slo-corrections/
         const response = await nango.get({
             endpoint: 'v1/slo/correction',
             params: {

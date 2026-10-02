@@ -71,9 +71,10 @@ const BASECAMP_API_ORIGIN = 'https://3.basecampapi.com';
  */
 const action = createAction({
     description: 'List sub-folders (nested vaults) inside a vault.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let endpoint = `/buckets/${encodeURIComponent(String(input.projectId))}/vaults/${encodeURIComponent(String(input.vaultId))}/vaults.json`;

@@ -110,9 +110,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync expenses from Splitwise.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: [],
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/expenses' }],
     models: {

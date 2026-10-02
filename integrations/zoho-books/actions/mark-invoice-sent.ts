@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Mark a Zoho Books invoice as sent',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoBooks.invoices.CREATE', 'ZohoBooks.settings.READ'],

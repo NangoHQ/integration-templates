@@ -58,7 +58,7 @@ type DriveItem = z.infer<typeof DriveItemSchema>;
 
 const sync = createSync({
     description: 'Sync files and folders from selected site drives',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -72,6 +72,7 @@ const sync = createSync({
     models: {
         DriveItem: DriveItemSchema
     },
+    scopes: ['Sites.Read.All', 'Files.Read.All'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();
@@ -81,7 +82,7 @@ const sync = createSync({
         if (metadata?.driveIds && metadata.driveIds.length > 0) {
             driveIds = metadata.driveIds;
         } else {
-            // https://learn.microsoft.com/graph/api/site-list-drives
+            // https://learn.microsoft.com/en-us/graph/api/drive-list?view=graph-rest-1.0
             const drivesResponse = await nango.get({
                 endpoint: '/v1.0/sites/root/drives',
                 retries: 3

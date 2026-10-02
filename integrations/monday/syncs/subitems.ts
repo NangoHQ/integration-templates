@@ -53,13 +53,14 @@ const CheckpointSchema = z.object({
 // items-page cursor level so a timeout does not restart from board 1.
 const sync = createSync({
     description: 'Sync subitems from monday.com',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Subitem: SubitemSchema
     },
+    scopes: ['boards:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

@@ -34,10 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Cancel a Stripe PaymentIntent.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

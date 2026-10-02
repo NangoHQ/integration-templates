@@ -67,13 +67,14 @@ const EnvelopeListResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync envelope metadata incrementally by last-modified date.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     checkpoint: CheckpointSchema,
     models: {
         Envelope: EnvelopeSchema
     },
+    scopes: ['signature'],
     endpoints: [{ method: 'GET', path: '/syncs/envelopes' }],
 
     exec: async (nango) => {

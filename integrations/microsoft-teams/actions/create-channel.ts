@@ -28,14 +28,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a channel in a team.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Channel.Create', 'Group.ReadWrite.All', 'Team.ReadBasic.All'],
+    scopes: ['Channel.Create', 'Group.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config = {
-            // https://learn.microsoft.com/graph/api/team-post-channels
+            // https://learn.microsoft.com/en-us/graph/api/channel-post?view=graph-rest-1.0
             endpoint: `/v1.0/teams/${input.teamId}/channels`,
             data: {
                 displayName: input.displayName,

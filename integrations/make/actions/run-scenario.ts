@@ -48,13 +48,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Manually execute an active scenario.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['scenarios:run'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.make.com/api-documentation/api-reference/scenarios/run-scenario
+        // https://developers.make.com/api-documentation/api-reference/scenarios
         const runResponse = await nango.post({
             endpoint: `/scenarios/${encodeURIComponent(input.scenarioId)}/run`,
             data: {
@@ -75,7 +75,7 @@ const action = createAction({
         await new Promise((resolve) => setTimeout(resolve, 1000));
 
         for (let i = 0; i < maxAttempts; i++) {
-            // https://developers.make.com/api-documentation/api-reference/scenarios/get-scenario-execution
+            // https://developers.make.com/api-documentation/api-reference/scenarios/logs
             const pollResponse = await nango.get({
                 endpoint: `/scenarios/${encodeURIComponent(scenarioId)}/executions/${encodeURIComponent(executionId)}`,
                 retries: 3

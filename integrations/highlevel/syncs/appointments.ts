@@ -93,9 +93,10 @@ function decodeState(raw: string | undefined): { calendars: Record<string, z.inf
 
 const sync = createSync({
     description: 'Sync appointments (calendar events) from HighLevel',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['calendars.readonly', 'calendars/events.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         Appointment: AppointmentModelSchema

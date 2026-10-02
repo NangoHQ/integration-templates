@@ -24,11 +24,11 @@ const AccessibleResourceSchema = z.object({
 
 const action = createAction({
     description: 'Permanently delete a Confluence footer comment.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:space:confluence', 'read:comment:confluence', 'write:comment:confluence', 'delete:comment:confluence'],
+    scopes: ['delete:comment:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

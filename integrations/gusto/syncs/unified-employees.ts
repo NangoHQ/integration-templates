@@ -11,10 +11,11 @@ import { z } from 'zod';
  */
 const sync = createSync({
     description: 'Fetches all employees from Gusto and maps them to the standard HRIS model',
-    version: '1.1.1',
+    version: '1.1.2',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
+    scopes: ['employees:read', 'compensations:read'],
 
     endpoints: [
         {

@@ -110,7 +110,7 @@ function toInvoice(record: z.infer<typeof InvoiceSchema>): z.infer<typeof Invoic
 
 const sync = createSync({
     description: 'Sync invoices from QuickBooks Online',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -123,6 +123,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const checkpoint: z.infer<typeof CheckpointSchema> | null = await nango.getCheckpoint();

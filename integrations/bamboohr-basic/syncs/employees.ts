@@ -59,9 +59,10 @@ type ProviderRow = z.infer<typeof ProviderRowSchema>;
 
 const sync = createSync({
     description: 'Sync employees from BambooHR using the v2 datasets API with incremental updates via lastChanged.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['report'],
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/employees' }],
     models: {

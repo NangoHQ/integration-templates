@@ -47,7 +47,7 @@ const ProviderUserSchema = z.object({
 
 const sync = createSync<typeof ModelsSchema>({
     description: 'Fetches a list of users from Box. Requires an enterprise account.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every day',
     autoStart: true,
     endpoints: [
@@ -58,6 +58,7 @@ const sync = createSync<typeof ModelsSchema>({
         }
     ],
     models: ModelsSchema,
+    scopes: ['manage_managed_users'],
 
     exec: async (nango) => {
         await nango.trackDeletesStart('User');

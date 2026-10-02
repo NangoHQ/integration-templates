@@ -19,9 +19,10 @@ const TenantsResponseSchema = z.array(z.unknown());
 
 const action = createAction({
     description: 'Fetches all the tenants the connection has access to.\nThis can be used to set the metadata to the selected tenant.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: z.void(),
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.xero.com/documentation/guides/oauth2/tenants

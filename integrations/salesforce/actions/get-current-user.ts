@@ -36,9 +36,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the current Salesforce user and org identity context.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['openid'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://help.salesforce.com/s/articleView?id=xcloud.remoteaccess_using_userinfo_endpoint.htm

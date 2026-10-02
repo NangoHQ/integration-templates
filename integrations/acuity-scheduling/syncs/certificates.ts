@@ -31,9 +31,10 @@ const CertificateSchema = z.object({
 
 const sync = createSync({
     description: 'Sync package and gift certificates',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api-v1'],
     models: {
         Certificate: CertificateSchema
     },

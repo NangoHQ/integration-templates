@@ -74,9 +74,10 @@ const DataStreamsCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync web, iOS, and Android data streams for GA4 properties.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     models: {
         DataStream: DataStreamSchema
     },

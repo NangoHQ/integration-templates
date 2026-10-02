@@ -38,7 +38,8 @@ const action = createAction({
     description: 'Get details about the current Basecamp account (subscription plan, limits, trial status).',
     input: z.void().describe('No input required for this action.'),
     output: accountOutputSchema,
-    version: '1.0.0',
+    version: '1.0.1',
+    scopes: [],
 
     exec: async (nango, _input) => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/account.md

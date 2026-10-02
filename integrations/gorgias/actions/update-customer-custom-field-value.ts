@@ -38,13 +38,13 @@ function parseCustomFieldValueEntries(data: unknown): z.infer<typeof CustomField
  */
 const action = createAction({
     description: 'Set a single custom field value on a customer.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customers:read', 'customers:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.gorgias.com/reference/get-customer-custom-fields
+        // https://developers.gorgias.com/reference/list-customer-custom-fields-values
         const existingResponse = await nango.get({
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
             retries: 3
@@ -58,7 +58,7 @@ const action = createAction({
         mergedValues.push({ id: input.custom_field_id, value: input.value });
 
         const response = await nango.put({
-            // https://developers.gorgias.com/reference/update-customer-custom-fields
+            // https://developers.gorgias.com/reference/update-customer-custom-field-values
             endpoint: `/api/customers/${encodeURIComponent(input.customer_id)}/custom-fields`,
             data: mergedValues,
             retries: 3

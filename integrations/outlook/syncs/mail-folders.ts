@@ -42,7 +42,8 @@ type MailFolder = z.infer<typeof MailFolderSchema>;
 
 const sync = createSync({
     description: 'Sync the mail folder hierarchy',
-    version: '1.0.0',
+    version: '1.0.1',
+    scopes: ['Mail.Read'],
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

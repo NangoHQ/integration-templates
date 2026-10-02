@@ -35,9 +35,10 @@ const CustomFieldSchema = z
 
 const sync = createSync({
     description: 'Sync custom field definitions for both tickets and customers',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['custom_fields:read'],
     models: {
         CustomField: CustomFieldSchema
     },

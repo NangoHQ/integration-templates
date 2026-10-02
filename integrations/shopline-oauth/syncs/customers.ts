@@ -73,9 +73,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customers, including embedded addresses and marketing consent',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_customers'],
     checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema

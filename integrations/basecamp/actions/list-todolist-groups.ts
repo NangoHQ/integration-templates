@@ -39,9 +39,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'List the sub-groups (sections) within a to-do list.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};
         if (input.status !== undefined) {

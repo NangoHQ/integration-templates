@@ -233,9 +233,10 @@ function mapExpense(providerExpense: z.infer<typeof ProviderExpenseSchema>): z.i
 
 const action = createAction({
     description: 'List expenses from Splitwise.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 20;
         if (limit <= 0) {

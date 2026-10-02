@@ -69,9 +69,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new scanning rule within a group (a pattern to detect and optionally redact).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body = {

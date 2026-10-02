@@ -89,10 +89,11 @@ function buildGraphRequest(endpointOrUrl: string, defaultParams?: Record<string,
 
 const sync = createSync({
     description: 'Sync directory users relevant to Microsoft Teams workspaces',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['User.Read.All'],
     models: {
         User: UserSchema
     },

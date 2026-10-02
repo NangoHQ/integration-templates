@@ -17,11 +17,10 @@ const OutputSchema = ProviderPurchaseOrderSchema;
 
 const action = createAction({
     description: 'Retrieve a purchase order header.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['D365FO.Read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input) => {
         const endpoint = `/data/PurchaseOrderHeadersV2(dataAreaId='${encodeURIComponent(input.dataAreaId.replace(/'/g, "''"))}',PurchaseOrderNumber='${encodeURIComponent(input.purchaseOrderNumber.replace(/'/g, "''"))}')`;
 

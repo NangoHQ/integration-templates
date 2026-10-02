@@ -45,10 +45,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List categories for a customer invoice',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['customer_invoices:all', 'customer_invoices:readonly'],
+    scopes: ['customer_invoices:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

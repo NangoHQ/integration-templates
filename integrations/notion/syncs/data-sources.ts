@@ -94,7 +94,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Notion data source definitions and schema metadata.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -107,6 +107,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

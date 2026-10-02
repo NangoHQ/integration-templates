@@ -100,13 +100,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync pipeline runs per repository',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Pipeline: PipelineSchema
     },
+    scopes: ['account', 'repository', 'pipeline'],
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const parsedCheckpoint = checkpoint ? CheckpointSchema.safeParse(checkpoint) : null;

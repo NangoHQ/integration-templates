@@ -12,13 +12,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a draft customer invoice or draft credit note.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customer_invoices:all'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://pennylane.readme.io/reference/delete_customer_invoices-id
+        // https://pennylane.readme.io/reference/deletecustomerinvoices
         await nango.delete({
             endpoint: `/api/external/v2/customer_invoices/${encodeURIComponent(String(input.id))}`,
             retries: 1

@@ -34,9 +34,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users in this account.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['user_access_read'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
