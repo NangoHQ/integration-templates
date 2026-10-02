@@ -1,0 +1,81 @@
+{
+  "input": {
+    "form_id": "262715780901055"
+  },
+  "output": {
+    "id": "262735341235050",
+    "title": "Clone of Feature Showcase Form",
+    "status": "ENABLED",
+    "url": "https://form.jotform.com/262735341235050",
+    "username": "Developer_Nango",
+    "count": 0,
+    "new": 0,
+    "height": "539"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/form/262715780901055/clone": {
+        "response": {
+          "responseCode": 200,
+          "message": "success",
+          "content": {
+            "id": "262735341235050",
+            "username": "Developer_Nango",
+            "title": "Clone of Feature Showcase Form",
+            "height": "539",
+            "status": "ENABLED",
+            "created_at": null,
+            "updated_at": null,
+            "last_submission": null,
+            "new": 0,
+            "count": 0,
+            "type": "LEGACY",
+            "favorite": "0",
+            "archived": "0",
+            "clonedPdfIdMapping": [],
+            "url": "https://form.jotform.com/262735341235050"
+          },
+          "duration": "791.61ms",
+          "info": null,
+          "limit-left": 665
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 18:39:06 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1790880003",
+          "cache-control": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+          "jf-entrypoint": "1",
+          "jf-trace-id": "d58e5f3e70ef4969",
+          "last-modified": "Thu, 01 Oct 2026 18:39:06 GMT",
+          "p3p": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "x-httpx-dc": "uw2",
+          "x-httpx-id": "01a0f8c3-550c-72d2-8ba7-f77d658bb2bf",
+          "x-raw-uri": "form/:formID/clone",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+        },
+        "hash": "24e770cbf44e00d64e968c81faa6f525ec89e93e",
+        "request": {}
+      }
+    }
+  }
+}

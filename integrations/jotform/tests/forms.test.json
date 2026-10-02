@@ -1,0 +1,883 @@
+{
+  "nango": {
+    "batchSave": {
+      "Form": [
+        {
+          "id": "262735741217559",
+          "username": "Developer_Nango",
+          "title": "Edit Question Test Form",
+          "height": "690",
+          "status": "ENABLED",
+          "created_at": "2026-10-01 14:36:05",
+          "updated_at": "2026-10-01 14:37:45",
+          "new": "0",
+          "count": "0",
+          "type": "LEGACY",
+          "favorite": "0",
+          "archived": "0",
+          "url": "https://form.jotform.com/262735741217559"
+        },
+        {
+          "id": "262715780901055",
+          "username": "Developer_Nango",
+          "title": "Feature Showcase Form",
+          "height": "539",
+          "status": "ENABLED",
+          "created_at": "2026-09-29 14:56:35",
+          "updated_at": "2026-10-01 14:41:56",
+          "last_submission": "2026-10-01 14:38:21",
+          "new": "1",
+          "count": "1",
+          "type": "LEGACY",
+          "favorite": "0",
+          "archived": "0",
+          "url": "https://form.jotform.com/262715780901055"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Form": [
+        {
+          "id": "262736264203050"
+        },
+        {
+          "id": "262736208781564"
+        },
+        {
+          "id": "262736201600547"
+        },
+        {
+          "id": "262736156755062"
+        },
+        {
+          "id": "262736033898569"
+        },
+        {
+          "id": "262736016102548"
+        },
+        {
+          "id": "262735993969582"
+        },
+        {
+          "id": "262735860769573"
+        },
+        {
+          "id": "262735853167567"
+        },
+        {
+          "id": "262735844542059"
+        },
+        {
+          "id": "262735830690563"
+        },
+        {
+          "id": "262735724852565"
+        },
+        {
+          "id": "262735631157055"
+        },
+        {
+          "id": "262735623922056"
+        },
+        {
+          "id": "262735597838072"
+        },
+        {
+          "id": "262735584490062"
+        },
+        {
+          "id": "262735562884065"
+        },
+        {
+          "id": "262735540393561"
+        },
+        {
+          "id": "262735489876579"
+        },
+        {
+          "id": "262735424059561"
+        },
+        {
+          "id": "262735416308559"
+        },
+        {
+          "id": "262735404381557"
+        },
+        {
+          "id": "262735371186563"
+        },
+        {
+          "id": "262735341235050"
+        },
+        {
+          "id": "262735317711557"
+        },
+        {
+          "id": "262735305413553"
+        },
+        {
+          "id": "262735303922556"
+        },
+        {
+          "id": "262735293079567"
+        },
+        {
+          "id": "262735255518563"
+        },
+        {
+          "id": "262735252846564"
+        },
+        {
+          "id": "262735046924562"
+        },
+        {
+          "id": "262734906972569"
+        },
+        {
+          "id": "262734892042561"
+        },
+        {
+          "id": "262725371099565"
+        }
+      ]
+    }
+  },
+  "api": {
+    "get": {
+      "/user/forms": {
+        "response": {
+          "responseCode": 200,
+          "message": "success",
+          "content": [
+            {
+              "id": "262736264203050",
+              "username": "Developer_Nango",
+              "title": "Variant C nested object",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:37:29",
+              "updated_at": "2026-10-01 14:41:31",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736264203050",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262736208781564",
+              "username": "Developer_Nango",
+              "title": "List Form Reports Test",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:34:18",
+              "updated_at": "2026-10-01 14:34:36",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736208781564",
+              "folders": ""
+            },
+            {
+              "id": "262736201600547",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:39:23",
+              "updated_at": "2026-10-01 14:39:38",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736201600547",
+              "folders": ""
+            },
+            {
+              "id": "262736156755062",
+              "username": "Developer_Nango",
+              "title": "Clone of Feature Showcase Form",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:38:52",
+              "updated_at": "2026-10-01 14:42:05",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736156755062",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262736033898569",
+              "username": "Developer_Nango",
+              "title": "Disposable Delete Target",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:33:01",
+              "updated_at": "2026-10-01 14:33:10",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736033898569",
+              "folders": ""
+            },
+            {
+              "id": "262736016102548",
+              "username": "Developer_Nango",
+              "title": "Title Me",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 15:22:53",
+              "updated_at": "2026-10-01 15:33:16",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262736016102548",
+              "folders": ""
+            },
+            {
+              "id": "262735993969582",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:36:20",
+              "updated_at": "2026-10-01 14:39:37",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735993969582",
+              "folders": ""
+            },
+            {
+              "id": "262735860769573",
+              "username": "Developer_Nango",
+              "title": "Tmp Delete Report Final Check",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:41:35",
+              "updated_at": "2026-10-01 14:41:49",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735860769573",
+              "folders": ""
+            },
+            {
+              "id": "262735853167567",
+              "username": "Developer_Nango",
+              "title": "Composite Probe Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:34:00",
+              "updated_at": "2026-10-01 14:34:17",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735853167567",
+              "folders": ""
+            },
+            {
+              "id": "262735844542059",
+              "username": "Developer_Nango",
+              "title": "Clone of Curl Urlencoded Test",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:36:48",
+              "updated_at": "2026-10-01 14:42:04",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735844542059",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735830690563",
+              "username": "Developer_Nango",
+              "title": "Tmp Delete Report Action Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:34:49",
+              "updated_at": "2026-10-01 14:38:42",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735830690563",
+              "folders": ""
+            },
+            {
+              "id": "262735741217559",
+              "username": "Developer_Nango",
+              "title": "Edit Question Test Form",
+              "height": "690",
+              "status": "ENABLED",
+              "created_at": "2026-10-01 14:36:05",
+              "updated_at": "2026-10-01 14:37:45",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735741217559",
+              "folders": ""
+            },
+            {
+              "id": "262735724852565",
+              "username": "Developer_Nango",
+              "title": "Nango Registry Test Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:36:50",
+              "updated_at": "2026-10-01 14:37:50",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735724852565",
+              "folders": ""
+            },
+            {
+              "id": "262735631157055",
+              "username": "Developer_Nango",
+              "title": "Clone of Put To Properties Endpoint",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 13:16:57",
+              "updated_at": "2026-10-01 13:21:45",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735631157055",
+              "folders": ""
+            },
+            {
+              "id": "262735623922056",
+              "username": "Developer_Nango",
+              "title": "Duplicated Showcase Form (registry dryrun)",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:41:23",
+              "updated_at": "2026-10-01 14:41:31",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735623922056",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735597838072",
+              "username": "Developer_Nango",
+              "title": "Duplicated Showcase Form (registry dryrun)",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:41:00",
+              "updated_at": "2026-10-01 14:41:31",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735597838072",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735584490062",
+              "username": "Developer_Nango",
+              "title": "Duplicated Showcase Form v2",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 13:21:52",
+              "updated_at": "2026-10-01 13:22:13",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735584490062",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735562884065",
+              "username": "Developer_Nango",
+              "title": "Clone of SDK URLSearchParams Test",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:38:13",
+              "updated_at": "2026-10-01 14:42:04",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735562884065",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735540393561",
+              "username": "Developer_Nango",
+              "title": "DeleteFormQuestionDisposable",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:33:20",
+              "updated_at": "2026-10-01 14:36:23",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735540393561",
+              "folders": ""
+            },
+            {
+              "id": "262735489876579",
+              "username": "Developer_Nango",
+              "title": "Delete-Form Action Dryrun Target",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:35:10",
+              "updated_at": "2026-10-01 14:35:31",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735489876579",
+              "folders": ""
+            },
+            {
+              "id": "262735424059561",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:41:31",
+              "updated_at": "2026-10-01 14:41:58",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735424059561",
+              "folders": ""
+            },
+            {
+              "id": "262735416308559",
+              "username": "Developer_Nango",
+              "title": "Nango Registry Test Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:37:07",
+              "updated_at": "2026-10-01 14:37:50",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735416308559",
+              "folders": ""
+            },
+            {
+              "id": "262735404381557",
+              "username": "Developer_Nango",
+              "title": "Disposable Webhook Test Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:36:14",
+              "updated_at": "2026-10-01 14:37:54",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735404381557",
+              "folders": ""
+            },
+            {
+              "id": "262735371186563",
+              "username": "Developer_Nango",
+              "title": "Add-Form-Questions Test",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:40:59",
+              "updated_at": "2026-10-01 14:42:03",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735371186563",
+              "folders": ""
+            },
+            {
+              "id": "262735341235050",
+              "username": "Developer_Nango",
+              "title": "Clone of Feature Showcase Form",
+              "height": "539",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:39:06",
+              "updated_at": "2026-10-01 14:42:05",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735341235050",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            },
+            {
+              "id": "262735317711557",
+              "username": "Developer_Nango",
+              "title": "Temp Webhook List Test Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:34:08",
+              "updated_at": "2026-10-01 14:34:46",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735317711557",
+              "folders": ""
+            },
+            {
+              "id": "262735305413553",
+              "username": "Developer_Nango",
+              "title": "Add-Form-Questions Test",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:35:08",
+              "updated_at": "2026-10-01 14:40:58",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735305413553",
+              "folders": ""
+            },
+            {
+              "id": "262735303922556",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:39:13",
+              "updated_at": "2026-10-01 14:39:37",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735303922556",
+              "folders": ""
+            },
+            {
+              "id": "262735293079567",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:41:21",
+              "updated_at": "2026-10-01 14:41:58",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735293079567",
+              "folders": ""
+            },
+            {
+              "id": "262735255518563",
+              "username": "Developer_Nango",
+              "title": "Nango Registry Probe Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:34:46",
+              "updated_at": "2026-10-01 14:35:23",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735255518563",
+              "folders": ""
+            },
+            {
+              "id": "262735252846564",
+              "username": "Developer_Nango",
+              "title": "Add-Form-Questions Test",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 14:33:47",
+              "updated_at": "2026-10-01 14:35:08",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735252846564",
+              "folders": ""
+            },
+            {
+              "id": "262735046924562",
+              "username": "Developer_Nango",
+              "title": "Query String Create Title",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 13:26:21",
+              "updated_at": "2026-10-01 13:26:33",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262735046924562",
+              "folders": ""
+            },
+            {
+              "id": "262734906972569",
+              "username": "Developer_Nango",
+              "title": "Put To Properties Endpoint",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 13:16:03",
+              "updated_at": "2026-10-01 13:21:41",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262734906972569",
+              "folders": ""
+            },
+            {
+              "id": "262734892042561",
+              "username": "Developer_Nango",
+              "title": "Composite Created Form",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-10-01 13:27:19",
+              "updated_at": "2026-10-01 13:27:38",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262734892042561",
+              "folders": ""
+            },
+            {
+              "id": "262725371099565",
+              "username": "Developer_Nango",
+              "title": "Title Me",
+              "height": "690",
+              "status": "DELETED",
+              "created_at": "2026-09-30 12:28:03",
+              "updated_at": "2026-09-30 12:28:48",
+              "last_submission": null,
+              "new": "0",
+              "count": "0",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262725371099565",
+              "folders": ""
+            },
+            {
+              "id": "262715780901055",
+              "username": "Developer_Nango",
+              "title": "Feature Showcase Form",
+              "height": "539",
+              "status": "ENABLED",
+              "created_at": "2026-09-29 14:56:35",
+              "updated_at": "2026-10-01 14:41:56",
+              "last_submission": "2026-10-01 14:38:21",
+              "new": "1",
+              "count": "1",
+              "type": "LEGACY",
+              "favorite": "0",
+              "archived": "0",
+              "url": "https://form.jotform.com/262715780901055",
+              "folders": "",
+              "hasPayment": true,
+              "paymentProps": {
+                "gateway": "control_payment",
+                "question_id": 33,
+                "type": "form",
+                "isGatewayConnected": true
+              }
+            }
+          ],
+          "duration": "447.85ms",
+          "info": null,
+          "resultSet": {
+            "offset": 0,
+            "limit": 100,
+            "orderby": "id",
+            "count": 36
+          },
+          "limit-left": 521
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 19:42:32 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1790883807",
+          "cache-control": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+          "jf-entrypoint": "1",
+          "jf-telemetry-id": "600bf3c787fcad4af148d294c19db1ca",
+          "jf-trace-id": "08bbb326994a0094",
+          "last-modified": "Thu, 01 Oct 2026 19:42:32 GMT",
+          "p3p": "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+          "pragma": "no-cache",
+          "vary": "Accept-Encoding",
+          "x-httpx-dc": "uw2",
+          "x-httpx-id": "01a0f8fd-6826-75fc-a3d0-04b1505cc638",
+          "x-raw-uri": "user/forms",
+          "via": "1.1 google",
+          "alt-svc": "h3=\":443\"; ma=2592000"
+        },
+        "hash": "9ad158dd5d0e2757fad780711c74b4c559521833",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0",
+            "orderby": "id"
+          }
+        }
+      }
+    }
+  }
+}
