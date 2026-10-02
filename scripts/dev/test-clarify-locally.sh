@@ -49,7 +49,7 @@ npx nango dryrun list-lists "$CONNECTION_ID" -e dev --integration-id "$INTEGRATI
 echo ""
 echo "==> Sync clarify flow into local nango (for dashboard Browse templates)"
 if [[ -f "$ROOT/internal/flows.zero.json" && -d "$NANGO_REPO/packages/shared" ]]; then
-    node <<'NODE'
+    node - "$ROOT/internal/flows.zero.json" "$NANGO_REPO" <<'NODE'
 const fs = require('fs');
 const templatesPath = process.argv[1];
 const nangoPath = process.argv[2];
@@ -71,7 +71,6 @@ if (idx >= 0) {
 fs.writeFileSync(target, JSON.stringify(nangoFlows, null, 4));
 console.log('Updated clarify entry in', target);
 NODE
-    "$ROOT/internal/flows.zero.json" "$NANGO_REPO"
     echo "Restart the Nango server to pick up flows.zero.json, then deploy templates from the dashboard."
 else
     echo "Run npm run compile:integrations and ensure NANGO_REPO points at your nango fork."

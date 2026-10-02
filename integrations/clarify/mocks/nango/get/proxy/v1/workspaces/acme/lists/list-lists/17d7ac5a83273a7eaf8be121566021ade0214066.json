@@ -1,11 +1,14 @@
 {
     "method": "get",
-    "endpoint": "lists",
-    "requestIdentityHash": "a1b2c3d4e5f6789012345678901234ab",
+    "endpoint": "v1/workspaces/acme/lists",
+    "requestIdentityHash": "17d7ac5a83273a7eaf8be121566021ade0214066",
     "requestIdentity": {
         "method": "get",
-        "endpoint": "lists",
-        "params": [["page[limit]", "1"]],
+        "endpoint": "v1/workspaces/acme/lists",
+        "params": [
+            ["filter[type]", "static"],
+            ["page[limit]", "1"]
+        ],
         "headers": []
     },
     "response": {

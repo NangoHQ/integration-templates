@@ -5,6 +5,7 @@ import { toPaginationMeta } from '../mappers/to-pagination-meta.js';
 import { toResource } from '../mappers/to-resource.js';
 import { ClarifyPaginationMeta, ClarifyResource } from '../models.js';
 import type { ClarifyPaginatedResponse, ClarifyRecordResource } from '../types.js';
+import { getWorkspaceApiBase } from '../utils/workspace-api-path.js';
 
 const ListListResourcesInput = z.object({
     object: z.string().describe('Object type (person, company, deal, or a custom c_* object).'),
@@ -21,7 +22,7 @@ const ListListResourcesOutput = z.object({
 
 const action = createAction({
     description: 'List records that belong to a Clarify list.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: ListListResourcesInput,
     output: ListListResourcesOutput,
 
@@ -36,8 +37,9 @@ const action = createAction({
             params['page[offset]'] = String(input.offset);
         }
 
+        const workspaceBase = await getWorkspaceApiBase(nango);
         const response = await nango.get<ClarifyPaginatedResponse<ClarifyRecordResource>>({
-            endpoint: `/objects/${encodeURIComponent(input.object)}/lists/${encodeURIComponent(input.listId)}/resources`,
+            endpoint: `${workspaceBase}/objects/${encodeURIComponent(input.object)}/lists/${encodeURIComponent(input.listId)}/resources`,
             params,
             retries: 3
         });
