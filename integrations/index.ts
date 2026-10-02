@@ -3754,11 +3754,29 @@ import './lastpass/actions/delete-user.js';
 import './lattice/syncs/users.js';
 
 // -- Integration: lemlist
+import './lemlist/syncs/campaign-leads.js';
+import './lemlist/syncs/campaigns.js';
 import './lemlist/actions/add-campaign-lead.js';
+import './lemlist/actions/create-campaign.js';
+import './lemlist/actions/enroll-lead-in-campaigns.js';
+import './lemlist/actions/get-campaign-stats.js';
+import './lemlist/actions/get-lead-full-status.js';
 import './lemlist/actions/get-lead.js';
+import './lemlist/actions/get-team-credits.js';
+import './lemlist/actions/get-team.js';
+import './lemlist/actions/get-user.js';
+import './lemlist/actions/list-campaign-activities.js';
 import './lemlist/actions/list-campaigns.js';
+import './lemlist/actions/list-unsubscribes.js';
+import './lemlist/actions/pause-campaign.js';
 import './lemlist/actions/remove-campaign-lead.js';
+import './lemlist/actions/remove-lead-everywhere.js';
+import './lemlist/actions/resubscribe-contact.js';
+import './lemlist/actions/resume-campaign.js';
+import './lemlist/actions/unsubscribe-contact.js';
 import './lemlist/actions/update-campaign-lead.js';
+import './lemlist/actions/update-campaign.js';
+import './lemlist/actions/verify-email.js';
 
 // -- Integration: lever
 import './lever/syncs/opportunities.js';

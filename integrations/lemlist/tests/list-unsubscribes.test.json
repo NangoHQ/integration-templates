@@ -1,0 +1,147 @@
+{
+  "input": {},
+  "output": {
+    "unsubscribes": [
+      {
+        "_id": "uns_sBnCKPnq4aJnDJZJT",
+        "createdAt": "2026-09-30T15:29:47.001Z",
+        "value": "nango-seed-lead-remove2@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_MfTvCwfwvkRsBArw7",
+        "createdAt": "2026-09-30T15:28:34.494Z",
+        "value": "nango-seed-lead-remove@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_W4c6ttDkBEgdD9J6B",
+        "createdAt": "2026-09-30T15:13:52.097Z",
+        "value": "nango-update-seed2@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_YRLzT2hFYFpbffoS2",
+        "createdAt": "2026-09-30T15:11:44.567Z",
+        "value": "nango-save-lead@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_s5DwLaEjcnTKfecMT",
+        "createdAt": "2026-09-30T15:11:44.112Z",
+        "value": "nango-test-lead@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_hELs3GqSCJ49ZARb2",
+        "createdAt": "2026-09-30T15:10:43.053Z",
+        "value": "nango-update-seed@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_yf2JdhoW6ksYQ4Z9c",
+        "createdAt": "2026-09-30T15:08:44.963Z",
+        "value": "nango-seed-lead-2@example.com",
+        "source": "api"
+      },
+      {
+        "_id": "uns_6SBpvLT7AAosCqrjF",
+        "createdAt": "2026-09-29T19:03:26.102Z",
+        "value": "nango-seed-lead@example.com",
+        "source": "api"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/unsubscribes": {
+        "response": [
+          {
+            "_id": "uns_sBnCKPnq4aJnDJZJT",
+            "createdAt": "2026-09-30T15:29:47.001Z",
+            "value": "nango-seed-lead-remove2@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_MfTvCwfwvkRsBArw7",
+            "createdAt": "2026-09-30T15:28:34.494Z",
+            "value": "nango-seed-lead-remove@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_W4c6ttDkBEgdD9J6B",
+            "createdAt": "2026-09-30T15:13:52.097Z",
+            "value": "nango-update-seed2@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_YRLzT2hFYFpbffoS2",
+            "createdAt": "2026-09-30T15:11:44.567Z",
+            "value": "nango-save-lead@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_s5DwLaEjcnTKfecMT",
+            "createdAt": "2026-09-30T15:11:44.112Z",
+            "value": "nango-test-lead@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_hELs3GqSCJ49ZARb2",
+            "createdAt": "2026-09-30T15:10:43.053Z",
+            "value": "nango-update-seed@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_yf2JdhoW6ksYQ4Z9c",
+            "createdAt": "2026-09-30T15:08:44.963Z",
+            "value": "nango-seed-lead-2@example.com",
+            "source": "api"
+          },
+          {
+            "_id": "uns_6SBpvLT7AAosCqrjF",
+            "createdAt": "2026-09-29T19:03:26.102Z",
+            "value": "nango-seed-lead@example.com",
+            "source": "api"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 20:57:37 GMT",
+          "content-type": "application/json",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "20",
+          "x-ratelimit-remaining": "19",
+          "x-ratelimit-reset": "Thu Oct 01 2026 22:57:39 GMT+0200 (Central European Summer Time)",
+          "retry-after": "2",
+          "via": "1.1 Caddy",
+          "x-cache-debug": "api.main",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=kue6sVC8K9%2F4VbDlovkHeakR3qZwq9FY620a9fWJ49x7i%2FzT0gnDvvUumUbhDPU3IA2ooe3TPHBuP7VaMdclhh29yuF2UnE2ZCefhxfthxW9cBf7VEfTFEtCIpZQUWPP%2Fw%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a43e61789b68ff0f-PDX"
+        },
+        "hash": "2df4c7b7a027d6031bdf5438b72e4b4df218f19a",
+        "request": {
+          "params": {
+            "limit": "100",
+            "offset": "0"
+          }
+        }
+      }
+    }
+  }
+}
