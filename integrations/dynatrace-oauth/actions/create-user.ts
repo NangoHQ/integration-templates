@@ -19,7 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Invite/create a new user in this account by email',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -38,7 +38,7 @@ const action = createAction({
         const accountUuid = parsedMetadata.data.accountUuid;
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/users/post-user
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/user-management-api/post-user
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/users`,
             data: {
                 email: input.email

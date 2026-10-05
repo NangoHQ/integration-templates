@@ -31,13 +31,14 @@ function parseLastHashes(value: string): Record<string, string> {
 
 const sync = createSync({
     description: 'Sync commits per repository',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Commit: CommitSchema
     },
+    scopes: ['account', 'repository'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

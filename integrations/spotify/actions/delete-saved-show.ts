@@ -11,7 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Remove one or more shows (podcasts) from the current user's library.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-modify'],
@@ -20,7 +20,7 @@ const action = createAction({
         // Convert show IDs to Spotify URIs (spotify:show:{id})
         const uris = input.ids.map((id) => `spotify:show:${id}`).join(',');
 
-        // https://developer.spotify.com/documentation/web-api/reference/remove-from-library
+        // https://developer.spotify.com/documentation/web-api/reference/remove-library-items
         await nango.delete({
             endpoint: '/v1/me/library',
             params: {

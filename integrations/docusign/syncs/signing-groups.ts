@@ -55,13 +55,14 @@ function getAllowSigningGroups(data: unknown): string | undefined {
 
 const sync = createSync({
     description: 'Sync signing groups (shared signature pools) with full-refresh delete tracking.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         SigningGroup: SigningGroupSchema
     },
+    scopes: ['signature'],
     endpoints: [{ method: 'GET', path: '/syncs/signing-groups' }],
 
     exec: async (nango) => {
@@ -82,7 +83,7 @@ const sync = createSync({
             startPosition = parsedCheckpoint.data.start_position ?? 0;
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accountsettings/get/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/accounts/listsettings/
         const settingsResponse = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/settings`,
             retries: 3

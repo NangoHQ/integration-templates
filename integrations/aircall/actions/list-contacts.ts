@@ -67,9 +67,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List contacts from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const response = await nango.get({

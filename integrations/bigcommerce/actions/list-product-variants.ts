@@ -115,7 +115,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List variants for a product.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],
@@ -136,7 +136,7 @@ const action = createAction({
 
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-catalog/product-variants
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/get-product-variants
         const response = await nango.get({
             endpoint: `/v3/catalog/products/${encodeURIComponent(String(input.product_id))}/variants`,
             params: {

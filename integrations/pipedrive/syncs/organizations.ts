@@ -33,9 +33,10 @@ type PipedriveOrganization = {
 
 const sync = createSync({
     description: 'Sync organizations from Pipedrive.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['contacts:read'],
     endpoints: [{ method: 'POST', path: '/syncs/organizations' }],
     checkpoint: CheckpointSchema,
     models: {

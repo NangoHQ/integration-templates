@@ -23,10 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List configured holidays within a date range',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.leave.ALL'],
+    scopes: ['ZOHOPEOPLE.leave.READ'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.zoho.com/people/api/overview.html

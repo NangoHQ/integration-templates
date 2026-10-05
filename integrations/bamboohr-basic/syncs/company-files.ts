@@ -40,9 +40,10 @@ const CompanyFileSchema = z.object({
 
 const sync = createSync({
     description: 'Sync company files from BambooHR',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['company_file'],
     endpoints: [{ method: 'POST', path: '/syncs/company-files' }],
     models: {
         CompanyFile: CompanyFileSchema

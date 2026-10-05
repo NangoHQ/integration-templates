@@ -12,13 +12,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a task in Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['task:read-write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.attio.com/rest-api/tasks#delete-tasks-task-id
+        // https://docs.attio.com/rest-api/endpoint-reference/tasks/delete-a-task
         await nango.delete({
             endpoint: `/v2/tasks/${input.task_id}`,
             retries: 3

@@ -94,12 +94,13 @@ function mapSummaryActivityToClubActivity(activity: z.infer<typeof SummaryActivi
 
 const sync = createSync({
     description: 'Sync club activities.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         ClubActivity: ClubActivitySchema
     },
+    scopes: ['read'],
 
     // No checkpoint or delete tracking: Strava's club activity feed only ever returns a
     // recent, bounded window of activity (it is not a full historical enumeration), so there

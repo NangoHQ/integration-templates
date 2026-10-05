@@ -47,9 +47,10 @@ const TikTokUserInfoResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync TikTok user profile and stats including follower count, likes count, bio, and verification status',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['user.info.basic', 'user.info.profile', 'user.info.stats'],
     endpoints: [
         {
             method: 'POST',

@@ -13,11 +13,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a user from a channel',
-    version: '2.0.1',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:manage', 'groups:write', 'im:write', 'mpim:write'],
+    scopes: ['channels:manage', 'groups:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://api.slack.com/methods/conversations.kick

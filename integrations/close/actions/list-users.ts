@@ -15,10 +15,10 @@ const OutputSchema = z.array(UserSchema);
 
 const action = createAction({
     description: 'List all users in the organization.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const users: z.infer<typeof UserSchema>[] = [];

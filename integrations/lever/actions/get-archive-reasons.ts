@@ -19,10 +19,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Get all archived reasons',
-    version: '2.0.0',
+    version: '2.0.1',
 
     input: z.void(),
     output: OutputSchema,
+    scopes: ['archive_reasons:read:admin'],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -91,13 +91,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync plans.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Plan: PlanSchema
     },
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango) => {
         // PayPal's billing plans list only supports page-based pagination with no changed-since filter, so

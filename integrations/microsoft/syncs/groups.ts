@@ -59,10 +59,11 @@ function extractPathFromUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync groups from Microsoft Graph with incremental delta tracking',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'POST', path: '/syncs/groups' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['Group.Read.All'],
     checkpoint: CheckpointSchema,
     models: {
         Group: GroupSchema

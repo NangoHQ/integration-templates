@@ -88,13 +88,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Sync the authenticated athlete's starred segments.",
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         StarredSegment: StarredSegmentSchema
     },
+    scopes: ['read', 'read_all'],
 
     exec: async (nango) => {
         // Blocker: GET /segments/starred exposes no updated/modified filter,

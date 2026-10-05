@@ -28,7 +28,7 @@ const RecordSchema = z.object({
 
 const sync = createSync({
     description: 'Sync arbitrary Salesforce records from a caller-provided SOQL query',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -37,6 +37,7 @@ const sync = createSync({
             method: 'POST'
         }
     ],
+    scopes: ['api'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

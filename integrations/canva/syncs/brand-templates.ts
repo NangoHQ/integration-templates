@@ -28,10 +28,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync brand template metadata',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['brandtemplate:meta:read'],
     models: {
         BrandTemplate: BrandTemplateSchema
     },

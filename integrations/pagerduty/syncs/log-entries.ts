@@ -116,9 +116,10 @@ function normalizeNulls(value: unknown): unknown {
 
 const sync = createSync({
     description: 'Sync the account-wide log entries feed (every incident/alert state-change event across the account).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['incidents.read'],
     checkpoint: CheckpointSchema,
     models: {
         LogEntry: LogEntrySchema

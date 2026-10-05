@@ -11,7 +11,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'POST',
         path: '/actions/delete-category'
@@ -22,7 +22,7 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#delete-a-category
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/delete-category
             endpoint: `/v3/catalog/categories/${encodeURIComponent(input.category_id)}`,
             retries: 3
         });

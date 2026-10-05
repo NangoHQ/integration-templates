@@ -48,9 +48,10 @@ const FeedResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync product catalogs and their feeds from TikTok Ads',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     metadata: MetadataSchema,
     endpoints: [{ method: 'POST', path: '/syncs/catalogs' }],
     models: {

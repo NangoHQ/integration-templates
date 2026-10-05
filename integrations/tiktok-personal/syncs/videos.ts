@@ -37,9 +37,10 @@ const VideoListResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync videos from TikTok Accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['video.list'],
     models: {
         Video: VideoSchema
     },

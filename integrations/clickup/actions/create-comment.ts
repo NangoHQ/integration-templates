@@ -22,7 +22,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a comment in ClickUp on a task or list',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -55,8 +55,8 @@ const action = createAction({
             });
         }
 
-        // https://developer.clickup.com/reference/create-task-comment
-        // https://developer.clickup.com/reference/create-list-comment
+        // https://developer.clickup.com/reference/createtaskcomment
+        // https://developer.clickup.com/reference/createlistcomment
         const response = await nango.post({
             endpoint: endpoint,
             data: {

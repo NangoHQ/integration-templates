@@ -77,9 +77,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Sync on-call schedules (legacy/v2 schedule model), including each schedule's layers and assigned users",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['schedules.read'],
     checkpoint: CheckpointSchema,
     models: {
         Schedule: ScheduleSchema

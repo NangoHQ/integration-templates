@@ -69,10 +69,10 @@ const OutputSchema = ProviderMeSchema;
 
 const action = createAction({
     description: "Retrieve the authenticated user's full profile including memberships, permissions, and organization.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

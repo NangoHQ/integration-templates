@@ -54,7 +54,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync time entries from ClickUp',
-    version: '1.0.2',
+    version: '1.0.3',
     endpoints: [{ method: 'GET', path: '/syncs/time-entries' }],
     frequency: 'every hour',
     autoStart: true,
@@ -62,6 +62,7 @@ const sync = createSync({
     models: {
         TimeEntry: TimeEntrySchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

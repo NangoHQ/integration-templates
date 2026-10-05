@@ -38,10 +38,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Search the account's own boards.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['boards:read'],
+    scopes: ['boards:read', 'boards:read_secret'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

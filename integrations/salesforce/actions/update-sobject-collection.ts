@@ -35,9 +35,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update multiple records in one sObject collection request',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const records = input.records.map((record) => {

@@ -31,10 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List accounts from Zoho CRM.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.ALL', 'ZohoCRM.modules.Accounts.READ'],
+    scopes: ['ZohoCRM.modules.accounts.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const page = input.cursor ? parseInt(input.cursor, 10) : 1;

@@ -23,9 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single archive reason.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['archive_reasons:read:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://hire.lever.co/developer/documentation

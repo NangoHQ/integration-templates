@@ -49,13 +49,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a message batch in Anthropic.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.anthropic.com/en/api/message-batches
+            // https://platform.claude.com/docs/en/api/messages/batches/create
             endpoint: '/v1/messages/batches',
             data: {
                 requests: input.requests

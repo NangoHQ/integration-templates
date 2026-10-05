@@ -70,7 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List meeting registrants from Zoom.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['meeting:read:list_registrants:admin'],

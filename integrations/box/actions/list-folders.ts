@@ -22,10 +22,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List folders from Box',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['root_readwrite'],
+    scopes: ['root_readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const folderId = input.folder_id ?? '0';

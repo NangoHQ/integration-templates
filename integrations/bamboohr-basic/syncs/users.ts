@@ -25,9 +25,10 @@ const ProviderUsersResponseSchema = z.record(z.string(), ProviderUserSchema);
 
 const sync = createSync({
     description: 'Sync BambooHR user accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['user'],
     endpoints: [{ method: 'POST', path: '/syncs/users' }],
     models: {
         User: UserSchema

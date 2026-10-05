@@ -55,11 +55,12 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync estimates.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
+    scopes: ['user:estimates:read'],
     models: {
         Estimate: EstimateModelSchema
     },

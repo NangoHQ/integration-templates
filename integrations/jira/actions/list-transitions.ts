@@ -49,9 +49,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available workflow transitions for a Jira issue',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Get cloudId and baseUrl from connection config, metadata, or accessible-resources endpoint

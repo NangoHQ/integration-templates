@@ -33,9 +33,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the history of data export/deletion requests filed on this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['data_request:read:history:admin'],
     checkpoint: CheckpointSchema,
     models: {
         DataRequest: DataRequestSchema

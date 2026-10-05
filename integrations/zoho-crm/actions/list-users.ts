@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-// https://www.zoho.com/crm/developer/docs/api/v2/users.html
+// https://www.zoho.com/crm/developer/docs/api/v8/get-users.html
 const UserTypeEnum = z.enum([
     'AllUsers',
     'ActiveUsers',
@@ -225,7 +225,7 @@ function normalizeUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof
 
 const action = createAction({
     description: 'List users from Zoho CRM.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['ZohoCRM.users.READ'],
@@ -249,7 +249,7 @@ const action = createAction({
             params['ids'] = input.ids;
         }
 
-        // https://www.zoho.com/crm/developer/docs/api/v2/users.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/get-users.html
         const response = await nango.get({
             endpoint: '/crm/v2/users',
             params,

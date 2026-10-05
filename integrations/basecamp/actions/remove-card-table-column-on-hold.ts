@@ -101,9 +101,10 @@ const ProviderColumnSchema = z.object({
  */
 const action = createAction({
     description: 'Remove the on-hold section from a card table column',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/card_table_columns.md

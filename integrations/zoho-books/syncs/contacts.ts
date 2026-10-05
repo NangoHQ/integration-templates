@@ -43,9 +43,10 @@ const PageContextSchema = z.object({
 
 const sync = createSync({
     description: 'Sync contacts from Zoho Books',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoBooks.contacts.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'POST', path: '/syncs/contacts' }],

@@ -21,7 +21,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Upload a storage object to Supabase Storage.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
@@ -38,7 +38,7 @@ const action = createAction({
         const baseUrlOverride = projectUrl ? (projectUrl.startsWith('http') ? projectUrl : `https://${projectUrl}`) : undefined;
 
         const response = await nango.post({
-            // https://supabase.com/docs/reference/api/storage
+            // https://supabase.com/docs/reference/javascript/file-buckets-upload
             endpoint: `/storage/v1/object/${encodeURIComponent(input.bucket_id)}/${encodeURIComponent(input.path)}`,
             baseUrlOverride,
             data: input.content,

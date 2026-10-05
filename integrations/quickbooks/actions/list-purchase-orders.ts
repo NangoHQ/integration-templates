@@ -184,9 +184,10 @@ function toPurchaseOrder(po: z.infer<typeof ProviderPurchaseOrderSchema>): z.inf
 
 const action = createAction({
     description: 'List QuickBooks purchase orders',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/companyinfo

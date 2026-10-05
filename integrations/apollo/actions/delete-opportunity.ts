@@ -19,12 +19,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive (soft-delete) an opportunity in Apollo by marking it as closed.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.apollo.io/reference/patch_v1opportunitiesid
+        // https://docs.apollo.io/reference/update-deal
         const response = await nango.patch({
             endpoint: `/v1/opportunities/${encodeURIComponent(input.id)}`,
             data: {

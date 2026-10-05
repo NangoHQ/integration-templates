@@ -46,13 +46,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync general ledger main accounts',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         MainAccount: MainAccountSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: MainAccounts exposes no reliable modified-timestamp filter

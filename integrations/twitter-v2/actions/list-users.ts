@@ -53,10 +53,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List users from Twitter/X by IDs or usernames',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users.read'],
+    scopes: ['tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.ids && !input.usernames) {

@@ -68,9 +68,10 @@ const ListOutput = z
  */
 const action = createAction({
     description: 'List messages on a specific ticket',
-    version: '1.0.0',
+    version: '1.0.1',
     input: ListInput,
     output: ListOutput,
+    scopes: ['tickets:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutput>> => {
         const response = await nango.get({

@@ -16,11 +16,10 @@ const PAGE_SIZE = 100;
 
 const action = createAction({
     description: 'List sales quotation lines, optionally scoped to a parent quotation.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['Financials.Read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;
         if (input.cursor !== undefined && isNaN(skip)) {

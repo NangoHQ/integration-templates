@@ -45,9 +45,10 @@ const toOptionalString = (value: unknown): string | undefined => {
 
 const action = createAction({
     description: 'Update change task fields (e.g. state, work notes).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/api/now/table/change_task/${encodeURIComponent(input.sys_id)}`;

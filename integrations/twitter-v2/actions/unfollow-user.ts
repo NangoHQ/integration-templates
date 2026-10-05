@@ -18,17 +18,17 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Unfollow a user from the authenticated account',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['users.read', 'follows.write'],
+    scopes: ['tweet.read', 'users.read', 'follows.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{ user_id?: string }>();
         let sourceUserId = metadata?.user_id;
 
         if (!sourceUserId) {
-            // https://docs.x.com/x-api/users/api-reference/get-users-me
+            // https://docs.x.com/x-api/users/get-my-user
             const meResponse = await nango.get({
                 endpoint: '/2/users/me',
                 retries: 3
@@ -53,7 +53,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://docs.x.com/x-api/users/follows/api-reference/delete-users-source-user-id-following-target-user-id
+            // https://docs.x.com/x-api/users/unfollow-user
             endpoint: `/2/users/${sourceUserId}/following/${input.target_user_id}`,
             retries: 10
         });

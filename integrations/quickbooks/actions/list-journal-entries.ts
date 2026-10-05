@@ -75,7 +75,7 @@ const OutputSchema = z.object({
 });
 
 async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promise<string> {
-    // https://nango.dev/docs/reference/scripts/runtime/sdk#getconnection
+    // https://nango.dev/docs/reference/functions/functions-sdk#get-the-connection-credentials
     const connection = await nango.getConnection();
     const realmId = connection.connection_config?.['realmId'];
 
@@ -91,9 +91,10 @@ async function getRealmId(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'List QuickBooks journal entries with optional filtering and pagination.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getRealmId(nango);

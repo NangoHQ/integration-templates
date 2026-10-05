@@ -44,9 +44,10 @@ const CheckpointSchema = z
 
 const sync = createSync({
     description: 'Sync the current on-call snapshot across every escalation policy and schedule on the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['oncalls.read'],
     checkpoint: CheckpointSchema,
     models: {
         OnCall: OnCallSchema

@@ -56,13 +56,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all feedback/interview scorecard templates on the account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         FeedbackTemplate: FeedbackTemplateSchema
     },
+    scopes: ['feedback_templates:read:admin'],
 
     exec: async (nango) => {
         // Full refresh required because GET /v1/feedback_templates does not support

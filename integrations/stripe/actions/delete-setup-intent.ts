@@ -39,10 +39,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a setup intent in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input) => {
         const response = await nango.post({

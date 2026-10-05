@@ -54,7 +54,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List time-off requests with date, state, and employee filters.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_timeoff'],
@@ -93,7 +93,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://workable.readme.io/reference/list-timeoff-requests
+            // https://workable.readme.io/reference/timeoffrequests-1
             endpoint: '/spi/v3/timeoff/requests',
             params,
             retries: 3

@@ -68,10 +68,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a project in GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api', 'write_api'],
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const projectId = typeof input.id === 'number' ? String(input.id) : input.id;

@@ -81,10 +81,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Create a lead in Pipedrive',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['deals:full'],
+    scopes: ['leads:full'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {

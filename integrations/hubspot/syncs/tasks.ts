@@ -108,7 +108,7 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 }
 
 async function fetchAssociatedIds(client: AssociationClient, taskId: string, association: 'contacts' | 'companies' | 'deals'): Promise<string[]> {
-    // https://developers.hubspot.com/docs/reference/api/crm/associations/associations
+    // https://developers.hubspot.com/docs/api-reference/crm-associations-v3/guide
     // @allowTryCatch Associations can be absent for a task; treat that as an empty list.
     try {
         const response = await client.get({
@@ -124,11 +124,12 @@ async function fetchAssociatedIds(client: AssociationClient, taskId: string, ass
 
 const sync = createSync({
     description: 'Sync tasks with type, title, priority, assignee, due date, notes, and related contacts, companies, and deals',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'GET', path: '/syncs/tasks', group: 'Tasks' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
+    scopes: ['crm.objects.contacts.read'],
 
     models: {
         Task: TaskSchema

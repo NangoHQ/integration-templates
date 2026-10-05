@@ -51,9 +51,10 @@ const ANALYTICS_COLUMNS = [
 
 const sync = createSync({
     description: 'Sync campaign-level analytics as a rolling date-window snapshot',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every day',
     autoStart: true,
+    scopes: ['ads:read'],
     checkpoint: CheckpointSchema,
     models: {
         CampaignAnalytics: CampaignAnalyticsSchema

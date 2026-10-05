@@ -113,11 +113,11 @@ const AccessibleResourceSchema = z.array(
 
 const action = createAction({
     description: 'Retrieve a Confluence blog post by id.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:page:confluence', 'read:space:confluence'],
+    scopes: ['read:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connectionResponse = await nango.getConnection();

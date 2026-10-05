@@ -61,9 +61,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Jira project by ID or key.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Retrieve cloudId and baseUrl from connection config, metadata, or accessible-resources

@@ -27,9 +27,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve form field (tab) data filled in by recipients.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{ accountId?: string }>();
@@ -42,7 +43,7 @@ const action = createAction({
             });
         }
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/envelopes/getenvelopeformdata/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/envelopeformdata/get/
         const response = await nango.get({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(input.envelopeId)}/form_data`,
             retries: 3

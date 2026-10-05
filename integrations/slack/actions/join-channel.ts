@@ -36,11 +36,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Join a public or private channel and return its conversation details',
-    version: '2.0.1',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:join', 'groups:write'],
+    scopes: ['channels:join'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://docs.slack.dev/reference/methods/conversations.join

@@ -7,7 +7,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Grammarly',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -19,6 +19,7 @@ const sync = createSync({
             group: 'Users'
         }
     ],
+    scopes: [],
 
     models: {
         User: User

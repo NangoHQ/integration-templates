@@ -26,7 +26,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync guilds from Discord.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/guilds' }],
@@ -34,6 +34,7 @@ const sync = createSync({
     models: {
         Guild: GuildSchema
     },
+    scopes: ['bot'],
 
     exec: async (nango) => {
         // Bot users can join more than 200 guilds, so use the `after` cursor to

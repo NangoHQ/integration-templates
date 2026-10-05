@@ -29,7 +29,7 @@ function isObject(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List financial transaction line details including amounts.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['FinancialTransactions'],

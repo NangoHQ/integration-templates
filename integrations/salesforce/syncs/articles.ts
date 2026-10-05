@@ -38,7 +38,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Salesforce knowledge articles with title, content, and modified timestamps',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -46,6 +46,7 @@ const sync = createSync({
         Article: ArticleSchema
     },
     endpoints: [{ method: 'POST', path: '/syncs/articles' }],
+    scopes: ['api'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

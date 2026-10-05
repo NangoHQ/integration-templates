@@ -76,10 +76,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List calls from Gong with optional date-range filters.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api:calls:read'],
+    scopes: ['api:calls:read:basic'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

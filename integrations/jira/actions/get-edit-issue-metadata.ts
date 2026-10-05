@@ -21,10 +21,11 @@ const JiraEditMetaResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve editable field metadata for an existing Jira issue',
-    version: '1.0.1',
+    version: '1.0.2',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read:jira-work'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Try to get cached cloudId/baseUrl from metadata first

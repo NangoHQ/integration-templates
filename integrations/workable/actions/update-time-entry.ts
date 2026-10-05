@@ -40,7 +40,7 @@ const OutputSchema = z
 
 const action = createAction({
     description: "Update an existing time entry's times or note.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['w_time_tracking'],
@@ -68,7 +68,7 @@ const action = createAction({
         }
 
         const response = await nango.patch({
-            // https://workable.readme.io/reference/patchspi-v3time-trackingemployeesidtime-entriesuuid
+            // https://workable.readme.io/reference/time-tracking-update-entry
             endpoint: `/spi/v3/time-tracking/employees/${encodeURIComponent(input.employee_id)}/time-entries/${encodeURIComponent(input.time_entry_id)}`,
             data: body,
             retries: 3

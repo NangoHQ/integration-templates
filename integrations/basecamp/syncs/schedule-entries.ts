@@ -126,13 +126,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync schedule entries (calendar events) across all known projects',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         ScheduleEntry: ScheduleEntrySchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

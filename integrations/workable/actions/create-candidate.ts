@@ -94,7 +94,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a candidate at a specific job.',
-    version: '2.0.2',
+    version: '2.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['r_candidates', 'w_candidates'],
@@ -123,7 +123,7 @@ const action = createAction({
             }
         };
 
-        // https://workable.readme.io/reference/create_candidate
+        // https://workable.readme.io/reference/job-candidates-create
         const response = await nango.post({
             endpoint: `/spi/v3/jobs/${encodeURIComponent(input.shortcode)}/candidates`,
             data: body,

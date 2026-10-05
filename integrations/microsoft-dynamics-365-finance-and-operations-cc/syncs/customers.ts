@@ -49,13 +49,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customers.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: CustomersV3 exposes no filterable last-modified timestamp field

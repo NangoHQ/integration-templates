@@ -30,10 +30,10 @@ const OutputSchema = z.record(z.string(), TrainingTypeSchema);
 
 const action = createAction({
     description: 'List training types configured in BambooHR.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['training'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

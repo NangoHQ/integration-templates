@@ -50,10 +50,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List expenses.',
-    version: '1.0.0',
+    version: '1.0.1',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['user:expenses:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const rawMetadata = await nango.getMetadata();

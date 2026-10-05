@@ -11,10 +11,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a forwarding address from Gmail settings.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
+    scopes: ['https://www.googleapis.com/auth/gmail.settings.sharing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.google.com/workspace/gmail/api/reference/rest/v1/users.settings.forwardingAddresses/delete

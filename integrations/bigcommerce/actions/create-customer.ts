@@ -71,7 +71,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create customers.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_customers'],
@@ -97,7 +97,7 @@ const action = createAction({
         };
 
         const config: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/customers
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/customers/v3/create-customers
             endpoint: '/v3/customers',
             data: [body],
             retries: 3

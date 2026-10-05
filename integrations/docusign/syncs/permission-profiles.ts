@@ -24,13 +24,14 @@ const PermissionProfile = z.object({
 
 const sync = createSync({
     description: 'Sync account permission profiles with full-refresh delete tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'POST', path: '/syncs/permission-profiles' }],
     models: {
         PermissionProfile
     },
+    scopes: ['signature'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

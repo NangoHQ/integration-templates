@@ -91,10 +91,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update fields on an existing project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['projects:write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const updateBody: Record<string, unknown> = {};

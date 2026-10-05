@@ -33,9 +33,10 @@ const SatisfactionSurveySchema = z
 
 const sync = createSync({
     description: 'Sync satisfaction surveys.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['satisfaction_survey:read'],
     models: {
         SatisfactionSurvey: SatisfactionSurveySchema
     },

@@ -34,13 +34,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync CMDB configuration items from ServiceNow',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CmdbCi: CmdbCiSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

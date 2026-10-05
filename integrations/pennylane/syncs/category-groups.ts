@@ -24,13 +24,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync analytical category groups',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CategoryGroup: CategoryGroupSchema
     },
+    scopes: ['categories:readonly'],
 
     exec: async (nango) => {
         // Full refresh: provider exposes no changed-since filter, changelog, or deleted-record endpoint.

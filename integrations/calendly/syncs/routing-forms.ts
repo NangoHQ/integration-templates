@@ -42,9 +42,10 @@ const ProviderRoutingFormSchema = z.object({
 
 const sync = createSync({
     description: 'Sync routing forms from Calendly',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['routing_forms:read'],
     checkpoint: CheckpointSchema,
     models: {
         RoutingForm: RoutingFormSchema

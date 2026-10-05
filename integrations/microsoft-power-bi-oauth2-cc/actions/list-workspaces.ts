@@ -21,10 +21,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Power BI workspaces (groups) accessible to this service principal.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

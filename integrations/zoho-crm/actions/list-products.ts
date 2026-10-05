@@ -56,7 +56,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List products from Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['ZohoCRM.modules.products.READ'],
@@ -78,7 +78,7 @@ const action = createAction({
             });
         }
 
-        // https://www.zoho.com/crm/developer/docs/api/v2/Products.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/get-records.html
         const response = await nango.get({
             endpoint: '/crm/v2/Products',
             params: {

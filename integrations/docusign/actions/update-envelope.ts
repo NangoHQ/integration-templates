@@ -75,9 +75,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a draft envelope's fields (subject, email body, expiration, etc.).",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

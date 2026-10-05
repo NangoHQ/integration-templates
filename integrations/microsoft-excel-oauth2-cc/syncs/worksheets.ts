@@ -31,7 +31,7 @@ const WorksheetsResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync the worksheets within a specific workbook.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -39,6 +39,7 @@ const sync = createSync({
     models: {
         Worksheet: WorksheetSchema
     },
+    scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

@@ -16,14 +16,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a HubSpot provisioned user by ID',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
     scopes: ['settings.users.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.hubspot.com/docs/api-reference/settings/users
+        // https://developers.hubspot.com/docs/api-reference/settings-user-provisioning-v3/guide
         const params: Record<string, string> = {};
         if (input.idProperty) {
             params['idProperty'] = input.idProperty;

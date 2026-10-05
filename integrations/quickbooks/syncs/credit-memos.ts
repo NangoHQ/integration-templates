@@ -129,7 +129,7 @@ function toCreditMemo(record: CreditMemoType): z.infer<typeof CreditMemoModelSch
 
 const sync = createSync({
     description: 'Sync QuickBooks credit memos',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -142,6 +142,7 @@ const sync = createSync({
     models: {
         CreditMemo: CreditMemoModelSchema
     },
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango) => {
         const realmId = await getRealmId(nango);

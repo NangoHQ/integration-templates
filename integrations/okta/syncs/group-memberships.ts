@@ -25,9 +25,10 @@ const OktaUserSchema = z.object({
 
 const sync = createSync({
     description: 'Sync group membership',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['okta.groups.read'],
     models: {
         GroupMembership: GroupMembershipSchema
     },

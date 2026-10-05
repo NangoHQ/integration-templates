@@ -34,13 +34,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync customer (AR) payment journal headers',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CustomerPaymentJournalHeader: CustomerPaymentJournalHeaderSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());

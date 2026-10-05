@@ -54,7 +54,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync coupons.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -67,6 +67,7 @@ const sync = createSync({
             path: '/syncs/coupons'
         }
     ],
+    scopes: ['store_v2_marketing_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { page: 1 });
@@ -84,7 +85,7 @@ const sync = createSync({
         let page = checkpoint.page;
 
         while (true) {
-            // https://developer.bigcommerce.com/docs/rest-management/marketing/coupons
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/content/marketing/coupons/get-coupons
             const response = await nango.get({
                 endpoint: '/v2/coupons',
                 params: {

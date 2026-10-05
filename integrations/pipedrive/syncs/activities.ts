@@ -63,9 +63,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync<{ Activity: typeof ActivitySchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync activities from Pipedrive',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['activities:read'],
     checkpoint: CheckpointSchema,
     models: {
         Activity: ActivitySchema

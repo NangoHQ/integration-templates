@@ -51,10 +51,11 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments for tickets provided in metadata',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     endpoints: [{ method: 'POST', path: '/syncs/ticket-comments' }],
+    scopes: ['tickets:read'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

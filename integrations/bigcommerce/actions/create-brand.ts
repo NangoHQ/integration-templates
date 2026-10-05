@@ -51,14 +51,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a brand.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.proxy({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands#create-brand
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/create-brand
             method: 'POST',
             endpoint: '/v3/catalog/brands',
             data: {

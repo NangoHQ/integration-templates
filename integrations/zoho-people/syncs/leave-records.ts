@@ -50,9 +50,10 @@ function toStringOrUndefined(value: unknown): string | undefined {
 
 const sync = createSync({
     description: 'Sync leave records.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZOHOPEOPLE.leave.READ'],
     checkpoint: CheckpointSchema,
     models: {
         LeaveRecord: LeaveRecordSchema

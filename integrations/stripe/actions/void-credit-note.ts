@@ -40,10 +40,10 @@ const CreditNoteSchema = z
 
 const action = createAction({
     description: 'Void a Stripe credit note.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: CreditNoteSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof CreditNoteSchema>> => {
         const response = await nango.post({

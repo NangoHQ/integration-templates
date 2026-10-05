@@ -47,9 +47,10 @@ function resolveMailBaseUrl(apiDomain: string | undefined): string | undefined {
 
 const sync = createSync({
     description: 'Sync all accounts for the authenticated user from Zoho Mail.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoMail.accounts.READ'],
     endpoints: [
         {
             path: '/syncs/accounts',

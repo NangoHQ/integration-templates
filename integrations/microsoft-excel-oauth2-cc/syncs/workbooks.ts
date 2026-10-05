@@ -64,7 +64,7 @@ const DriveItemSchema = z.object({
 
 const sync = createSync({
     description: 'Sync .xlsx files within a drive',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -72,6 +72,7 @@ const sync = createSync({
     models: {
         Workbook: WorkbookSchema
     },
+    scopes: ['Files.Read.All'],
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();

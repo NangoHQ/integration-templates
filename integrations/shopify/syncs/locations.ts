@@ -57,10 +57,11 @@ const LocationResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify fulfillment and inventory locations',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_locations'],
     models: {
         Location: LocationSchema
     },

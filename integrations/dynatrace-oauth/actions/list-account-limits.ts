@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Get the account's assigned resource limits (users, groups, permissions, platform tokens) and current usage against each.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: z.object({}),
     output: OutputSchema,
     scopes: ['account-idm-read'],
@@ -45,7 +45,7 @@ const action = createAction({
         const accountUuid = metadataParse.data.accountUuid;
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-limits/get-account-limits
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/account-limits-api/get-account-limits
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/limits`,
             retries: 3
         });

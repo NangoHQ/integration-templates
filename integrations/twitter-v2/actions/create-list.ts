@@ -24,10 +24,10 @@ type InputKey = keyof Input;
 
 const action = createAction({
     description: 'Create a list in Twitter/X',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['list.write'],
+    scopes: ['list.read', 'list.write', 'tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Safe property access through intermediate object
@@ -46,7 +46,7 @@ const action = createAction({
             payload['private'] = safeInput[privateKey];
         }
 
-        // https://docs.x.com/x-api/lists/manage-lists/api-reference/post-lists
+        // https://docs.x.com/x-api/lists/create-list
         const response = await nango.post({
             endpoint: '/2/lists',
             data: payload,

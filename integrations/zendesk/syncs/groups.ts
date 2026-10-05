@@ -44,11 +44,12 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync support groups from Zendesk.',
-    version: '1.0.1',
+    version: '1.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/groups', group: 'Groups' }],
     frequency: 'every hour',
     autoStart: true,
     syncType: 'full',
+    scopes: ['groups:read'],
     checkpoint: CheckpointSchema,
 
     models: {

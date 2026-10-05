@@ -43,7 +43,7 @@ type Space = z.infer<typeof SpaceSchema>;
 
 const sync = createSync({
     description: 'Sync spaces from Twitter/X using the search endpoint',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -55,6 +55,7 @@ const sync = createSync({
     models: {
         Space: SpaceSchema
     },
+    scopes: ['space.read', 'tweet.read', 'users.read'],
 
     exec: async (nango) => {
         // The X API /2/spaces/search endpoint is a keyword search snapshot:

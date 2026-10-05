@@ -16,9 +16,10 @@ const OutputSchema = z.null().describe('No content. The project was successfully
  */
 const action = createAction({
     description: 'Archive a project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/projects.md

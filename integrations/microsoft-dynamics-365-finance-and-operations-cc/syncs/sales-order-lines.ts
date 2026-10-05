@@ -54,13 +54,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sales order lines.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         SalesOrderLine: SalesOrderLineSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: SalesOrderLinesV3 does not expose a filterable modified-timestamp

@@ -2,7 +2,7 @@ import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
 // X API v2 liked tweets endpoint
-// https://docs.x.com/x-api/users/return-liked-posts
+// https://docs.x.com/x-api/users/get-liked-posts
 
 const LikedTweetSchema = z.object({
     id: z.string(),
@@ -28,7 +28,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync<{ LikedTweet: typeof LikedTweetSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync liked tweets from Twitter/X',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -41,13 +41,14 @@ const sync = createSync<{ LikedTweet: typeof LikedTweetSchema }, undefined, type
     models: {
         LikedTweet: LikedTweetSchema
     },
+    scopes: ['like.read', 'tweet.read', 'users.read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : null;
 
         // Get the authenticated user's ID
-        // https://docs.x.com/x-api/users/get-authenticated-user-data
+        // https://docs.x.com/x-api/users/get-my-user
         const meResponse = await nango.get({
             endpoint: '/2/users/me',
             retries: 3
@@ -60,9 +61,9 @@ const sync = createSync<{ LikedTweet: typeof LikedTweetSchema }, undefined, type
         const userId = meResponse.data.data.id;
         let highestId: string | undefined = checkpoint?.last_id;
 
-        // https://docs.x.com/x-api/users/return-liked-posts
+        // https://docs.x.com/x-api/users/get-liked-posts
         const proxyConfig: ProxyConfiguration = {
-            // https://docs.x.com/x-api/users/return-liked-posts
+            // https://docs.x.com/x-api/users/get-liked-posts
             endpoint: `/2/users/${userId}/liked_tweets`,
             params: {
                 'tweet.fields': 'author_id,created_at,public_metrics,edit_history_tweet_ids',

@@ -15,13 +15,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Set the repeat mode for the user's playback.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/put-repeat-mode
+        // https://developer.spotify.com/documentation/web-api/reference/set-repeat-mode-on-users-playback
         await nango.put({
             endpoint: '/v1/me/player/repeat',
             params: {

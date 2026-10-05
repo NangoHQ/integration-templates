@@ -44,9 +44,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update the users and groups a policy is assigned to (replaces lists; omit a list to preserve it).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedPolicyName = encodeURIComponent(input.policyName);

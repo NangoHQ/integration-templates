@@ -9,10 +9,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Fetches a list of all organization's applications from greenhouse",
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['candidates.view'],
 
     endpoints: [
         {

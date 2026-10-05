@@ -21,10 +21,11 @@ const HubspotUserApiSchema = z.object({
 
 const sync = createSync({
     description: 'Sync provisioned users with role IDs, primary team, and admin status',
-    version: '3.0.0',
+    version: '3.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/users', group: 'Users' }],
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['settings.users.read'],
 
     models: {
         User: UserSchema

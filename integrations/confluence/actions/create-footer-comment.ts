@@ -94,11 +94,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a footer comment on a page, blog post, attachment, or comment thread.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['write:comment:confluence', 'read:page:confluence', 'read:blogpost:confluence', 'read:attachment:confluence', 'read:comment:confluence'],
+    scopes: ['write:comment:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let targetKey: string | undefined;

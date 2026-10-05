@@ -37,9 +37,10 @@ const OdataListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List general ledger main accounts.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;

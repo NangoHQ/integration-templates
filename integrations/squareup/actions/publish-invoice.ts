@@ -52,10 +52,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Publish a draft invoice, moving it out of DRAFT status and sending it to the recipient.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE'],
+    scopes: ['INVOICES_WRITE', 'ORDERS_WRITE', 'INVOICES_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.squareup.com/reference/square/invoices-api/get-invoice

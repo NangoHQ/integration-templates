@@ -58,10 +58,10 @@ const ProviderListResponseSchema = z.object({
 
 const action = createAction({
     description: 'List pins owned by the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pins:read'],
+    scopes: ['boards:read', 'pins:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -22,10 +22,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an employee in BambooHR',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['employee.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

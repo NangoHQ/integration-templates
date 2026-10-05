@@ -41,10 +41,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update an order (e.g. add line items, discounts, service charges).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ORDERS_READ', 'ORDERS_WRITE'],
+    scopes: ['ORDERS_WRITE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // input.order may itself contain a (possibly stale) `version` field, e.g. when a caller

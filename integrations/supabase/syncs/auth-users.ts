@@ -37,7 +37,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync auth users from Supabase.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -60,7 +60,7 @@ const sync = createSync({
         let nextPage = checkpoint?.page ?? 1;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://supabase.com/docs/reference/api/admin-listusers
+            // https://supabase.com/docs/reference/javascript/auth-admin-listusers
             endpoint: '/auth/v1/admin/users',
             baseUrlOverride,
             paginate: {

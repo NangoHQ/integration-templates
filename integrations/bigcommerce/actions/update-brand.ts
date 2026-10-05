@@ -41,7 +41,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a brand.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -71,7 +71,7 @@ const action = createAction({
         }
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands#update-brand
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/update-brand
             endpoint: `/v3/catalog/brands/${encodeURIComponent(String(input.brand_id))}`,
             data: body,
             retries: 3

@@ -98,9 +98,10 @@ function extractStringValue(field: unknown): string | undefined {
 
 const action = createAction({
     description: 'List knowledge base articles.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? 100;

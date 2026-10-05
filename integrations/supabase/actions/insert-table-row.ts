@@ -14,7 +14,7 @@ const ConnectionConfigSchema = z.object({
 
 const action = createAction({
     description: 'Insert a row into a Supabase table.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -32,7 +32,7 @@ const action = createAction({
             });
         }
 
-        // https://supabase.com/docs/reference/api/postgrest-v1-insert-row
+        // https://supabase.com/docs/reference/javascript/insert
         const response = await nango.post({
             endpoint: `/rest/v1/${encodeURIComponent(input.table)}`,
             data: input.row,

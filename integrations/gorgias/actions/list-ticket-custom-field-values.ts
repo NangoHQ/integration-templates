@@ -64,6 +64,7 @@ const action = createAction({
         })
         .describe('Input for listing custom field values on a ticket.'),
     output: OutputSchema,
+    scopes: ['tickets:read'],
     exec: async (nango, input) => {
         // https://developers.gorgias.com/reference/list-ticket-custom-fields
         const response = await nango.get({

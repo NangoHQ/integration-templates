@@ -83,13 +83,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve an individual customer by ID.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['customers:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://pennylane.readme.io/reference/get_individual_customers-id
+        // https://pennylane.readme.io/reference/getindividualcustomer
         const response = await nango.get({
             endpoint: `/individual_customers/${encodeURIComponent(input.id)}`,
             baseUrlOverride: 'https://app.pennylane.com/api/external/v2',

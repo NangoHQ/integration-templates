@@ -50,10 +50,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Convert a lead into account, contact, and deal records',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.leads.CREATE', 'ZohoCRM.modules.accounts.CREATE', 'ZohoCRM.modules.contacts.CREATE', 'ZohoCRM.modules.deals.CREATE'],
+    scopes: ['ZohoCRM.modules.leads.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {};

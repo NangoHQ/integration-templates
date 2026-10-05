@@ -24,9 +24,10 @@ const ProviderCallOutcomeSchema = z.object({
 
 const sync = createSync({
     description: 'Sync configured call outcomes from Gong.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:call-outcomes:read'],
     models: {
         GongCallOutcome: CallOutcomeSchema
     },

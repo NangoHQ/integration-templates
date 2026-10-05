@@ -61,7 +61,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List message batches from Anthropic.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -79,7 +79,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.anthropic.com/en/api/message-batches/list
+            // https://platform.claude.com/docs/en/api/messages/batches/list
             endpoint: '/v1/messages/batches',
             params,
             retries: 3

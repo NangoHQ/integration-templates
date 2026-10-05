@@ -46,9 +46,10 @@ interface BypassPayload {
 
 const action = createAction({
     description: 'Upsert custom application bypasses, or toggle defaults, per platform.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.inheritsFromBase && !input.custom && !input.default) {

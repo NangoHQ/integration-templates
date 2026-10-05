@@ -58,9 +58,10 @@ function buildRowId(employeeId: string, table: string, row: Record<string, unkno
 
 const sync = createSync({
     description: 'Sync employee table rows from BambooHR.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['employee'],
     checkpoint: CheckpointSchema,
     metadata: MetadataSchema,
     endpoints: [

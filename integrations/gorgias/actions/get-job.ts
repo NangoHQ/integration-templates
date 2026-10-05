@@ -35,9 +35,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "Retrieve a single job's status/progress.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['jobs:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // @allowTryCatch: nango.get throws on 404; we need to convert that to a structured ActionError.

@@ -79,7 +79,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -137,7 +137,7 @@ const action = createAction({
         let response: Awaited<ReturnType<typeof nango.put>>;
         try {
             response = await nango.put({
-                // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#update-a-category
+                // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/update-category
                 endpoint: `/v3/catalog/categories/${encodeURIComponent(input.category_id)}`,
                 data,
                 retries: 3

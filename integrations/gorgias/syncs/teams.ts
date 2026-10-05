@@ -46,9 +46,10 @@ const TeamSchema = z
 
 const sync = createSync({
     description: 'Sync teams.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['users:read'],
     models: {
         Team: TeamSchema
     },

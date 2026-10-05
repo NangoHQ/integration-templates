@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Clear spam-report suppressions for one or more addresses, or all of them.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -32,7 +32,7 @@ const action = createAction({
         }
 
         await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-spam-reports/delete-spam-reports
+            // https://www.twilio.com/docs/sendgrid/api-reference/spam-reports-api/delete-spam-reports
             endpoint: '/v3/suppression/spam_reports',
             data: body,
             retries: 3

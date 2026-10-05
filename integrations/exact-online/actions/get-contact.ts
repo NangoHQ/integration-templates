@@ -13,10 +13,11 @@ const MeResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single contact by ID',
-    version: '1.0.0',
+    version: '1.0.2',
     endpoint: { method: 'GET', path: '/actions/get-contact' },
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['crm.Contacts'],
 
     exec: async (nango, input) => {
         // https://support.exactonline.com/community/s/article/All-All-DNO-Content-restrefdocs

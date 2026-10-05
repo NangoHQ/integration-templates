@@ -30,14 +30,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List tags from Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoint: {
         method: 'GET',
         path: '/actions/list-tags'
     },
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['public_api'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.aircall.io/api-references/#list-all-tags
         const response = await nango.get({

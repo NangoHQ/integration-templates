@@ -14,9 +14,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available public and private Synthetic test locations.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['synthetics_private_location_read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

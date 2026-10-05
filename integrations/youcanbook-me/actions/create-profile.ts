@@ -206,14 +206,14 @@ const OutputSchema = ProviderProfileSchema;
 
 const action = createAction({
     description: 'Create a new booking-page profile.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://api-docs.youcanbook.me (POST /v1/profiles)
+            // https://ycbm.stoplight.io/ (POST /v1/profiles)
             endpoint: '/v1/profiles',
             data: {
                 title: input.title,

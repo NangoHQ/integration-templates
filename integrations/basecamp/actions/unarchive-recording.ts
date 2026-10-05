@@ -8,7 +8,7 @@ import * as z from 'zod';
  */
 const action = createAction({
     description: 'Restore an archived recording to active',
-    version: '1.0.0',
+    version: '1.0.1',
     input: z
         .object({
             projectId: z.string().describe('The ID of the Basecamp project (bucket) containing the recording.'),
@@ -16,6 +16,7 @@ const action = createAction({
         })
         .describe('Parameters for restoring an archived recording to active status.'),
     output: z.null().describe('Empty response indicating the recording was restored to active status.'),
+    scopes: [],
     exec: async (nango, input) => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/recordings.md
         await nango.put({

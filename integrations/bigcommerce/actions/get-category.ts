@@ -37,14 +37,14 @@ const OutputSchema = CategorySchema;
 
 const action = createAction({
     description: 'Retrieve a category.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-category
             endpoint: `/v3/catalog/categories/${encodeURIComponent(input.category_id)}`,
             retries: 3
         });

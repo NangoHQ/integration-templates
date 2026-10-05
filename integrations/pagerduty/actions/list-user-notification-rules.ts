@@ -38,7 +38,7 @@ const OutputSchema = z
  */
 const action = createAction({
     description: "List a user's notification rules (how/when they get notified of assignments).",
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['users:contact_methods.read'],

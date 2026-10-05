@@ -184,9 +184,10 @@ const PriceRuleSchema = z
 
 const sync = createSync({
     description: 'Sync discount price rules (the rule/scope/value definitions backing discount codes).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_price_rules'],
     checkpoint: CheckpointSchema,
     models: {
         PriceRule: PriceRuleSchema

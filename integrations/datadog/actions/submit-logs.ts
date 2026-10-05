@@ -23,9 +23,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Ingest raw log lines.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

@@ -105,10 +105,10 @@ function parseLinkHeader(header: string | undefined): Record<string, string> {
  */
 const action = createAction({
     description: 'List active (non-completed) to-dos in a to-do list.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['full'],
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://github.com/basecamp/bc3-api/blob/master/sections/todos.md#get-to-dos

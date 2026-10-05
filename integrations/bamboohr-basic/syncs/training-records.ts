@@ -49,9 +49,10 @@ function getArrayProperty(obj: unknown, key: string): unknown[] | undefined {
 
 const sync = createSync({
     description: 'Sync employee training records from BambooHR.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['employee_directory', 'training'],
     endpoints: [
         {
             method: 'GET',

@@ -33,13 +33,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync orders known to Judge.me for the shop.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Order: OrderSchema
     },
+    scopes: ['read_orders'],
 
     exec: async (nango) => {
         // Blocker: GET api/v1/orders ignores explicit start_date/end_date params and always

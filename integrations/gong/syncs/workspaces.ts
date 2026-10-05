@@ -22,9 +22,10 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync workspaces from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:workspaces:read'],
     models: {
         Workspace: WorkspaceSchema
     },

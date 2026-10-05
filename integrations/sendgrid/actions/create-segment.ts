@@ -31,13 +31,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a segment from a SQL query over contacts.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://www.twilio.com/docs/sendgrid/api-reference/segments/create-segment
+            // https://www.twilio.com/docs/sendgrid/api-reference/segmenting-contacts-v2/create-segment
             endpoint: '/v3/marketing/segments/2.0',
             data: {
                 name: input.name,

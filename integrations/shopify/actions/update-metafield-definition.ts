@@ -88,9 +88,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a Shopify metafield definition.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['write_products'],
     exec: async (nango, input) => {
         // https://shopify.dev/docs/api/admin-graphql/2026-04/queries/metafieldDefinition
         const lookupResponse = await nango.post({

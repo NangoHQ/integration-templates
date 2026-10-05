@@ -35,9 +35,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync meetings from Zoom.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['meeting:read:admin', 'meeting:read'],
     endpoints: [{ method: 'GET', path: '/syncs/meetings' }],
     checkpoint: CheckpointSchema,
     models: {

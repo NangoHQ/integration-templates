@@ -158,10 +158,10 @@ const ProviderCampaignSchema = z
 
 const action = createAction({
     description: 'Retrieve a single campaign from Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ProviderCampaignSchema,
-    scopes: ['campaigns_read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof ProviderCampaignSchema>> => {
         // https://mailchimp.com/developer/marketing/api/campaigns/get-campaign-info/

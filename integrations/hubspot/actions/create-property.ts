@@ -67,11 +67,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a custom CRM property for a specified HubSpot object type',
-    version: '3.0.1',
+    version: '3.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['crm.objects.contacts.write', 'crm.objects.companies.write', 'crm.objects.deals.write', 'crm.schemas.custom.write'],
+    scopes: ['crm.schemas.contacts.write', 'crm.schemas.companies.write', 'crm.schemas.deals.write', 'crm.schemas.line_items.read', 'tickets', 'e-commerce'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.hubspot.com/docs/api-reference/crm-properties-v3/properties/post-crm-v3-properties-objectType

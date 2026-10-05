@@ -6,7 +6,7 @@ import { User, Metadata } from '../models.js';
 
 const sync = createSync({
     description: 'Sync all workspace users',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: false,
     syncType: 'full',
@@ -17,6 +17,8 @@ const sync = createSync({
             path: '/google/workspace-users'
         }
     ],
+
+    scopes: ['https://www.googleapis.com/auth/admin.directory.user.readonly'],
 
     models: {
         User: User

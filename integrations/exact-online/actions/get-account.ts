@@ -64,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single CRM account by ID.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ExactOnline.API.Read'],
+    scopes: ['crm.Accounts'],
     endpoint: {
         path: '/actions/get-account',
         method: 'GET'

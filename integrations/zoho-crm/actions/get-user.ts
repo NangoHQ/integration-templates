@@ -206,13 +206,13 @@ function normalizeProviderUser(providerUser: z.infer<typeof ProviderUserSchema>)
 
 const action = createAction({
     description: 'Retrieve a single user from Zoho CRM.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.users.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/users.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/get-users.html
         const response = await nango.get({
             endpoint: `/crm/v2/users/${input.user_id}`,
             retries: 3

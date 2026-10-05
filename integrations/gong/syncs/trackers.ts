@@ -16,9 +16,10 @@ const TrackerSchema = z.object({
 
 const sync = createSync({
     description: 'Sync keyword trackers from Gong.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:settings:trackers:read'],
     models: {
         Tracker: TrackerSchema
     },

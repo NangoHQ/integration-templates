@@ -49,9 +49,10 @@ const ProviderListResponseSchema = z
 
 const action = createAction({
     description: 'List all configured webhooks for the organization.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['all.full_access', 'offline_access'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const skip = input.cursor ? Number(input.cursor) : 0;
         if (Number.isNaN(skip)) {

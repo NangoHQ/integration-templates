@@ -41,9 +41,10 @@ const OrganizationMemberModelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync members across all organizations from Auth0',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read:organizations', 'read:organization_members'],
     models: {
         OrganizationMember: OrganizationMemberModelSchema
     },

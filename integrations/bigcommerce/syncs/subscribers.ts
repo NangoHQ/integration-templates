@@ -34,11 +34,11 @@ const ProviderSubscriberSchema = z.object({
 
 const sync = createSync({
     description: 'Sync email newsletter subscribers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    // https://developer.bigcommerce.com/docs/rest-management/customers
+    // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/get-subscribers
     endpoints: [{ method: 'GET', path: '/syncs/subscribers' }],
     models: {
         Subscriber: SubscriberSchema
@@ -57,7 +57,7 @@ const sync = createSync({
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://developer.bigcommerce.com/docs/rest-management/customers
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/subscribers/get-subscribers
             endpoint: '/v3/customers/subscribers',
             params: {
                 ...(updatedAfter && { 'date_modified:min': updatedAfter })

@@ -52,10 +52,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new webhook subscription.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const mappedEvents = input.events.map((eventStr) => {

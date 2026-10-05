@@ -45,9 +45,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync active (non-completed) tasks.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['data:read'],
     checkpoint: CheckpointSchema,
     models: {
         Task: TaskModelSchema

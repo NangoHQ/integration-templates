@@ -18,10 +18,10 @@ const InputSchema = z
  */
 const action = createAction({
     description: 'Add multiple products to a manual collection in one call.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: z.null(),
-    scopes: ['read_products', 'write_products'],
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<null> => {
         // https://developer.shopline.com/docs/admin-rest-api/v20260601/products/custom-collection/bulk-add-products-to-collection

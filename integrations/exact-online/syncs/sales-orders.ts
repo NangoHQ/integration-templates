@@ -49,7 +49,7 @@ type OrderRecord = {
 
 const sync = createSync({
     description: 'Sync sales orders with incremental updates',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -62,6 +62,7 @@ const sync = createSync({
     models: {
         SalesOrder: RecordSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

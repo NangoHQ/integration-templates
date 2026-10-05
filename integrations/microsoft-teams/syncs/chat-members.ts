@@ -70,10 +70,11 @@ function buildGraphRequest(endpointOrUrl: string, defaultParams?: Record<string,
 
 const sync = createSync({
     description: 'Sync member rosters for chats',
-    version: '1.2.0',
+    version: '1.2.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['Chat.ReadBasic'],
     models: {
         ChatMember: ChatMemberRecordSchema
     },

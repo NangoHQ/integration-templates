@@ -38,10 +38,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List invoices.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/invoicing/invoices/read'],
+    scopes: ['https://uri.paypal.com/services/invoicing'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

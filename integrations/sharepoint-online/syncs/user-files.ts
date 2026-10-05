@@ -68,7 +68,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync file metadata from user-accessible SharePoint files.',
-    version: '2.0.0',
+    version: '2.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [{ method: 'GET', path: '/syncs/user-files' }],
@@ -76,6 +76,7 @@ const sync = createSync({
     models: {
         UserFile: UserFileSchema
     },
+    scopes: ['Sites.Read.All', 'Files.Read.All'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

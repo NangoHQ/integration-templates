@@ -32,7 +32,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a task in Apollo',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tasks.write'],
@@ -69,7 +69,7 @@ const action = createAction({
             requestData['opportunity_id'] = input.opportunity_id;
         }
 
-        // https://docs.apollo.io/reference/create-task
+        // https://docs.apollo.io/reference/create-a-task
         const response = await nango.post({
             endpoint: '/v1/tasks',
             data: requestData,

@@ -86,10 +86,10 @@ const ProviderErrorSchema = z.object({
 
 const action = createAction({
     description: 'Fetch detailed Gong call data including content, interaction, and collaboration fields for specific calls.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api:calls:read'],
+    scopes: ['api:calls:read:extensive'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const hasCallIds = Array.isArray(input.callIds) && input.callIds.length > 0;

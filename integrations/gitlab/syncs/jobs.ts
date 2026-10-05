@@ -66,7 +66,7 @@ const ProviderJobSchema = z.object({
 
 const sync = createSync({
     description: 'Sync jobs from GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -79,6 +79,7 @@ const sync = createSync({
             path: '/syncs/jobs'
         }
     ],
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

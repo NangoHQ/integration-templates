@@ -52,10 +52,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify gift cards with balance and customer data',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_gift_cards'],
     // https://shopify.dev/docs/api/admin-graphql/latest/queries/giftCards
     endpoints: [{ method: 'GET', path: '/syncs/gift-cards' }],
     models: {

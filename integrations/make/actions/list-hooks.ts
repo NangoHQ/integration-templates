@@ -59,7 +59,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List webhooks/mailhooks for a team.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['hooks:read'],
@@ -90,7 +90,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://developers.make.com/api-documentation/hooks/list-hooks
+            // https://developers.make.com/api-documentation/api-reference/hooks
             endpoint: '/hooks',
             params,
             retries: 3

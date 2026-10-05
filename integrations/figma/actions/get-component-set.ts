@@ -100,10 +100,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single component set from Figma.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['library_assets:read', 'files:read'],
+    scopes: ['library_assets:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         let response;

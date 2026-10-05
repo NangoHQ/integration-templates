@@ -31,9 +31,10 @@ const InputSchema = z.object({
 
 export default createAction({
     description: "List a connected user's saved, active withdrawal bank destinations.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango: NangoAction, input: z.infer<typeof InputSchema>): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://docs.agentcard.sh/companies/api/reference/wallet-withdrawal-recipients-list

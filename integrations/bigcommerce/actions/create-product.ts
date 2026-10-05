@@ -92,7 +92,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a product.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -122,7 +122,7 @@ const action = createAction({
             body['is_visible'] = input.is_visible;
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/products#create-product
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/create-product
         const response = await nango.post({
             endpoint: '/v3/catalog/products',
             data: body,

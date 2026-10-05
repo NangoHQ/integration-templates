@@ -72,7 +72,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches a list of all interviews for every single opportunity',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -80,6 +80,7 @@ const sync = createSync({
     models: {
         LeverOpportunityInterview: LeverOpportunityInterviewSchema
     },
+    scopes: ['interviews:read:admin'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { opportunityOffset: '' });

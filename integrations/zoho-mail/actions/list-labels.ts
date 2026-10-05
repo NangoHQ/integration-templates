@@ -20,10 +20,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all labels for an account in Zoho Mail.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['zohomail.messages.ALL'],
+    scopes: ['ZohoMail.tags.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/mail/help/api/

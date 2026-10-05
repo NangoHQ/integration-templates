@@ -45,9 +45,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List available sObject types and global metadata for the org.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Salesforce REST API - Describe Global: https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_describeGlobal.htm

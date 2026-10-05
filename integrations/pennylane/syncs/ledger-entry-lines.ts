@@ -70,13 +70,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync ledger entry lines',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         LedgerEntryLine: LedgerEntryLineSchema
     },
+    scopes: ['ledger_entries:readonly'],
 
     exec: async (nango) => {
         // Blocker: no changed-since filter, deleted-record endpoint, or changelog feed

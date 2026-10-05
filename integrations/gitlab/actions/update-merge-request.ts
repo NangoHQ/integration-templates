@@ -37,9 +37,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update a merge request in GitLab.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.put({

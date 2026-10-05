@@ -86,13 +86,14 @@ const CampfireLineProviderSchema = z
 
 const sync = createSync({
     description: "Sync chat lines across all known projects' Campfires.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CampfireLine: CampfireLineSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         // Blocker: No resource in the Basecamp API exposes a modified-since or updated-after filter.

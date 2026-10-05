@@ -18,7 +18,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync worksheets from a Google Sheets spreadsheet',
-    version: '1.1.0',
+    version: '1.1.1',
     endpoints: [
         {
             method: 'GET',
@@ -29,6 +29,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 
     models: {
         Worksheet: WorksheetSchema

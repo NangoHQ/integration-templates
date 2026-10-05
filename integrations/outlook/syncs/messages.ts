@@ -156,7 +156,8 @@ function toMessage(message: DeltaMessage, folderId: string): Message {
 
 const sync = createSync<{ Message: typeof MessageSchema }, typeof MetadataSchema, typeof CheckpointSchema>({
     description: 'Sync folder-scoped messages with delta tokens',
-    version: '1.1.0',
+    version: '1.1.1',
+    scopes: ['Mail.Read'],
     frequency: 'every hour',
     autoStart: true,
     endpoints: [

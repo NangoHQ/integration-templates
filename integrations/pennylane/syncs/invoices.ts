@@ -271,11 +271,11 @@ function toInvoice(raw: z.infer<typeof RawInvoiceSchema>): z.infer<typeof Invoic
 
 const sync = createSync({
     description: 'Fetches a list of customer invoices from pennylane',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    scopes: ['customer_invoices'],
+    scopes: ['customer_invoices:readonly'],
     metadata: z.object({}),
 
     models: {

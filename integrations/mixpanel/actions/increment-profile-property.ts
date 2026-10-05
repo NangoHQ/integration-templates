@@ -26,7 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Increment numeric user profile properties',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -61,7 +61,7 @@ const action = createAction({
             });
         }
 
-        // https://developer.mixpanel.com/reference/profile-increment-numeric-property
+        // https://docs.mixpanel.com/reference/profile-numerical-add
         const response = await nango.post({
             baseUrlOverride: 'https://api.mixpanel.com',
             endpoint: '/engage',

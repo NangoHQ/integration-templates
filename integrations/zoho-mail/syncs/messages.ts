@@ -51,9 +51,10 @@ const MessageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync messages from Zoho Mail with incremental support by receivedTime',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['ZohoMail.accounts.READ', 'ZohoMail.folders.READ', 'ZohoMail.messages.READ'],
     checkpoint: CheckpointSchema,
     models: {
         Message: MessageSchema

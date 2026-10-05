@@ -39,7 +39,7 @@ const PageSchema = z.object({
 const sync = createSync({
     description:
         'Sync customers from Stripe. Incrementally fetches newly created customers using a creation-time checkpoint. Updates to existing customers are not captured; use a customer-events sync for update tracking.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
             path: '/syncs/customers'
         }
     ],
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

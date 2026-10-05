@@ -27,9 +27,10 @@ const ReportRowSchema = z.object({
 
 const sync = createSync({
     description: 'Sync TikTok Ads reporting rows.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'POST', path: '/syncs/reports' }],

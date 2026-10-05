@@ -66,9 +66,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update the archived state of an opportunity',
-    version: '3.0.0',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['opportunities:write:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.opportunityId) {

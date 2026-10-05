@@ -29,9 +29,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single list from Twitter/X',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['list.read', 'tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.x.com/en/docs/twitter-api/lists/list-lookup/api-reference/get-lists-id

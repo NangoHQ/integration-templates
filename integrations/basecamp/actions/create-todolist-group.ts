@@ -130,9 +130,10 @@ const ProviderGroupSchema = z.object({
  */
 const action = createAction({
     description: 'Create a group (section) within a to-do list.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({

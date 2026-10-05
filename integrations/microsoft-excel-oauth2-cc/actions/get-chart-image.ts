@@ -18,10 +18,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Render a chart as an image.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Sites.Read.All'],
+    scopes: ['Files.ReadWrite.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // OData string literals require embedded single quotes to be doubled.

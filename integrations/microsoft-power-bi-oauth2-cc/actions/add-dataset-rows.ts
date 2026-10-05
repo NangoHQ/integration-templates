@@ -18,10 +18,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Append rows of data to a push-dataset table.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Dataset.ReadWrite.All'],
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/rest/api/power-bi/push-datasets/datasets-post-rows

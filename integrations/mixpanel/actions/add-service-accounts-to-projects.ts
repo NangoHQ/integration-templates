@@ -26,7 +26,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Assign service accounts to projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -35,7 +35,7 @@ const action = createAction({
         let organizationId = input.organization_id;
 
         if (!organizationId) {
-            // https://developer.mixpanel.com/reference/me
+            // https://docs.mixpanel.com/reference/service-accounts
             const meResponse = await nango.get({
                 endpoint: '/api/app/me',
                 retries: 3

@@ -30,9 +30,10 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync case-management projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['cases_read'],
     models: {
         CaseProject: CaseProjectSchema
     },

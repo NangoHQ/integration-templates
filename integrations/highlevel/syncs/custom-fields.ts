@@ -43,9 +43,10 @@ const CustomFieldSchema = z.object({
 
 const sync = createSync({
     description: 'Sync custom fields from HighLevel',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['locations/customFields.readonly'],
     models: {
         CustomField: CustomFieldSchema
     },

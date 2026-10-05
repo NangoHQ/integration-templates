@@ -56,7 +56,7 @@ const SalesforceQueryResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Salesforce case tickets with core fields and related conversation context.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -69,6 +69,7 @@ const sync = createSync({
             path: '/syncs/tickets'
         }
     ],
+    scopes: ['api'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

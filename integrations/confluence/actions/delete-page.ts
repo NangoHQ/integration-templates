@@ -27,11 +27,11 @@ const AccessibleResourcesSchema = z.array(AccessibleResourceSchema);
 
 const action = createAction({
     description: 'Delete a Confluence page by id.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['write:page:confluence', 'delete:page:confluence'],
+    scopes: ['delete:page:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

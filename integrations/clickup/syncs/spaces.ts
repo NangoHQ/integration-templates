@@ -53,7 +53,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync spaces from ClickUp.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -66,6 +66,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         // Blocker: ClickUp spaces API has no updated_at filter, no pagination,

@@ -141,10 +141,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single task from ClickUp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'], // Read-only operation
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};
@@ -153,7 +153,7 @@ const action = createAction({
             params['team_id'] = input.team_id!;
         }
 
-        // https://developer.clickup.com/reference/get-task
+        // https://developer.clickup.com/reference/gettask
         const response = await nango.get({
             endpoint: `/api/v2/task/${encodeURIComponent(input.task_id)}`,
             params,
