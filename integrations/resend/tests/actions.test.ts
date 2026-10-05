@@ -211,7 +211,12 @@ for (const spec of cases) {
             const config = nango[spec.method].mock.calls[0]?.[0];
             expect(Number.isInteger(config?.retries)).toBe(true);
             expect(config?.retries).toBeGreaterThanOrEqual(0);
-            if (spec.hasBody) expect(nango[spec.method]).toHaveBeenCalledWith(expect.objectContaining({ data: input.body }));
+            if (spec.hasBody) {
+                // update-contact-topics sends the topics array as the body
+                // itself: Resend rejects the OpenAPI-spec'd { topics } wrapper.
+                const expectedData = spec.name === 'update-contact-topics' ? input.body.topics : input.body;
+                expect(nango[spec.method]).toHaveBeenCalledWith(expect.objectContaining({ data: expectedData }));
+            }
         });
 
         it('propagates provider failures', async () => {

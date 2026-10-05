@@ -31,12 +31,22 @@ const CycleSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        cycleCreate: z.object({
-            success: z.boolean(),
-            cycle: CycleSchema.nullable().optional()
+    data: z
+        .object({
+            cycleCreate: z.object({
+                success: z.boolean(),
+                cycle: CycleSchema.nullable().optional()
+            })
         })
-    })
+        .nullable()
+        .optional(),
+    errors: z
+        .array(
+            z.object({
+                message: z.string()
+            })
+        )
+        .optional()
 });
 
 const OutputSchema = z.object({
@@ -56,7 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a cycle for a Linear team.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -109,13 +119,22 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
-        const payload = parsed.data.cycleCreate;
 
-        if (!payload.success || !payload.cycle) {
+        if (parsed.errors && parsed.errors.length > 0) {
+            const firstError = parsed.errors[0];
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError?.message ?? 'GraphQL error occurred.'
+            });
+        }
+
+        const payload = parsed.data?.cycleCreate;
+
+        if (!payload?.success || !payload.cycle) {
             throw new nango.ActionError({
                 type: 'creation_failed',
                 message: 'Cycle creation failed or returned no cycle.',
-                success: payload.success
+                success: payload?.success ?? false
             });
         }
 

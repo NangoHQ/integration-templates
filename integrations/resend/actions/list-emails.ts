@@ -18,7 +18,7 @@ const ProviderResponseSchema = z
                     .object({
                         object: z.string().optional(),
                         id: z.string().optional(),
-                        message_id: z.string().optional(),
+                        message_id: z.string().nullable().optional(),
                         to: z.array(z.string()).optional(),
                         from: z.string().optional(),
                         created_at: z.string().optional(),
@@ -54,7 +54,7 @@ const OutputSchema = ProviderResponseSchema.extend({ next_cursor: z.string().opt
 
 const action = createAction({
     description: 'List emails in Resend. Returns one page; pass next_cursor back as after, or as before when paginating backwards, to continue.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
