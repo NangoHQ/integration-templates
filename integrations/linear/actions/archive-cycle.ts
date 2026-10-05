@@ -27,6 +27,7 @@ const GraphQlResponseSchema = z.object({
         .object({
             cycleArchive: ProviderPayloadSchema
         })
+        .nullable()
         .optional(),
     errors: z.array(z.unknown()).optional()
 });
@@ -43,7 +44,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Archive a Linear cycle.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
