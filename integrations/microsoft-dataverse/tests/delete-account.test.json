@@ -1,0 +1,51 @@
+{
+  "input": {
+    "accountId": "3f05bc99-2bbc-f111-aaad-7ced8d717fa5"
+  },
+  "output": {
+    "success": true,
+    "id": "3f05bc99-2bbc-f111-aaad-7ced8d717fa5"
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/api/data/v9.2/accounts(3f05bc99-2bbc-f111-aaad-7ced8d717fa5)": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:31:43 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1790703161",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53B793AB100000001464872674; path=/; secure; HttpOnly, ReqClientId=8e105d9c-3e08-4e12-a8db-7a1a0922f274; expires=Tue, 29-Sep-2076 17:31:42 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:31:42 GMT; path=/; secure; HttpOnly, last_commit_time=2026-09-29 17:31:43Z; expires=Tue, 29-Sep-2026 17:32:43 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53B793AB100000001464872674; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "fd424da2-f966-4db0-80f9-8e5b045cf0f2",
+          "req_id": "fd424da2-f966-4db0-80f9-8e5b045cf0f2",
+          "authactivityid": "3c6476e8-7680-47da-88ec-803534c714a1",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,055.78",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7639",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 322102061281359476997419619872612919810824319640132551176913016125335232230236234105",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "1e7a146f50229096fdfa32a6f8ae4970f8d6115f",
+        "request": {}
+      }
+    }
+  }
+}

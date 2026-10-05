@@ -1,0 +1,222 @@
+{
+  "input": {
+    "limit": 5
+  },
+  "output": {
+    "activities": [
+      {
+        "activity_id": "18d7a0da-bc35-11f1-94f6-02420a320002",
+        "state": "completed",
+        "percent_done": 100,
+        "created_at": "2026-09-29T18:39:26Z",
+        "started_at": "2026-09-29T18:39:26Z",
+        "completed_at": "2026-09-29T18:39:26Z",
+        "updated_at": "2026-09-29T18:39:26Z",
+        "status": {
+          "items_total_count": 1,
+          "items_completed_count": 1
+        },
+        "activity_errors": []
+      },
+      {
+        "activity_id": "17ac0dcc-bc35-11f1-b6a3-02420a320002",
+        "state": "completed",
+        "percent_done": 100,
+        "created_at": "2026-09-29T18:39:24Z",
+        "started_at": "2026-09-29T18:39:24Z",
+        "completed_at": "2026-09-29T18:39:24Z",
+        "updated_at": "2026-09-29T18:39:24Z",
+        "status": {
+          "items_total_count": 1,
+          "items_completed_count": 1
+        },
+        "activity_errors": []
+      },
+      {
+        "activity_id": "17767928-bc35-11f1-a86f-02420a320002",
+        "state": "completed",
+        "percent_done": 100,
+        "created_at": "2026-09-29T18:39:23Z",
+        "started_at": "2026-09-29T18:39:24Z",
+        "completed_at": "2026-09-29T18:39:24Z",
+        "updated_at": "2026-09-29T18:39:24Z",
+        "status": {
+          "items_total_count": 1,
+          "items_completed_count": 1
+        },
+        "activity_errors": []
+      },
+      {
+        "activity_id": "0759a326-bc35-11f1-b05b-02420a320002",
+        "state": "completed",
+        "percent_done": 100,
+        "created_at": "2026-09-29T18:38:56Z",
+        "started_at": "2026-09-29T18:38:56Z",
+        "completed_at": "2026-09-29T18:38:56Z",
+        "updated_at": "2026-09-29T18:38:56Z",
+        "status": {
+          "items_total_count": 0
+        },
+        "activity_errors": []
+      },
+      {
+        "activity_id": "fc40ac82-bc34-11f1-8496-02420a320002",
+        "state": "completed",
+        "percent_done": 100,
+        "created_at": "2026-09-29T18:38:38Z",
+        "started_at": "2026-09-29T18:38:39Z",
+        "completed_at": "2026-09-29T18:38:39Z",
+        "updated_at": "2026-09-29T18:38:39Z",
+        "status": {
+          "items_total_count": 0
+        },
+        "activity_errors": []
+      }
+    ],
+    "next_cursor": "bGltaXQ9NSZuZXh0PWZiOTI2N2M2LWJjMzQtMTFmMS05NGY2LTAyNDIwYTMyMDAwMg=="
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/activities": {
+        "response": {
+          "activities": [
+            {
+              "activity_id": "18d7a0da-bc35-11f1-94f6-02420a320002",
+              "state": "completed",
+              "started_at": "2026-09-29T18:39:26Z",
+              "completed_at": "2026-09-29T18:39:26Z",
+              "created_at": "2026-09-29T18:39:26Z",
+              "updated_at": "2026-09-29T18:39:26Z",
+              "percent_done": 100,
+              "activity_errors": [],
+              "status": {
+                "items_total_count": 1,
+                "items_completed_count": 1
+              },
+              "_links": {
+                "self": {
+                  "href": "/v3/activities/fc40ac82-bc34-11f1-8496-02420a320002"
+                }
+              }
+            },
+            {
+              "activity_id": "17ac0dcc-bc35-11f1-b6a3-02420a320002",
+              "state": "completed",
+              "started_at": "2026-09-29T18:39:24Z",
+              "completed_at": "2026-09-29T18:39:24Z",
+              "created_at": "2026-09-29T18:39:24Z",
+              "updated_at": "2026-09-29T18:39:24Z",
+              "percent_done": 100,
+              "activity_errors": [],
+              "status": {
+                "items_total_count": 1,
+                "items_completed_count": 1
+              },
+              "_links": {
+                "self": {
+                  "href": "/v3/activities/fc40ac82-bc34-11f1-8496-02420a320002"
+                }
+              }
+            },
+            {
+              "activity_id": "17767928-bc35-11f1-a86f-02420a320002",
+              "state": "completed",
+              "started_at": "2026-09-29T18:39:24Z",
+              "completed_at": "2026-09-29T18:39:24Z",
+              "created_at": "2026-09-29T18:39:23Z",
+              "updated_at": "2026-09-29T18:39:24Z",
+              "percent_done": 100,
+              "activity_errors": [],
+              "status": {
+                "items_total_count": 1,
+                "items_completed_count": 1
+              },
+              "_links": {
+                "self": {
+                  "href": "/v3/activities/fc40ac82-bc34-11f1-8496-02420a320002"
+                }
+              }
+            },
+            {
+              "activity_id": "0759a326-bc35-11f1-b05b-02420a320002",
+              "state": "completed",
+              "started_at": "2026-09-29T18:38:56Z",
+              "completed_at": "2026-09-29T18:38:56Z",
+              "created_at": "2026-09-29T18:38:56Z",
+              "updated_at": "2026-09-29T18:38:56Z",
+              "percent_done": 100,
+              "activity_errors": [],
+              "status": {
+                "items_total_count": 0
+              },
+              "_links": {
+                "self": {
+                  "href": "/v3/activities/fc40ac82-bc34-11f1-8496-02420a320002"
+                }
+              }
+            },
+            {
+              "activity_id": "fc40ac82-bc34-11f1-8496-02420a320002",
+              "state": "completed",
+              "started_at": "2026-09-29T18:38:39Z",
+              "completed_at": "2026-09-29T18:38:39Z",
+              "created_at": "2026-09-29T18:38:38Z",
+              "updated_at": "2026-09-29T18:38:39Z",
+              "percent_done": 100,
+              "activity_errors": [],
+              "status": {
+                "items_total_count": 0
+              },
+              "_links": {
+                "self": {
+                  "href": "/v3/activities/fc40ac82-bc34-11f1-8496-02420a320002"
+                }
+              }
+            }
+          ],
+          "_links": {
+            "next": {
+              "href": "/v3/activities?cursor=bGltaXQ9NSZuZXh0PWZiOTI2N2M2LWJjMzQtMTFmMS05NGY2LTAyNDIwYTMyMDAwMg=="
+            }
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:39:36 GMT",
+          "content-type": "application/json",
+          "content-length": "2089",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1968",
+          "x-ratelimit-reset": "1790707227",
+          "x-amzn-trace-id": "Root=1-6abc05e8-2649e8e862400c6c41f2eab6;Parent=1774dbb2abc36f6e;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "7f0033fc-4be9-4a67-8361-0b640cbe71d1",
+          "x-amz-apigw-id": "EeXccEgpoAMENLw=",
+          "x-eig-tracking-id": "05ff3905-3ac8-471b-9d4a-bff1067580d1",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 6daec11ce051cffaa3e440291c9bdce2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "Xm_wtSPqlENm8ynZ-p-1H_4AtKeXpnx_38jy5fyMaxyVmhesiD5jJA==",
+          "etag": "W/\"829-vf0Lsk+0fHgWeJVPWph+E63YC+I\""
+        },
+        "hash": "cf9accb168aced1f07db6934b5c75babb7b02234",
+        "request": {
+          "params": {
+            "limit": "5"
+          }
+        }
+      }
+    }
+  }
+}

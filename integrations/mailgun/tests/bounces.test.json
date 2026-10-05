@@ -1,0 +1,262 @@
+{
+  "nango": {
+    "batchSave": {
+      "Bounce": [
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/nango-bounces-sync-seed2@example.com",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "address": "nango-bounces-sync-seed2@example.com",
+          "code": "550",
+          "error": "Seeded second",
+          "created_at": "Fri, 02 Oct 2026 00:33:59 UTC"
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/nango-bounces-sync-seed3@example.com",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "address": "nango-bounces-sync-seed3@example.com",
+          "code": "551",
+          "error": "Seeded third",
+          "created_at": "Fri, 02 Oct 2026 00:34:00 UTC"
+        },
+        {
+          "id": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/nango-bounces-sync-seed@example.com",
+          "domain": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+          "address": "nango-bounces-sync-seed@example.com",
+          "code": "550",
+          "error": "Seeded for Nango bounces sync validation",
+          "created_at": "Fri, 02 Oct 2026 00:31:24 UTC"
+        }
+      ]
+    }
+  },
+  "api": {
+    "get": {
+      "/v3/domains": {
+        "response": {
+          "total_count": 2,
+          "items": [
+            {
+              "created_at": "Mon, 09 Mar 2026 15:57:09 GMT",
+              "id": "69aeedd584d39943e1a587f1",
+              "is_disabled": false,
+              "name": "xn--zeitfr-7ya.xyz",
+              "require_tls": false,
+              "skip_verification": false,
+              "smtp_login": "",
+              "spam_action": "disabled",
+              "state": "active",
+              "type": "custom",
+              "use_automatic_sender_security": true,
+              "web_prefix": "email",
+              "web_scheme": "http",
+              "wildcard": false,
+              "encrypt_incoming_message": false,
+              "message_ttl": 86400
+            },
+            {
+              "created_at": "Fri, 23 Feb 2024 11:31:56 GMT",
+              "id": "65d8822c5c899f9accba6155",
+              "is_disabled": false,
+              "name": "sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org",
+              "require_tls": false,
+              "skip_verification": false,
+              "smtp_login": "",
+              "spam_action": "disabled",
+              "state": "active",
+              "type": "sandbox",
+              "use_automatic_sender_security": false,
+              "web_prefix": "email",
+              "web_scheme": "http",
+              "wildcard": false,
+              "encrypt_incoming_message": false,
+              "message_ttl": 0
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:35:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "849",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1790901336",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "<redacted>",
+          "etag": "W/\"351-BpbcBxRc1a+dcy/ppbXVavw2YZ8\""
+        },
+        "hash": "a9735c77dc69cada639853c23c5adbd36202c41d",
+        "request": {
+          "params": {
+            "limit": "100",
+            "skip": "0"
+          }
+        }
+      },
+      "/v3/xn--zeitfr-7ya.xyz/bounces": {
+        "response": {
+          "items": [],
+          "paging": {
+            "first": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/bounces?limit=100&term=",
+            "last": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/bounces?limit=100&term=",
+            "next": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/bounces?limit=100&term=",
+            "previous": "https://api.mailgun.net/v3/xn--zeitfr-7ya.xyz/bounces?limit=100&term="
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 02 Oct 2026 00:35:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "345",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=63072000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1974",
+          "x-ratelimit-reset": "1790901336",
+          "cache-control": "no-store",
+          "x-mailgun-key-id": "<redacted>",
+          "x-request-limit": "2500",
+          "x-request-remaining": "2499",
+          "x-request-reset": "1790901320509",
+          "etag": "W/\"159-kcBs/wyt8hPXjOqS6WwOh1czM+E\""
+        },
+        "hash": "391f7742825ee29ceb0f8b6ffed5c23c00f65eda",
+        "request": {
+          "params": {
+            "limit": "100"
+          }
+        }
+      },
+      "/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces": [
+        {
+          "response": {
+            "items": [
+              {
+                "address": "nango-bounces-sync-seed2@example.com",
+                "code": "550",
+                "error": "Seeded second",
+                "created_at": "Fri, 02 Oct 2026 00:33:59 UTC"
+              },
+              {
+                "address": "nango-bounces-sync-seed3@example.com",
+                "code": "551",
+                "error": "Seeded third",
+                "created_at": "Fri, 02 Oct 2026 00:34:00 UTC"
+              },
+              {
+                "address": "nango-bounces-sync-seed@example.com",
+                "code": "550",
+                "error": "Seeded for Nango bounces sync validation",
+                "created_at": "Fri, 02 Oct 2026 00:31:24 UTC"
+              }
+            ],
+            "paging": {
+              "first": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?limit=100&term=",
+              "last": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?page=last&limit=100&term=",
+              "next": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?page=next&address=nango-bounces-sync-seed%40example.com&limit=100&term=",
+              "previous": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?page=previous&address=nango-bounces-sync-seed2%40example.com&limit=100&term="
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Oct 2026 00:35:05 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "1027",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=63072000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1973",
+            "x-ratelimit-reset": "1790901336",
+            "cache-control": "no-store",
+            "x-mailgun-key-id": "<redacted>",
+            "x-request-limit": "2500",
+            "x-request-remaining": "2499",
+            "x-request-reset": "1790901320663",
+            "etag": "W/\"403-MjY54Wof16cJ+puq0jl/IY5JYfc\""
+          },
+          "hash": "0b361c80aa809b38b7d799c49cc2e4a5942af084",
+          "request": {
+            "params": {
+              "limit": "100"
+            }
+          }
+        },
+        {
+          "response": {
+            "items": [],
+            "paging": {
+              "first": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?limit=100&term=",
+              "last": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?limit=100&term=",
+              "next": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?limit=100&term=",
+              "previous": "https://api.mailgun.net/v3/sandboxfa9654b57ed14d40a9460717cf55de03.mailgun.org/bounces?limit=100&term="
+            }
+          },
+          "status": 200,
+          "headers": {
+            "date": "Fri, 02 Oct 2026 00:35:05 GMT",
+            "content-type": "application/json; charset=utf-8",
+            "content-length": "477",
+            "connection": "keep-alive",
+            "x-xss-protection": "1; mode=block",
+            "x-content-type-options": "nosniff",
+            "x-download-options": "noopen",
+            "x-frame-options": "SAMEORIGIN",
+            "x-dns-prefetch-control": "off",
+            "referrer-policy": "strict-origin",
+            "strict-transport-security": "max-age=63072000; includeSubDomains",
+            "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+            "access-control-allow-origin": "*",
+            "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+            "x-ratelimit-limit": "2000",
+            "x-ratelimit-remaining": "1972",
+            "x-ratelimit-reset": "1790901336",
+            "cache-control": "no-store",
+            "x-mailgun-key-id": "<redacted>",
+            "x-request-limit": "2500",
+            "x-request-remaining": "2498",
+            "x-request-reset": "1790901306644",
+            "etag": "W/\"1dd-4g2pguOTfTIg2o7BOae3ENLdYZo\""
+          },
+          "hash": "a66c292f0c8006e03ea08be56d3870249828c1ba",
+          "request": {
+            "params": {
+              "address": "nango-bounces-sync-seed@example.com",
+              "limit": "100",
+              "page": "next",
+              "term": ""
+            }
+          }
+        }
+      ]
+    }
+  }
+}

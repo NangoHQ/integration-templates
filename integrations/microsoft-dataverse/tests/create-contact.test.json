@@ -1,0 +1,126 @@
+{
+  "input": {
+    "firstname": "NangoSeed",
+    "lastname": "TestContact",
+    "emailaddress1": "nangoseed.testcontact@example.com"
+  },
+  "output": {
+    "id": "046bb160-2bbc-f111-aaad-7ced8d717fa5",
+    "createdon": "2026-09-29T17:30:02Z",
+    "modifiedon": "2026-09-29T17:30:02Z",
+    "fullname": "NangoSeed TestContact",
+    "firstname": "NangoSeed",
+    "lastname": "TestContact",
+    "emailaddress1": "nangoseed.testcontact@example.com"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/data/v9.2/contacts": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:30:02 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1790703041",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "location": "https://org98374485.crm.dynamics.com/api/data/v9.2/contacts(046bb160-2bbc-f111-aaad-7ced8d717fa5)",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "4577ff88-ef75-46a1-86ed-8f01ece0efaf",
+          "req_id": "4577ff88-ef75-46a1-86ed-8f01ece0efaf",
+          "authactivityid": "c0f14015-74ce-4b15-b8e8-bf531377a889",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,118.12",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7773",
+          "odata-version": "4.0",
+          "odata-entityid": "https://org98374485.crm.dynamics.com/api/data/v9.2/contacts(046bb160-2bbc-f111-aaad-7ced8d717fa5)",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 16922910017516219025196929611913018120115194214613420921020773139501822720522332250",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "38696b5b3788f5e3f60dd8d844cc56c4e3b66ed5",
+        "request": {
+          "data": {
+            "firstname": "NangoSeed",
+            "lastname": "TestContact",
+            "emailaddress1": "nangoseed.testcontact@example.com"
+          }
+        }
+      }
+    },
+    "get": {
+      "/api/data/v9.2/contacts(046bb160-2bbc-f111-aaad-7ced8d717fa5)": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#contacts(contactid,fullname,firstname,lastname,emailaddress1,telephone1,mobilephone,jobtitle,description,createdon,modifiedon)/$entity",
+          "@odata.etag": "W/\"8529747\"",
+          "fullname": "NangoSeed TestContact",
+          "emailaddress1": "nangoseed.testcontact@example.com",
+          "contactid": "046bb160-2bbc-f111-aaad-7ced8d717fa5",
+          "firstname": "NangoSeed",
+          "jobtitle": null,
+          "modifiedon": "2026-09-29T17:30:02Z",
+          "lastname": "TestContact",
+          "mobilephone": null,
+          "description": null,
+          "createdon": "2026-09-29T17:30:02Z",
+          "telephone1": null
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:30:03 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "576",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1935",
+          "x-ratelimit-reset": "1790703041",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "etag": "W/\"8529747\"",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "c81dff8f-0d47-46f8-a9da-103e82dae8bd",
+          "req_id": "c81dff8f-0d47-46f8-a9da-103e82dae8bd",
+          "authactivityid": "d3c6eb46-a9d5-4237-baa8-2ba0660d2ecd",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,118.12",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7771",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 1261568146871186824616118620313412811701371142071397281231944415818699744799",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "686da839029085c6b693db0d927188316d62d1a2",
+        "request": {
+          "params": {
+            "$select": "contactid,fullname,firstname,lastname,emailaddress1,telephone1,mobilephone,jobtitle,description,createdon,modifiedon"
+          }
+        }
+      }
+    }
+  }
+}

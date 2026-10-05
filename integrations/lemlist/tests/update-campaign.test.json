@@ -1,0 +1,54 @@
+{
+  "input": {
+    "campaignId": "cam_suajL2SXxmH7NdZ6F",
+    "name": "Nango Seed Campaign 2"
+  },
+  "output": {
+    "name": "Nango Seed Campaign 2"
+  },
+  "nango": {},
+  "api": {
+    "patch": {
+      "/api/campaigns/cam_suajL2SXxmH7NdZ6F": {
+        "response": {
+          "name": "Nango Seed Campaign 2"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Thu, 01 Oct 2026 20:56:08 GMT",
+          "content-type": "application/json",
+          "content-length": "32",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000;",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "20",
+          "x-ratelimit-remaining": "19",
+          "x-ratelimit-reset": "Thu Oct 01 2026 22:56:10 GMT+0200 (Central European Summer Time)",
+          "retry-after": "2",
+          "via": "1.1 Caddy",
+          "x-cache-debug": "api.main",
+          "cf-cache-status": "DYNAMIC",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Bel0DlrMx6do%2BkSUegAse5xPeM1BVMcNRAeEkAE8h214cumTUUx40MSji4036OxuK6I8xwuZlTGI1BOAJPAlS2goQkfx14BfK7WwXuktAqgW8mZ5%2FoooEieKff5dB6lzYQ%3D%3D\"}]}",
+          "server": "cloudflare",
+          "cf-ray": "a43e5f4a18f0816e-PDX",
+          "etag": "W/\"20-365uWcRcs6aOCU6MBJWIqaLc/p8\""
+        },
+        "hash": "10ee47798ebcea3ab56e45b7ec0c407ab8fe68d0",
+        "request": {
+          "data": {
+            "name": "Nango Seed Campaign 2"
+          }
+        }
+      }
+    }
+  }
+}

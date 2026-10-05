@@ -1,0 +1,118 @@
+{
+  "input": {
+    "subject": "NANGO-TEST create-email dryrun",
+    "description": "<p>Minimal create-email validation body.</p>"
+  },
+  "output": {
+    "activityid": "6099b08a-2bbc-f111-aaad-7ced8d717fa5",
+    "subject": "NANGO-TEST create-email dryrun",
+    "description": "<p>Minimal create-email validation body.</p>",
+    "statecode": 0,
+    "createdon": "2026-09-29T17:31:03Z"
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/api/data/v9.2/emails": {
+        "response": "",
+        "status": 204,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:31:03 GMT",
+          "content-type": "text/html; charset=utf-8",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1906",
+          "x-ratelimit-reset": "1790703101",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "location": "https://org98374485.crm.dynamics.com/api/data/v9.2/emails(6099b08a-2bbc-f111-aaad-7ced8d717fa5)",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A05C4F530000001079291746; path=/; secure; HttpOnly, ReqClientId=523bab52-d849-4f25-b8d7-0ed48258266b; expires=Tue, 29-Sep-2076 17:31:03 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:31:03 GMT; path=/; secure; HttpOnly, last_commit_time=2026-09-29 17:31:03Z; expires=Tue, 29-Sep-2026 17:32:03 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A05C4F530000001079291746; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "81c9532e-952e-4346-adfe-e5715a4b75d6",
+          "req_id": "81c9532e-952e-4346-adfe-e5715a4b75d6",
+          "authactivityid": "0b5140ae-0f21-4569-be22-a507a8f649a7",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,080.36",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7675",
+          "odata-version": "4.0",
+          "odata-entityid": "https://org98374485.crm.dynamics.com/api/data/v9.2/emails(6099b08a-2bbc-f111-aaad-7ced8d717fa5)",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 12914415818512559651671801227132232101116128664197815524040159134229157249205208",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "10eded66fa09b0734dbd6f42c02724161afe7896",
+        "request": {
+          "data": {
+            "subject": "NANGO-TEST create-email dryrun",
+            "description": "<p>Minimal create-email validation body.</p>"
+          }
+        }
+      }
+    },
+    "get": {
+      "/api/data/v9.2/emails(6099b08a-2bbc-f111-aaad-7ced8d717fa5)": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#emails(activityid,subject,description,statecode,createdon)/$entity",
+          "@odata.etag": "W/\"8529972\"",
+          "activityid": "6099b08a-2bbc-f111-aaad-7ced8d717fa5",
+          "statecode": 0,
+          "subject": "NANGO-TEST create-email dryrun",
+          "createdon": "2026-09-29T17:31:03Z",
+          "description": "<p>Minimal create-email validation body.</p>",
+          "isunsafe": 0,
+          "safedescription": "<html>\r\n<head>\r\n<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\r\n</head>\r\n<body>\r\n<p>Minimal create-email validation body.</p>\r\n</body>\r\n</html>\r\n"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:31:03 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "603",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1903",
+          "x-ratelimit-reset": "1790703101",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "etag": "W/\"8529972\"",
+          "vary": "Accept-Encoding",
+          "set-cookie": "ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A08A8DFF0000000180548593; path=/; secure; HttpOnly, ReqClientId=20b08021-1bc1-4832-abf0-914c78f1c4ca; expires=Tue, 29-Sep-2076 17:31:03 GMT; path=/; secure; HttpOnly, orgId=214aaa83-adb8-f111-8add-002248098a10; expires=Tue, 29-Sep-2076 17:31:03 GMT; path=/; secure; HttpOnly, ARRAffinity=8bed0b0daa03cf22cb366296667cacffb9806aff994c4e12b4f05f7ece570a2915134d20c556b0b34b9b6ae43ec3f5dcdad61788de889ffc592af7aca85fc1c508DF1E53A08A8DFF0000000180548593; path=/; secure; HttpOnly",
+          "x-ms-service-request-id": "b40c5341-de2c-4f9e-a0bc-dbcd0971068c",
+          "req_id": "b40c5341-de2c-4f9e-a0bc-dbcd0971068c",
+          "authactivityid": "8c6d8e85-e429-4383-9878-d2b295b2a356",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,080.36",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7673",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 19415122282215199166447818113459233126214117153186203791791971219518180135225245253",
+          "public": "OPTIONS,GET,HEAD,POST"
+        },
+        "hash": "7804d663258556856af9e9fb3747612eda6c18a3",
+        "request": {
+          "params": {
+            "$select": "activityid,subject,description,statecode,createdon"
+          }
+        }
+      }
+    }
+  }
+}

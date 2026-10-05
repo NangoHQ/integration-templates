@@ -1,0 +1,77 @@
+{
+  "input": {},
+  "output": {
+    "emails": [
+      {
+        "email_id": 1,
+        "email_address": "api@nango.dev",
+        "confirm_status": "CONFIRMED",
+        "confirm_time": "2026-09-29T14:37:13.521+0000",
+        "roles": [
+          "BILLING",
+          "CONTACT",
+          "DEFAULT_FROM",
+          "REPLY_TO"
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/v3/account/emails": {
+        "response": [
+          {
+            "email_id": 1,
+            "email_address": "api@nango.dev",
+            "roles": [
+              "BILLING",
+              "CONTACT",
+              "DEFAULT_FROM",
+              "REPLY_TO"
+            ],
+            "confirm_status": "CONFIRMED",
+            "confirm_source": "129.222.187.243",
+            "confirm_time": "2026-09-29T14:37:13.521+0000",
+            "confirm_source_type": "SITE_OWNER"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 18:38:03 GMT",
+          "content-type": "application/json",
+          "content-length": "249",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=5184000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1849",
+          "x-ratelimit-reset": "1790707103",
+          "x-amzn-trace-id": "Root=1-6abc058a-67806c1a5068aba1689da0d4;Parent=39f3fa47072ef78e;Sampled=0;Lineage=2:01517996:0",
+          "x-amzn-requestid": "4feae12a-2aa9-45ee-bca6-5d13008c854b",
+          "x-amz-apigw-id": "EeXNxGWPoAMEaXg=",
+          "x-eig-tracking-id": "2e4ff93d-3d53-41f3-be38-4dbe45db1f96",
+          "x-cache": "Miss from cloudfront",
+          "via": "1.1 f0d7632c883c9599147ea9f71dcc8ed2.cloudfront.net (CloudFront)",
+          "x-amz-cf-pop": "HIO52-P5",
+          "x-amz-cf-id": "CzqOW_-rWHhzNtrnCBALhoBZjmViSM66LNGOSpCuRIW6mWcL0TM1uQ==",
+          "etag": "W/\"f9-PJ3xVnKDC3O+zrCj+ArudGVTlEE\""
+        },
+        "hash": "29bb7db6a919d4e5a761657e3235ea531b4ab2fb",
+        "request": {
+          "params": {
+            "confirm_status": "CONFIRMED"
+          }
+        }
+      }
+    }
+  }
+}

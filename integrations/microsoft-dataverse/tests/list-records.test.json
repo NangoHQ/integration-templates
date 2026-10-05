@@ -1,0 +1,101 @@
+{
+  "input": {
+    "entitySetName": "accounts",
+    "$select": "name,accountnumber",
+    "$top": 3
+  },
+  "output": {
+    "records": [
+      {
+        "@odata.etag": "W/\"7009018\"",
+        "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+        "accountnumber": null,
+        "name": "Fabrikam, Inc."
+      },
+      {
+        "@odata.etag": "W/\"7009022\"",
+        "accountid": "a4cea450-cb0c-ea11-a813-000d3a1b1223",
+        "accountnumber": null,
+        "name": "Trey Research"
+      },
+      {
+        "@odata.etag": "W/\"7009016\"",
+        "accountid": "b4cea450-cb0c-ea11-a813-000d3a1b1223",
+        "accountnumber": null,
+        "name": "Northwind Traders"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/api/data/v9.2/accounts": {
+        "response": {
+          "@odata.context": "https://org98374485.crm.dynamics.com/api/data/v9.2/$metadata#accounts(name,accountnumber)",
+          "value": [
+            {
+              "@odata.etag": "W/\"7009018\"",
+              "accountid": "88cea450-cb0c-ea11-a813-000d3a1b1223",
+              "accountnumber": null,
+              "name": "Fabrikam, Inc."
+            },
+            {
+              "@odata.etag": "W/\"7009022\"",
+              "accountid": "a4cea450-cb0c-ea11-a813-000d3a1b1223",
+              "accountnumber": null,
+              "name": "Trey Research"
+            },
+            {
+              "@odata.etag": "W/\"7009016\"",
+              "accountid": "b4cea450-cb0c-ea11-a813-000d3a1b1223",
+              "accountnumber": null,
+              "name": "Northwind Traders"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Tue, 29 Sep 2026 17:30:53 GMT",
+          "content-type": "application/json; odata.metadata=minimal",
+          "content-length": "506",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1949",
+          "x-ratelimit-reset": "1790703101",
+          "cache-control": "no-cache",
+          "allow": "OPTIONS,GET,HEAD,POST",
+          "expires": "-1",
+          "vary": "Accept-Encoding",
+          "set-cookie": "<redacted>",
+          "x-ms-service-request-id": "1e7f10b7-1d4d-4941-acae-3c0fea5d6b04",
+          "req_id": "1e7f10b7-1d4d-4941-acae-3c0fea5d6b04",
+          "authactivityid": "afee1fb7-838f-4e6d-9b64-1ded29c214a1",
+          "x-ms-dop-hint": "4",
+          "x-ms-ratelimit-time-remaining-xrm-requests": "1,087.30",
+          "x-ms-ratelimit-burst-remaining-xrm-requests": "7683",
+          "odata-version": "4.0",
+          "x-source": "19415122282215199166447818113459233126214117153186203791791971219518180135225245253, 54541481451432315521452271421942181424016846245128249232112481891144919421377038",
+          "public": "OPTIONS,GET,HEAD,POST",
+          "etag": "W/\"1fa-A6GsmGWY7/Bot7K6NVn/1a0QOww\""
+        },
+        "hash": "5598ebb46227c760b4af8c95c82fdf797b983961",
+        "request": {
+          "params": {
+            "$select": "name,accountnumber",
+            "$top": "3"
+          }
+        }
+      }
+    }
+  }
+}
