@@ -22,7 +22,7 @@ const OutputSchema = ProviderResponseSchema;
 
 const action = createAction({
     description: 'Update topics for a contact in Resend.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -31,7 +31,10 @@ const action = createAction({
             // https://raw.githubusercontent.com/resend/resend-openapi/68c1b66c20ad62020962838832e53af10558c2f5/resend.yaml,
             endpoint: `/contacts/${encodeURIComponent(input['contact_id'])}/topics`,
             retries: 3,
-            data: input.body
+            // The API expects the topics array as the request body itself,
+            // not wrapped in a { topics } object (the OpenAPI spec wraps it,
+            // but Resend rejects the wrapped form with a 422).
+            data: input.body.topics
         };
         const response = await nango.patch(config);
         const data = ProviderResponseSchema.parse(response.data);

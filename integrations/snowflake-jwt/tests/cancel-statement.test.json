@@ -43,10 +43,8 @@
           "x-envoy-attempt-count": "1",
           "expect-ct": "enforce, max-age=3600"
         },
-        "hash": "8edecd82a9e3d0588c1f33869e822bfa438cb6b4",
-        "request": {
-          "data": {}
-        }
+        "hash": "879a4ef33c6deb1c36638369340814ecc708d9af",
+        "request": {}
       }
     }
   }
