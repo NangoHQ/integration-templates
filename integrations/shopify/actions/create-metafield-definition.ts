@@ -64,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a Shopify metafield definition for a resource type.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_metaobject_definitions', 'write_metaobject_definitions'],
+    scopes: ['write_products'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const query = `

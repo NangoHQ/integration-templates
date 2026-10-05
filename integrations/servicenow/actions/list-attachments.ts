@@ -69,10 +69,10 @@ function extractNextOffset(linkHeader: string | undefined): string | undefined {
 
 const action = createAction({
     description: 'List attachment metadata for a table record',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!TABLE_NAME_PATTERN.test(input.table_name)) {

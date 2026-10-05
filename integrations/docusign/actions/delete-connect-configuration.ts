@@ -15,7 +15,7 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Delete a Connect webhook configuration',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
@@ -23,12 +23,13 @@ const action = createAction({
         path: '/actions/delete-connect-configuration',
         method: 'POST'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
         const accountId = metadata.accountId;
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/accounts/connectconfigurations/delete/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/connect/connectconfigurations/delete/
         await nango.delete({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/connect/${encodeURIComponent(input.connectId)}`,
             retries: 3

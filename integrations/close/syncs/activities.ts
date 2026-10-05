@@ -27,13 +27,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Incrementally sync all activity types using date_updated checkpoints.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Activity: ActivitySchema
     },
+    scopes: ['all.full_access', 'offline_access'],
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         const parsedCheckpoint = CheckpointSchema.safeParse(checkpoint ?? { updated_after: '' });

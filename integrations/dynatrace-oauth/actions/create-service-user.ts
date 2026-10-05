@@ -31,7 +31,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new service user (API-only identity, no login/human access).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -52,7 +52,7 @@ const action = createAction({
         }
 
         const response = await nango.post({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/post-service-user
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/post-service-user
             endpoint: `/iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
             data: {
                 name: input.name,

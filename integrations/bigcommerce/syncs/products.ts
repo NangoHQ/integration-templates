@@ -82,7 +82,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync products.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -95,6 +95,7 @@ const sync = createSync({
     models: {
         Product: ProductSchema
     },
+    scopes: ['store_v2_products_read_only'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { updated_after: '', page: 1 });
@@ -108,7 +109,7 @@ const sync = createSync({
         }
 
         for await (const batch of nango.paginate<z.infer<typeof ProviderProductSchema>>({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products#get-all-products
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/get-products
             endpoint: '/v3/catalog/products',
             params: {
                 ...(updatedAfter && { 'date_modified:min': updatedAfter })

@@ -62,7 +62,7 @@ const StoredCheckpointSchema = CheckpointSchema.partial();
 
 const sync = createSync({
     description: 'Sync Salesforce User records with profile, email, and active state fields.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -70,6 +70,7 @@ const sync = createSync({
         User: UserSchema
     },
     endpoints: [{ method: 'POST', path: '/syncs/users' }],
+    scopes: ['api'],
 
     exec: async (nango) => {
         const checkpoint = StoredCheckpointSchema.parse((await nango.getCheckpoint()) ?? {});

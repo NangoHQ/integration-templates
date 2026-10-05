@@ -53,7 +53,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync versions from Figma.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -67,7 +67,7 @@ const sync = createSync({
             path: '/syncs/versions'
         }
     ],
-    scopes: ['file_versions:read', 'files:read', 'team_library_content:read'],
+    scopes: ['file_versions:read', 'team_library_content:read'],
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse((await nango.getMetadata()) ?? {});

@@ -58,7 +58,7 @@ const PaymentsResponseSchema = z.object({
 
 const action = createAction({
     description: 'List outgoing payments from the cashflow module.',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['Financial cashflow'],

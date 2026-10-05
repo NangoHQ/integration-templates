@@ -104,10 +104,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a contact by ContactID',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.contacts', 'accounting.contacts.read'],
+    scopes: ['accounting.contacts.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const rawConnection = await nango.getConnection();

@@ -12,12 +12,13 @@ const RequisitionFieldSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches the custom requisition fields configured on the account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         RequisitionField: RequisitionFieldSchema
     },
+    scopes: ['requisition_fields:read:admin'],
 
     exec: async (nango) => {
         // Blocker: provider returns the entire requisition field set with no

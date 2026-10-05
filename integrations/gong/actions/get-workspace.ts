@@ -24,14 +24,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single Gong workspace by ID.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['api:workspaces:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://help.gong.io/docs/list-all-company-workspaces
+            // https://help.gong.io/apidocs/list-all-company-workspaces-v2workspaces
             endpoint: '/v2/workspaces',
             retries: 3
         });

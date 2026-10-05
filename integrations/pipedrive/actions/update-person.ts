@@ -70,10 +70,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a person in Pipedrive',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['deals:write', 'contacts:write'],
+    scopes: ['contacts:full'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

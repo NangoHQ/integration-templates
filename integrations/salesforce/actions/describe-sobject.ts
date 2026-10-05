@@ -84,10 +84,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve schema metadata for a specific sObject type',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const apiVersion = input.apiVersion || 'v58.0';

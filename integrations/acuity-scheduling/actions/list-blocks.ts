@@ -38,12 +38,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List calendar time blocks.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developers.acuityscheduling.com/reference/get-blocks
+        // https://developers.acuityscheduling.com/reference/blocks
         const response = await nango.get({
             endpoint: '/blocks',
             params: {

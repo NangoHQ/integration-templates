@@ -27,9 +27,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List payment methods from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListInputSchema,
     output: ListOutputSchema,
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const params: Record<string, string | number> = {

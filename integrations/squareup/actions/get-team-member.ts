@@ -53,14 +53,14 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a team member.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['EMPLOYEES_READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.squareup.com/reference/square/team-api/get-team-member
+            // https://developer.squareup.com/reference/square/team-api/retrieve-team-member
             endpoint: `/v2/team-members/${encodeURIComponent(input.team_member_id)}`,
             retries: 3
         });

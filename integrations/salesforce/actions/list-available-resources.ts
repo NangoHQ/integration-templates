@@ -23,9 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Discover supported Salesforce REST resource versions and root URLs.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['api'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/resources_list.htm

@@ -28,10 +28,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List records for any form by its link name.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoPeople.forms.READ'],
+    scopes: ['ZOHOPEOPLE.forms.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const sIndex = input.sIndex ?? 1;

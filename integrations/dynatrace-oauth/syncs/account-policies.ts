@@ -28,13 +28,14 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync custom access policies defined at this account level (excludes Dynatrace built-in/global policies).',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     models: {
         AccountPolicy: AccountPolicySchema
     },
+    scopes: ['iam-policies-management'],
 
     exec: async (nango) => {
         // No incremental filter documented; full refresh required.
@@ -48,7 +49,7 @@ const sync = createSync({
         }
         const accountUuid = parsedMetadata.data.accountUuid;
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management/list-account-policies
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/get-all-policies
         const response = await nango.get({
             endpoint: `iam/v1/repo/account/${encodeURIComponent(accountUuid)}/policies`,
             retries: 3

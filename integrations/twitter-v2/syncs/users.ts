@@ -38,13 +38,14 @@ const UserSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Twitter/X',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
         User: UserSchema
     },
     endpoints: [{ method: 'GET', path: '/syncs/users' }],
+    scopes: ['tweet.read', 'users.read'],
 
     exec: async (nango) => {
         // https://docs.x.com/x-api/users/get-my-user

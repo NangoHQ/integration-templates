@@ -35,7 +35,7 @@ const ListProfilesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync booking-page profiles on this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     models: {
@@ -43,7 +43,7 @@ const sync = createSync({
     },
 
     exec: async (nango) => {
-        // https://ycbm.stoplight.io/docs/youcanbookme-api
+        // https://ycbm.stoplight.io/
         const response = await nango.get({
             endpoint: '/v1/profiles',
             retries: 3

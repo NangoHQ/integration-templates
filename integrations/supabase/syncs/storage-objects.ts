@@ -58,7 +58,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync storage objects from Supabase.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -88,7 +88,7 @@ const sync = createSync({
             return parsed.data;
         };
 
-        // https://supabase.com/docs/reference/api/storage-list-buckets
+        // https://supabase.com/docs/reference/javascript/file-buckets-listbuckets
         const bucketsResponse = await nango.get({
             endpoint: '/storage/v1/bucket',
             baseUrlOverride,
@@ -146,7 +146,7 @@ const sync = createSync({
                 continue;
             }
 
-            // https://supabase.com/docs/reference/api/storage-list-objects
+            // https://supabase.com/docs/reference/javascript/file-buckets-list
             const objectsResponse = await nango.post({
                 endpoint: `/storage/v1/object/list/${encodeURIComponent(bucketId)}`,
                 baseUrlOverride,

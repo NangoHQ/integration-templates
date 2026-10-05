@@ -26,10 +26,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a single Close lead by ID.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['lead:read'],
+    scopes: ['all.full_access', 'offline_access'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

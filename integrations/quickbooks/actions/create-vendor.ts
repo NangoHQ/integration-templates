@@ -114,9 +114,10 @@ async function getCompany(nango: Parameters<(typeof action)['exec']>[0]): Promis
 
 const action = createAction({
     description: 'Create a vendor record in QuickBooks Online.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getCompany(nango);

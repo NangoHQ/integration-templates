@@ -11,9 +11,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove a user from the Calendly organization.',
-    version: '2.1.1',
+    version: '2.1.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['organizations:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.calendly.com/api-docs/ce7440ed9da47-remove-user-from-organization

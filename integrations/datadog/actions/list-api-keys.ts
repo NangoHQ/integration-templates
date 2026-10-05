@@ -38,9 +38,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List API keys configured for this account (metadata only, not secret values).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {

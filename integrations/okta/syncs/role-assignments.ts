@@ -27,9 +27,10 @@ const RoleSchema = z.object({
 
 const sync = createSync({
     description: 'Sync admin role assignments for users and groups.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['okta.users.read', 'okta.groups.read', 'okta.roles.read'],
     models: {
         RoleAssignment: RoleAssignmentSchema
     },

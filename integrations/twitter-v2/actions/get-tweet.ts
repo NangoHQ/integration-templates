@@ -87,13 +87,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single tweet from Twitter/X.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['tweet.read'],
+    scopes: ['tweet.read', 'users.read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.x.com/x-api/posts/retrieve-a-post-by-post-id
+        // https://docs.x.com/x-api/posts/get-post-by-id
         const response = await nango.get({
             endpoint: `/2/tweets/${input.id}`,
             params: {

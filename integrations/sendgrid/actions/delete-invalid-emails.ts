@@ -19,7 +19,7 @@ const ProviderResponseSchema = z
 
 const action = createAction({
     description: 'Clear invalid-email suppressions for one or more addresses, or all of them.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
@@ -32,7 +32,7 @@ const action = createAction({
         }
 
         const response = await nango.delete({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-invalid-emails
+            // https://www.twilio.com/docs/sendgrid/api-reference/invalid-emails-api/delete-invalid-emails
             endpoint: '/v3/suppression/invalid_emails',
             data: input.delete_all ? { delete_all: true } : { emails: input.emails },
             retries: 3

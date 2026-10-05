@@ -66,7 +66,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List CRM accounts (customers and/or suppliers)',
-    version: '1.0.0',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['crm.Accounts'],

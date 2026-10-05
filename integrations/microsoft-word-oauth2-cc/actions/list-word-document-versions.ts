@@ -106,10 +106,10 @@ const mapVersion = (raw: unknown): VersionOutput => {
 
 const action = createAction({
     description: 'List the version history of a Word document.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Files.Read.All', 'Sites.Read.All'],
+    scopes: ['Files.Read.All'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/v1.0/drives/${encodeURIComponent(input.driveId)}/items/${encodeURIComponent(input.itemId)}/versions`;

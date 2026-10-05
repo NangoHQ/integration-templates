@@ -19,7 +19,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List custom access policies defined directly at this account level (excludes Dynatrace built-in/global policies).',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],
@@ -46,7 +46,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policies/list-account-policies
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/policies/get-all-policies
             endpoint: `iam/v1/repo/account/${encodeURIComponent(accountUuid)}/policies`,
             retries: 3
         });

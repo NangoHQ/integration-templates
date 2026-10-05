@@ -23,13 +23,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Fetches all webhook subscriptions configured on the account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Webhook: WebhookRecordSchema
     },
+    scopes: ['webhooks:read:admin'],
 
     exec: async (nango) => {
         // Blocker: provider only exposes GET /v1/webhooks with no changed-since filter,

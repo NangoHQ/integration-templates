@@ -21,10 +21,10 @@ const ProviderBlockSchema = z
 
 const action = createAction({
     description: 'Delete or archive a block by ID.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read_content', 'update_content'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.notion.com/reference/delete-a-block

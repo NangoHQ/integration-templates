@@ -68,7 +68,7 @@ function extractCursorFromNextUrl(nextUrl: string): string {
 
 const sync = createSync({
     description: 'Sync Confluence inline comments visible to the connection',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -77,6 +77,7 @@ const sync = createSync({
             method: 'GET'
         }
     ],
+    scopes: ['read:comment:confluence'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

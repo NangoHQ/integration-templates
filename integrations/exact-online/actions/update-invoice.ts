@@ -39,7 +39,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a sales invoice (only Status 20 = Open invoices)',
-    version: '3.0.0',
+    version: '3.0.2',
     endpoint: {
         method: 'POST',
         path: '/actions/update-invoice'

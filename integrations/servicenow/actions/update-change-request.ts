@@ -21,9 +21,10 @@ const JOURNAL_FIELD_NAMES = new Set(['comments', 'work_notes']);
 
 const action = createAction({
     description: 'Update change request fields.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const endpoint = `/api/now/table/change_request/${encodeURIComponent(input.sys_id)}`;

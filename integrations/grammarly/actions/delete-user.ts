@@ -6,10 +6,11 @@ import { SuccessResponse, EmailEntity } from '../models.js';
 
 const action = createAction({
     description: 'Deletes a user in Grammarly',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: EmailEntity,
     output: SuccessResponse,
+    scopes: [],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         await nango.zodValidateInput({ zodSchema: emailEntitySchema, input });

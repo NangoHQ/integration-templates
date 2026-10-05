@@ -93,9 +93,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Retrieve a single Campfire line.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://github.com/basecamp/bc3-api/blob/master/sections/campfires.md#get-a-campfire-line
         const response = await nango.get({

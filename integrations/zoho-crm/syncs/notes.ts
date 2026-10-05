@@ -63,7 +63,7 @@ type ZohoNote = z.infer<typeof _ZohoNoteSchema>;
 
 const sync = createSync({
     description: 'Sync notes from Zoho CRM',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -76,6 +76,7 @@ const sync = createSync({
     models: {
         Note: NoteSchema
     },
+    scopes: ['ZohoCRM.modules.notes.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
@@ -86,7 +87,7 @@ const sync = createSync({
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/crm/developer/docs/api/v2/Notes/get-notes.html
+            // https://www.zoho.com/crm/developer/docs/api/v8/get-notes.html
             endpoint: '/crm/v2/Notes',
             ...(Object.keys(headers).length > 0 ? { headers } : {}),
             params: {
@@ -94,7 +95,7 @@ const sync = createSync({
                 sort_order: 'asc',
                 per_page: '200'
             },
-            // https://www.zoho.com/crm/developer/docs/api/v2/Notes/get-notes.html
+            // https://www.zoho.com/crm/developer/docs/api/v8/get-notes.html
             paginate: {
                 type: 'offset',
                 offset_name_in_request: 'page',

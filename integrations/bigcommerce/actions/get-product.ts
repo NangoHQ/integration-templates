@@ -91,14 +91,14 @@ const OutputSchema = ProviderProductSchema.passthrough();
 
 const action = createAction({
     description: 'Retrieve a product.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/products#get-a-product
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/products/get-product
             endpoint: `/v3/catalog/products/${encodeURIComponent(String(input.product_id))}`,
             retries: 3
         });

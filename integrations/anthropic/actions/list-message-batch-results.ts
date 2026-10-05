@@ -16,12 +16,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Stream or retrieve results for an Anthropic Message Batch',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.anthropic.com/en/api/message-batches
+        // https://platform.claude.com/docs/en/api/messages/batches/results
         const response = await nango.get({
             endpoint: `/v1/messages/batches/${encodeURIComponent(input.message_batch_id)}/results`,
             retries: 3

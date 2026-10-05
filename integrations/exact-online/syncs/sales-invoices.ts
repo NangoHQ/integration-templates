@@ -39,7 +39,7 @@ const PaginatedInvoiceSchema = z
 
 const sync = createSync({
     description: 'Sync sales invoices with incremental updates via Modified timestamp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
     models: {
         Invoice: InvoiceSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

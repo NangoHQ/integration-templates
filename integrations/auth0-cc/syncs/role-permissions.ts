@@ -25,7 +25,7 @@ const RolePermissionSchema = z.object({
 
 const sync = createSync({
     description: 'Sync permissions associated with each role from Auth0.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -34,6 +34,7 @@ const sync = createSync({
             path: '/syncs/role-permissions'
         }
     ],
+    scopes: ['read:roles'],
     models: {
         RolePermission: RolePermissionSchema
     },

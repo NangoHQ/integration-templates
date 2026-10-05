@@ -35,9 +35,10 @@ const ConnectionConfigSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users assigned to this location from HighLevel.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['users.readonly'],
     models: {
         User: UserSchema
     },

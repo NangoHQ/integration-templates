@@ -34,9 +34,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sections for every board.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['boards:read'],
     checkpoint: CheckpointSchema,
     models: {
         BoardSection: BoardSectionSchema

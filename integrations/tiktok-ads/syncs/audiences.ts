@@ -40,9 +40,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync audiences from TikTok Ads.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: [],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

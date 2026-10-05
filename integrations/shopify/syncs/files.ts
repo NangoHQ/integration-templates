@@ -92,10 +92,11 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify file resources including images and generic files.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_files'],
     models: {
         File: FileSchema
     },

@@ -161,11 +161,12 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync product records with pricing, SKU, quantity, and billing details',
-    version: '3.0.3',
+    version: '3.0.4',
     endpoints: [{ method: 'POST', path: '/syncs/products', group: 'Products' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
+    scopes: ['e-commerce'],
 
     models: {
         Product: ProductSchema

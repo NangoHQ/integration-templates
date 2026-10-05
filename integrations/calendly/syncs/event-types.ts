@@ -60,9 +60,10 @@ type CalendlyEventType = z.infer<typeof _CalendlyEventTypeSchema>;
 
 const sync = createSync<{ EventType: typeof EventTypeSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync event types from Calendly',
-    version: '4.0.0',
+    version: '4.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['event_types:read'],
     endpoints: [
         {
             method: 'GET',

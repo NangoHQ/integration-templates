@@ -22,9 +22,10 @@ const OktaFactorSchema = z.object({
 
 const sync = createSync({
     description: 'Sync user factors.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['okta.users.read'],
     models: {
         Factor: FactorSchema
     },

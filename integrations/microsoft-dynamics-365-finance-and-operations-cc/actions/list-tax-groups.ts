@@ -38,11 +38,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List sales tax groups.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['DataEntities.Data.Read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = input.limit ?? input.top ?? 100;
         const params: Record<string, string | number> = {

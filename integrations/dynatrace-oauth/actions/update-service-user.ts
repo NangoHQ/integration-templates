@@ -15,7 +15,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a service user's name/description.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['account-idm-write'],
@@ -40,7 +40,7 @@ const action = createAction({
             });
         }
 
-        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-management-api
+        // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/put-service-user
         await nango.put({
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users/${encodeURIComponent(input.uid)}`,
             data: {

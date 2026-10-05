@@ -38,7 +38,7 @@ const PostDocumentResponseSchema = z.object({
 
 const action = createAction({
     description: 'Attach a document/file and optionally link it to a sales invoice',
-    version: '3.0.1',
+    version: '3.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['documents'],

@@ -53,9 +53,10 @@ const inputSchema = z
  */
 const action = createAction({
     description: "Retrieve a single person's profile by ID.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: inputSchema,
     output: personSchema,
+    scopes: [],
 
     exec: async (nango, input) => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/people.md

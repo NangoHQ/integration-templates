@@ -11,13 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Remove one or more albums from the current user's library.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-library-modify'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/remove-from-library
+        // https://developer.spotify.com/documentation/web-api/reference/remove-library-items
         await nango.delete({
             endpoint: '/v1/me/library',
             params: {

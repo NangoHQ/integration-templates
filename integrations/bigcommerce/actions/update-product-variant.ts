@@ -116,7 +116,7 @@ type VariantUpdateBody = {
 
 const action = createAction({
     description: 'Update a product variant.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products'],
@@ -189,7 +189,7 @@ const action = createAction({
         }
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/product-variants#update-product-variant
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/product-variants/update-product-variant
             endpoint: `/v3/catalog/products/${encodeURIComponent(input.product_id)}/variants/${encodeURIComponent(input.variant_id)}`,
             data: body,
             retries: 1

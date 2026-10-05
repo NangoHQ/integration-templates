@@ -56,11 +56,11 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve all tabs for a specific recipient in an envelope.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: [],
+    scopes: ['signature'],
     endpoint: {
         method: 'GET',
         path: '/actions/list-recipient-tabs'
@@ -80,7 +80,7 @@ const action = createAction({
         const accountId = metadataResult.data.accountId;
 
         const config: ProxyConfiguration = {
-            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipienttabs/get/
+            // https://developers.docusign.com/docs/esign-rest-api/reference/envelopes/enveloperecipienttabs/list/
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/envelopes/${encodeURIComponent(input.envelopeId)}/recipients/${encodeURIComponent(input.recipientId)}/tabs`,
             retries: 3
         };

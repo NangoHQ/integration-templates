@@ -33,9 +33,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: "Sync the account's configured incident priority levels.",
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['priorities.read'],
     checkpoint: CheckpointSchema,
     models: {
         Priority: PrioritySchema

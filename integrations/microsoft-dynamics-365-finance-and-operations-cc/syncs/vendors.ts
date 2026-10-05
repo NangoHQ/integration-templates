@@ -38,13 +38,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync vendors.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Vendor: VendorSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         // Blocker: VendorsV2 exposes no filterable last-modified timestamp in this

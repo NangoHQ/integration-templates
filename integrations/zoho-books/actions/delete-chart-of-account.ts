@@ -28,10 +28,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a chart of account entry in Zoho Books.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoBooks.accountants.ALL', 'ZohoBooks.settings.READ'],
+    scopes: ['ZohoBooks.accountants.DELETE', 'ZohoBooks.settings.READ'],
 
     exec: async (nango, input) => {
         let organizationId = input.organization_id;

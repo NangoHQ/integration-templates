@@ -40,7 +40,7 @@ const MeResponseSchema = z
 
 const sync = createSync({
     description: 'Sync document metadata (invoices, files) with incremental updates.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -53,6 +53,7 @@ const sync = createSync({
             path: '/syncs/documents'
         }
     ],
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.parse((await nango.getCheckpoint()) ?? { modified_after: '' });

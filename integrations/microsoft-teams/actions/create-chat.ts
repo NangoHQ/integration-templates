@@ -49,10 +49,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a one-on-one or group chat.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Chat.Create', 'ChatMember.ReadWrite', 'User.Read.All'],
+    scopes: ['Chat.Create'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Validate that group chats have a topic

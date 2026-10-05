@@ -44,9 +44,10 @@ function isUnknownRecord(value: unknown): value is Record<string, unknown> {
 
 const action = createAction({
     description: 'List access tokens issued to a service account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const pageSize = input.page_size ?? 10;

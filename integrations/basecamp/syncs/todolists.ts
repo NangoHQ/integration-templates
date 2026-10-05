@@ -79,13 +79,14 @@ const TodolistSchema = z
 
 const sync = createSync({
     description: 'Sync to-do lists across all known projects to-do sets.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Todolist: TodolistSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         async function discoverTodosets(): Promise<Array<z.infer<typeof TodoSetRefSchema>>> {

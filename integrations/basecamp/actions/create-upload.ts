@@ -73,9 +73,10 @@ const OutputSchema = UploadSchema;
  */
 const action = createAction({
     description: 'Attach a previously-staged file (from upload-attachment) into a vault as an Upload record.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {

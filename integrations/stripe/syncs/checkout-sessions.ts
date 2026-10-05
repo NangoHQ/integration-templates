@@ -80,7 +80,7 @@ function mapCheckoutSession(raw: RawCheckoutSession): CheckoutSession {
 
 const sync = createSync({
     description: 'Sync checkout sessions from Stripe.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -93,6 +93,7 @@ const sync = createSync({
             path: '/syncs/checkout-sessions'
         }
     ],
+    scopes: ['read_only'],
 
     exec: async (nango) => {
         const checkpointResult = await nango.getCheckpoint();

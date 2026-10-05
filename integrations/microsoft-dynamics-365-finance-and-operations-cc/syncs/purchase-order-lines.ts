@@ -105,13 +105,14 @@ function mapLine(raw: unknown) {
 
 const sync = createSync({
     description: 'Sync purchase order lines.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         PurchaseOrderLine: PurchaseOrderLineSchema
     },
+    scopes: ['https://<environmentUrl>/.default'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.safeParse(await nango.getCheckpoint());

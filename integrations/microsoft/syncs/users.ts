@@ -67,9 +67,10 @@ function extractPathFromUrl(url: string): string {
 
 const sync = createSync<{ User: typeof UserSchema }, undefined, typeof CheckpointSchema>({
     description: 'Sync users from Microsoft',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['User.Read.All'],
     endpoints: [
         {
             method: 'GET',

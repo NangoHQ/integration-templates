@@ -25,7 +25,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List just the policy uuids bound to one specific group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['iam-policies-management'],
@@ -45,7 +45,7 @@ const action = createAction({
         }
 
         const response = await nango.get({
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/iam-bindings-api
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/policy-management-api/bindings/get-group-bindings
             endpoint: `/iam/v1/repo/account/${encodeURIComponent(accountUuid)}/bindings/groups/${encodeURIComponent(input.groupUuid)}`,
             retries: 3
         });

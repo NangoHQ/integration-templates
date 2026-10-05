@@ -48,10 +48,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an organization in Zendesk Support',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read', 'write'],
+    scopes: ['organizations:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const payload: Record<string, unknown> = {

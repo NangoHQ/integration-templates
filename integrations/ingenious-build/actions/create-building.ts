@@ -26,9 +26,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Register a new building/address in the workspace.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if ((input.country_code === 'US' || input.country_code === 'CA') && input.admin_area_1 === undefined) {

@@ -12,13 +12,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Toggle shuffle mode on or off for the user's playback",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user-modify-playback-state'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.spotify.com/documentation/web-api/reference/toggle-playback-shuffle
+        // https://developer.spotify.com/documentation/web-api/reference/toggle-shuffle-for-users-playback
         await nango.put({
             endpoint: '/v1/me/player/shuffle',
             params: {

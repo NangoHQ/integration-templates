@@ -48,7 +48,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync commits from GitLab.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -62,6 +62,7 @@ const sync = createSync({
             path: '/syncs/commits'
         }
     ],
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         const metadataRaw = await nango.getMetadata();

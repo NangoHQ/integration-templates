@@ -34,14 +34,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync sources from Ashby.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Source: SourceSchema
     },
-    // https://developers.ashbyhq.com/reference/sourcelist
+    // https://developers.ashbyhq.com/reference/sourcelist-1
     endpoints: [
         {
             method: 'POST',
@@ -56,7 +56,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Source');
 
         do {
-            // https://developers.ashbyhq.com/reference/sourcelist
+            // https://developers.ashbyhq.com/reference/sourcelist-1
             const response = await nango.post({
                 endpoint: '/source.list',
                 data: {

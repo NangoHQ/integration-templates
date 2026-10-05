@@ -144,9 +144,10 @@ function buildUpdatePayload(input: z.infer<typeof InputSchema>): Record<string, 
 
 const action = createAction({
     description: 'Update a payment using its current SyncToken.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['com.intuit.quickbooks.accounting'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const realmId = await getCompany(nango);

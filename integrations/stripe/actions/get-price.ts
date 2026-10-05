@@ -57,10 +57,10 @@ const PriceSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single price from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: PriceSchema,
-    scopes: [],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof PriceSchema>> => {
         // https://docs.stripe.com/api/prices/retrieve

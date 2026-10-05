@@ -47,13 +47,14 @@ type User = z.infer<typeof UserSchema>;
 
 const sync = createSync({
     description: 'Sync users for workspaces or teams in scope.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema
     },
+    scopes: ['workspaces:read', 'users:read'],
     endpoints: [{ method: 'GET', path: '/syncs/users' }],
 
     exec: async (nango) => {

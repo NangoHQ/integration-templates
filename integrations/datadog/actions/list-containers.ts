@@ -61,9 +61,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List containers reported by hosts running the Datadog Agent.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

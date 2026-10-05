@@ -31,10 +31,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List the athletes who gave kudos on an activity.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['activity:read'],
+    scopes: ['activity:read', 'activity:read_all'],
 
     exec: async (nango, input) => {
         const page = input.cursor !== undefined ? Number(input.cursor) : 1;

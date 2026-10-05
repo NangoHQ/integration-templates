@@ -8,7 +8,7 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'List the conversations in the company in reverse chronological order.',
-    version: '2.1.0',
+    version: '2.1.1',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
@@ -20,6 +20,7 @@ const sync = createSync({
             group: 'Conversations'
         }
     ],
+    scopes: [],
 
     models: {
         Conversation: Conversation

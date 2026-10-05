@@ -88,7 +88,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync comments from Figma',
-    version: '1.2.0',
+    version: '1.2.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -101,6 +101,7 @@ const sync = createSync({
             path: '/syncs/comments'
         }
     ],
+    scopes: ['projects:read', 'file_comments:read'],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata<z.infer<typeof MetadataSchema>>();

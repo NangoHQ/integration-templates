@@ -84,10 +84,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new Notion page with properties and optional children.',
-    version: '2.0.1',
+    version: '2.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['insert_content'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Validate that exactly one parent type is provided

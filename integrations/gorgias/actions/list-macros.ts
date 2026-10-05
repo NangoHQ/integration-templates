@@ -80,9 +80,10 @@ const OutputSchema = z
 const action = createAction({
     description:
         'List macros (canned response templates), optionally searched, filtered by tags/language/archived state, or ranked by relevance to a ticket/message.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['macros:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number | string[]> = {};

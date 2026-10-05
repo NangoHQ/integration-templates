@@ -21,13 +21,14 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a catalog product',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://developer.paypal.com/api/catalog/v1/#products_get
+            // https://developer.paypal.com/api/catalog-products/v1/products-get
             endpoint: `/v1/catalogs/products/${encodeURIComponent(input.product_id)}`,
             retries: 3
         });

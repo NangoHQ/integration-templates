@@ -21,7 +21,7 @@ const ProviderResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync teams from monday.com',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     // https://developer.monday.com/api-reference/reference/teams
@@ -34,6 +34,7 @@ const sync = createSync({
     models: {
         Team: TeamSchema
     },
+    scopes: ['teams:read'],
 
     exec: async (nango) => {
         // The monday.com teams query does not support updated_at filtering, cursors,

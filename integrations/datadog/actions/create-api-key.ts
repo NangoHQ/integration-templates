@@ -28,14 +28,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new API key for this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api_keys_write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.datadoghq.com/api/latest/api-keys/#create-an-api-key
+            // https://docs.datadoghq.com/api/latest/key-management/create-an-api-key/
             endpoint: 'v2/api_keys',
             data: {
                 data: {

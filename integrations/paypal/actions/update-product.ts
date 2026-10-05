@@ -22,12 +22,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a catalog product's description or category with a JSON Patch.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://uri.paypal.com/services/subscriptions'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://developer.paypal.com/api/catalog/v1/#products_patch
+        // https://developer.paypal.com/api/catalog-products/v1/products-patch
         await nango.patch({
             endpoint: `/v1/catalogs/products/${encodeURIComponent(input.product_id)}`,
             data: input.patch,

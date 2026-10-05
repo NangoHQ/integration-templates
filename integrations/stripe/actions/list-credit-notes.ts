@@ -76,10 +76,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List credit notes from Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['read'],
+    scopes: ['read_only'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         // https://docs.stripe.com/api/credit_notes/list

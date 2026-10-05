@@ -88,7 +88,7 @@ const DeletedDealSchema = z.object({
 
 const sync = createSync<typeof modelSchemas, undefined, typeof CheckpointSchema>({
     description: 'Sync deals from Zoho CRM',
-    version: '2.0.1',
+    version: '2.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -99,6 +99,7 @@ const sync = createSync<typeof modelSchemas, undefined, typeof CheckpointSchema>
     ],
     checkpoint: CheckpointSchema,
     models: modelSchemas,
+    scopes: ['ZohoCRM.modules.deals.ALL'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

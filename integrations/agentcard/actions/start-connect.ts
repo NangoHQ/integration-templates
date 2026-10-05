@@ -24,9 +24,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Send a one-time code to a user by email or phone to begin connecting them to your platform.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if ((input.email === undefined) === (input.phone === undefined)) {
             throw new nango.ActionError({

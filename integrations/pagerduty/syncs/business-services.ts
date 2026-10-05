@@ -76,9 +76,10 @@ function mapBusinessService(raw: z.infer<typeof ProviderBusinessServiceSchema>):
 
 const sync = createSync({
     description: 'Sync business services.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['services.read'],
     checkpoint: CheckpointSchema,
     models: {
         BusinessService: BusinessServiceSchema

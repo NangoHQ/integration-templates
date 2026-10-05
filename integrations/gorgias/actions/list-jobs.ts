@@ -90,10 +90,10 @@ const ProviderResponseSchema = z.object({
  */
 const action = createAction({
     description: 'List bulk-operation jobs (e.g., bulk delete/export), filterable by status and type.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['jobs:read'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://developers.gorgias.com/reference/list-jobs

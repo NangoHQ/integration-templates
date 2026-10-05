@@ -179,9 +179,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a task in ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {
@@ -216,7 +217,7 @@ const action = createAction({
             requestBody['parent'] = input.parent;
         }
 
-        // https://developer.clickup.com/reference/api-tasks/create-task
+        // https://developer.clickup.com/reference/createtask
         const response = await nango.post({
             endpoint: `/api/v2/list/${encodeURIComponent(input.list_id)}/task`,
             data: requestBody,

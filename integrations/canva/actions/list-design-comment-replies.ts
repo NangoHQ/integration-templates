@@ -52,14 +52,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List replies in a design comment thread.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['comment:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://www.canva.dev/docs/connect/api-reference/comments/get-replies/
+            // https://www.canva.dev/docs/apps/rest-apis/reference/comments/list-replies
             endpoint: `/rest/v1/designs/${encodeURIComponent(input.designId)}/comments/${encodeURIComponent(input.threadId)}/replies`,
             params: {
                 ...(input.limit !== undefined && { limit: input.limit }),

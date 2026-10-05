@@ -61,9 +61,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync conversion actions configured on customer accounts in scope',
-    version: '1.0.4',
+    version: '1.0.5',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

@@ -54,10 +54,10 @@ const AxiosErrorSchema = z.object({
 
 const action = createAction({
     description: 'Verify a certificate or coupon code.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {

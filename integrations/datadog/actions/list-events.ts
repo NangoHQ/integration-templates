@@ -45,9 +45,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List events (deployments, alerts, custom annotations) within a time range.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['events_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.cursor !== undefined && !/^\d+$/.test(input.cursor)) {

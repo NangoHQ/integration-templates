@@ -17,13 +17,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync invoices',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Invoice: InvoiceSchema
     },
+    scopes: ['https://uri.paypal.com/services/invoicing'],
 
     exec: async (nango) => {
         // PayPal's invoices list only supports page-based pagination with no changed-since filter, so every

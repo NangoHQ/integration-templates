@@ -55,7 +55,7 @@ type CheckpointModel = typeof CheckpointSchema;
 
 const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
     description: 'Sync tasks from Attio',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -64,6 +64,7 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
             path: '/syncs/tasks'
         }
     ],
+    scopes: ['task:read', 'object_configuration:read', 'record_permission:read', 'user_management:read'],
     checkpoint: CheckpointSchema,
     models: {
         Task: TaskSchema
@@ -82,7 +83,7 @@ const sync = createSync<Record<'Task', TaskModel>, undefined, CheckpointModel>({
         }
 
         while (hasMore) {
-            // https://docs.attio.com/reference/get_v2_tasks
+            // https://docs.attio.com/rest-api/endpoint-reference/tasks/list-tasks
             const response = await nango.get({
                 endpoint: '/v2/tasks',
                 params: {

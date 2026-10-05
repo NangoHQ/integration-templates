@@ -52,10 +52,10 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve all component sets defined within a Figma file.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['library_content:read', 'files:read'],
+    scopes: ['library_content:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.figma.com/developers/api#get-file-component-sets-endpoint

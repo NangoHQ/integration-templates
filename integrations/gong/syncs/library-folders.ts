@@ -39,9 +39,10 @@ function isUnavailableError(error: unknown): boolean {
 
 const sync = createSync({
     description: 'Sync Gong library folders',
-    version: '1.1.0',
+    version: '1.1.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['api:workspaces:read', 'api:library:read'],
     models: {
         LibraryFolder: LibraryFolderSchema
     },

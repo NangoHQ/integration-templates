@@ -116,7 +116,7 @@ function toRelativeUrl(url: string): string {
 
 const sync = createSync({
     description: 'Sync content type definitions for configured sites.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -124,6 +124,7 @@ const sync = createSync({
     models: {
         ContentType: ContentTypeSchema
     },
+    scopes: ['Sites.Read.All'],
 
     exec: async (nango) => {
         // Blocker: Microsoft Graph content types endpoint has no delta or changed-since filter.

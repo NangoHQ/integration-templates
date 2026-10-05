@@ -160,10 +160,10 @@ function mapQuote(quote: z.infer<typeof ProviderQuoteSchema>): z.infer<typeof Qu
 
 const action = createAction({
     description: 'List quotes.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: ListInputSchema,
     output: ListOutputSchema,
-    scopes: ['quotes:all', 'quotes:readonly'],
+    scopes: ['quotes:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         const response = await nango.get({

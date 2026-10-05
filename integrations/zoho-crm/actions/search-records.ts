@@ -37,10 +37,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Search records in a Zoho CRM module using criteria, email, phone, or word filters.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.ALL', 'ZohoCRM.modules.READ'],
+    scopes: ['ZohoCRM.modules.READ', 'ZohoSearch.securesearch.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (!input.criteria && !input.email && !input.phone && !input.word) {

@@ -23,13 +23,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create an unsubscribe group.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-groups/create-a-suppression-group
+            // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups/create-a-new-suppression-group
             endpoint: '/v3/asm/groups',
             data: {
                 name: input.name,

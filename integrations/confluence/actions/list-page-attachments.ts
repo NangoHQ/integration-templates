@@ -52,11 +52,11 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'List attachments for a specific Confluence page.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['read:attachment:confluence', 'read:page:confluence'],
+    scopes: ['read:attachment:confluence'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();

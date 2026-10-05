@@ -56,7 +56,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync merge requests from GitLab',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -69,6 +69,7 @@ const sync = createSync({
             path: '/syncs/merge-requests'
         }
     ],
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

@@ -84,9 +84,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single time entry from ClickUp',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{ team_id?: string }>();
@@ -99,7 +100,7 @@ const action = createAction({
             });
         }
 
-        // https://developer.clickup.com/reference/gettimeentry
+        // https://developer.clickup.com/reference/getsingulartimeentry
         const response = await nango.get({
             endpoint: `/api/v2/team/${encodeURIComponent(teamId)}/time_entries/${encodeURIComponent(input.time_entry_id)}`,
             retries: 3

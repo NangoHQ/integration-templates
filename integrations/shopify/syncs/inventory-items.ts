@@ -62,7 +62,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync Shopify inventory items with SKU, tracking, and cost data.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -72,6 +72,7 @@ const sync = createSync({
         }
     ],
     checkpoint: CheckpointSchema,
+    scopes: ['read_inventory'],
     models: {
         InventoryItem: InventoryItemSchema
     },

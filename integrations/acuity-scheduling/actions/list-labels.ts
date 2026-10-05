@@ -13,10 +13,10 @@ const OutputSchema = z.array(LabelSchema);
 
 const action = createAction({
     description: 'List appointment labels.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['api:read'],
+    scopes: ['api-v1'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.acuityscheduling.com/reference/labels

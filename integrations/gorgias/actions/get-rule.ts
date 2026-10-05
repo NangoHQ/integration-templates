@@ -31,9 +31,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Retrieve a single automation rule, including its code and parsed AST.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['rules:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

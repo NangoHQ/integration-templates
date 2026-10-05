@@ -17,11 +17,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a guild member in Discord',
-    version: '1.0.1',
+    version: '1.0.2',
     metadata: MetadataSchema,
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['guilds.members.read', 'guilds.members.write'],
+    scopes: ['bot'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{

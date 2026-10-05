@@ -12,10 +12,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a pin.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pins:write'],
+    scopes: ['boards:read', 'boards:write', 'pins:read', 'pins:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.delete({

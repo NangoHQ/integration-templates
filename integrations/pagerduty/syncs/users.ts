@@ -121,9 +121,10 @@ function mapUser(raw: unknown) {
 
 const sync = createSync({
     description: 'Sync PagerDuty users.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['users.read'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema

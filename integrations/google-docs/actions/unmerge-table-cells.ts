@@ -32,10 +32,10 @@ const BatchUpdateResponseSchema = z.object({
 
 const action = createAction({
     description: 'Unmerge previously merged table cells in a Google Doc.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: BatchUpdateResponseSchema,
-    scopes: ['documents'],
+    scopes: ['https://www.googleapis.com/auth/documents'],
 
     exec: async (nango, input) => {
         const response = await nango.post({

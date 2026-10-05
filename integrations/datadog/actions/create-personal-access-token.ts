@@ -40,13 +40,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a new personal access token.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
-            // https://docs.datadoghq.com/api/latest/personal-access-tokens/
+            // https://docs.datadoghq.com/api/latest/key-management/create-a-personal-access-token/
             endpoint: 'v2/personal_access_tokens',
             data: {
                 data: {

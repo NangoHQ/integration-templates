@@ -24,13 +24,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete or archive a deal in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoCRM.modules.ALL', 'ZohoCRM.modules.deals.ALL'],
+    scopes: ['ZohoCRM.modules.deals.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/Deals/delete-deals.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/delete-records.html
         const response = await nango.delete({
             endpoint: `/crm/v2/Deals/${input.record_id}`,
             retries: 3

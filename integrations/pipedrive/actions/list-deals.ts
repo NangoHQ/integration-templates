@@ -30,10 +30,10 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List deals from Pipedrive',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['deals:full'],
+    scopes: ['deals:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         let start: number | undefined;

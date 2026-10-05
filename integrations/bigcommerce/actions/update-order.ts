@@ -30,7 +30,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_orders'],
@@ -52,7 +52,7 @@ const action = createAction({
         }
 
         const response = await nango.put({
-            // https://developer.bigcommerce.com/docs/rest-management/orders
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/orders/update-order
             endpoint: `/v2/orders/${encodeURIComponent(input.order_id)}`,
             data,
             retries: 10

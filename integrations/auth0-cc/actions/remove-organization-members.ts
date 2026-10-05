@@ -12,13 +12,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove members from an organization in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['read:organizations', 'update:organizations'],
+    scopes: ['delete:organization_members'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://auth0.com/docs/api/management/v2/organizations/delete-organization-members
+        // https://auth0.com/docs/api/management/v2/organizations/delete-members
         await nango.delete({
             endpoint: `/api/v2/organizations/${encodeURIComponent(input.organization_id)}/members`,
             data: {

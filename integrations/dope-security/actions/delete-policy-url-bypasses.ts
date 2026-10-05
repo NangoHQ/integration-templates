@@ -23,9 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Remove custom URL bypass entries from a policy by name.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedPolicyName = encodeURIComponent(input.policyName);

@@ -78,9 +78,10 @@ function withOverlap(timestamp: string): string {
 
 const sync = createSync({
     description: 'Sync customers.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['CUSTOMERS_READ'],
     checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema

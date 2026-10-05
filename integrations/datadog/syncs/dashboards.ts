@@ -33,9 +33,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync dashboards in this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['dashboards_read'],
     checkpoint: CheckpointSchema,
     models: {
         Dashboard: DashboardSchema

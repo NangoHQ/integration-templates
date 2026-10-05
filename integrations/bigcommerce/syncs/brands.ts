@@ -39,7 +39,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync brands.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -60,7 +60,7 @@ const sync = createSync({
             await nango.trackDeletesStart('Brand');
         }
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/brands
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/get-brands
         for await (const batch of nango.paginate<z.infer<typeof BrandSchema>>({
             endpoint: '/v3/catalog/brands',
             paginate: {

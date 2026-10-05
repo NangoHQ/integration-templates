@@ -96,13 +96,14 @@ function mapInvoice(raw: unknown): z.infer<typeof InvoiceSchema> | null {
 
 const sync = createSync({
     description: 'Sync invoices from Xero.',
-    version: '3.1.0',
+    version: '3.1.1',
     endpoints: [{ method: 'GET', path: '/syncs/invoices' }],
     frequency: 'every hour',
     models: {
         Invoice: InvoiceSchema
     },
     checkpoint: CheckpointSchema,
+    scopes: ['accounting.invoices.read'],
 
     exec: async (nango) => {
         async function resolveTenantId(n: typeof nango): Promise<string> {

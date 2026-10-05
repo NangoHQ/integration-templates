@@ -22,12 +22,12 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List collections (named groupings of mockups, e.g. for bulk/collection rendering) in this account.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynamicmockups.com/api-reference/collections/list-collections
+        // https://docs.dynamicmockups.com/api-reference/get-collections-api
         const response = await nango.get({
             endpoint: '/v1/collections',
             params: {

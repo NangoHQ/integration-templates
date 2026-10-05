@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete rows from a Supabase table.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
@@ -45,7 +45,7 @@ const action = createAction({
             headers['Prefer'] = 'return=representation';
         }
 
-        // https://supabase.com/docs/reference/api/delete-rows
+        // https://supabase.com/docs/reference/javascript/delete
         const response = await nango.delete({
             endpoint: `/rest/v1/${encodeURIComponent(input.table)}`,
             params: input.filters,

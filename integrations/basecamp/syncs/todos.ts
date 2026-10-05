@@ -84,7 +84,7 @@ const BasecampTodoResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Syncs to-dos from Basecamp for the specified projects',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -92,6 +92,7 @@ const sync = createSync({
     models: {
         BasecampTodo: BasecampTodoSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const metadata = await nango.getMetadata();

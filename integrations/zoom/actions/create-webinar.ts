@@ -113,7 +113,7 @@ const OutputSchema = ProviderResponseSchema;
 
 const action = createAction({
     description: 'Create a webinar in Zoom.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['webinar:write', 'webinar:write:admin'],
@@ -148,7 +148,7 @@ const action = createAction({
         }
 
         const config: ProxyConfiguration = {
-            // https://marketplace.zoom.us/docs/api-reference/zoom-api/webinars/webinarcreate
+            // https://developers.zoom.us/docs/api/meetings/#tag/Webinars/operation/webinarCreate
             endpoint: `/users/${userId}/webinars`,
             data: requestBody,
             retries: 3

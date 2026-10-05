@@ -39,7 +39,7 @@ const OutputSchema = ProviderRegistrantSchema;
 
 const action = createAction({
     description: 'Retrieve a single meeting registrant from Zoom.',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['meeting:read:registrant:admin'],

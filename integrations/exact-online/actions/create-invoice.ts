@@ -107,7 +107,7 @@ const InvoiceGetSchema = z.object({
 
 const action = createAction({
     description: 'Create a new sales invoice.',
-    version: '3.0.0',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['SalesInvoices'],

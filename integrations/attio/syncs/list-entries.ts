@@ -56,7 +56,7 @@ const ListEntryModelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync list entries from Attio.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -69,6 +69,7 @@ const sync = createSync({
             path: '/syncs/list-entries'
         }
     ],
+    scopes: ['list_entry:read', 'list_configuration:read'],
 
     exec: async (nango) => {
         const checkpoint = CheckpointSchema.partial().parse((await nango.getCheckpoint()) ?? {});
@@ -81,7 +82,7 @@ const sync = createSync({
             await nango.trackDeletesStart('ListEntry');
         }
 
-        // https://docs.attio.com/rest-api/endpoint-reference/lists/get-lists
+        // https://docs.attio.com/rest-api/endpoint-reference/lists/list-all-lists
         const listsResponse = await nango.get({
             endpoint: '/v2/lists',
             retries: 3

@@ -41,13 +41,13 @@ const ListSequencesOutputSchema = z.object({
 
 const action = createAction({
     description: 'List sequences from Apollo.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: ListSequencesInputSchema,
     output: ListSequencesOutputSchema,
     scopes: ['read'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListSequencesOutputSchema>> => {
-        // https://docs.apollo.io/reference/get_v1-emailer-campaigns-search
+        // https://docs.apollo.io/reference/search-for-sequences
         const response = await nango.get({
             endpoint: '/v1/emailer_campaigns/search',
             params: {

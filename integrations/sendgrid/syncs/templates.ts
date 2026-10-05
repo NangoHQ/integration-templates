@@ -29,7 +29,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync dynamic templates and their versions.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -45,7 +45,7 @@ const sync = createSync({
         let nextPageToken: string | undefined;
 
         const proxyConfig: ProxyConfiguration = {
-            // https://www.twilio.com/docs/sendgrid/api-reference/templates#get-all-templates
+            // https://www.twilio.com/docs/sendgrid/api-reference/transactional-templates/retrieve-paged-transactional-templates
             endpoint: '/v3/templates',
             params: {
                 generations: 'dynamic',
@@ -83,7 +83,7 @@ const sync = createSync({
 
             for (const item of listItems.data) {
                 const detailResponse = await nango.get({
-                    // https://www.twilio.com/docs/sendgrid/api-reference/templates#get-a-single-template
+                    // https://www.twilio.com/docs/sendgrid/api-reference/transactional-templates/retrieve-a-single-transactional-template
                     endpoint: `/v3/templates/${encodeURIComponent(item.id)}`,
                     retries: 3
                 });

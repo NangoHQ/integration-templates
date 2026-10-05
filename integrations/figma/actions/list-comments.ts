@@ -78,10 +78,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List comments from Figma.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['file_comments:read', 'files:read'],
+    scopes: ['file_comments:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

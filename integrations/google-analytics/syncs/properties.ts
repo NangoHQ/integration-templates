@@ -49,9 +49,10 @@ const PropertiesCheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync GA4 properties across accessible accounts.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     endpoints: [{ method: 'POST', path: '/syncs/properties' }],
     models: {
         Property: PropertySchema

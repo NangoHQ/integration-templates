@@ -54,9 +54,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync shared folder metadata visible to the current Dropbox user.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['sharing.read'],
     checkpoint: CheckpointSchema,
     models: {
         SharedFolder: SharedFolderOutputSchema

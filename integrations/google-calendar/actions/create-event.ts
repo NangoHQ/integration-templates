@@ -106,10 +106,10 @@ const ProviderEventSchema = z.object({
  */
 const action = createAction({
     description: 'Create a calendar event',
-    version: '2.0.2',
+    version: '2.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/calendar'],
+    scopes: ['https://www.googleapis.com/auth/calendar.events'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body: Record<string, unknown> = {

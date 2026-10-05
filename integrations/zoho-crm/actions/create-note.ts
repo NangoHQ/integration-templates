@@ -29,13 +29,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a note in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.notes.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/crm/developer/docs/api/v2/notes.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/create-notes.html
         const response = await nango.post({
             endpoint: '/crm/v2/Notes',
             data: {

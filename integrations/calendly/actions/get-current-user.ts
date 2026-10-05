@@ -32,9 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Fetch the authenticated Calendly user.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: z.object({}),
     output: OutputSchema,
+    scopes: ['users:read'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.calendly.com/api-docs/3e88884a3e873-get-current-user

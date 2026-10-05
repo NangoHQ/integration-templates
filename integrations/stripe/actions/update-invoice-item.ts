@@ -119,10 +119,10 @@ function toFormUrlEncoded(data: Record<string, unknown>): string {
 
 const action = createAction({
     description: 'Update an invoice item in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};

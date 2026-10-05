@@ -151,9 +151,10 @@ function mapProviderView(raw: z.infer<typeof ProviderViewSchema>): z.infer<typeo
  */
 const action = createAction({
     description: 'List views (saved ticket/customer filter definitions), optionally filtered to system or user-created views.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['tickets:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.gorgias.com/reference/list-views

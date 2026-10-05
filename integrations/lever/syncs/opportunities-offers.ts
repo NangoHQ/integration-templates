@@ -35,10 +35,10 @@ type LeverOpportunity = z.infer<typeof LeverOpportunitySchema>;
 
 const sync = createSync({
     description: 'Fetches a list of all offers for every single opportunity',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every 6 hours',
     autoStart: true,
-    scopes: ['offers:write:admin'],
+    scopes: ['offers:read:admin'],
     models: {
         LeverOpportunityOffer: LeverOpportunityOfferSchema
     },

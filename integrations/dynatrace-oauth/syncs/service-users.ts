@@ -36,13 +36,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync service (API-only) users in this account.',
-    version: '1.2.0',
+    version: '1.2.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         ServiceUser: ServiceUserSchema
     },
+    scopes: ['account-idm-read'],
 
     exec: async (nango) => {
         const connection = await nango.getConnection();
@@ -75,7 +76,7 @@ const sync = createSync({
         }
 
         const proxyConfig: ProxyConfiguration = {
-            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-users-api/list-service-users
+            // https://docs.dynatrace.com/docs/dynatrace-api/account-management-api/service-user-management-api/get-all-service-users
             endpoint: `iam/v1/accounts/${encodeURIComponent(accountUuid)}/service-users`,
             params,
             paginate: {

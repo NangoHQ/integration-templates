@@ -34,11 +34,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List customers.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['DataEntities.Read'],
-
+    scopes: ['https://<environmentUrl>/.default'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const limit = Math.min(Math.max(input.limit ?? 100, 1), 10000);
         const skip = input.cursor ? parseInt(input.cursor, 10) : 0;

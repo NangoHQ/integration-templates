@@ -43,10 +43,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List wishlists.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['store_v2_customers'],
+    scopes: ['store_v2_customers_read_only'],
     endpoint: {
         path: '/actions/list-wishlists',
         method: 'GET'
@@ -62,7 +62,7 @@ const action = createAction({
         }
         const page = parsedPage;
 
-        // https://developer.bigcommerce.com/docs/rest-management/wishlists
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/wishlists/get-wishlists
         const response = await nango.get({
             endpoint: '/v3/wishlists',
             params: {

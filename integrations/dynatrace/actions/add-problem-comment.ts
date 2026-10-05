@@ -15,13 +15,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Add a comment to a problem',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/post-comment
+        // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/post-comment
         const response = await nango.post({
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments`,
             data: {

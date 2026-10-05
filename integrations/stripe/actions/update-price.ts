@@ -39,10 +39,10 @@ const PriceSchema = z
 
 const action = createAction({
     description: 'Update a price in Stripe.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: PriceSchema,
-    scopes: [],
+    scopes: ['read_write'],
 
     exec: async (nango, input) => {
         const updateData: Record<string, unknown> = {

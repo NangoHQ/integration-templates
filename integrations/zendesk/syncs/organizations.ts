@@ -52,7 +52,7 @@ const IncrementalExportResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync organizations from Zendesk using incremental export',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     endpoints: [
         {
@@ -60,6 +60,7 @@ const sync = createSync({
             path: '/syncs/organizations'
         }
     ],
+    scopes: ['organizations:read'],
     checkpoint: CheckpointSchema,
     models: {
         Organization: OrganizationSchema

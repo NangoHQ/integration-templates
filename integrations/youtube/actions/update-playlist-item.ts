@@ -70,10 +70,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a playlist item's metadata or position.",
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://www.googleapis.com/auth/youtube', 'https://www.googleapis.com/auth/youtube.force-ssl'],
+    scopes: ['https://www.googleapis.com/auth/youtube.force-ssl'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Build the parts array based on what fields are being updated

@@ -64,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update bold, italic, links, colors, font, or size for text in a range.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['documents'],
+    scopes: ['https://www.googleapis.com/auth/documents'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.startIndex >= input.endIndex) {

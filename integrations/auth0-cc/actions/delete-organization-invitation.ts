@@ -12,7 +12,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a pending invitation to an organization in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['delete:organization_invitations'],
@@ -22,7 +22,7 @@ const action = createAction({
         const encodedInvitationId = encodeURIComponent(input.invitation_id);
 
         await nango.delete({
-            // https://auth0.com/docs/api/management/v2/organizations/delete-organization-invitation
+            // https://auth0.com/docs/api/management/v2/organizations/delete-invitations-by-invitation-id
             endpoint: `/api/v2/organizations/${encodedOrgId}/invitations/${encodedInvitationId}`,
             retries: 3
         });

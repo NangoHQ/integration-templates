@@ -65,7 +65,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync updates from monday.com.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -78,6 +78,7 @@ const sync = createSync({
     models: {
         Update: UpdateSchema
     },
+    scopes: ['updates:read'],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

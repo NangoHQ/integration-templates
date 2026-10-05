@@ -15,10 +15,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List dates with availability for a month and appointment type.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['api-v1'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string | number> = {

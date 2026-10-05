@@ -53,10 +53,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Retrieve a Pin.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pins:read'],
+    scopes: ['boards:read', 'pins:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developers.pinterest.com/docs/api/v5/#operation/pins/get

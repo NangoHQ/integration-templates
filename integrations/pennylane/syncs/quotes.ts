@@ -121,13 +121,14 @@ const QuoteSchema = z.object({
 
 const sync = createSync({
     description: 'Continuously sync quotes.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Quote: QuoteSchema
     },
+    scopes: ['quotes:readonly'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

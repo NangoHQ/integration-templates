@@ -152,10 +152,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing job posting.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['postings:write'],
+    scopes: ['postings:write:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const { postingId, performAs, ...bodyFields } = input;

@@ -39,7 +39,7 @@ const ContactRecordSchema = z.object({
 
 const sync = createSync({
     description: 'Sync CRM contacts with incremental updates via Modified timestamp',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -52,6 +52,7 @@ const sync = createSync({
     models: {
         Contact: ContactSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

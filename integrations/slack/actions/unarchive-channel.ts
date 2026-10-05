@@ -12,11 +12,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived conversation so members can use it again',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:manage'],
+    scopes: ['channels:manage', 'channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {

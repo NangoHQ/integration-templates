@@ -25,9 +25,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync roles (permission bundles) configured in this account.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['user_access_read'],
     checkpoint: CheckpointSchema,
     models: {
         Role: RoleSchema

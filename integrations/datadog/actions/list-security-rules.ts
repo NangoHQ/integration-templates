@@ -35,9 +35,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Cloud SIEM / Security Monitoring detection rules.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['security_monitoring_rules_read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const isHttpError = (err: unknown): err is { status: number } => {

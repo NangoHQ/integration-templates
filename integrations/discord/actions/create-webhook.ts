@@ -52,11 +52,11 @@ const MetadataSchema = z.object({
 
 const action = createAction({
     description: 'Create a webhook in a Discord channel',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['webhook.incoming'],
+    scopes: ['bot'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata<{

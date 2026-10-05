@@ -42,10 +42,10 @@ const ItemSchema = z.object({
 const action = createAction({
     description:
         'Fetches the top-level content (files and folders) of a folder given its ID. If no folder ID is provided, it fetches content from the root folder.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['root_readwrite'],
+    scopes: ['root_readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const folderId = input.folder_id ?? '0';

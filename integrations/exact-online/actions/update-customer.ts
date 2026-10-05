@@ -51,7 +51,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing customer/account',
-    version: '3.0.0',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['crm.accounts'],

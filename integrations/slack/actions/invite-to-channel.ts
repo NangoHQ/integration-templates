@@ -36,11 +36,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Invite users to a Slack channel',
-    version: '2.0.1',
+    version: '2.0.3',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:manage', 'groups:write'],
+    scopes: ['channels:manage', 'channels:write.invites', 'groups:write', 'groups:write.invites', 'im:write', 'mpim:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.user_ids.length > 1000) {

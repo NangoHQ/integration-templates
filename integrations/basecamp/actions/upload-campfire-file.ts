@@ -59,10 +59,10 @@ const OutputSchema = z
  */
 const action = createAction({
     description: 'Upload a file directly into a Campfire as a chat attachment.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['write'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const buffer = Buffer.from(input.content, 'base64');

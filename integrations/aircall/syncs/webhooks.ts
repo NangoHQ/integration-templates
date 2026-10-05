@@ -27,9 +27,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webhook subscriptions from Aircall.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['public_api'],
     checkpoint: CheckpointSchema,
     models: {
         Webhook: WebhookSchema

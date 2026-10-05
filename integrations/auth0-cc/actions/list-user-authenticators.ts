@@ -23,14 +23,16 @@ const OutputSchema = z.array(AuthenticatorSchema);
 
 const action = createAction({
     description: 'List the MFA authenticators enrolled by a user in Auth0.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read:authentication_methods'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://auth0.com/docs/api/management/v2/users/get-authenticators
+            // This endpoint is not published in Auth0's official Management API docs, but is
+            // functional and commonly used to list legacy MFA authenticators for a user:
+            // https://community.auth0.com/t/can-we-use-api-v2-users-userid-authenticators-get-post-calls-since-it-is-not-publicly-doumented/88638
             endpoint: `/api/v2/users/${encodeURIComponent(input.user_id)}/authenticators`,
             retries: 3
         });

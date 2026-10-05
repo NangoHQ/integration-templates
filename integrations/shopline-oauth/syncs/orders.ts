@@ -259,9 +259,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync orders, including embedded line items, fulfillments, refunds, and payment details.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every 5 minutes',
     autoStart: true,
+    scopes: ['read_orders'],
     checkpoint: CheckpointSchema,
     models: {
         Order: OrderSchema

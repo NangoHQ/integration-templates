@@ -66,7 +66,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync branches from GitLab',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
@@ -79,6 +79,7 @@ const sync = createSync({
             path: '/syncs/branches'
         }
     ],
+    scopes: ['read_api'],
 
     exec: async (nango) => {
         // Blocker: GitLab branches API does not support filtering by updated timestamp,

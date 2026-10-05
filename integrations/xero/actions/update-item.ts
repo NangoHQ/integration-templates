@@ -75,10 +75,10 @@ const ConnectionsResponseSchema = z.array(
 
 const action = createAction({
     description: 'Update an existing item.',
-    version: '3.0.1',
+    version: '3.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['accounting.settings'],
+    scopes: ['accounting.invoices'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connectionResult = ConnectionSchema.safeParse(await nango.getConnection());

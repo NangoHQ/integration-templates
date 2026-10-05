@@ -58,7 +58,7 @@ const OutputSchema = ProviderProjectSchema;
 
 const action = createAction({
     description: 'Retrieve a single project.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['user:projects:read'],
@@ -77,7 +77,7 @@ const action = createAction({
         const projectId = String(input.projectId);
 
         const response = await nango.get({
-            // https://www.freshbooks.com/api/projects
+            // https://www.freshbooks.com/developers/docs/projects
             endpoint: `/projects/business/${encodeURIComponent(businessId)}/projects/${encodeURIComponent(projectId)}`,
             retries: 3
         });

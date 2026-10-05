@@ -36,7 +36,7 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List categories.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['store_v2_products_read_only'],
@@ -57,7 +57,7 @@ const action = createAction({
         const page = parsedPage;
         const limit = input.limit ?? 50;
 
-        // https://developer.bigcommerce.com/docs/rest-management/catalog/categories#get-categories
+        // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/categories/get-categories
         const response = await nango.get({
             endpoint: '/v3/catalog/categories',
             params: {

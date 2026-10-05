@@ -11,13 +11,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a webhook subscription in Aircall.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/delete-webhook',
         method: 'POST'
     },
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.aircall.io/api-references/#delete-a-webhook

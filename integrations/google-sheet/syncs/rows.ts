@@ -15,11 +15,12 @@ const RowSchema = z.object({
 
 const sync = createSync({
     description: 'Sync worksheet rows from a Google Sheet',
-    version: '1.1.0',
+    version: '1.1.1',
     endpoints: [{ method: 'POST', path: '/syncs/rows', group: 'Sheets' }],
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
+    scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
 
     models: {
         Row: RowSchema

@@ -11,12 +11,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a budget cost code',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.ingenious.build/reference/deletebudgetcostcodepubv2.md
+        // https://api.ingenious.build/reference/v2-delete-budget-cost-code-1
         await nango.delete({
             endpoint: `/api/v2/pub/budget-cost-codes/${encodeURIComponent(input.id)}`,
             retries: 3

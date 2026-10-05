@@ -96,7 +96,7 @@ const ProviderResponseSchema = z.object({
 
 const action = createAction({
     description: 'List tweets from a specific Twitter/X user timeline.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['tweet.read', 'users.read'],
@@ -126,7 +126,7 @@ const action = createAction({
             params['exclude'] = input.exclude.join(',');
         }
 
-        // https://docs.x.com/x-api/users/lookup/api-reference/get-users-id-tweets
+        // https://docs.x.com/x-api/users/get-posts
         const response = await nango.get({
             endpoint: `/2/users/${input.user_id}/tweets`,
             params,

@@ -43,9 +43,10 @@ const AdGroupSchema = z.object({
 
 const sync = createSync({
     description: 'Sync ad groups from TikTok Ads.',
-    version: '1.0.0',
+    version: '1.0.1',
     endpoints: [{ method: 'GET', path: '/syncs/ad-groups' }],
     frequency: 'every hour',
+    scopes: [],
     models: {
         AdGroup: AdGroupSchema
     },

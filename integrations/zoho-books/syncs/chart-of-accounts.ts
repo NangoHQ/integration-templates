@@ -57,9 +57,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync chart of accounts from Zoho Books',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['ZohoBooks.accountants.READ'],
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     models: {

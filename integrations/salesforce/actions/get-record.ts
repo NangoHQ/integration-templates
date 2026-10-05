@@ -11,9 +11,10 @@ const ProviderResponseSchema = z.object({}).passthrough();
 
 const action = createAction({
     description: 'Retrieve a Salesforce record by object type and record ID',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ProviderResponseSchema,
+    scopes: ['api'],
 
     exec: async (nango, input) => {
         // Build the fields query parameter if provided

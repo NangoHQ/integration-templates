@@ -28,7 +28,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List registered webhooks.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['public.webhooks.readWebhooks'],
@@ -38,7 +38,7 @@ const action = createAction({
         const pageSize = input.pageSize ?? 20;
 
         const response = await nango.get({
-            // https://developer.ironcladapp.com/reference/list-webhooks
+            // https://developer.ironcladapp.com/reference/list-all-webhooks
             endpoint: 'public/api/v1/webhooks',
             params: {
                 page: page,

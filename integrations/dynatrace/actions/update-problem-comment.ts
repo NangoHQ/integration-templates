@@ -16,7 +16,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update the text of an existing problem comment.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['problems.write'],
@@ -31,7 +31,7 @@ const action = createAction({
         }
 
         await nango.put({
-            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/problems/comments
+            // https://docs.dynatrace.com/docs/dynatrace-api/environment-api/problems-v2/comments/put-comment
             endpoint: `/api/v2/problems/${encodeURIComponent(input.problemId)}/comments/${encodeURIComponent(input.commentId)}`,
             data,
             retries: 3

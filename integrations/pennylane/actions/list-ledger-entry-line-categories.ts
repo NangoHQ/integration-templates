@@ -27,13 +27,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List categories assigned to a ledger entry line',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ledger_entries:readonly'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://pennylane.readme.io/reference/get-ledger-entry-line-categories
+            // https://pennylane.readme.io/reference/getledgerentrylinescategories
             endpoint: `/api/external/v2/ledger_entry_lines/${encodeURIComponent(input.ledger_entry_line_id)}/categories`,
             params: {
                 ...(input.cursor !== undefined && { cursor: input.cursor }),

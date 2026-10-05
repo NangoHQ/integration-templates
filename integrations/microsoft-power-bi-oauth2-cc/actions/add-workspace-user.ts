@@ -17,9 +17,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Grant a user or service principal access to a workspace.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['https://analysis.windows.net/powerbi/api/.default'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/en-us/rest/api/power-bi/groups/add-group-user

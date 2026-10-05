@@ -57,13 +57,14 @@ const TransactionDetailSchema = z.object({
 
 const sync = createSync({
     description: 'Sync transactions.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Transaction: TransactionSchema
     },
+    scopes: ['https://uri.paypal.com/services/reporting/search/read'],
 
     exec: async (nango) => {
         const rawCheckpoint = await nango.getCheckpoint();

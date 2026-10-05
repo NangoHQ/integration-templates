@@ -28,13 +28,13 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a single message batch from Anthropic.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
-            // https://docs.anthropic.com/en/api/message-batches
+            // https://platform.claude.com/docs/en/api/messages/batches/retrieve
             endpoint: `/v1/messages/batches/${encodeURIComponent(input.message_batch_id)}`,
             retries: 3
         });

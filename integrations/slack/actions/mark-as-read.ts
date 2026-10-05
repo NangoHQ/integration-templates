@@ -12,11 +12,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Move a conversation's read cursor to a specific message timestamp",
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['channels:read'],
+    scopes: ['channels:manage', 'channels:write', 'groups:write', 'im:write', 'mpim:write'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config = {

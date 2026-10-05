@@ -28,10 +28,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Forward an email in Zoho Mail',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['zohomail.messages.ALL'],
+    scopes: ['ZohoMail.messages.READ', 'ZohoMail.messages.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const connection = await nango.getConnection();
@@ -84,7 +84,7 @@ const action = createAction({
             body['content'] = input.content;
         }
 
-        // https://www.zoho.com/mail/help/api/get-message-details.html
+        // https://www.zoho.com/mail/help/api/get-email-meta-data.html
         const detailsResponse = await nango.get({
             endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/folders/${encodeURIComponent(input.folderId)}/messages/${encodeURIComponent(input.messageId)}/details`,
             baseUrlOverride: baseUrl,
@@ -105,7 +105,7 @@ const action = createAction({
         const folderId = parsedDetails.data?.folderId || input.folderId;
         const originalSubject = parsedDetails.data?.subject || '';
 
-        // https://www.zoho.com/mail/help/api/get-message-content.html
+        // https://www.zoho.com/mail/help/api/get-email-content.html
         const contentResponse = await nango.get({
             endpoint: `/api/accounts/${encodeURIComponent(input.accountId)}/folders/${encodeURIComponent(folderId)}/messages/${encodeURIComponent(input.messageId)}/content`,
             baseUrlOverride: baseUrl,

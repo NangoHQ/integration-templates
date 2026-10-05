@@ -92,11 +92,12 @@ function updateLatestUpdatedAt(current: string | undefined, candidate: string | 
 
 const sync = createSync({
     description: 'Sync service tickets with subject, content, owner, pipeline, stage, category, and priority',
-    version: '3.0.1',
+    version: '3.0.2',
     endpoints: [{ method: 'POST', path: '/syncs/service-tickets', group: 'Tickets' }],
     frequency: 'every hour',
     autoStart: true,
     checkpoint: HubspotCrmCheckpointSchema,
+    scopes: ['tickets'],
 
     models: {
         Ticket: TicketSchema

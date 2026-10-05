@@ -97,13 +97,14 @@ function parseProject(raw: unknown): z.infer<typeof ProjectSchema> {
 
 const sync = createSync({
     description: 'Sync projects.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         Project: ProjectSchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

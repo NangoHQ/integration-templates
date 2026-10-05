@@ -157,10 +157,10 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Update an existing Connect webhook configuration.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['signature'],
     endpoint: {
         method: 'POST',
         path: '/actions/update-connect-configuration'

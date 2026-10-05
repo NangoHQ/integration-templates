@@ -20,9 +20,10 @@ const OutputSchema = z.null().describe('Output of moving a card table column.');
  */
 const action = createAction({
     description: 'Reposition a column within its Card Table.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://raw.githubusercontent.com/basecamp/bc3-api/master/sections/card_tables.md

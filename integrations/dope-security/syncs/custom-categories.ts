@@ -18,13 +18,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync custom categories and their URLs',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         CustomCategory: CustomCategorySchema
     },
+    scopes: [],
 
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();

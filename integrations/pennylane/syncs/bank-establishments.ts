@@ -21,13 +21,14 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync bank establishments',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
     models: {
         BankEstablishment: BankEstablishmentSchema
     },
+    scopes: ['bank_establishments:readonly'],
 
     exec: async (nango) => {
         // Blocker: provider only exposes /bank_establishments with no changed-since filter

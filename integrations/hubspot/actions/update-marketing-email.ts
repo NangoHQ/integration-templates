@@ -22,11 +22,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a marketing email',
-    version: '1.0.1',
+    version: '1.0.2',
 
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['content', 'crm.objects.marketing_events.write'],
+    scopes: ['content'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Build properties object following HubSpot pattern

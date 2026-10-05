@@ -30,9 +30,10 @@ const GoalSchema = z.object({
 
 const sync = createSync({
     description: 'Sync employee performance goals from BambooHR',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['employee_directory', 'goal'],
     models: {
         Goal: GoalSchema
     },

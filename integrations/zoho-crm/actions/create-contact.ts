@@ -46,7 +46,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a contact in Zoho CRM',
-    version: '1.0.1',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['ZohoCRM.modules.contacts.CREATE'],
@@ -96,7 +96,7 @@ const action = createAction({
             contactData['Description'] = input.Description;
         }
 
-        // https://www.zoho.com/crm/developer/docs/api/v2/Contacts.html
+        // https://www.zoho.com/crm/developer/docs/api/v8/insert-records.html
         const response = await nango.post({
             endpoint: '/crm/v2/Contacts',
             data: {

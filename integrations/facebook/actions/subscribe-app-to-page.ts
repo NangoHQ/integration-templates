@@ -22,10 +22,10 @@ const PageAccountSchema = z.object({
 
 const action = createAction({
     description: 'Subscribe the app to receive updates for a Facebook Page',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['pages_manage_metadata'],
+    scopes: ['pages_show_list', 'pages_manage_metadata'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // First, get the page access token by looking up the user's pages

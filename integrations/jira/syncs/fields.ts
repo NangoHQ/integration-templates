@@ -26,9 +26,10 @@ const FieldSchema = z.object({
 // Full refresh sync - fields API does not support incremental filtering
 const sync = createSync({
     description: 'Sync Jira field metadata available to the authenticated user.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read:field:jira'],
     models: {
         Field: FieldSchema
     },

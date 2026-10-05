@@ -15,14 +15,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve the availability status of a single Aircall user.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         path: '/actions/get-user-availability',
         method: 'GET'
     },
-    scopes: ['users:read'],
+    scopes: ['public_api'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

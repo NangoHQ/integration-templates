@@ -38,9 +38,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync contract records (structured metadata objects, independent of any workflow).',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['public.records.readRecords'],
     checkpoint: CheckpointSchema,
     models: {
         Record: RecordSchema

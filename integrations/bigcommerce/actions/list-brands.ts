@@ -48,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List brands',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['store_v2_products_read_only'],
@@ -69,7 +69,7 @@ const action = createAction({
         const limit = input.limit ?? 50;
 
         const response = await nango.get({
-            // https://developer.bigcommerce.com/docs/rest-management/catalog/brands
+            // https://docs.bigcommerce.com/developer/api-reference/rest/admin/catalog/brands/get-brands
             endpoint: '/v3/catalog/brands',
             params: {
                 page,

@@ -27,7 +27,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update an unsubscribe group's name or description.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['asm.groups.update'],
@@ -41,7 +41,7 @@ const action = createAction({
             data['description'] = input.description;
         }
 
-        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups/update-an-unsubscribe-group
+        // https://www.twilio.com/docs/sendgrid/api-reference/suppressions-unsubscribe-groups/update-a-suppression-group
         const response = await nango.patch({
             endpoint: `/v3/asm/groups/${encodeURIComponent(input.group_id)}`,
             data,

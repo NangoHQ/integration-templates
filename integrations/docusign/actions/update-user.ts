@@ -53,13 +53,14 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: "Update a user's profile or settings.",
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     endpoint: {
         method: 'POST',
         path: '/actions/update-user'
     },
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();

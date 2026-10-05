@@ -73,9 +73,10 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync directly accessible Google Ads customer accounts',
-    version: '1.0.3',
+    version: '1.0.4',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['https://www.googleapis.com/auth/adwords'],
     checkpoint: CheckpointSchema,
     models: {
         Customer: CustomerSchema

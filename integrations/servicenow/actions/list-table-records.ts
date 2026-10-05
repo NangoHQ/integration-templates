@@ -21,11 +21,11 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List records from an allowed table.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     metadata: MetadataSchema,
-    scopes: ['itil', 'admin'],
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const rawMetadata = await nango.getMetadata();

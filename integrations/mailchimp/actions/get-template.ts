@@ -36,9 +36,10 @@ const OutputSchema = ProviderTemplateSchema;
 
 const action = createAction({
     description: 'Retrieve a single template from Mailchimp.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

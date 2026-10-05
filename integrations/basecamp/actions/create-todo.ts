@@ -69,9 +69,10 @@ const ProviderTodoSchema = z.object({
  */
 const action = createAction({
     description: 'Create a to-do in a specific to-do list, resolving assignee/completion-subscriber emails to person IDs first.',
-    version: '3.0.0',
+    version: '3.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const assigneeIds: number[] = input.assignee_ids ? [...input.assignee_ids] : [];

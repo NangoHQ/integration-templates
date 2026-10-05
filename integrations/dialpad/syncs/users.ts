@@ -7,10 +7,11 @@ import { z } from 'zod';
 
 const sync = createSync({
     description: 'Fetches a list of users from Dialpad',
-    version: '2.1.0',
+    version: '2.1.1',
     frequency: 'every day',
     autoStart: true,
     syncType: 'full',
+    scopes: [],
 
     endpoints: [
         {

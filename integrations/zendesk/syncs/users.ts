@@ -48,7 +48,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync users from Zendesk Support using incremental cursor-based exports',
-    version: '3.0.1',
+    version: '3.0.2',
     frequency: 'every hour',
     autoStart: true,
     endpoints: [
@@ -57,6 +57,7 @@ const sync = createSync({
             path: '/syncs/users'
         }
     ],
+    scopes: ['users:read'],
     checkpoint: CheckpointSchema,
     models: {
         User: UserSchema

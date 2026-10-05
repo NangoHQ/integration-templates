@@ -76,9 +76,10 @@ const ContactSchema = z.object({
 
 const sync = createSync({
     description: 'Sync contacts from HighLevel',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['contacts.readonly'],
     checkpoint: CheckpointSchema,
     models: {
         Contact: ContactSchema

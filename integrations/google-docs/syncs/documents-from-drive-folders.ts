@@ -48,12 +48,13 @@ const DocumentSchema = z.object({
 
 const sync = createSync({
     description: 'Discover Google Docs files under folder IDs from metadata, then hydrate each document through the Docs API.',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
     checkpoint: CheckpointSchema,
     endpoints: [{ method: 'GET', path: '/syncs/documents-from-drive-folders' }],
+    scopes: ['https://www.googleapis.com/auth/drive.readonly'],
     models: {
         FolderDocument: DocumentSchema
     },

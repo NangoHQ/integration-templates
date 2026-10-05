@@ -23,10 +23,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List all leave type definitions.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: [],
+    scopes: ['ZOHOPEOPLE.leave.READ'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/people/api/overview.html

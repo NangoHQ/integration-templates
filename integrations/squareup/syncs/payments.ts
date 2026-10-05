@@ -52,9 +52,10 @@ const PaymentsPageSchema = z.object({
 
 const sync = createSync({
     description: 'Sync payments',
-    version: '1.0.0',
+    version: '1.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['PAYMENTS_READ'],
     checkpoint: CheckpointSchema,
     models: {
         Payment: PaymentSchema

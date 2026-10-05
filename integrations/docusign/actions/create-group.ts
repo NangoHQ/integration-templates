@@ -32,10 +32,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create one or more custom groups.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['group_write'],
+    scopes: ['signature'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const metadata = await nango.getMetadata();
@@ -59,7 +59,7 @@ const action = createAction({
             groupType: group.groupType || 'customGroup'
         }));
 
-        // https://developers.docusign.com/docs/esign-rest-api/reference/groups/groups/create/
+        // https://developers.docusign.com/docs/esign-rest-api/reference/usergroups/groups/create/
         const response = await nango.post({
             endpoint: `/restapi/v2.1/accounts/${encodeURIComponent(accountId)}/groups`,
             data: {

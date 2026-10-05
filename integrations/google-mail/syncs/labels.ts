@@ -28,9 +28,10 @@ const LabelSchema = z.object({
 
 const sync = createSync({
     description: 'Sync built-in and user-created Gmail labels.',
-    version: '3.0.0',
+    version: '3.0.1',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['https://www.googleapis.com/auth/gmail.labels'],
     models: {
         Label: LabelSchema
     },

@@ -51,10 +51,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update an existing tracking record on a PayPal order.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['https://uri.paypal.com/services/payments/orders/client_sdk_orders_api'],
+    scopes: ['https://uri.paypal.com/services/payments/payment'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.paypal.com/api/orders/v2/#orders_trackers_patch

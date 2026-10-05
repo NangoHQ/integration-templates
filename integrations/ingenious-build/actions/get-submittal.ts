@@ -37,12 +37,13 @@ const OutputSchema = z
 
 const action = createAction({
     description: 'Get a single submittal by id.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
+    scopes: [],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://api.ingenious.build/reference/getsubmittalpubv2.md
+        // https://api.ingenious.build/reference/v2-get-submittal
         const response = await nango.get({
             endpoint: `/api/v2/pub/submittals/${encodeURIComponent(input.id)}`,
             retries: 3

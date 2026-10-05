@@ -14,10 +14,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Delete a repository.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['repository:delete'],
+    scopes: ['repository:admin'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.atlassian.com/cloud/bitbucket/rest/intro/

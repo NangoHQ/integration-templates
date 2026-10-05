@@ -6,10 +6,11 @@ import { SuccessResponse, IdEntity } from '../models.js';
 
 const action = createAction({
     description: 'Deletes a user in Dialpad by email',
-    version: '2.0.1',
+    version: '2.0.2',
 
     input: IdEntity,
     output: SuccessResponse,
+    scopes: [],
 
     exec: async (nango, input): Promise<SuccessResponse> => {
         const parsedInput = await nango.zodValidateInput({ zodSchema: idEntitySchema, input });
