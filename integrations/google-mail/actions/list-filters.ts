@@ -34,13 +34,17 @@ const ListOutputSchema = z.object({
     nextCursor: z.string().optional()
 });
 
-const ProviderListResponseSchema = z.object({
-    filter: z.array(z.unknown()).optional()
-});
+// Gmail omits `filter` entirely (or returns `null`) when the mailbox has no
+// filters, so accept both shapes and treat them as an empty list.
+const ProviderListResponseSchema = z
+    .object({
+        filter: z.array(z.unknown()).nullish()
+    })
+    .nullish();
 
 const action = createAction({
     description: 'List mailbox filters configured for the authenticated user',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
     scopes: ['https://www.googleapis.com/auth/gmail.settings.basic'],
@@ -54,13 +58,22 @@ const action = createAction({
             retries: 3
         });
 
-        const parsedData = ProviderListResponseSchema.parse(response.data);
-        const filters = parsedData.filter || [];
+        const parsedData = ProviderListResponseSchema.safeParse(response.data);
+        if (!parsedData.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Invalid response from Gmail filters API'
+            });
+        }
 
-        const parsedFilters = filters.map((item: unknown) => {
-            const parsed = FilterSchema.parse(item);
-            return parsed;
-        });
+        const filters = parsedData.data?.filter ?? [];
+
+        const parsedFilters = filters
+            .map((item: unknown) => {
+                const parsed = FilterSchema.safeParse(item);
+                return parsed.success ? parsed.data : null;
+            })
+            .filter((f): f is NonNullable<typeof f> => f !== null);
 
         return {
             filters: parsedFilters
