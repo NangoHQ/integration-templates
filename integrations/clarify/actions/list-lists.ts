@@ -2,7 +2,6 @@ import { createAction } from 'nango';
 import { z } from 'zod';
 
 import { toList } from '../mappers/to-list.js';
-import { toPaginationMeta } from '../mappers/to-pagination-meta.js';
 import { ClarifyList, ClarifyPaginationMeta } from '../models.js';
 import type { ClarifyListResource, ClarifyPaginatedResponse, ClarifyPaginationMeta as ClarifyPaginationMetaApi } from '../types.js';
 import { getWorkspaceApiBase } from '../utils/workspace-api-path.js';
@@ -56,8 +55,7 @@ const action = createAction({
         // https://developer.clarify.ai/docs/api-reference/lists/getWorkspaceLists
         const workspaceBase = await getWorkspaceApiBase(nango);
         const listTypeMode = input.listType ?? 'all';
-        const typesToFetch: Array<'static' | 'dynamic'> =
-            listTypeMode === 'all' ? ['static', 'dynamic'] : [listTypeMode];
+        const typesToFetch: Array<'static' | 'dynamic'> = listTypeMode === 'all' ? ['static', 'dynamic'] : [listTypeMode];
 
         const listsById = new Map<string, ClarifyList>();
         const pageMetas: ClarifyPaginationMetaApi[] = [];
