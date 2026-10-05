@@ -4,9 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z.object({
     fileId: z
         .string()
-        .describe(
-            'The ID of the Google Workspace file to export (Doc, Sheet, Slide, etc.). Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'
-        ),
+        .describe('The ID of the Google Workspace file to export (Doc, Sheet, Slide, etc.). Example: "1Kj3d86Z-Sfd56YP4dImQ-ggMRyP2QZ_BRO33zOO224c"'),
     mimeType: z
         .enum([
             'application/pdf',
