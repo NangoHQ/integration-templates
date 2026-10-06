@@ -83,7 +83,7 @@ const sync = createSync({
         const checkpoint = checkpointRaw ? CheckpointSchema.parse(checkpointRaw) : { updated_after: '' };
         const metadataResult = MetadataSchema.safeParse(await nango.getMetadata());
 
-        if (!metadataResult.success) {
+        if (!metadataResult.success || !metadataResult.data.team_id) {
             throw new Error('team_id is required in metadata');
         }
 

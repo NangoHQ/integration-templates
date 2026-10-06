@@ -117,6 +117,21 @@ async function fetchCommentsForFile(nango: NangoSyncLocal, fileKey: string): Pro
     return normalizeComments(fileKey, commentsData.comments);
 }
 
+const FILE_COMMENTS_FETCH_CONCURRENCY = 5;
+
+async function fetchCommentsForFiles(nango: NangoSyncLocal, fileKeys: string[]): Promise<z.infer<typeof CommentSchema>[]> {
+    const allComments: z.infer<typeof CommentSchema>[] = [];
+
+    // Bounded concurrency: fetching every configured file at once risks tripping Figma's rate limits.
+    for (let i = 0; i < fileKeys.length; i += FILE_COMMENTS_FETCH_CONCURRENCY) {
+        const batch = fileKeys.slice(i, i + FILE_COMMENTS_FETCH_CONCURRENCY);
+        const batchResults = await Promise.all(batch.map((fileKey) => fetchCommentsForFile(nango, fileKey)));
+        allComments.push(...batchResults.flat());
+    }
+
+    return allComments;
+}
+
 async function fetchCommentsByTeamDiscovery(nango: NangoSyncLocal, teamId: string): Promise<z.infer<typeof CommentSchema>[]> {
     // https://developers.figma.com/docs/rest-api/folders-endpoints/#get-team-folders-endpoint
     const foldersResponse = await nango.get({
@@ -210,7 +225,7 @@ const sync = createSync({
         await nango.trackDeletesStart('Comment');
 
         const allComments: z.infer<typeof CommentSchema>[] = fileKeys?.length
-            ? (await Promise.all(fileKeys.map((fileKey) => fetchCommentsForFile(nango, fileKey)))).flat()
+            ? await fetchCommentsForFiles(nango, fileKeys)
             : await fetchCommentsByTeamDiscovery(nango, teamId!);
 
         if (allComments.length > 0) {

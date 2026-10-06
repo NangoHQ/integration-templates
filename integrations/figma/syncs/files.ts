@@ -47,7 +47,7 @@ const sync = createSync({
         const rawMetadata = await nango.getMetadata();
         const metadataResult = MetadataSchema.safeParse(rawMetadata);
 
-        if (!metadataResult.success) {
+        if (!metadataResult.success || !metadataResult.data.project_id) {
             throw new Error('project_id is required in metadata');
         }
 
