@@ -27,7 +27,7 @@ const MetadataSchema = z.object({
 
 const sync = createSync({
     description: 'Sync files from Figma.',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -45,15 +45,18 @@ const sync = createSync({
 
     exec: async (nango) => {
         const rawMetadata = await nango.getMetadata();
-        const metadata = MetadataSchema.parse(rawMetadata);
+        const metadataResult = MetadataSchema.safeParse(rawMetadata);
 
-        if (!metadata.project_id) {
+        if (!metadataResult.success) {
             throw new Error('project_id is required in metadata');
         }
+
+        const metadata = metadataResult.data;
 
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { cursor: '' });
         let cursor = checkpoint.cursor || undefined;
+        let checkpointSaved = checkpoint.cursor !== '';
 
         await nango.trackDeletesStart('File');
 
@@ -91,9 +94,13 @@ const sync = createSync({
 
             if (cursor !== undefined) {
                 await nango.saveCheckpoint({ cursor });
+                checkpointSaved = true;
             }
         }
 
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('File');
     }
 });

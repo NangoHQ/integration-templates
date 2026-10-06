@@ -48,7 +48,7 @@ const StyleSchema = z.object({
 
 const sync = createSync({
     description: 'Sync styles from Figma',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -74,6 +74,7 @@ const sync = createSync({
         }
 
         let after: string | undefined = checkpointResult.data.after || undefined;
+        let checkpointSaved = checkpointResult.data.after !== '';
 
         // Provider exposes /v1/teams/{team_id}/styles with cursor pagination but no
         // changed-since filter, so this is a checkpointed full refresh. The
@@ -140,10 +141,13 @@ const sync = createSync({
 
             if (after !== undefined) {
                 await nango.saveCheckpoint({ after });
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Style');
     }
 });

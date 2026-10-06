@@ -65,7 +65,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync components from Figma.',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -92,6 +92,7 @@ const sync = createSync({
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(checkpointRaw ?? { after: '' });
         let afterCursor = checkpoint.after || undefined;
+        let checkpointSaved = checkpoint.after !== '';
 
         // Blocker: GET /v1/teams/{team_id}/components does not support updated_after,
         // modified_since, or any changed-since filter. It only supports page_size and
@@ -155,12 +156,17 @@ const sync = createSync({
             // execution window resumes where it left off instead of restarting from page 1.
             if (afterCursor !== undefined) {
                 await nango.saveCheckpoint({ after: afterCursor });
+                checkpointSaved = true;
             }
         }
 
         // Clear the checkpoint only after the last page has been saved, then close the
-        // delete-tracking window opened by trackDeletesStart().
-        await nango.clearCheckpoint();
+        // delete-tracking window opened by trackDeletesStart(). Skip the clear when no
+        // checkpoint was ever written (e.g. the whole dataset fit on a single page), since
+        // there is nothing to delete and the backend rejects a delete on a never-created record.
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Component');
     }
 });

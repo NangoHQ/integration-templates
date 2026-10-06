@@ -62,7 +62,7 @@ const PublishedVariablesResponseSchema = z.object({
 
 const sync = createSync({
     description: 'Sync published variables from Figma',
-    version: '1.0.1',
+    version: '1.0.2',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -81,11 +81,13 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpointRaw = await nango.getCheckpoint();
         const checkpoint = checkpointRaw ? CheckpointSchema.parse(checkpointRaw) : { updated_after: '' };
-        const metadata = MetadataSchema.parse(await nango.getMetadata());
+        const metadataResult = MetadataSchema.safeParse(await nango.getMetadata());
 
-        if (!metadata.team_id) {
+        if (!metadataResult.success) {
             throw new Error('team_id is required in metadata');
         }
+
+        const metadata = metadataResult.data;
 
         const updatedAfter = checkpoint.updated_after || undefined;
         let maxUpdatedAt: string | undefined;

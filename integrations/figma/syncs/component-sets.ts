@@ -25,7 +25,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync component sets from Figma',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -51,6 +51,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { after: '' });
         const afterCursor = checkpoint.after || undefined;
+        let checkpointSaved = checkpoint.after !== '';
 
         // Blocker: Figma GET /v1/teams/{team_id}/component_sets only exposes
         // positional cursor pagination. It does not provide a changed-since
@@ -117,10 +118,13 @@ const sync = createSync({
 
             if (nextAfter !== undefined) {
                 await nango.saveCheckpoint({ after: nextAfter });
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('ComponentSet');
     }
 });
