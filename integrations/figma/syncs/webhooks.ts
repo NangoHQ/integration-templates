@@ -25,7 +25,7 @@ const CheckpointSchema = z.object({
 
 const sync = createSync({
     description: 'Sync webhooks from Figma',
-    version: '1.0.2',
+    version: '1.0.3',
     frequency: 'every hour',
     autoStart: false,
     metadata: MetadataSchema,
@@ -49,6 +49,7 @@ const sync = createSync({
         const rawCheckpoint = await nango.getCheckpoint();
         const checkpoint = CheckpointSchema.parse(rawCheckpoint ?? { cursor: '' });
         let nextCursor: string | undefined = checkpoint.cursor || undefined;
+        let checkpointSaved = checkpoint.cursor !== '';
 
         await nango.trackDeletesStart('Webhook');
 
@@ -87,10 +88,13 @@ const sync = createSync({
 
             if (nextCursor !== undefined) {
                 await nango.saveCheckpoint({ cursor: nextCursor });
+                checkpointSaved = true;
             }
         }
 
-        await nango.clearCheckpoint();
+        if (checkpointSaved) {
+            await nango.clearCheckpoint();
+        }
         await nango.trackDeletesEnd('Webhook');
     }
 });
