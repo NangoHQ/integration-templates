@@ -6947,6 +6947,44 @@ import './supabase/actions/upsert-table-row.js';
 // -- Integration: teamtailor
 import './teamtailor/syncs/candidates.js';
 
+// -- Integration: ticktick
+import './ticktick/syncs/projects.js';
+import './ticktick/syncs/tasks.js';
+import './ticktick/actions/add-task-comment.js';
+import './ticktick/actions/assign-task.js';
+import './ticktick/actions/batch-upsert-tasks.js';
+import './ticktick/actions/complete-task-and-verify.js';
+import './ticktick/actions/complete-task.js';
+import './ticktick/actions/complete-tasks-batch.js';
+import './ticktick/actions/create-column.js';
+import './ticktick/actions/create-project-group.js';
+import './ticktick/actions/create-project.js';
+import './ticktick/actions/create-task.js';
+import './ticktick/actions/delete-project-group.js';
+import './ticktick/actions/delete-project.js';
+import './ticktick/actions/delete-task-comment.js';
+import './ticktick/actions/delete-task-verified.js';
+import './ticktick/actions/delete-task.js';
+import './ticktick/actions/filter-tasks.js';
+import './ticktick/actions/find-or-create-task-in-project.js';
+import './ticktick/actions/get-project-data.js';
+import './ticktick/actions/get-project-members.js';
+import './ticktick/actions/get-project.js';
+import './ticktick/actions/get-task.js';
+import './ticktick/actions/list-columns.js';
+import './ticktick/actions/list-completed-tasks.js';
+import './ticktick/actions/list-project-groups.js';
+import './ticktick/actions/list-projects.js';
+import './ticktick/actions/list-task-comments.js';
+import './ticktick/actions/list-undone-tasks.js';
+import './ticktick/actions/move-task.js';
+import './ticktick/actions/search-tasks.js';
+import './ticktick/actions/unassign-task.js';
+import './ticktick/actions/update-column.js';
+import './ticktick/actions/update-project-group.js';
+import './ticktick/actions/update-project.js';
+import './ticktick/actions/update-task.js';
+
 // -- Integration: tiktok-accounts
 import './tiktok-accounts/syncs/comments.js';
 import './tiktok-accounts/syncs/identities.js';
