@@ -91,7 +91,9 @@ const sync = createSync({
         // `created`-based checkpoint passed through as `date_min` can silently and permanently
         // exclude insights whose `target_date` predates the checkpoint even though they were only
         // just created. Every run re-reads the full insight history and re-upserts records by
-        // their stable id.
+        // their stable id, so deletions are tracked across the complete pass.
+        await nango.trackDeletesStart('Insight');
+
         const proxyConfig: ProxyConfiguration = {
             // https://developer.exist.io/reference/insights/
             endpoint: '/api/2/insights/',
@@ -126,6 +128,8 @@ const sync = createSync({
                 await nango.batchSave(records, 'Insight');
             }
         }
+
+        await nango.trackDeletesEnd('Insight');
     }
 });
 
