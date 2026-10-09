@@ -1,0 +1,234 @@
+{
+  "input": {
+    "criteria": "(Account_Name:equals:Zylker Corp)"
+  },
+  "output": {
+    "accounts": [
+      {
+        "id": "7618134000000632027",
+        "Account_Name": "Zylker Corp",
+        "Account_Number": "0",
+        "Account_Type": null,
+        "Account_Site": null,
+        "Annual_Revenue": null,
+        "Employees": null,
+        "Industry": null,
+        "Ownership": null,
+        "Rating": null,
+        "Phone": "609-281-3662",
+        "Fax": null,
+        "Website": "https://help.zoho.com/portal/community/bigin",
+        "Ticker_Symbol": null,
+        "SIC_Code": null,
+        "Description": null,
+        "Billing_Street": "8 W Cerritos Ave #54",
+        "Billing_City": "Bridgeport",
+        "Billing_State": "New Jersey",
+        "Billing_Code": null,
+        "Billing_Country": null,
+        "Shipping_Street": null,
+        "Shipping_City": null,
+        "Shipping_State": null,
+        "Shipping_Code": null,
+        "Shipping_Country": null,
+        "Parent_Account": null,
+        "Owner": {
+          "name": "Nango Developer",
+          "id": "7618134000000627001",
+          "email": "api@nango.dev"
+        },
+        "Created_By": {
+          "name": "Nango Developer",
+          "id": "7618134000000627001",
+          "email": "api@nango.dev"
+        },
+        "Modified_By": {
+          "name": "Nango Developer",
+          "id": "7618134000000627001",
+          "email": "api@nango.dev"
+        },
+        "Created_Time": "2026-10-07T03:21:34+03:00",
+        "Modified_Time": "2026-10-09T22:11:19+03:00",
+        "Last_Activity_Time": "2026-10-09T22:11:46+03:00",
+        "Tag": [],
+        "$currency_symbol": "$",
+        "$field_states": null,
+        "$sharing_permission": "full_access",
+        "$state": "save",
+        "$process_flow": false,
+        "$locked_for_me": false,
+        "$approval": {
+          "delegate": false,
+          "takeover": false,
+          "approve": false,
+          "reject": false,
+          "resubmit": false
+        },
+        "$editable": true,
+        "$zia_owner_assignment": "owner_recommendation_unavailable",
+        "$is_duplicate": false,
+        "$review_process": {
+          "approve": false,
+          "reject": false,
+          "resubmit": false
+        },
+        "$layout_id": {
+          "display_label": "Standard",
+          "name": "Standard",
+          "id": "7618134000000091029"
+        },
+        "Record_Image": null,
+        "$review": null,
+        "$zia_visions": null,
+        "$orchestration": null,
+        "$in_merge": false,
+        "Locked__s": false,
+        "$approval_state": "approved",
+        "$pathfinder": null
+      }
+    ],
+    "page": 1,
+    "per_page": 200,
+    "count": 1,
+    "more_records": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/Accounts/search": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "$currency_symbol": "$",
+              "$field_states": null,
+              "Account_Type": null,
+              "SIC_Code": null,
+              "$sharing_permission": "full_access",
+              "Last_Activity_Time": "2026-10-09T22:11:46+03:00",
+              "Industry": null,
+              "Account_Site": null,
+              "$state": "save",
+              "$process_flow": false,
+              "Billing_Country": null,
+              "$locked_for_me": false,
+              "id": "7618134000000632027",
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Billing_Street": "8 W Cerritos Ave #54",
+              "Created_Time": "2026-10-07T03:21:34+03:00",
+              "$editable": true,
+              "Billing_Code": null,
+              "Shipping_City": null,
+              "Shipping_Country": null,
+              "Shipping_Code": null,
+              "Billing_City": "Bridgeport",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "Annual_Revenue": null,
+              "$is_duplicate": false,
+              "Shipping_Street": null,
+              "Ownership": null,
+              "Description": null,
+              "Rating": null,
+              "Shipping_State": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Website": "https://help.zoho.com/portal/community/bigin",
+              "Employees": null,
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7618134000000091029"
+              },
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Phone": "609-281-3662",
+              "Account_Name": "Zylker Corp",
+              "$zia_visions": null,
+              "Account_Number": "0",
+              "Ticker_Symbol": null,
+              "Modified_Time": "2026-10-09T22:11:19+03:00",
+              "$orchestration": null,
+              "Parent_Account": null,
+              "$in_merge": false,
+              "Locked__s": false,
+              "Billing_State": "New Jersey",
+              "Tag": [],
+              "Fax": null,
+              "$approval_state": "approved",
+              "$pathfinder": null
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "count": 1,
+            "sort_by": "id",
+            "page": 1,
+            "sort_order": "desc",
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:12:06 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1987",
+          "x-ratelimit-reset": "1791573178",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=35, totalTime;desc=\"Total Execution Time\";dur=60,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "cc6e685f88d82d7eca82f1f29153898387f42127",
+        "request": {
+          "params": {
+            "criteria": "(Account_Name:equals:Zylker Corp)"
+          }
+        }
+      }
+    }
+  }
+}

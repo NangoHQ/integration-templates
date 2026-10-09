@@ -1,0 +1,205 @@
+{
+  "input": {
+    "email": "support@bigin.com"
+  },
+  "output": {
+    "contacts": [
+      {
+        "id": "7618134000000632028",
+        "First_Name": "Ted",
+        "Last_Name": "Watson",
+        "Full_Name": "Ted Watson",
+        "Email": "support@bigin.com",
+        "Phone": null,
+        "Mobile": "609-884-0686",
+        "Home_Phone": null,
+        "Title": null,
+        "Description": "This is a sample Contact.\n ✷ Quickly get started by creating a note ✍️or an activity ⏰ for this Contact.\n ✷ For any help write to us at support@bigin.com",
+        "Account_Name": {
+          "id": "7618134000000632027",
+          "name": "Zylker Corp"
+        },
+        "Owner": {
+          "id": "7618134000000627001",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "Created_By": {
+          "id": "7618134000000627001",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "Modified_By": {
+          "id": "7618134000000627001",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "Mailing_Street": "8 W Cerritos Ave #54",
+        "Mailing_City": "Bridgeport",
+        "Mailing_State": "New Jersey",
+        "Mailing_Zip": null,
+        "Mailing_Country": null,
+        "Email_Opt_Out": false,
+        "Created_Time": "2026-10-07T03:21:34+03:00",
+        "Modified_Time": "2026-10-07T03:21:34+03:00",
+        "Tag": []
+      }
+    ],
+    "count": 1,
+    "page": 1,
+    "per_page": 200,
+    "more_records": false
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/Contacts/search": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Email": "support@bigin.com",
+              "$currency_symbol": "$",
+              "$field_states": null,
+              "Other_Phone": null,
+              "Mailing_State": "New Jersey",
+              "Other_State": null,
+              "$sharing_permission": "full_access",
+              "Record_Creation_Source_ID__s": "0",
+              "Other_Country": null,
+              "Last_Activity_Time": "2026-10-09T22:08:19+03:00",
+              "Department": null,
+              "$state": "save",
+              "Unsubscribed_Mode": null,
+              "$process_flow": false,
+              "Assistant": null,
+              "Mailing_Country": null,
+              "$locked_for_me": false,
+              "id": "7618134000000632028",
+              "Reporting_To": null,
+              "$approval": {
+                "delegate": false,
+                "takeover": false,
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Other_City": null,
+              "Created_Time": "2026-10-07T03:21:34+03:00",
+              "$editable": true,
+              "Home_Phone": null,
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "$zia_owner_assignment": "owner_recommendation_unavailable",
+              "Secondary_Email": null,
+              "$is_duplicate": false,
+              "Description": "This is a sample Contact.\n ✷ Quickly get started by creating a note ✍️or an activity ⏰ for this Contact.\n ✷ For any help write to us at support@bigin.com",
+              "Mailing_Zip": null,
+              "$review_process": {
+                "approve": false,
+                "reject": false,
+                "resubmit": false
+              },
+              "Other_Zip": null,
+              "Twitter": null,
+              "Mailing_Street": "8 W Cerritos Ave #54",
+              "$layout_id": {
+                "display_label": "Standard",
+                "name": "Standard",
+                "id": "7618134000000091033"
+              },
+              "Salutation": null,
+              "First_Name": "Ted",
+              "Asst_Phone": null,
+              "Full_Name": "Ted Watson",
+              "Record_Image": null,
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "$review": null,
+              "Skype_ID": null,
+              "Phone": null,
+              "Account_Name": {
+                "name": "Zylker Corp",
+                "id": "7618134000000632027"
+              },
+              "Email_Opt_Out": false,
+              "$zia_visions": null,
+              "Modified_Time": "2026-10-07T03:21:34+03:00",
+              "Date_of_Birth": null,
+              "Mailing_City": "Bridgeport",
+              "Unsubscribed_Time": null,
+              "Title": null,
+              "Other_Street": null,
+              "Mobile": "609-884-0686",
+              "$orchestration": null,
+              "Last_Name": "Watson",
+              "$in_merge": false,
+              "Locked__s": false,
+              "Lead_Source": null,
+              "Tag": [],
+              "Fax": null,
+              "$approval_state": "approved",
+              "$pathfinder": null
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "count": 1,
+            "sort_by": "id",
+            "page": 1,
+            "sort_order": "desc",
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:08:43 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1842",
+          "x-ratelimit-reset": "1791572932",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=5ea307a71788bc67f1e452f7c999c3ed; Path=/; Secure; HttpOnly, crmcsr=738ef245-ba17-4d0c-9d79-ccae8612af84;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =813ab267765228c6aacc9d6045adaf1a92bd99b918227e711a059490548e8c79b09063d94c16a59bde75ff7985d6e4c1;Path=/; Expires=Sat Oct 10 12:08:43 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:08:43 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=97, totalTime;desc=\"Total Execution Time\";dur=349,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "96b884b46b262265d57df6b1a6f6cf5f086583ff",
+        "request": {
+          "params": {
+            "email": "support@bigin.com"
+          }
+        }
+      }
+    }
+  }
+}
