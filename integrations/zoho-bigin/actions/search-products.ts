@@ -21,7 +21,7 @@ const InputSchema = z
             .describe(
                 'Phone number to search across the module phone fields. Example: "555-1234". Requires the module to define a phone field; Products has none, so this filter fails with a 400.'
             ),
-        word: z.string().optional().describe('Word to search for across the module. Example: "Widget". Must be at least 2 characters long.'),
+        word: z.string().min(2).optional().describe('Word to search for across the module. Example: "Widget". Must be at least 2 characters long.'),
         page: z.number().int().optional().describe('Page number of results to return. Default: 1.'),
         per_page: z.number().int().optional().describe('Number of records per page. Default: 200, Max: 200.')
     })
@@ -78,7 +78,7 @@ const OutputSchema = z
     .describe('Products matching the search plus pagination metadata.');
 
 const ProviderResponseSchema = z.object({
-    data: z.array(z.unknown()).optional(),
+    data: z.array(ProductSchema).optional(),
     info: InfoSchema.optional()
 });
 
@@ -157,7 +157,7 @@ const action = createAction({
             });
         }
 
-        const products = (parsed.data.data ?? []).map((item: unknown) => ProductSchema.parse(item));
+        const products = parsed.data.data ?? [];
 
         return {
             products,

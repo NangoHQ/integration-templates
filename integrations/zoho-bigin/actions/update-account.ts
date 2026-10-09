@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('Unique ID of the account to update. Example: "7618134000000632027".'),
+        record_id: z.string().min(1).describe('Unique ID of the account to update. Example: "7618134000000632027".'),
         Account_Name: z.string().optional().describe('New company name for the account.'),
         Phone: z.string().nullable().optional().describe('New phone number. Set to null to clear the current value.'),
         Website: z.string().nullable().optional().describe('New website URL. Set to null to clear the current value.'),
@@ -27,11 +27,12 @@ const InputSchema = z
 const ProviderUpdateResponseSchema = z.object({
     data: z.array(
         z.object({
+            code: z.string().optional(),
             status: z.string().optional(),
             message: z.string().optional(),
             details: z
                 .object({
-                    id: z.string(),
+                    id: z.string().optional(),
                     Modified_Time: z.string().optional()
                 })
                 .passthrough()
@@ -82,22 +83,24 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderUpdateResponseSchema.parse(response.data);
-        const record = parsed.data[0];
+        const parsed = ProviderUpdateResponseSchema.safeParse(response.data);
+        const record = parsed.success ? parsed.data.data[0] : undefined;
 
-        if (!record || !record.details) {
+        // Error results (e.g. DUPLICATE_DATA) can still carry an id in details, so success is decided by the status.
+        if (!record || record.status !== 'success' || record.code !== 'SUCCESS') {
             throw new nango.ActionError({
                 type: 'update_failed',
-                message: 'The provider did not confirm the account update.',
-                record_id: input.record_id
+                message: record?.message ?? 'The provider did not confirm the account update.',
+                record_id: input.record_id,
+                ...(record?.code !== undefined && { code: record.code })
             });
         }
 
         return {
-            id: record.details.id,
+            id: record.details?.id ?? input.record_id,
             status: record.status ?? 'success',
             message: record.message ?? 'record updated',
-            ...(record.details.Modified_Time !== undefined && { Modified_Time: record.details.Modified_Time })
+            ...(record.details?.Modified_Time !== undefined && { Modified_Time: record.details.Modified_Time })
         };
     }
 });

@@ -134,12 +134,18 @@ const AccountEnvelopeSchema = z.object({
 });
 
 const ProductEnvelopeSchema = z.object({
-    data: z.array(ProductSchema)
+    data: z.array(ProductSchema),
+    info: z
+        .object({
+            more_records: z.boolean().nullish(),
+            next_page_token: z.string().nullish()
+        })
+        .nullish()
 });
 
 const InputSchema = z
     .object({
-        contact_id: z.string().describe('Bigin contact ID to build the consolidated view for. Example: "7618134000000632028".')
+        contact_id: z.string().min(1).describe('Bigin contact ID to build the consolidated view for. Example: "7618134000000632028".')
     })
     .describe('Input for building a consolidated view of a single Bigin contact.');
 
@@ -210,21 +216,42 @@ const action = createAction({
             }
         }
 
-        // https://www.bigin.com/developer/docs/apis/v2/get-related-records.html
-        const productsResponse = await nango.get({
-            endpoint: `/bigin/v2/Contacts/${encodeURIComponent(input.contact_id)}/Products`,
-            params: {
-                fields: PRODUCT_FIELDS.join(',')
-            },
-            retries: 3
-        });
+        // Walk every related-records page so `products` holds every linked product.
+        const products: z.infer<typeof ProductSchema>[] = [];
+        let pageToken: string | undefined;
 
-        let products: z.infer<typeof ProductSchema>[] = [];
+        do {
+            // https://www.bigin.com/developer/docs/apis/v2/get-related-records.html
+            const productsResponse = await nango.get({
+                endpoint: `/bigin/v2/Contacts/${encodeURIComponent(input.contact_id)}/Products`,
+                params: {
+                    fields: PRODUCT_FIELDS.join(','),
+                    // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                    ...(pageToken !== undefined ? { page_token: pageToken } : { per_page: 200 })
+                },
+                retries: 3
+            });
+            pageToken = undefined;
 
-        if (productsResponse.status !== 204) {
+            if (productsResponse.status === 204) {
+                break;
+            }
+
             const productsEnvelope = ProductEnvelopeSchema.parse(productsResponse.data);
-            products = productsEnvelope.data;
-        }
+            products.push(...productsEnvelope.data);
+
+            if (productsEnvelope.info?.more_records === true) {
+                const nextPageToken = productsEnvelope.info.next_page_token;
+                if (!nextPageToken) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: 'Bigin reported more linked products without a next_page_token.',
+                        contact_id: input.contact_id
+                    });
+                }
+                pageToken = nextPageToken;
+            }
+        } while (pageToken !== undefined);
 
         return {
             found: true,

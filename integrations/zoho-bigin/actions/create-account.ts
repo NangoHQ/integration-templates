@@ -31,7 +31,7 @@ const ProviderCreateResultSchema = z.object({
     status: z.string(),
     details: z
         .object({
-            id: z.string()
+            id: z.string().optional()
         })
         .optional()
 });
@@ -93,7 +93,8 @@ const action = createAction({
         if (!result || result.status !== 'success' || !result.details?.id) {
             throw new nango.ActionError({
                 type: 'create_failed',
-                message: result?.message ?? 'Bigin did not return the created account ID.'
+                message: result?.message ?? 'Bigin did not return the created account ID.',
+                ...(result?.code !== undefined && { code: result.code })
             });
         }
 

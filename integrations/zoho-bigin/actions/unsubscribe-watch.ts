@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        channel_ids: z.array(z.string().min(1)).min(1).describe('One or more active notification channel IDs to unsubscribe from. Example: ["9876543210123"].')
+        channel_ids: z
+            .array(z.string().regex(/^[0-9]+$/))
+            .min(1)
+            .describe('One or more active notification channel IDs to unsubscribe from. Example: ["9876543210123"].')
     })
     .describe('Channel IDs of the active webhook subscriptions to remove.');
 
@@ -59,7 +62,10 @@ const action = createAction({
             params: {
                 channel_ids: input.channel_ids.join(',')
             },
-            retries: 3
+            // A repeat unsubscribe reports NOT_SUBSCRIBED for a channel the first call already removed, so a retry
+            // after a lost response would misreport a completed unsubscribe as an error.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

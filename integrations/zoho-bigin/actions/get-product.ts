@@ -3,38 +3,38 @@ import { createAction } from 'nango';
 
 const ProductOwnerSchema = z.object({
     id: z.string().describe('Unique ID of the Bigin user. Example: "7618134000000627001"'),
-    name: z.string().describe('Display name of the Bigin user. Example: "Jane Doe"'),
-    email: z.string().describe('Email address of the Bigin user. Example: "jane@example.com"')
+    name: z.string().nullish().describe('Display name of the Bigin user. Example: "Jane Doe"'),
+    email: z.string().nullish().describe('Email address of the Bigin user. Example: "jane@example.com"')
 });
 
 const ProductTagSchema = z.object({
     id: z.string().describe('Unique ID of the tag. Example: "7618134000000647014"'),
     name: z.string().describe('Display name of the tag. Example: "Priority"'),
-    color_code: z.string().nullable().describe('Hex color code assigned to the tag, or null when the tag has no color.')
+    color_code: z.string().nullish().describe('Hex color code assigned to the tag, or null when the tag has no color.')
 });
 
 const ProductSchema = z
     .object({
         id: z.string().describe('Unique ID of the product. Example: "7618134000000647002"'),
         Product_Name: z.string().describe('Name of the product. Example: "Wireless Headphones"'),
-        Product_Code: z.string().nullable().describe('Internal code or SKU for the product, or null when unset.'),
-        Product_Active: z.boolean().nullable().describe('Whether the product is active and available for use, or null when unset.'),
-        Product_Category: z.string().nullable().describe('Category assigned to the product, or null when uncategorized.'),
-        Unit_Price: z.number().nullable().describe('Unit price of the product, or null when no price is set.'),
-        Description: z.string().nullable().describe('Free-text description of the product, or null when empty.'),
-        Record_Image: z.string().nullable().describe('URL or reference of the product image, or null when none is set.'),
-        Owner: ProductOwnerSchema.nullable().describe('Bigin user who owns the product record, or null when unassigned.'),
-        Created_By: ProductOwnerSchema.nullable().describe('Bigin user who created the product record, or null when unavailable.'),
-        Modified_By: ProductOwnerSchema.nullable().describe('Bigin user who last modified the product record, or null when unavailable.'),
-        Created_Time: z.string().describe('ISO 8601 timestamp when the product was created. Example: "2026-10-09T22:06:52+03:00"'),
-        Modified_Time: z.string().describe('ISO 8601 timestamp when the product was last modified. Example: "2026-10-09T22:07:26+03:00"'),
-        Tag: z.array(ProductTagSchema).nullable().describe('Tags associated with the product, or null when the field is unavailable.')
+        Product_Code: z.string().nullish().describe('Internal code or SKU for the product, or null when unset.'),
+        Product_Active: z.boolean().nullish().describe('Whether the product is active and available for use, or null when unset.'),
+        Product_Category: z.string().nullish().describe('Category assigned to the product, or null when uncategorized.'),
+        Unit_Price: z.number().nullish().describe('Unit price of the product, or null when no price is set.'),
+        Description: z.string().nullish().describe('Free-text description of the product, or null when empty.'),
+        Record_Image: z.string().nullish().describe('URL or reference of the product image, or null when none is set.'),
+        Owner: ProductOwnerSchema.nullish().describe('Bigin user who owns the product record, or null when unassigned.'),
+        Created_By: ProductOwnerSchema.nullish().describe('Bigin user who created the product record, or null when unavailable.'),
+        Modified_By: ProductOwnerSchema.nullish().describe('Bigin user who last modified the product record, or null when unavailable.'),
+        Created_Time: z.string().nullish().describe('ISO 8601 timestamp when the product was created. Example: "2026-10-09T22:06:52+03:00"'),
+        Modified_Time: z.string().nullish().describe('ISO 8601 timestamp when the product was last modified. Example: "2026-10-09T22:07:26+03:00"'),
+        Tag: z.array(ProductTagSchema).nullish().describe('Tags associated with the product, or null when the field is unavailable.')
     })
     .describe('A Bigin product record with its core fields.');
 
 const InputSchema = z
     .object({
-        product_id: z.string().describe('Unique numeric ID of the product to retrieve. Example: "7618134000000647002"')
+        product_id: z.string().min(1).describe('Unique numeric ID of the product to retrieve. Example: "7618134000000647002"')
     })
     .describe('Identifies the Bigin product to retrieve.');
 

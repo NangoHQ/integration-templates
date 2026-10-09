@@ -48,7 +48,7 @@ const UserRefSchema = z
 
 const TagSchema = z
     .object({
-        name: z.string().describe('Name of the tag. Example: nango-test'),
+        name: z.string().nullable().optional().describe('Name of the tag. Example: nango-test'),
         id: z.string().describe('Unique id of the tag. Example: 7618134000000646028'),
         color_code: z.string().nullable().optional().describe('Optional UI color code assigned to the tag.')
     })
@@ -60,9 +60,9 @@ const ProductSchema = z
         Product_Name: z.string().describe('Name of the product. Example: Nango Test Product'),
         Product_Code: z.string().nullable().optional().describe('SKU or product code. Example: NTP-001'),
         Product_Category: z.string().nullable().optional().describe('Category the product belongs to. Example: Software'),
-        Product_Active: z.boolean().optional().describe('Whether the product is active.'),
+        Product_Active: z.boolean().nullable().optional().describe('Whether the product is active.'),
         Unit_Price: z.number().nullable().optional().describe('Selling price per unit. Example: 42.5'),
-        Taxable: z.boolean().optional().describe('Whether the product is taxable.'),
+        Taxable: z.boolean().nullable().optional().describe('Whether the product is taxable.'),
         Description: z.string().nullable().optional().describe('Free-form description of the product.'),
         Manufacturer: z.string().nullable().optional().describe('Manufacturer of the product.'),
         Usage_Unit: z.string().nullable().optional().describe('Unit used to measure product usage.'),
@@ -80,7 +80,7 @@ const ProductSchema = z
         Owner: UserRefSchema.nullable().optional().describe('Bigin user who owns the product.'),
         Created_By: UserRefSchema.nullable().optional().describe('Bigin user who created the product.'),
         Modified_By: UserRefSchema.nullable().optional().describe('Bigin user who last modified the product.'),
-        Tag: z.array(TagSchema).optional().describe('Tags attached to the product.'),
+        Tag: z.array(TagSchema).nullable().optional().describe('Tags attached to the product.'),
         Created_Time: z.string().optional().describe('Timestamp when the product was created. Example: 2026-10-09T22:07:44+03:00'),
         Modified_Time: z.string().optional().describe('Timestamp when the product was last modified. Example: 2026-10-09T22:09:24+03:00'),
         Record_Image: z.string().nullable().optional().describe('Reference to the product image, if any.')
@@ -105,7 +105,7 @@ const ProductInfoSchema = z.object({
 });
 
 const ProductResponseSchema = z.object({
-    data: z.array(z.unknown()).nullable().optional(),
+    data: z.array(z.unknown()),
     info: ProductInfoSchema.nullable().optional()
 });
 
@@ -134,14 +134,16 @@ function parseProductsResponse(response: { status: number; data: unknown }): {
     nextPageToken: string | undefined;
     pageTokenExpiry: string | undefined;
 } {
-    if (response.status === 204 || response.data === '' || response.data === null || response.data === undefined) {
+    // Bigin signals "no records" only with HTTP 204. Any other response must carry a `data` array;
+    // treating a malformed 200 as empty would let trackDeletesEnd mark every stored product deleted.
+    if (response.status === 204) {
         return { products: [], moreRecords: false, nextPageToken: undefined, pageTokenExpiry: undefined };
     }
 
     const parsed = ProductResponseSchema.parse(response.data);
 
     return {
-        products: (parsed.data ?? []).map((product) => ProductSchema.parse(product)),
+        products: parsed.data.map((product) => ProductSchema.parse(product)),
         moreRecords: parsed.info?.more_records ?? false,
         nextPageToken: parsed.info?.next_page_token ?? undefined,
         pageTokenExpiry: parsed.info?.page_token_expiry ?? undefined
@@ -189,6 +191,7 @@ async function syncIncrementalProducts(
             endpoint: PRODUCTS_SEARCH_ENDPOINT,
             params: {
                 criteria,
+                approved: 'both',
                 page,
                 per_page: PAGE_SIZE
             },
@@ -269,8 +272,9 @@ const sync = createSync({
                     endpoint: PRODUCTS_ENDPOINT,
                     params: {
                         fields: PRODUCT_FIELDS,
-                        per_page: PAGE_SIZE,
-                        ...(pageToken ? { page_token: pageToken } : {})
+                        approved: 'both',
+                        // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                        ...(pageToken ? { page_token: pageToken } : { per_page: PAGE_SIZE })
                     },
                     retries: 3
                 });

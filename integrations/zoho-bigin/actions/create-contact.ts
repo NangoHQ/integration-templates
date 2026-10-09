@@ -33,7 +33,7 @@ const ProviderCreateResponseSchema = z.object({
                 status: z.string().optional(),
                 details: z
                     .object({
-                        id: z.string(),
+                        id: z.string().optional(),
                         Created_Time: z.string().nullable().optional(),
                         Modified_Time: z.string().nullable().optional()
                     })

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        account_id: z.string().describe('Bigin Account (Company) record ID to delete. Example: "7618134000000632027"'),
+        account_id: z.string().min(1).describe('Bigin Account (Company) record ID to delete. Example: "7618134000000632027"'),
         confirm: z
             .boolean()
             .optional()
@@ -36,16 +36,20 @@ const OutputSchema = z
     .describe('Result of the delete attempt, indicating whether the account was deleted or the delete was blocked by linked contacts.');
 
 const RelatedListResponseSchema = z.object({
-    data: z
-        .array(
-            z.object({
-                id: z.string(),
-                First_Name: z.string().nullish(),
-                Last_Name: z.string().nullish(),
-                Email: z.string().nullish()
-            })
-        )
-        .optional()
+    data: z.array(
+        z.object({
+            id: z.string(),
+            First_Name: z.string().nullish(),
+            Last_Name: z.string().nullish(),
+            Email: z.string().nullish()
+        })
+    ),
+    info: z
+        .object({
+            more_records: z.boolean().nullish(),
+            next_page_token: z.string().nullish()
+        })
+        .nullish()
 });
 
 /**
@@ -63,25 +67,58 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const accountId = encodeURIComponent(input.account_id);
 
-        // https://www.bigin.com/developer/docs/apis/v2/get-related-records.html
-        const related = await nango.get({
-            endpoint: `/bigin/v2/Accounts/${accountId}/Contacts`,
-            params: {
-                fields: 'id,First_Name,Last_Name,Email'
-            },
-            retries: 3
-        });
+        // Walk every page so the block decision and the cascade report cover all linked contacts.
+        const linkedContacts: z.infer<typeof LinkedContactSchema>[] = [];
+        let pageToken: string | undefined;
+        do {
+            // https://www.bigin.com/developer/docs/apis/v2/get-related-records.html
+            const related = await nango.get({
+                endpoint: `/bigin/v2/Accounts/${accountId}/Contacts`,
+                params: {
+                    fields: 'id,First_Name,Last_Name,Email',
+                    // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                    ...(pageToken !== undefined ? { page_token: pageToken } : { per_page: 200 })
+                },
+                retries: 3
+            });
+            pageToken = undefined;
 
-        let linkedContacts: z.infer<typeof LinkedContactSchema>[] = [];
-        if (related.status !== 204 && related.data) {
-            const parsed = RelatedListResponseSchema.parse(related.data);
-            linkedContacts = (parsed.data ?? []).map((contact) => ({
-                id: contact.id,
-                ...(contact.First_Name != null && { First_Name: contact.First_Name }),
-                ...(contact.Last_Name != null && { Last_Name: contact.Last_Name }),
-                ...(contact.Email != null && { Email: contact.Email })
-            }));
-        }
+            // Only a 204 means "no linked contacts". Any other response must carry a contact list, so a
+            // malformed body fails closed instead of letting the destructive delete through unchecked.
+            if (related.status === 204) {
+                break;
+            }
+
+            const parsed = RelatedListResponseSchema.safeParse(related.data);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Could not verify the contacts linked to the account, so the account was not deleted.',
+                    account_id: input.account_id
+                });
+            }
+
+            for (const contact of parsed.data.data) {
+                linkedContacts.push({
+                    id: contact.id,
+                    ...(contact.First_Name != null && { First_Name: contact.First_Name }),
+                    ...(contact.Last_Name != null && { Last_Name: contact.Last_Name }),
+                    ...(contact.Email != null && { Email: contact.Email })
+                });
+            }
+
+            if (parsed.data.info?.more_records === true) {
+                const nextPageToken = parsed.data.info.next_page_token;
+                if (!nextPageToken) {
+                    throw new nango.ActionError({
+                        type: 'invalid_response',
+                        message: 'Bigin reported more linked contacts without a next_page_token, so the account was not deleted.',
+                        account_id: input.account_id
+                    });
+                }
+                pageToken = nextPageToken;
+            }
+        } while (pageToken !== undefined);
 
         if (linkedContacts.length > 0 && input.confirm !== true) {
             return {

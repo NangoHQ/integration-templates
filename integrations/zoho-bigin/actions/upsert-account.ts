@@ -6,16 +6,16 @@ const AccountFieldsSchema = z
         Account_Name: z
             .string()
             .describe('Name of the account (company). Required by Bigin and used as the default duplicate-check field. Example: "Acme Inc."'),
-        Phone: z.string().optional().describe('Primary phone number of the account.'),
-        Website: z.string().optional().describe('Website URL of the account. Example: "https://acme.com"'),
-        Email: z.string().optional().describe('Email address associated with the account.'),
-        Industry: z.string().optional().describe('Industry the account belongs to. Example: "Technology"'),
-        Description: z.string().optional().describe('Free-text description of the account.'),
-        Billing_Street: z.string().optional().describe('Billing street address.'),
-        Billing_City: z.string().optional().describe('Billing city.'),
-        Billing_State: z.string().optional().describe('Billing state or province.'),
-        Billing_Code: z.string().optional().describe('Billing postal or ZIP code.'),
-        Billing_Country: z.string().optional().describe('Billing country.')
+        Phone: z.string().nullable().optional().describe('Primary phone number of the account. Set to null to clear it.'),
+        Website: z.string().nullable().optional().describe('Website URL of the account. Set to null to clear it. Example: "https://acme.com"'),
+        Email: z.string().nullable().optional().describe('Email address associated with the account. Set to null to clear it.'),
+        Industry: z.string().nullable().optional().describe('Industry the account belongs to. Set to null to clear it. Example: "Technology"'),
+        Description: z.string().nullable().optional().describe('Free-text description of the account. Set to null to clear it.'),
+        Billing_Street: z.string().nullable().optional().describe('Billing street address. Set to null to clear it.'),
+        Billing_City: z.string().nullable().optional().describe('Billing city. Set to null to clear it.'),
+        Billing_State: z.string().nullable().optional().describe('Billing state or province. Set to null to clear it.'),
+        Billing_Code: z.string().nullable().optional().describe('Billing postal or ZIP code. Set to null to clear it.'),
+        Billing_Country: z.string().nullable().optional().describe('Billing country. Set to null to clear it.')
     })
     .passthrough();
 
@@ -26,13 +26,16 @@ const InputSchema = z
         ),
         duplicate_check_fields: z
             .array(z.string())
+            .min(1)
             .optional()
-            .describe('Field API names used to find an existing account before inserting. Defaults to ["Account_Name"]. Example: ["Account_Name"]')
+            .describe(
+                'Field API names used to find an existing account before inserting. Each listed field must be present in account with a non-null value. Defaults to ["Account_Name"]. Example: ["Account_Name"]'
+            )
     })
     .describe('Account fields to upsert plus the duplicate-check fields used to detect an existing account.');
 
 const ProviderDetailsSchema = z.object({
-    id: z.string(),
+    id: z.string().optional(),
     Created_Time: z.string().optional(),
     Modified_Time: z.string().optional()
 });
@@ -64,7 +67,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates or updates an account through the provider's atomic upsert endpoint.
- * @pitfalls: duplicate_check_fields must reference fields configured as unique in the org; a non-unique field can create duplicate accounts instead of updating, and when duplicate_check_fields is omitted the provider checks Account_Name first, then any user-defined unique fields.
+ * @pitfalls: duplicate_check_fields must reference fields configured as unique in the org and present in account; a non-unique field can create duplicate accounts instead of updating, and when duplicate_check_fields is omitted the provider checks Account_Name first, then any user-defined unique fields.
  */
 const action = createAction({
     description: 'Create an account, or update it if a record already matches on a chosen duplicate-check field (e.g. Account_Name) - atomic find-or-create.',
@@ -75,6 +78,15 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const duplicateCheckFields = input.duplicate_check_fields ?? ['Account_Name'];
+        const accountFields: Record<string, unknown> = input.account;
+        const missingFields = duplicateCheckFields.filter((field) => accountFields[field] == null || accountFields[field] === '');
+        if (missingFields.length > 0) {
+            // Without a value for every match field Bigin cannot find the existing account and always inserts a new one.
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `account must include a value for each duplicate-check field: ${missingFields.join(', ')}.`
+            });
+        }
 
         const response = await nango.post({
             // https://www.bigin.com/developer/docs/apis/v2/upsert-records.html
@@ -83,13 +95,15 @@ const action = createAction({
                 data: [input.account],
                 duplicate_check_fields: duplicateCheckFields
             },
-            retries: 3
+            // A retry after a lost response would report the first call's insert as an "update" and fire workflows twice.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
         const result = parsed.data[0];
 
-        if (!result || result.status !== 'success' || (result.action !== 'insert' && result.action !== 'update') || !result.details) {
+        if (!result || result.status !== 'success' || (result.action !== 'insert' && result.action !== 'update') || !result.details?.id) {
             throw new nango.ActionError({
                 type: 'upsert_failed',
                 message: result?.message ?? 'Account upsert failed',

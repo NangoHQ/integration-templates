@@ -86,7 +86,7 @@ const ZohoInfoSchema = z.object({
 });
 
 const ZohoAccountsResponseSchema = z.object({
-    data: z.array(ZohoAccountSchema).nullable().optional(),
+    data: z.array(ZohoAccountSchema),
     info: ZohoInfoSchema.nullable().optional()
 });
 
@@ -153,7 +153,9 @@ function parseAccounts(response: { status: number; data: unknown }): {
         throw new Error(`Failed to parse Bigin accounts response: ${parsed.error.message}`);
     }
 
-    const records = parsed.data.data ?? [];
+    // A non-204 response must carry a `data` array (enforced by the schema); treating a malformed
+    // 200 as empty would let trackDeletesEnd mark every stored account deleted.
+    const records = parsed.data.data;
     return {
         accounts: records.map(mapAccount),
         moreRecords: parsed.data.info?.more_records ?? false,
@@ -209,6 +211,7 @@ async function syncIncrementalAccounts(nango: NangoSyncLocal, since: string): Pr
             endpoint: ACCOUNTS_SEARCH_ENDPOINT,
             params: {
                 criteria: `(Modified_Time:greater_than:${since})`,
+                approved: 'both',
                 page,
                 per_page: PAGE_SIZE
             },
@@ -300,8 +303,9 @@ const sync = createSync({
                     endpoint: ACCOUNTS_ENDPOINT,
                     params: {
                         fields: ACCOUNT_FIELDS,
-                        per_page: PAGE_SIZE,
-                        ...(pageToken ? { page_token: pageToken } : { page })
+                        approved: 'both',
+                        // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                        ...(pageToken ? { page_token: pageToken } : { page, per_page: PAGE_SIZE })
                     },
                     retries: 3
                 });

@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('ID of the contact to delete. Example: "7618134000000632028"')
+        record_id: z.string().min(1).describe('ID of the contact to delete. Example: "7618134000000632028"')
     })
     .describe('Input for permanently deleting a single Bigin contact by ID.');
 
@@ -44,10 +44,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.bigin.com/developer/docs/apis/v2/delete-records.html
-        // DELETE is naturally idempotent: retrying after a lost response cannot remove additional records.
         const response = await nango.delete({
             endpoint: `/bigin/v2/Contacts/${encodeURIComponent(input.record_id)}`,
-            retries: 3
+            // A repeat delete of an already-deleted contact returns a 400 error, so a retry after a lost response
+            // would report a completed deletion as failed.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderDeleteResponseSchema.parse(response.data);
@@ -57,7 +59,8 @@ const action = createAction({
             throw new nango.ActionError({
                 type: 'delete_failed',
                 message: result?.message ?? 'Bigin did not confirm the contact deletion.',
-                record_id: input.record_id
+                record_id: input.record_id,
+                ...(result?.code !== undefined && { code: result.code })
             });
         }
 

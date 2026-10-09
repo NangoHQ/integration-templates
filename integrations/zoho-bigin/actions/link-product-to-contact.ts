@@ -3,16 +3,18 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        contact_id: z.string().describe('ID of the contact to link the product to. Example: "7618134000000632028"'),
-        product_id: z.string().describe('ID of the product to link to the contact. Example: "7618134000000647020"')
+        contact_id: z.string().min(1).describe('ID of the contact to link the product to. Example: "7618134000000632028"'),
+        product_id: z.string().min(1).describe('ID of the product to link to the contact. Example: "7618134000000647020"')
     })
     .describe('Identifiers of the existing contact and product to associate.');
 
 const ProviderLinkResultSchema = z.object({
     code: z.string(),
-    details: z.object({
-        id: z.string()
-    }),
+    details: z
+        .object({
+            id: z.string().optional()
+        })
+        .optional(),
     message: z.string(),
     status: z.string()
 });
@@ -23,7 +25,7 @@ const ProviderResponseSchema = z.object({
 
 const OutputSchema = z
     .object({
-        product_id: z.string().describe('ID of the product that was linked to the contact.'),
+        product_id: z.string().min(1).describe('ID of the product that was linked to the contact.'),
         code: z.string().describe('Provider result code for the link operation. Example: "SUCCESS"'),
         message: z.string().describe('Provider message describing the outcome. Example: "relation added"'),
         status: z.string().describe('Provider status for the link operation. Example: "success"')
@@ -55,17 +57,18 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
         const [result] = parsed.data;
 
-        if (!result) {
+        if (!result || result.status !== 'success' || result.code !== 'SUCCESS') {
             throw new nango.ActionError({
                 type: 'link_failed',
-                message: 'The provider did not confirm the product-contact association.',
+                message: result?.message ?? 'The provider did not confirm the product-contact association.',
                 contact_id: input.contact_id,
-                product_id: input.product_id
+                product_id: input.product_id,
+                ...(result?.code !== undefined && { code: result.code })
             });
         }
 
         return {
-            product_id: result.details.id,
+            product_id: result.details?.id ?? input.product_id,
             code: result.code,
             message: result.message,
             status: result.status

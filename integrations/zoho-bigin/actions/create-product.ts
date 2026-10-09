@@ -16,12 +16,14 @@ const CreateProductResponseSchema = z.object({
     data: z
         .array(
             z.object({
-                code: z.string(),
-                details: z.object({
-                    id: z.string()
-                }),
-                message: z.string(),
-                status: z.string()
+                code: z.string().optional(),
+                details: z
+                    .object({
+                        id: z.string().optional()
+                    })
+                    .optional(),
+                message: z.string().optional(),
+                status: z.string().optional()
             })
         )
         .min(1)
@@ -92,14 +94,15 @@ const action = createAction({
 
         const created = CreateProductResponseSchema.parse(createResponse.data).data[0];
 
-        if (!created || created.status !== 'success') {
+        const productId = created?.status === 'success' ? created.details?.id : undefined;
+
+        if (productId === undefined) {
             throw new nango.ActionError({
                 type: 'create_failed',
-                message: created?.message ?? 'Bigin did not return a successful product creation response.'
+                message: created?.message ?? 'Bigin did not return a successful product creation response.',
+                ...(created?.code !== undefined && { code: created.code })
             });
         }
-
-        const productId = created.details.id;
 
         const productResponse = await nango.get({
             // https://www.bigin.com/developer/docs/apis/v2/get-records.html

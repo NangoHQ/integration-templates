@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        email: z.string().describe('Email address of the contact. Used as the duplicate-check field for the atomic upsert. Example: "jane.doe@example.com"'),
+        email: z.string().min(1).describe('Email address of the contact. Used as the duplicate-check field for the atomic upsert. Example: "jane.doe@example.com"'),
         accountName: z.string().optional().describe('Name of the company (Bigin Accounts module) to find or create and link to the contact.'),
         productNames: z
             .array(z.string().describe('Name of a product to find or create and link to the contact.'))
@@ -28,19 +28,33 @@ const CreateRecordResponseSchema = z.object({
             z.object({
                 code: z.string(),
                 message: z.string().optional(),
-                details: z.object({ id: z.string() }).optional()
+                details: z.object({ id: z.string().optional() }).optional()
             })
         )
         .optional()
 });
 
+// Per-record error results carry no `action` and a `details` object without an `id`.
 const UpsertContactResponseSchema = z.object({
     data: z
         .array(
             z.object({
                 code: z.string(),
-                action: z.enum(['insert', 'update']),
-                details: z.object({ id: z.string() }).optional()
+                message: z.string().optional(),
+                action: z.string().optional(),
+                details: z.object({ id: z.string().optional() }).optional()
+            })
+        )
+        .optional()
+});
+
+const LinkResponseSchema = z.object({
+    data: z
+        .array(
+            z.object({
+                code: z.string().optional(),
+                status: z.string().optional(),
+                message: z.string().optional()
             })
         )
         .optional()
@@ -107,15 +121,16 @@ const action = createAction({
                     retries: 0
                 });
 
-                const parsed = CreateRecordResponseSchema.parse(accountCreate.data);
-                const created = parsed.data?.[0];
+                const parsed = CreateRecordResponseSchema.safeParse(accountCreate.data);
+                const created = parsed.success ? parsed.data.data?.[0] : undefined;
                 const createdId = created?.code === 'SUCCESS' ? created.details?.id : undefined;
 
                 if (createdId === undefined) {
                     throw new nango.ActionError({
                         type: 'account_create_failed',
-                        message: `Failed to create company "${input.accountName}".`,
-                        status: accountCreate.status
+                        message: created?.message ?? `Failed to create company "${input.accountName}".`,
+                        status: accountCreate.status,
+                        ...(created?.code !== undefined && { code: created.code })
                     });
                 }
 
@@ -151,26 +166,32 @@ const action = createAction({
         const contactUpsert = await nango.post<unknown>({
             endpoint: '/bigin/v2/Contacts/upsert',
             data: { data: [contactPayload], duplicate_check_fields: ['Email'] },
-            // Upsert is idempotent because duplicate_check_fields: ['Email'] makes a retry update the same record.
-            retries: 3
+            // A retry after a lost response would report the first call's insert as an "update" (contactAction).
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
-        const upsertParsed = UpsertContactResponseSchema.parse(contactUpsert.data);
-        const upserted = upsertParsed.data?.[0];
+        const upsertParsed = UpsertContactResponseSchema.safeParse(contactUpsert.data);
+        const upserted = upsertParsed.success ? upsertParsed.data.data?.[0] : undefined;
         const contactId = upserted?.code === 'SUCCESS' ? upserted.details?.id : undefined;
+        const contactAction = upserted?.action;
 
-        if (contactId === undefined || upserted === undefined) {
+        if (contactId === undefined || (contactAction !== 'insert' && contactAction !== 'update')) {
             throw new nango.ActionError({
                 type: 'contact_upsert_failed',
-                message: `Failed to upsert contact "${input.email}".`,
-                status: contactUpsert.status
+                message: upserted?.message ?? `Failed to upsert contact "${input.email}".`,
+                status: contactUpsert.status,
+                ...(upserted?.code !== undefined && { code: upserted.code })
             });
         }
 
         const products: z.infer<typeof LinkedProductSchema>[] = [];
 
         if (input.productNames !== undefined) {
-            for (const productName of input.productNames) {
+            // Resolve each distinct name once: the search index lags writes, so a repeated name would not see
+            // the product created for its first occurrence and would create a duplicate.
+            const uniqueProductNames = [...new Set(input.productNames)];
+            for (const productName of uniqueProductNames) {
                 let productId: string | undefined;
                 let productCreated = false;
 
@@ -199,15 +220,16 @@ const action = createAction({
                         retries: 0
                     });
 
-                    const parsed = CreateRecordResponseSchema.parse(productCreate.data);
-                    const created = parsed.data?.[0];
+                    const parsed = CreateRecordResponseSchema.safeParse(productCreate.data);
+                    const created = parsed.success ? parsed.data.data?.[0] : undefined;
                     const createdId = created?.code === 'SUCCESS' ? created.details?.id : undefined;
 
                     if (createdId === undefined) {
                         throw new nango.ActionError({
                             type: 'product_create_failed',
-                            message: `Failed to create product "${productName}".`,
-                            status: productCreate.status
+                            message: created?.message ?? `Failed to create product "${productName}".`,
+                            status: productCreate.status,
+                            ...(created?.code !== undefined && { code: created.code })
                         });
                     }
 
@@ -216,12 +238,23 @@ const action = createAction({
                 }
 
                 // https://www.bigin.com/developer/docs/apis/v2/update-related-records.html
-                await nango.put<unknown>({
+                const linkResponse = await nango.put<unknown>({
                     endpoint: `/bigin/v2/Contacts/${encodeURIComponent(contactId)}/Products/${encodeURIComponent(productId)}`,
                     data: { data: [{}] },
                     // Linking is idempotent: re-linking an already-linked product succeeds without creating a duplicate relation.
                     retries: 3
                 });
+
+                const linkParsed = LinkResponseSchema.safeParse(linkResponse.data);
+                const linkResult = linkParsed.success ? linkParsed.data.data?.[0] : undefined;
+                if (linkResult?.status !== 'success' || linkResult.code !== 'SUCCESS') {
+                    throw new nango.ActionError({
+                        type: 'product_link_failed',
+                        message: linkResult?.message ?? `Failed to link product "${productName}" to the contact.`,
+                        status: linkResponse.status,
+                        ...(linkResult?.code !== undefined && { code: linkResult.code })
+                    });
+                }
 
                 products.push({ productId, productName, productCreated });
             }
@@ -229,7 +262,7 @@ const action = createAction({
 
         return {
             contactId,
-            contactAction: upserted.action,
+            contactAction,
             ...(accountId !== undefined && { accountId }),
             ...(accountCreated !== undefined && { accountCreated }),
             products

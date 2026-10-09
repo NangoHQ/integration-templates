@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('The unique Bigin record ID of the account to retrieve. Example: "7618134000000632027"')
+        record_id: z.string().min(1).describe('The unique Bigin record ID of the account to retrieve. Example: "7618134000000632027"')
     })
     .describe('Input for retrieving a single Bigin account (company) by its record ID.');
 

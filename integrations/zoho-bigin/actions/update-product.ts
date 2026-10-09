@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('Unique ID of the product to update. Example: "7618134000000647002".'),
+        record_id: z.string().min(1).describe('Unique ID of the product to update. Example: "7618134000000647002".'),
         Product_Name: z.string().optional().describe('New name of the product. Product names are mandatory and cannot be cleared.'),
         Product_Code: z.string().nullable().optional().describe('New product code. Set to null to clear the existing code.'),
         Unit_Price: z.number().nullable().optional().describe('New unit price. Set to null to clear the existing price.'),
@@ -51,7 +51,7 @@ const ProviderUpdateResponseSchema = z.object({
 
 const OutputSchema = z
     .object({
-        record_id: z.string().describe('Unique ID of the updated product.'),
+        record_id: z.string().min(1).describe('Unique ID of the updated product.'),
         code: z.string().optional().describe('Provider status code for the update, for example "SUCCESS".'),
         status: z.string().optional().describe('Provider status for the update, for example "success".'),
         message: z.string().optional().describe('Provider confirmation message, for example "record updated".'),

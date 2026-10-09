@@ -3,24 +3,28 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('Unique ID of the contact to update. Example: "7618134000000648015"'),
-        First_Name: z.string().optional().describe('First name of the contact.'),
-        Last_Name: z.string().optional().describe('Last name of the contact.'),
-        Email: z.string().optional().describe('Email address of the contact.'),
-        Title: z.string().optional().describe('Job title of the contact.'),
-        Phone: z.string().optional().describe('Primary phone number of the contact.'),
-        Home_Phone: z.string().optional().describe('Home phone number of the contact.'),
-        Mobile: z.string().optional().describe('Mobile phone number of the contact.'),
-        Mailing_Street: z.string().optional().describe('Street address of the contact.'),
-        Mailing_City: z.string().optional().describe('City of the contact address.'),
-        Mailing_State: z.string().optional().describe('State of the contact address.'),
-        Mailing_Zip: z.string().optional().describe('ZIP or postal code of the contact address.'),
-        Mailing_Country: z.string().optional().describe('Country of the contact address.'),
-        Description: z.string().optional().describe('Description or notes about the contact.'),
+        record_id: z.string().min(1).describe('Unique ID of the contact to update. Example: "7618134000000648015"'),
+        First_Name: z.string().nullable().optional().describe('First name of the contact. Set to null to clear it.'),
+        Last_Name: z.string().optional().describe('Last name of the contact. Last_Name is mandatory and cannot be cleared.'),
+        Email: z.string().nullable().optional().describe('Email address of the contact. Set to null to clear it.'),
+        Title: z.string().nullable().optional().describe('Job title of the contact. Set to null to clear it.'),
+        Phone: z.string().nullable().optional().describe('Primary phone number of the contact. Set to null to clear it.'),
+        Home_Phone: z.string().nullable().optional().describe('Home phone number of the contact. Set to null to clear it.'),
+        Mobile: z.string().nullable().optional().describe('Mobile phone number of the contact. Set to null to clear it.'),
+        Mailing_Street: z.string().nullable().optional().describe('Street address of the contact. Set to null to clear it.'),
+        Mailing_City: z.string().nullable().optional().describe('City of the contact address. Set to null to clear it.'),
+        Mailing_State: z.string().nullable().optional().describe('State of the contact address. Set to null to clear it.'),
+        Mailing_Zip: z.string().nullable().optional().describe('ZIP or postal code of the contact address. Set to null to clear it.'),
+        Mailing_Country: z.string().nullable().optional().describe('Country of the contact address. Set to null to clear it.'),
+        Description: z.string().nullable().optional().describe('Description or notes about the contact. Set to null to clear it.'),
         Email_Opt_Out: z.boolean().optional().describe('Whether the contact has opted out of receiving emails.'),
-        Account_Name: z.string().optional().describe('Bigin record ID of the company (Accounts record) to link the contact to. Example: "7618134000000632027"')
+        Account_Name: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('Bigin record ID of the company (Accounts record) to link the contact to. Set to null to unlink the company. Example: "7618134000000632027"')
     })
-    .describe('Contact fields to update; only the fields you provide are changed.');
+    .describe('Contact fields to update; only the fields you provide are changed, and null clears a field.');
 
 const ProviderUpdateResultSchema = z.object({
     code: z.string().optional(),
@@ -63,7 +67,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Writes updated field values to an existing provider contact record.
- * @pitfalls: Only the fields you provide are changed; omitted fields keep their current values. Linking a company (Account_Name) requires the company's record ID, not its name. Updating a nonexistent or malformed contact ID fails with an error rather than an empty result.
+ * @pitfalls: Only the fields you provide are changed; omitted fields keep their current values and null clears a field. Linking a company (Account_Name) requires the company's record ID, not its name. Updating a nonexistent or malformed contact ID fails with an error rather than an empty result.
  */
 const action = createAction({
     description: 'Update fields on an existing Bigin contact. Only the fields you provide are changed.',
@@ -84,7 +88,7 @@ const action = createAction({
         }
 
         if (Account_Name !== undefined) {
-            data['Account_Name'] = { id: Account_Name };
+            data['Account_Name'] = Account_Name === null ? null : { id: Account_Name };
         }
 
         // https://www.bigin.com/developer/docs/apis/v2/update-records.html
@@ -116,11 +120,12 @@ const action = createAction({
             });
         }
 
-        if (result.status !== undefined && result.status !== 'success') {
+        if (result.status !== 'success' || result.code !== 'SUCCESS') {
             throw new nango.ActionError({
                 type: 'update_failed',
                 message: result.message ?? 'Failed to update the contact.',
-                record_id
+                record_id,
+                ...(result.code !== undefined && { code: result.code })
             });
         }
 

@@ -1,6 +1,9 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+// Bigin rejects page-number requests that reach past the first 2000 records; only page_token can go further.
+const PAGE_WINDOW_LIMIT = 2000;
+
 const PRODUCT_FIELDS: string[] = [
     'id',
     'Product_Name',
@@ -49,9 +52,16 @@ const ProductSchema = z.object({
 
 const InputSchema = z
     .object({
-        contact_id: z.string().describe('Unique identifier of the contact whose linked products should be listed. Example: "7618134000000647073".'),
+        contact_id: z.string().min(1).describe('Unique identifier of the contact whose linked products should be listed. Example: "7618134000000647073".'),
         page: z.number().int().positive().optional().describe('Page number of linked products to retrieve, starting at 1. Defaults to 1.'),
-        per_page: z.number().int().positive().max(200).optional().describe('Number of linked products to return per page (1-200). Defaults to 200.')
+        per_page: z
+            .number()
+            .int()
+            .positive()
+            .max(200)
+            .optional()
+            .describe('Number of linked products to return per page (1-200). Defaults to 200. Ignored with page_token, which encodes its page size.'),
+        page_token: z.string().min(1).optional().describe('next_page_token from a previous response, used to continue past the first 2000 records. Cannot be combined with page.')
     })
     .describe('Identifies the contact whose linked products should be listed, with optional pagination.');
 
@@ -60,7 +70,13 @@ const OutputSchema = z
         products: z.array(ProductSchema).describe('Products currently linked to the contact. Empty when the contact has no linked products.'),
         count: z.number().int().describe('Number of linked products returned on this page.'),
         has_more: z.boolean().describe('Whether more linked products are available on a subsequent page.'),
-        next_page: z.number().int().positive().optional().describe('Page number to request next. Only present when has_more is true.')
+        next_page: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe('Page number to request next. Only present when has_more is true and the next page is within the first 2000 records.'),
+        next_page_token: z.string().optional().describe('Token to pass as page_token to fetch the next page, when has_more is true.')
     })
     .describe('A page of products linked to the requested contact, with pagination state.');
 
@@ -96,7 +112,9 @@ const RawProductSchema = z.object({
 const RawInfoSchema = z.object({
     count: z.number().nullish(),
     page: z.number().nullish(),
-    more_records: z.boolean().nullish()
+    per_page: z.number().nullish(),
+    more_records: z.boolean().nullish(),
+    next_page_token: z.string().nullish()
 });
 
 const RawResponseSchema = z.object({
@@ -152,13 +170,20 @@ const action = createAction({
     scopes: ['ZohoBigin.modules.contacts.ALL'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.page !== undefined && input.page_token !== undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide either page or page_token, not both.'
+            });
+        }
+
         const response = await nango.get({
             // https://www.bigin.com/developer/docs/apis/get-related-records.html
             endpoint: `/bigin/v2/Contacts/${encodeURIComponent(input.contact_id)}/Products`,
             params: {
                 fields: PRODUCT_FIELDS.join(','),
-                page: input.page ?? 1,
-                per_page: input.per_page ?? 200
+                // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                ...(input.page_token !== undefined ? { page_token: input.page_token } : { page: input.page ?? 1, per_page: input.per_page ?? 200 })
             },
             retries: 3
         });
@@ -175,12 +200,16 @@ const action = createAction({
         const products = (parsed.data ?? []).map(normalizeProduct);
         const hasMore = parsed.info?.more_records === true;
         const page = parsed.info?.page ?? input.page ?? 1;
+        const perPage = parsed.info?.per_page ?? input.per_page ?? 200;
+        const nextPageReachable = input.page_token === undefined && (page + 1) * perPage <= PAGE_WINDOW_LIMIT;
+        const nextPageToken = parsed.info?.next_page_token;
 
         return {
             products,
             count: products.length,
             has_more: hasMore,
-            ...(hasMore && { next_page: page + 1 })
+            ...(hasMore && nextPageReachable && { next_page: page + 1 }),
+            ...(hasMore && nextPageToken != null && { next_page_token: nextPageToken })
         };
     }
 });

@@ -2,10 +2,18 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const UserRefSchema = z.object({
-    name: z.string().optional().describe('Display name of the user.'),
-    id: z.string().optional().describe('Unique ID of the user.'),
-    email: z.string().optional().describe('Email address of the user.')
+    name: z.string().nullish().describe('Display name of the user.'),
+    id: z.string().nullish().describe('Unique ID of the user.'),
+    email: z.string().nullish().describe('Email address of the user.')
 });
+
+const TagSchema = z
+    .object({
+        id: z.string().nullish().describe('Unique ID of the tag.'),
+        name: z.string().nullish().describe('Name of the tag.'),
+        color_code: z.string().nullish().describe('Color code of the tag, or null when the tag has no color set.')
+    })
+    .passthrough();
 
 const AccountSchema = z
     .object({
@@ -42,7 +50,7 @@ const AccountSchema = z
         Created_Time: z.string().nullable().optional().describe('ISO 8601 timestamp when the account was created.'),
         Modified_Time: z.string().nullable().optional().describe('ISO 8601 timestamp when the account was last modified.'),
         Last_Activity_Time: z.string().nullable().optional().describe('ISO 8601 timestamp of the last activity on the account.'),
-        Tag: z.array(UserRefSchema).optional().describe('Tags applied to the account.')
+        Tag: z.array(TagSchema).nullish().describe('Tags applied to the account.')
     })
     .passthrough();
 
@@ -57,7 +65,11 @@ const InputSchema = z
             .optional()
             .describe('Search all email fields of Accounts for this exact address. Provide exactly one of criteria, email, phone, or word.'),
         phone: z.string().optional().describe('Search all phone fields of Accounts for this number. Provide exactly one of criteria, email, phone, or word.'),
-        word: z.string().optional().describe('Free-text word search across Accounts. Provide exactly one of criteria, email, phone, or word.'),
+        word: z
+            .string()
+            .min(2)
+            .optional()
+            .describe('Free-text word search across Accounts, at least 2 characters. Provide exactly one of criteria, email, phone, or word.'),
         page: z.number().int().positive().optional().describe('Page number to return, starting at 1. Defaults to 1.'),
         per_page: z.number().int().positive().max(200).optional().describe('Number of records per page (1-200). Defaults to 200.')
     })

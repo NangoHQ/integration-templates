@@ -108,7 +108,18 @@ const InfoSchema = z
 const InputSchema = z
     .object({
         type: z
-            .string()
+            .enum([
+                'AllUsers',
+                'ActiveUsers',
+                'DeactiveUsers',
+                'ConfirmedUsers',
+                'NotConfirmedUsers',
+                'DeletedUsers',
+                'ActiveConfirmedUsers',
+                'AdminUsers',
+                'ActiveConfirmedAdmins',
+                'CurrentUser'
+            ])
             .optional()
             .describe(
                 'Filter users by type. One of: AllUsers, ActiveUsers, DeactiveUsers, ConfirmedUsers, NotConfirmedUsers, DeletedUsers, ActiveConfirmedUsers, AdminUsers, ActiveConfirmedAdmins, CurrentUser. Omit to list all users.'

@@ -1,7 +1,12 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const InputSchema = z.object({}).describe('This action takes no input parameters.');
+const InputSchema = z
+    .object({
+        page: z.number().int().positive().optional().describe('Page of subscriptions to retrieve, starting at 1. Defaults to 1.'),
+        per_page: z.number().int().positive().max(200).optional().describe('Number of subscriptions per page, between 1 and 200. Defaults to 200.')
+    })
+    .describe('Optional pagination for listing webhook subscriptions.');
 
 const ProviderWatchSchema = z.object({
     channel_id: z.string().nullable(),
@@ -53,14 +58,14 @@ const InfoSchema = z.object({
 const OutputSchema = z
     .object({
         watch: z.array(WatchSchema).describe('Active webhook subscriptions for this connection. Empty when none are enabled.'),
-        info: InfoSchema.optional().describe('Pagination metadata; omitted when there are no subscriptions.')
+        info: InfoSchema.optional().describe('Pagination metadata; omitted when the requested page has no subscriptions.')
     })
     .describe('Active webhook subscriptions and optional pagination metadata for this connection.');
 
 /**
  * @tags: [read]
  * @tagReason: Reads the connection's existing webhook subscriptions without changing any provider state.
- * @pitfalls: Returns an empty list rather than an error when no subscriptions exist; subscriptions stop at channel_expiry and then disappear; at most the first page of up to 200 subscriptions is returned with info.more_records signaling further pages; token and fields may be null.
+ * @pitfalls: Returns an empty list rather than an error when no subscriptions exist; subscriptions stop at channel_expiry and then disappear; one page of up to per_page (default 200) subscriptions is returned per call, so request the next page while info.more_records is true; token and fields may be null.
  */
 const action = createAction({
     description: 'List the active webhook (actions-watch) notification subscriptions.',
@@ -69,10 +74,14 @@ const action = createAction({
     output: OutputSchema,
     scopes: ['ZohoBigin.notifications.ALL'],
 
-    exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
+    exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.bigin.com/developer/docs/apis/v2/notifications/get-details.html
             endpoint: '/bigin/v2/actions/watch',
+            params: {
+                ...(input.page !== undefined && { page: input.page }),
+                ...(input.per_page !== undefined && { per_page: input.per_page })
+            },
             retries: 3
         });
 

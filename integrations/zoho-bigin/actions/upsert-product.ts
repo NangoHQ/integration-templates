@@ -10,10 +10,10 @@ const InputSchema = z
         Product_Name: z
             .string()
             .describe('Name of the product. This system-defined mandatory field is also the default field used to detect an existing record to update.'),
-        Product_Code: z.string().optional().describe('Unique code or identifier for the product.'),
-        Unit_Price: z.number().optional().describe('Unit price or cost of the product.'),
-        Product_Category: z.string().optional().describe('Category or type of the product.'),
-        Description: z.string().optional().describe('Additional description or notes about the product.'),
+        Product_Code: z.string().nullable().optional().describe('Unique code or identifier for the product. Set to null to clear it.'),
+        Unit_Price: z.number().nullable().optional().describe('Unit price or cost of the product. Set to null to clear it.'),
+        Product_Category: z.string().nullable().optional().describe('Category or type of the product. Set to null to clear it.'),
+        Description: z.string().nullable().optional().describe('Additional description or notes about the product. Set to null to clear it.'),
         Product_Active: z.boolean().optional().describe('Whether the product is currently active.'),
         Owner: z
             .object({
@@ -24,8 +24,11 @@ const InputSchema = z
         Tag: z.array(TagSchema).optional().describe('Tags to associate with the product.'),
         duplicate_check_fields: z
             .array(z.string())
+            .min(1)
             .optional()
-            .describe("Ordered field API names used to detect a matching existing record. Defaults to ['Product_Name'] when omitted.")
+            .describe(
+                "Ordered field API names used to detect a matching existing record. Each listed field must be provided with a non-null value. Defaults to ['Product_Name'] when omitted."
+            )
     })
     .describe('Product fields to create or update, matched by the duplicate-check fields.');
 
@@ -39,13 +42,15 @@ const ProviderResultSchema = z.object({
     code: z.string().optional(),
     duplicate_field: z.string().nullable().optional(),
     action: z.string().optional(),
-    details: z.object({
-        id: z.string().optional(),
-        Created_Time: z.string().optional(),
-        Modified_Time: z.string().optional(),
-        Created_By: ProviderUserSchema.optional(),
-        Modified_By: ProviderUserSchema.optional()
-    }),
+    details: z
+        .object({
+            id: z.string().optional(),
+            Created_Time: z.string().optional(),
+            Modified_Time: z.string().optional(),
+            Created_By: ProviderUserSchema.optional(),
+            Modified_By: ProviderUserSchema.optional()
+        })
+        .optional(),
     message: z.string().optional(),
     status: z.string().optional()
 });
@@ -103,21 +108,33 @@ const action = createAction({
             ...(input.Tag !== undefined && { Tag: input.Tag })
         };
 
+        const duplicateCheckFields = input.duplicate_check_fields ?? ['Product_Name'];
+        const productFields: Record<string, unknown> = product;
+        const missingFields = duplicateCheckFields.filter((field) => productFields[field] == null || productFields[field] === '');
+        if (missingFields.length > 0) {
+            // Without a value for every match field Bigin cannot find the existing product and always inserts a new one.
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `Provide a value for each duplicate-check field: ${missingFields.join(', ')}.`
+            });
+        }
+
         // https://www.bigin.com/developer/docs/apis/v2/upsert-records.html
         const response = await nango.post({
             endpoint: '/bigin/v2/Products/upsert',
             data: {
                 data: [product],
-                duplicate_check_fields: input.duplicate_check_fields ?? ['Product_Name']
+                duplicate_check_fields: duplicateCheckFields
             },
-            // Upsert is idempotent on the duplicate-check fields, so retrying a lost response updates the same record instead of duplicating it.
-            retries: 3
+            // A retry after a lost response would report the first call's insert as an "update" and fire workflows twice.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);
         const result = parsed.success ? parsed.data.data[0] : undefined;
 
-        if (!result || result.details.id === undefined || (result.action !== 'insert' && result.action !== 'update')) {
+        if (!result || result.status !== 'success' || result.details?.id === undefined || (result.action !== 'insert' && result.action !== 'update')) {
             throw new nango.ActionError({
                 type: 'upsert_failed',
                 message: result?.message ?? 'Bigin did not return a product id for the upsert.',

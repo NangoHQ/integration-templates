@@ -3,7 +3,7 @@ import { createAction, type ProxyConfiguration } from 'nango';
 
 const InputSchema = z
     .object({
-        user_id: z.string().describe('Unique ID of the Bigin user to retrieve. Example: "7618134000000627001".')
+        user_id: z.string().min(1).describe('Unique ID of the Bigin user to retrieve. Example: "7618134000000627001".')
     })
     .describe('Identifies the Bigin user to retrieve.');
 
@@ -142,7 +142,7 @@ function normalizeUser(user: z.infer<typeof ProviderUserSchema>): z.infer<typeof
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single Bigin user by ID and never modifies provider state.
- * @pitfalls: A nonexistent user throws a "not_found" ActionError rather than returning an empty result; a numeric ID exceeding a signed 64-bit integer silently returns the current user instead of reporting not found.
+ * @pitfalls: A nonexistent user throws a "not_found" ActionError rather than returning an empty result, including a numeric ID exceeding a signed 64-bit integer, which Bigin answers with the current user.
  */
 const action = createAction({
     description: 'Retrieve a single user by ID.',
@@ -169,7 +169,9 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
         const user = parsed.users[0];
 
-        if (user == null) {
+        // Bigin answers some unresolvable IDs (e.g. numbers beyond a signed 64-bit integer) with the current user,
+        // so only a record whose id matches the request counts as found.
+        if (user == null || user.id !== input.user_id) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'User not found',

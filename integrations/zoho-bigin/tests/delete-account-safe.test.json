@@ -1,13 +1,13 @@
 {
   "input": {
-    "account_id": "7618134000000647038"
+    "account_id": "7618134000000646102"
   },
   "output": {
     "deleted": false,
     "blockedBy": "linked_contacts",
     "linkedContacts": [
       {
-        "id": "7618134000000647040",
+        "id": "7618134000000647121",
         "First_Name": "Safe",
         "Last_Name": "NangoDeleteTest",
         "Email": "nango.safe.delete.test@example.com"
@@ -17,14 +17,14 @@
   "nango": {},
   "api": {
     "get": {
-      "/bigin/v2/Accounts/7618134000000647038/Contacts": {
+      "/bigin/v2/Accounts/7618134000000646102/Contacts": {
         "response": {
           "data": [
             {
               "First_Name": "Safe",
               "Email": "nango.safe.delete.test@example.com",
               "Last_Name": "NangoDeleteTest",
-              "id": "7618134000000647040"
+              "id": "7618134000000647121"
             }
           ],
           "info": {
@@ -39,7 +39,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 19:11:44 GMT",
+          "date": "Fri, 09 Oct 2026 20:50:15 GMT",
           "content-type": "application/json;charset=UTF-8",
           "content-length": "273",
           "connection": "keep-alive",
@@ -54,25 +54,26 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1867",
-          "x-ratelimit-reset": "1791573115",
+          "x-ratelimit-remaining": "1997",
+          "x-ratelimit-reset": "1791579074",
           "server": "ZGS",
-          "set-cookie": "zalb_3d223cf300=5ea307a71788bc67f1e452f7c999c3ed; Path=/; Secure; HttpOnly, crmcsr=95496c5a-63ad-41d5-9e10-a4ecf7110ff9;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =bec82e5697ce4e74aac59df03bf15ebfc4b5012fea1a398a69711e4aa2f6e3ff580935af919627e6b11dbd2ab41f34aa;Path=/; Expires=Sat Oct 10 12:11:44 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:11:44 PDT 2026",
+          "set-cookie": "zalb_3d223cf300=893e041e3e8f85d530c4aee0de46289d; Path=/; Secure; HttpOnly, crmcsr=31f7bb9d-cd45-451b-9e01-dfd5400856c2;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =dd316b2c6aa8715897e527873eb54979c9e4b2c6b1b93559507b4ab0a17b6e25198858a89c4a37a0253fc531e26813b4;Path=/; Expires=Sat Oct 10 13:50:15 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 13:50:15 PDT 2026",
           "cache-control": "no-store, no-cache, must-revalidate, private",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
-          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "x-accesstoken-reset": "2026-10-10T00:37:41+03:00",
           "clientversion": "14729686",
           "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
           "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
           "content-disposition": "attachment; filename=response.json",
-          "server-timing": "cpuTime;desc=\"CPU Time\";dur=28, totalTime;desc=\"Total Execution Time\";dur=42,murphySpanId;desc=\"\";dur=0",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=32, totalTime;desc=\"Total Execution Time\";dur=54,murphySpanId;desc=\"\";dur=0",
           "content-language": "en-US"
         },
-        "hash": "ebb029e03480be5d046ce0830a7c7d533e669a8b",
+        "hash": "1e643b25b6f93c493c9d2f0b395ddab09d14f2c6",
         "request": {
           "params": {
-            "fields": "id,First_Name,Last_Name,Email"
+            "fields": "id,First_Name,Last_Name,Email",
+            "per_page": "200"
           }
         }
       }

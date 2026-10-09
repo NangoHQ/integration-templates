@@ -8,7 +8,8 @@ const LicenseDetailsSchema = z
         paid_expiry: z.string().nullable().optional().describe('ISO 8601 expiry date-time of the paid license.'),
         trial_type: z.string().nullable().optional().describe('Trial license type, for example "biginpremier".'),
         trial_expiry: z.string().nullable().optional().describe('ISO 8601 expiry date-time of the trial license.'),
-        users_license_purchased: z.number().nullable().optional().describe('Number of user licenses purchased.')
+        users_license_purchased: z.number().nullable().optional().describe('Number of user licenses purchased.'),
+        portal_users_license_purchased: z.number().nullable().optional().describe('Number of portal user licenses purchased.')
     })
     .describe('License and trial details for the organization.');
 

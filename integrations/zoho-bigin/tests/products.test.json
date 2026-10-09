@@ -42,11 +42,12 @@
           "server-timing": "totalTime;desc=\"Total Execution Time\";dur=28,murphySpanId;desc=\"\";dur=0",
           "content-language": "en-US"
         },
-        "hash": "36103a06cbc0b94d5d1b360378bf74342c2fa523",
+        "hash": "66f2c250734cf9431e7a10a237eba1510144e0b8",
         "request": {
           "params": {
             "fields": "id,Product_Name,Product_Code,Product_Category,Product_Active,Unit_Price,Taxable,Description,Manufacturer,Usage_Unit,Qty_in_Stock,Qty_Ordered,Qty_in_Demand,Reorder_Level,Commission_Rate,Sales_Start_Date,Sales_End_Date,Support_Start_Date,Support_Expiry_Date,Last_Activity_Time,Handler,Owner,Created_By,Modified_By,Tag,Created_Time,Modified_Time,Record_Image",
-            "per_page": "200"
+            "per_page": "200",
+            "approved": "both"
           }
         }
       }

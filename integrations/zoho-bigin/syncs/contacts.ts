@@ -186,7 +186,7 @@ const ProviderInfoSchema = z.object({
 });
 
 const ProviderContactsResponseSchema = z.object({
-    data: z.array(ProviderContactSchema).nullable().optional(),
+    data: z.array(ProviderContactSchema),
     info: ProviderInfoSchema.nullable().optional()
 });
 
@@ -211,14 +211,16 @@ function parseContactsResponse(response: { status: number; data: unknown }): {
     nextPageToken: string | undefined;
     pageTokenExpiry: string | undefined;
 } {
-    if (response.status === 204 || response.data === '' || response.data === null || response.data === undefined) {
+    // Bigin signals "no records" only with HTTP 204. Any other response must carry a `data` array;
+    // treating a malformed 200 as empty would let trackDeletesEnd mark every stored contact deleted.
+    if (response.status === 204) {
         return { contacts: [], moreRecords: false, page: undefined, nextPageToken: undefined, pageTokenExpiry: undefined };
     }
 
     const parsed = ProviderContactsResponseSchema.parse(response.data);
 
     return {
-        contacts: (parsed.data ?? []).map(mapProviderContact),
+        contacts: parsed.data.map(mapProviderContact),
         moreRecords: parsed.info?.more_records ?? false,
         page: parsed.info?.page ?? undefined,
         nextPageToken: parsed.info?.next_page_token ?? undefined,
@@ -320,6 +322,8 @@ async function syncIncrementalContacts(nango: NangoSyncLocal, updatedAfter: stri
             endpoint: CONTACTS_SEARCH_ENDPOINT,
             params: {
                 criteria: `(Modified_Time:greater_than:${updatedAfter})`,
+                // Match the full scan's record set so unapproved contacts stay current between full scans.
+                approved: 'both',
                 page,
                 per_page: PAGE_SIZE
             },
@@ -402,8 +406,8 @@ const sync = createSync({
                     params: {
                         fields: CONTACT_FIELDS,
                         approved: 'both',
-                        per_page: PAGE_SIZE,
-                        ...(pageToken ? { page_token: pageToken } : { page })
+                        // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
+                        ...(pageToken ? { page_token: pageToken } : { page, per_page: PAGE_SIZE })
                     },
                     retries: 3
                 });

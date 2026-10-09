@@ -25,13 +25,19 @@ const CONTACT_FIELDS = [
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('Bigin contact record ID to retrieve. Example: "7618134000000632028"')
+        record_id: z.string().min(1).describe('Bigin contact record ID to retrieve. Example: "7618134000000632028"')
     })
     .describe('Input for retrieving a single Bigin contact by its record ID.');
 
 const LookupSchema = z.object({
     name: z.string(),
     id: z.string()
+});
+
+const TagSchema = z.object({
+    name: z.string(),
+    id: z.string(),
+    color_code: z.string().nullable().optional()
 });
 
 const OwnerSchema = z.object({
@@ -55,7 +61,7 @@ const ProviderContactSchema = z.object({
     Mailing_Zip: z.string().nullable().optional(),
     Mailing_Country: z.string().nullable().optional(),
     Description: z.string().nullable().optional(),
-    Tag: z.array(z.string()).nullable().optional(),
+    Tag: z.array(TagSchema).nullable().optional(),
     Account_Name: LookupSchema.nullable().optional(),
     Owner: OwnerSchema.nullable().optional(),
     Created_Time: z.string().nullable().optional(),
@@ -69,6 +75,12 @@ const ProviderResponseSchema = z.object({
 const OutputLookupSchema = z.object({
     name: z.string().describe('Display name of the linked record. Example: "Zylker Corp"'),
     id: z.string().describe('Record ID of the linked record. Example: "7618134000000632027"')
+});
+
+const OutputTagSchema = z.object({
+    name: z.string().describe('Display name of the tag. Example: "Priority"'),
+    id: z.string().describe('Record ID of the tag. Example: "7618134000000648106"'),
+    color_code: z.string().optional().describe('Hex color code of the tag, when one is set.')
 });
 
 const OutputOwnerSchema = z.object({
@@ -93,7 +105,7 @@ const OutputSchema = z
         Mailing_Zip: z.string().optional().describe('Postal/ZIP code of the contact.'),
         Mailing_Country: z.string().optional().describe('Country of the contact.'),
         Description: z.string().optional().describe('Free-form description of the contact from Bigin.'),
-        Tag: z.array(z.string()).optional().describe('Tags applied to the contact.'),
+        Tag: z.array(OutputTagSchema).optional().describe('Tags applied to the contact, each with a name and ID.'),
         Account_Name: OutputLookupSchema.optional().describe('Linked company (Account), with its name and ID.'),
         Owner: OutputOwnerSchema.optional().describe('Owner of the contact record, with name, ID and email.'),
         Created_Time: z.string().optional().describe('ISO 8601 timestamp when the contact was created. Example: "2026-10-07T03:21:34+03:00"'),
@@ -166,7 +178,13 @@ const action = createAction({
             ...(contact.Mailing_Zip != null && { Mailing_Zip: contact.Mailing_Zip }),
             ...(contact.Mailing_Country != null && { Mailing_Country: contact.Mailing_Country }),
             ...(contact.Description != null && { Description: contact.Description }),
-            ...(contact.Tag != null && { Tag: contact.Tag }),
+            ...(contact.Tag != null && {
+                Tag: contact.Tag.map((tag) => ({
+                    name: tag.name,
+                    id: tag.id,
+                    ...(tag.color_code != null && { color_code: tag.color_code })
+                }))
+            }),
             ...(contact.Account_Name != null && { Account_Name: contact.Account_Name }),
             ...(contact.Owner != null && {
                 Owner: {

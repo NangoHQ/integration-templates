@@ -3,8 +3,8 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        record_id: z.string().describe('The unique ID of the Bigin contact record. Example: "7618134000000632028"'),
-        product_id: z.string().describe('The unique ID of the Bigin product record to unlink from the contact. Example: "7618134000000647026"')
+        record_id: z.string().min(1).describe('The unique ID of the Bigin contact record. Example: "7618134000000632028"'),
+        product_id: z.string().min(1).describe('The unique ID of the Bigin product record to unlink from the contact. Example: "7618134000000647026"')
     })
     .describe('The contact and product to disassociate.');
 
@@ -28,7 +28,7 @@ const ProviderResponseSchema = z.object({
 const OutputSchema = z
     .object({
         success: z.boolean().describe('Whether the product was successfully unlinked from the contact.'),
-        product_id: z.string().describe('The ID of the product that was unlinked from the contact.'),
+        product_id: z.string().min(1).describe('The ID of the product that was unlinked from the contact.'),
         message: z.string().optional().describe('Result message returned by Bigin, for example "relation removed".')
     })
     .describe('The result of removing the product-to-contact association.');
@@ -49,7 +49,10 @@ const action = createAction({
         // https://www.bigin.com/developer/docs/apis/v2/delink.html
         const response = await nango.delete<unknown>({
             endpoint: `/bigin/v2/Contacts/${encodeURIComponent(input.record_id)}/Products/${encodeURIComponent(input.product_id)}`,
-            retries: 3
+            // Unlinking an absent association returns a 400 error, so a retry after a lost response would report
+            // a completed unlink as failed.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

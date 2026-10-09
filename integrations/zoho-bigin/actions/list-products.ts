@@ -144,7 +144,7 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.status === 204 || response.data === undefined || response.data === null) {
+        if (response.status === 204 || response.data === undefined || response.data === null || response.data === '') {
             return { products: [] };
         }
 

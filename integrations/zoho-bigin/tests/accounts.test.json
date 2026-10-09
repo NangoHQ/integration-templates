@@ -120,12 +120,13 @@
           "server-timing": "cpuTime;desc=\"CPU Time\";dur=70, totalTime;desc=\"Total Execution Time\";dur=146,murphySpanId;desc=\"\";dur=0",
           "content-language": "en-US"
         },
-        "hash": "ab2917e04c95815d730f771cb916eb76b6b2e529",
+        "hash": "ce653ba0050ad4094f78d0ae7b0245927e24490d",
         "request": {
           "params": {
             "fields": "id,Account_Name,Description,Website,Phone,Billing_Street,Billing_City,Billing_State,Billing_Code,Billing_Country,Created_Time,Modified_Time,Last_Activity_Time,Record_Image,Owner,Created_By,Modified_By,Tag,$currency_symbol,$editable,$followed,$sharing_permission,$approval_state",
             "page": "1",
-            "per_page": "200"
+            "per_page": "200",
+            "approved": "both"
           }
         }
       }

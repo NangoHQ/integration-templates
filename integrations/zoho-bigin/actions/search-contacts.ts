@@ -19,7 +19,8 @@ const AccountRefSchema = z
 const TagSchema = z
     .object({
         id: z.string().nullable().optional().describe('Bigin record ID of the tag.'),
-        name: z.string().nullable().optional().describe('Display label of the tag.')
+        name: z.string().nullable().optional().describe('Display label of the tag.'),
+        color_code: z.string().nullable().optional().describe('Color code of the tag, or null when the tag has no color set.')
     })
     .describe('A tag applied to a contact.');
 
@@ -49,6 +50,8 @@ const ContactSchema = z
         Modified_Time: z.string().nullable().optional().describe('ISO-8601 timestamp when the contact was last modified.'),
         Tag: z.array(TagSchema).nullable().optional().describe('Tags applied to the contact.')
     })
+    // Search returns every contact field, including custom fields; keep the ones not modeled above.
+    .passthrough()
     .describe('A Bigin contact record returned by a search.');
 
 const InputSchema = z
@@ -65,7 +68,11 @@ const InputSchema = z
             .string()
             .optional()
             .describe('Phone number to match against all contact phone fields. Provide exactly one of criteria, email, phone, or word.'),
-        word: z.string().optional().describe('Free-text word to search for across the contact module. Provide exactly one of criteria, email, phone, or word.'),
+        word: z
+            .string()
+            .min(2)
+            .optional()
+            .describe('Free-text word to search for across the contact module, at least 2 characters. Provide exactly one of criteria, email, phone, or word.'),
         page: z.number().int().positive().optional().describe('Page number to retrieve, starting at 1. Omit for the first page.'),
         per_page: z.number().int().positive().max(200).optional().describe('Number of records to return per page (1-200). Omit for the provider default.')
     })
@@ -129,18 +136,27 @@ const action = createAction({
             retries: 3
         });
 
-        if (response.status === 204 || response.data == null) {
+        if (response.status === 204 || response.data == null || response.data === '') {
             return { contacts: [] };
         }
 
-        const parsed = SearchResponseSchema.parse(response.data);
+        const parsed = SearchResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Failed to parse the Bigin contacts search response.',
+                details: parsed.error.message
+            });
+        }
+
+        const { data, info } = parsed.data;
 
         return {
-            contacts: parsed.data ?? [],
-            ...(parsed.info?.count != null && { count: parsed.info.count }),
-            ...(parsed.info?.page != null && { page: parsed.info.page }),
-            ...(parsed.info?.per_page != null && { per_page: parsed.info.per_page }),
-            ...(parsed.info?.more_records != null && { more_records: parsed.info.more_records })
+            contacts: data ?? [],
+            ...(info?.count != null && { count: info.count }),
+            ...(info?.page != null && { page: info.page }),
+            ...(info?.per_page != null && { per_page: info.per_page }),
+            ...(info?.more_records != null && { more_records: info.more_records })
         };
     }
 });

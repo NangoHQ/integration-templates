@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        account_id: z.string().describe('Unique ID of the account to delete. Example: "7618134000000632027"')
+        account_id: z.string().min(1).describe('Unique ID of the account to delete. Example: "7618134000000632027"')
     })
     .describe('The account to permanently delete');
 
@@ -48,20 +48,22 @@ const action = createAction({
         const config: ProxyConfiguration = {
             // https://www.bigin.com/developer/docs/apis/delete-records.html
             endpoint: `/bigin/v2/Accounts/${encodeURIComponent(input.account_id)}`,
-            // Retrying a delete is safe for provider state (removing an already-deleted record is a no-op), but this API
-            // errors on a repeat delete, so keep retries low to cover only transient 5xx/network failures.
-            retries: 1
+            // A repeat delete of an already-deleted account returns a 400 error, so a retry after a lost response
+            // would report a completed (and cascading) deletion as failed.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.delete(config);
         const parsed = ProviderDeleteAccountResponseSchema.parse(response.data);
         const result = parsed.data[0];
 
-        if (!result) {
+        if (!result || result.code !== 'SUCCESS') {
             throw new nango.ActionError({
                 type: 'delete_failed',
-                message: 'The provider did not return a delete confirmation for the account.',
-                account_id: input.account_id
+                message: result?.message ?? 'The provider did not return a delete confirmation for the account.',
+                account_id: input.account_id,
+                ...(result?.code !== undefined && { code: result.code })
             });
         }
 

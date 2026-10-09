@@ -53,7 +53,7 @@ const InputSchema = z
             .positive()
             .optional()
             .describe('Page index to fetch, starting at 1. Only reaches the first 2000 records; use page_token beyond that.'),
-        per_page: z.number().int().min(1).max(200).optional().describe('Records per page, from 1 to 200. Defaults to 200.'),
+        per_page: z.number().int().min(1).max(200).optional().describe('Records per page, from 1 to 200. Defaults to 200. Ignored with page_token, which encodes its page size.'),
         page_token: z.string().optional().describe('Pagination token from a previous response next_page_token, used to page beyond the first 2000 records.'),
         sort_by: z.string().optional().describe('Field API name to sort results by. Example: "Created_Time".'),
         sort_order: z.enum(['asc', 'desc']).optional().describe('Sort direction, either "asc" or "desc". Applied together with sort_by.'),
@@ -78,7 +78,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Lists contacts from the provider without creating, updating, or deleting any records.
- * @pitfalls: Results default to approved contacts only, so unapproved ones are excluded unless approved is "false" or "both"; zero matching contacts yield an empty "contacts" array rather than an error; page/per_page only reaches the first 2000 records (use page_token beyond that) and fields accepts at most 50 field names.
+ * @pitfalls: Results default to approved contacts only, so unapproved ones are excluded unless approved is "false" or "both"; zero matching contacts yield an empty "contacts" array rather than an error; page/per_page only reaches the first 2000 records (use page_token beyond that), page and page_token cannot be combined, and fields accepts at most 50 field names.
  */
 const action = createAction({
     description: 'List contacts (people) in the Bigin org, paginated.',
@@ -87,20 +87,29 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.page !== undefined && input.page_token !== undefined) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Provide either page or page_token, not both.'
+            });
+        }
+
         const fields = input.fields ?? ['id', 'First_Name', 'Last_Name', 'Email'];
 
         const params: Record<string, string | number> = {
             fields: fields.join(',')
         };
 
-        if (input.page !== undefined) {
-            params['page'] = input.page;
-        }
-        if (input.per_page !== undefined) {
-            params['per_page'] = input.per_page;
-        }
         if (input.page_token !== undefined) {
+            // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
             params['page_token'] = input.page_token;
+        } else {
+            if (input.page !== undefined) {
+                params['page'] = input.page;
+            }
+            if (input.per_page !== undefined) {
+                params['per_page'] = input.per_page;
+            }
         }
         if (input.sort_by !== undefined) {
             params['sort_by'] = input.sort_by;

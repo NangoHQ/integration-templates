@@ -22,7 +22,9 @@ const InputSchema = z
             .string()
             .nullable()
             .optional()
-            .describe('Company (Accounts module) the contact is linked to, supplied as its Bigin record ID or exact name. Example: "Zylker Corp"'),
+            .describe(
+                'Company (Accounts module) to link the contact to, supplied as its Bigin record ID. A value that is not an existing company ID is treated as a company name, and Bigin creates a new company with that name. Set to null to unlink the company. Example: "7618134000000632027"'
+            ),
         Owner: z.string().nullable().optional().describe('Bigin user ID the contact is assigned to. Example: "2034020000000457001"'),
         Description: z.string().nullable().optional().describe('Free-text notes about the contact. Example: "Met at the annual conference."'),
         Email_Opt_Out: z.boolean().nullable().optional().describe('Whether the contact has opted out of receiving emails. Example: false'),
@@ -34,9 +36,10 @@ const InputSchema = z
         Tag: z.array(z.string()).optional().describe('Tags to associate with the contact. Example: ["Recruitment", "Priority"]'),
         duplicate_check_fields: z
             .array(z.string())
+            .min(1)
             .optional()
             .describe(
-                'Field API names used to detect an existing contact and decide insert vs update. Defaults to ["Email"], the Contacts system-defined unique field.'
+                'Field API names used to detect an existing contact and decide insert vs update. Each listed field must be provided with a non-null value. Defaults to ["Email"], the Contacts system-defined unique field.'
             )
     })
     .describe(
@@ -94,7 +97,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates a new contact or updates an existing one through the provider's atomic upsert endpoint.
- * @pitfalls: Last_Name is required when the upsert inserts a new contact; if the payload omits the chosen duplicate-check field (default Email) the API cannot match an existing record and always inserts; when duplicate_check_fields lists only user-defined unique fields, the system-defined Email field is ignored.
+ * @pitfalls: Last_Name is required when the upsert inserts a new contact; every duplicate-check field (default Email) must be provided, otherwise the call is rejected because Bigin could not match an existing record; when duplicate_check_fields lists only user-defined unique fields, the system-defined Email field is ignored; Account_Name values that are not an existing company ID create a new company with that name.
  */
 const action = createAction({
     description:
@@ -125,16 +128,27 @@ const action = createAction({
             ...(input.Tag !== undefined && { Tag: input.Tag.map((name) => ({ name })) })
         };
 
+        const duplicateCheckFields = input.duplicate_check_fields ?? ['Email'];
+        const contactFields: Record<string, unknown> = contact;
+        const missingFields = duplicateCheckFields.filter((field) => contactFields[field] == null || contactFields[field] === '');
+        if (missingFields.length > 0) {
+            // Without a value for every match field Bigin cannot find the existing contact and always inserts a new one.
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: `Provide a value for each duplicate-check field: ${missingFields.join(', ')}.`
+            });
+        }
+
         // https://www.bigin.com/developer/docs/apis/v2/upsert-records.html
         const response = await nango.post({
             endpoint: '/bigin/v2/Contacts/upsert',
             data: {
                 data: [contact],
-                duplicate_check_fields: input.duplicate_check_fields ?? ['Email']
+                duplicate_check_fields: duplicateCheckFields
             },
-            // The upsert matches existing records on the duplicate-check fields, so a retry after a lost
-            // response updates the same record instead of creating a duplicate.
-            retries: 3
+            // A retry after a lost response would report the first call's insert as an "update" and fire workflows twice.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

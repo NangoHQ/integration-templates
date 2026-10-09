@@ -1,6 +1,9 @@
 import { createAction } from 'nango';
 import * as z from 'zod';
 
+// Bigin rejects page-number requests that reach past the first 2000 records; only page_token can go further.
+const PAGE_WINDOW_LIMIT = 2000;
+
 const DEFAULT_FIELDS =
     'id,Account_Name,Phone,Website,Description,Billing_Street,Billing_City,Billing_State,Billing_Code,Billing_Country,Owner,Created_By,Modified_By,Created_Time,Modified_Time,Tag';
 
@@ -84,7 +87,7 @@ const InputSchema = z
             .positive()
             .optional()
             .describe('Page number to fetch, starting at 1. Cannot be combined with page_token. Defaults to 1. Example: 1'),
-        per_page: z.number().int().positive().max(200).optional().describe('Number of accounts per page, between 1 and 200. Defaults to 200. Example: 50'),
+        per_page: z.number().int().positive().max(200).optional().describe('Number of accounts per page, between 1 and 200. Defaults to 200. Ignored with page_token, which encodes its page size. Example: 50'),
         page_token: z
             .string()
             .optional()
@@ -106,7 +109,10 @@ const OutputSchema = z
         per_page: z.number().describe('Number of records requested per page.'),
         count: z.number().describe('Number of accounts returned in this response.'),
         more_records: z.boolean().describe('Whether more accounts are available beyond this page.'),
-        next_page: z.number().optional().describe('Next page number to request when more_records is true.'),
+        next_page: z
+            .number()
+            .optional()
+            .describe('Next page number to request when more_records is true. Omitted once the next page would pass the first 2000 records; use next_page_token instead.'),
         next_page_token: z.string().optional().describe('Token to fetch records beyond the 2000-record limit when more_records is true.')
     })
     .describe('A page of Bigin accounts (companies) together with pagination metadata.');
@@ -143,13 +149,16 @@ const action = createAction({
         const params: Record<string, string | number> = {
             fields: input.fields ?? DEFAULT_FIELDS
         };
-        if (input.per_page !== undefined) {
-            params['per_page'] = input.per_page;
-        }
         if (input.page_token !== undefined) {
+            // The page size is encoded in the token; Bigin ignores a token sent with a different per_page.
             params['page_token'] = input.page_token;
-        } else if (input.page !== undefined) {
-            params['page'] = input.page;
+        } else {
+            if (input.page !== undefined) {
+                params['page'] = input.page;
+            }
+            if (input.per_page !== undefined) {
+                params['per_page'] = input.per_page;
+            }
         }
 
         const response = await nango.get<unknown>({
@@ -179,6 +188,7 @@ const action = createAction({
         const perPage = info?.per_page ?? input.per_page ?? 200;
         const moreRecords = info?.more_records ?? false;
         const nextPageToken = info?.next_page_token;
+        const nextPageReachable = input.page_token === undefined && (page + 1) * perPage <= PAGE_WINDOW_LIMIT;
 
         return {
             accounts,
@@ -186,7 +196,7 @@ const action = createAction({
             per_page: perPage,
             count: info?.count ?? accounts.length,
             more_records: moreRecords,
-            ...(moreRecords && input.page_token === undefined && { next_page: page + 1 }),
+            ...(moreRecords && nextPageReachable && { next_page: page + 1 }),
             ...(nextPageToken != null && { next_page_token: nextPageToken })
         };
     }

@@ -38,6 +38,7 @@ const WatchEntrySchema = z.object({
         .object({
             events: z.array(SubscriptionSchema).optional()
         })
+        .nullable()
         .optional()
 });
 
