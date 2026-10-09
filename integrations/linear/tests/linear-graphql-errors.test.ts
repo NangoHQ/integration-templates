@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 
+import archiveCycleAction from '../actions/archive-cycle.js';
+import createCycleAction from '../actions/create-cycle.js';
 import getCycleAction from '../actions/get-cycle.js';
 import listCyclesAction from '../actions/list-cycles.js';
 import listProjectsAction from '../actions/list-projects.js';
@@ -99,6 +101,30 @@ describe('linear GraphQL errors[] surface as graphql_error instead of Zod/shape 
         });
 
         await expect(unarchiveProjectAction.exec(nango, { projectId: 'project-1' })).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('create-cycle throws graphql_error on partial data with cycleCreate: null', async () => {
+        const nango = makeNango({
+            data: { cycleCreate: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(
+            createCycleAction.exec(nango, { teamId: 'team-1', name: 'Cycle', startsAt: '2026-01-01', endsAt: '2026-01-14' })
+        ).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('archive-cycle throws graphql_error on partial data with cycleArchive: null', async () => {
+        const nango = makeNango({
+            data: { cycleArchive: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(archiveCycleAction.exec(nango, { id: 'cycle-1' })).rejects.toMatchObject({
             payload: { type: 'graphql_error' }
         });
     });
