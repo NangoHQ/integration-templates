@@ -55,7 +55,9 @@ const ProviderMeetingInfoSchema = z.object({
 
 const ProviderSummarySchema = z.object({
     keywords: z.array(z.string()).nullish(),
-    action_items: z.array(z.string()).nullish(),
+    // Fireflies returns action_items either as an array of strings or as a
+    // single newline-joined string depending on the account/summary version.
+    action_items: z.union([z.array(z.string()), z.string()]).nullish(),
     short_summary: z.string().nullish(),
     meeting_type: z.string().nullish()
 });
@@ -133,9 +135,20 @@ const GraphQLResponseSchema = z.object({
     errors: z.array(z.unknown()).nullish()
 });
 
+/** Normalizes action items to a string array; string payloads are split on newlines. */
+function normalizeActionItems(actionItems: string[] | string): string[] {
+    if (Array.isArray(actionItems)) {
+        return actionItems;
+    }
+    return actionItems
+        .split('\n')
+        .map((item) => item.trim())
+        .filter((item) => item.length > 0);
+}
+
 const action = createAction({
     description: 'List transcripts with optional filters.',
-    version: '1.0.0',
+    version: '1.0.1',
     input: InputSchema,
     output: OutputSchema,
     scopes: [],
@@ -304,7 +317,7 @@ const action = createAction({
                 ...(providerTranscript.summary != null && {
                     summary: {
                         ...(providerTranscript.summary.keywords != null && { keywords: providerTranscript.summary.keywords }),
-                        ...(providerTranscript.summary.action_items != null && { action_items: providerTranscript.summary.action_items }),
+                        ...(providerTranscript.summary.action_items != null && { action_items: normalizeActionItems(providerTranscript.summary.action_items) }),
                         ...(providerTranscript.summary.short_summary != null && { short_summary: providerTranscript.summary.short_summary }),
                         ...(providerTranscript.summary.meeting_type != null && { meeting_type: providerTranscript.summary.meeting_type })
                     }

@@ -14,13 +14,13 @@ const IssueSchema = z.object({
 const UserSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
-    email: z.string().optional()
+    email: z.string().nullable().optional()
 });
 
 const ExternalUserSchema = z.object({
     id: z.string(),
     name: z.string().optional(),
-    email: z.string().optional()
+    email: z.string().nullable().optional()
 });
 
 const ProviderAttachmentSchema = z.object({
@@ -99,7 +99,7 @@ const GraphQLResponseSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a Linear attachment by attachment ID.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],

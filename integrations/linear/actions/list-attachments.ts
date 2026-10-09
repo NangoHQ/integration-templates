@@ -32,7 +32,7 @@ const AttachmentSchema = z.object({
         .object({
             id: z.string(),
             name: z.string(),
-            email: z.string()
+            email: z.string().nullable().optional()
         })
         .nullable()
         .optional(),
@@ -40,7 +40,7 @@ const AttachmentSchema = z.object({
         .object({
             id: z.string(),
             name: z.string(),
-            email: z.string()
+            email: z.string().nullable().optional()
         })
         .nullable()
         .optional(),
@@ -67,7 +67,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear attachments with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
