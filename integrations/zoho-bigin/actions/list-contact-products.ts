@@ -61,7 +61,11 @@ const InputSchema = z
             .max(200)
             .optional()
             .describe('Number of linked products to return per page (1-200). Defaults to 200. Ignored with page_token, which encodes its page size.'),
-        page_token: z.string().min(1).optional().describe('next_page_token from a previous response, used to continue past the first 2000 records. Cannot be combined with page.')
+        page_token: z
+            .string()
+            .min(1)
+            .optional()
+            .describe('next_page_token from a previous response, used to continue past the first 2000 records. Cannot be combined with page.')
     })
     .describe('Identifies the contact whose linked products should be listed, with optional pagination.');
 

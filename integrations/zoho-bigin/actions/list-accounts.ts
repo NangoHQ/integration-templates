@@ -87,7 +87,13 @@ const InputSchema = z
             .positive()
             .optional()
             .describe('Page number to fetch, starting at 1. Cannot be combined with page_token. Defaults to 1. Example: 1'),
-        per_page: z.number().int().positive().max(200).optional().describe('Number of accounts per page, between 1 and 200. Defaults to 200. Ignored with page_token, which encodes its page size. Example: 50'),
+        per_page: z
+            .number()
+            .int()
+            .positive()
+            .max(200)
+            .optional()
+            .describe('Number of accounts per page, between 1 and 200. Defaults to 200. Ignored with page_token, which encodes its page size. Example: 50'),
         page_token: z
             .string()
             .optional()
@@ -112,7 +118,9 @@ const OutputSchema = z
         next_page: z
             .number()
             .optional()
-            .describe('Next page number to request when more_records is true. Omitted once the next page would pass the first 2000 records; use next_page_token instead.'),
+            .describe(
+                'Next page number to request when more_records is true. Omitted once the next page would pass the first 2000 records; use next_page_token instead.'
+            ),
         next_page_token: z.string().optional().describe('Token to fetch records beyond the 2000-record limit when more_records is true.')
     })
     .describe('A page of Bigin accounts (companies) together with pagination metadata.');

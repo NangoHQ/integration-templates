@@ -25,7 +25,11 @@ const InputSchema = z
             .max(200)
             .optional()
             .describe('Number of contacts to return per page, between 1 and 200. Defaults to 200. Ignored with page_token, which encodes its page size.'),
-        page_token: z.string().min(1).optional().describe('next_page_token from a previous response, used to continue past the first 2000 records. Cannot be combined with page.')
+        page_token: z
+            .string()
+            .min(1)
+            .optional()
+            .describe('next_page_token from a previous response, used to continue past the first 2000 records. Cannot be combined with page.')
     })
     .describe('Input for listing the contacts linked to a Bigin account.');
 

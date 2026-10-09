@@ -3,7 +3,10 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        email: z.string().min(1).describe('Email address of the contact. Used as the duplicate-check field for the atomic upsert. Example: "jane.doe@example.com"'),
+        email: z
+            .string()
+            .min(1)
+            .describe('Email address of the contact. Used as the duplicate-check field for the atomic upsert. Example: "jane.doe@example.com"'),
         accountName: z.string().optional().describe('Name of the company (Bigin Accounts module) to find or create and link to the contact.'),
         productNames: z
             .array(z.string().describe('Name of a product to find or create and link to the contact.'))

@@ -22,7 +22,9 @@ const InputSchema = z
             .string()
             .nullable()
             .optional()
-            .describe('Bigin record ID of the company (Accounts record) to link the contact to. Set to null to unlink the company. Example: "7618134000000632027"')
+            .describe(
+                'Bigin record ID of the company (Accounts record) to link the contact to. Set to null to unlink the company. Example: "7618134000000632027"'
+            )
     })
     .describe('Contact fields to update; only the fields you provide are changed, and null clears a field.');
 

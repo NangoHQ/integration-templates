@@ -53,7 +53,13 @@ const InputSchema = z
             .positive()
             .optional()
             .describe('Page index to fetch, starting at 1. Only reaches the first 2000 records; use page_token beyond that.'),
-        per_page: z.number().int().min(1).max(200).optional().describe('Records per page, from 1 to 200. Defaults to 200. Ignored with page_token, which encodes its page size.'),
+        per_page: z
+            .number()
+            .int()
+            .min(1)
+            .max(200)
+            .optional()
+            .describe('Records per page, from 1 to 200. Defaults to 200. Ignored with page_token, which encodes its page size.'),
         page_token: z.string().optional().describe('Pagination token from a previous response next_page_token, used to page beyond the first 2000 records.'),
         sort_by: z.string().optional().describe('Field API name to sort results by. Example: "Created_Time".'),
         sort_order: z.enum(['asc', 'desc']).optional().describe('Sort direction, either "asc" or "desc". Applied together with sort_by.'),
