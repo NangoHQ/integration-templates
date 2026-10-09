@@ -11,7 +11,11 @@ const InputSchema = z
 
 const OutputSchema = z
     .object({
-        success: z.boolean().describe('True when the comment was deleted.')
+        success: z
+            .boolean()
+            .describe(
+                'True when TickTick accepted the deletion request; TickTick also returns success for unknown or already-deleted comments, so this does not prove the comment existed.'
+            )
     })
     .describe('Result of the comment deletion.');
 

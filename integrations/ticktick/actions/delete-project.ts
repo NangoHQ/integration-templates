@@ -10,14 +10,18 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         id: z.string().describe('ID of the project that was deleted.'),
-        deleted: z.boolean().describe('Whether the project was successfully deleted.')
+        deleted: z
+            .boolean()
+            .describe(
+                'True when TickTick accepted the deletion request; TickTick also returns success for unknown or already-deleted projects, so this does not prove the project existed.'
+            )
     })
     .describe('Result of permanently deleting a TickTick project.');
 
 /**
  * @tags: [write, destructive]
  * @tagReason: Permanently deletes a project through the provider's delete endpoint; the effect is irreversible.
- * @pitfalls: Deletion is irreversible and also removes all of the project's tasks and columns; subsequent lookups of those removed tasks can fail with an unexpected 500 instead of a 404.
+ * @pitfalls: Deletion is irreversible and also removes all of the project's tasks and columns; subsequent lookups of those removed tasks can fail with an unexpected 500 instead of a 404. Deleting an unknown or already-deleted project still returns success.
  */
 const action = createAction({
     description: 'Permanently delete a project.',

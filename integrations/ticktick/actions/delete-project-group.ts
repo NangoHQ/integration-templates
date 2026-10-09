@@ -9,14 +9,18 @@ const InputSchema = z
 
 const OutputSchema = z
     .object({
-        success: z.boolean().describe('True when the project group was deleted successfully.')
+        success: z
+            .boolean()
+            .describe(
+                'True when TickTick accepted the deletion request; TickTick also returns success for unknown or already-deleted groups, so this does not prove the group existed.'
+            )
     })
     .describe('Result of deleting a project group.');
 
 /**
  * @tags: [write, destructive]
  * @tagReason: Deletes an existing project group (folder) from the account, a difficult-to-reverse provider mutation.
- * @pitfalls: Deleting a project group is irreversible and does not delete the projects inside it; those projects remain in the account and become ungrouped.
+ * @pitfalls: Deleting a project group is irreversible and does not delete the projects inside it; those projects remain in the account and become ungrouped. Deleting an unknown or already-deleted group still returns success.
  */
 const action = createAction({
     description: 'Delete a project group (folder). Does not delete the projects inside it.',

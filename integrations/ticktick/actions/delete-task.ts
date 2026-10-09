@@ -17,7 +17,7 @@ const OutputSchema = z
 /**
  * @tags: [write, destructive]
  * @tagReason: Permanently deletes a task through the provider API; the deletion cannot be undone.
- * @pitfalls: The deletion is permanent, and a direct re-read of the same task can still return the full stale task as if it still exists; confirm deletion by listing the project's tasks instead.
+ * @pitfalls: The deletion is permanent, and a direct re-read of the same task can still return the full stale task as if it still exists; confirm deletion by listing the project's tasks instead. Deleting an unknown or already-deleted task still returns success.
  */
 const action = createAction({
     description: 'Permanently delete a task from a project.',
