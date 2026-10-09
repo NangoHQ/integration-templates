@@ -1291,6 +1291,11 @@ import './checkr-partner-staging/syncs/account.js';
 // -- Integration: clari-copilot
 import './clari-copilot/syncs/calls.js';
 
+// -- Integration: clarify
+import './clarify/actions/get-list.js';
+import './clarify/actions/list-list-resources.js';
+import './clarify/actions/list-lists.js';
+
 // -- Integration: clerk
 import './clerk/actions/assign-organization-role-permission.js';
 import './clerk/actions/create-email-address.js';
