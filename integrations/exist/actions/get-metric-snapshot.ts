@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { createAction } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
 
 const AttributeValueSchema = z.object({
     date: z.string().describe('Date of the value in YYYY-MM-DD format.'),
@@ -9,7 +9,7 @@ const AttributeValueSchema = z.object({
 });
 
 const CorrelationRatingSchema = z.object({
-    positive: z.boolean().describe('Whether the relationship is positive.'),
+    positive: z.boolean().describe('Whether the user rated this correlation positively.'),
     rating_type: z.number().describe('Numeric rating type identifier.'),
     rating: z.string().describe('Human-readable usefulness rating.')
 });
@@ -59,13 +59,6 @@ const WithValuesResponseSchema = z.object({
     )
 });
 
-const CorrelationsResponseSchema = z.object({
-    count: z.number(),
-    next: z.string().nullable(),
-    previous: z.string().nullable(),
-    results: z.array(CorrelationSchema)
-});
-
 const AveragesResponseSchema = z.object({
     count: z.number(),
     next: z.string().nullable(),
@@ -104,7 +97,36 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const days = input.days ?? 7;
 
-        const [withValuesResponse, correlationsResponse, averagesResponse] = await Promise.all([
+        // Correlations paginate (the provider default page size is well under what a single
+        // attribute can have in its rolling weekly snapshot), so every page must be fetched or
+        // valid matches beyond the first page would be silently dropped.
+        const correlationsConfig: ProxyConfiguration = {
+            // https://developer.exist.io/reference/correlations/#get-all-correlations
+            endpoint: '/api/2/correlations/',
+            params: {
+                attribute: input.name
+            },
+            paginate: {
+                type: 'offset',
+                offset_name_in_request: 'page',
+                offset_start_value: 1,
+                offset_calculation_method: 'per-page',
+                response_path: 'results',
+                limit_name_in_request: 'limit',
+                limit: 100
+            },
+            retries: 3
+        };
+
+        const fetchAllCorrelations = async (): Promise<z.infer<typeof CorrelationSchema>[]> => {
+            const results: z.infer<typeof CorrelationSchema>[] = [];
+            for await (const page of nango.paginate<unknown>(correlationsConfig)) {
+                results.push(...CorrelationSchema.array().parse(page));
+            }
+            return results;
+        };
+
+        const [withValuesResponse, correlations, averagesResponse] = await Promise.all([
             nango.get({
                 // https://developer.exist.io/reference/attributes/#get-attributes-with-values
                 endpoint: '/api/2/attributes/with-values/',
@@ -114,14 +136,7 @@ const action = createAction({
                 },
                 retries: 3
             }),
-            nango.get({
-                // https://developer.exist.io/reference/correlations/#get-all-correlations
-                endpoint: '/api/2/correlations/',
-                params: {
-                    attribute: input.name
-                },
-                retries: 3
-            }),
+            fetchAllCorrelations(),
             nango.get({
                 // https://developer.exist.io/reference/averages/#get-averages
                 endpoint: '/api/2/averages/',
@@ -133,7 +148,6 @@ const action = createAction({
         ]);
 
         const withValues = WithValuesResponseSchema.parse(withValuesResponse.data);
-        const correlations = CorrelationsResponseSchema.parse(correlationsResponse.data);
         const averages = AveragesResponseSchema.parse(averagesResponse.data);
 
         const attribute = withValues.results[0];
@@ -141,7 +155,7 @@ const action = createAction({
         return {
             attribute: input.name,
             recent_values: attribute ? attribute.values : [],
-            correlations: correlations.results,
+            correlations,
             averages: averages.results
         };
     }

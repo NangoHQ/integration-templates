@@ -136,10 +136,11 @@
           "allow": "GET, HEAD, OPTIONS",
           "etag": "W/\"34-QNO3zwhvJD4eYp3WXUd7H3uDFVY\""
         },
-        "hash": "193d086578593f441a1308eab7e9942aa2c156a1",
         "request": {
           "params": {
-            "attribute": "steps"
+            "attribute": "steps",
+            "limit": "100",
+            "page": "1"
           }
         }
       },

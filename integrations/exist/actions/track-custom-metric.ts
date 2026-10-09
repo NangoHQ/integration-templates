@@ -191,7 +191,7 @@ const action = createAction({
             const acquireResponse = await nango.post({
                 endpoint: '/api/2/attributes/acquire/',
                 params: { success_objects: 1 },
-                data: [{ name: existing.name, manual: true }],
+                data: [{ name: existing.name, manual: input.manual ?? true }],
                 // Acquiring is a state-changing ownership mutation; do not repeat it after an ambiguous response.
                 // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- deliberate retries: 0 for this non-idempotent acquisition.
                 retries: 0

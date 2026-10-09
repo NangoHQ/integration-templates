@@ -5,8 +5,12 @@ const LIMIT = 100;
 
 const CheckpointSchema = z.object({
     owned_page: z.number().int().positive().describe('Current page of /api/2/attributes/owned/ being processed during a resumable full refresh.'),
-    attribute_offset: z.number().int().min(0).describe('Zero-based index within the current owned-attributes page to resume from.'),
-    values_page: z.number().int().positive().describe('Current page of /api/2/attributes/values/ to request for the in-progress attribute.')
+    resume_attribute_name: z
+        .string()
+        .describe(
+            'Name of the currently-owned attribute to resume at on the current owned_page: fresh (not yet started) if values_page is 1, mid-history otherwise; empty string to resume from the start of the page.'
+        ),
+    values_page: z.number().int().positive().describe('Current page of /api/2/attributes/values/ to request for the resumed attribute.')
 });
 
 const OwnedAttributeSchema = z.object({
@@ -70,7 +74,7 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
         let ownedPage = getCheckpointNumber(checkpoint, 'owned_page') ?? 1;
-        let attributeOffset = getCheckpointNumber(checkpoint, 'attribute_offset') ?? 0;
+        let resumeAttributeName = getCheckpointString(checkpoint, 'resume_attribute_name') ?? '';
         let valuesPage = getCheckpointNumber(checkpoint, 'values_page') ?? 1;
 
         // Full refresh is required: GET /api/2/attributes/values/ exposes only an upper-bound
@@ -100,13 +104,32 @@ const sync = createSync({
                 break;
             }
 
-            for (let index = attributeOffset; index < ownedAttributesPage.results.length; index++) {
+            // Resume by the attribute's stable name rather than its numeric position: ownership can
+            // change between interrupted runs (an attribute released since the checkpoint was saved
+            // shifts every later index on this page), so resuming at a saved index can silently skip
+            // an attribute. If the saved name is no longer on this page, restart the page from the
+            // beginning instead of guessing a position; attributes already synced this run are
+            // re-upserted by their stable id, so this is wasted work, never lost data.
+            let startIndex = 0;
+            if (resumeAttributeName !== '') {
+                const resumeIndex = ownedAttributesPage.results.findIndex((candidate) => candidate.name === resumeAttributeName);
+                if (resumeIndex === -1) {
+                    // The saved values_page belonged to the vanished attribute, not to whichever
+                    // attribute now sits at index 0, so that one must start from its first page.
+                    startIndex = 0;
+                    valuesPage = 1;
+                } else {
+                    startIndex = resumeIndex;
+                }
+            }
+
+            for (let index = startIndex; index < ownedAttributesPage.results.length; index++) {
                 const attributeName = ownedAttributesPage.results[index]?.name;
                 if (!attributeName) {
                     continue;
                 }
 
-                let currentValuesPage = valuesPage;
+                let currentValuesPage = index === startIndex ? valuesPage : 1;
 
                 while (true) {
                     let providerValuesPage: z.infer<typeof ProviderValuesPageSchema>;
@@ -151,16 +174,17 @@ const sync = createSync({
                     currentValuesPage += 1;
                     await nango.saveCheckpoint({
                         owned_page: ownedPage,
-                        attribute_offset: index,
+                        resume_attribute_name: attributeName,
                         values_page: currentValuesPage
                     });
                 }
 
-                attributeOffset = index + 1;
+                const nextAttribute = ownedAttributesPage.results[index + 1];
+                resumeAttributeName = nextAttribute ? nextAttribute.name : '';
                 valuesPage = 1;
                 await nango.saveCheckpoint({
                     owned_page: ownedPage,
-                    attribute_offset: attributeOffset,
+                    resume_attribute_name: resumeAttributeName,
                     values_page: valuesPage
                 });
             }
@@ -170,11 +194,11 @@ const sync = createSync({
             }
 
             ownedPage += 1;
-            attributeOffset = 0;
+            resumeAttributeName = '';
             valuesPage = 1;
             await nango.saveCheckpoint({
                 owned_page: ownedPage,
-                attribute_offset: attributeOffset,
+                resume_attribute_name: resumeAttributeName,
                 values_page: valuesPage
             });
         }
@@ -201,6 +225,15 @@ function getCheckpointNumber(checkpoint: unknown, key: string): number | undefin
 
     const value = Reflect.get(checkpoint, key);
     return typeof value === 'number' ? value : undefined;
+}
+
+function getCheckpointString(checkpoint: unknown, key: string): string | undefined {
+    if (typeof checkpoint !== 'object' || checkpoint === null) {
+        return undefined;
+    }
+
+    const value = Reflect.get(checkpoint, key);
+    return typeof value === 'string' ? value : undefined;
 }
 
 export default sync;

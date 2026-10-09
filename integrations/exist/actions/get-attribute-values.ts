@@ -34,20 +34,24 @@ const ProviderValuesSchema = z.object({
     results: z.array(AttributeValueSchema)
 });
 
+const ErrorStatusSchema = z.object({
+    status: z.number().optional(),
+    statusCode: z.number().optional(),
+    response: z
+        .object({
+            status: z.number().optional(),
+            statusCode: z.number().optional()
+        })
+        .optional()
+});
+
 function isNotFoundError(error: unknown): boolean {
-    if (typeof error !== 'object' || error === null) {
+    const parsed = ErrorStatusSchema.safeParse(error);
+    if (!parsed.success) {
         return false;
     }
-    if ('response' in error) {
-        const response = error.response;
-        if (typeof response === 'object' && response !== null && 'status' in response) {
-            return response.status === 404;
-        }
-    }
-    if ('status' in error) {
-        return error.status === 404;
-    }
-    return false;
+    const { status, statusCode, response } = parsed.data;
+    return status === 404 || statusCode === 404 || response?.status === 404 || response?.statusCode === 404;
 }
 
 /**

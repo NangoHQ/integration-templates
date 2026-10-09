@@ -17,7 +17,7 @@ const AttributeSchema = z.object({
     name: z.string().describe('Unique attribute name used when reading or writing its values. Example: "steps"'),
     label: z.string().describe('Human-readable attribute label. Example: "Steps"'),
     subgroup: z.string().nullable().optional().describe('Optional subgroup this attribute belongs to.'),
-    group: GroupSchema.describe('Group this attribute belongs to.'),
+    group: GroupSchema.nullable().optional().describe('Group this attribute belongs to, when the provider reports one.'),
     service: ServiceSchema.nullable().describe('Service that currently owns this attribute, or null when it is unowned or released.'),
     active: z.boolean().describe('Whether the attribute is active; released attributes are inactive and hidden by default.'),
     priority: z.number().describe('Sort priority of the attribute; lower values sort first.'),

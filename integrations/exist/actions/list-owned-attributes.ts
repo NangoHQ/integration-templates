@@ -16,7 +16,7 @@ const OwnedAttributeSchema = z.object({
     template: z.string().nullable().describe('Name of the template this attribute was created from, or null for custom attributes. Example: "steps"'),
     name: z.string().describe('Machine-readable attribute name. Example: "steps"'),
     label: z.string().describe('Human-readable attribute label. Example: "Steps"'),
-    subgroup: z.string().nullable().describe('Machine-readable subgroup name, or null when the attribute has no subgroup.'),
+    subgroup: z.string().nullable().optional().describe('Machine-readable subgroup name, or null when the attribute has no subgroup.'),
     group: AttributeGroupSchema.describe('Group this attribute belongs to.'),
     service: AttributeServiceSchema.describe('Service that currently owns this attribute.'),
     active: z.boolean().describe('Whether the attribute is currently active.'),

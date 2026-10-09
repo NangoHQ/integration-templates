@@ -2,7 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const RatingSchema = z.object({
-    positive: z.boolean().describe('Whether Exist considers the relationship positive.'),
+    positive: z.boolean().describe('Whether the user rated this correlation positively.'),
     rating_type: z.number().describe('Numeric code identifying the rating type.'),
     rating: z.string().describe('Human-readable rating, for example "Useful".')
 });
@@ -19,12 +19,12 @@ const CorrelationSchema = z.object({
     stars: z.number().describe('Confidence rating from 1 to 5 stars.'),
     second_person: z.string().describe('Human-readable sentence describing the relationship.'),
     second_person_elements: z.array(z.string()).describe('Tokenized fragments of the human-readable sentence.'),
-    attribute_category: z.string().nullable().describe('Sub-correlation category, or null when the pair has none.'),
+    attribute_category: z.string().nullable().optional().describe('Sub-correlation category, or null when the pair has none.'),
     strength_description: z.string().describe('Text description of the relationship strength.'),
     stars_description: z.string().describe('Text description of the confidence rating.'),
-    description: z.string().nullable().describe('Extended explanation for understood relationships, or null.'),
-    occurrence: z.string().nullable().describe('How common the relationship is, or null when unavailable.'),
-    rating: RatingSchema.nullable().describe('User-submitted rating of the correlation, or null when unrated.')
+    description: z.string().nullable().optional().describe('Extended explanation for understood relationships, or null.'),
+    occurrence: z.string().nullable().optional().describe('How common the relationship is, or null when unavailable.'),
+    rating: RatingSchema.nullable().optional().describe('User-submitted rating of the correlation, or null when unrated.')
 });
 
 const InputSchema = z

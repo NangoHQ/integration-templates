@@ -135,7 +135,10 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const body = input.attributes.map((attribute) => {
             if (attribute.template !== undefined) {
-                return { template: attribute.template };
+                return {
+                    template: attribute.template,
+                    ...(attribute.manual !== undefined && { manual: attribute.manual })
+                };
             }
             if (attribute.label === undefined || attribute.group === undefined || attribute.value_type === undefined) {
                 throw new nango.ActionError({

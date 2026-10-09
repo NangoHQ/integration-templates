@@ -20,12 +20,16 @@ const CorrelationSchema = z.object({
     stars: z.number().describe('Confidence rating from 1 to 5 stars.'),
     second_person: z.string().describe('Human-readable sentence describing the correlation.'),
     second_person_elements: z.array(z.string()).describe('Sentence fragments that make up the human-readable description.'),
-    attribute_category: z.string().nullable().describe('Sub-category of the attribute when the correlation covers a subset of its data, otherwise null.'),
+    attribute_category: z
+        .string()
+        .nullable()
+        .optional()
+        .describe('Sub-category of the attribute when the correlation covers a subset of its data, otherwise null.'),
     strength_description: z.string().describe('Human-readable description of the relationship strength. Example: "Quite often go together".'),
     stars_description: z.string().describe('Human-readable description of the confidence level. Example: "Certain to be related".'),
-    description: z.string().nullable().describe('Additional explanation about the correlation when available, otherwise null.'),
-    occurrence: z.string().nullable().describe('How commonly the correlation occurs when available, otherwise null.'),
-    rating: RatingSchema.nullable().describe('User-submitted rating for the correlation when present, otherwise null.')
+    description: z.string().nullable().optional().describe('Additional explanation about the correlation when available, otherwise null.'),
+    occurrence: z.string().nullable().optional().describe('How commonly the correlation occurs when available, otherwise null.'),
+    rating: RatingSchema.nullable().optional().describe('User-submitted rating for the correlation when present, otherwise null.')
 });
 
 const InputSchema = z

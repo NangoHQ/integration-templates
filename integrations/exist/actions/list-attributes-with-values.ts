@@ -24,7 +24,7 @@ const AttributeWithValuesSchema = z.object({
     label: z.string().describe('Human-readable attribute label. Example: "Steps"'),
     template: z.string().nullish().describe('Attribute template this attribute is based on, or null for custom attributes.'),
     group: GroupSchema.describe('Group this attribute belongs to.'),
-    subgroup: z.unknown().nullish().describe('Subgroup metadata for this attribute, or null when it has no subgroup.'),
+    subgroup: z.string().nullish().describe('Subgroup metadata for this attribute, or null when it has no subgroup.'),
     service: ServiceSchema.nullish().describe('Service currently providing data for this attribute, or null when unowned or manually tracked.'),
     active: z.boolean().describe('Whether the attribute is currently active. Released attributes are inactive.'),
     priority: z.number().describe('Sort priority of the attribute.'),

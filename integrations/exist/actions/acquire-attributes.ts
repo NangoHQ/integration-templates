@@ -12,11 +12,15 @@ const ServiceSchema = z.object({
     label: z.string().optional().describe('Human-readable service label. Example: "Google Fit"')
 });
 
-const AcquireRequestSchema = z.object({
-    template: z.string().optional().describe('Attribute template name to acquire, for templated attributes. Example: "steps"'),
-    name: z.string().optional().describe('Attribute name to acquire, for custom or already-created attributes. Example: "mood_note"'),
-    manual: z.boolean().optional().describe('When true, mark the attribute as manually updated so it is hidden from manual entry in Exist clients')
-});
+const AcquireRequestSchema = z
+    .object({
+        template: z.string().optional().describe('Attribute template name to acquire, for templated attributes. Example: "steps"'),
+        name: z.string().optional().describe('Attribute name to acquire, for custom or already-created attributes. Example: "mood_note"'),
+        manual: z.boolean().optional().describe('When true, mark the attribute as manually updated so it is hidden from manual entry in Exist clients')
+    })
+    .refine((value) => value.template !== undefined || value.name !== undefined, {
+        message: 'Each attribute must set either template or name.'
+    });
 
 const InputSchema = z
     .object({
