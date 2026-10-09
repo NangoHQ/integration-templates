@@ -138,7 +138,14 @@ const action = createAction({
             });
         }
 
-        const items = providerResponse.customerpayments || [];
+        // Zoho always includes "customerpayments" (as [] when empty); a missing list must not be reported as an empty page.
+        const items = providerResponse.customerpayments;
+        if (!items) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "customerpayments" list.'
+            });
+        }
         const pageContext = providerResponse.page_context;
         const hasMorePage = pageContext?.has_more_page ?? false;
         const nextPage = hasMorePage ? String(page + 1) : undefined;

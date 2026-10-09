@@ -154,7 +154,14 @@ const action = createAction({
             });
         }
 
-        const rawTaxes = providerResponse.taxes ?? [];
+        // Zoho always includes "taxes" (as [] when empty); a missing list must not be reported as an empty page.
+        const rawTaxes = providerResponse.taxes;
+        if (!rawTaxes) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "taxes" list.'
+            });
+        }
         const parsedTaxes: z.infer<typeof TaxSchema>[] = [];
 
         for (const rawTax of rawTaxes) {

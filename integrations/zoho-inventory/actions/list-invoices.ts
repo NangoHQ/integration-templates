@@ -148,7 +148,14 @@ const action = createAction({
             });
         }
 
-        const invoices = providerResponse.invoices ?? [];
+        // Zoho always includes "invoices" (as [] when empty); a missing list must not be reported as an empty page.
+        const invoices = providerResponse.invoices;
+        if (!invoices) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "invoices" list.'
+            });
+        }
         const pageContext = providerResponse.page_context;
         const returnedPage = pageContext?.page ?? page;
         const returnedPerPage = pageContext?.per_page ?? input.per_page ?? 200;

@@ -97,7 +97,14 @@ const action = createAction({
             });
         }
 
-        const creditnotes = providerResponse.creditnotes ?? [];
+        // Zoho always includes "creditnotes" (as [] when empty); a missing list must not be reported as an empty page.
+        const creditnotes = providerResponse.creditnotes;
+        if (!creditnotes) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "creditnotes" list.'
+            });
+        }
         const hasMorePage = providerResponse.page_context?.has_more_page ?? false;
         const nextCursor = hasMorePage ? String(page + 1) : undefined;
 

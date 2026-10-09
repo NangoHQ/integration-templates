@@ -165,7 +165,14 @@ const action = createAction({
             throw new nango.ActionError({ type: 'provider_error', message: parsed.message, code: parsed.code });
         }
 
-        const salesorders = parsed.salesorders ?? [];
+        // Zoho always includes "salesorders" (as [] when empty); a missing list must not be reported as an empty page.
+        const salesorders = parsed.salesorders;
+        if (!salesorders) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "salesorders" list.'
+            });
+        }
         const pageContext = parsed.page_context ?? { page, per_page: perPage, has_more_page: false };
 
         return {

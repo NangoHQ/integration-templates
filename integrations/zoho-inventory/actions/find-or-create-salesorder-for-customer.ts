@@ -127,7 +127,14 @@ const action = createAction({
             });
         }
 
-        const contacts = contactsData.contacts ?? [];
+        // Zoho always includes "contacts" (as [] when empty); a missing list would be read as "no matching contact" and create a duplicate.
+        const contacts = contactsData.contacts;
+        if (!contacts) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory response is missing the "contacts" list.'
+            });
+        }
         const existing = contacts.find((contact) => contact.contact_name === input.customer_name);
 
         let customerId: string;

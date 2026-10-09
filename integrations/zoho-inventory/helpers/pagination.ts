@@ -61,7 +61,13 @@ export async function* paginateByLastModifiedTime(
             throw new Error(`Zoho Inventory returned code ${envelope.code} listing ${responseKey}: ${envelope.message ?? 'unknown error'}`);
         }
 
-        const records = z.array(z.unknown()).optional().parse(envelope[responseKey]) ?? [];
+        // Zoho always includes the list key (as [] when empty). A missing key is a malformed response: treating it
+        // as an empty final page would end a full-refresh scan early and let trackDeletesEnd delete every record.
+        const parsedRecords = z.array(z.unknown()).safeParse(envelope[responseKey]);
+        if (!parsedRecords.success) {
+            throw new Error(`Zoho Inventory response is missing the "${responseKey}" array: ${parsedRecords.error.message}`);
+        }
+        const records = parsedRecords.data;
         const last = records[records.length - 1];
         const lastModified = last === undefined ? undefined : (RecordTimestampSchema.parse(last).last_modified_time ?? undefined);
 
