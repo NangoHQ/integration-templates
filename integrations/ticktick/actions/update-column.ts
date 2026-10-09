@@ -5,7 +5,11 @@ const InputSchema = z
     .object({
         projectId: z.string().describe('Identifier of the project that contains the column. Example: "6226ff9877acee87727f6bca"'),
         columnId: z.string().describe('Identifier of the column to rename. Example: "6226ff9e76e5fc39f2862d1b"'),
-        name: z.string().describe('New name to give the column (max 1000 characters). Example: "In Progress"')
+        name: z
+            .string()
+            .min(1)
+            .max(64)
+            .describe('New name to give the column, up to 64 characters (TickTick silently truncates longer names). Example: "In Progress"')
     })
     .describe('Identifies the TickTick column to rename and the new name to apply.');
 
@@ -26,6 +30,7 @@ const OutputSchema = ColumnSchema.describe('The column as returned by TickTick a
 const action = createAction({
     description: 'Rename a column.',
     version: '1.0.0',
+    scopes: ['tasks:write'],
     input: InputSchema,
     output: OutputSchema,
 

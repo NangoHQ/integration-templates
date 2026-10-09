@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         projectGroupId: z.string().describe('Identifier of the project group to rename. Example: "6ac94f338f089f376a25814c"'),
-        name: z.string().describe('New name for the project group, up to 64 characters. Example: "Work Projects"')
+        name: z.string().min(1).max(64).describe('New name for the project group, up to 64 characters. Example: "Work Projects"')
     })
     .describe('Input for renaming a TickTick project group.');
 

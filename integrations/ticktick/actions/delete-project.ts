@@ -30,6 +30,7 @@ const action = createAction({
         await nango.delete({
             // https://developer.ticktick.com/docs/openapi.md - Delete Project: DELETE /open/v1/project/{projectId}
             endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}`,
+            // Verified live: re-deleting an already-deleted project returns 200, so retrying a lost response is safe.
             retries: 3
         });
 

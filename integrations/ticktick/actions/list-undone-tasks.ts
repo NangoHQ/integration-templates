@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const TaskItemSchema = z.object({
     id: z.string().optional().describe('Subtask ID.'),
     title: z.string().optional().describe('Subtask title.'),
-    status: z.number().optional().describe('Subtask completion status: 0 = open, 2 = completed.'),
+    status: z.number().optional().describe('Subtask completion status: 0 = open, 1 = completed.'),
     startDate: z.string().optional().describe('Subtask start date-time in "yyyy-MM-dd\'T\'HH:mm:ssZ" format.'),
     isAllDay: z.boolean().optional().describe('Whether the subtask is an all-day task.'),
     timeZone: z.string().optional().describe('IANA time zone the subtask start time is specified in.'),
@@ -39,6 +39,9 @@ const TaskSchema = z.object({
     createdTime: z.string().optional().describe('Creation date-time.')
 });
 
+// TickTick returns an empty array instead of an error for ranges longer than 14 days or with endDate before startDate.
+const MAX_RANGE_MS = 14 * 24 * 60 * 60 * 1000;
+
 const InputSchema = z
     .object({
         startDate: z.string().describe('Start of the task startDate range (inclusive) in "yyyy-MM-dd\'T\'HH:mm:ssZ" format, e.g. "2026-07-01T00:00:00+0000".'),
@@ -60,7 +63,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Queries the provider for undone tasks and performs no provider mutations.
- * @pitfalls: Filters on the task's startDate, so genuinely undone tasks without a startDate are excluded even when inside the range; ranges longer than 14 days are unsupported and may return no results; at most 200 tasks are returned.
+ * @pitfalls: Filters on the task's startDate, so genuinely undone tasks without a startDate are excluded even when inside the range; at most 200 tasks are returned.
  */
 const action = createAction({
     description: 'List undone tasks whose startDate falls within a date range of up to 14 days.',
@@ -70,6 +73,21 @@ const action = createAction({
     scopes: ['tasks:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const start = Date.parse(input.startDate);
+        const end = Date.parse(input.endDate);
+        if (Number.isNaN(start) || Number.isNaN(end)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'startDate and endDate must be valid date-times, e.g. "2026-07-01T00:00:00+0000".'
+            });
+        }
+        if (end < start || end - start > MAX_RANGE_MS) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'endDate must not precede startDate, and the range must not exceed 14 days.'
+            });
+        }
+
         const response = await nango.post({
             // https://developer.ticktick.com/docs/openapi.md
             endpoint: '/open/v1/task/undone',

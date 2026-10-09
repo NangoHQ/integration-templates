@@ -32,6 +32,7 @@ const sync = createSync({
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['tasks:read'],
     models: {
         Project: ProjectSchema
     },

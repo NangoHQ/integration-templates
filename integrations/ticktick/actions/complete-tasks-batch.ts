@@ -25,7 +25,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Marks the supplied tasks as completed in the provider, changing their status to done.
- * @pitfalls: When projectId is omitted the tasks are completed in the current user's inbox rather than a specific project, and task IDs that are not in the given project (or do not exist) are silently skipped instead of erroring, so compare the returned IDs against the requested ones to detect anything that was not completed.
+ * @pitfalls: When projectId is omitted the tasks are completed in the current user's inbox rather than a specific project, and task IDs that are not in the given project (or do not exist) are silently skipped instead of erroring, so compare the returned IDs against the requested ones to detect anything that was not completed. A recurring task completes its current occurrence and advances to the next one, so calling this again completes another occurrence.
  */
 const action = createAction({
     description: 'Complete up to 50 tasks in a single project in one call.',
@@ -42,8 +42,10 @@ const action = createAction({
                 ...(input.projectId != null && input.projectId !== '' && { projectId: input.projectId }),
                 taskIds: input.taskIds
             },
-            // Completing an already-completed task is a no-op, so retrying a lost response is safe.
-            retries: 3
+            // Not idempotent for recurring tasks: each call completes one more occurrence, so a retry after a
+            // lost response would complete the next occurrence too.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const completedTaskIds = CompletedTaskIdsSchema.parse(response.data);

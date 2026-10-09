@@ -8,6 +8,7 @@
     "projectId": "6ac950d18f088b3af89438b4",
     "title": "CompleteTaskAndVerify action target",
     "status": 2,
+    "advancedToNextOccurrence": false,
     "completedTime": "2026-10-09T20:39:06.619+0000",
     "content": "target for composite dryrun",
     "isAllDay": false,

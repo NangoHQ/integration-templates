@@ -16,7 +16,10 @@ const InputSchema = z
         projectName: z
             .string()
             .min(1)
-            .describe('Name of the project to create the task in. Matched case-sensitively against existing projects; created when no exact match exists.'),
+            .max(64)
+            .describe(
+                'Name of the project to create the task in, up to 64 characters. Matched case-sensitively against existing projects; created when no exact match exists.'
+            ),
         title: z.string().describe('Title of the task to create.'),
         content: z.string().optional().describe('Task content/notes.'),
         desc: z.string().optional().describe('Description of the task checklist.'),

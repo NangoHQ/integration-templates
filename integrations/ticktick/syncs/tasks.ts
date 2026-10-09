@@ -10,10 +10,15 @@ import { z } from 'zod';
 // tracked full scan mid-run would risk falsely deleting records that were not re-seen yet.
 //
 // Primary path (verified live): a single account-wide `POST /open/v1/task/filter` with no
-// `projectIds` and `status: [-1, 0, 2]` returns tasks across every project, capped at 200 tasks.
-// Fallback path (accounts likely to exceed that 200-cap): enumerate projects, then fetch each
-// project's undone tasks via `GET /open/v1/project/{projectId}/data` plus its completed tasks via
-// `POST /open/v1/task/completed` scoped to that project.
+// `projectIds` and no `status` returns open, completed and abandoned tasks across every project,
+// capped at 200 tasks. The status filter is deliberately omitted: TickTick does not honour `-1`
+// there (`[-1, 0, 2]` silently drops abandoned tasks).
+// Fallback path (the account-wide call hit its cap): repeat the same filter per project, including
+// the inbox, which `GET /open/v1/project` does not list. A project under the cap is complete. A
+// project at the cap is re-read through `GET /open/v1/project/{projectId}/data` (all undone tasks)
+// and `POST /open/v1/task/completed` paged backwards by completedTime (all completed tasks), but its
+// abandoned tasks are only reachable through the capped filter call. In that case the run saves
+// everything it fetched and skips trackDeletesEnd, so unseen tasks are never falsely deleted.
 
 const ChecklistItemSchema = z
     .object({
@@ -85,54 +90,87 @@ const ProjectDataSchema = z
     })
     .passthrough();
 
-// TickTick documents that task/filter, task/completed and project/{id}/data each return at most
-// 200 records; the value is used only to detect that the account-wide call hit its cap.
-const ACCOUNT_TASK_LIMIT = 200;
+// TickTick documents (and live calls confirm) that task/filter and task/completed each return at
+// most 200 records with no pagination cursor.
+const TASK_PAGE_LIMIT = 200;
 const PROJECT_PAGE_LIMIT = 200;
+// The inbox is not returned by `GET /open/v1/project`; TickTick accepts this alias for it.
+const INBOX_PROJECT_ID = 'inbox';
 
-async function fetchAccountTasks(nango: NangoSyncLocal): Promise<TaskRecord[]> {
+interface ProjectTasks {
+    tasks: TaskRecord[];
+    complete: boolean;
+}
+
+async function filterTasks(nango: NangoSyncLocal, projectId?: string): Promise<TaskRecord[]> {
     // TickTick Open API - Filter Tasks: https://developer.ticktick.com/docs/openapi.md
     const response = await nango.post({
         endpoint: '/open/v1/task/filter',
-        data: { status: [-1, 0, 2] },
+        data: projectId === undefined ? {} : { projectIds: [projectId] },
         retries: 3
     });
 
-    return parseTaskArray(response.data, 'task/filter');
+    return parseTaskArray(response.data, projectId === undefined ? 'task/filter' : `task/filter for project ${projectId}`);
 }
 
-async function fetchTasksByProject(nango: NangoSyncLocal): Promise<TaskRecord[]> {
-    const tasks: TaskRecord[] = [];
-
-    for (const projectId of await listProjectIds(nango)) {
-        const encodedProjectId = encodeURIComponent(projectId);
-
-        // TickTick Open API - Get Project With Data (undone tasks): https://developer.ticktick.com/docs/openapi.md
-        const dataResponse = await nango.get({
-            endpoint: `/open/v1/project/${encodedProjectId}/data`,
-            retries: 3
-        });
-
-        const projectData = ProjectDataSchema.safeParse(dataResponse.data);
-        if (!projectData.success) {
-            throw new Error(`Failed to parse project data for project ${projectId}: ${projectData.error.message}`);
-        }
-
-        for (const task of projectData.data.tasks ?? []) {
-            tasks.push(task);
-        }
-
-        // TickTick Open API - List Completed Tasks (scoped to one project): https://developer.ticktick.com/docs/openapi.md
-        const completedResponse = await nango.post({
-            endpoint: '/open/v1/task/completed',
-            data: { projectIds: [projectId] },
-            retries: 3
-        });
-
-        tasks.push(...parseTaskArray(completedResponse.data, `task/completed for project ${projectId}`));
+async function fetchProjectTasks(nango: NangoSyncLocal, projectId: string): Promise<ProjectTasks> {
+    const filtered = await filterTasks(nango, projectId);
+    if (filtered.length < TASK_PAGE_LIMIT) {
+        return { tasks: filtered, complete: true };
     }
 
-    return tasks;
+    // TickTick Open API - Get Project With Data (all undone tasks): https://developer.ticktick.com/docs/openapi.md
+    const dataResponse = await nango.get({
+        endpoint: `/open/v1/project/${encodeURIComponent(projectId)}/data`,
+        retries: 3
+    });
+
+    const projectData = ProjectDataSchema.safeParse(dataResponse.data);
+    if (!projectData.success) {
+        throw new Error(`Failed to parse project data for project ${projectId}: ${projectData.error.message}`);
+    }
+
+    const completed = await fetchCompletedTasks(nango, projectId);
+
+    // Abandoned tasks beyond the first filter page cannot be fetched, so the project is never complete here.
+    return { tasks: [...filtered, ...(projectData.data.tasks ?? []), ...completed], complete: false };
+}
+
+async function fetchCompletedTasks(nango: NangoSyncLocal, projectId: string): Promise<TaskRecord[]> {
+    const tasks = new Map<string, TaskRecord>();
+    let endDate: string | undefined;
+    let hasMore = true;
+
+    // The built-in paginator cannot express this completedTime-based backward paging.
+    while (hasMore) {
+        // TickTick Open API - List Completed Tasks: https://developer.ticktick.com/docs/openapi.md
+        // Results are newest-first and endDate is inclusive, so each page resumes at the oldest
+        // completedTime of the previous one; overlapping tasks are de-duplicated by id.
+        const response = await nango.post({
+            endpoint: '/open/v1/task/completed',
+            data: { projectIds: [projectId], ...(endDate !== undefined && { endDate }) },
+            retries: 3
+        });
+
+        const page = parseTaskArray(response.data, `task/completed for project ${projectId}`);
+        let added = 0;
+        let oldest: string | undefined;
+        for (const task of page) {
+            if (!tasks.has(task.id)) {
+                tasks.set(task.id, task);
+                added += 1;
+            }
+            if (task.completedTime && (oldest === undefined || task.completedTime < oldest)) {
+                oldest = task.completedTime;
+            }
+        }
+
+        // Stop on a short page, or when a full page brought nothing new and paging cannot advance.
+        hasMore = page.length >= TASK_PAGE_LIMIT && added > 0 && oldest !== undefined && oldest !== endDate;
+        endDate = oldest;
+    }
+
+    return Array.from(tasks.values());
 }
 
 async function listProjectIds(nango: NangoSyncLocal): Promise<string[]> {
@@ -181,10 +219,12 @@ function parseTaskArray(payload: unknown, source: string): TaskRecord[] {
 }
 
 const sync = createSync({
-    description: 'Sync tasks across all projects, with a per-project fallback when the account-wide listing hits its 200-task cap.',
+    description:
+        'Sync open, completed and abandoned tasks across all projects and the inbox, with a per-project fallback when the account-wide listing hits its 200-task cap.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['tasks:read'],
     models: {
         Task: TaskSchema
     },
@@ -192,26 +232,40 @@ const sync = createSync({
     exec: async (nango) => {
         await nango.trackDeletesStart('Task');
 
-        const accountTasks = await fetchAccountTasks(nango);
+        const accountTasks = await filterTasks(nango);
 
         let tasks = accountTasks;
-        if (accountTasks.length >= ACCOUNT_TASK_LIMIT) {
-            // The account-wide call hit its 200-task cap, so it may be incomplete. Re-fetch the
-            // full set project-by-project and merge so no task is missed (and none is falsely
-            // deleted at trackDeletesEnd).
-            const byProject = await fetchTasksByProject(nango);
+        const incompleteProjectIds: string[] = [];
+        if (accountTasks.length >= TASK_PAGE_LIMIT) {
+            // The account-wide call hit its cap, so it may be incomplete. Re-fetch project-by-project
+            // and merge so no reachable task is missed.
             const merged = new Map<string, TaskRecord>();
             for (const task of accountTasks) {
                 merged.set(task.id, task);
             }
-            for (const task of byProject) {
-                merged.set(task.id, task);
+            for (const projectId of [INBOX_PROJECT_ID, ...(await listProjectIds(nango))]) {
+                const projectTasks = await fetchProjectTasks(nango, projectId);
+                for (const task of projectTasks.tasks) {
+                    merged.set(task.id, task);
+                }
+                if (!projectTasks.complete) {
+                    incompleteProjectIds.push(projectId);
+                }
             }
             tasks = Array.from(merged.values());
         }
 
         if (tasks.length > 0) {
             await nango.batchSave(tasks, 'Task');
+        }
+
+        if (incompleteProjectIds.length > 0) {
+            // Ending delete tracking now would delete every task this run could not reach.
+            await nango.log(
+                `Skipping deletion detection: projects ${incompleteProjectIds.join(', ')} hold at least ${TASK_PAGE_LIMIT} tasks, so their abandoned tasks cannot be fully listed.`,
+                { level: 'warn' }
+            );
+            return;
         }
 
         await nango.trackDeletesEnd('Task');

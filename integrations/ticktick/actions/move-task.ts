@@ -31,7 +31,9 @@ const OutputSchema = z
                         .describe('Timestamp when the move was recorded, in ISO-8601 format. Example: "2026-10-09T20:32:44.387+0000".')
                 })
             )
-            .describe('One entry per requested task, in the order the tasks were submitted.')
+            .describe(
+                'Move results exactly as returned by TickTick. Empty when either project does not exist, so do not rely on its length or order matching the requested taskIds.'
+            )
     })
     .describe('Result of the move operation, listing the tasks the provider returned a result for.');
 

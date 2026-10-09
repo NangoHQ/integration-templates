@@ -33,6 +33,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a new project group (folder).',
     version: '1.0.0',
+    scopes: ['tasks:write'],
     input: InputSchema,
     output: OutputSchema,
 

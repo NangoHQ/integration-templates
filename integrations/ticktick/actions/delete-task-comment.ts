@@ -18,7 +18,7 @@ const OutputSchema = z
 /**
  * @tags: [write, destructive]
  * @tagReason: Deletes an existing task comment through the provider, a difficult-to-reverse mutation.
- * @pitfalls: Deletion is permanent and cannot be undone, and deleting an unknown or already-deleted comment returns a 404 error rather than succeeding idempotently.
+ * @pitfalls: Deletion is permanent and cannot be undone, and deleting an unknown or already-deleted comment still returns success, so a successful result does not prove the comment existed.
  */
 const action = createAction({
     description: 'Delete a comment from a task.',
@@ -31,7 +31,7 @@ const action = createAction({
         // https://developer.ticktick.com/docs/openapi.md#delete-task-comment
         await nango.delete({
             endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}/comment/${encodeURIComponent(input.commentId)}`,
-            // DELETE is idempotent, so retrying a lost response is safe.
+            // Verified live: repeating the delete (or deleting an unknown comment ID) returns 200, so retrying a lost response is safe.
             retries: 3
         });
 

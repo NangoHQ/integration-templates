@@ -79,8 +79,13 @@ const OutputSchema = z
         id: z.string().describe('Task identifier.'),
         projectId: z.string().describe('ID of the project the task belongs to.'),
         title: z.string().describe('Task title.'),
-        status: z.number().describe('Task completion status as confirmed by the follow-up read; always 2 (completed) on success.'),
-        completedTime: z.string().describe('Task completion time in "yyyy-MM-dd\'T\'HH:mm:ssZ" format; always populated on success.'),
+        status: z.number().describe('Task status from the follow-up read: 2 (completed), or 0 when a recurring task advanced to its next open occurrence.'),
+        completedTime: z.string().optional().describe('Task completion time in "yyyy-MM-dd\'T\'HH:mm:ssZ" format; present when status is 2.'),
+        advancedToNextOccurrence: z
+            .boolean()
+            .describe(
+                'True when the task is recurring and the completion was confirmed by its dates moving to the next occurrence; the completed occurrence is stored by TickTick under a new task ID.'
+            ),
         content: z.string().optional().describe('Task content.'),
         desc: z.string().optional().describe('Description of the task checklist.'),
         isAllDay: z.boolean().optional().describe('Whether the task is an all-day item.'),
@@ -112,7 +117,7 @@ const OutputSchema = z
 /**
  * @tags: [read, write]
  * @tagReason: Writes by marking the task complete, then reads the task back to return its confirmed final state.
- * @pitfalls: Completing a recurring task advances it to its next occurrence, creating a new open occurrence instead of only closing the current one; completing an already-completed task succeeds without changing its completedTime.
+ * @pitfalls: Completing a recurring task stores the completed occurrence under a new task ID and moves this task to its next open occurrence, so the result has status 0 and advancedToNextOccurrence true; completing an already-completed task succeeds and moves its completedTime to the time of the new call.
  */
 const action = createAction({
     description:
@@ -123,6 +128,18 @@ const action = createAction({
     scopes: ['tasks:write', 'tasks:read'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const taskEndpoint = `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}`;
+
+        // Read the task first: a recurring task stays open after completion, so its confirmation is
+        // that the dates moved forward rather than that the status became 2.
+        // https://developer.ticktick.com/docs/openapi.md#get-task-by-project-id-and-task-id
+        const beforeResponse = await nango.get({
+            endpoint: taskEndpoint,
+            retries: 3
+        });
+        const before = ProviderTaskSchema.parse(beforeResponse.data);
+        const isRecurring = Boolean(before.repeatFlag);
+
         // https://developer.ticktick.com/docs/openapi.md#completeusingpost
         await nango.post({
             endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}/complete`,
@@ -134,7 +151,7 @@ const action = createAction({
 
         // https://developer.ticktick.com/docs/openapi.md#get-task-by-project-id-and-task-id
         const response = await nango.get({
-            endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}`,
+            endpoint: taskEndpoint,
             retries: 3
         });
 
@@ -149,8 +166,11 @@ const action = createAction({
 
         const task = ProviderTaskSchema.parse(response.data);
         const completedTime = task.completedTime;
+        const isCompleted = task.status === 2 && Boolean(completedTime);
+        const advancedToNextOccurrence =
+            !isCompleted && isRecurring && task.status === 0 && (task.startDate !== before.startDate || task.dueDate !== before.dueDate);
 
-        if (task.status !== 2 || !completedTime) {
+        if (!isCompleted && !advancedToNextOccurrence) {
             throw new nango.ActionError({
                 type: 'completion_not_confirmed',
                 message: 'The follow-up read did not show the task as completed.',
@@ -166,7 +186,8 @@ const action = createAction({
             projectId: task.projectId,
             title: task.title,
             status: task.status,
-            completedTime,
+            advancedToNextOccurrence,
+            ...(completedTime != null && { completedTime }),
             ...(task.content != null && { content: task.content }),
             ...(task.desc != null && { desc: task.desc }),
             ...(task.isAllDay != null && { isAllDay: task.isAllDay }),

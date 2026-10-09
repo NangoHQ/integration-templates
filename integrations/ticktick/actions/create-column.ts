@@ -4,7 +4,11 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         projectId: z.string().describe('Identifier of the project to create the column in. Example: "6ac5b589bed7f77658a9a803"'),
-        name: z.string().describe('Name of the new column. Maximum 1000 characters. Example: "In Progress"')
+        name: z
+            .string()
+            .min(1)
+            .max(64)
+            .describe('Name of the new column, up to 64 characters (TickTick silently truncates longer names). Example: "In Progress"')
     })
     .describe('Input for creating a new column (section) on a TickTick project.');
 

@@ -26,6 +26,7 @@ const OutputSchema = z
 const action = createAction({
     description: 'List the members of a TickTick project, for use with assign-task.',
     version: '1.0.0',
+    scopes: ['tasks:read'],
     input: InputSchema,
     output: OutputSchema,
 

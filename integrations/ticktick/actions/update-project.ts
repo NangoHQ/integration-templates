@@ -4,11 +4,16 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         projectId: z.string().describe('Identifier of the project to update. Example: "6226ff9877acee87727f6bca".'),
-        name: z.string().optional().describe('New project name. Omit to leave the current name unchanged.'),
+        name: z
+            .string()
+            .min(1)
+            .max(64)
+            .optional()
+            .describe('New project name, up to 64 characters (TickTick silently truncates longer names). Omit to leave the current name unchanged.'),
         color: z.string().optional().describe('New project color as a hex code. Example: "#F18181". Omit to leave unchanged.'),
         sortOrder: z.number().int().optional().describe('New sort order value for the project. Omit to leave unchanged.'),
-        viewMode: z.string().optional().describe('New view mode: "list", "kanban" or "timeline". Omit to leave unchanged.'),
-        kind: z.string().optional().describe('New project kind: "TASK" or "NOTE". Omit to leave unchanged.')
+        viewMode: z.enum(['list', 'kanban', 'timeline']).optional().describe('New view mode: "list", "kanban" or "timeline". Omit to leave unchanged.'),
+        kind: z.enum(['TASK', 'NOTE']).optional().describe('New project kind: "TASK" or "NOTE". Omit to leave unchanged.')
     })
     .describe('Fields to change on an existing project; omitted fields are left unchanged.');
 
@@ -46,6 +51,7 @@ const OutputSchema = z
 const action = createAction({
     description: "Update a project's fields. Only send the fields you want to change.",
     version: '1.0.0',
+    scopes: ['tasks:write'],
     input: InputSchema,
     output: OutputSchema,
 

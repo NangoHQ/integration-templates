@@ -7,7 +7,7 @@ const InputItemSchema = z.object({
     isAllDay: z.boolean().optional().describe('Whether the subtask is an all-day subtask.'),
     sortOrder: z.number().optional().describe('Sort order value of the subtask.'),
     timeZone: z.string().optional().describe('IANA time zone the subtask start time is specified in. Example: "America/Los_Angeles"'),
-    status: z.number().optional().describe('Completion status of the subtask: 0 (open) or 2 (completed).'),
+    status: z.number().optional().describe('Completion status of the subtask: 0 (open) or 1 (completed).'),
     completedTime: z.string().optional().describe('Subtask completion time in "yyyy-MM-dd\'T\'HH:mm:ssZ" format.')
 });
 
@@ -33,7 +33,7 @@ const InputSchema = z
 const OutputItemSchema = z.object({
     id: z.string().optional().describe('Unique ID of the subtask.'),
     title: z.string().optional().describe('Title of the subtask.'),
-    status: z.number().optional().describe('Completion status of the subtask: 0 (open) or 2 (completed).'),
+    status: z.number().optional().describe('Completion status of the subtask: 0 (open) or 1 (completed).'),
     sortOrder: z.number().optional().describe('Sort order value of the subtask.'),
     startDate: z.string().optional().describe('Subtask start date and time.'),
     isAllDay: z.boolean().optional().describe('Whether the subtask is an all-day subtask.'),

@@ -29,6 +29,7 @@ const action = createAction({
         // https://developer.ticktick.com/docs/openapi.md#delete-project-group
         await nango.delete({
             endpoint: `/open/v1/project/group/${encodeURIComponent(input.projectGroupId)}`,
+            // Verified live: re-deleting an already-deleted group returns 200, so retrying a lost response is safe.
             retries: 3
         });
 

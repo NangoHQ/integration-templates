@@ -67,7 +67,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves tasks matching the given filters without modifying any provider data.
- * @pitfalls: Results are capped at 200 tasks with no pagination, so they may be partial; startDate/endDate match each task's own startDate, so tasks lacking one are excluded when a range is supplied; tag returns only tasks containing all specified tags.
+ * @pitfalls: Results are capped at 200 tasks with no pagination, so they may be partial; startDate/endDate match each task's own startDate, so tasks lacking one are excluded when a range is supplied; tag returns only tasks containing all specified tags; TickTick cannot filter by the abandoned status (-1) itself, so when status includes -1 the status filter is applied to the first 200 tasks of any status and fewer matches may be returned.
  */
 const action = createAction({
     description:
@@ -98,7 +98,10 @@ const action = createAction({
         if (input.kind !== undefined) {
             body['kind'] = input.kind;
         }
-        if (input.status !== undefined) {
+        // TickTick ignores -1 in the status filter (and [-1, 0, 2] silently drops abandoned tasks), so when
+        // abandoned tasks are requested the filter is left out and applied to the response instead.
+        const filterStatusLocally = input.status !== undefined && input.status.includes(-1);
+        if (input.status !== undefined && !filterStatusLocally) {
             body['status'] = input.status;
         }
 
@@ -110,9 +113,10 @@ const action = createAction({
         });
 
         const tasks = z.array(TaskSchema).parse(response.data);
+        const statuses = input.status;
 
         return {
-            tasks
+            tasks: filterStatusLocally && statuses !== undefined ? tasks.filter((task) => task.status !== undefined && statuses.includes(task.status)) : tasks
         };
     }
 });

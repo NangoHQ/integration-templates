@@ -130,6 +130,7 @@ function toFocusSummary(summary: z.infer<typeof ProviderFocusSummarySchema>): z.
 const action = createAction({
     description: 'Assign a task to a member of its project.',
     version: '1.0.0',
+    scopes: ['tasks:write'],
     input: InputSchema,
     output: OutputSchema,
 

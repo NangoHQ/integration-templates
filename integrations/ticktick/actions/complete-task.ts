@@ -89,7 +89,7 @@ const ProviderTaskSchema = z.object({
 /**
  * @tags: [write]
  * @tagReason: Marks a task as completed, mutating its status and completion time on the provider.
- * @pitfalls: Completing a task that is already completed still succeeds and updates its completedTime to the time of the new call.
+ * @pitfalls: Completing an already-completed task still succeeds and moves its completedTime to the time of the new call. Completing a recurring task completes the current occurrence under a new task ID and advances this task to its next occurrence, so the returned task is open (status 0) with its dates moved forward; every repeated call completes one more occurrence.
  */
 const action = createAction({
     description: 'Mark a single task as completed.',
@@ -100,10 +100,12 @@ const action = createAction({
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://developer.ticktick.com/docs/openapi.md (Complete Task)
-        // Setting a task to completed is idempotent (repeating it leaves the task in the same completed state).
         await nango.post({
             endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}/complete`,
-            retries: 3
+            // Not idempotent for recurring tasks: each call completes one more occurrence, so a retry after a
+            // lost response would complete the next occurrence too.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         // https://developer.ticktick.com/docs/openapi.md (Get Task)

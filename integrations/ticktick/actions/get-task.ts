@@ -62,15 +62,20 @@ const OutputSchema = z
     })
     .describe('A single TickTick task with its subtasks, focus summaries, and metadata.');
 
+const ErrorStatusSchema = z.object({
+    status: z.number().optional(),
+    statusCode: z.number().optional(),
+    response: z.object({ status: z.number().optional() }).optional()
+});
+
+// Proxy errors carry the provider status either on the error itself or on its response, depending on the runtime.
 function isNotFoundError(error: unknown): boolean {
-    if (typeof error !== 'object' || error === null || !('response' in error)) {
+    const parsed = ErrorStatusSchema.safeParse(error);
+    if (!parsed.success) {
         return false;
     }
-    const response = error.response;
-    if (typeof response !== 'object' || response === null || !('status' in response)) {
-        return false;
-    }
-    return response.status === 404;
+    const { status, statusCode, response } = parsed.data;
+    return status === 404 || statusCode === 404 || response?.status === 404;
 }
 
 /**

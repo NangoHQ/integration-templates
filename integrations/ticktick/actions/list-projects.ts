@@ -49,6 +49,7 @@ const OutputSchema = z
 const action = createAction({
     description: "List all of the user's projects (lists).",
     version: '1.0.0',
+    scopes: ['tasks:read'],
     input: InputSchema,
     output: OutputSchema,
 

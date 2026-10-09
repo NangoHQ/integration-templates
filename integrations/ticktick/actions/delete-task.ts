@@ -30,8 +30,8 @@ const action = createAction({
         // https://developer.ticktick.com/docs/openapi.md - Delete Task
         await nango.delete({
             endpoint: `/open/v1/project/${encodeURIComponent(input.projectId)}/task/${encodeURIComponent(input.taskId)}`,
-            // A retry after a lost response would repeat a destructive delete against an already-removed task.
-            retries: 10
+            // Verified live: re-deleting an already-deleted task returns 200, so retrying a lost response is safe.
+            retries: 3
         });
 
         return { success: true };

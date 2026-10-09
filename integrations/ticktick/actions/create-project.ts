@@ -3,7 +3,7 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        name: z.string().describe('Name of the project. Example: "Q4 Planning"'),
+        name: z.string().min(1).max(64).describe('Name of the project, up to 64 characters (TickTick silently truncates longer names). Example: "Q4 Planning"'),
         color: z.string().optional().describe('Hex color of the project. Example: "#F18181"'),
         sortOrder: z.number().int().optional().describe('Sort order value of the project. Example: 0'),
         viewMode: z.enum(['list', 'kanban', 'timeline']).optional().describe('View mode of the project: "list", "kanban" or "timeline". Example: "list"'),

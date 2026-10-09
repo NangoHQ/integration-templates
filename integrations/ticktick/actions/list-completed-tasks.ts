@@ -102,6 +102,7 @@ const ProviderResponseSchema = z.array(ProviderTaskSchema);
 const action = createAction({
     description: 'List up to 200 tasks completed within a time range, optionally scoped to specific projects.',
     version: '1.0.0',
+    scopes: ['tasks:read'],
     input: InputSchema,
     output: OutputSchema,
 
