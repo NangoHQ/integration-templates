@@ -2169,6 +2169,29 @@ import './exact-online/actions/update-customer.js';
 import './exact-online/actions/update-invoice.js';
 import './exact-online/actions/update-item.js';
 
+// -- Integration: exist
+import './exist/syncs/attribute-values.js';
+import './exist/syncs/attributes.js';
+import './exist/syncs/averages.js';
+import './exist/syncs/insights.js';
+import './exist/actions/acquire-attributes.js';
+import './exist/actions/create-attributes.js';
+import './exist/actions/get-attribute-values.js';
+import './exist/actions/get-correlation.js';
+import './exist/actions/get-metric-snapshot.js';
+import './exist/actions/get-profile.js';
+import './exist/actions/increment-attribute-values.js';
+import './exist/actions/list-attribute-templates.js';
+import './exist/actions/list-attributes-with-values.js';
+import './exist/actions/list-attributes.js';
+import './exist/actions/list-averages.js';
+import './exist/actions/list-correlations.js';
+import './exist/actions/list-insights.js';
+import './exist/actions/list-owned-attributes.js';
+import './exist/actions/release-attributes.js';
+import './exist/actions/track-custom-metric.js';
+import './exist/actions/update-attribute-values.js';
+
 // -- Integration: expensify
 import './expensify/syncs/users.js';
 import './expensify/actions/create-user.js';
