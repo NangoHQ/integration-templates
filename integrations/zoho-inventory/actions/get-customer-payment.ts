@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const InputSchema = z
     .object({
@@ -23,6 +20,9 @@ const InvoiceSchema = z.object({
     invoice_number: z.string().optional().describe('Number of the invoice the payment was applied to.'),
     invoice_payment_id: z.string().optional().describe('ID of the payment-to-invoice association.'),
     amount_applied: z.number().optional().describe('Amount of this payment applied to the invoice.'),
+    tax_amount_withheld: z.number().optional().describe('Tax amount withheld on this invoice allocation.'),
+    discount_amount: z.number().optional().describe('Early-payment discount applied on this invoice allocation.'),
+    unprocessed_payment_amount: z.number().optional().describe('Portion of the allocation not yet processed by Zoho.'),
     total: z.number().optional().describe('Total amount of the invoice.'),
     balance: z.number().optional().describe('Outstanding balance remaining on the invoice.'),
     date: z.string().optional().describe('Invoice date (YYYY-MM-DD).'),
@@ -58,10 +58,34 @@ const ProviderPaymentSchema = z.object({
     currency_code: z.string().optional().describe('Currency code of the payment (ISO 4217, for example "USD").'),
     currency_symbol: z.string().optional().describe('Currency symbol of the payment (for example "$").'),
     exchange_rate: z.number().optional().describe('Exchange rate used for the payment.'),
+    currency_id: z.string().optional().describe('ID of the payment currency.'),
+    account_type: z.string().optional().describe('Type of the deposit account, for example "cash" or "bank".'),
+    customer_advance_account_id: z.string().optional().describe('ID of the account that holds any unused amount as a customer advance.'),
+    customer_advance_account_name: z.string().optional().describe('Name of the account that holds any unused amount as a customer advance.'),
+    bank_charges_account_id: z.string().optional().describe('ID of the account bank charges are recorded to.'),
+    bank_charges_account_name: z.string().optional().describe('Name of the account bank charges are recorded to.'),
+    tax_amount_withheld: z.number().optional().describe('Total tax amount withheld from the payment.'),
+    tax_account_id: z.string().optional().describe('ID of the account withheld tax is recorded to.'),
+    tax_account_name: z.string().optional().describe('Name of the account withheld tax is recorded to.'),
+    discount_amount: z.number().optional().describe('Early-payment discount applied to the payment.'),
+    payment_gateway: z.string().optional().describe('Online payment gateway that processed the payment, empty for offline payments.'),
+    online_transaction_id: z.string().optional().describe('Gateway transaction ID for online payments.'),
+    settlement_status: z.string().optional().describe('Gateway settlement status for online payments.'),
+    card_type: z.string().optional().describe('Card type for card payments.'),
+    last_four_digits: z.string().optional().describe('Last four digits of the card for card payments.'),
+    sales_person_id: z.string().optional().describe('ID of the salesperson associated with the payment.'),
+    sales_person_name: z.string().optional().describe('Name of the salesperson associated with the payment.'),
+    template_id: z.string().optional().describe('ID of the PDF template used for the payment receipt.'),
+    template_name: z.string().optional().describe('Name of the PDF template used for the payment receipt.'),
+    created_by: z.string().optional().describe('Name of the user who recorded the payment.'),
     created_time: z.string().optional().describe('Timestamp when the payment was created.'),
     updated_time: z.string().optional().describe('Timestamp when the payment was last updated.'),
     invoices: z.array(InvoiceSchema).optional().describe('Invoices the payment has been applied to.'),
     check_details: CheckDetailsSchema.optional().describe('Check details when the payment mode is check.'),
+    payment_refunds: z.array(z.record(z.string(), z.unknown())).optional().describe('Refunds issued against the payment.'),
+    documents: z.array(z.record(z.string(), z.unknown())).optional().describe('Documents attached to the payment.'),
+    deposit_details: z.array(z.record(z.string(), z.unknown())).optional().describe('Deposit records associated with the payment.'),
+    custom_fields: z.array(z.record(z.string(), z.unknown())).optional().describe('Custom field values set on the payment.'),
     tags: z.array(z.record(z.string(), z.unknown())).optional().describe('Tags associated with the payment.')
 });
 
@@ -77,44 +101,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.customerpayments.READ'],
+    scopes: ['ZohoInventory.customerpayments.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         // https://www.zoho.com/inventory/api/v1/customer-payments/
         const response = await nango.get({
@@ -135,7 +125,7 @@ const action = createAction({
 
         if (data.code !== 0) {
             throw new nango.ActionError({
-                type: 'api_error',
+                type: 'provider_error',
                 message: data.message,
                 code: data.code
             });

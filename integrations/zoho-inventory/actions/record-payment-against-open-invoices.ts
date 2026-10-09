@@ -1,9 +1,11 @@
 import { z } from 'zod';
 import { createAction, type ProxyConfiguration } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InvoiceTargetSchema = z.object({
     invoice_id: z.string().describe('Zoho Inventory invoice ID to apply part of the payment to. Example: "260815000000155297"'),
-    amount_applied: z.number().describe('Amount of this payment to apply to the invoice. Must not exceed the invoice balance.')
+    amount_applied: z.number().positive().describe('Amount of this payment to apply to the invoice. Must not exceed the invoice balance.')
 });
 
 const InputSchema = z
@@ -12,7 +14,12 @@ const InputSchema = z
         payment_mode: z
             .string()
             .describe('Mode through which payment is made. Common values: check, cash, creditcard, banktransfer, bankremittance, autotransaction, others.'),
-        amount: z.number().describe('Total amount of the payment. Should equal the sum of amount_applied across the target invoices.'),
+        amount: z
+            .number()
+            .positive()
+            .describe(
+                'Total amount of the payment. Must equal the sum of amount_applied across the target invoices; a mismatch is rejected before any request is made.'
+            ),
         invoices: z.array(InvoiceTargetSchema).min(1).describe('Invoices to apply the payment to. Every entry is validated before any payment is created.'),
         date: z.string().optional().describe('Date the payment is made, in yyyy-mm-dd format. Defaults to the current date when omitted.'),
         reference_number: z.string().optional().describe('Optional reference number stored on the payment (for example a bank or check reference).'),
@@ -20,7 +27,9 @@ const InputSchema = z
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID. When omitted, the action discovers it from the connected account (see the list-organizations action).')
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Inputs for recording a customer payment against one or more open invoices.');
 
@@ -42,24 +51,18 @@ const OutputSchema = z
         date: z.string().optional().describe('Date recorded on the payment, in yyyy-mm-dd format.'),
         reference_number: z.string().optional().describe('Reference number recorded on the payment.'),
         description: z.string().optional().describe('Description recorded on the payment.'),
+        unused_amount: z
+            .number()
+            .optional()
+            .describe('Portion of the payment Zoho did not apply to any invoice (held as a customer advance). Expected to be 0.'),
         invoices: z.array(AppliedInvoiceSchema).describe('Invoices the payment was applied to, as confirmed by Zoho Inventory.')
     })
     .describe('The created customer payment and the invoices it was applied to.');
 
-const OrganizationsResponseSchema = z
-    .object({
-        organizations: z.array(
-            z
-                .object({
-                    organization_id: z.string()
-                })
-                .passthrough()
-        )
-    })
-    .passthrough();
-
 const InvoiceResponseSchema = z
     .object({
+        code: z.number(),
+        message: z.string().optional(),
         invoice: z
             .object({
                 invoice_id: z.string(),
@@ -70,11 +73,14 @@ const InvoiceResponseSchema = z
                 customer_name: z.string().optional()
             })
             .passthrough()
+            .optional()
     })
     .passthrough();
 
 const PaymentResponseSchema = z
     .object({
+        code: z.number(),
+        message: z.string().optional(),
         payment: z
             .object({
                 payment_id: z.string(),
@@ -86,6 +92,7 @@ const PaymentResponseSchema = z
                 date: z.string().optional(),
                 reference_number: z.string().optional(),
                 description: z.string().optional(),
+                unused_amount: z.number().optional(),
                 invoices: z
                     .array(
                         z
@@ -100,6 +107,7 @@ const PaymentResponseSchema = z
                     .optional()
             })
             .passthrough()
+            .optional()
     })
     .passthrough();
 
@@ -113,36 +121,20 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.customerpayments.ALL', 'ZohoInventory.invoices.ALL'],
+    scopes: ['ZohoInventory.customerpayments.ALL', 'ZohoInventory.invoices.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            const orgsConfig: ProxyConfiguration = {
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            };
-            const orgsResponse = await nango.get(orgsConfig);
-            const orgs = OrganizationsResponseSchema.parse(orgsResponse.data).organizations;
-
-            if (orgs.length === 0) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'The connected account does not belong to any Zoho Inventory organization.'
-                });
-            }
-
-            organizationId = orgs[0]?.organization_id;
-        }
-
-        if (!organizationId) {
+        // Zoho keeps any amount not allocated to an invoice as an unapplied customer advance, so a mismatch is rejected
+        // up front instead of silently recording an advance. Compared at 3-decimal precision to avoid floating-point drift.
+        const allocated = input.invoices.reduce((sum, target) => sum + target.amount_applied, 0);
+        if (Math.round(allocated * 1000) !== Math.round(input.amount * 1000)) {
             throw new nango.ActionError({
-                type: 'no_organization',
-                message: 'Could not determine the Zoho Inventory organization ID for the connection.'
+                type: 'invalid_input',
+                message: `amount (${input.amount}) must equal the sum of amount_applied across invoices (${allocated}).`
             });
         }
+
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const rejections: Array<{ invoice_id: string; reason: string }> = [];
 
@@ -156,7 +148,21 @@ const action = createAction({
                 retries: 3
             };
             const invoiceResponse = await nango.get(invoiceConfig);
-            const invoice = InvoiceResponseSchema.parse(invoiceResponse.data).invoice;
+            const invoiceData = InvoiceResponseSchema.parse(invoiceResponse.data);
+            if (invoiceData.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'provider_error',
+                    message: invoiceData.message ?? `Failed to retrieve invoice ${target.invoice_id}.`,
+                    code: invoiceData.code
+                });
+            }
+            const invoice = invoiceData.invoice;
+            if (!invoice) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: `Zoho Inventory did not return invoice ${target.invoice_id}.`
+                });
+            }
 
             if (invoice.status === 'void') {
                 rejections.push({ invoice_id: target.invoice_id, reason: 'void' });
@@ -196,7 +202,21 @@ const action = createAction({
             retries: 0
         };
         const paymentResponse = await nango.post(paymentConfig);
-        const payment = PaymentResponseSchema.parse(paymentResponse.data).payment;
+        const paymentData = PaymentResponseSchema.parse(paymentResponse.data);
+        if (paymentData.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: paymentData.message ?? 'Failed to record customer payment.',
+                code: paymentData.code
+            });
+        }
+        const payment = paymentData.payment;
+        if (!payment) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return the created payment.'
+            });
+        }
 
         return {
             payment_id: payment.payment_id,
@@ -208,6 +228,7 @@ const action = createAction({
             ...(payment.date != null && { date: payment.date }),
             ...(payment.reference_number != null && { reference_number: payment.reference_number }),
             ...(payment.description != null && { description: payment.description }),
+            ...(payment.unused_amount != null && { unused_amount: payment.unused_amount }),
             invoices: (payment.invoices ?? []).map((invoice) => ({
                 ...(invoice.invoice_id != null && { invoice_id: invoice.invoice_id }),
                 ...(invoice.invoice_number != null && { invoice_number: invoice.invoice_number }),

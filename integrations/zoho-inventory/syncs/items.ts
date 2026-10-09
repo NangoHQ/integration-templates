@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
 
 const CustomFieldSchema = z
     .object({
@@ -119,12 +121,12 @@ const CheckpointSchema = z
     })
     .describe('Sync checkpoint holding the incremental last_modified_time filter for the items sync.');
 
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.union([z.string(), z.number()])
-        })
-    )
+const PAGE_SIZE = 200;
+
+const ItemsResponseSchema = z.object({
+    code: z.number(),
+    message: z.string().optional(),
+    items: z.array(z.unknown()).optional()
 });
 
 const sync = createSync({
@@ -133,61 +135,53 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.items.READ', 'ZohoInventory.settings.READ'],
     models: {
         Item: ItemSchema
     },
 
     exec: async (nango) => {
-        const checkpoint = await nango.getCheckpoint();
-        let updatedAfter = checkpoint?.updated_after;
-        let maxModified: string | undefined = updatedAfter;
+        const organizationId = await resolveSyncOrganizationId(nango);
+        const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
+        let cursor = checkpoint?.updated_after;
+        // Only advances past 1 when a full page shares the cursor timestamp (e.g. a bulk import).
+        let page = 1;
+        let hasMore = true;
 
-        // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-        const organizationsResponse = await nango.get<unknown>({
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const organizations = OrganizationsResponseSchema.parse(organizationsResponse.data);
-        const organization = organizations.organizations[0];
-
-        if (!organization) {
-            throw new Error('No Zoho Inventory organization is available for this connection.');
-        }
-
-        const organizationId = String(organization.organization_id);
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/inventory/api/v1/items/#list-all-the-items
-            endpoint: '/inventory/v1/items',
-            params: {
-                organization_id: organizationId,
-                sort_column: 'last_modified_time',
-                sort_order: 'A',
-                ...(updatedAfter ? { last_modified_time: updatedAfter } : {})
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'items'
-            },
-            retries: 3
-        };
-
-        // Incremental sync: items are filtered by last_modified_time (inclusive-after) and the
-        // checkpoint stores the high-water mark. The API exposes no deleted-items feed and the
+        // Incremental sync with keyset pagination: every request is anchored on the newest
+        // last_modified_time seen so far (the filter is inclusive), sorted ascending. Plain offset
+        // paging is unsafe here because editing an item mid-run moves it to the end of this sort,
+        // shifting unread items onto already-read pages where they would be skipped for good once
+        // the checkpoint advances. Re-anchoring re-reads at most the items sharing the cursor
+        // timestamp, and batchSave upserts them. The API exposes no deleted-items feed and the
         // changed-only filter is incompatible with trackDeletesStart/trackDeletesEnd, so deletions
         // are intentionally not tracked by this sync.
-        for await (const page of nango.paginate<unknown>(proxyConfig)) {
-            const items = page.map((raw) => {
-                const parsed = ProviderItemSchema.parse(raw);
+        while (hasMore) {
+            // https://www.zoho.com/inventory/api/v1/items/#list-all-the-items
+            const response = await nango.get({
+                endpoint: '/inventory/v1/items',
+                params: {
+                    organization_id: organizationId,
+                    sort_column: 'last_modified_time',
+                    sort_order: 'A',
+                    page,
+                    per_page: PAGE_SIZE,
+                    ...(cursor ? { last_modified_time: cursor } : {})
+                },
+                retries: 3
+            });
+
+            const parsed = ItemsResponseSchema.parse(response.data);
+            if (parsed.code !== 0) {
+                throw new Error(`Zoho Inventory returned code ${parsed.code} listing items: ${parsed.message ?? 'unknown error'}`);
+            }
+
+            const items = (parsed.items ?? []).map((raw) => {
+                const item = ProviderItemSchema.parse(raw);
                 return ItemSchema.parse({
-                    ...parsed,
-                    id: String(parsed.item_id)
+                    ...item,
+                    id: String(item.item_id)
                 });
             });
 
@@ -195,15 +189,21 @@ const sync = createSync({
                 await nango.batchSave(items, 'Item');
             }
 
-            for (const item of items) {
-                if (item.last_modified_time && (maxModified === undefined || new Date(item.last_modified_time).getTime() > new Date(maxModified).getTime())) {
-                    maxModified = item.last_modified_time;
-                }
-            }
+            const lastModified = items[items.length - 1]?.last_modified_time ?? undefined;
 
-            if (maxModified !== undefined && maxModified !== updatedAfter) {
-                await nango.saveCheckpoint({ updated_after: maxModified });
-                updatedAfter = maxModified;
+            if (items.length < PAGE_SIZE) {
+                if (lastModified && lastModified !== cursor) {
+                    await nango.saveCheckpoint({ updated_after: lastModified });
+                }
+                hasMore = false;
+            } else if (!lastModified) {
+                throw new Error('Zoho Inventory returned an item without last_modified_time; cannot advance the items cursor.');
+            } else if (lastModified === cursor) {
+                page += 1;
+            } else {
+                cursor = lastModified;
+                page = 1;
+                await nango.saveCheckpoint({ updated_after: cursor });
             }
         }
     }

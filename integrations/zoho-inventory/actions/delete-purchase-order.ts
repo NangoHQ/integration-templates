@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const InputSchema = z
     .object({
@@ -13,7 +10,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe(
-                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist. Example: "927270289"'
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
             )
     })
     .describe('Input for deleting a purchase order in Zoho Inventory.');
@@ -45,50 +42,17 @@ const action = createAction({
     scopes: ['ZohoInventory.purchaseorders.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            const orgResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
-        // https://www.zoho.com/inventory/api/v1/purchaseorders/
+        // https://www.zoho.com/inventory/api/v1/purchaseorders/#delete-a-purchase-order
         const response = await nango.delete({
             endpoint: `/inventory/v1/purchaseorders/${encodeURIComponent(input.purchaseorder_id)}`,
             params: {
                 organization_id: organizationId
             },
-            // A delete is idempotent in effect (a repeat cannot remove more than the first call), so the normal ceiling applies; a retry after a lost success response may surface a spurious "not found" error from Zoho.
-            retries: 3
+            // Deletion is not idempotent: a retry after a lost success reports the already-deleted purchase order as not found.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.safeParse(response.data);

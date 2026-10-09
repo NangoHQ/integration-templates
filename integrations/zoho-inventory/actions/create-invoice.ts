@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const LineItemInputSchema = z
     .object({
         item_id: z.string().describe('ID of the item being invoiced. Example: "260815000000101002"'),
@@ -14,7 +16,7 @@ const LineItemInputSchema = z
 const InputSchema = z
     .object({
         customer_id: z.string().describe('ID of the customer the invoice is created for. Example: "260815000000097001"'),
-        line_items: z.array(LineItemInputSchema).describe('Line items to place on the invoice. At least one is required.'),
+        line_items: z.array(LineItemInputSchema).min(1).describe('Line items to place on the invoice. At least one is required.'),
         invoice_number: z.string().optional().describe('Invoice number to assign. Rejected when the organization has invoice-number auto-generation enabled.'),
         date: z.string().optional().describe('Invoice date in yyyy-mm-dd format. Defaults to the current date when omitted. Example: "2026-10-09"'),
         due_date: z.string().optional().describe('Payment due date in yyyy-mm-dd format. Defaults to the date derived from the payment terms when omitted.'),
@@ -22,17 +24,15 @@ const InputSchema = z
         salesorder_id: z
             .string()
             .optional()
-            .describe('Sales order ID to associate with the invoice. Accepted by the API but does not actually link the invoice to the order.')
+            .describe('Sales order ID to associate with the invoice. Accepted by the API but does not actually link the invoice to the order.'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for creating a new invoice in Zoho Inventory.');
-
-const ProviderOrganizationSchema = z.object({
-    organization_id: z.union([z.string(), z.number()])
-});
-
-const ProviderOrganizationsSchema = z.object({
-    organizations: z.array(ProviderOrganizationSchema)
-});
 
 const ProviderInvoiceSchema = z.object({
     invoice_id: z.union([z.string(), z.number()]),
@@ -53,7 +53,9 @@ const ProviderInvoiceSchema = z.object({
 });
 
 const ProviderInvoiceResponseSchema = z.object({
-    invoice: ProviderInvoiceSchema
+    code: z.number(),
+    message: z.string().optional(),
+    invoice: ProviderInvoiceSchema.optional()
 });
 
 const OutputSchema = z
@@ -84,28 +86,12 @@ const OutputSchema = z
 const action = createAction({
     description: 'Create a new invoice for a customer.',
     version: '1.0.0',
-    scopes: ['ZohoInventory.invoices.CREATE'],
+    scopes: ['ZohoInventory.invoices.CREATE', 'ZohoInventory.settings.READ'],
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const orgResponse = await nango.get({
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const organizations = ProviderOrganizationsSchema.parse(orgResponse.data).organizations;
-        const organization = organizations[0];
-
-        if (!organization) {
-            throw new nango.ActionError({
-                type: 'not_found',
-                message: 'No Zoho Inventory organization is available for this connection.'
-            });
-        }
-
-        const organizationId = String(organization.organization_id);
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const lineItems = input.line_items.map((lineItem) => ({
             item_id: lineItem.item_id,
@@ -130,12 +116,35 @@ const action = createAction({
                 ...(input.reference_number !== undefined && { reference_number: input.reference_number }),
                 ...(input.salesorder_id !== undefined && { salesorder_id: input.salesorder_id })
             },
-            // Non-idempotent create; a retry after a lost response would create a duplicate invoice, so retries must stay 0.
-            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- deliberately 0 for this non-idempotent create
+            // Non-idempotent create; a retry after a lost response would create a duplicate invoice.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0
         });
 
-        const invoice = ProviderInvoiceResponseSchema.parse(response.data).invoice;
+        const parsed = ProviderInvoiceResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when creating invoice.',
+                details: parsed.error.message
+            });
+        }
+
+        if (parsed.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.data.message ?? 'Failed to create invoice.',
+                code: parsed.data.code
+            });
+        }
+
+        const invoice = parsed.data.invoice;
+        if (!invoice) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return the created invoice.'
+            });
+        }
 
         return {
             invoice_id: String(invoice.invoice_id),

@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         salesorder_id: z.string().describe('ID of the sales order to delete. Example: "260815000000161134".'),
@@ -8,18 +10,10 @@ const InputSchema = z
             .string()
             .optional()
             .describe(
-                'Zoho Inventory organization ID. Omit to use the organization discovered from the connection (required when the account has multiple organizations). Example: "927270289".'
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
             )
     })
     .describe('Input for deleting a Zoho Inventory sales order.');
-
-const OrganizationListSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
-});
 
 const DeleteResponseSchema = z.object({
     code: z.number(),
@@ -36,51 +30,44 @@ const OutputSchema = z
 
 /**
  * @tags: [read, write, destructive]
- * @tagReason: Reads the organization list to discover the organization ID when it is not supplied, and permanently deletes a sales order (write + destructive).
- * @pitfalls: Deletion is permanent and cannot be undone, and the provider refuses it while the sales order has dependent invoices or packages; organization_id auto-discovery uses the first organization returned, so pass it explicitly on multi-organization accounts.
+ * @tagReason: Reads the organization list to resolve the organization ID when it is not supplied, and permanently deletes a sales order (write + destructive).
+ * @pitfalls: Deletion is permanent and cannot be undone, and the provider refuses it while the sales order has dependent invoices or packages; organization_id is only auto-resolved when the connection has exactly one organization, so pass it explicitly on multi-organization accounts.
  */
 const action = createAction({
     description: 'Delete a sales order (only if it has no dependent invoices/packages).',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.salesorders.ALL'],
+    scopes: ['ZohoInventory.salesorders.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/
-            const organizationsResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = OrganizationListSchema.parse(organizationsResponse.data);
-            const organization = organizations.organizations[0];
-
-            if (!organization) {
-                throw new nango.ActionError({
-                    type: 'organization_not_found',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = organization.organization_id;
-        }
-
-        // https://www.zoho.com/inventory/api/v1/salesorders/
+        // https://www.zoho.com/inventory/api/v1/salesorders/#delete-a-sales-order
         const response = await nango.delete({
             endpoint: `/inventory/v1/salesorders/${encodeURIComponent(input.salesorder_id)}`,
             params: {
                 organization_id: organizationId
             },
-            // Deleting a sales order is not idempotent: retrying after a lost response could resend the mutation.
+            // Deletion is not idempotent: a retry after a lost success reports the already-deleted sales order as not found.
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0
         });
 
-        const deleted = DeleteResponseSchema.parse(response.data);
+        const parsed = DeleteResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when deleting a sales order.',
+                details: parsed.error.message
+            });
+        }
+
+        const deleted = parsed.data;
+
+        if (deleted.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: deleted.message, code: deleted.code });
+        }
 
         return {
             success: true,

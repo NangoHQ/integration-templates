@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         name: z.string().describe('Name of the item.'),
@@ -20,7 +22,12 @@ const InputSchema = z
         initial_stock_rate: z.number().optional().describe('Unit cost used to value the opening stock. Only applied when item_type is "inventory".'),
         unit: z.string().optional().describe('Unit of measurement for the item, for example "qty".'),
         category_id: z.string().optional().describe('ID of the category the item belongs to.'),
-        organization_id: z.string().optional().describe('Zoho Inventory organization ID. When omitted, the first organization on the connection is used.')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Fields for creating a new Zoho Inventory item.');
 
@@ -47,11 +54,9 @@ const ProviderItemSchema = z.object({
 });
 
 const CreateItemResponseSchema = z.object({
-    item: ProviderItemSchema
-});
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(z.object({ organization_id: z.union([z.string(), z.number()]) })).optional()
+    code: z.number(),
+    message: z.string().optional(),
+    item: z.unknown().optional()
 });
 
 const OutputSchema = z
@@ -88,30 +93,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.items.CREATE'],
+    scopes: ['ZohoInventory.items.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const parsedOrgs = OrganizationsResponseSchema.parse(orgResponse.data);
-            const organization = parsedOrgs.organizations?.[0];
-
-            if (!organization) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available on this connection.'
-                });
-            }
-
-            organizationId = String(organization.organization_id);
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         // https://www.zoho.com/inventory/api/v1/items/#create-an-item
         const response = await nango.post({
@@ -136,11 +121,37 @@ const action = createAction({
                 ...(input.category_id !== undefined && { category_id: input.category_id })
             },
             // Create is not idempotent: a retry after a lost response would create a duplicate item.
-            retries: 10
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
-        const parsed = CreateItemResponseSchema.parse(response.data);
-        const item = parsed.item;
+        const envelope = CreateItemResponseSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when creating item.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while creating the item.',
+                code: envelope.data.code
+            });
+        }
+
+        const parsedItem = ProviderItemSchema.safeParse(envelope.data.item);
+        if (!parsedItem.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected item payload from Zoho Inventory API.',
+                details: parsedItem.error.message
+            });
+        }
+
+        const item = parsedItem.data;
 
         return {
             item_id: String(item.item_id),

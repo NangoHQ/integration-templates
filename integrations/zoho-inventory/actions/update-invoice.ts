@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction, ProxyConfiguration } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InvoiceLineItemInputSchema = z.object({
     line_item_id: z.string().optional().describe('ID of an existing line item to update. Omit to add a new line. Example: "260815000000170230"'),
     item_id: z.string().optional().describe('ID of the inventory item for this line. Omit for a free-text line item.'),
@@ -9,7 +11,7 @@ const InvoiceLineItemInputSchema = z.object({
     quantity: z.number().optional().describe('Quantity of the line item. Example: 2'),
     rate: z.number().optional().describe('Unit rate of the line item. Example: 150'),
     unit: z.string().optional().describe('Unit of measure for the line item. Example: "Nos"'),
-    discount: z.number().optional().describe('Discount for the line item.'),
+    discount: z.union([z.string(), z.number()]).optional().describe('Discount for the line item, as an amount (e.g. 10) or a percentage string (e.g. "10%").'),
     discount_amount: z.number().optional().describe('Flat discount amount for the line item.'),
     tax_id: z.string().optional().describe('ID of the tax or tax group applied to the line item.'),
     location_id: z.string().optional().describe('ID of the location from which the item is fulfilled.')
@@ -24,7 +26,12 @@ const CustomFieldInputSchema = z.object({
 
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('ID of the Zoho Inventory organization. Example: "927270289"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         invoice_id: z.string().describe('ID of the invoice to update. Example: "260815000000170225"'),
         customer_id: z.string().optional().describe('ID of the customer the invoice belongs to.'),
         invoice_number: z.string().optional().describe('Unique invoice number. Only changeable while the invoice is a draft. Example: "INV-00042"'),
@@ -33,7 +40,10 @@ const InputSchema = z
         due_date: z.string().optional().describe('Invoice due date in yyyy-mm-dd format. Example: "2026-10-24"'),
         payment_terms: z.number().optional().describe('Payment terms in days, used to compute the due date. Example: 15'),
         payment_terms_label: z.string().optional().describe('Overrides the default payment terms label. Example: "Net 15"'),
-        discount: z.number().optional().describe('Entity-level discount as a flat amount.'),
+        discount: z
+            .union([z.string(), z.number()])
+            .optional()
+            .describe('Entity-level discount, as a flat amount (e.g. 10) or a percentage string (e.g. "10%").'),
         discount_type: z.enum(['entity_level', 'item_level']).optional().describe('Where the discount is applied: at the invoice level or per line item.'),
         is_discount_before_tax: z.boolean().optional().describe('Whether the discount is applied before tax.'),
         is_inclusive_tax: z.boolean().optional().describe('Whether line item rates are inclusive of tax.'),
@@ -81,7 +91,9 @@ const ProviderInvoiceSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    invoice: ProviderInvoiceSchema
+    code: z.number(),
+    message: z.string().optional(),
+    invoice: ProviderInvoiceSchema.optional()
 });
 
 const OutputLineItemSchema = z.object({
@@ -126,9 +138,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.invoices.UPDATE'],
+    scopes: ['ZohoInventory.invoices.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const data = {
             ...(input.customer_id !== undefined && { customer_id: input.customer_id }),
             ...(input.invoice_number !== undefined && { invoice_number: input.invoice_number }),
@@ -178,7 +192,7 @@ const action = createAction({
             // https://www.zoho.com/inventory/api/v1/invoices/#update-an-invoice
             endpoint: `/inventory/v1/invoices/${encodeURIComponent(input.invoice_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data,
             retries: 3
@@ -195,7 +209,22 @@ const action = createAction({
             });
         }
 
+        if (parsed.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.data.message ?? 'Failed to update invoice.',
+                code: parsed.data.code
+            });
+        }
+
         const invoice = parsed.data.invoice;
+        if (!invoice) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return an updated invoice.',
+                invoice_id: input.invoice_id
+            });
+        }
 
         return {
             invoice_id: invoice.invoice_id,

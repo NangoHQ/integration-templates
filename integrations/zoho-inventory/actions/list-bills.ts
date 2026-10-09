@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const BillSchema = z
     .object({
         bill_id: z.string().describe('Unique identifier of the bill.'),
@@ -53,18 +55,26 @@ const PageContextSchema = z
     })
     .passthrough();
 
-const ProviderResponseSchema = z.object({
+const ProviderEnvelopeSchema = z.object({
     code: z.number(),
-    message: z.string(),
+    message: z.string()
+});
+
+const ProviderResponseSchema = ProviderEnvelopeSchema.extend({
     bills: z.array(BillSchema),
     page_context: PageContextSchema
 });
 
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('Zoho Inventory organization ID. Example: "10234695".'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         page: z.number().int().positive().optional().describe('Page number to fetch, starting at 1. Defaults to 1.'),
-        per_page: z.number().int().positive().optional().describe('Number of bills to return per page, up to 200. Defaults to 200.')
+        per_page: z.number().int().min(1).max(200).optional().describe('Number of bills to return per page, up to 200. Defaults to 200.')
     })
     .describe('Input for listing vendor bills in a Zoho Inventory organization.');
 
@@ -85,25 +95,47 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.bills.READ'],
+    scopes: ['ZohoInventory.bills.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.get({
             // https://www.zoho.com/inventory/api/v1/bills/#list-all-bills
             endpoint: '/inventory/v1/bills',
             params: {
-                organization_id: input.organization_id,
+                organization_id: organizationId,
                 ...(input.page !== undefined && { page: input.page }),
                 ...(input.per_page !== undefined && { per_page: input.per_page })
             },
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing bills.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: envelope.data.message, code: envelope.data.code });
+        }
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected bills payload from Zoho Inventory API.',
+                details: parsed.error.message
+            });
+        }
 
         return {
-            bills: parsed.bills,
-            page_context: parsed.page_context
+            bills: parsed.data.bills,
+            page_context: parsed.data.page_context
         };
     }
 });

@@ -1,13 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         salesorder_id: z.string().describe('Unique ID of the Zoho Inventory sales order to inspect. Example: "1234567890"'),
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID to scope the request. When omitted, the first organization on the connection is used.')
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for retrieving a consolidated fulfillment, invoicing, and payment rollup for one sales order.');
 
@@ -48,15 +52,9 @@ const ProviderInvoiceSchema = z.object({
     salesorder_id: z.string().nullable().optional()
 });
 
-const ProviderOrganizationsSchema = z.object({
-    organizations: z
-        .array(
-            z.object({
-                organization_id: z.string()
-            })
-        )
-        .nullable()
-        .optional()
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string()
 });
 
 const EnrichedInvoiceSchema = z.object({
@@ -97,36 +95,17 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Reads the sales order, its linked invoices, and (when needed) the organization list from Zoho Inventory; performs no provider mutations.
- * @pitfalls: The top-level status is a fulfillment rollup that can diverge from the workflow order_status/current_sub_status, and rollup fields like invoiced_status may come back as empty strings rather than being omitted; the invoices array lists only invoices Zoho linked to the order, so an empty array does not guarantee there are none; omitting organization_id uses the connection's first organization, which may be the wrong one when multiple exist.
+ * @pitfalls: The top-level status is a fulfillment rollup that can diverge from the workflow order_status/current_sub_status, and rollup fields like invoiced_status may come back as empty strings rather than being omitted; the invoices array lists only invoices Zoho linked to the order, so an empty array does not guarantee there are none; omitting organization_id only works when the connection has exactly one organization.
  */
 const action = createAction({
     description: 'Get a consolidated fulfillment, invoicing, and payment rollup for one Zoho Inventory sales order.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.salesorders.READ', 'ZohoInventory.invoices.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (organizationId === undefined) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const organizationsResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = ProviderOrganizationsSchema.parse(organizationsResponse.data);
-            const firstOrganization = organizations.organizations?.[0];
-
-            if (firstOrganization === undefined) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available on this connection.'
-                });
-            }
-
-            organizationId = firstOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         let salesOrderData: unknown;
 
@@ -150,6 +129,24 @@ const action = createAction({
             throw error;
         }
 
+        const salesOrderEnvelope = ProviderEnvelopeSchema.safeParse(salesOrderData);
+        if (!salesOrderEnvelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when retrieving the sales order.',
+                details: salesOrderEnvelope.error.message
+            });
+        }
+
+        // Zoho reports a missing sales order with code 1002 ("Sales Order does not exist.").
+        if (salesOrderEnvelope.data.code === 1002) {
+            return { found: false };
+        }
+
+        if (salesOrderEnvelope.data.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: salesOrderEnvelope.data.message, code: salesOrderEnvelope.data.code });
+        }
+
         const providerResponse = z
             .object({
                 salesorder: ProviderSalesOrderSchema
@@ -168,6 +165,19 @@ const action = createAction({
                 },
                 retries: 3
             });
+
+            const invoiceEnvelope = ProviderEnvelopeSchema.safeParse(invoiceResponse.data);
+            if (!invoiceEnvelope.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected response from Zoho Inventory API when retrieving a linked invoice.',
+                    details: invoiceEnvelope.error.message
+                });
+            }
+
+            if (invoiceEnvelope.data.code !== 0) {
+                throw new nango.ActionError({ type: 'provider_error', message: invoiceEnvelope.data.message, code: invoiceEnvelope.data.code });
+            }
 
             const invoice = z
                 .object({

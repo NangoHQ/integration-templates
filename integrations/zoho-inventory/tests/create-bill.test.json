@@ -15,6 +15,7 @@
     "bill_number": "NANGO-CB-003",
     "vendor_id": "260815000000098001",
     "vendor_name": "Beta Supplies Ltd",
+    "purchaseorder_ids": [],
     "status": "open",
     "date": "2026-10-09",
     "due_date": "2026-10-09",

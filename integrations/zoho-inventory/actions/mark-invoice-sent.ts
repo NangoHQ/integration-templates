@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const InputSchema = z
     .object({
@@ -43,41 +40,7 @@ const action = createAction({
     scopes: ['ZohoInventory.invoices.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            const orgResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/invoices/#mark-an-invoice-as-sent
@@ -89,6 +52,13 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+        if (providerResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message,
+                code: providerResponse.code
+            });
+        }
 
         return {
             code: providerResponse.code,

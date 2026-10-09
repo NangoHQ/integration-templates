@@ -33,7 +33,10 @@
         "balance": 0,
         "date": "2026-06-09",
         "due_date": "2026-07-09",
-        "apply_date": "2026-06-09"
+        "apply_date": "2026-06-09",
+        "tax_amount_withheld": 0,
+        "discount_amount": 0,
+        "unprocessed_payment_amount": 0
       }
     ],
     "check_details": {
@@ -44,7 +47,31 @@
       "expiry_date": "",
       "clearance_account_id": ""
     },
-    "tags": []
+    "tags": [],
+    "currency_id": "260815000000000097",
+    "account_type": "cash",
+    "customer_advance_account_id": "260815000000000364",
+    "customer_advance_account_name": "Accounts Receivable",
+    "bank_charges_account_id": "",
+    "bank_charges_account_name": "",
+    "tax_amount_withheld": 0,
+    "tax_account_id": "",
+    "tax_account_name": "",
+    "discount_amount": 0,
+    "payment_gateway": "",
+    "online_transaction_id": "",
+    "settlement_status": "",
+    "card_type": "",
+    "last_four_digits": "",
+    "sales_person_id": "",
+    "sales_person_name": "",
+    "template_id": "260815000000039005",
+    "template_name": "Elite Template",
+    "created_by": "Nango Developer",
+    "payment_refunds": [],
+    "documents": [],
+    "deposit_details": [],
+    "custom_fields": []
   },
   "nango": {},
   "api": {

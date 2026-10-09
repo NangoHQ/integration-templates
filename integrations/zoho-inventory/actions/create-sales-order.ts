@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const LineItemInputSchema = z.object({
     item_id: z.string().describe('ID of the item to order. Example: "260815000000101002"'),
     quantity: z.number().describe('Quantity ordered. Example: 2'),
@@ -21,7 +23,12 @@ const InputSchema = z
         date: z.string().optional().describe('Sales order date in YYYY-MM-DD format. Defaults to today.'),
         shipment_date: z.string().optional().describe('Expected shipment date in YYYY-MM-DD format.'),
         reference_number: z.string().optional().describe('Caller reference number for the order.'),
-        discount: z.string().optional().describe('Entity-level discount value, e.g. "20.00%"; requires discount_type "entity_level".'),
+        discount: z
+            .union([z.string(), z.number()])
+            .optional()
+            .describe(
+                'Entity-level discount; requires discount_type "entity_level". Percentage values include the "%" symbol (e.g. "20.00%"); flat amounts are plain numbers.'
+            ),
         discount_type: z
             .enum(['entity_level', 'item_level'])
             .optional()
@@ -34,7 +41,12 @@ const InputSchema = z
         notes: z.string().optional().describe('Notes shown on the sales order.'),
         terms: z.string().optional().describe('Terms and conditions shown on the sales order.'),
         location_id: z.string().optional().describe('Location (warehouse) ID for the order.'),
-        organization_id: z.string().optional().describe("Zoho Inventory organization ID. Defaults to the connection's first organization.")
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for creating a Zoho Inventory sales order.');
 
@@ -69,19 +81,13 @@ const ProviderSalesOrderSchema = z.object({
     line_items: z.array(ProviderLineItemSchema).optional()
 });
 
-const ProviderSalesOrderResponseSchema = z.object({
+const ProviderEnvelopeSchema = z.object({
     code: z.number(),
-    message: z.string().optional(),
+    message: z.string().nullish()
+});
+
+const ProviderSalesOrderResponseSchema = ProviderEnvelopeSchema.extend({
     salesorder: ProviderSalesOrderSchema.optional()
-});
-
-const ProviderOrganizationSchema = z.object({
-    organization_id: z.coerce.string()
-});
-
-const ProviderOrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(ProviderOrganizationSchema).optional()
 });
 
 const LineItemOutputSchema = z.object({
@@ -119,7 +125,7 @@ const OutputSchema = z
 
 /**
  * @tags: [read, write]
- * @tagReason: Reads the organization list when organization_id is not supplied, then creates a sales order via the provider.
+ * @tagReason: Resolves the organization when organization_id is not supplied, then creates a sales order via the provider.
  * @pitfalls: New orders are created in "draft" status and the fulfillment "status" can diverge from the workflow "order_status"; omitting "date" defaults it to today, and unset "shipment_date"/"reference_number" are returned as empty strings rather than omitted.
  */
 const action = createAction({
@@ -127,29 +133,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.salesorders.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const organizationsResponse = await nango.get<unknown>({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = ProviderOrganizationsResponseSchema.parse(organizationsResponse.data);
-            const firstOrganization = organizations.organizations?.[0];
-
-            if (!firstOrganization) {
-                throw new nango.ActionError({
-                    type: 'organization_not_found',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = firstOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const lineItems = input.line_items.map((item) => ({
             item_id: item.item_id,
@@ -194,17 +181,33 @@ const action = createAction({
             retries: 0
         });
 
-        const parsed = ProviderSalesOrderResponseSchema.parse(response.data);
-
-        if (parsed.code !== 0 || !parsed.salesorder) {
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
             throw new nango.ActionError({
-                type: 'create_sales_order_failed',
-                message: parsed.message ?? 'Zoho Inventory did not return a sales order.',
-                code: parsed.code
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when creating a sales order.',
+                details: envelope.error.message
             });
         }
 
-        const salesOrder = parsed.salesorder;
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory failed to create the sales order.',
+                code: envelope.data.code
+            });
+        }
+
+        const parsed = ProviderSalesOrderResponseSchema.safeParse(response.data);
+        if (!parsed.success || !parsed.data.salesorder) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return a valid sales order.',
+                ...(!parsed.success && { details: parsed.error.message })
+            });
+        }
+
+        const salesOrder = parsed.data.salesorder;
 
         return {
             salesorder_id: salesOrder.salesorder_id,

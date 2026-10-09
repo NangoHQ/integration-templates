@@ -1,13 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z
-        .array(z.object({ organization_id: z.union([z.string(), z.number()]) }))
-        .nullable()
-        .optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const ZohoIdSchema = z.union([z.string(), z.number()]).transform((value) => String(value));
 
@@ -112,41 +106,7 @@ const action = createAction({
     scopes: ['ZohoInventory.contacts.READ', 'ZohoInventory.contacts.CREATE', 'ZohoInventory.salesorders.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId: string | undefined = input.organization_id;
-        if (!organizationId) {
-            const orgResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = String(singleOrg.organization_id);
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const contactsResponse = await nango.get({
             // https://www.zoho.com/inventory/api/v1/contacts/#list-contacts
@@ -189,8 +149,9 @@ const action = createAction({
                     contact_name: input.customer_name,
                     contact_type: 'customer'
                 },
-                // Non-idempotent create; one retry only to bound duplicate-contact risk.
-                retries: 1
+                // Non-idempotent create with no idempotency key: a replay after a lost response would duplicate the contact.
+                // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                retries: 0
             });
 
             const createdContact = CreatedContactResponseSchema.parse(createContactResponse.data);
@@ -245,8 +206,9 @@ const action = createAction({
                 organization_id: organizationId
             },
             data: requestBody,
-            // Non-idempotent create; one retry only to bound duplicate-sales-order risk.
-            retries: 1
+            // Non-idempotent create with no idempotency key: a replay after a lost response would duplicate the sales order.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const salesorderData = SalesOrderResponseSchema.parse(salesorderResponse.data);

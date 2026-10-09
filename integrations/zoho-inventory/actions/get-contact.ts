@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const AddressSchema = z
     .object({
         address_id: z.string().optional().describe('Unique identifier of the address.'),
@@ -98,13 +100,18 @@ const ContactSchema = z
 const GetContactResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    contact: ContactSchema
+    contact: z.unknown().optional()
 });
 
 const InputSchema = z
     .object({
         contact_id: z.string().describe('Unique identifier of the contact to retrieve. Example: "982000000567001"'),
-        organization_id: z.string().describe('Zoho Inventory organization ID that owns the contact. Example: "123456789"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for retrieving a single contact from Zoho Inventory.');
 
@@ -129,9 +136,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: ContactSchema,
-    scopes: ['ZohoInventory.contacts.ALL'],
+    scopes: ['ZohoInventory.contacts.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof ContactSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         let responseData: unknown;
 
         // @allowTryCatch: Zoho answers a deleted or inaccessible contact with HTTP 404 (code 1002); translate that expected failure into a typed ActionError instead of a raw transport error.
@@ -140,7 +149,7 @@ const action = createAction({
                 // https://www.zoho.com/inventory/api/v1/contacts/#retrieve-a-contact
                 endpoint: `/inventory/v1/contacts/${encodeURIComponent(input.contact_id)}`,
                 params: {
-                    organization_id: input.organization_id
+                    organization_id: organizationId
                 },
                 retries: 3
             });
@@ -158,9 +167,33 @@ const action = createAction({
             throw error;
         }
 
-        const parsed = GetContactResponseSchema.parse(responseData);
+        const envelope = GetContactResponseSchema.safeParse(responseData);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when retrieving contact.',
+                details: envelope.error.message
+            });
+        }
 
-        return parsed.contact;
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message,
+                code: envelope.data.code
+            });
+        }
+
+        const contact = ContactSchema.safeParse(envelope.data.contact);
+        if (!contact.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected contact payload from Zoho Inventory API.',
+                details: contact.error.message
+            });
+        }
+
+        return contact.data;
     }
 });
 

@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const CustomFieldInputSchema = z.object({
     customfield_id: z.string().describe('Unique ID of the custom field. Example: "260815000000123456"'),
@@ -142,44 +139,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.salesorders.UPDATE'],
+    scopes: ['ZohoInventory.salesorders.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const lineItems = input.line_items.map((item) => ({
             ...(item.line_item_id !== undefined && { line_item_id: item.line_item_id }),
@@ -228,7 +191,16 @@ const action = createAction({
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when updating a sales order.',
+                details: parsed.error.message
+            });
+        }
+
+        const providerResponse = parsed.data;
 
         if (providerResponse.code !== 0) {
             throw new nango.ActionError({

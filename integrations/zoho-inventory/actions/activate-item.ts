@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         item_id: z.string().describe('ID of the item to mark as active. Example: "260815000000159234"'),
-        organization_id: z.string().describe('Zoho Inventory organization ID that owns the item. Example: "927270289"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for marking an inactive Zoho Inventory item as active.');
 
@@ -31,19 +38,38 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.items.ALL'],
+    scopes: ['ZohoInventory.items.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/items/#mark-as-active
             endpoint: `/inventory/v1/items/${encodeURIComponent(input.item_id)}/active`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        const result = ProviderResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when marking item as active.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
+
+        if (parsed.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message,
+                code: parsed.code
+            });
+        }
 
         return {
             item_id: input.item_id,

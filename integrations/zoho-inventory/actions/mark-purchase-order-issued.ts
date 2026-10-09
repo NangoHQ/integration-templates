@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         purchaseorder_id: z.string().describe('ID of the draft purchase order to mark as issued. Example: "260815000000155139"'),
-        organization_id: z.string().describe('ID of the Zoho Inventory organization that owns the purchase order. Example: "927270289"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Identifies the draft purchase order to issue and the organization that owns it.');
 
@@ -32,22 +39,37 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.purchaseorders.ALL'],
+    scopes: ['ZohoInventory.purchaseorders.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/purchaseorders/#mark-as-issued
             endpoint: `/inventory/v1/purchaseorders/${encodeURIComponent(input.purchaseorder_id)}/status/issued`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             retries: 3
         });
 
-        const providerResponse = ProviderResponseSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when marking a purchase order as issued.',
+                details: parsed.error.message
+            });
+        }
+
+        const providerResponse = parsed.data;
+
+        if (providerResponse.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: providerResponse.message, code: providerResponse.code });
+        }
 
         return {
-            success: providerResponse.code === 0,
+            success: true,
             purchaseorder_id: input.purchaseorder_id,
             message: providerResponse.message
         };

@@ -1,6 +1,8 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+
 const INVOICES_PER_PAGE = 200;
 
 // Internal schemas describing the subset of the Zoho Inventory API response that this
@@ -81,14 +83,6 @@ const ProviderInvoiceSchema = z.object({
     exchange_rate: z.number().optional(),
     unprocessed_payment_amount: z.number().optional(),
     invoice_url: z.string().optional()
-});
-
-const ProviderOrganizationSchema = z.object({
-    organization_id: z.union([z.string(), z.number()])
-});
-
-const ProviderOrganizationsResponseSchema = z.object({
-    organizations: z.array(ProviderOrganizationSchema)
 });
 
 const CheckpointSchema = z
@@ -189,29 +183,20 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.invoices.READ', 'ZohoInventory.settings.READ'],
     models: {
         Invoice: InvoiceSchema
     },
 
     exec: async (nango) => {
-        // The Zoho Inventory API requires the organization_id query parameter on every request.
-        // Resolve it first so trackDeletesStart is only called once all prerequisites are known.
-        const organizationsResponse = await nango.get<unknown>({
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
+        const organizationId = await resolveSyncOrganizationId(nango);
 
-        const organizations = ProviderOrganizationsResponseSchema.parse(organizationsResponse.data).organizations;
-        const organization = organizations[0];
-
-        if (organization === undefined) {
-            throw new Error('No Zoho Inventory organization is available for this connection');
-        }
-
-        const organizationId = String(organization.organization_id);
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // The invoice list endpoint exposes no modified-since filter, so this remains a full
         // refresh. The API's page/per_page pagination is checkpointed so interrupted runs

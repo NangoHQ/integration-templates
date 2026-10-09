@@ -28,6 +28,7 @@
     "balance": 100,
     "notes": "",
     "terms": "",
+    "purchaseorder_ids": [],
     "line_items": [
       {
         "line_item_id": "260815000000163342",

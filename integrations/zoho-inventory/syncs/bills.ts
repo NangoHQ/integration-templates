@@ -1,14 +1,7 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const ProviderOrganizationSchema = z.object({
-    organization_id: z.string(),
-    is_default_org: z.boolean().optional().nullable()
-});
-
-const ProviderOrganizationsResponseSchema = z.object({
-    organizations: z.array(ProviderOrganizationSchema)
-});
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
 
 const ProviderBillSchema = z.object({
     bill_id: z.string(),
@@ -94,32 +87,20 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.bills.READ', 'ZohoInventory.settings.READ'],
     models: {
         Bill: BillSchema
     },
 
     exec: async (nango) => {
-        // https://www.zoho.com/inventory/api/v1/organizations/
-        const orgResponse = await nango.get({
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const parsedOrganizations = ProviderOrganizationsResponseSchema.safeParse(orgResponse.data);
-        if (!parsedOrganizations.success) {
-            throw new Error(`Failed to parse organizations: ${parsedOrganizations.error.message}`);
-        }
-
-        const organizations = parsedOrganizations.data.organizations;
-        const organization = organizations.find((org) => org.is_default_org === true) ?? organizations[0];
-        if (!organization) {
-            throw new Error('No Zoho Inventory organization found for this connection.');
-        }
-
-        const organizationId = organization.organization_id;
+        const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // Blocker: the list-bills endpoint has no last_modified_time/updated_after filter, so this
         // remains a full refresh. The page/per_page pagination is checkpointed so interrupted runs

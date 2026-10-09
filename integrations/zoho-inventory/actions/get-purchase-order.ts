@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const InputSchema = z
     .object({
@@ -13,7 +10,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe(
-                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when the account has multiple organizations.'
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
             )
     })
     .describe('Input parameters used to retrieve a single purchase order from Zoho Inventory.');
@@ -200,48 +197,7 @@ const action = createAction({
     scopes: ['ZohoInventory.purchaseorders.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            const orgResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-
-            if (orgData.organizations.length > 1) {
-                const ids = orgData.organizations.map((organization) => organization.organization_id).join(', ');
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${ids}). Provide organization_id in the action input.`
-                });
-            }
-
-            const singleOrganization = orgData.organizations[0];
-            if (!singleOrganization) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const response = await nango.get({
             // https://www.zoho.com/inventory/api/v1/purchaseorders/#get-a-purchase-order

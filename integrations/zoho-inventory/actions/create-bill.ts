@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const BillLineItemInputSchema = z.object({
     item_id: z.string().describe('Unique ID of the item being billed. Must be a sales_and_purchases-type item. Example: "260815000000131008"'),
     quantity: z.number().describe('Quantity of the item billed. Example: 2'),
@@ -13,14 +15,19 @@ const InputSchema = z
     .object({
         vendor_id: z.string().describe('Unique ID of the vendor the bill is owed to. Example: "260815000000098001"'),
         bill_number: z.string().describe('Bill number identifying this bill. Example: "BL-00002"'),
-        line_items: z.array(BillLineItemInputSchema).describe('One or more line items for the bill.'),
+        line_items: z.array(BillLineItemInputSchema).min(1).describe('One or more line items for the bill.'),
         date: z.string().optional().describe('Bill date in yyyy-MM-dd format. Example: "2026-10-09"'),
         due_date: z.string().optional().describe('Due date for the bill in yyyy-MM-dd format. Example: "2026-10-09"'),
         purchaseorder_id: z.string().optional().describe('Unique ID of an existing purchase order to bill against. Example: "260815000000104001"'),
         reference_number: z.string().optional().describe('External reference number for the bill. Example: "PO-00003"'),
         notes: z.string().optional().describe('Notes to record on the bill.'),
         terms: z.string().optional().describe('Terms and conditions for the bill.'),
-        organization_id: z.string().optional().describe('Zoho organization ID. Resolved from the connection when omitted. Example: "927270289"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for creating a vendor bill.');
 
@@ -40,7 +47,10 @@ const ProviderBillSchema = z.object({
     bill_number: z.string().nullable().optional(),
     vendor_id: z.union([z.string(), z.number()]).nullable().optional(),
     vendor_name: z.string().nullable().optional(),
-    purchaseorder_id: z.union([z.string(), z.number()]).nullable().optional(),
+    purchaseorder_ids: z
+        .array(z.union([z.string(), z.number()]))
+        .nullable()
+        .optional(),
     status: z.string().nullable().optional(),
     date: z.string().nullable().optional(),
     due_date: z.string().nullable().optional(),
@@ -55,9 +65,12 @@ const ProviderBillSchema = z.object({
     last_modified_time: z.string().nullable().optional()
 });
 
-const ProviderResponseSchema = z.object({
+const ProviderEnvelopeSchema = z.object({
     code: z.number(),
-    message: z.string(),
+    message: z.string()
+});
+
+const ProviderResponseSchema = ProviderEnvelopeSchema.extend({
     bill: ProviderBillSchema
 });
 
@@ -78,7 +91,10 @@ const OutputSchema = z
         bill_number: z.string().optional().describe('Bill number identifying the bill.'),
         vendor_id: z.string().optional().describe('Unique ID of the vendor the bill is owed to.'),
         vendor_name: z.string().optional().describe('Name of the vendor the bill is owed to.'),
-        purchaseorder_id: z.string().optional().describe('Unique ID of the purchase order the bill was created against, when applicable.'),
+        purchaseorder_ids: z
+            .array(z.string())
+            .optional()
+            .describe('IDs of the purchase orders the bill is associated with; empty when the bill was not created against a purchase order.'),
         status: z.string().optional().describe('Status of the bill. Bills are created directly in open status.'),
         date: z.string().optional().describe('Bill date in yyyy-MM-dd format.'),
         due_date: z.string().optional().describe('Due date for the bill in yyyy-MM-dd format.'),
@@ -104,35 +120,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.bills.CREATE'],
+    scopes: ['ZohoInventory.bills.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            const orgResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const orgData = z
-                .object({
-                    organizations: z.array(z.object({ organization_id: z.union([z.string(), z.number()]) }))
-                })
-                .parse(orgResponse.data);
-
-            const organization = orgData.organizations[0];
-
-            if (!organization) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = String(organization.organization_id);
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/bills/#create-a-bill
@@ -162,23 +153,36 @@ const action = createAction({
             retries: 0
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-
-        if (parsed.code !== 0) {
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
             throw new nango.ActionError({
-                type: 'create_bill_failed',
-                message: parsed.message
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when creating a bill.',
+                details: envelope.error.message
             });
         }
 
-        const bill = parsed.bill;
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: envelope.data.message, code: envelope.data.code });
+        }
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected bill payload from Zoho Inventory API when creating a bill.',
+                details: parsed.error.message
+            });
+        }
+
+        const bill = parsed.data.bill;
 
         return {
             bill_id: String(bill.bill_id),
             ...(bill.bill_number != null && { bill_number: bill.bill_number }),
             ...(bill.vendor_id != null && { vendor_id: String(bill.vendor_id) }),
             ...(bill.vendor_name != null && { vendor_name: bill.vendor_name }),
-            ...(bill.purchaseorder_id != null && { purchaseorder_id: String(bill.purchaseorder_id) }),
+            ...(bill.purchaseorder_ids != null && { purchaseorder_ids: bill.purchaseorder_ids.map((id) => String(id)) }),
             ...(bill.status != null && { status: bill.status }),
             ...(bill.date != null && { date: bill.date }),
             ...(bill.due_date != null && { due_date: bill.due_date }),

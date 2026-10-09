@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         payment_id: z.string().describe('ID of the customer payment to delete. Example: "260815000000159260"'),
-        organization_id: z.string().describe('ID of the Zoho Inventory organization the payment belongs to. Example: "927270289"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for deleting a recorded customer payment.');
 
@@ -30,23 +37,27 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.customerpayments.DELETE'],
+    scopes: ['ZohoInventory.customerpayments.DELETE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.delete({
             // https://www.zoho.com/inventory/api/v1/customer-payments/#delete-a-payment
             endpoint: `/inventory/v1/customerpayments/${encodeURIComponent(input.payment_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
-            retries: 3
+            // A replayed DELETE after a lost response would report the completed delete as a failure.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderDeleteResponseSchema.parse(response.data);
 
         if (parsed.code !== 0) {
             throw new nango.ActionError({
-                type: 'delete_failed',
+                type: 'provider_error',
                 message: parsed.message,
                 code: parsed.code
             });

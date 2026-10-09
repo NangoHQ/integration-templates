@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const FilterBySchema = z.enum([
     'Status.All',
     'Status.Active',
@@ -22,9 +24,14 @@ const SortColumnSchema = z.enum(['name', 'sku', 'rate', 'purchase_rate', 'create
 
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('ID of the Zoho Inventory organization to list items from. Example: "927270289"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         page: z.number().int().positive().optional().describe('Page number to fetch. Must be a positive integer. Defaults to 1.'),
-        per_page: z.number().int().positive().optional().describe('Number of items to fetch per page. Must be a positive integer. Defaults to 200.'),
+        per_page: z.number().int().min(1).max(200).optional().describe('Number of items to fetch per page (1-200). Defaults to 200.'),
         search_text: z.string().optional().describe('Free-text search across searchable item fields such as name and SKU.'),
         filter_by: FilterBySchema.optional().describe('Predefined status or item-type filter, e.g. "Status.Active" or "ItemType.Inventory".'),
         status: z.enum(['active', 'inactive']).optional().describe('Filter items by status.'),
@@ -117,6 +124,11 @@ const PageContextSchema = z.object({
     has_more_page: z.boolean().optional()
 });
 
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string().optional()
+});
+
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
@@ -144,14 +156,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.items.READ'],
+    scopes: ['ZohoInventory.items.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.get({
             // https://www.zoho.com/inventory/api/v1/items/#list-all-the-items
             endpoint: '/inventory/v1/items',
             params: {
-                organization_id: input.organization_id,
+                organization_id: organizationId,
                 ...(input.page !== undefined && { page: input.page }),
                 ...(input.per_page !== undefined && { per_page: input.per_page }),
                 ...(input.search_text !== undefined && { search_text: input.search_text }),
@@ -193,7 +207,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing items.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while listing items.',
+                code: envelope.data.code
+            });
+        }
+
+        const result = ProviderResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected items payload from Zoho Inventory API.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
 
         const page = parsed.page_context?.page;
         const hasMorePage = parsed.page_context?.has_more_page;

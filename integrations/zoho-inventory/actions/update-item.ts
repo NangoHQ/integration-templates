@@ -1,5 +1,7 @@
 import { z } from 'zod';
-import { createAction, ProxyConfiguration } from 'nango';
+import { createAction, type ProxyConfiguration } from 'nango';
+
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const CustomFieldSchema = z.object({
     customfield_id: z.string().describe('Unique ID of the custom field to set. Example: "2608150000000123456"'),
@@ -16,7 +18,12 @@ const LocationSchema = z.object({
 const InputSchema = z
     .object({
         item_id: z.string().describe('Unique identifier of the item to update. Example: "260815000000160173"'),
-        organization_id: z.string().describe('ID of the Zoho Inventory organization the item belongs to. Example: "927270289"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         name: z.string().optional().describe('New name of the item.'),
         rate: z.number().optional().describe('Sales price of the item.'),
         purchase_rate: z.number().optional().describe('Purchase price of the item.'),
@@ -54,29 +61,35 @@ const InputSchema = z
 
 const ProviderItemSchema = z
     .object({
-        item_id: z.union([z.string(), z.number()]).optional(),
-        name: z.string().optional(),
-        status: z.string().optional(),
-        item_type: z.string().optional(),
-        product_type: z.string().optional(),
-        rate: z.number().optional(),
-        purchase_rate: z.number().optional(),
-        can_be_sold: z.boolean().optional(),
-        can_be_purchased: z.boolean().optional(),
-        track_inventory: z.boolean().optional(),
-        is_taxable: z.boolean().optional(),
-        description: z.string().optional(),
-        purchase_description: z.string().optional(),
-        sku: z.string().optional(),
-        unit: z.string().optional(),
-        tax_id: z.union([z.string(), z.number()]).optional(),
-        tax_name: z.string().optional(),
-        tax_percentage: z.number().optional(),
-        reorder_level: z.union([z.string(), z.number()]).optional(),
-        created_time: z.string().optional(),
-        last_modified_time: z.string().optional()
+        item_id: z.union([z.string(), z.number()]).nullish(),
+        name: z.string().nullish(),
+        status: z.string().nullish(),
+        item_type: z.string().nullish(),
+        product_type: z.string().nullish(),
+        rate: z.number().nullish(),
+        purchase_rate: z.number().nullish(),
+        can_be_sold: z.boolean().nullish(),
+        can_be_purchased: z.boolean().nullish(),
+        track_inventory: z.boolean().nullish(),
+        is_taxable: z.boolean().nullish(),
+        description: z.string().nullish(),
+        purchase_description: z.string().nullish(),
+        sku: z.string().nullish(),
+        unit: z.string().nullish(),
+        tax_id: z.union([z.string(), z.number()]).nullish(),
+        tax_name: z.string().nullish(),
+        tax_percentage: z.number().nullish(),
+        reorder_level: z.union([z.string(), z.number()]).nullish(),
+        created_time: z.string().nullish(),
+        last_modified_time: z.string().nullish()
     })
     .passthrough();
+
+const ProviderResponseSchema = z.object({
+    code: z.number(),
+    message: z.string().optional(),
+    item: z.unknown().optional()
+});
 
 const OutputSchema = z
     .object({
@@ -112,11 +125,13 @@ const OutputSchema = z
 const action = createAction({
     description: 'Partially update an existing item (price, tax, description, etc.).',
     version: '1.0.0',
-    scopes: ['ZohoInventory.items.UPDATE'],
+    scopes: ['ZohoInventory.items.UPDATE', 'ZohoInventory.settings.READ'],
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const data = {
             ...(input.name !== undefined && { name: input.name }),
             ...(input.rate !== undefined && { rate: input.rate }),
@@ -156,7 +171,7 @@ const action = createAction({
             // https://www.zoho.com/inventory/api/v1/items/#update-an-item
             endpoint: `/inventory/v1/items/${encodeURIComponent(input.item_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data,
             retries: 3
@@ -164,7 +179,24 @@ const action = createAction({
 
         const response = await nango.put(config);
 
-        if (!response.data || !response.data.item) {
+        const envelope = ProviderResponseSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when updating item.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while updating the item.',
+                code: envelope.data.code
+            });
+        }
+
+        if (envelope.data.item == null) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: 'The item could not be updated or was not found.',
@@ -172,7 +204,16 @@ const action = createAction({
             });
         }
 
-        const providerItem = ProviderItemSchema.parse(response.data.item);
+        const parsedItem = ProviderItemSchema.safeParse(envelope.data.item);
+        if (!parsedItem.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected item payload from Zoho Inventory API.',
+                details: parsedItem.error.message
+            });
+        }
+
+        const providerItem = parsedItem.data;
 
         return {
             item_id: input.item_id,
@@ -193,7 +234,7 @@ const action = createAction({
             ...(providerItem.tax_id != null && { tax_id: String(providerItem.tax_id) }),
             ...(providerItem.tax_name != null && { tax_name: providerItem.tax_name }),
             ...(providerItem.tax_percentage != null && { tax_percentage: providerItem.tax_percentage }),
-            ...(providerItem.reorder_level != null && { reorder_level: Number(providerItem.reorder_level) }),
+            ...(providerItem.reorder_level != null && providerItem.reorder_level !== '' && { reorder_level: Number(providerItem.reorder_level) }),
             ...(providerItem.created_time != null && { created_time: providerItem.created_time }),
             ...(providerItem.last_modified_time != null && { last_modified_time: providerItem.last_modified_time })
         };

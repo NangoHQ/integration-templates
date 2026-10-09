@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         bill_id: z.string().describe('ID of the vendor bill to delete. Example: "1234567890"'),
-        organization_id: z.string().describe('Zoho Inventory organization ID that owns the bill. Example: "60000000000"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Identifies the vendor bill to delete and the organization that owns it.');
 
@@ -31,27 +38,35 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.bills.ALL'],
+    scopes: ['ZohoInventory.bills.DELETE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        // https://www.zoho.com/inventory/api/v1/bills/
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
+        // https://www.zoho.com/inventory/api/v1/bills/#delete-a-bill
         const response = await nango.delete({
             endpoint: `/inventory/v1/bills/${encodeURIComponent(input.bill_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
-            // Deletion is not idempotent: a retry after a lost success returns a not-found error for the already-deleted bill, so keep retries minimal.
-            retries: 1
+            // Deletion is not idempotent: a retry after a lost success reports the already-deleted bill as not found.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
-        const parsed = ProviderDeleteResponseSchema.parse(response.data);
+        const result = ProviderDeleteResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when deleting a bill.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
 
         if (parsed.code !== 0) {
-            throw new nango.ActionError({
-                type: 'delete_failed',
-                message: parsed.message,
-                bill_id: input.bill_id
-            });
+            throw new nango.ActionError({ type: 'provider_error', message: parsed.message, code: parsed.code });
         }
 
         return {

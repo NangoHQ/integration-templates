@@ -1,6 +1,7 @@
 {
   "input": {
-    "bill_id": "260815000000096003"
+    "bill_id": "260815000000096003",
+    "organization_id": "927270289"
   },
   "output": {
     "bill_id": "260815000000096003",
@@ -341,7 +342,11 @@
           "vary": "accept-encoding"
         },
         "hash": "80a067ed5e61d4716c162c3a84ba0297393427d9",
-        "request": {}
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
       }
     }
   }

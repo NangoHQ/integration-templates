@@ -11,7 +11,8 @@
     ],
     "date": "2026-10-09",
     "reference_number": "INV-000042",
-    "description": "Nango create-customer-payment test"
+    "description": "Nango create-customer-payment test",
+    "organization_id": "927270289"
   },
   "output": {
     "payment_id": "260815000000163174",
@@ -197,6 +198,9 @@
         },
         "hash": "d28b488190a59b1c72d62d22f2f693cb4edf1949",
         "request": {
+          "params": {
+            "organization_id": "927270289"
+          },
           "data": {
             "customer_id": "260815000000161104",
             "amount": 10,

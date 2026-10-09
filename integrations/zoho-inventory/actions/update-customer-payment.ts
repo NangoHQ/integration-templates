@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const InvoicePaymentSchema = z.object({
     invoice_id: z.string().describe('Invoice ID to apply the payment to. Example: "260815000000103001"'),
@@ -152,41 +149,7 @@ const action = createAction({
     scopes: ['ZohoInventory.customerpayments.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            if (!orgData.organizations || orgData.organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (orgData.organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${orgData.organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = orgData.organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const data = {
             ...(input.customer_id !== undefined && { customer_id: input.customer_id }),
@@ -217,7 +180,9 @@ const action = createAction({
                 organization_id: organizationId
             },
             data,
-            retries: 3
+            // When invoices are sent, Zoho re-applies the allocations; a replay after a lost response fails or double-applies money.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const wrapper = z
@@ -227,6 +192,14 @@ const action = createAction({
                 payment: z.unknown().optional()
             })
             .parse(response.data);
+
+        if (wrapper.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: wrapper.message ?? 'Failed to update customer payment.',
+                code: wrapper.code
+            });
+        }
 
         if (!wrapper.payment) {
             throw new nango.ActionError({

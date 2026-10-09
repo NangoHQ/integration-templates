@@ -161,7 +161,8 @@
     },
     "batchDelete": {
       "Bill": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

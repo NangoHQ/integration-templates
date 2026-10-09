@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         invoice_id: z.string().describe('ID of the invoice to retrieve. Example: "260815000000160027"'),
-        organization_id: z.string().describe('Zoho Inventory organization ID. Required by the API on every request.')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for retrieving a single Zoho Inventory invoice by its ID.');
 
@@ -52,9 +59,9 @@ const ProviderInvoiceSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    code: z.number().optional(),
+    code: z.number(),
     message: z.string().optional(),
-    invoice: ProviderInvoiceSchema
+    invoice: ProviderInvoiceSchema.optional()
 });
 
 const OutputLineItemSchema = z.object({
@@ -112,18 +119,38 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.invoices.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.get({
             // https://www.zoho.com/inventory/api/v1/invoices/#get-an-invoice
             endpoint: `/inventory/v1/invoices/${encodeURIComponent(input.invoice_id)}`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             retries: 3
         });
 
-        const payload = ProviderResponseSchema.parse(response.data);
+        const parsed = ProviderResponseSchema.parse(response.data);
+        if (parsed.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message ?? 'Failed to retrieve invoice.',
+                code: parsed.code
+            });
+        }
+
+        const invoice = parsed.invoice;
+        if (!invoice) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return the invoice.',
+                invoice_id: input.invoice_id
+            });
+        }
+        const payload = { invoice };
 
         return {
             invoice_id: payload.invoice.invoice_id,

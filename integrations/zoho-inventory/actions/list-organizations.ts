@@ -41,6 +41,11 @@ const OutputSchema = z
     })
     .describe('List of Zoho Inventory organizations accessible to the connection.');
 
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string().optional()
+});
+
 const ProviderResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
@@ -53,7 +58,8 @@ const ProviderResponseSchema = z.object({
  * @pitfalls: A listed organization is not guaranteed to have Zoho Inventory activated, so other calls can still fail even when it appears here; results are unpaginated and may contain more than one organization.
  */
 const action = createAction({
-    description: 'List every Zoho organization this connection can see, to discover the organization_id required on every other call.',
+    description:
+        'List every Zoho organization this connection can see, to discover the organization_id to pass to other calls when more than one organization exists.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -66,7 +72,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing organizations.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while listing organizations.',
+                code: envelope.data.code
+            });
+        }
+
+        const result = ProviderResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected organizations payload from Zoho Inventory API.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
 
         return {
             organizations: parsed.organizations

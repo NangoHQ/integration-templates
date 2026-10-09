@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const AddressInputSchema = z.object({
     attention: z.string().optional().describe('Person the address is addressed to. Example: "Accounts Payable"'),
     address: z.string().optional().describe('Street address line 1.'),
@@ -57,7 +59,12 @@ const DefaultTemplatesSchema = z.object({
 const InputSchema = z
     .object({
         contact_id: z.string().describe('Unique identifier of the contact to update. Example: "260815000000097001"'),
-        organization_id: z.string().optional().describe('Zoho Inventory organization ID. When omitted, the first organization of the connection is used.'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         contact_name: z.string().optional().describe('Name of the contact (organisation or individual).'),
         company_name: z.string().optional().describe('Company name associated with the contact.'),
         contact_type: z.enum(['customer', 'vendor']).optional().describe('Type of the contact.'),
@@ -130,15 +137,9 @@ const ProviderContactSchema = z.object({
 });
 
 const UpdateContactResponseSchema = z.object({
+    code: z.number(),
+    message: z.string().optional(),
     contact: ProviderContactSchema.nullish()
-});
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
 });
 
 const OutputSchema = z
@@ -188,30 +189,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.contacts.UPDATE'],
+    scopes: ['ZohoInventory.contacts.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const organizationsResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = OrganizationsResponseSchema.parse(organizationsResponse.data);
-            const firstOrganization = organizations.organizations[0];
-
-            if (!firstOrganization) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = firstOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const data: Record<string, unknown> = {};
 
@@ -339,7 +320,25 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = UpdateContactResponseSchema.parse(response.data);
+        const result = UpdateContactResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when updating contact.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
+
+        if (parsed.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message ?? 'Zoho Inventory returned an error while updating the contact.',
+                code: parsed.code
+            });
+        }
+
         const contact = parsed.contact;
 
         if (!contact) {

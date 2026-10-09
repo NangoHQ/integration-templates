@@ -5,7 +5,8 @@
     },
     "batchDelete": {
       "SalesOrder": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

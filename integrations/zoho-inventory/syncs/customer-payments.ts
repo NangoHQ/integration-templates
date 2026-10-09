@@ -1,6 +1,8 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+
 const CheckDetailsSchema = z.object({
     check_id: z.string().describe('Unique identifier of the check, when the payment was received by check. Empty when the payment was not made by check.'),
     check_status: z.string().describe('Current processing status of the check. Empty when the payment was not made by check.'),
@@ -66,10 +68,6 @@ const CustomerPaymentSchema = z
         sales_channel: z.string().describe('Sales channel the payment was received through. Empty when not set.')
     })
     .describe('A customer payment recorded against one or more invoices in Zoho Inventory.');
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(z.object({ organization_id: z.string() }))
-});
 
 const CheckpointSchema = z
     .object({
@@ -147,14 +145,19 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.customerpayments.READ', 'ZohoInventory.settings.READ'],
     models: {
         CustomerPayment: CustomerPaymentSchema
     },
 
     exec: async (nango) => {
-        const organizationId = await resolveOrganizationId(nango);
+        const organizationId = await resolveSyncOrganizationId(nango);
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // Customer payments expose no modified-since filter, so this remains a full refresh.
         // The API does expose page/per_page pagination, which is checkpointed so interrupted
@@ -260,23 +263,6 @@ function mapCustomerPayment(payment: ProviderCustomerPayment) {
         settlement_status: payment.settlement_status ?? '',
         sales_channel: payment.sales_channel ?? ''
     };
-}
-
-async function resolveOrganizationId(nango: NangoSyncLocal): Promise<string> {
-    const response = await nango.get<unknown>({
-        // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-        endpoint: '/inventory/v1/organizations',
-        retries: 3
-    });
-
-    const parsed = OrganizationsResponseSchema.parse(response.data);
-    const organization = parsed.organizations[0];
-
-    if (!organization) {
-        throw new Error('No Zoho Inventory organization is available for this connection');
-    }
-
-    return organization.organization_id;
 }
 
 export type NangoSyncLocal = Parameters<(typeof sync)['exec']>[0];

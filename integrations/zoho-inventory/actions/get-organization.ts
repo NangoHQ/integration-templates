@@ -113,6 +113,12 @@ const OutputSchema = z
     })
     .describe('Full details of a Zoho Inventory organization, including address, fiscal settings, currency, and custom fields.');
 
+const ProviderResponseSchema = z.object({
+    code: z.number(),
+    message: z.string().optional(),
+    organization: z.unknown().optional()
+});
+
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single organization's full details from Zoho Inventory and performs no provider mutation.
@@ -123,6 +129,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
@@ -134,13 +141,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = z
-            .object({
-                organization: OutputSchema
-            })
-            .parse(response.data);
+        const envelope = ProviderResponseSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when retrieving organization.',
+                details: envelope.error.message
+            });
+        }
 
-        return parsed.organization;
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while retrieving the organization.',
+                code: envelope.data.code
+            });
+        }
+
+        const organization = OutputSchema.safeParse(envelope.data.organization);
+        if (!organization.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected organization payload from Zoho Inventory API.',
+                details: organization.error.message
+            });
+        }
+
+        return organization.data;
     }
 });
 

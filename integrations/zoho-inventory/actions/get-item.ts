@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const IdValue = z.union([z.string(), z.number()]);
 const NumberValue = z.union([z.number(), z.string()]);
 
@@ -26,7 +28,9 @@ const InputSchema = z
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID. When omitted, the first organization available on the connection is used.')
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Identifies which item to fetch and, optionally, the organization that owns it.');
 
@@ -91,15 +95,9 @@ const OutputSchema = z
     .describe('Full detail of a single Zoho Inventory item, including pricing and stock information.');
 
 const ProviderItemResponseSchema = z.object({
-    item: OutputSchema
-});
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
+    code: z.number(),
+    message: z.string().optional(),
+    item: z.unknown().optional()
 });
 
 /**
@@ -112,30 +110,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.items.READ'],
+    scopes: ['ZohoInventory.items.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (organizationId === undefined) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const parsedOrganizations = OrganizationsResponseSchema.parse(orgResponse.data);
-            const organization = parsedOrganizations.organizations[0];
-
-            if (!organization) {
-                throw new nango.ActionError({
-                    type: 'organization_not_found',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = organization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         // https://www.zoho.com/inventory/api/v1/items/#retrieve-an-item
         const response = await nango.get({
@@ -146,9 +124,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderItemResponseSchema.parse(response.data);
+        const envelope = ProviderItemResponseSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when retrieving item.',
+                details: envelope.error.message
+            });
+        }
 
-        return parsed.item;
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while retrieving the item.',
+                code: envelope.data.code
+            });
+        }
+
+        const item = OutputSchema.safeParse(envelope.data.item);
+        if (!item.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected item payload from Zoho Inventory API.',
+                details: item.error.message
+            });
+        }
+
+        return item.data;
     }
 });
 

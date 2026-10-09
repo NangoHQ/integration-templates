@@ -1,10 +1,17 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         bill_id: z.string().describe('Unique identifier of the bill to mark as open. Example: "260815000000117048"'),
-        organization_id: z.string().describe('Unique identifier of the Zoho Inventory organization. Example: "927270289"')
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Identifies the bill to mark as open within a Zoho Inventory organization.');
 
@@ -43,9 +50,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.bills.CREATE'],
+    scopes: ['ZohoInventory.bills.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         let payload: unknown;
         let callSucceeded = false;
 
@@ -55,7 +64,7 @@ const action = createAction({
             const response = await nango.post<unknown>({
                 endpoint: `/inventory/v1/bills/${encodeURIComponent(input.bill_id)}/status/open`,
                 params: {
-                    organization_id: input.organization_id
+                    organization_id: organizationId
                 },
                 // Idempotent state transition: a retry after a lost response just returns "already open", which is handled as success.
                 retries: 3
@@ -90,8 +99,9 @@ const action = createAction({
         }
 
         throw new nango.ActionError({
-            type: 'mark_bill_open_failed',
+            type: 'provider_error',
             message: message != null ? message : 'The provider did not mark the bill as open.',
+            ...(code !== undefined && { code }),
             bill_id: input.bill_id
         });
     }

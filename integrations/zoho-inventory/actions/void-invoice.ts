@@ -1,10 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(z.object({ organization_id: z.string() })).optional()
-});
+import { resolveOrganizationId } from '../helpers/organization.js';
 
 const ProviderVoidResponseSchema = z.object({
     code: z.number(),
@@ -56,45 +53,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.invoices.ALL'],
+    scopes: ['ZohoInventory.invoices.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const orgResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const orgData = OrganizationsResponseSchema.parse(orgResponse.data);
-            if (orgData.code !== 0) {
-                throw new nango.ActionError({
-                    type: 'provider_error',
-                    message: 'Failed to retrieve organizations from Zoho Inventory.'
-                });
-            }
-            const organizations = orgData.organizations ?? [];
-            if (organizations.length === 0) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            if (organizations.length > 1) {
-                throw new nango.ActionError({
-                    type: 'multiple_organizations',
-                    message: `Multiple organizations found (${organizations.map((o) => o.organization_id).join(', ')}). Provide organization_id in the action input.`
-                });
-            }
-            const singleOrg = organizations[0];
-            if (!singleOrg) {
-                throw new nango.ActionError({
-                    type: 'not_found',
-                    message: 'No organizations found for this Zoho Inventory account.'
-                });
-            }
-            organizationId = singleOrg.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         // https://www.zoho.com/inventory/api/v1/invoices/#void-an-invoice
         // Voiding is idempotent (re-voiding an already-void invoice still succeeds), so retries are safe.
@@ -124,6 +86,13 @@ const action = createAction({
             retries: 3
         });
         const providerInvoice = ProviderInvoiceResponseSchema.parse(invoiceResponse.data);
+        if (providerInvoice.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerInvoice.message ?? 'Failed to retrieve the voided invoice.',
+                code: providerInvoice.code
+            });
+        }
         const invoice = providerInvoice.invoice;
 
         return {

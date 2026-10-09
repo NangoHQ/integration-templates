@@ -781,7 +781,8 @@
     },
     "batchDelete": {
       "Invoice": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

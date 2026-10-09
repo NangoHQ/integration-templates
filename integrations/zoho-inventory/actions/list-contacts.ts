@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const FilterBySchema = z.enum(['Status.All', 'Status.Active', 'Status.Inactive', 'Status.Duplicate', 'Status.Crm']);
 
 const SortColumnSchema = z.enum(['contact_name', 'first_name', 'last_name', 'email', 'outstanding_receivable_amount', 'created_time', 'last_modified_time']);
@@ -10,9 +12,11 @@ const InputSchema = z
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID. When omitted, the first organization returned by GET /organizations is used.'),
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         page: z.number().int().positive().optional().describe('Page number to fetch. Defaults to 1.'),
-        per_page: z.number().int().positive().optional().describe('Number of contacts to return per page. Defaults to 200.'),
+        per_page: z.number().int().min(1).max(200).optional().describe('Number of contacts to return per page (1-200). Defaults to 200.'),
         filter_by: FilterBySchema.optional().describe('Filter contacts by status. Defaults to Status.All.'),
         search_text: z.string().optional().describe('Search contacts by contact name or notes.'),
         sort_column: SortColumnSchema.optional().describe('Column to sort contacts by.'),
@@ -30,14 +34,6 @@ const InputSchema = z
         phone_contains: z.string().optional().describe('Contacts whose phone contains this value.')
     })
     .describe('Filters and pagination for listing Zoho Inventory contacts.');
-
-const ProviderOrganizationListSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
-});
 
 const ProviderContactSchema = z.object({
     contact_id: z.string(),
@@ -72,6 +68,11 @@ const ProviderPageContextSchema = z.object({
     sort_order: z.string().nullish(),
     applied_filter: z.string().nullish(),
     report_name: z.string().nullish()
+});
+
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string().optional()
 });
 
 const ProviderContactsResponseSchema = z.object({
@@ -135,29 +136,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.contacts.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (!organizationId) {
-            // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-            const organizationResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const parsedOrganizations = ProviderOrganizationListSchema.parse(organizationResponse.data);
-            const organization = parsedOrganizations.organizations[0];
-
-            if (!organization) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization was found for this connection.'
-                });
-            }
-
-            organizationId = organization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const params: Record<string, string | number> = {
             organization_id: organizationId
@@ -222,7 +204,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsedResponse = ProviderContactsResponseSchema.parse(response.data);
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing contacts.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory returned an error while listing contacts.',
+                code: envelope.data.code
+            });
+        }
+
+        const parsed = ProviderContactsResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected contacts payload from Zoho Inventory API.',
+                details: parsed.error.message
+            });
+        }
+
+        const parsedResponse = parsed.data;
         const pageContext = parsedResponse.page_context;
 
         return {

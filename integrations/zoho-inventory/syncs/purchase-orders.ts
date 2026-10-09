@@ -1,6 +1,8 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+
 const RawPurchaseOrderSchema = z.object({
     purchaseorder_id: z.string(),
     purchaseorder_number: z.string().optional().nullable(),
@@ -65,17 +67,6 @@ const PurchaseOrderSchema = z
     })
     .describe('A purchase order issued to a vendor in Zoho Inventory.');
 
-const OrganizationsResponseSchema = z.object({
-    organizations: z
-        .array(
-            z.object({
-                organization_id: z.string(),
-                isOrgNotSupported: z.boolean().optional().nullable()
-            })
-        )
-        .optional()
-});
-
 const CheckpointSchema = z
     .object({
         page: z.number().int().positive().describe('Next page to request when resuming an interrupted full refresh.')
@@ -88,33 +79,20 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.purchaseorders.READ', 'ZohoInventory.settings.READ'],
     models: {
         PurchaseOrder: PurchaseOrderSchema
     },
 
     exec: async (nango) => {
-        // Prerequisite: every Zoho Inventory request needs an organization_id. This
-        // connection is scoped to a single organization, so resolve it via the
-        // organizations list endpoint before any delete-tracking or resource fetch.
-        // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-        const organizationsResponse = await nango.get({
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const parsedOrganizations = OrganizationsResponseSchema.safeParse(organizationsResponse.data);
-        if (!parsedOrganizations.success || !parsedOrganizations.data.organizations?.length) {
-            throw new Error('Unable to resolve the Zoho Inventory organization_id');
-        }
-
-        const organizationId = parsedOrganizations.data.organizations[0]?.organization_id;
-
-        if (!organizationId) {
-            throw new Error('organization_id is required');
-        }
+        const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // Blocker: GET /inventory/v1/purchaseorders exposes no changed-since filter and
         // Zoho Inventory has no deleted-record endpoint, so this remains a full refresh.

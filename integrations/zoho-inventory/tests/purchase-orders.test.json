@@ -156,7 +156,8 @@
     },
     "batchDelete": {
       "PurchaseOrder": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

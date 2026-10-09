@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const PurchaseOrderSchema = z.object({
     purchaseorder_id: z.string().nullable().optional().describe('Unique identifier of the purchase order. Example: "260815000000107032".'),
     purchaseorder_number: z.string().nullable().optional().describe('Display number of the purchase order. Example: "PO-00006".'),
@@ -48,9 +50,14 @@ const PageContextSchema = z.object({
 
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('Zoho Inventory organization ID. Example: "10234695".'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         page: z.number().int().positive().optional().describe('Page number to fetch. Defaults to 1.'),
-        per_page: z.number().int().positive().optional().describe('Number of purchase orders to fetch per page. Defaults to 200.')
+        per_page: z.number().int().min(1).max(200).optional().describe('Number of purchase orders to fetch per page, up to 200. Defaults to 200.')
     })
     .describe('Filters for listing purchase orders issued to vendors.');
 
@@ -62,7 +69,12 @@ const OutputSchema = z
     })
     .describe('A page of purchase orders issued to vendors.');
 
-const ResponseSchema = z.object({
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string()
+});
+
+const ResponseSchema = ProviderEnvelopeSchema.extend({
     purchaseorders: z.array(PurchaseOrderSchema),
     page_context: PageContextSchema
 });
@@ -77,21 +89,45 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.purchaseorders.READ'],
+    scopes: ['ZohoInventory.purchaseorders.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.get<unknown>({
             // https://www.zoho.com/inventory/api/v1/purchaseorders/#list-all-purchaseorders
             endpoint: '/inventory/v1/purchaseorders',
             params: {
-                organization_id: input.organization_id,
+                organization_id: organizationId,
                 ...(input.page !== undefined && { page: input.page }),
                 ...(input.per_page !== undefined && { per_page: input.per_page })
             },
             retries: 3
         });
 
-        const parsed = ResponseSchema.parse(response.data);
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing purchase orders.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: envelope.data.message, code: envelope.data.code });
+        }
+
+        const result = ResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected purchase orders payload from Zoho Inventory API.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
         const hasMorePage = parsed.page_context.has_more_page;
 
         return {

@@ -1,13 +1,17 @@
 import { z } from 'zod';
 import { createAction, type ProxyConfiguration } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         contact_id: z.string().describe('Unique identifier of the contact to delete. Example: "460000000026049"'),
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID. Defaults to the first organization available on the connection when omitted.')
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for permanently deleting a contact from Zoho Inventory.');
 
@@ -24,15 +28,6 @@ const DeleteContactResponseSchema = z.object({
     message: z.string()
 });
 
-const OrganizationsResponseSchema = z.object({
-    code: z.number(),
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
-});
-
 /**
  * @tags: [read, write, destructive]
  * @tagReason: Optionally reads the organization list to resolve organization_id, then permanently deletes the contact from Zoho Inventory.
@@ -43,30 +38,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.contacts.ALL'],
+    scopes: ['ZohoInventory.contacts.ALL', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (organizationId === undefined) {
-            // https://www.zoho.com/inventory/api/v1/organizations/
-            const organizationsResponse = await nango.get({
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = OrganizationsResponseSchema.parse(organizationsResponse.data).organizations;
-            const firstOrganization = organizations[0];
-
-            if (firstOrganization === undefined) {
-                throw new nango.ActionError({
-                    type: 'organization_not_found',
-                    message: 'No Zoho Inventory organization is available on this connection.'
-                });
-            }
-
-            organizationId = firstOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const config: ProxyConfiguration = {
             // https://www.zoho.com/inventory/api/v1/contacts/
@@ -74,17 +49,28 @@ const action = createAction({
             params: {
                 organization_id: organizationId
             },
-            // DELETE by ID is idempotent: a retry cannot create or duplicate anything, it can only report an already-deleted contact as not found.
-            retries: 3
+            // A replayed DELETE after a lost response would report the already-deleted contact as not found, so it is not retried.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
 
         const response = await nango.delete(config);
-        const providerResponse = DeleteContactResponseSchema.parse(response.data);
+        const parsed = DeleteContactResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when deleting contact.',
+                details: parsed.error.message
+            });
+        }
+
+        const providerResponse = parsed.data;
 
         if (providerResponse.code !== 0) {
             throw new nango.ActionError({
-                type: 'delete_failed',
+                type: 'provider_error',
                 message: providerResponse.message,
+                code: providerResponse.code,
                 contact_id: input.contact_id
             });
         }

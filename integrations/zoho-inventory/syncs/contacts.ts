@@ -1,13 +1,7 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
-});
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
 
 const ProviderCustomFieldSchema = z.object({
     value: z.unknown().optional(),
@@ -148,33 +142,20 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
-    scopes: ['ZohoInventory.contacts.READ'],
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.contacts.READ', 'ZohoInventory.settings.READ'],
     models: {
         Contact: ContactSchema
     },
 
     exec: async (nango) => {
-        // The organization_id is required on every request. Resolve it at runtime so the
-        // sync works without connection metadata (this connection has a single organization).
-        // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-        const organizationsResponse = await nango.get({
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const parsedOrganizations = OrganizationsResponseSchema.safeParse(organizationsResponse.data);
-        if (!parsedOrganizations.success) {
-            throw new Error(`Failed to parse organizations response: ${parsedOrganizations.error.message}`);
-        }
-
-        const organization = parsedOrganizations.data.organizations[0];
-        if (!organization) {
-            throw new Error('No Zoho Inventory organization found for this connection');
-        }
-        const organizationId = organization.organization_id;
+        const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // Full refresh: the contacts list endpoint has no modified-since filter (last_modified_time
         // is only a sortable column, not a filter), so delete detection still needs a full successful

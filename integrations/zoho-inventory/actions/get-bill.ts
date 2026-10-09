@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const LineItemSchema = z.object({
     line_item_id: z.string().describe('Unique identifier of the bill line item.'),
     item_id: z.string().optional().describe('ID of the catalog item, or an empty string for a non-catalog line item.'),
@@ -45,7 +47,13 @@ const AddressSchema = z.object({
 
 const InputSchema = z
     .object({
-        bill_id: z.string().describe('Unique identifier of the vendor bill to retrieve. Example: "260815000000117048"')
+        bill_id: z.string().describe('Unique identifier of the vendor bill to retrieve. Example: "260815000000117048"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for retrieving one vendor bill by ID.');
 
@@ -83,6 +91,11 @@ const OutputSchema = z
     })
     .describe('Full detail of a single vendor bill.');
 
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string()
+});
+
 const BillResponseSchema = z.object({
     bill: OutputSchema
 });
@@ -95,16 +108,34 @@ const BillResponseSchema = z.object({
 const action = createAction({
     description: 'Get full details for one vendor bill by ID.',
     version: '1.0.0',
-    scopes: ['ZohoInventory.bills.ALL'],
+    scopes: ['ZohoInventory.bills.READ', 'ZohoInventory.settings.READ'],
     input: InputSchema,
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.get({
-            // https://www.zoho.com/inventory/api/v1/bills/
+            // https://www.zoho.com/inventory/api/v1/bills/#retrieve-a-bill
             endpoint: `/inventory/v1/bills/${encodeURIComponent(input.bill_id)}`,
+            params: {
+                organization_id: organizationId
+            },
             retries: 3
         });
+
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory returned an unexpected response for the bill.',
+                bill_id: input.bill_id
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: envelope.data.message, code: envelope.data.code });
+        }
 
         const parsed = BillResponseSchema.safeParse(response.data);
 

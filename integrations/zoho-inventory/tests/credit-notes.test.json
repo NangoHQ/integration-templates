@@ -176,7 +176,8 @@
     },
     "batchDelete": {
       "CreditNote": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

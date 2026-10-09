@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const CreditNoteInvoiceAllocationSchema = z
     .object({
         invoice_id: z.string().describe('ID of the invoice to apply credit to. Example: "90300000079426"'),
@@ -13,7 +15,12 @@ const CreditNoteInvoiceAllocationSchema = z
 const InputSchema = z
     .object({
         creditnote_id: z.string().describe('Unique identifier of the credit note to apply. Example: "90300000072369"'),
-        organization_id: z.string().describe('ID of the Zoho Inventory organization. Example: "10234695"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         invoices: z
             .array(CreditNoteInvoiceAllocationSchema)
             .min(1)
@@ -43,14 +50,16 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.creditnotes.CREATE'],
+    scopes: ['ZohoInventory.creditnotes.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/credit-notes/#apply-credits-to-invoices
             endpoint: `/inventory/v1/creditnotes/${encodeURIComponent(input.creditnote_id)}/invoices`,
             params: {
-                organization_id: input.organization_id
+                organization_id: organizationId
             },
             data: {
                 invoices: input.invoices
@@ -61,6 +70,13 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
+        if (providerResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message,
+                code: providerResponse.code
+            });
+        }
 
         return {
             code: providerResponse.code,

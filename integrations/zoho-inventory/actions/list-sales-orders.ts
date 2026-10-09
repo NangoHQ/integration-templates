@@ -1,5 +1,7 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
+
+import { resolveOrganizationId } from '../helpers/organization.js';
 import type { ProxyConfiguration } from 'nango';
 
 const SalesOrderCustomFieldSchema = z.object({
@@ -76,14 +78,21 @@ const PageContextSchema = z
 
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('ID of the Zoho Inventory organization. Example: "927270289"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         salesorder_ids: z.string().optional().describe('Comma-separated sales order IDs for a batch lookup (maximum 200). Omit to list all sales orders.'),
         page: z.number().int().positive().optional().describe('Page number to fetch, starting at 1. Defaults to 1.'),
-        per_page: z.number().int().positive().optional().describe('Number of sales orders to return per page. Defaults to 200.')
+        per_page: z.number().int().min(1).max(200).optional().describe('Number of sales orders to return per page, up to 200. Defaults to 200.')
     })
     .describe('Filters for listing sales orders in a Zoho Inventory organization.');
 
 const SalesOrderListResponseSchema = z.object({
+    code: z.number(),
+    message: z.string(),
     salesorders: z.array(SalesOrderSchema).optional(),
     page_context: PageContextSchema.optional()
 });
@@ -106,7 +115,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.salesorders.READ'],
+    scopes: ['ZohoInventory.salesorders.READ', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.page !== undefined && (!Number.isInteger(input.page) || input.page < 1)) {
@@ -116,12 +125,14 @@ const action = createAction({
             });
         }
 
-        if (input.per_page !== undefined && (!Number.isInteger(input.per_page) || input.per_page < 1)) {
+        if (input.per_page !== undefined && (!Number.isInteger(input.per_page) || input.per_page < 1 || input.per_page > 200)) {
             throw new nango.ActionError({
                 type: 'invalid_input',
-                message: 'per_page must be a positive integer.'
+                message: 'per_page must be an integer between 1 and 200.'
             });
         }
+
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const page = input.page ?? 1;
         const perPage = input.per_page ?? 200;
@@ -130,7 +141,7 @@ const action = createAction({
             // https://www.zoho.com/inventory/api/v1/salesorders/#list-all-sales-orders
             endpoint: '/inventory/v1/salesorders',
             params: {
-                organization_id: input.organization_id,
+                organization_id: organizationId,
                 page,
                 per_page: perPage,
                 ...(input.salesorder_ids !== undefined && { salesorder_ids: input.salesorder_ids })
@@ -139,7 +150,20 @@ const action = createAction({
         };
 
         const response = await nango.get(config);
-        const parsed = SalesOrderListResponseSchema.parse(response.data);
+        const result = SalesOrderListResponseSchema.safeParse(response.data);
+        if (!result.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when listing sales orders.',
+                details: result.error.message
+            });
+        }
+
+        const parsed = result.data;
+
+        if (parsed.code !== 0) {
+            throw new nango.ActionError({ type: 'provider_error', message: parsed.message, code: parsed.code });
+        }
 
         const salesorders = parsed.salesorders ?? [];
         const pageContext = parsed.page_context ?? { page, per_page: perPage, has_more_page: false };

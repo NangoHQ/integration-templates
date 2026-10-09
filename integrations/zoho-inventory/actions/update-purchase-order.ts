@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const LineItemSchema = z
     .object({
         item_id: z.string().optional().describe('Unique ID of the item on the line. Example: "260815000000131008"'),
@@ -48,7 +50,12 @@ const ContactPersonAssociatedSchema = z
 const InputSchema = z
     .object({
         purchaseorder_id: z.string().describe('Unique ID of the purchase order to update. Example: "260815000000160127"'),
-        organization_id: z.string().describe('ID of the Zoho Inventory organization the purchase order belongs to. Example: "927270289"'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         purchaseorder_number: z.string().optional().describe('Purchase order number. Required only when ignore_auto_number_generation is true.'),
         date: z.string().optional().describe('Purchase order date in yyyy-MM-dd format. Example: "2026-10-09"'),
         delivery_date: z.string().optional().describe('Delivery date in yyyy-MM-dd format.'),
@@ -117,9 +124,12 @@ const OutputSchema = z
     })
     .describe('The updated Zoho Inventory purchase order.');
 
-const ProviderResponseSchema = z.object({
-    code: z.number().optional(),
-    message: z.string().optional(),
+const ProviderEnvelopeSchema = z.object({
+    code: z.number(),
+    message: z.string().nullish()
+});
+
+const ProviderResponseSchema = ProviderEnvelopeSchema.extend({
     purchaseorder: OutputSchema.optional(),
     purchase_order: OutputSchema.optional()
 });
@@ -134,6 +144,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.purchaseorders.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {};
@@ -165,8 +176,9 @@ const action = createAction({
         if (input.custom_fields !== undefined) data['custom_fields'] = input.custom_fields;
         if (input.line_items !== undefined) data['line_items'] = input.line_items;
 
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
         const params: Record<string, string> = {
-            organization_id: input.organization_id
+            organization_id: organizationId
         };
 
         if (input.ignore_auto_number_generation !== undefined) {
@@ -181,8 +193,33 @@ const action = createAction({
             retries: 3
         });
 
-        const parsed = ProviderResponseSchema.parse(response.data);
-        const providerOrder = parsed.purchaseorder ?? parsed.purchase_order;
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when updating a purchase order.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory failed to update the purchase order.',
+                code: envelope.data.code
+            });
+        }
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected purchase order payload from Zoho Inventory API.',
+                details: parsed.error.message
+            });
+        }
+
+        const providerOrder = parsed.data.purchaseorder ?? parsed.data.purchase_order;
 
         if (!providerOrder) {
             throw new nango.ActionError({

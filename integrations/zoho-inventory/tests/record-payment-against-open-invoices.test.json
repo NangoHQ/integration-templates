@@ -24,6 +24,7 @@
     "date": "2026-10-09",
     "reference_number": "",
     "description": "",
+    "unused_amount": 0,
     "invoices": [
       {
         "invoice_id": "260815000000155297",

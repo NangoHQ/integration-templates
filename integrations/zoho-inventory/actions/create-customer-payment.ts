@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const InputSchema = z
     .object({
         customer_id: z.string().describe('ID of the customer making the payment. Example: "260815000000161104"'),
@@ -24,7 +26,13 @@ const InputSchema = z
         bank_charges: z.number().optional().describe('Any additional bank charges incurred for the payment. Example: 0'),
         account_id: z.string().optional().describe('ID of the cash or bank account the payment is deposited into. Example: "260815000000000358"'),
         location_id: z.string().optional().describe('ID of the location associated with the payment. Example: "460000000038080"'),
-        exchange_rate: z.number().optional().describe('Exchange rate applied to the payment currency. Defaults to 1. Example: 1')
+        exchange_rate: z.number().optional().describe('Exchange rate applied to the payment currency. Defaults to 1. Example: 1'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('A payment received from a customer and the invoice allocations it should be applied to.');
 
@@ -123,8 +131,11 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.customerpayments.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
+
         const payload = {
             customer_id: input.customer_id,
             amount: input.amount,
@@ -146,6 +157,9 @@ const action = createAction({
         const response = await nango.post({
             // https://www.zoho.com/inventory/api/v1/customer-payments/#create-a-payment
             endpoint: '/inventory/v1/customerpayments',
+            params: {
+                organization_id: organizationId
+            },
             data: payload,
             // Recording a payment is not idempotent: a retry after a lost response would create a duplicate payment.
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
@@ -154,10 +168,18 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
-        if (parsed.code !== 0 || parsed.payment == null) {
+        if (parsed.code !== 0) {
             throw new nango.ActionError({
-                type: 'payment_not_created',
-                message: parsed.message ?? 'Zoho Inventory did not return a created payment.'
+                type: 'provider_error',
+                message: parsed.message ?? 'Failed to create customer payment.',
+                code: parsed.code
+            });
+        }
+
+        if (parsed.payment == null) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return a created payment.'
             });
         }
 

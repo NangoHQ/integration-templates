@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const CustomFieldInputSchema = z.object({
     customfield_id: z.string().optional().describe('Unique ID of the custom field to set. Example: "46000000012845"'),
     label: z.string().optional().describe('Label of the custom field.'),
@@ -23,7 +25,12 @@ const LineItemInputSchema = z.object({
 const InputSchema = z
     .object({
         bill_id: z.string().describe('Unique ID of the vendor bill to update. Example: "260815000000163114"'),
-        organization_id: z.string().optional().describe('Unique ID of the Zoho Inventory organization. Defaults to the first organization on the connection.'),
+        organization_id: z
+            .string()
+            .optional()
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            ),
         vendor_id: z.string().optional().describe('Unique ID of the vendor the bill belongs to.'),
         bill_number: z.string().optional().describe('Bill number shown to the vendor. Example: "BL-00002"'),
         date: z.string().optional().describe('Bill date in yyyy-MM-dd format. Example: "2026-10-09"'),
@@ -73,6 +80,7 @@ const OutputSchema = z
         balance: z.number().describe('Outstanding balance still due.'),
         notes: z.string().optional().describe('Notes on the bill.'),
         terms: z.string().optional().describe('Terms and conditions on the bill.'),
+        purchaseorder_ids: z.array(z.string()).optional().describe('IDs of the purchase orders the bill is associated with.'),
         line_items: z.array(BillLineItemSchema).describe('Line items on the updated bill.'),
         created_time: z.string().optional().describe('Creation timestamp in the organization time zone.'),
         last_modified_time: z.string().optional().describe('Last modification timestamp in the organization time zone.')
@@ -80,53 +88,49 @@ const OutputSchema = z
     .describe('The vendor bill after the update was applied.');
 
 const ProviderLineItemSchema = z.object({
-    line_item_id: z.string().optional(),
-    item_id: z.string().optional(),
-    name: z.string().optional(),
-    description: z.string().optional(),
-    account_id: z.string().optional(),
-    account_name: z.string().optional(),
-    rate: z.number().optional(),
-    quantity: z.number().optional(),
-    unit: z.string().optional(),
-    item_total: z.number().optional(),
-    item_order: z.number().optional()
+    line_item_id: z.string().nullish(),
+    item_id: z.string().nullish(),
+    name: z.string().nullish(),
+    description: z.string().nullish(),
+    account_id: z.string().nullish(),
+    account_name: z.string().nullish(),
+    rate: z.number().nullish(),
+    quantity: z.number().nullish(),
+    unit: z.string().nullish(),
+    item_total: z.number().nullish(),
+    item_order: z.number().nullish()
 });
 
 const ProviderBillSchema = z.object({
     bill_id: z.string(),
-    bill_number: z.string().optional(),
-    status: z.string().optional(),
-    vendor_id: z.string().optional(),
-    vendor_name: z.string().optional(),
-    reference_number: z.string().optional(),
-    date: z.string().optional(),
-    due_date: z.string().optional(),
-    currency_id: z.string().optional(),
-    currency_code: z.string().optional(),
-    exchange_rate: z.number().optional(),
-    sub_total: z.number().optional(),
-    total: z.number().optional(),
-    balance: z.number().optional(),
-    notes: z.string().optional(),
-    terms: z.string().optional(),
-    line_items: z.array(ProviderLineItemSchema).optional(),
-    created_time: z.string().optional(),
-    last_modified_time: z.string().optional()
+    bill_number: z.string().nullish(),
+    status: z.string().nullish(),
+    vendor_id: z.string().nullish(),
+    vendor_name: z.string().nullish(),
+    reference_number: z.string().nullish(),
+    date: z.string().nullish(),
+    due_date: z.string().nullish(),
+    currency_id: z.string().nullish(),
+    currency_code: z.string().nullish(),
+    exchange_rate: z.number().nullish(),
+    sub_total: z.number().nullish(),
+    total: z.number().nullish(),
+    balance: z.number().nullish(),
+    notes: z.string().nullish(),
+    terms: z.string().nullish(),
+    line_items: z.array(ProviderLineItemSchema).nullish(),
+    created_time: z.string().nullish(),
+    last_modified_time: z.string().nullish(),
+    purchaseorder_ids: z.array(z.string()).nullish()
 });
 
-const ProviderResponseSchema = z.object({
+const ProviderEnvelopeSchema = z.object({
     code: z.number(),
-    message: z.string().optional(),
-    bill: ProviderBillSchema
+    message: z.string().nullish()
 });
 
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
+const ProviderResponseSchema = ProviderEnvelopeSchema.extend({
+    bill: ProviderBillSchema
 });
 
 /**
@@ -139,29 +143,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInventory.bills.UPDATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-
-        if (organizationId === undefined) {
-            const organizationsResponse = await nango.get({
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-
-            const organizations = OrganizationsResponseSchema.parse(organizationsResponse.data).organizations;
-            const firstOrganization = organizations[0];
-
-            if (firstOrganization === undefined) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-
-            organizationId = firstOrganization.organization_id;
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const response = await nango.put({
             // https://www.zoho.com/inventory/api/v1/bills/#update-a-bill
@@ -188,7 +173,33 @@ const action = createAction({
             retries: 3
         });
 
-        const bill = ProviderResponseSchema.parse(response.data).bill;
+        const envelope = ProviderEnvelopeSchema.safeParse(response.data);
+        if (!envelope.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected response from Zoho Inventory API when updating a bill.',
+                details: envelope.error.message
+            });
+        }
+
+        if (envelope.data.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: envelope.data.message ?? 'Zoho Inventory failed to update the bill.',
+                code: envelope.data.code
+            });
+        }
+
+        const parsed = ProviderResponseSchema.safeParse(response.data);
+        if (!parsed.success) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Unexpected bill payload from Zoho Inventory API when updating a bill.',
+                details: parsed.error.message
+            });
+        }
+
+        const bill = parsed.data.bill;
 
         const lineItems = (bill.line_items ?? []).map((item) => ({
             line_item_id: item.line_item_id ?? '',
@@ -221,6 +232,7 @@ const action = createAction({
             balance: bill.balance ?? 0,
             ...(bill.notes != null && { notes: bill.notes }),
             ...(bill.terms != null && { terms: bill.terms }),
+            ...(bill.purchaseorder_ids != null && { purchaseorder_ids: bill.purchaseorder_ids }),
             line_items: lineItems,
             ...(bill.created_time != null && { created_time: bill.created_time }),
             ...(bill.last_modified_time != null && { last_modified_time: bill.last_modified_time })

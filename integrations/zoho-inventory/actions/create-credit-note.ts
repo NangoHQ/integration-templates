@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+import { resolveOrganizationId } from '../helpers/organization.js';
+
 const LineItemInputSchema = z.object({
     item_id: z.string().describe('Unique ID of the sales item being credited. Example: "260815000000101002".'),
     quantity: z.number().describe('Quantity of the item being credited. Example: 1.'),
@@ -13,14 +15,16 @@ const LineItemInputSchema = z.object({
 const InputSchema = z
     .object({
         customer_id: z.string().describe('Unique ID of the customer for whom the credit note is raised. Example: "260815000000097001".'),
-        line_items: z.array(LineItemInputSchema).describe('One or more items being credited. At least one line item is required.'),
+        line_items: z.array(LineItemInputSchema).min(1).describe('One or more items being credited. At least one line item is required.'),
         creditnote_number: z.string().optional().describe('Custom credit note number (max 100 characters). Omit to let Zoho auto-generate the next CN number.'),
         date: z.string().optional().describe('Date the credit note is raised, in yyyy-mm-dd format. Defaults to the current date when omitted.'),
         reference_number: z.string().optional().describe('External reference number stored on the credit note.'),
         organization_id: z
             .string()
             .optional()
-            .describe('Zoho Inventory organization ID. When omitted, the first organization available to the connection is used.')
+            .describe(
+                'Zoho Inventory organization ID. If omitted and only one organization exists, it is used automatically. Required when multiple organizations exist.'
+            )
     })
     .describe('Input for creating a Zoho Inventory credit note for a customer.');
 
@@ -52,15 +56,7 @@ const ProviderCreditNoteSchema = z.object({
 const CreateCreditNoteResponseSchema = z.object({
     code: z.number(),
     message: z.string(),
-    creditnote: ProviderCreditNoteSchema
-});
-
-const OrganizationsResponseSchema = z.object({
-    organizations: z.array(
-        z.object({
-            organization_id: z.string()
-        })
-    )
+    creditnote: ProviderCreditNoteSchema.optional()
 });
 
 const LineItemOutputSchema = z.object({
@@ -100,25 +96,10 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['ZohoInventory.creditnotes.CREATE'],
+    scopes: ['ZohoInventory.creditnotes.CREATE', 'ZohoInventory.settings.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        let organizationId = input.organization_id;
-        if (!organizationId) {
-            const organizationsResponse = await nango.get<unknown>({
-                // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-                endpoint: '/inventory/v1/organizations',
-                retries: 3
-            });
-            const organizations = OrganizationsResponseSchema.parse(organizationsResponse.data);
-            organizationId = organizations.organizations[0]?.organization_id;
-            if (!organizationId) {
-                throw new nango.ActionError({
-                    type: 'no_organization',
-                    message: 'No Zoho Inventory organization is available for this connection.'
-                });
-            }
-        }
+        const organizationId = await resolveOrganizationId(nango, input.organization_id);
 
         const response = await nango.post<unknown>({
             // https://www.zoho.com/inventory/api/v1/credit-notes/#create-a-credit-note
@@ -146,7 +127,21 @@ const action = createAction({
         });
 
         const parsed = CreateCreditNoteResponseSchema.parse(response.data);
+        if (parsed.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message,
+                code: parsed.code
+            });
+        }
+
         const creditNote = parsed.creditnote;
+        if (!creditNote) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Zoho Inventory did not return the created credit note.'
+            });
+        }
 
         return {
             creditnote_id: creditNote.creditnote_id,

@@ -141,7 +141,8 @@
     },
     "batchDelete": {
       "CustomerPayment": []
-    }
+    },
+    "getMetadata": {}
   },
   "api": {
     "get": {

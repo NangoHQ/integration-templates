@@ -1,13 +1,7 @@
 import { createSync, type ProxyConfiguration } from 'nango';
 import { z } from 'zod';
 
-const OrganizationSchema = z.object({
-    organization_id: z.string()
-});
-
-const OrganizationListResponseSchema = z.object({
-    organizations: z.array(OrganizationSchema)
-});
+import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
 
 const CreditNoteSchema = z
     .object({
@@ -63,28 +57,20 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    metadata: OrganizationMetadataSchema,
+    scopes: ['ZohoInventory.creditnotes.READ', 'ZohoInventory.settings.READ'],
     models: {
         CreditNote: CreditNoteSchema
     },
 
     exec: async (nango) => {
-        // Prerequisite: every Zoho Inventory request needs the organization_id,
-        // which is resolved before delete tracking starts.
-        // https://www.zoho.com/inventory/api/v1/organizations/#list-organizations
-        const organizationsResponse = await nango.get({
-            endpoint: '/inventory/v1/organizations',
-            retries: 3
-        });
-
-        const organizations = OrganizationListResponseSchema.parse(organizationsResponse.data).organizations;
-        const organizationId = organizations[0]?.organization_id;
-
-        if (!organizationId) {
-            throw new Error('No Zoho Inventory organization is available for this connection.');
-        }
+        const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let nextPage: number | undefined = checkpoint?.page ?? 1;
+        // Offset pages shift left when records on already-synced pages are deleted between an
+        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
+        // while a skipped record would be wrongly removed by trackDeletesEnd.
+        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
 
         // Credit notes expose no modified-since filter, so this remains a full refresh.
         // The page/per_page pagination is checkpointed so interrupted runs resume from the
