@@ -4,6 +4,8 @@ import getAttachmentAction from '../actions/get-attachment.js';
 import type { NangoActionLocal as GetAttachmentNango } from '../actions/get-attachment.js';
 import listAttachmentsAction from '../actions/list-attachments.js';
 import type { NangoActionLocal as ListAttachmentsNango } from '../actions/list-attachments.js';
+import listProjectsAction from '../actions/list-projects.js';
+import type { NangoActionLocal as ListProjectsNango } from '../actions/list-projects.js';
 
 class ActionErrorMock extends Error {
     payload: Record<string, unknown>;
@@ -48,7 +50,7 @@ describe('linear attachment null email regression', () => {
         expect(response.externalUserCreator).toEqual({ id: 'ext-1', name: 'External' });
     });
 
-    it('list-attachments accepts a null creator email', async () => {
+    it('list-attachments accepts a null creator email and omits it from the output', async () => {
         const nango = makeNango({
             data: {
                 attachments: {
@@ -74,7 +76,38 @@ describe('linear attachment null email regression', () => {
         const response = await listAttachmentsAction.exec(nango as unknown as ListAttachmentsNango, {});
 
         expect(response.items).toHaveLength(1);
-        expect(response.items[0]?.creator).toEqual({ id: 'user-1', name: 'Bot User', email: null });
-        expect(response.items[0]?.externalUserCreator).toEqual({ id: 'ext-1', name: 'External', email: null });
+        expect(response.items[0]?.creator).toEqual({ id: 'user-1', name: 'Bot User' });
+        expect(response.items[0]?.externalUserCreator).toEqual({ id: 'ext-1', name: 'External' });
+    });
+
+    it('list-projects accepts a null lead email and omits it from the output', async () => {
+        const nango = makeNango({
+            data: {
+                projects: {
+                    nodes: [
+                        {
+                            id: 'proj-1',
+                            name: 'Project',
+                            description: null,
+                            state: 'started',
+                            progress: null,
+                            startDate: null,
+                            targetDate: null,
+                            createdAt: null,
+                            updatedAt: null,
+                            url: null,
+                            lead: { id: 'user-1', name: 'Bot Lead', email: null },
+                            teams: null
+                        }
+                    ],
+                    pageInfo: { hasNextPage: false, endCursor: null }
+                }
+            }
+        });
+
+        const response = await listProjectsAction.exec(nango as unknown as ListProjectsNango, {});
+
+        expect(response.projects).toHaveLength(1);
+        expect(response.projects[0]?.lead).toEqual({ id: 'user-1', name: 'Bot Lead' });
     });
 });

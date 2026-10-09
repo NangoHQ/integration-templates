@@ -16,6 +16,12 @@ const PageInfoSchema = z.object({
     endCursor: z.string().nullable().optional()
 });
 
+const CreatorSchema = z.object({
+    id: z.string(),
+    name: z.string(),
+    email: z.string().optional()
+});
+
 const AttachmentSchema = z.object({
     id: z.string(),
     createdAt: z.string(),
@@ -28,22 +34,8 @@ const AttachmentSchema = z.object({
     metadata: z.record(z.string(), z.unknown()),
     groupBySource: z.boolean(),
     bodyData: z.string().nullable().optional(),
-    creator: z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            email: z.string().nullable().optional()
-        })
-        .nullable()
-        .optional(),
-    externalUserCreator: z
-        .object({
-            id: z.string(),
-            name: z.string(),
-            email: z.string().nullable().optional()
-        })
-        .nullable()
-        .optional(),
+    creator: CreatorSchema.nullable().optional(),
+    externalUserCreator: CreatorSchema.nullable().optional(),
     issue: z.object({
         id: z.string(),
         identifier: z.string(),
@@ -58,6 +50,25 @@ const AttachmentSchema = z.object({
         .nullable()
         .optional()
 });
+
+// Linear returns `email: null` for external users, bots, and deleted users. Parse the
+// nullable shape, then strip null emails when mapping to the output contract.
+const ProviderCreatorSchema = CreatorSchema.extend({
+    email: z.string().nullable().optional()
+});
+
+const ProviderAttachmentSchema = AttachmentSchema.extend({
+    creator: ProviderCreatorSchema.nullable().optional(),
+    externalUserCreator: ProviderCreatorSchema.nullable().optional()
+});
+
+function toOutputCreator(creator: z.infer<typeof ProviderCreatorSchema>): z.infer<typeof CreatorSchema> {
+    return {
+        id: creator.id,
+        name: creator.name,
+        ...(creator.email != null && { email: creator.email })
+    };
+}
 
 const OutputSchema = z.object({
     items: z.array(AttachmentSchema),
@@ -178,7 +189,16 @@ const action = createAction({
         }
 
         const parsedPageInfo = PageInfoSchema.parse(pageInfo);
-        const parsedItems = nodes.map((node) => AttachmentSchema.parse(node));
+        const parsedItems = nodes.map((node) => {
+            const { creator, externalUserCreator, ...raw } = ProviderAttachmentSchema.parse(node);
+            return {
+                ...raw,
+                ...(creator !== undefined && { creator: creator === null ? null : toOutputCreator(creator) }),
+                ...(externalUserCreator !== undefined && {
+                    externalUserCreator: externalUserCreator === null ? null : toOutputCreator(externalUserCreator)
+                })
+            };
+        });
 
         return {
             items: parsedItems,
