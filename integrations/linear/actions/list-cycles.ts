@@ -38,10 +38,13 @@ const GraphQLErrorSchema = z.object({
 const ProviderCyclesResponseSchema = z.object({
     data: z
         .object({
-            cycles: z.object({
-                nodes: z.array(z.unknown()),
-                pageInfo: PageInfoSchema
-            })
+            cycles: z
+                .object({
+                    nodes: z.array(z.unknown()),
+                    pageInfo: PageInfoSchema
+                })
+                .nullable()
+                .optional()
         })
         .nullable()
         .optional(),

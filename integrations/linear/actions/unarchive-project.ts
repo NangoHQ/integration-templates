@@ -24,11 +24,14 @@ const GraphQLErrorSchema = z.object({
 const ProviderResponseSchema = z.object({
     data: z
         .object({
-            projectUnarchive: z.object({
-                success: z.boolean(),
-                lastSyncId: z.number(),
-                entity: ProviderProjectSchema.nullable()
-            })
+            projectUnarchive: z
+                .object({
+                    success: z.boolean(),
+                    lastSyncId: z.number(),
+                    entity: ProviderProjectSchema.nullable()
+                })
+                .nullable()
+                .optional()
         })
         .nullable()
         .optional(),
@@ -94,7 +97,7 @@ const action = createAction({
             });
         }
 
-        const project = providerResponse.data?.projectUnarchive.entity;
+        const project = providerResponse.data?.projectUnarchive?.entity;
 
         if (!project) {
             throw new nango.ActionError({

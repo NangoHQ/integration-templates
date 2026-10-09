@@ -127,13 +127,16 @@ const action = createAction({
             .object({
                 data: z
                     .object({
-                        projects: z.object({
-                            nodes: z.array(z.unknown()),
-                            pageInfo: z.object({
-                                hasNextPage: z.boolean(),
-                                endCursor: z.string().nullable()
+                        projects: z
+                            .object({
+                                nodes: z.array(z.unknown()),
+                                pageInfo: z.object({
+                                    hasNextPage: z.boolean(),
+                                    endCursor: z.string().nullable()
+                                })
                             })
-                        })
+                            .nullable()
+                            .optional()
                     })
                     .nullable()
                     .optional(),

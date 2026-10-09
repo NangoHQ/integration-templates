@@ -70,6 +70,39 @@ describe('linear GraphQL errors[] surface as graphql_error instead of Zod/shape 
         });
     });
 
+    it('list-cycles throws graphql_error on partial data with cycles: null', async () => {
+        const nango = makeNango({
+            data: { cycles: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(listCyclesAction.exec(nango, {})).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('list-projects throws graphql_error on partial data with projects: null', async () => {
+        const nango = makeNango({
+            data: { projects: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(listProjectsAction.exec(nango, {})).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
+    it('unarchive-project throws graphql_error on partial data with projectUnarchive: null', async () => {
+        const nango = makeNango({
+            data: { projectUnarchive: null },
+            errors: [{ message: 'Entity not found or you do not have access to it.' }]
+        });
+
+        await expect(unarchiveProjectAction.exec(nango, { projectId: 'project-1' })).rejects.toMatchObject({
+            payload: { type: 'graphql_error' }
+        });
+    });
+
     it('unarchive-project throws graphql_error', async () => {
         const nango = makeNango(graphqlErrorResponse);
 
