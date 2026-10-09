@@ -1,0 +1,199 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "name": "Nango Create Project Action Test",
+    "company_id": 2193170
+  },
+  "output": {
+    "id": 5698343,
+    "name": "Nango Create Project Action Test",
+    "description": null,
+    "color": null,
+    "rate_type": "non-billable",
+    "billable": false,
+    "active": true,
+    "account_id": 1145787,
+    "external_id": null,
+    "enable_labels": "none",
+    "client": {
+      "id": 2193170,
+      "name": "Nango Developer",
+      "color": "1976d2",
+      "active": true
+    },
+    "created_at": 1791582822,
+    "updated_at": 1791582822
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/1.1/1145787/projects": {
+        "response": {
+          "id": 5698343,
+          "active": true,
+          "account_id": 1145787,
+          "name": "Nango Create Project Action Test",
+          "description": null,
+          "color": null,
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791582822,
+          "updated_at": 1791582822,
+          "external_id": null,
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:53:42+03:00",
+              "created_at": "2026-10-10T00:53:42+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "first_logged_on": null,
+          "last_logged_on": null,
+          "created_from": "Nango",
+          "allow_only_one_tag": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:43 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2078",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1876",
+          "x-ratelimit-reset": "1791582824",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"be505ce5956d9ee36e727c60f29495b5\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "a93be4b0-353a-46ec-9831-8dd2d14cd429",
+          "x-runtime": "0.092871",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=2ko1R32bXPDsDtzKFjQjJ7cppvxT87SpZ%2BKSj0rz5fjeGigQQF%2BYzV7csbdNNdqAcSktKRhZcBpBg2JnJAtWyyF73evOIxMPNADUQBuKPhAxIL%2Feb7lfZbt8t8kJ30S51N38lA%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809e9f1fa0f8cb-PDX"
+        },
+        "hash": "916efed95e0ecaabd441bcc8d1c30a32a3b1ccc2",
+        "request": {
+          "data": {
+            "project": {
+              "name": "Nango Create Project Action Test",
+              "rate_type": "non-billable",
+              "company_id": 2193170
+            }
+          }
+        }
+      }
+    }
+  }
+}

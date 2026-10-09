@@ -1,0 +1,396 @@
+{
+  "nango": {
+    "batchSave": {
+      "User": [
+        {
+          "id": "2418691",
+          "email": "api@nango.dev",
+          "name": "Nango Developer",
+          "active": true,
+          "admin": true,
+          "user_level": "admin",
+          "type": "User",
+          "created_at": 1791341625,
+          "updated_at": 1791341678,
+          "sign_in_count": 1,
+          "time_zone": "Africa/Nairobi",
+          "work_days": "MON,TUE,WED,THU,FRI",
+          "weekdays": "MO,TU,WE,TH,FR",
+          "weekly_capacity": 40,
+          "default_hour_rate": 0,
+          "internal_hour_rate": 0,
+          "hide_hourly_rate": false,
+          "hide_internal_hourly_rate": false,
+          "role_id": 2197140,
+          "role": {
+            "id": 2197140,
+            "name": "admin"
+          },
+          "avatar": {
+            "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+            "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+            "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+            "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+            "small_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25",
+            "small": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25"
+          },
+          "day_view_onboarded": true,
+          "memory_onboarded": true,
+          "deleted": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "User": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.1/accounts": {
+        "response": [
+          {
+            "id": 1145787,
+            "name": "Nango Developer",
+            "color": "313d4b",
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "logo": {
+              "large_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_large_retina-8bc212c450af14b3a0ea49098cdddbe4f90d5eb5fc57adfeade6ac1ad8fb1d4a.png",
+              "medium_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_medium_retina-10dfbcc6733ccba1d485971f63c5eb7f9b7ed1a942a0ebd140e292bcb1e4dbea.png",
+              "small_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_small_retina-ea5df153b4cd96fc801e2361afc7d1b06d7b95ce5c358250b81149e1a20689df.png",
+              "brand_logo": false
+            },
+            "from": "Web",
+            "max_users": 0,
+            "seats": 1,
+            "max_projects": 0,
+            "plan_id": 227,
+            "plan_name": "Unlimited",
+            "next_charge": "2026-10-20",
+            "start_of_week": 0,
+            "created_at": 1791341625,
+            "payment_mode": "web",
+            "paid": false,
+            "company_size": "1",
+            "plan_code": "timely_unlimited_aug_23_yearly",
+            "plan_custom": false,
+            "appstore_transaction_id": null,
+            "owner_id": 2418691,
+            "weekly_user_capacity": 40,
+            "default_work_days": "MON,TUE,WED,THU,FRI",
+            "default_hour_rate": 0,
+            "support_email": "support@timelyapp.com",
+            "estimated_company_size": null,
+            "industry": null,
+            "memory_retention_days": 0,
+            "tic_force_enable": false,
+            "num_users": 1,
+            "num_projects": 8,
+            "active_projects_count": 8,
+            "total_projects_count": 10,
+            "capacity": {
+              "hours": 40,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "40:00",
+              "total_hours": 40,
+              "total_seconds": 144000,
+              "total_minutes": 2400
+            },
+            "can_purchase_extra_seats": false,
+            "status": "trial",
+            "beta": false,
+            "azure_ad_enabled": false,
+            "expired": false,
+            "trial": true,
+            "days_to_end_trial": 11,
+            "features": [
+              {
+                "name": "in_app_support",
+                "days": -1
+              },
+              {
+                "name": "project_required_fields",
+                "days": -1
+              },
+              {
+                "name": "notifications_project_budget",
+                "days": -1
+              },
+              {
+                "name": "weekly_user_capacity",
+                "days": -1
+              },
+              {
+                "name": "project_budget",
+                "days": -1
+              },
+              {
+                "name": "budgets_hourly_rates",
+                "days": -1
+              },
+              {
+                "name": "account_branding",
+                "days": -1
+              },
+              {
+                "name": "ai_timesheet_creation",
+                "days": -1
+              },
+              {
+                "name": "teams",
+                "days": -1
+              },
+              {
+                "name": "company_view",
+                "days": -1
+              },
+              {
+                "name": "anomalies",
+                "days": -1
+              },
+              {
+                "name": "log_hours_for_others",
+                "days": -1
+              },
+              {
+                "name": "recurring_budget",
+                "days": -1
+              },
+              {
+                "name": "billing",
+                "days": -1
+              },
+              {
+                "name": "team_lead",
+                "days": -1
+              },
+              {
+                "name": "control",
+                "days": -1
+              },
+              {
+                "name": "memories",
+                "days": -1
+              },
+              {
+                "name": "people_dashboard",
+                "days": -1
+              },
+              {
+                "name": "people_notify",
+                "days": -1
+              },
+              {
+                "name": "project_dashboard",
+                "days": -1
+              },
+              {
+                "name": "premium_integrations",
+                "days": -1
+              },
+              {
+                "name": "individual_capacity",
+                "days": -1
+              },
+              {
+                "name": "audits",
+                "days": -1
+              },
+              {
+                "name": "report_dashboard",
+                "days": -1
+              },
+              {
+                "name": "live_reports",
+                "days": -1
+              },
+              {
+                "name": "high_level_reports",
+                "days": -1
+              },
+              {
+                "name": "invoices",
+                "days": -1
+              },
+              {
+                "name": "planned_entries",
+                "days": -1
+              },
+              {
+                "name": "internal_costs",
+                "days": -1
+              },
+              {
+                "name": "api_access",
+                "days": -1
+              },
+              {
+                "name": "capacity_reports",
+                "days": -1
+              },
+              {
+                "name": "hour_states",
+                "days": -1
+              },
+              {
+                "name": "day_locking",
+                "days": -1
+              },
+              {
+                "name": "user_custom_properties",
+                "days": -1
+              },
+              {
+                "name": "import_manager",
+                "days": -1
+              },
+              {
+                "name": "report_tag_headers",
+                "days": -1
+              },
+              {
+                "name": "timesheet_assistant_v2",
+                "days": -1
+              },
+              {
+                "name": "tic_integrations",
+                "days": -1
+              },
+              {
+                "name": "allow_one_tag",
+                "days": -1
+              },
+              {
+                "name": "compliance_dashboard",
+                "days": -1
+              },
+              {
+                "name": "tic_support",
+                "days": -1
+              },
+              {
+                "name": "tasks",
+                "days": -1
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3159",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1974",
+          "x-ratelimit-reset": "1791582886",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"033b9a4b8015b8f3e641c95b8ad9aee2\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "c6aea2c2-c9b2-4b8c-9bd0-a1a528c8a48c",
+          "x-runtime": "0.016132",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=khwtGO9T3PCkQ%2Fu09eJABJQpD45khT45Dbd2jO%2FcKpK75WoQE3K4EQOIVQFHSimy73MIaEthLhS4CXaXtxc%2FjkWKamVrp0e1F5ftof%2BBVMj9%2F5QO0qfDQn6rVG1n7ffP8g2tEA%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809f04a9cc8bee-PDX"
+        },
+        "hash": "26429d40e9e68ad4762f225411f268fe0b5eb9c7",
+        "request": {}
+      },
+      "/1.1/1145787/users": {
+        "response": [
+          {
+            "id": 2418691,
+            "email": "api@nango.dev",
+            "name": "Nango Developer",
+            "active": true,
+            "day_view_onboarded": true,
+            "memory_onboarded": true,
+            "created_at": 1791341625,
+            "updated_at": 1791341678,
+            "last_received_memories_date": null,
+            "sign_in_count": 1,
+            "external_id": null,
+            "time_zone": "Africa/Nairobi",
+            "memory_retention_days": null,
+            "avatar": {
+              "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+              "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+              "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+              "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+              "small_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25",
+              "small": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_small_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=25"
+            },
+            "type": "User",
+            "work_days": "MON,TUE,WED,THU,FRI",
+            "weekdays": "MO,TU,WE,TH,FR",
+            "weekly_capacity": 40,
+            "user_level": "admin",
+            "admin": true,
+            "hide_hourly_rate": false,
+            "hide_internal_hourly_rate": false,
+            "deleted": false,
+            "default_hour_rate": 0,
+            "internal_hour_rate": 0,
+            "role_id": 2197140,
+            "role": {
+              "id": 2197140,
+              "name": "admin"
+            }
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:58 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2055",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1973",
+          "x-ratelimit-reset": "1791582886",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"e678ee1449e73cf63056f6f8f9291621\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "0bc0ed61-9453-43fc-bfee-dddd449aab28",
+          "x-runtime": "0.031480",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=Q9INUy2g7lxSba8tpro3kJYVW9y1ubnEFKv9Xy8Pt6vK8G67gDqXN7dx3DjmIPzR8s6W84cyUqJ2TL%2Fm3Cnb93xZJcjHAkBuTFOeamK5r%2F1nmmq7SKw49zu87nicnh9lEi0SmQ%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809f062959fef3-PDX"
+        },
+        "hash": "47a270f38b841f1f9616bbe97fb8498dbbb13870",
+        "request": {}
+      }
+    }
+  }
+}
