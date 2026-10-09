@@ -29,7 +29,7 @@ const InputSchema = z
             .min(1)
             .optional()
             .describe(
-                'Field API names used to find an existing account before inserting. Each listed field must be present in account with a non-null value. Defaults to ["Account_Name"]. Example: ["Account_Name"]'
+                'Field API names used to find an existing account before inserting. Each listed field must be present in account with a non-empty value. Defaults to ["Account_Name"]. Example: ["Account_Name"]'
             )
     })
     .describe('Account fields to upsert plus the duplicate-check fields used to detect an existing account.');
@@ -67,7 +67,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates or updates an account through the provider's atomic upsert endpoint.
- * @pitfalls: duplicate_check_fields must reference fields configured as unique in the org and present in account; a non-unique field can create duplicate accounts instead of updating, and when duplicate_check_fields is omitted the provider checks Account_Name first, then any user-defined unique fields.
+ * @pitfalls: duplicate_check_fields must reference fields configured as unique in the org and present in account; a non-unique field can create duplicate accounts instead of updating, and when duplicate_check_fields is omitted this action sends ["Account_Name"], so user-defined unique fields are only checked when listed explicitly.
  */
 const action = createAction({
     description: 'Create an account, or update it if a record already matches on a chosen duplicate-check field (e.g. Account_Name) - atomic find-or-create.',
@@ -106,7 +106,9 @@ const action = createAction({
         if (!result || result.status !== 'success' || (result.action !== 'insert' && result.action !== 'update') || !result.details?.id) {
             throw new nango.ActionError({
                 type: 'upsert_failed',
-                message: result?.message ?? 'Account upsert failed',
+                // A success result without an id or action must not surface its success message as the error.
+                message:
+                    result?.status === 'success' ? 'Bigin did not return the upserted account ID and action.' : (result?.message ?? 'Account upsert failed'),
                 code: result?.code
             });
         }

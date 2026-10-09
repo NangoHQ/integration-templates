@@ -131,7 +131,10 @@ const action = createAction({
                 if (createdId === undefined) {
                     throw new nango.ActionError({
                         type: 'account_create_failed',
-                        message: created?.message ?? `Failed to create company "${input.accountName}".`,
+                        message:
+                            created?.code === 'SUCCESS'
+                                ? `Bigin did not return the ID of company "${input.accountName}".`
+                                : (created?.message ?? `Failed to create company "${input.accountName}".`),
                         status: accountCreate.status,
                         ...(created?.code !== undefined && { code: created.code })
                     });
@@ -182,7 +185,10 @@ const action = createAction({
         if (contactId === undefined || (contactAction !== 'insert' && contactAction !== 'update')) {
             throw new nango.ActionError({
                 type: 'contact_upsert_failed',
-                message: upserted?.message ?? `Failed to upsert contact "${input.email}".`,
+                message:
+                    upserted?.code === 'SUCCESS'
+                        ? `Bigin did not return the ID and action of contact "${input.email}".`
+                        : (upserted?.message ?? `Failed to upsert contact "${input.email}".`),
                 status: contactUpsert.status,
                 ...(upserted?.code !== undefined && { code: upserted.code })
             });
@@ -230,7 +236,10 @@ const action = createAction({
                     if (createdId === undefined) {
                         throw new nango.ActionError({
                             type: 'product_create_failed',
-                            message: created?.message ?? `Failed to create product "${productName}".`,
+                            message:
+                                created?.code === 'SUCCESS'
+                                    ? `Bigin did not return the ID of product "${productName}".`
+                                    : (created?.message ?? `Failed to create product "${productName}".`),
                             status: productCreate.status,
                             ...(created?.code !== undefined && { code: created.code })
                         });

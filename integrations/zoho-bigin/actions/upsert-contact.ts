@@ -39,7 +39,7 @@ const InputSchema = z
             .min(1)
             .optional()
             .describe(
-                'Field API names used to detect an existing contact and decide insert vs update. Each listed field must be provided with a non-null value. Defaults to ["Email"], the Contacts system-defined unique field.'
+                'Field API names used to detect an existing contact and decide insert vs update. Each listed field must be provided with a non-empty value. Defaults to ["Email"], the Contacts system-defined unique field.'
             )
     })
     .describe(

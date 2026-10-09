@@ -27,7 +27,7 @@ const InputSchema = z
             .min(1)
             .optional()
             .describe(
-                "Ordered field API names used to detect a matching existing record. Each listed field must be provided with a non-null value. Defaults to ['Product_Name'] when omitted."
+                "Ordered field API names used to detect a matching existing record. Each listed field must be provided with a non-empty value. Defaults to ['Product_Name'] when omitted."
             )
     })
     .describe('Product fields to create or update, matched by the duplicate-check fields.');
@@ -137,7 +137,11 @@ const action = createAction({
         if (!result || result.status !== 'success' || result.details?.id === undefined || (result.action !== 'insert' && result.action !== 'update')) {
             throw new nango.ActionError({
                 type: 'upsert_failed',
-                message: result?.message ?? 'Bigin did not return a product id for the upsert.',
+                // A success result without an id or action must not surface its success message as the error.
+                message:
+                    result?.status === 'success'
+                        ? 'Bigin did not return the upserted product ID and action.'
+                        : (result?.message ?? 'Bigin did not return a successful upsert response.'),
                 ...(result?.code !== undefined && { code: result.code })
             });
         }

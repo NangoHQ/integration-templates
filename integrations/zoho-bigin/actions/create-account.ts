@@ -93,7 +93,11 @@ const action = createAction({
         if (!result || result.status !== 'success' || !result.details?.id) {
             throw new nango.ActionError({
                 type: 'create_failed',
-                message: result?.message ?? 'Bigin did not return the created account ID.',
+                // A success result without an id must not surface its success message (e.g. "record added") as the error.
+                message:
+                    result?.status === 'success'
+                        ? 'Bigin did not return the created account ID.'
+                        : (result?.message ?? 'Bigin did not return a successful create response.'),
                 ...(result?.code !== undefined && { code: result.code })
             });
         }

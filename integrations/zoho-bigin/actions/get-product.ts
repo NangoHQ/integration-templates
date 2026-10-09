@@ -26,8 +26,8 @@ const ProductSchema = z
         Owner: ProductOwnerSchema.nullish().describe('Bigin user who owns the product record, or null when unassigned.'),
         Created_By: ProductOwnerSchema.nullish().describe('Bigin user who created the product record, or null when unavailable.'),
         Modified_By: ProductOwnerSchema.nullish().describe('Bigin user who last modified the product record, or null when unavailable.'),
-        Created_Time: z.string().nullish().describe('ISO 8601 timestamp when the product was created. Example: "2026-10-09T22:06:52+03:00"'),
-        Modified_Time: z.string().nullish().describe('ISO 8601 timestamp when the product was last modified. Example: "2026-10-09T22:07:26+03:00"'),
+        Created_Time: z.string().describe('ISO 8601 timestamp when the product was created. Example: "2026-10-09T22:06:52+03:00"'),
+        Modified_Time: z.string().describe('ISO 8601 timestamp when the product was last modified. Example: "2026-10-09T22:07:26+03:00"'),
         Tag: z.array(ProductTagSchema).nullish().describe('Tags associated with the product, or null when the field is unavailable.')
     })
     .describe('A Bigin product record with its core fields.');

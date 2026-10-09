@@ -99,7 +99,11 @@ const action = createAction({
         if (productId === undefined) {
             throw new nango.ActionError({
                 type: 'create_failed',
-                message: created?.message ?? 'Bigin did not return a successful product creation response.',
+                // A success result without an id must not surface its success message (e.g. "record added") as the error.
+                message:
+                    created?.status === 'success'
+                        ? 'Bigin did not return the created product ID.'
+                        : (created?.message ?? 'Bigin did not return a successful product creation response.'),
                 ...(created?.code !== undefined && { code: created.code })
             });
         }

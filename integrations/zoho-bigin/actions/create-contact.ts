@@ -100,7 +100,11 @@ const action = createAction({
         if (!created || created.status !== 'success' || !created.details?.id) {
             throw new nango.ActionError({
                 type: 'create_failed',
-                message: created?.message ?? parsed.message ?? 'Bigin did not return a successful create response.',
+                // A success result without an id must not surface its success message (e.g. "record added") as the error.
+                message:
+                    created?.status === 'success'
+                        ? 'Bigin did not return the created contact ID.'
+                        : (created?.message ?? parsed.message ?? 'Bigin did not return a successful create response.'),
                 code: created?.code ?? parsed.code
             });
         }
