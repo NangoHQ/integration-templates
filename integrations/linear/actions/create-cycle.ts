@@ -33,10 +33,13 @@ const CycleSchema = z.object({
 const ProviderResponseSchema = z.object({
     data: z
         .object({
-            cycleCreate: z.object({
-                success: z.boolean(),
-                cycle: CycleSchema.nullable().optional()
-            })
+            cycleCreate: z
+                .object({
+                    success: z.boolean(),
+                    cycle: CycleSchema.nullable().optional()
+                })
+                .nullable()
+                .optional()
         })
         .nullable()
         .optional(),
@@ -66,7 +69,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a cycle for a Linear team.',
-    version: '1.0.3',
+    version: '1.0.4',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
