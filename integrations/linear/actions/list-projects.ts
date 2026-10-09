@@ -67,7 +67,7 @@ const RawProjectSchema = z.object({
 
 const action = createAction({
     description: 'List Linear projects with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -125,20 +125,48 @@ const action = createAction({
 
         const responseData = z
             .object({
-                data: z.object({
-                    projects: z.object({
-                        nodes: z.array(z.unknown()),
-                        pageInfo: z.object({
-                            hasNextPage: z.boolean(),
-                            endCursor: z.string().nullable()
+                data: z
+                    .object({
+                        projects: z.object({
+                            nodes: z.array(z.unknown()),
+                            pageInfo: z.object({
+                                hasNextPage: z.boolean(),
+                                endCursor: z.string().nullable()
+                            })
                         })
                     })
-                })
+                    .nullable()
+                    .optional(),
+                errors: z
+                    .array(
+                        z.object({
+                            message: z.string(),
+                            extensions: z.record(z.string(), z.unknown()).optional()
+                        })
+                    )
+                    .optional()
             })
             .parse(response.data);
 
-        const nodes = responseData.data.projects.nodes;
-        const pageInfo = responseData.data.projects.pageInfo;
+        const firstError = responseData.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: responseData.errors
+            });
+        }
+
+        const projectsData = responseData.data?.projects;
+        if (!projectsData) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API returned no projects data.'
+            });
+        }
+
+        const nodes = projectsData.nodes;
+        const pageInfo = projectsData.pageInfo;
 
         const projects: z.infer<typeof ProjectSchema>[] = [];
 

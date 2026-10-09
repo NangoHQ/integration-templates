@@ -16,14 +16,23 @@ const ProviderProjectSchema = z.object({
     url: z.string().optional()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string(),
+    extensions: z.record(z.string(), z.unknown()).optional()
+});
+
 const ProviderResponseSchema = z.object({
-    data: z.object({
-        projectUnarchive: z.object({
-            success: z.boolean(),
-            lastSyncId: z.number(),
-            entity: ProviderProjectSchema.nullable()
+    data: z
+        .object({
+            projectUnarchive: z.object({
+                success: z.boolean(),
+                lastSyncId: z.number(),
+                entity: ProviderProjectSchema.nullable()
+            })
         })
-    })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputSchema = z.object({
@@ -39,7 +48,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Restore an archived Linear project.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['write'],
@@ -75,7 +84,17 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const project = providerResponse.data.projectUnarchive.entity;
+
+        const firstError = providerResponse.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: providerResponse.errors
+            });
+        }
+
+        const project = providerResponse.data?.projectUnarchive.entity;
 
         if (!project) {
             throw new nango.ActionError({

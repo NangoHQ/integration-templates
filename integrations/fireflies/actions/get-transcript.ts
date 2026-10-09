@@ -258,7 +258,8 @@ const action = createAction({
             summary: transcript.summary
                 ? {
                       ...transcript.summary,
-                      action_items: transcript.summary.action_items != null ? normalizeActionItems(transcript.summary.action_items) : transcript.summary.action_items
+                      action_items:
+                          transcript.summary.action_items != null ? normalizeActionItems(transcript.summary.action_items) : transcript.summary.action_items
                   }
                 : undefined,
             speakers: transcript.speakers ?? undefined,
