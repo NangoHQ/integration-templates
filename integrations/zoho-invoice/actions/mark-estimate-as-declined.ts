@@ -30,6 +30,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.estimates.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
@@ -38,7 +39,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Zoho rejects re-declining an estimate, so a replay after a lost response would report a completed transition as a failure.
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

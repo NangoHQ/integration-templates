@@ -6,10 +6,7 @@ const InputSchema = z
         expense_id: z.string().describe('Unique ID of the expense to retrieve. Example: "982000000030049"'),
         organization_id: z
             .string()
-            .optional()
-            .describe(
-                'ID of the Zoho organization the expense belongs to. Required in practice for this connection because its scopes cannot look up organizations.'
-            )
+            .describe('ID of the Zoho organization the expense belongs to. Required for this connection because its scopes cannot look up organizations.')
     })
     .describe('Input for retrieving a single Zoho Invoice expense by ID.');
 
@@ -142,7 +139,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/expenses/#get-an-expense
             endpoint: `/invoice/v3/expenses/${encodeURIComponent(input.expense_id)}`,
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });

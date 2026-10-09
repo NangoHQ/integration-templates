@@ -79,8 +79,7 @@ const InputSchema = z
     .object({
         organization_id: z
             .string()
-            .optional()
-            .describe('Zoho Invoice organization ID. Effectively required: the API rejects requests without it and this connection cannot look it up.'),
+            .describe('Zoho Invoice organization ID. Required: the API rejects requests without it and this connection cannot look it up.'),
         page: z.number().int().positive().optional().describe('Page of results to fetch (1-based). Defaults to 1.'),
         per_page: z.number().int().positive().optional().describe('Number of records to fetch per page. Defaults to 200.')
     })
@@ -96,20 +95,21 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Only lists recurring invoice profiles from the provider; performs no provider mutations.
- * @pitfalls: organization_id is effectively required - the provider rejects requests without it, and this connection's scopes do not allow looking it up.
+ * @pitfalls: organization_id is required - the provider rejects requests without it, and this connection's scopes do not allow looking it up.
  */
 const action = createAction({
     description: 'List recurring invoice profiles.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.invoices.READ'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.zoho.com/invoice/api/v3/recurring-invoices/
             endpoint: '/invoice/v3/recurringinvoices',
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id }),
+                organization_id: input.organization_id,
                 ...(input.page !== undefined && { page: input.page }),
                 ...(input.per_page !== undefined && { per_page: input.per_page })
             },

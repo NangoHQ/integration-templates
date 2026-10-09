@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const CreditNoteSchema = z
     .object({
@@ -48,15 +50,6 @@ const MetadataSchema = z
     })
     .describe('Metadata required to run the Zoho Invoice credit notes sync: the organization whose credit notes are read.');
 
-const CheckpointSchema = z.object({
-    updated_after: z
-        .string()
-        .describe(
-            'High-water mark last_modified_time of the most recently synced credit note; sent as the last_modified_time request filter on the next run. Empty string means no filter yet (first run).'
-        ),
-    page: z.number().int().positive().describe('1-based page number to resume an interrupted scan from.')
-});
-
 const ProviderCreditNoteSchema = z.object({
     creditnote_id: z.string(),
     creditnote_number: z.string().optional(),
@@ -97,7 +90,7 @@ const sync = createSync({
     autoStart: false,
     scopes: ['ZohoInvoice.creditnotes.ALL'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         CreditNote: CreditNoteSchema
     },
@@ -110,115 +103,62 @@ const sync = createSync({
         }
         const organizationId = parsedMetadata.data.organization_id;
 
-        const rawCheckpoint = await nango.getCheckpoint();
-        let updatedAfter: string | undefined;
-        let startPage = 1;
-        if (rawCheckpoint != null) {
-            const parsedCheckpoint = CheckpointSchema.safeParse(rawCheckpoint);
-            if (!parsedCheckpoint.success) {
-                throw new Error('Failed to parse checkpoint: ' + parsedCheckpoint.error.message);
-            }
-            updatedAfter = parsedCheckpoint.data.updated_after !== '' ? parsedCheckpoint.data.updated_after : undefined;
-            startPage = parsedCheckpoint.data.page;
-        }
-
-        let currentPage = startPage;
-        let maxLastModifiedTime: string | undefined = updatedAfter;
-        let maxLastModifiedEpoch: number | undefined = updatedAfter != null ? new Date(updatedAfter).getTime() : undefined;
-        if (maxLastModifiedEpoch !== undefined && Number.isNaN(maxLastModifiedEpoch)) {
-            maxLastModifiedEpoch = undefined;
-        }
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/credit-notes/#list-credit-notes
+        // Credit notes sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/credit-notes/#list-all-credit-notes
+        await scanZohoList(nango, {
+            model: 'CreditNote',
             endpoint: '/invoice/v3/creditnotes',
-            params: {
-                organization_id: organizationId,
-                per_page: 200,
-                ...(updatedAfter != null && { last_modified_time: updatedAfter })
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: startPage,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'creditnotes'
-            },
-            retries: 3
-        };
+            responseKey: 'creditnotes',
+            organizationId: organizationId,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const creditNotes: Array<z.infer<typeof CreditNoteSchema>> = [];
 
-        for await (const pageResults of nango.paginate<unknown>(proxyConfig)) {
-            const creditNotes: Array<z.infer<typeof CreditNoteSchema>> = [];
-
-            for (const raw of pageResults) {
-                const parsed = ProviderCreditNoteSchema.safeParse(raw);
-                if (!parsed.success) {
-                    throw new Error('Failed to parse credit note from provider response: ' + parsed.error.message);
-                }
-                const record = parsed.data;
-
-                if (record.last_modified_time != null) {
-                    const modifiedEpoch = new Date(record.last_modified_time).getTime();
-                    if (!Number.isNaN(modifiedEpoch) && (maxLastModifiedEpoch === undefined || modifiedEpoch > maxLastModifiedEpoch)) {
-                        maxLastModifiedEpoch = modifiedEpoch;
-                        maxLastModifiedTime = record.last_modified_time;
+                for (const raw of rows) {
+                    const parsed = ProviderCreditNoteSchema.safeParse(raw);
+                    if (!parsed.success) {
+                        throw new Error('Failed to parse credit note from provider response: ' + parsed.error.message);
                     }
+                    const record = parsed.data;
+
+                    creditNotes.push({
+                        id: record.creditnote_id,
+                        ...(record.creditnote_number != null && { creditnote_number: record.creditnote_number }),
+                        ...(record.status != null && { status: record.status }),
+                        ...(record.reference_number != null && { reference_number: record.reference_number }),
+                        ...(record.date != null && { date: record.date }),
+                        ...(record.issued_date != null && { issued_date: record.issued_date }),
+                        ...(record.total != null && { total: record.total }),
+                        ...(record.balance != null && { balance: record.balance }),
+                        ...(record.customer_id != null && { customer_id: record.customer_id }),
+                        ...(record.customer_name != null && { customer_name: record.customer_name }),
+                        ...(record.applied_invoices != null && { applied_invoices: record.applied_invoices }),
+                        ...(record.is_emailed != null && { is_emailed: record.is_emailed }),
+                        ...(record.has_attachment != null && { has_attachment: record.has_attachment }),
+                        ...(record.salesperson_name != null && { salesperson_name: record.salesperson_name }),
+                        ...(record.salesperson_id != null && { salesperson_id: record.salesperson_id }),
+                        ...(record.sales_channel != null && { sales_channel: record.sales_channel }),
+                        ...(record.is_viewed_by_client != null && { is_viewed_by_client: record.is_viewed_by_client }),
+                        ...(record.client_viewed_time != null && { client_viewed_time: record.client_viewed_time }),
+                        ...(record.color_code != null && { color_code: record.color_code }),
+                        ...(record.current_sub_status_id != null && { current_sub_status_id: record.current_sub_status_id }),
+                        ...(record.current_sub_status != null && { current_sub_status: record.current_sub_status }),
+                        ...(record.currency_id != null && { currency_id: record.currency_id }),
+                        ...(record.currency_code != null && { currency_code: record.currency_code }),
+                        ...(record.created_time != null && { created_time: record.created_time }),
+                        ...(record.last_modified_time != null && { last_modified_time: record.last_modified_time }),
+                        ...(record.exchange_rate != null && { exchange_rate: record.exchange_rate }),
+                        ...(record.template_id != null && { template_id: record.template_id }),
+                        ...(record.template_type != null && { template_type: record.template_type }),
+                        ...(record.rounding_mode != null && { rounding_mode: record.rounding_mode }),
+                        ...(record.price_precision != null && { price_precision: record.price_precision })
+                    });
                 }
 
-                creditNotes.push({
-                    id: record.creditnote_id,
-                    ...(record.creditnote_number != null && { creditnote_number: record.creditnote_number }),
-                    ...(record.status != null && { status: record.status }),
-                    ...(record.reference_number != null && { reference_number: record.reference_number }),
-                    ...(record.date != null && { date: record.date }),
-                    ...(record.issued_date != null && { issued_date: record.issued_date }),
-                    ...(record.total != null && { total: record.total }),
-                    ...(record.balance != null && { balance: record.balance }),
-                    ...(record.customer_id != null && { customer_id: record.customer_id }),
-                    ...(record.customer_name != null && { customer_name: record.customer_name }),
-                    ...(record.applied_invoices != null && { applied_invoices: record.applied_invoices }),
-                    ...(record.is_emailed != null && { is_emailed: record.is_emailed }),
-                    ...(record.has_attachment != null && { has_attachment: record.has_attachment }),
-                    ...(record.salesperson_name != null && { salesperson_name: record.salesperson_name }),
-                    ...(record.salesperson_id != null && { salesperson_id: record.salesperson_id }),
-                    ...(record.sales_channel != null && { sales_channel: record.sales_channel }),
-                    ...(record.is_viewed_by_client != null && { is_viewed_by_client: record.is_viewed_by_client }),
-                    ...(record.client_viewed_time != null && { client_viewed_time: record.client_viewed_time }),
-                    ...(record.color_code != null && { color_code: record.color_code }),
-                    ...(record.current_sub_status_id != null && { current_sub_status_id: record.current_sub_status_id }),
-                    ...(record.current_sub_status != null && { current_sub_status: record.current_sub_status }),
-                    ...(record.currency_id != null && { currency_id: record.currency_id }),
-                    ...(record.currency_code != null && { currency_code: record.currency_code }),
-                    ...(record.created_time != null && { created_time: record.created_time }),
-                    ...(record.last_modified_time != null && { last_modified_time: record.last_modified_time }),
-                    ...(record.exchange_rate != null && { exchange_rate: record.exchange_rate }),
-                    ...(record.template_id != null && { template_id: record.template_id }),
-                    ...(record.template_type != null && { template_type: record.template_type }),
-                    ...(record.rounding_mode != null && { rounding_mode: record.rounding_mode }),
-                    ...(record.price_precision != null && { price_precision: record.price_precision })
-                });
+                if (creditNotes.length > 0) {
+                    await nango.batchSave(creditNotes, 'CreditNote');
+                }
             }
-
-            if (creditNotes.length > 0) {
-                await nango.batchSave(creditNotes, 'CreditNote');
-            }
-
-            // Persist pagination progress so an interrupted scan resumes at this page instead
-            // of restarting from page 1. The updated_after watermark is only advanced once the
-            // entire scan has completed, so no changed records are skipped.
-            await nango.saveCheckpoint({
-                updated_after: updatedAfter ?? '',
-                page: currentPage
-            });
-            currentPage += 1;
-        }
-
-        // The full scan finished: advance the incremental watermark and reset pagination.
-        await nango.saveCheckpoint({
-            updated_after: maxLastModifiedTime ?? updatedAfter ?? '',
-            page: 1
         });
     }
 });

@@ -65,6 +65,14 @@ const action = createAction({
 
         const statusChange = ProviderStatusChangeSchema.parse(statusResponse.data);
 
+        if (statusChange.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: statusChange.message,
+                code: statusChange.code
+            });
+        }
+
         const estimateResponse = await nango.get({
             // https://www.zoho.com/invoice/api/v3/estimates/#get-an-estimate
             endpoint: `/invoice/v3/estimates/${encodeURIComponent(input.estimate_id)}`,

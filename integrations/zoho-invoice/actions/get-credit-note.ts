@@ -39,7 +39,6 @@ const InputSchema = z
         creditnote_id: z.string().describe('ID of the credit note to retrieve. Example: "260815000000121027"'),
         organization_id: z
             .string()
-            .optional()
             .describe('Zoho Invoice organization ID. Zoho requires it on every call; pass it explicitly because this connection cannot look it up.')
     })
     .describe('Input for retrieving a single Zoho Invoice credit note by ID.');
@@ -156,7 +155,7 @@ const ProviderResponseSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single credit note from Zoho Invoice without creating, updating, or deleting any provider data.
- * @pitfalls: organization_id is optional in the input but Zoho requires it on every call and this connection's scope cannot look it up, so omitting it fails; a non-existent credit note ID returns a not-found error.
+ * @pitfalls: organization_id is required on every call and this connection's scope cannot look it up, so omitting it fails; a non-existent credit note ID returns a not-found error.
  */
 const action = createAction({
     description: 'Retrieve a single credit note by ID from Zoho Invoice.',
@@ -170,14 +169,22 @@ const action = createAction({
         const response = await nango.get({
             endpoint: `/invoice/v3/creditnotes/${encodeURIComponent(input.creditnote_id)}`,
             params: {
-                ...(input.organization_id != null && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
 
-        if (providerResponse.code !== 0 || providerResponse.creditnote == null) {
+        if (providerResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message,
+                code: providerResponse.code
+            });
+        }
+
+        if (providerResponse.creditnote == null) {
             throw new nango.ActionError({
                 type: 'not_found',
                 message: `Credit note ${input.creditnote_id} was not found.`

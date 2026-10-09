@@ -168,6 +168,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.contacts.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/invoice/api/v3/contacts/#create-a-contact

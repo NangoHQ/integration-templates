@@ -143,7 +143,9 @@ const action = createAction({
                 ...(input.tasks !== undefined && { tasks: input.tasks }),
                 ...(input.users !== undefined && { users: input.users })
             },
-            retries: 3
+            // Tasks without task_id are appended, so a replay after a lost response would add them twice; other updates are idempotent.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: input.tasks?.some((task) => task.task_id === undefined) ? 0 : 3
         });
 
         const parsed = ProjectEnvelopeSchema.parse(response.data);

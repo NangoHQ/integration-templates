@@ -50,8 +50,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            // A repeated call cannot duplicate the transition (the provider rejects an already-accepted estimate), so a bounded retry is safe for transient network failures.
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- Zoho rejects accepting an already-accepted estimate, so a replay after a lost response would report a completed transition as a failure.
+            retries: 0
         });
 
         const status = ProviderStatusResponseSchema.parse(statusResponse.data);

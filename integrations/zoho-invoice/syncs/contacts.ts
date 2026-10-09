@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const MetadataSchema = z
     .object({
@@ -100,18 +102,6 @@ const ContactSchema = z
     })
     .describe('A customer or vendor contact synced from Zoho Invoice.');
 
-const CheckpointSchema = z.object({
-    last_modified_time: z.string().describe('last_modified_time filter value for the scan in progress. Empty string means no filter has been applied yet.'),
-    page: z.number().int().positive().describe('1-based page number to resume an interrupted scan from.')
-});
-
-function isLater(candidate: string, current: string | undefined): boolean {
-    if (current === undefined) {
-        return true;
-    }
-    return Date.parse(candidate) > Date.parse(current);
-}
-
 const sync = createSync({
     description: 'Sync all customer and vendor contacts from Zoho Invoice, incrementally by last modified time.',
     version: '1.0.0',
@@ -119,7 +109,7 @@ const sync = createSync({
     autoStart: false,
     scopes: ['ZohoInvoice.contacts.READ'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         Contact: ContactSchema
     },
@@ -132,111 +122,69 @@ const sync = createSync({
         }
         const organizationId = parsedMetadata.data.organization_id;
 
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : null;
-        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
-        const lastModifiedTime = checkpoint?.last_modified_time !== '' ? checkpoint?.last_modified_time : undefined;
-        let page: number | undefined = checkpoint?.page ?? 1;
-        let maxLastModifiedTime = lastModifiedTime;
-
-        // The list endpoint supports a last_modified_time filter, so it returns only changed
-        // contacts. Deletion detection is intentionally not used here: unchanged contacts are
-        // absent from a changed-only response, so trackDeletesEnd() would delete them.
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/contacts/#list-contacts
+        // Contacts sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/contacts/#list-contacts
+        await scanZohoList(nango, {
+            model: 'Contact',
             endpoint: '/invoice/v3/contacts',
-            params: {
-                organization_id: organizationId,
-                sort_column: 'last_modified_time',
-                sort_order: 'A',
-                ...(lastModifiedTime && { last_modified_time: lastModifiedTime })
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: page ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'contacts',
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+            responseKey: 'contacts',
+            organizationId,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const parsedContacts = z.array(ProviderContactSchema).safeParse(rows);
+                if (!parsedContacts.success) {
+                    throw new Error('Failed to parse contacts from provider response');
                 }
-            },
-            retries: 3
-        };
 
-        for await (const contacts of nango.paginate<unknown>(proxyConfig)) {
-            const parsedContacts = z.array(ProviderContactSchema).safeParse(contacts);
-            if (!parsedContacts.success) {
-                throw new Error('Failed to parse contacts from provider response');
-            }
+                const mappedContacts = parsedContacts.data.map((contact) => ({
+                    id: contact.contact_id,
+                    ...(contact.contact_name != null && { contact_name: contact.contact_name }),
+                    ...(contact.customer_name != null && { customer_name: contact.customer_name }),
+                    ...(contact.vendor_name != null && { vendor_name: contact.vendor_name }),
+                    ...(contact.company_name != null && { company_name: contact.company_name }),
+                    ...(contact.website != null && { website: contact.website }),
+                    ...(contact.language_code != null && { language_code: contact.language_code }),
+                    ...(contact.contact_type != null && { contact_type: contact.contact_type }),
+                    ...(contact.status != null && { status: contact.status }),
+                    ...(contact.customer_sub_type != null && { customer_sub_type: contact.customer_sub_type }),
+                    ...(contact.source != null && { source: contact.source }),
+                    ...(contact.is_linked_with_zohocrm != null && { is_linked_with_zohocrm: contact.is_linked_with_zohocrm }),
+                    ...(contact.payment_terms != null && { payment_terms: contact.payment_terms }),
+                    ...(contact.payment_terms_id != null && { payment_terms_id: contact.payment_terms_id }),
+                    ...(contact.payment_terms_label != null && { payment_terms_label: contact.payment_terms_label }),
+                    ...(contact.currency_id != null && { currency_id: contact.currency_id }),
+                    ...(contact.currency_code != null && { currency_code: contact.currency_code }),
+                    ...(contact.twitter != null && { twitter: contact.twitter }),
+                    ...(contact.facebook != null && { facebook: contact.facebook }),
+                    ...(contact.first_name != null && { first_name: contact.first_name }),
+                    ...(contact.last_name != null && { last_name: contact.last_name }),
+                    ...(contact.email != null && { email: contact.email }),
+                    ...(contact.phone != null && { phone: contact.phone }),
+                    ...(contact.mobile != null && { mobile: contact.mobile }),
+                    ...(contact.portal_status != null && { portal_status: contact.portal_status }),
+                    ...(contact.outstanding_receivable_amount != null && { outstanding_receivable_amount: contact.outstanding_receivable_amount }),
+                    ...(contact.outstanding_receivable_amount_bcy != null && { outstanding_receivable_amount_bcy: contact.outstanding_receivable_amount_bcy }),
+                    ...(contact.unused_credits_receivable_amount != null && { unused_credits_receivable_amount: contact.unused_credits_receivable_amount }),
+                    ...(contact.unused_credits_receivable_amount_bcy != null && {
+                        unused_credits_receivable_amount_bcy: contact.unused_credits_receivable_amount_bcy
+                    }),
+                    ...(contact.ach_supported != null && { ach_supported: contact.ach_supported }),
+                    ...(contact.has_attachment != null && { has_attachment: contact.has_attachment }),
+                    ...(contact.created_time != null && { created_time: contact.created_time }),
+                    ...(contact.last_modified_time != null && { last_modified_time: contact.last_modified_time }),
+                    ...(contact.custom_fields != null && {
+                        custom_fields: contact.custom_fields.map((field) => ({
+                            ...(field.label != null && { label: field.label }),
+                            ...(field.value != null && { value: field.value }),
+                            ...(field.index != null && { index: field.index })
+                        }))
+                    })
+                }));
 
-            const mappedContacts = parsedContacts.data.map((contact) => ({
-                id: contact.contact_id,
-                ...(contact.contact_name != null && { contact_name: contact.contact_name }),
-                ...(contact.customer_name != null && { customer_name: contact.customer_name }),
-                ...(contact.vendor_name != null && { vendor_name: contact.vendor_name }),
-                ...(contact.company_name != null && { company_name: contact.company_name }),
-                ...(contact.website != null && { website: contact.website }),
-                ...(contact.language_code != null && { language_code: contact.language_code }),
-                ...(contact.contact_type != null && { contact_type: contact.contact_type }),
-                ...(contact.status != null && { status: contact.status }),
-                ...(contact.customer_sub_type != null && { customer_sub_type: contact.customer_sub_type }),
-                ...(contact.source != null && { source: contact.source }),
-                ...(contact.is_linked_with_zohocrm != null && { is_linked_with_zohocrm: contact.is_linked_with_zohocrm }),
-                ...(contact.payment_terms != null && { payment_terms: contact.payment_terms }),
-                ...(contact.payment_terms_id != null && { payment_terms_id: contact.payment_terms_id }),
-                ...(contact.payment_terms_label != null && { payment_terms_label: contact.payment_terms_label }),
-                ...(contact.currency_id != null && { currency_id: contact.currency_id }),
-                ...(contact.currency_code != null && { currency_code: contact.currency_code }),
-                ...(contact.twitter != null && { twitter: contact.twitter }),
-                ...(contact.facebook != null && { facebook: contact.facebook }),
-                ...(contact.first_name != null && { first_name: contact.first_name }),
-                ...(contact.last_name != null && { last_name: contact.last_name }),
-                ...(contact.email != null && { email: contact.email }),
-                ...(contact.phone != null && { phone: contact.phone }),
-                ...(contact.mobile != null && { mobile: contact.mobile }),
-                ...(contact.portal_status != null && { portal_status: contact.portal_status }),
-                ...(contact.outstanding_receivable_amount != null && { outstanding_receivable_amount: contact.outstanding_receivable_amount }),
-                ...(contact.outstanding_receivable_amount_bcy != null && { outstanding_receivable_amount_bcy: contact.outstanding_receivable_amount_bcy }),
-                ...(contact.unused_credits_receivable_amount != null && { unused_credits_receivable_amount: contact.unused_credits_receivable_amount }),
-                ...(contact.unused_credits_receivable_amount_bcy != null && {
-                    unused_credits_receivable_amount_bcy: contact.unused_credits_receivable_amount_bcy
-                }),
-                ...(contact.ach_supported != null && { ach_supported: contact.ach_supported }),
-                ...(contact.has_attachment != null && { has_attachment: contact.has_attachment }),
-                ...(contact.created_time != null && { created_time: contact.created_time }),
-                ...(contact.last_modified_time != null && { last_modified_time: contact.last_modified_time }),
-                ...(contact.custom_fields != null && {
-                    custom_fields: contact.custom_fields.map((field) => ({
-                        ...(field.label != null && { label: field.label }),
-                        ...(field.value != null && { value: field.value }),
-                        ...(field.index != null && { index: field.index })
-                    }))
-                })
-            }));
-
-            if (mappedContacts.length > 0) {
-                await nango.batchSave(mappedContacts, 'Contact');
-
-                for (const contact of mappedContacts) {
-                    if (contact.last_modified_time && isLater(contact.last_modified_time, maxLastModifiedTime)) {
-                        maxLastModifiedTime = contact.last_modified_time;
-                    }
+                if (mappedContacts.length > 0) {
+                    await nango.batchSave(mappedContacts, 'Contact');
                 }
             }
-
-            // Keep the original filter while paging through this changed window. Only the resume
-            // page advances mid-scan; the high-watermark advances after the full scan succeeds.
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ last_modified_time: lastModifiedTime ?? '', page });
-            }
-        }
-
-        await nango.saveCheckpoint({
-            last_modified_time: maxLastModifiedTime ?? lastModifiedTime ?? '',
-            page: 1
         });
     }
 });

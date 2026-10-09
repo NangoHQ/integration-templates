@@ -40,7 +40,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            retries: 3 // Deletion is idempotent: the contact ends up deleted either way, so transient failures are safe to retry.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- A replay after a lost response returns error 1002 (not found) and would report a completed deletion as a failure.
+            retries: 0
         });
 
         const parsedResponse = ProviderResponseSchema.safeParse(response.data);

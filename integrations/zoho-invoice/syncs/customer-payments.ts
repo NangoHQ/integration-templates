@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const MetadataSchema = z
     .object({
@@ -10,17 +12,6 @@ const MetadataSchema = z
             )
     })
     .describe('Connection metadata required to sync Zoho Invoice customer payments.');
-
-const CheckpointSchema = z
-    .object({
-        updated_after: z
-            .string()
-            .describe(
-                'ISO-8601 last_modified_time of the most recent customer payment processed; used as the incremental filter. Empty string means no filter yet.'
-            ),
-        page: z.number().int().positive().describe('Page number to resume from when a previous execution stopped part-way through pagination.')
-    })
-    .describe('Incremental sync progress for Zoho Invoice customer payments.');
 
 const CheckDetailsSchema = z
     .object({
@@ -174,28 +165,14 @@ function toCustomerPayment(payment: z.infer<typeof ProviderCustomerPaymentSchema
     };
 }
 
-function laterTimestamp(current: string | undefined, candidate: string): string {
-    if (current === undefined) {
-        return candidate;
-    }
-    const currentMs = Date.parse(current);
-    const candidateMs = Date.parse(candidate);
-    if (Number.isNaN(currentMs)) {
-        return candidate;
-    }
-    if (Number.isNaN(candidateMs)) {
-        return current;
-    }
-    return candidateMs > currentMs ? candidate : current;
-}
-
 const sync = createSync({
     description: 'Sync customer payments from Zoho Invoice, incrementally by last_modified_time.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: false,
+    scopes: ['ZohoInvoice.customerpayments.READ'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         CustomerPayment: CustomerPaymentSchema
     },
@@ -207,53 +184,21 @@ const sync = createSync({
             throw new Error('organization_id is required in the connection metadata to sync Zoho Invoice customer payments.');
         }
 
-        const checkpoint = await nango.getCheckpoint();
-        const updatedAfter = checkpoint?.updated_after ? checkpoint.updated_after : undefined;
-        let currentPage = checkpoint?.page ?? 1;
-        let maxLastModifiedTime: string | undefined;
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/customerpayments/
+        // Payments sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/customer-payments/#list-customer-payments
+        await scanZohoList(nango, {
+            model: 'CustomerPayment',
             endpoint: '/invoice/v3/customerpayments',
-            params: {
-                organization_id: metadata.organization_id,
-                ...(updatedAfter ? { last_modified_time: updatedAfter } : {})
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: currentPage,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'customerpayments'
-            },
-            retries: 3
-        };
-
-        for await (const rawPayments of nango.paginate<unknown>(proxyConfig)) {
-            const payments = z.array(ProviderCustomerPaymentSchema).parse(rawPayments);
-
-            if (payments.length > 0) {
-                await nango.batchSave(payments.map(toCustomerPayment), 'CustomerPayment');
+            responseKey: 'customerpayments',
+            organizationId: metadata.organization_id,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const payments = z.array(ProviderCustomerPaymentSchema).parse(rows);
+                if (payments.length > 0) {
+                    await nango.batchSave(payments.map(toCustomerPayment), 'CustomerPayment');
+                }
             }
-
-            for (const payment of payments) {
-                maxLastModifiedTime = laterTimestamp(maxLastModifiedTime, payment.last_modified_time);
-            }
-
-            await nango.saveCheckpoint({
-                updated_after: updatedAfter ?? '',
-                page: currentPage
-            });
-            currentPage += 1;
-        }
-
-        if (maxLastModifiedTime !== undefined) {
-            await nango.saveCheckpoint({ updated_after: maxLastModifiedTime, page: 1 });
-        } else if (updatedAfter !== undefined) {
-            await nango.saveCheckpoint({ updated_after: updatedAfter, page: 1 });
-        }
+        });
     }
 });
 

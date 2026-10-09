@@ -6,7 +6,6 @@ const InputSchema = z
         invoice_id: z.string().describe('Zoho Invoice invoice ID to retrieve. Example: "260815000000124029"'),
         organization_id: z
             .string()
-            .optional()
             .describe(
                 'Zoho organization ID that owns the invoice; every Zoho Invoice endpoint requires it. Example: "927270289". It cannot be discovered through this connection (listing organizations needs the settings.READ scope), so supply it explicitly.'
             )
@@ -92,7 +91,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single invoice from Zoho Invoice without modifying any provider data.
- * @pitfalls: organization_id is effectively required even though it is optional: the connection's granted scopes cannot list organizations, so omitting it makes the invoice lookup fail.
+ * @pitfalls: organization_id is required: the connection's granted scopes cannot list organizations, so omitting it makes the invoice lookup fail.
  */
 const action = createAction({
     description: 'Get a single invoice by ID, including line items, status, total, and current balance.',
@@ -106,7 +105,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/invoices/#retrieve-an-invoice
             endpoint: `/invoice/v3/invoices/${encodeURIComponent(input.invoice_id)}`,
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });

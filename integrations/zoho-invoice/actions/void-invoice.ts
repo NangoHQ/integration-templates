@@ -30,6 +30,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.invoices.CREATE'],
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/invoice/api/v3/invoices/#void-an-invoice
         const response = await nango.post({
@@ -42,6 +43,14 @@ const action = createAction({
         });
 
         const providerResponse = ProviderVoidResponseSchema.parse(response.data);
+
+        if (providerResponse.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message,
+                code: providerResponse.code
+            });
+        }
 
         return {
             code: providerResponse.code,

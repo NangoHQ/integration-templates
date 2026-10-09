@@ -2,11 +2,9 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 import type { ProxyConfiguration } from 'nango';
 
-const ZOHO_INVOICE_BASE_URL = 'https://www.zohoapis.com/invoice/v3';
-
 const InputSchema = z
     .object({
-        organization_id: z.string().describe('Zoho Invoice organization ID. Required in practice for every request; example: "123456789".').optional(),
+        organization_id: z.string().describe('Zoho Invoice organization ID. Required for every request; example: "123456789".'),
         customer_id: z.string().describe('Only return invoices billed to this customer (contact) ID. Example: "12345678900000001".').optional(),
         status: z
             .enum(['sent', 'draft', 'overdue', 'paid', 'void', 'unpaid', 'partially_paid', 'viewed'])
@@ -139,7 +137,7 @@ const ProviderResponseSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Lists provider invoices without creating, updating, or deleting any provider data.
- * @pitfalls: organization_id is optional in the schema but required in practice (omitting it fails with provider error code 9017), and it cannot be discovered with this connection's granted scopes; last_modified_time must be an ISO-8601 timestamp with a numeric UTC offset such as "2026-10-01T00:00:00+0000".
+ * @pitfalls: organization_id is required (Zoho fails with error code 9017 without it), and it cannot be discovered with this connection's granted scopes; last_modified_time must be an ISO-8601 timestamp with a numeric UTC offset such as "2026-10-01T00:00:00+0000".
  */
 const action = createAction({
     description: 'List invoices, with optional customer, status and date filters and incremental last_modified_time filtering.',
@@ -151,10 +149,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const config: ProxyConfiguration = {
             // https://www.zoho.com/invoice/api/v3/invoices/#list-invoices
-            endpoint: '/invoices',
-            baseUrlOverride: ZOHO_INVOICE_BASE_URL,
+            endpoint: '/invoice/v3/invoices',
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id }),
+                organization_id: input.organization_id,
                 ...(input.customer_id !== undefined && { customer_id: input.customer_id }),
                 ...(input.status !== undefined && { status: input.status }),
                 ...(input.date_start !== undefined && { date_start: input.date_start }),

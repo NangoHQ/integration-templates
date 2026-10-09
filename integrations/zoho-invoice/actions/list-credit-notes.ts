@@ -57,7 +57,7 @@ const ProviderPageContextSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    code: z.number().optional(),
+    code: z.number(),
     message: z.string().optional(),
     creditnotes: z.array(ProviderCreditNoteSchema).optional(),
     page_context: ProviderPageContextSchema.optional()
@@ -139,8 +139,15 @@ const action = createAction({
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);
+        if (parsed.code !== 0 || parsed.creditnotes === undefined) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message ?? 'Zoho Invoice response did not include a credit notes list.',
+                code: parsed.code
+            });
+        }
 
-        const creditnotes = (parsed.creditnotes ?? []).map((note) => ({
+        const creditnotes = parsed.creditnotes.map((note) => ({
             creditnote_id: note.creditnote_id,
             creditnote_number: note.creditnote_number,
             status: note.status,

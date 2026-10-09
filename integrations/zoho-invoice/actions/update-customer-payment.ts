@@ -24,7 +24,7 @@ const InputSchema = z
         customer_id: z.string().optional().describe("ID of the customer the payment belongs to. Defaults to the payment's current customer."),
         payment_mode: PaymentModeSchema.optional(),
         amount: z.number().optional().describe('Total amount of the payment. Defaults to the current amount.'),
-        date: z.string().optional().describe('Date the payment was made in yyyy-mm-dd format. Defaults to the current date.'),
+        date: z.string().optional().describe('Date the payment was made in yyyy-mm-dd format. Defaults to the current date on the payment.'),
         reference_number: z.string().optional().describe('Reference number for the payment, e.g. a bank reference.'),
         description: z.string().optional().describe('Free-text description of the payment.'),
         invoices: z.array(InvoiceInputSchema).optional().describe('Invoices the payment is applied to. Supply this to change how the payment is allocated.'),

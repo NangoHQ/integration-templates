@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const LineItemInputSchema = z.object({
+    line_item_id: z.string().optional().describe('ID of an existing line item to keep and update. Omit to add a new line item. Example: "260815000000166012".'),
     item_id: z.string().optional().describe('ID of an existing catalog item. Optional because free-text line items can be created without one.'),
     name: z.string().optional().describe('Name of the line item. Example: "Consulting hours"'),
     description: z.string().optional().describe('Description of the line item. Example: "October onboarding work"'),

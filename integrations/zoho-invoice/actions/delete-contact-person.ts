@@ -30,6 +30,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.contacts.DELETE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/invoice/api/v3/contact-persons/#delete-a-contact-person

@@ -23,9 +23,8 @@ const InputSchema = z
         expense_id: z.string().describe('Unique identifier of the expense to update. Example: "260815000000166011"'),
         organization_id: z
             .string()
-            .optional()
             .describe(
-                'Zoho Invoice organization ID. This connection cannot look it up automatically, so it is effectively required and must be supplied by the caller; omitting it makes the provider reject the request.'
+                'Zoho Invoice organization ID. This connection cannot look it up automatically, so it is required and must be supplied by the caller; omitting it makes the provider reject the request.'
             ),
         account_id: z.string().optional().describe('ID of the expense account (chart of accounts category). Example: "260815000000000400"'),
         date: z.string().optional().describe('Date of the expense in YYYY-MM-DD format. Example: "2026-10-09"'),
@@ -113,7 +112,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Updates an existing expense's fields through a provider PUT; it performs no provider reads and has no destructive or hard-to-reverse effect.
- * @pitfalls: organization_id is effectively required — this connection cannot discover it and omitting it makes the provider reject the call; account_id must be a valid expense account, which this connection cannot list.
+ * @pitfalls: organization_id is required — this connection cannot discover it and omitting it makes the provider reject the call; account_id must be a valid expense account, which this connection cannot list.
  */
 const action = createAction({
     description: 'Update an existing expense in Zoho Invoice.',
@@ -144,7 +143,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/expenses/#update-an-expense
             endpoint: `/invoice/v3/expenses/${encodeURIComponent(input.expense_id)}`,
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             data: updateBody,
             retries: 3

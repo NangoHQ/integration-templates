@@ -103,10 +103,24 @@ const OutputSchema = z
     })
     .describe('Result of the recorded customer payment, including the per-invoice amounts applied and remaining balances.');
 
+function isNotFoundError(error: unknown): boolean {
+    if (!error || typeof error !== 'object') {
+        return false;
+    }
+
+    const status = 'status' in error ? error.status : undefined;
+    if (status === 404) {
+        return true;
+    }
+
+    const response = 'response' in error ? error.response : undefined;
+    return !!response && typeof response === 'object' && 'status' in response && response.status === 404;
+}
+
 /**
  * @tags: [read, write]
  * @tagReason: Reads each target invoice to validate its status and balance before recording the customer payment (write).
- * @pitfalls: organization_id cannot be discovered with this connection's scope, so callers must supply it; if any target invoice is missing, paid, void, or over-applied, the whole batch is rejected and no payment is recorded.
+ * @pitfalls: organization_id cannot be discovered with this connection's scope, so callers must supply it; if any target invoice is missing, belongs to a different customer, is paid or void, or is over-applied, the whole batch is rejected and no payment is recorded.
  */
 const action = createAction({
     description:
@@ -138,12 +152,20 @@ const action = createAction({
                 if (parsed.success && parsed.data.code === 0) {
                     invoice = parsed.data.invoice;
                 }
-            } catch {
+            } catch (error) {
+                if (!isNotFoundError(error)) {
+                    throw error;
+                }
                 invoice = undefined;
             }
 
             if (!invoice) {
                 rejections.push({ invoice_id: target.invoice_id, reason: 'invoice not found or not accessible' });
+                continue;
+            }
+
+            if (invoice.customer_id != null && invoice.customer_id !== input.customer_id) {
+                rejections.push({ invoice_id: target.invoice_id, reason: `invoice belongs to customer ${invoice.customer_id}, not ${input.customer_id}` });
                 continue;
             }
 

@@ -43,9 +43,8 @@ const InputSchema = z
         contact_id: z.string().describe('Unique identifier of the contact to retrieve. Example: "260815000000097001"'),
         organization_id: z
             .string()
-            .optional()
             .describe(
-                'Zoho organization ID that owns the contact. Required by the provider and effectively required in practice because it cannot be discovered with the scopes granted to this integration. Example: "927270289"'
+                'Zoho organization ID that owns the contact. Required by the provider and required because it cannot be discovered with the scopes granted to this integration. Example: "927270289"'
             )
     })
     .describe('Identifies the Zoho Invoice contact to retrieve.');
@@ -99,7 +98,7 @@ const ProviderResponseSchema = z.object({
 /**
  * @tags: [read]
  * @tagReason: Retrieves a single contact and its related data from the provider without modifying any provider state.
- * @pitfalls: organization_id is effectively required and omitting it makes the provider reject the request because it cannot be discovered with this integration's scopes; the top-level email reflects the primary contact person and is empty when no primary contact person exists.
+ * @pitfalls: organization_id is required and omitting it makes the provider reject the request because it cannot be discovered with this integration's scopes; the top-level email reflects the primary contact person and is empty when no primary contact person exists.
  */
 const action = createAction({
     description: 'Get a single contact by ID, including its contact persons, addresses, and outstanding balance summary.',
@@ -113,7 +112,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/contacts/#get-a-contact
             endpoint: `/invoice/v3/contacts/${encodeURIComponent(input.contact_id)}`,
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });

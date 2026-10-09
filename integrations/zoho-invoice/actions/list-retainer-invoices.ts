@@ -5,7 +5,6 @@ const InputSchema = z
     .object({
         organization_id: z
             .string()
-            .optional()
             .describe(
                 'Zoho Invoice organization ID. The provider requires it in practice; pass the same value on every call for a connection. Example: "10234695"'
             ),
@@ -80,7 +79,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Reads retainer invoices from the provider without creating, updating, or deleting any data.
- * @pitfalls: organization_id is effectively required: omitting it fails with an organization-not-associated error, and it cannot be discovered through this connection's scope, so pass it explicitly.
+ * @pitfalls: organization_id is required: omitting it fails with an organization-not-associated error, and it cannot be discovered through this connection's scope, so pass it explicitly.
  */
 const action = createAction({
     description: 'List retainer invoices from Zoho Invoice.',
@@ -93,7 +92,7 @@ const action = createAction({
         const page = input.cursor ? Number(input.cursor) : 1;
 
         const params: Record<string, string | number> = {
-            ...(input.organization_id !== undefined && { organization_id: input.organization_id }),
+            organization_id: input.organization_id,
             page,
             ...(input.per_page !== undefined && { per_page: input.per_page }),
             ...(input.filter_by !== undefined && { filter_by: input.filter_by }),

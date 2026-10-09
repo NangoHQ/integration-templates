@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const LineItemSchema = z
     .object({
         item_id: z.string().optional().describe('Catalog item ID to bill. Omit it to bill an ad-hoc/free-text line item.'),
-        name: z.string().describe('Name of the line item. Example: "Consulting".'),
+        name: z
+            .string()
+            .optional()
+            .describe('Name of the line item. Required for ad-hoc items; defaults to the catalog item name when item_id is set. Example: "Consulting".'),
         description: z.string().optional().describe('Description of the line item.'),
         rate: z.number().describe('Unit price of the line item. Example: 150.'),
         quantity: z.number().describe('Quantity billed for the line item. Example: 2.'),
@@ -69,13 +72,19 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.invoices.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        if (input.line_items.some((lineItem) => lineItem.item_id === undefined && lineItem.name === undefined)) {
+            throw new nango.ActionError({
+                type: 'invalid_input',
+                message: 'Each line item needs either an item_id or a name.'
+            });
+        }
+
         const response = await nango.post<unknown>({
             // https://www.zoho.com/invoice/api/v3/invoices/#create-an-invoice
-            endpoint: '/invoices',
-            // Zoho Invoice has no default base URL in the provider template; this connection uses the .com data center.
-            baseUrlOverride: 'https://www.zohoapis.com/invoice/v3',
+            endpoint: '/invoice/v3/invoices',
             params: {
                 organization_id: input.organization_id
             },
@@ -83,7 +92,7 @@ const action = createAction({
                 customer_id: input.customer_id,
                 line_items: input.line_items.map((lineItem) => ({
                     ...(lineItem.item_id !== undefined && { item_id: lineItem.item_id }),
-                    name: lineItem.name,
+                    ...(lineItem.name !== undefined && { name: lineItem.name }),
                     ...(lineItem.description !== undefined && { description: lineItem.description }),
                     rate: lineItem.rate,
                     quantity: lineItem.quantity,

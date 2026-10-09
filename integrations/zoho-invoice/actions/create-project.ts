@@ -56,6 +56,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: ProjectSchema,
+    scopes: ['ZohoInvoice.projects.CREATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof ProjectSchema>> => {
         const response = await nango.post<unknown>({

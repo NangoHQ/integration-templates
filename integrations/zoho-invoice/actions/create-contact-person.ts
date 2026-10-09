@@ -48,6 +48,11 @@ const ProviderResponseSchema = z.object({
     contact_person: z.union([ProviderContactPersonSchema, z.array(ProviderContactPersonSchema)]).optional()
 });
 
+const ProviderStatusResponseSchema = z.object({
+    code: z.number(),
+    message: z.string()
+});
+
 const ContactPersonSchema = z.object({
     contact_id: z.string().describe('ID of the contact the contact person belongs to.'),
     contact_person_id: z.string().describe('Unique ID of the newly created contact person.'),
@@ -123,7 +128,7 @@ const action = createAction({
 
         if (input.is_primary_contact === true) {
             // https://www.zoho.com/invoice/api/v3/contact-persons/#mark-as-primary-contact-person
-            await nango.post({
+            const primaryResponse = await nango.post({
                 endpoint: `/invoice/v3/contacts/contactpersons/${encodeURIComponent(contactPerson.contact_person_id)}/primary`,
                 params: {
                     organization_id: input.organization_id
@@ -131,6 +136,16 @@ const action = createAction({
                 // Idempotent: marking the same person primary repeatedly yields the same state.
                 retries: 3
             });
+
+            const primaryResult = ProviderStatusResponseSchema.parse(primaryResponse.data);
+            if (primaryResult.code !== 0) {
+                throw new nango.ActionError({
+                    type: 'mark_primary_failed',
+                    message: `Contact person ${contactPerson.contact_person_id} was created but could not be marked as primary: ${primaryResult.message}`,
+                    code: primaryResult.code,
+                    contact_person_id: contactPerson.contact_person_id
+                });
+            }
             isPrimary = true;
         }
 

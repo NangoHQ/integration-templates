@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const ProviderProjectSchema = z.object({
     project_id: z.string(),
@@ -59,23 +61,6 @@ const MetadataSchema = z
     })
     .describe('Connection metadata required to run the Zoho Invoice projects sync.');
 
-const CheckpointSchema = z
-    .object({
-        last_modified_time: z
-            .string()
-            .describe('last_modified_time filter value used for the scan in progress; advanced to the scan start time once the scan completes.'),
-        page: z.number().int().positive().describe('Page number to resume a partially completed scan from.')
-    })
-    .describe('Incremental sync checkpoint for the Zoho Invoice projects sync.');
-
-// Zoho Invoice rejects a missing filter with code 9017 and rejects ISO-8601 "Z" timestamps,
-// so the first scan uses an epoch lower bound in the "+0000" format the API accepts.
-const INITIAL_LAST_MODIFIED_TIME = '1970-01-01T00:00:00+0000';
-
-function toZohoDateTime(date: Date): string {
-    return `${date.toISOString().slice(0, 19)}+0000`;
-}
-
 function toProject(record: z.infer<typeof ProviderProjectSchema>): z.infer<typeof ProjectSchema> {
     const project: z.infer<typeof ProjectSchema> = {
         id: record.project_id,
@@ -108,7 +93,7 @@ const sync = createSync({
     autoStart: false,
     scopes: ['ZohoInvoice.projects.READ'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         Project: ProjectSchema
     },
@@ -119,56 +104,21 @@ const sync = createSync({
             throw new Error('organization_id is required in metadata');
         }
 
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = rawCheckpoint ? CheckpointSchema.safeParse(rawCheckpoint) : null;
-        const checkpoint = parsedCheckpoint?.success ? parsedCheckpoint.data : undefined;
-
-        const lastModifiedTime = checkpoint?.last_modified_time ?? INITIAL_LAST_MODIFIED_TIME;
-        let page: number | undefined = checkpoint?.page ?? 1;
-        // Captured once per execution; only promoted to the checkpoint after the full scan succeeds
-        // so a mid-scan timeout never advances the filter past records it has not yet read.
-        const nextLastModifiedTime = toZohoDateTime(new Date());
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/projects/#list-projects
+        // Projects sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/projects/#list-projects
+        await scanZohoList(nango, {
+            model: 'Project',
             endpoint: '/invoice/v3/projects',
-            params: {
-                organization_id: metadata.organization_id,
-                last_modified_time: lastModifiedTime
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_calculation_method: 'per-page',
-                offset_start_value: page ?? 1,
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'projects',
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
+            responseKey: 'projects',
+            organizationId: metadata.organization_id,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const projects = z.array(ProviderProjectSchema).parse(rows).map(toProject);
+                if (projects.length > 0) {
+                    await nango.batchSave(projects, 'Project');
                 }
-            },
-            retries: 3
-        };
-
-        for await (const pageResults of nango.paginate(proxyConfig)) {
-            const parsed = z.array(ProviderProjectSchema).safeParse(pageResults);
-            if (!parsed.success) {
-                throw new Error(`Failed to parse projects page: ${parsed.error.message}`);
             }
-
-            const projects = parsed.data.map(toProject);
-
-            if (projects.length > 0) {
-                await nango.batchSave(projects, 'Project');
-            }
-
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ last_modified_time: lastModifiedTime, page });
-            }
-        }
-
-        await nango.saveCheckpoint({ last_modified_time: nextLastModifiedTime, page: 1 });
+        });
     }
 });
 

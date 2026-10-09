@@ -43,8 +43,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            // Single retry only: deletes are resource-idempotent (a repeat returns "Resource does not exist"), so this covers transient failures without repeatedly re-issuing a destructive call.
-            retries: 1
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- A replay after a lost response returns "Resource does not exist" and would report a completed deletion as a failure.
+            retries: 0
         });
 
         const body = ProviderResponseSchema.parse(response.data);

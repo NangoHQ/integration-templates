@@ -151,6 +151,9 @@ const OutputSchema = z
     })
     .describe('Consolidated billing status for a Zoho Invoice customer, including invoices, payments, credit notes, and computed totals.');
 
+// Nango caps action output at 2 MB; leave headroom for serialization overhead.
+const MAX_OUTPUT_BYTES = 1_900_000;
+
 const isHttpStatusError = (error: unknown, status: number): boolean => {
     const parsed = HttpErrorSchema.safeParse(error);
     return parsed.success && parsed.data.response?.status === status;
@@ -166,7 +169,7 @@ const amountsMatch = (computed: number, contactAmount: number | undefined): bool
 /**
  * @tags: [read]
  * @tagReason: Reads the customer's invoices, payments, credit notes, and contact record; it never mutates provider data.
- * @pitfalls: This connection's scope cannot look up organizations, so organization_id must be supplied in the input or present in connection metadata or the action fails; total_outstanding sums every returned invoice balance including draft and void invoices, so it can differ from the contact's own outstanding_receivable_amount (the *_matches_contact flags report whether they agree).
+ * @pitfalls: This connection's scope cannot look up organizations, so organization_id must be supplied in the input or present in connection metadata or the action fails; total_outstanding sums every returned invoice balance including draft and void invoices, so it can differ from the contact's own outstanding_receivable_amount (the *_matches_contact flags report whether they agree); customers whose full history exceeds the action output limit fail with result_too_large.
  */
 const action = createAction({
     description:
@@ -258,7 +261,7 @@ const action = createAction({
         const contactOutstanding = contact.outstanding_receivable_amount ?? undefined;
         const contactUnusedCredit = contact.unused_credits_receivable_amount ?? undefined;
 
-        return {
+        const result = {
             customer: {
                 customer_id: contact.contact_id,
                 ...(contact.contact_name != null && { customer_name: contact.contact_name }),
@@ -302,6 +305,17 @@ const action = createAction({
             outstanding_matches_contact: amountsMatch(totalOutstanding, contactOutstanding),
             unused_credit_matches_contact: amountsMatch(totalUnusedCredit, contactUnusedCredit)
         };
+
+        // Totals must cover every record, so the full history is always fetched; reject explicitly
+        // rather than let an oversized result fail opaquely against Nango's action output limit.
+        if (new TextEncoder().encode(JSON.stringify(result)).length > MAX_OUTPUT_BYTES) {
+            throw new nango.ActionError({
+                type: 'result_too_large',
+                message: `Customer ${customerId} has too much billing history (${invoices.length} invoices, ${payments.length} payments, ${creditNotes.length} credit notes) to return in one action result. Use the list actions or syncs instead.`
+            });
+        }
+
+        return result;
     }
 });
 

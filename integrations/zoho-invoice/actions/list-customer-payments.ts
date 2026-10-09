@@ -51,6 +51,7 @@ const ProviderCustomerPaymentSchema = z
         tax_amount_withheld: z.number().nullish(),
         has_attachment: z.boolean().nullish(),
         documents: z.string().nullish(),
+        custom_fields_list: z.string().nullish(),
         applied_invoices: z.array(ProviderAppliedInvoiceSchema).nullish()
     })
     .passthrough();
@@ -62,7 +63,7 @@ const PageContextSchema = z.object({
 });
 
 const ProviderResponseSchema = z.object({
-    code: z.number().optional(),
+    code: z.number(),
     message: z.string().optional(),
     customerpayments: z.array(ProviderCustomerPaymentSchema).optional(),
     page_context: PageContextSchema.nullable().optional()
@@ -115,6 +116,7 @@ const CustomerPaymentSchema = z.object({
     tax_amount_withheld: z.number().optional().describe('Tax amount withheld from the payment.'),
     has_attachment: z.boolean().optional().describe('Whether the payment has an attachment.'),
     documents: z.string().optional().describe('Document associated with the payment.'),
+    custom_fields_list: z.string().optional().describe('Serialized custom field values for the payment.'),
     applied_invoices: z.array(AppliedInvoiceSchema).optional().describe('Invoices this payment has been applied to.')
 });
 
@@ -199,6 +201,7 @@ function mapCustomerPayment(payment: ProviderCustomerPayment): OutputCustomerPay
         ...(payment.tax_amount_withheld != null ? { tax_amount_withheld: payment.tax_amount_withheld } : {}),
         ...(payment.has_attachment != null ? { has_attachment: payment.has_attachment } : {}),
         ...(payment.documents != null ? { documents: payment.documents } : {}),
+        ...(payment.custom_fields_list != null ? { custom_fields_list: payment.custom_fields_list } : {}),
         ...(payment.applied_invoices != null ? { applied_invoices: payment.applied_invoices.map(mapAppliedInvoice) } : {})
     };
 }
@@ -230,7 +233,14 @@ const action = createAction({
         });
 
         const providerResponse = ProviderResponseSchema.parse(response.data);
-        const payments = providerResponse.customerpayments ?? [];
+        if (providerResponse.code !== 0 || providerResponse.customerpayments === undefined) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: providerResponse.message ?? 'Zoho Invoice response did not include a customer payments list.',
+                code: providerResponse.code
+            });
+        }
+        const payments = providerResponse.customerpayments;
 
         const pageContext = providerResponse.page_context;
         const hasMorePages = pageContext?.has_more_page === true;

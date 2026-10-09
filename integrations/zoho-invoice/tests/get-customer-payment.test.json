@@ -45,7 +45,7 @@
   "nango": {},
   "api": {
     "get": {
-      "/customerpayments/260815000000114002": {
+      "/invoice/v3/customerpayments/260815000000114002": {
         "response": {
           "code": 0,
           "message": "success",
@@ -148,7 +148,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 17:41:06 GMT",
+          "date": "Fri, 09 Oct 2026 19:50:10 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -163,24 +163,24 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1923",
-          "x-ratelimit-reset": "1791567700",
+          "x-ratelimit-remaining": "1979",
+          "x-ratelimit-reset": "1791575416",
           "server": "ZGS",
-          "set-cookie": "<redacted>",
+          "set-cookie": "zalb_0d082fb755=8116bb3094c195feb4ea52717cf8af99; Path=/; Secure; HttpOnly, zbcscook=ae295342-4707-4efc-9f3c-39e6f02bf143;path=/;SameSite=None;Secure;priority=high, JSESSIONID=A88B906583B02411E8E72AD17AA9E77F; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 19:55:10 GMT; Secure; HttpOnly",
           "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
           "x-rate-limit-limit": "1000",
-          "x-rate-limit-reset": "37133",
-          "x-rate-limit-remaining": "313",
+          "x-rate-limit-reset": "29389",
+          "x-rate-limit-remaining": "-88",
           "content-disposition": "attachment;",
           "allow": "OPTIONS, GET",
-          "build_version": "Oct_09_2026_27467",
-          "client_build_version": "Oct_09_2026_27467",
+          "build_version": "Oct_09_2026_16978",
+          "client_build_version": "Oct_09_2026_16978",
           "server_build_version": "Oct_09_2026_14741/",
           "vary": "accept-encoding"
         },
-        "hash": "653de5611db02072bdf8572710041ac7637dd49d",
+        "hash": "d0df8f643eccd6c37ddcd01607f2bdef2407c2b1",
         "request": {
           "params": {
             "organization_id": "927270289"

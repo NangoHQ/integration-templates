@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const AddressSchema = z
     .object({
@@ -88,13 +90,6 @@ const InvoiceSchema = z
     })
     .describe('A Zoho Invoice invoice, including its status, totals and outstanding balance');
 
-const CheckpointSchema = z
-    .object({
-        updated_after: z.string().describe('last_modified_time filter value for the scan in progress; empty on the first run'),
-        page: z.number().int().positive().describe('1-based page number to resume an interrupted scan from')
-    })
-    .describe('Incremental checkpoint for the invoices sync');
-
 const MetadataSchema = z
     .object({
         organization_id: z.string().describe('Zoho Invoice organization identifier required by every invoices endpoint')
@@ -164,162 +159,103 @@ const RawInvoiceSchema = z.object({
     custom_field_hash: z.record(z.string(), z.unknown()).optional()
 });
 
-function laterTimestamp(current: string | undefined, candidate: string | undefined): string | undefined {
-    if (candidate == null) {
-        return current;
-    }
-    if (current == null) {
-        return candidate;
-    }
-
-    const currentMs = Date.parse(current);
-    const candidateMs = Date.parse(candidate);
-    if (Number.isNaN(currentMs)) {
-        return candidate;
-    }
-    if (Number.isNaN(candidateMs)) {
-        return current;
-    }
-
-    return candidateMs > currentMs ? candidate : current;
-}
-
 const sync = createSync({
     description: 'Sync all invoices from Zoho Invoice, incrementally by last modified time.',
     version: '1.0.0',
     frequency: 'every hour',
-    autoStart: true,
+    autoStart: false,
+    scopes: ['ZohoInvoice.invoices.READ'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         Invoice: InvoiceSchema
     },
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const rawCheckpoint = await nango.getCheckpoint();
-        const checkpoint = rawCheckpoint ? CheckpointSchema.parse(rawCheckpoint) : { updated_after: '', page: 1 };
-        const updatedAfter = checkpoint.updated_after !== '' ? checkpoint.updated_after : undefined;
-        let page: number | undefined = checkpoint.page;
-        let maxUpdatedAfter = updatedAfter;
-
-        const params: Record<string, string | number> = {
-            organization_id: metadata.organization_id,
-            sort_column: 'last_modified_time',
-            sort_order: 'A'
-        };
-        if (updatedAfter !== undefined) {
-            params['last_modified_time'] = updatedAfter;
-        }
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/invoices/#list-invoices
+        // Invoices sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/invoices/#list-invoices
+        await scanZohoList(nango, {
+            model: 'Invoice',
             endpoint: '/invoice/v3/invoices',
-            params,
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: page ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'invoices',
-                on_page: async ({ nextPageParam }) => {
-                    page = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            responseKey: 'invoices',
+            organizationId: metadata.organization_id,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const invoices = rows.map((item) => {
+                    const parsed = RawInvoiceSchema.safeParse(item);
+                    if (!parsed.success) {
+                        throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
+                    }
+                    const record = parsed.data;
+                    return {
+                        id: String(record.invoice_id),
+                        ...(record.invoice_number != null && { invoice_number: record.invoice_number }),
+                        ...(record.status != null && { status: record.status }),
+                        ...(record.current_sub_status != null && { current_sub_status: record.current_sub_status }),
+                        ...(record.current_sub_status_id != null && { current_sub_status_id: record.current_sub_status_id }),
+                        ...(record.customer_id != null && { customer_id: String(record.customer_id) }),
+                        ...(record.customer_name != null && { customer_name: record.customer_name }),
+                        ...(record.company_name != null && { company_name: record.company_name }),
+                        ...(record.email != null && { email: record.email }),
+                        ...(record.reference_number != null && { reference_number: record.reference_number }),
+                        ...(record.date != null && { date: record.date }),
+                        ...(record.due_date != null && { due_date: record.due_date }),
+                        ...(record.issued_date != null && { issued_date: record.issued_date }),
+                        ...(record.due_days != null && { due_days: record.due_days }),
+                        ...(record.payment_expected_date != null && { payment_expected_date: record.payment_expected_date }),
+                        ...(record.last_payment_date != null && { last_payment_date: record.last_payment_date }),
+                        ...(record.currency_id != null && { currency_id: String(record.currency_id) }),
+                        ...(record.currency_code != null && { currency_code: record.currency_code }),
+                        ...(record.currency_symbol != null && { currency_symbol: record.currency_symbol }),
+                        ...(record.exchange_rate != null && { exchange_rate: record.exchange_rate }),
+                        ...(record.total != null && { total: record.total }),
+                        ...(record.balance != null && { balance: record.balance }),
+                        ...(record.write_off_amount != null && { write_off_amount: record.write_off_amount }),
+                        ...(record.unprocessed_payment_amount != null && { unprocessed_payment_amount: record.unprocessed_payment_amount }),
+                        ...(record.shipping_charge != null && { shipping_charge: record.shipping_charge }),
+                        ...(record.adjustment != null && { adjustment: record.adjustment }),
+                        ...(record.is_viewed_by_client != null && { is_viewed_by_client: record.is_viewed_by_client }),
+                        ...(record.has_attachment != null && { has_attachment: record.has_attachment }),
+                        ...(record.is_emailed != null && { is_emailed: record.is_emailed }),
+                        ...(record.is_viewed_in_mail != null && { is_viewed_in_mail: record.is_viewed_in_mail }),
+                        ...(record.client_viewed_time != null && { client_viewed_time: record.client_viewed_time }),
+                        ...(record.mail_first_viewed_time != null && { mail_first_viewed_time: record.mail_first_viewed_time }),
+                        ...(record.mail_last_viewed_time != null && { mail_last_viewed_time: record.mail_last_viewed_time }),
+                        ...(record.reminders_sent != null && { reminders_sent: record.reminders_sent }),
+                        ...(record.last_reminder_sent_date != null && { last_reminder_sent_date: record.last_reminder_sent_date }),
+                        ...(record.created_time != null && { created_time: record.created_time }),
+                        ...(record.last_modified_time != null && { last_modified_time: record.last_modified_time }),
+                        ...(record.updated_time != null && { updated_time: record.updated_time }),
+                        ...(record.created_by != null && { created_by: record.created_by }),
+                        ...(record.invoice_source != null && { invoice_source: record.invoice_source }),
+                        ...(record.sales_channel != null && { sales_channel: record.sales_channel }),
+                        ...(record.transaction_type != null && { transaction_type: record.transaction_type }),
+                        ...(record.template_id != null && { template_id: String(record.template_id) }),
+                        ...(record.template_type != null && { template_type: record.template_type }),
+                        ...(record.salesperson_id != null && { salesperson_id: String(record.salesperson_id) }),
+                        ...(record.salesperson_name != null && { salesperson_name: record.salesperson_name }),
+                        ...(record.project_name != null && { project_name: record.project_name }),
+                        ...(record.country != null && { country: record.country }),
+                        ...(record.phone != null && { phone: record.phone }),
+                        ...(record.color_code != null && { color_code: record.color_code }),
+                        ...(record.schedule_time != null && { schedule_time: record.schedule_time }),
+                        ...(record.documents != null && { documents: record.documents }),
+                        ...(record.invoice_url != null && { invoice_url: record.invoice_url }),
+                        ...(record.ach_payment_initiated != null && { ach_payment_initiated: record.ach_payment_initiated }),
+                        ...(record.zcrm_potential_id != null && { zcrm_potential_id: record.zcrm_potential_id }),
+                        ...(record.zcrm_potential_name != null && { zcrm_potential_name: record.zcrm_potential_name }),
+                        ...(record.billing_address != null && { billing_address: record.billing_address }),
+                        ...(record.shipping_address != null && { shipping_address: record.shipping_address }),
+                        ...(record.custom_fields != null && { custom_fields: record.custom_fields }),
+                        ...(record.custom_field_hash != null && { custom_field_hash: record.custom_field_hash })
+                    };
+                });
 
-        for await (const pageResults of nango.paginate<unknown>(proxyConfig)) {
-            const invoices = pageResults.map((item) => {
-                const parsed = RawInvoiceSchema.safeParse(item);
-                if (!parsed.success) {
-                    throw new Error(`Failed to parse invoice: ${parsed.error.message}`);
-                }
-                const record = parsed.data;
-                return {
-                    id: String(record.invoice_id),
-                    ...(record.invoice_number != null && { invoice_number: record.invoice_number }),
-                    ...(record.status != null && { status: record.status }),
-                    ...(record.current_sub_status != null && { current_sub_status: record.current_sub_status }),
-                    ...(record.current_sub_status_id != null && { current_sub_status_id: record.current_sub_status_id }),
-                    ...(record.customer_id != null && { customer_id: String(record.customer_id) }),
-                    ...(record.customer_name != null && { customer_name: record.customer_name }),
-                    ...(record.company_name != null && { company_name: record.company_name }),
-                    ...(record.email != null && { email: record.email }),
-                    ...(record.reference_number != null && { reference_number: record.reference_number }),
-                    ...(record.date != null && { date: record.date }),
-                    ...(record.due_date != null && { due_date: record.due_date }),
-                    ...(record.issued_date != null && { issued_date: record.issued_date }),
-                    ...(record.due_days != null && { due_days: record.due_days }),
-                    ...(record.payment_expected_date != null && { payment_expected_date: record.payment_expected_date }),
-                    ...(record.last_payment_date != null && { last_payment_date: record.last_payment_date }),
-                    ...(record.currency_id != null && { currency_id: String(record.currency_id) }),
-                    ...(record.currency_code != null && { currency_code: record.currency_code }),
-                    ...(record.currency_symbol != null && { currency_symbol: record.currency_symbol }),
-                    ...(record.exchange_rate != null && { exchange_rate: record.exchange_rate }),
-                    ...(record.total != null && { total: record.total }),
-                    ...(record.balance != null && { balance: record.balance }),
-                    ...(record.write_off_amount != null && { write_off_amount: record.write_off_amount }),
-                    ...(record.unprocessed_payment_amount != null && { unprocessed_payment_amount: record.unprocessed_payment_amount }),
-                    ...(record.shipping_charge != null && { shipping_charge: record.shipping_charge }),
-                    ...(record.adjustment != null && { adjustment: record.adjustment }),
-                    ...(record.is_viewed_by_client != null && { is_viewed_by_client: record.is_viewed_by_client }),
-                    ...(record.has_attachment != null && { has_attachment: record.has_attachment }),
-                    ...(record.is_emailed != null && { is_emailed: record.is_emailed }),
-                    ...(record.is_viewed_in_mail != null && { is_viewed_in_mail: record.is_viewed_in_mail }),
-                    ...(record.client_viewed_time != null && { client_viewed_time: record.client_viewed_time }),
-                    ...(record.mail_first_viewed_time != null && { mail_first_viewed_time: record.mail_first_viewed_time }),
-                    ...(record.mail_last_viewed_time != null && { mail_last_viewed_time: record.mail_last_viewed_time }),
-                    ...(record.reminders_sent != null && { reminders_sent: record.reminders_sent }),
-                    ...(record.last_reminder_sent_date != null && { last_reminder_sent_date: record.last_reminder_sent_date }),
-                    ...(record.created_time != null && { created_time: record.created_time }),
-                    ...(record.last_modified_time != null && { last_modified_time: record.last_modified_time }),
-                    ...(record.updated_time != null && { updated_time: record.updated_time }),
-                    ...(record.created_by != null && { created_by: record.created_by }),
-                    ...(record.invoice_source != null && { invoice_source: record.invoice_source }),
-                    ...(record.sales_channel != null && { sales_channel: record.sales_channel }),
-                    ...(record.transaction_type != null && { transaction_type: record.transaction_type }),
-                    ...(record.template_id != null && { template_id: String(record.template_id) }),
-                    ...(record.template_type != null && { template_type: record.template_type }),
-                    ...(record.salesperson_id != null && { salesperson_id: String(record.salesperson_id) }),
-                    ...(record.salesperson_name != null && { salesperson_name: record.salesperson_name }),
-                    ...(record.project_name != null && { project_name: record.project_name }),
-                    ...(record.country != null && { country: record.country }),
-                    ...(record.phone != null && { phone: record.phone }),
-                    ...(record.color_code != null && { color_code: record.color_code }),
-                    ...(record.schedule_time != null && { schedule_time: record.schedule_time }),
-                    ...(record.documents != null && { documents: record.documents }),
-                    ...(record.invoice_url != null && { invoice_url: record.invoice_url }),
-                    ...(record.ach_payment_initiated != null && { ach_payment_initiated: record.ach_payment_initiated }),
-                    ...(record.zcrm_potential_id != null && { zcrm_potential_id: record.zcrm_potential_id }),
-                    ...(record.zcrm_potential_name != null && { zcrm_potential_name: record.zcrm_potential_name }),
-                    ...(record.billing_address != null && { billing_address: record.billing_address }),
-                    ...(record.shipping_address != null && { shipping_address: record.shipping_address }),
-                    ...(record.custom_fields != null && { custom_fields: record.custom_fields }),
-                    ...(record.custom_field_hash != null && { custom_field_hash: record.custom_field_hash })
-                };
-            });
-
-            if (invoices.length > 0) {
-                await nango.batchSave(invoices, 'Invoice');
-
-                for (const invoice of invoices) {
-                    maxUpdatedAfter = laterTimestamp(maxUpdatedAfter, invoice.last_modified_time);
+                if (invoices.length > 0) {
+                    await nango.batchSave(invoices, 'Invoice');
                 }
             }
-
-            // Keep the original filter while this paginated scan is in flight. Once the full
-            // window succeeds, replace it with the newest last_modified_time observed.
-            if (page !== undefined) {
-                await nango.saveCheckpoint({ updated_after: updatedAfter ?? '', page });
-            }
-        }
-
-        await nango.saveCheckpoint({
-            updated_after: maxUpdatedAfter ?? updatedAfter ?? '',
-            page: 1
         });
     }
 });

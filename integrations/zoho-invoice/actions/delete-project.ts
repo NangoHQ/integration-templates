@@ -43,8 +43,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            // DELETE is idempotent, so a retry after a transient failure is safe.
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- A replay after a lost response returns not-found and would report a completed deletion as a failure.
+            retries: 0
         });
 
         const parsed = ProviderDeleteProjectResponseSchema.parse(response.data);

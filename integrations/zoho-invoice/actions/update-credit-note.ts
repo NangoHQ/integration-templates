@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const LineItemSchema = z.object({
+    line_item_id: z.string().optional().describe('ID of an existing line item to keep and update. Omit to add a new line item. Example: "260815000000166012".'),
     item_id: z.string().optional().describe('Catalog item ID. Optional: ad-hoc line items work without it. Example: "260815000000000097".'),
     name: z.string().optional().describe('Name of the line item. Example: "Consulting hours".'),
     description: z.string().optional().describe('Description of the line item.'),
@@ -12,7 +13,8 @@ const LineItemSchema = z.object({
 });
 
 const CustomFieldSchema = z.object({
-    label: z.string().describe('Label of the custom field. Example: "PO Number".'),
+    customfield_id: z.string().optional().describe('ID of the custom field to set. Preferred over label. Example: "46000000012845".'),
+    label: z.string().optional().describe('Label of the custom field, used when customfield_id is not supplied. Example: "PO Number".'),
     value: z.string().describe('Value of the custom field. Example: "PO-123".')
 });
 
@@ -28,11 +30,14 @@ const InputSchema = z
             .array(LineItemSchema)
             .optional()
             .describe('Full list of line items for the credit note. Supplying this replaces every existing line item, so include all items you want to keep.'),
-        exchange_rate: z.string().optional().describe('Exchange rate for the currency associated with the customer. Example: "1".'),
+        exchange_rate: z.number().optional().describe('Exchange rate for the currency associated with the customer. Example: 1.'),
         reference_number: z.string().optional().describe('Reference number of the credit note. Maximum length 100.'),
         notes: z.string().optional().describe('Notes to display on the credit note. Maximum length 5000.'),
         terms: z.string().optional().describe('Terms and conditions to display on the credit note. Maximum length 10000.'),
-        custom_fields: z.array(CustomFieldSchema).optional().describe('Custom field label/value pairs for the credit note.'),
+        custom_fields: z
+            .array(CustomFieldSchema)
+            .optional()
+            .describe('Custom field values for the credit note, each identified by customfield_id (preferred) or label.'),
         template_id: z.string().optional().describe('ID of the credit note template to use.'),
         creditnote_number: z.string().optional().describe('Custom credit note number to use together with ignore_auto_number_generation. Maximum length 100.'),
         ignore_auto_number_generation: z.boolean().optional().describe('Set true to use your own creditnote_number instead of the auto-generated one.')
@@ -135,7 +140,16 @@ const action = createAction({
             data['terms'] = input.terms;
         }
         if (input.custom_fields !== undefined) {
-            data['custom_fields'] = input.custom_fields;
+            if (input.custom_fields.some((field) => field.customfield_id === undefined && field.label === undefined)) {
+                throw new nango.ActionError({
+                    type: 'invalid_input',
+                    message: 'Each custom field needs either a customfield_id or a label.'
+                });
+            }
+            data['custom_fields'] = input.custom_fields.map((field) => ({
+                ...(field.customfield_id !== undefined ? { customfield_id: field.customfield_id } : { label: field.label }),
+                value: field.value
+            }));
         }
         if (input.template_id !== undefined) {
             data['template_id'] = input.template_id;

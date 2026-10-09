@@ -52,8 +52,14 @@ const ExpenseSchema = z
         report_id: z.string().optional().describe('ID of the expense report the expense belongs to, if any.'),
         report_name: z.string().optional().describe('Name of the expense report the expense belongs to, if any.'),
         report_number: z.string().optional().describe('Number of the expense report the expense belongs to, if any.'),
-        start_reading: z.string().optional().describe('Odometer start reading for an odometer mileage expense.'),
-        end_reading: z.string().optional().describe('Odometer end reading for an odometer mileage expense.'),
+        start_reading: z
+            .union([z.string(), z.number()])
+            .optional()
+            .describe('Odometer start reading for an odometer mileage expense, as returned by the provider (string or number).'),
+        end_reading: z
+            .union([z.string(), z.number()])
+            .optional()
+            .describe('Odometer end reading for an odometer mileage expense, as returned by the provider (string or number).'),
         has_attachment: z.boolean().optional().describe('Whether the expense has an attached receipt.'),
         custom_fields: z.array(CustomFieldSchema).optional().describe('Custom field values configured for expenses in the organization.')
     })

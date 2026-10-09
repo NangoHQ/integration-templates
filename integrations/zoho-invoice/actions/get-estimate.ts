@@ -6,9 +6,8 @@ const InputSchema = z
         estimate_id: z.string().describe('Unique identifier of the estimate to retrieve. Example: "260815000000116017"'),
         organization_id: z
             .string()
-            .optional()
             .describe(
-                'Zoho Invoice organization ID. Required in practice: every Zoho Invoice endpoint needs it and this connection cannot look it up, because listing organizations requires a settings scope this connection does not hold.'
+                'Zoho Invoice organization ID. Required: every Zoho Invoice endpoint needs it and this connection cannot look it up, because listing organizations requires a settings scope this connection does not hold.'
             )
     })
     .describe('Input for retrieving a single Zoho Invoice estimate.');
@@ -155,7 +154,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/estimates/#get-an-estimate
             endpoint: `/invoice/v3/estimates/${encodeURIComponent(input.estimate_id)}`,
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });

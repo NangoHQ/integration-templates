@@ -20,7 +20,12 @@ const InputSchema = z
         customer_id: z.string().describe('Contact ID of the customer the credit note is issued to. Example: "260815000000097001".'),
         line_items: z.array(LineItemInputSchema).min(1).describe('Line items being credited. Catalog item IDs are not required.'),
         date: z.string().optional().describe('Credit note date in yyyy-mm-dd format. Defaults to the current date when omitted.'),
-        creditnote_number: z.string().optional().describe('Credit note number. Auto-generated with a CN prefix when omitted.'),
+        creditnote_number: z
+            .string()
+            .optional()
+            .describe(
+                'Custom credit note number; when supplied, Zoho auto-numbering is skipped for this credit note. Auto-generated with a CN prefix when omitted.'
+            ),
         reference_number: z.string().optional().describe('Free-form reference number for linking the credit note to an external system.'),
         notes: z.string().optional().describe('Notes shown on the credit note.'),
         terms: z.string().optional().describe('Terms and conditions shown on the credit note.'),
@@ -115,7 +120,9 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/credit-notes/#create-a-credit-note
             endpoint: '/invoice/v3/creditnotes',
             params: {
-                organization_id: input.organization_id
+                organization_id: input.organization_id,
+                // Zoho ignores a supplied creditnote_number unless auto-numbering is turned off for this request.
+                ...(input.creditnote_number !== undefined && { ignore_auto_number_generation: 'true' })
             },
             data: {
                 customer_id: input.customer_id,

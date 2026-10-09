@@ -26,7 +26,10 @@ const ContactPersonInputSchema = z.object({
         ),
     phone: z.string().optional().describe('Phone number of the contact person.'),
     mobile: z.string().optional().describe('Mobile number of the contact person.'),
-    is_primary_contact: z.boolean().optional().describe('Whether this person is the primary contact for the contact. The provider only accepts true.')
+    is_primary_contact: z
+        .literal(true)
+        .optional()
+        .describe('Set to true to make this person the primary contact for the contact. Zoho only accepts true; omit the field otherwise.')
 });
 
 const CustomFieldInputSchema = z.object({
@@ -119,6 +122,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['ZohoInvoice.contacts.UPDATE'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const data: Record<string, unknown> = {

@@ -5,10 +5,7 @@ const InputSchema = z
     .object({
         organization_id: z
             .string()
-            .optional()
-            .describe(
-                'Zoho Invoice organization ID. Required in practice: every estimates endpoint needs it, and this connection cannot look it up. Example: "927270289"'
-            ),
+            .describe('Zoho Invoice organization ID. Required: every estimates endpoint needs it, and this connection cannot look it up. Example: "927270289"'),
         customer_id: z.string().optional().describe('Only return estimates for this customer/contact ID. Example: "260815000000097001"'),
         status: z
             .enum(['draft', 'sent', 'accepted', 'declined', 'invoiced', 'expired'])
@@ -94,7 +91,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Lists estimates from Zoho Invoice; no provider state is created, updated, or deleted.
- * @pitfalls: organization_id is effectively required: omitting it returns Zoho error 9017, and this connection cannot look it up because it lacks the settings scope; last_modified_time only accepts Zoho's ISO-8601 form such as "2026-10-01T00:00:00+0000"; results are paged (per_page defaults to 200), so use page/per_page and page_context.has_more_page to fetch all matches.
+ * @pitfalls: organization_id is required: omitting it returns Zoho error 9017, and this connection cannot look it up because it lacks the settings scope; last_modified_time only accepts Zoho's ISO-8601 form such as "2026-10-01T00:00:00+0000"; results are paged (per_page defaults to 200), so use page/per_page and page_context.has_more_page to fetch all matches.
  */
 const action = createAction({
     description: 'List estimates (quotes) with optional customer/status and incremental last_modified_time filters.',
@@ -108,7 +105,7 @@ const action = createAction({
             // https://www.zoho.com/invoice/api/v3/estimates/#list-estimates
             endpoint: '/invoice/v3/estimates',
             params: {
-                ...(input.organization_id !== undefined && { organization_id: input.organization_id }),
+                organization_id: input.organization_id,
                 ...(input.customer_id !== undefined && { customer_id: input.customer_id }),
                 ...(input.status !== undefined && { status: input.status }),
                 ...(input.last_modified_time !== undefined && { last_modified_time: input.last_modified_time }),

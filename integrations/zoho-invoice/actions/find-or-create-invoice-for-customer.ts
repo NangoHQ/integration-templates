@@ -15,10 +15,10 @@ const ContactPersonInputSchema = z
 
 const LineItemInputSchema = z
     .object({
-        name: z.string().optional().describe('Name of the line item. Example: "Consulting hours".'),
+        name: z.string().describe('Name of the line item. Example: "Consulting hours".'),
         description: z.string().optional().describe('Description of the line item.'),
-        rate: z.number().optional().describe('Unit rate of the line item.'),
-        quantity: z.number().optional().describe('Quantity of the line item.'),
+        rate: z.number().describe('Unit rate of the line item. Example: 150.'),
+        quantity: z.number().describe('Quantity of the line item. Example: 2.'),
         unit: z.string().optional().describe('Unit label, for example "hours" or "kg".')
     })
     .describe('A single invoice line item.');
@@ -37,7 +37,8 @@ const InputSchema = z
             .describe('Contact persons to attach when a new contact is created. A top-level contact email is ignored by Zoho, so supply emails here.'),
         line_items: z
             .array(LineItemInputSchema)
-            .describe('Invoice line items. item_id is not required; free-text items with name/rate/quantity are supported.'),
+            .min(1)
+            .describe('Free-text invoice line items, each with a name, rate and quantity. At least one is required.'),
         date: z.string().describe('Invoice date in yyyy-mm-dd format. Example: "2026-10-09".'),
         due_date: z.string().optional().describe('Invoice due date in yyyy-mm-dd format. Example: "2026-10-23".'),
         reference_number: z.string().optional().describe('Reference number to store on the invoice.'),
@@ -108,12 +109,11 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://www.zoho.com/invoice/api/v3/contacts/#list-contacts
         const listResponse = await nango.get({
-            endpoint: '/contacts',
+            endpoint: '/invoice/v3/contacts',
             params: {
                 organization_id: input.organization_id,
                 contact_name: input.contact_name
             },
-            baseUrlOverride: 'https://www.zohoapis.com/invoice/v3',
             retries: 3
         });
 
@@ -128,7 +128,7 @@ const action = createAction({
         } else {
             // https://www.zoho.com/invoice/api/v3/contacts/#create-a-contact
             const createContactResponse = await nango.post({
-                endpoint: '/contacts',
+                endpoint: '/invoice/v3/contacts',
                 params: {
                     organization_id: input.organization_id
                 },
@@ -136,7 +136,6 @@ const action = createAction({
                     contact_name: input.contact_name,
                     ...(input.contact_persons !== undefined && { contact_persons: input.contact_persons })
                 },
-                baseUrlOverride: 'https://www.zohoapis.com/invoice/v3',
                 // Creating a contact is not idempotent: a retry after a lost response would create a duplicate.
                 // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
                 retries: 0
@@ -149,7 +148,7 @@ const action = createAction({
 
         // https://www.zoho.com/invoice/api/v3/invoices/#create-an-invoice
         const createInvoiceResponse = await nango.post({
-            endpoint: '/invoices',
+            endpoint: '/invoice/v3/invoices',
             params: {
                 organization_id: input.organization_id
             },
@@ -161,7 +160,6 @@ const action = createAction({
                 ...(input.reference_number !== undefined && { reference_number: input.reference_number }),
                 ...(input.notes !== undefined && { notes: input.notes })
             },
-            baseUrlOverride: 'https://www.zohoapis.com/invoice/v3',
             // Creating an invoice is not idempotent: a retry after a lost response would create a duplicate invoice.
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0

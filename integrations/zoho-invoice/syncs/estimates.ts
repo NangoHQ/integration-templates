@@ -1,5 +1,7 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
+
+import { ScanCheckpointSchema, scanZohoList } from '../helpers/scan.js';
 
 const MetadataSchema = z
     .object({
@@ -8,10 +10,6 @@ const MetadataSchema = z
             .describe('Zoho Invoice organization ID. Every estimates request requires it, and it cannot be discovered with this connection scope.')
     })
     .describe('Connection metadata required to run the estimates sync.');
-
-const CheckpointSchema = z.object({
-    last_modified_time: z.string().describe('Highest last_modified_time seen so far; used as the incremental filter on the next run.')
-});
 
 const ProviderEstimateSchema = z
     .object({
@@ -115,11 +113,6 @@ function toEstimate(record: z.infer<typeof ProviderEstimateSchema>) {
     };
 }
 
-function toEpoch(value: string): number {
-    const parsed = Date.parse(value);
-    return Number.isNaN(parsed) ? 0 : parsed;
-}
-
 const sync = createSync({
     description: 'Sync all estimates (quotes) from Zoho Invoice, incrementally by last_modified_time.',
     version: '1.0.0',
@@ -127,56 +120,28 @@ const sync = createSync({
     autoStart: false,
     scopes: ['ZohoInvoice.estimates.ALL'],
     metadata: MetadataSchema,
-    checkpoint: CheckpointSchema,
+    checkpoint: ScanCheckpointSchema,
     models: {
         Estimate: EstimateSchema
     },
 
     exec: async (nango) => {
         const metadata = MetadataSchema.parse(await nango.getMetadata());
-        const rawCheckpoint = await nango.getCheckpoint();
-        const parsedCheckpoint = rawCheckpoint != null ? CheckpointSchema.safeParse(rawCheckpoint) : null;
-        const updatedAfter = parsedCheckpoint?.success ? parsedCheckpoint.data.last_modified_time : undefined;
-
-        let maxModified: string | undefined = updatedAfter;
-        let maxModifiedEpoch = updatedAfter != null ? toEpoch(updatedAfter) : 0;
-
-        const proxyConfig: ProxyConfiguration = {
-            // https://www.zoho.com/invoice/api/v3/estimates/#list-estimates
+        // Estimates sort by last_modified_time, so pages are fetched by keyset; a daily full listing tracks deletions.
+        // https://www.zoho.com/invoice/api/v3/estimates/#list-estimates
+        await scanZohoList(nango, {
+            model: 'Estimate',
             endpoint: '/invoice/v3/estimates',
-            params: {
-                organization_id: metadata.organization_id,
-                ...(updatedAfter != null && { last_modified_time: updatedAfter })
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'estimates'
-            },
-            retries: 3
-        };
-
-        for await (const pageEstimates of nango.paginate<unknown>(proxyConfig)) {
-            const estimates = pageEstimates.map((item) => {
-                const record = ProviderEstimateSchema.parse(item);
-                const recordEpoch = toEpoch(record.last_modified_time);
-                if (recordEpoch > maxModifiedEpoch) {
-                    maxModified = record.last_modified_time;
-                    maxModifiedEpoch = recordEpoch;
+            responseKey: 'estimates',
+            organizationId: metadata.organization_id,
+            sortableByLastModified: true,
+            savePage: async (rows) => {
+                const estimates = rows.map((item) => toEstimate(ProviderEstimateSchema.parse(item)));
+                if (estimates.length > 0) {
+                    await nango.batchSave(estimates, 'Estimate');
                 }
-                return toEstimate(record);
-            });
-
-            await nango.batchSave(estimates, 'Estimate');
-        }
-
-        if (maxModified != null) {
-            await nango.saveCheckpoint({ last_modified_time: maxModified });
-        }
+            }
+        });
     }
 });
 

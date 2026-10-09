@@ -5,9 +5,8 @@ const InputSchema = z
     .object({
         organization_id: z
             .string()
-            .optional()
             .describe(
-                'Zoho Invoice organization ID. Example: "927270289". Effectively required: the provider rejects any call without it, and this connection cannot discover it.'
+                'Zoho Invoice organization ID. Example: "927270289". Required: the provider rejects any call without it, and this connection cannot discover it.'
             ),
         contact_name: z.string().optional().describe('Exact contact name to match. Example: "Acme Corp".'),
         contact_name_contains: z.string().optional().describe('Substring to match anywhere in the contact name. Example: "Acme".'),
@@ -57,6 +56,8 @@ const PageContextSchema = z.object({
 });
 
 const ListContactsResponseSchema = z.object({
+    code: z.number(),
+    message: z.string().optional(),
     contacts: z.array(ContactSchema).optional(),
     page_context: PageContextSchema.optional()
 });
@@ -74,7 +75,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Fetches contacts from Zoho Invoice via a read-only GET request and makes no provider changes.
- * @pitfalls: organization_id is effectively required even though it is optional, and results are limited to customer contacts by default.
+ * @pitfalls: organization_id is required, and results are limited to customer contacts by default.
  */
 const action = createAction({
     description: 'List customer and vendor contacts in a Zoho Invoice organization with optional filters and pagination.',
@@ -109,13 +110,20 @@ const action = createAction({
         });
 
         const parsed = ListContactsResponseSchema.parse(response.data);
+        if (parsed.code !== 0 || parsed.contacts === undefined) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: parsed.message ?? 'Zoho Invoice response did not include a contacts list.',
+                code: parsed.code
+            });
+        }
         const pageContext = parsed.page_context;
         const page = pageContext?.page ?? input.page ?? 1;
         const perPage = pageContext?.per_page ?? input.per_page ?? 200;
         const hasMorePage = pageContext?.has_more_page ?? false;
 
         return {
-            contacts: parsed.contacts ?? [],
+            contacts: parsed.contacts,
             page,
             per_page: perPage,
             has_more_page: hasMorePage,

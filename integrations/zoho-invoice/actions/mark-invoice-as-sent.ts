@@ -57,6 +57,14 @@ const action = createAction({
 
         const statusResult = StatusChangeResponseSchema.parse(statusResponse.data);
 
+        if (statusResult.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: statusResult.message,
+                code: statusResult.code
+            });
+        }
+
         const invoiceResponse = await nango.get<unknown>({
             // https://www.zoho.com/invoice/api/v3/invoices/#get-an-invoice
             endpoint: `/invoice/v3/invoices/${encodeURIComponent(input.invoice_id)}`,

@@ -24,7 +24,7 @@
   "nango": {},
   "api": {
     "post": {
-      "/invoices": {
+      "/invoice/v3/invoices": {
         "response": {
           "code": 0,
           "message": "The invoice has been created.",

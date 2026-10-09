@@ -45,6 +45,14 @@ const action = createAction({
 
         const result = DeactivateProjectResponseSchema.parse(response.data);
 
+        if (result.code !== 0) {
+            throw new nango.ActionError({
+                type: 'provider_error',
+                message: result.message,
+                code: result.code
+            });
+        }
+
         return {
             project_id: input.project_id,
             message: result.message

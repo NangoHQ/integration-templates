@@ -24,7 +24,6 @@ const InputSchema = z
         payment_id: z.string().describe('ID of the customer payment to retrieve. Example: "260815000000114002"'),
         organization_id: z
             .string()
-            .optional()
             .describe(
                 'Zoho Invoice organization ID that owns the payment. Pass the ID shown in the Zoho Invoice web UI: this connection has no settings scope to discover it, and omitting it fails with "not associated with any organization". Example: "927270289"'
             )
@@ -125,10 +124,9 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({
             // https://www.zoho.com/invoice/api/v3/customerpayments/#retrieve-a-payment
-            endpoint: `/customerpayments/${encodeURIComponent(input.payment_id)}`,
-            baseUrlOverride: 'https://www.zohoapis.com/invoice/v3',
+            endpoint: `/invoice/v3/customerpayments/${encodeURIComponent(input.payment_id)}`,
             params: {
-                ...(input.organization_id != null && { organization_id: input.organization_id })
+                organization_id: input.organization_id
             },
             retries: 3
         });

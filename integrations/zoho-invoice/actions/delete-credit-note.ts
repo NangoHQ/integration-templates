@@ -39,7 +39,8 @@ const action = createAction({
             params: {
                 organization_id: input.organization_id
             },
-            retries: 3
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries -- A replay after a lost response returns not-found and would report a completed deletion as a failure.
+            retries: 0
         });
 
         const providerResponse = ProviderDeleteCreditNoteSchema.parse(response.data);
