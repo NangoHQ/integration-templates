@@ -2,6 +2,7 @@ import { createSync } from 'nango';
 import { z } from 'zod';
 
 import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+import { paginateByLastModifiedTime } from '../helpers/pagination.js';
 
 const CustomFieldSchema = z
     .object({
@@ -115,19 +116,12 @@ const ProviderItemSchema = ItemSchema.omit({ id: true });
 
 const CheckpointSchema = z
     .object({
+        organization_id: z.string().describe('Organization the high-water mark belongs to; a checkpoint for another organization is ignored.'),
         updated_after: z
             .string()
-            .describe('High-water mark of the last observed item last_modified_time, sent as the last_modified_time filter on the next run.')
+            .describe('High-water mark of the last observed item last_modified_time, sent as the inclusive last_modified_time filter on the next run.')
     })
     .describe('Sync checkpoint holding the incremental last_modified_time filter for the items sync.');
-
-const PAGE_SIZE = 200;
-
-const ItemsResponseSchema = z.object({
-    code: z.number(),
-    message: z.string().optional(),
-    items: z.array(z.unknown()).optional()
-});
 
 const sync = createSync({
     description: 'Sync all inventory items (products/services) in the organization.',
@@ -144,40 +138,23 @@ const sync = createSync({
     exec: async (nango) => {
         const organizationId = await resolveSyncOrganizationId(nango);
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        let cursor = checkpoint?.updated_after;
-        // Only advances past 1 when a full page shares the cursor timestamp (e.g. a bulk import).
-        let page = 1;
-        let hasMore = true;
+        // A high-water mark from another organization (metadata changed) would skip this organization's older items.
+        const updatedAfter = checkpoint?.organization_id === organizationId ? checkpoint.updated_after : undefined;
 
-        // Incremental sync with keyset pagination: every request is anchored on the newest
-        // last_modified_time seen so far (the filter is inclusive), sorted ascending. Plain offset
-        // paging is unsafe here because editing an item mid-run moves it to the end of this sort,
-        // shifting unread items onto already-read pages where they would be skipped for good once
-        // the checkpoint advances. Re-anchoring re-reads at most the items sharing the cursor
-        // timestamp, and batchSave upserts them. The API exposes no deleted-items feed and the
-        // changed-only filter is incompatible with trackDeletesStart/trackDeletesEnd, so deletions
-        // are intentionally not tracked by this sync.
-        while (hasMore) {
+        // Incremental sync: the last_modified_time keyset cursor (see paginateByLastModifiedTime) doubles as
+        // the high-water mark, so an item edited mid-run is re-read later instead of being skipped. The API
+        // exposes no deleted-items feed and the changed-only filter is incompatible with
+        // trackDeletesStart/trackDeletesEnd, so deletions are intentionally not tracked by this sync.
+        const pages = paginateByLastModifiedTime(nango, {
             // https://www.zoho.com/inventory/api/v1/items/#list-all-the-items
-            const response = await nango.get({
-                endpoint: '/inventory/v1/items',
-                params: {
-                    organization_id: organizationId,
-                    sort_column: 'last_modified_time',
-                    sort_order: 'A',
-                    page,
-                    per_page: PAGE_SIZE,
-                    ...(cursor ? { last_modified_time: cursor } : {})
-                },
-                retries: 3
-            });
+            endpoint: '/inventory/v1/items',
+            responseKey: 'items',
+            organizationId,
+            start: { cursor: updatedAfter, page: 1 }
+        });
 
-            const parsed = ItemsResponseSchema.parse(response.data);
-            if (parsed.code !== 0) {
-                throw new Error(`Zoho Inventory returned code ${parsed.code} listing items: ${parsed.message ?? 'unknown error'}`);
-            }
-
-            const items = (parsed.items ?? []).map((raw) => {
+        for await (const { records, next } of pages) {
+            const items = records.map((raw) => {
                 const item = ProviderItemSchema.parse(raw);
                 return ItemSchema.parse({
                     ...item,
@@ -189,21 +166,8 @@ const sync = createSync({
                 await nango.batchSave(items, 'Item');
             }
 
-            const lastModified = items[items.length - 1]?.last_modified_time ?? undefined;
-
-            if (items.length < PAGE_SIZE) {
-                if (lastModified && lastModified !== cursor) {
-                    await nango.saveCheckpoint({ updated_after: lastModified });
-                }
-                hasMore = false;
-            } else if (!lastModified) {
-                throw new Error('Zoho Inventory returned an item without last_modified_time; cannot advance the items cursor.');
-            } else if (lastModified === cursor) {
-                page += 1;
-            } else {
-                cursor = lastModified;
-                page = 1;
-                await nango.saveCheckpoint({ updated_after: cursor });
+            if (next.cursor && next.cursor !== updatedAfter) {
+                await nango.saveCheckpoint({ organization_id: organizationId, updated_after: next.cursor });
             }
         }
     }

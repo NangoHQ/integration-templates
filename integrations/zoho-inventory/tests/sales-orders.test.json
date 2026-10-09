@@ -1,5 +1,6 @@
 {
   "nango": {
+    "getConnection": {},
     "batchSave": {
       "SalesOrder": []
     },
@@ -137,7 +138,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 18:50:20 GMT",
+          "date": "Fri, 09 Oct 2026 22:50:38 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -152,10 +153,10 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1982",
-          "x-ratelimit-reset": "1791571852",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1791586272",
           "server": "ZGS",
-          "set-cookie": "zalb_f73898f234=e9a20286193794fec8aed2a9d67b10db; Path=/; Secure; HttpOnly, zomcscook=e3fd184e-4779-4c51-a7a8-7b286cfaa76a;path=/;SameSite=None;Secure;priority=high",
+          "set-cookie": "zalb_f73898f234=fe3acaa0561c4115e2728637676af2b9; Path=/; Secure; HttpOnly, zomcscook=be9d93c6-990d-40be-ac02-f0a9dc9f5fe6;path=/;SameSite=None;Secure;priority=high",
           "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
@@ -179,13 +180,13 @@
             "report_name": "Sales Orders",
             "applied_filter": "Status.All",
             "custom_fields": [],
-            "sort_column": "created_time",
-            "sort_order": "D"
+            "sort_column": "last_modified_time",
+            "sort_order": "A"
           }
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 18:50:21 GMT",
+          "date": "Fri, 09 Oct 2026 22:50:39 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -200,29 +201,31 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1981",
-          "x-ratelimit-reset": "1791571852",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1791586272",
           "server": "ZGS",
-          "set-cookie": "zalb_f73898f234=fe3acaa0561c4115e2728637676af2b9; Path=/; Secure; HttpOnly, zomcscook=d2ca7e63-8b8b-4b29-a69f-138de008fa5e;path=/;SameSite=None;Secure;priority=high, JSESSIONID=4BCB41F2116D25D16AC05C444910F4F9; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 18:55:20 GMT; Secure; HttpOnly",
+          "set-cookie": "zalb_f73898f234=fe3acaa0561c4115e2728637676af2b9; Path=/; Secure; HttpOnly, zomcscook=3183711b-0ab0-4593-92c3-79fe69a3f078;path=/;SameSite=None;Secure;priority=high, JSESSIONID=2535A4E2243EEC88AD63CE7796E975CF; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 22:55:39 GMT; Secure; HttpOnly",
           "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
           "x-rate-limit-limit": "7500",
-          "x-rate-limit-reset": "32979",
-          "x-rate-limit-remaining": "6270",
+          "x-rate-limit-reset": "18560",
+          "x-rate-limit-remaining": "6195",
           "content-disposition": "attachment;",
           "allow": "OPTIONS, DELETE, POST, GET, PUT",
-          "build_version": "Oct_09_2026_27467",
-          "client_build_version": "Oct_09_2026_27467",
+          "build_version": "Oct_09_2026_16978",
+          "client_build_version": "Oct_09_2026_16978",
           "server_build_version": "Oct_09_2026_14741/",
           "vary": "accept-encoding"
         },
-        "hash": "ed75d01262c000eea14030d07fcb7a842e95413f",
+        "hash": "d5d4f890394babb10bde9740d473a73fb40a0891",
         "request": {
           "params": {
             "organization_id": "927270289",
             "page": "1",
-            "per_page": "200"
+            "per_page": "200",
+            "sort_column": "last_modified_time",
+            "sort_order": "A"
           }
         }
       }

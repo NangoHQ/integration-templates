@@ -1,7 +1,8 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+import { paginateByLastModifiedTime } from '../helpers/pagination.js';
 
 const ProviderCustomFieldSchema = z.object({
     value: z.unknown().optional(),
@@ -132,9 +133,13 @@ const ContactSchema = z
 
 const CheckpointSchema = z
     .object({
-        page: z.number().int().positive().describe('Next page to request when resuming an interrupted full refresh.')
+        organization_id: z.string().describe('Organization the interrupted scan belongs to; a checkpoint for another organization is ignored.'),
+        last_modified_time: z
+            .string()
+            .describe('Inclusive last_modified_time cursor to resume the interrupted full refresh from; empty before the first full page.'),
+        page: z.number().int().positive().describe('Page within the records sharing the cursor timestamp.')
     })
-    .describe('Checkpoint storing the next contacts page to request during a full refresh.');
+    .describe('Checkpoint storing the keyset position of an interrupted contacts full refresh.');
 
 const sync = createSync({
     description: 'Sync all customer/vendor contacts in the organization.',
@@ -152,39 +157,23 @@ const sync = createSync({
         const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        // Offset pages shift left when records on already-synced pages are deleted between an
-        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
-        // while a skipped record would be wrongly removed by trackDeletesEnd.
-        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
+        // A checkpoint left by a scan of another organization (metadata changed mid-scan) does not apply.
+        const resume = checkpoint?.organization_id === organizationId ? checkpoint : null;
 
-        // Full refresh: the contacts list endpoint has no modified-since filter (last_modified_time
-        // is only a sortable column, not a filter), so delete detection still needs a full successful
-        // scan. The page/per_page pagination is checkpointed so an interrupted run resumes from the
-        // next page instead of re-fetching earlier pages.
+        // Full refresh: deletions are only detectable by a complete scan. The scan uses a
+        // last_modified_time keyset cursor (see paginateByLastModifiedTime) rather than page offsets,
+        // so resuming an interrupted scan cannot skip records that trackDeletesEnd would then delete.
         await nango.trackDeletesStart('Contact');
 
-        const proxyConfig: ProxyConfiguration = {
+        const pages = paginateByLastModifiedTime(nango, {
             // https://www.zoho.com/inventory/api/v1/contacts/#list-contacts
             endpoint: '/inventory/v1/contacts',
-            params: {
-                organization_id: organizationId
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: nextPage ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'contacts',
-                on_page: async ({ nextPageParam }) => {
-                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            responseKey: 'contacts',
+            organizationId,
+            start: { cursor: resume?.last_modified_time || undefined, page: resume?.page ?? 1 }
+        });
 
-        for await (const contacts of nango.paginate<z.infer<typeof ProviderContactSchema>>(proxyConfig)) {
+        for await (const { records: contacts, next, done } of pages) {
             const parsedContacts = z.array(ProviderContactSchema).safeParse(contacts);
             if (!parsedContacts.success) {
                 throw new Error(`Failed to parse contacts from provider response: ${parsedContacts.error.message}`);
@@ -196,8 +185,8 @@ const sync = createSync({
                 await nango.batchSave(mappedContacts, 'Contact');
             }
 
-            if (nextPage !== undefined) {
-                await nango.saveCheckpoint({ page: nextPage });
+            if (!done) {
+                await nango.saveCheckpoint({ organization_id: organizationId, last_modified_time: next.cursor ?? '', page: next.page });
             }
         }
 

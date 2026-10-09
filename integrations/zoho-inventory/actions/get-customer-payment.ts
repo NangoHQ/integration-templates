@@ -139,9 +139,24 @@ const action = createAction({
             });
         }
 
-        return ProviderPaymentSchema.parse(data.payment);
+        // Zoho sends null for unset fields (e.g. tax or settlement details); the output omits them instead.
+        return ProviderPaymentSchema.parse(omitNulls(data.payment));
     }
 });
+
+function omitNulls(value: unknown): unknown {
+    if (Array.isArray(value)) {
+        return value.map(omitNulls);
+    }
+    if (value !== null && typeof value === 'object') {
+        return Object.fromEntries(
+            Object.entries(value)
+                .filter(([, entry]) => entry !== null)
+                .map(([key, entry]) => [key, omitNulls(entry)])
+        );
+    }
+    return value;
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

@@ -1,7 +1,8 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+import { paginateByLastModifiedTime } from '../helpers/pagination.js';
 
 const CheckDetailsSchema = z.object({
     check_id: z.string().describe('Unique identifier of the check, when the payment was received by check. Empty when the payment was not made by check.'),
@@ -71,73 +72,77 @@ const CustomerPaymentSchema = z
 
 const CheckpointSchema = z
     .object({
-        page: z.number().int().positive().describe('Next page to request when resuming an interrupted full refresh.')
+        organization_id: z.string().describe('Organization the interrupted scan belongs to; a checkpoint for another organization is ignored.'),
+        last_modified_time: z
+            .string()
+            .describe('Inclusive last_modified_time cursor to resume the interrupted full refresh from; empty before the first full page.'),
+        page: z.number().int().positive().describe('Page within the records sharing the cursor timestamp.')
     })
-    .describe('Checkpoint storing the next customer payments page to request during a full refresh.');
+    .describe('Checkpoint storing the keyset position of an interrupted customer payments full refresh.');
 
-type ProviderCheckDetails = {
-    check_id: string | null;
-    check_status: string | null;
-    check_number: string | null;
-    memo: string | null;
-    expiry_date: string | null;
-    clearance_account_id: string | null;
-};
+const ProviderCheckDetailsSchema = z.object({
+    check_id: z.string().nullish(),
+    check_status: z.string().nullish(),
+    check_number: z.string().nullish(),
+    memo: z.string().nullish(),
+    expiry_date: z.string().nullish(),
+    clearance_account_id: z.string().nullish()
+});
 
-type ProviderAppliedInvoice = {
-    invoice_id?: string | null;
-    invoice_number?: string | null;
-    invoice_payment_id?: string | null;
-    amount_applied?: number | null;
-    total?: number | null;
-    balance?: number | null;
-    date?: string | null;
-    due_date?: string | null;
-};
+const ProviderAppliedInvoiceSchema = z.object({
+    invoice_id: z.string().nullish(),
+    invoice_number: z.string().nullish(),
+    invoice_payment_id: z.string().nullish(),
+    amount_applied: z.number().nullish(),
+    total: z.number().nullish(),
+    balance: z.number().nullish(),
+    date: z.string().nullish(),
+    due_date: z.string().nullish()
+});
 
-type ProviderTag = {
-    tag_id?: string | null;
-    tag_name?: string | null;
-};
+const ProviderTagSchema = z.object({
+    tag_id: z.string().nullish(),
+    tag_name: z.string().nullish()
+});
 
-type ProviderCustomerPayment = {
-    payment_id: string;
-    payment_number: string | null;
-    invoice_numbers: string | null;
-    date: string | null;
-    payment_mode: string | null;
-    payment_mode_formatted: string | null;
-    amount: number | null;
-    bcy_amount: number | null;
-    unused_amount: number | null;
-    bcy_unused_amount: number | null;
-    account_id: string | null;
-    account_name: string | null;
-    description: string | null;
-    reference_number: string | null;
-    is_paid_via_check: boolean | null;
-    check_details: ProviderCheckDetails | null;
-    customer_id: string | null;
-    customer_name: string | null;
-    created_time: string | null;
-    last_modified_time: string | null;
-    last_four_digits: string | null;
-    gateway_transaction_id: string | null;
-    payment_gateway: string | null;
-    bcy_refunded_amount: number | null;
-    applied_invoices: ProviderAppliedInvoice[] | null;
-    has_attachment: boolean | null;
-    tags: ProviderTag[] | null;
-    documents: string | null;
-    custom_fields_list: string | null;
-    tax_account_id: string | null;
-    tax_account_name: string | null;
-    tax_amount_withheld: number | null;
-    payment_type: string | null;
-    payment_status: string | null;
-    settlement_status: string | null;
-    sales_channel: string | null;
-};
+const ProviderCustomerPaymentSchema = z.object({
+    payment_id: z.string(),
+    payment_number: z.string().nullish(),
+    invoice_numbers: z.string().nullish(),
+    date: z.string().nullish(),
+    payment_mode: z.string().nullish(),
+    payment_mode_formatted: z.string().nullish(),
+    amount: z.number().nullish(),
+    bcy_amount: z.number().nullish(),
+    unused_amount: z.number().nullish(),
+    bcy_unused_amount: z.number().nullish(),
+    account_id: z.string().nullish(),
+    account_name: z.string().nullish(),
+    description: z.string().nullish(),
+    reference_number: z.string().nullish(),
+    is_paid_via_check: z.boolean().nullish(),
+    check_details: ProviderCheckDetailsSchema.nullish(),
+    customer_id: z.string().nullish(),
+    customer_name: z.string().nullish(),
+    created_time: z.string().nullish(),
+    last_modified_time: z.string().nullish(),
+    last_four_digits: z.string().nullish(),
+    gateway_transaction_id: z.string().nullish(),
+    payment_gateway: z.string().nullish(),
+    bcy_refunded_amount: z.number().nullish(),
+    applied_invoices: z.array(ProviderAppliedInvoiceSchema).nullish(),
+    has_attachment: z.boolean().nullish(),
+    tags: z.array(ProviderTagSchema).nullish(),
+    documents: z.string().nullish(),
+    custom_fields_list: z.string().nullish(),
+    tax_account_id: z.string().nullish(),
+    tax_account_name: z.string().nullish(),
+    tax_amount_withheld: z.number().nullish(),
+    payment_type: z.string().nullish(),
+    payment_status: z.string().nullish(),
+    settlement_status: z.string().nullish(),
+    sales_channel: z.string().nullish()
+});
 
 const sync = createSync({
     description: 'Sync all recorded customer payments in the organization.',
@@ -154,47 +159,31 @@ const sync = createSync({
     exec: async (nango) => {
         const organizationId = await resolveSyncOrganizationId(nango);
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        // Offset pages shift left when records on already-synced pages are deleted between an
-        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
-        // while a skipped record would be wrongly removed by trackDeletesEnd.
-        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
+        // A checkpoint left by a scan of another organization (metadata changed mid-scan) does not apply.
+        const resume = checkpoint?.organization_id === organizationId ? checkpoint : null;
 
-        // Customer payments expose no modified-since filter, so this remains a full refresh.
-        // The API does expose page/per_page pagination, which is checkpointed so interrupted
-        // runs resume from the next page instead of re-fetching the full dataset.
-
+        // Full refresh: deletions are only detectable by a complete scan. The scan uses a
+        // last_modified_time keyset cursor (see paginateByLastModifiedTime) rather than page offsets,
+        // so resuming an interrupted scan cannot skip records that trackDeletesEnd would then delete.
         await nango.trackDeletesStart('CustomerPayment');
 
-        const proxyConfig: ProxyConfiguration = {
+        const pages = paginateByLastModifiedTime(nango, {
             // https://www.zoho.com/inventory/api/v1/customer-payments/#list-customer-payments
             endpoint: '/inventory/v1/customerpayments',
-            params: {
-                organization_id: organizationId
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: nextPage ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'customerpayments',
-                on_page: async ({ nextPageParam }) => {
-                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            responseKey: 'customerpayments',
+            organizationId,
+            start: { cursor: resume?.last_modified_time || undefined, page: resume?.page ?? 1 }
+        });
 
-        for await (const page of nango.paginate<ProviderCustomerPayment>(proxyConfig)) {
-            const payments = page.map(mapCustomerPayment);
+        for await (const { records: page, next, done } of pages) {
+            const payments = z.array(ProviderCustomerPaymentSchema).parse(page).map(mapCustomerPayment);
 
             if (payments.length > 0) {
                 await nango.batchSave(payments, 'CustomerPayment');
             }
 
-            if (nextPage !== undefined) {
-                await nango.saveCheckpoint({ page: nextPage });
+            if (!done) {
+                await nango.saveCheckpoint({ organization_id: organizationId, last_modified_time: next.cursor ?? '', page: next.page });
             }
         }
 
@@ -203,7 +192,7 @@ const sync = createSync({
     }
 });
 
-function mapCustomerPayment(payment: ProviderCustomerPayment) {
+function mapCustomerPayment(payment: z.infer<typeof ProviderCustomerPaymentSchema>) {
     const checkDetails = payment.check_details;
 
     return {

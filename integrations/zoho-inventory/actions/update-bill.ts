@@ -121,7 +121,7 @@ const ProviderBillSchema = z.object({
     line_items: z.array(ProviderLineItemSchema).nullish(),
     created_time: z.string().nullish(),
     last_modified_time: z.string().nullish(),
-    purchaseorder_ids: z.array(z.string()).nullish()
+    purchaseorder_ids: z.array(z.union([z.string(), z.number()])).nullish()
 });
 
 const ProviderEnvelopeSchema = z.object({
@@ -232,7 +232,7 @@ const action = createAction({
             balance: bill.balance ?? 0,
             ...(bill.notes != null && { notes: bill.notes }),
             ...(bill.terms != null && { terms: bill.terms }),
-            ...(bill.purchaseorder_ids != null && { purchaseorder_ids: bill.purchaseorder_ids }),
+            ...(bill.purchaseorder_ids != null && { purchaseorder_ids: bill.purchaseorder_ids.map((id) => String(id)) }),
             line_items: lineItems,
             ...(bill.created_time != null && { created_time: bill.created_time }),
             ...(bill.last_modified_time != null && { last_modified_time: bill.last_modified_time })

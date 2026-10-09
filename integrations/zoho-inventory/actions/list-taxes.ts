@@ -47,7 +47,7 @@ const TaxSchema = z.object({
 const ProviderTaxSchema = z.object({
     tax_id: z.string(),
     tax_name: z.string(),
-    tax_percentage: z.number().nullish(),
+    tax_percentage: z.union([z.number(), z.string()]).nullish(),
     tax_type: z.string().nullish(),
     tax_factor: z.string().nullish(),
     tax_specific_type: z.string().nullish(),
@@ -63,10 +63,11 @@ const ProviderTaxSchema = z.object({
 });
 
 function mapTax(tax: z.infer<typeof ProviderTaxSchema>): z.infer<typeof TaxSchema> {
+    const taxPercentage = toPercentage(tax.tax_percentage);
     return {
         tax_id: tax.tax_id,
         tax_name: tax.tax_name,
-        ...(tax.tax_percentage != null && { tax_percentage: tax.tax_percentage }),
+        ...(taxPercentage !== undefined && { tax_percentage: taxPercentage }),
         ...(tax.tax_type != null && { tax_type: tax.tax_type }),
         ...(tax.tax_factor != null && { tax_factor: tax.tax_factor }),
         ...(tax.tax_specific_type != null && { tax_specific_type: tax.tax_specific_type }),
@@ -178,6 +179,15 @@ const action = createAction({
         };
     }
 });
+
+// Zoho can send tax_percentage as a numeric string; normalize to a number and drop unparseable values.
+function toPercentage(value: number | string | null | undefined): number | undefined {
+    if (value == null || value === '') {
+        return undefined;
+    }
+    const percentage = typeof value === 'number' ? value : Number(value);
+    return Number.isFinite(percentage) ? percentage : undefined;
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

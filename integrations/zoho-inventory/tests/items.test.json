@@ -1,5 +1,6 @@
 {
   "nango": {
+    "getConnection": {},
     "batchSave": {
       "Item": [
         {
@@ -795,7 +796,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 18:34:42 GMT",
+          "date": "Fri, 09 Oct 2026 22:46:28 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -810,10 +811,10 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1910",
-          "x-ratelimit-reset": "1791570894",
+          "x-ratelimit-remaining": "1990",
+          "x-ratelimit-reset": "1791586037",
           "server": "ZGS",
-          "set-cookie": "zalb_f73898f234=99b2ad598f85ee55b6084bb64b7ab917; Path=/; Secure; HttpOnly, zomcscook=ecdcf691-4b33-4945-a9f4-a1fb3bb9df3d;path=/;SameSite=None;Secure;priority=high",
+          "set-cookie": "zalb_f73898f234=e9a20286193794fec8aed2a9d67b10db; Path=/; Secure; HttpOnly, zomcscook=c15b9e9d-90f5-4d8b-a158-7040adc4f7f4;path=/;SameSite=None;Secure;priority=high",
           "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
@@ -1501,7 +1502,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 18:34:42 GMT",
+          "date": "Fri, 09 Oct 2026 22:46:28 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -1516,20 +1517,20 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1909",
-          "x-ratelimit-reset": "1791570894",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1791586037",
           "server": "ZGS",
-          "set-cookie": "zalb_f73898f234=e9a20286193794fec8aed2a9d67b10db; Path=/; Secure; HttpOnly, zomcscook=33b5a957-2b13-4003-a0a9-f8f9a32e55af;path=/;SameSite=None;Secure;priority=high, JSESSIONID=3030F3B5E884B374E37E8AE6F8679940; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 18:39:42 GMT; Secure; HttpOnly",
+          "set-cookie": "zalb_f73898f234=59bbd1f9684018937e0c29ff89d52317; Path=/; Secure; HttpOnly, zomcscook=49bc7b3c-d3ce-42ff-b081-894e181f31be;path=/;SameSite=None;Secure;priority=high, JSESSIONID=E96C22880C060998A7E6F46914EF84E9; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 22:51:28 GMT; Secure; HttpOnly",
           "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
           "pragma": "no-cache",
           "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
           "x-rate-limit-limit": "7500",
-          "x-rate-limit-reset": "33917",
-          "x-rate-limit-remaining": "6326",
+          "x-rate-limit-reset": "18811",
+          "x-rate-limit-remaining": "6197",
           "content-disposition": "attachment;",
           "allow": "OPTIONS, DELETE, POST, GET, PUT",
-          "build_version": "Oct_09_2026_27467",
-          "client_build_version": "Oct_09_2026_27467",
+          "build_version": "Oct_09_2026_16978",
+          "client_build_version": "Oct_09_2026_16978",
           "server_build_version": "Oct_09_2026_14741/",
           "vary": "accept-encoding"
         },

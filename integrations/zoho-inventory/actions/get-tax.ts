@@ -20,7 +20,7 @@ const InputSchema = z
 const TaxSchema = z.object({
     tax_id: z.string().describe('Unique identifier of the tax.'),
     tax_name: z.string().optional().describe('Display name of the tax, e.g. "Sales Group".'),
-    tax_percentage: z.union([z.number(), z.string()]).optional().describe('Tax rate percentage, e.g. 10.5.'),
+    tax_percentage: z.number().optional().describe('Tax rate percentage, e.g. 10.5.'),
     tax_type: z.string().optional().describe('Type of the tax, e.g. "tax".'),
     tax_factor: z.string().optional().describe('Whether the tax is charged as a percentage rate or a fixed amount, e.g. "rate".'),
     tds_payable_account_id: z.string().optional().describe('ID of the TDS payable account associated with the tax.'),
@@ -52,10 +52,11 @@ const ProviderTaxSchema = z.object({
 });
 
 function mapTax(tax: z.infer<typeof ProviderTaxSchema>): z.infer<typeof TaxSchema> {
+    const taxPercentage = toPercentage(tax.tax_percentage);
     return {
         tax_id: tax.tax_id,
         ...(tax.tax_name != null && { tax_name: tax.tax_name }),
-        ...(tax.tax_percentage != null && { tax_percentage: tax.tax_percentage }),
+        ...(taxPercentage !== undefined && { tax_percentage: taxPercentage }),
         ...(tax.tax_type != null && { tax_type: tax.tax_type }),
         ...(tax.tax_factor != null && { tax_factor: tax.tax_factor }),
         ...(tax.tds_payable_account_id != null && { tds_payable_account_id: tax.tds_payable_account_id }),
@@ -190,6 +191,15 @@ const action = createAction({
         };
     }
 });
+
+// Zoho can send tax_percentage as a numeric string; normalize to a number and drop unparseable values.
+function toPercentage(value: number | string | null | undefined): number | undefined {
+    if (value == null || value === '') {
+        return undefined;
+    }
+    const percentage = typeof value === 'number' ? value : Number(value);
+    return Number.isFinite(percentage) ? percentage : undefined;
+}
 
 export type NangoActionLocal = Parameters<(typeof action)['exec']>[0];
 export default action;

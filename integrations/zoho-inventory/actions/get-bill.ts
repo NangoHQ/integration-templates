@@ -97,7 +97,9 @@ const ProviderEnvelopeSchema = z.object({
 });
 
 const BillResponseSchema = z.object({
-    bill: OutputSchema
+    bill: OutputSchema.extend({
+        purchaseorder_ids: z.array(z.union([z.string(), z.number()])).optional()
+    })
 });
 
 /**
@@ -147,7 +149,11 @@ const action = createAction({
             });
         }
 
-        return parsed.data.bill;
+        const { purchaseorder_ids, ...bill } = parsed.data.bill;
+        return {
+            ...bill,
+            ...(purchaseorder_ids !== undefined && { purchaseorder_ids: purchaseorder_ids.map((id) => String(id)) })
+        };
     }
 });
 

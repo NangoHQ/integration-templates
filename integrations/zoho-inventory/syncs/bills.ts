@@ -1,7 +1,8 @@
-import { createSync, type ProxyConfiguration } from 'nango';
+import { createSync } from 'nango';
 import { z } from 'zod';
 
 import { OrganizationMetadataSchema, resolveSyncOrganizationId } from '../helpers/organization.js';
+import { paginateByLastModifiedTime } from '../helpers/pagination.js';
 
 const ProviderBillSchema = z.object({
     bill_id: z.string(),
@@ -77,9 +78,13 @@ const BillSchema = z
 
 const CheckpointSchema = z
     .object({
-        page: z.number().int().positive().describe('Next page to request when resuming an interrupted full refresh.')
+        organization_id: z.string().describe('Organization the interrupted scan belongs to; a checkpoint for another organization is ignored.'),
+        last_modified_time: z
+            .string()
+            .describe('Inclusive last_modified_time cursor to resume the interrupted full refresh from; empty before the first full page.'),
+        page: z.number().int().positive().describe('Page within the records sharing the cursor timestamp.')
     })
-    .describe('Checkpoint storing the next bills page to request during a full refresh.');
+    .describe('Checkpoint storing the keyset position of an interrupted bills full refresh.');
 
 const sync = createSync({
     description: 'Sync all vendor bills in the organization.',
@@ -97,39 +102,23 @@ const sync = createSync({
         const organizationId = await resolveSyncOrganizationId(nango);
 
         const checkpoint = CheckpointSchema.nullable().parse(await nango.getCheckpoint());
-        // Offset pages shift left when records on already-synced pages are deleted between an
-        // interrupted run and its resume, so resume one page early: re-saving a page is harmless,
-        // while a skipped record would be wrongly removed by trackDeletesEnd.
-        let nextPage: number | undefined = checkpoint ? Math.max(1, checkpoint.page - 1) : 1;
+        // A checkpoint left by a scan of another organization (metadata changed mid-scan) does not apply.
+        const resume = checkpoint?.organization_id === organizationId ? checkpoint : null;
 
-        // Blocker: the list-bills endpoint has no last_modified_time/updated_after filter, so this
-        // remains a full refresh. The page/per_page pagination is checkpointed so interrupted runs
-        // resume from the next page instead of restarting from page 1, while deletion detection still
-        // spans the full successful scan and only closes after the checkpoint is cleared.
+        // Full refresh: deletions are only detectable by a complete scan. The scan uses a
+        // last_modified_time keyset cursor (see paginateByLastModifiedTime) rather than page offsets,
+        // so resuming an interrupted scan cannot skip records that trackDeletesEnd would then delete.
         await nango.trackDeletesStart('Bill');
 
-        const proxyConfig: ProxyConfiguration = {
+        const pages = paginateByLastModifiedTime(nango, {
             // https://www.zoho.com/inventory/api/v1/bills/
             endpoint: '/inventory/v1/bills',
-            params: {
-                organization_id: organizationId
-            },
-            paginate: {
-                type: 'offset',
-                offset_name_in_request: 'page',
-                offset_start_value: nextPage ?? 1,
-                offset_calculation_method: 'per-page',
-                limit_name_in_request: 'per_page',
-                limit: 200,
-                response_path: 'bills',
-                on_page: async ({ nextPageParam }) => {
-                    nextPage = typeof nextPageParam === 'number' ? nextPageParam : undefined;
-                }
-            },
-            retries: 3
-        };
+            responseKey: 'bills',
+            organizationId,
+            start: { cursor: resume?.last_modified_time || undefined, page: resume?.page ?? 1 }
+        });
 
-        for await (const billsPage of nango.paginate<unknown>(proxyConfig)) {
+        for await (const { records: billsPage, next, done } of pages) {
             const parsedBills = z.array(ProviderBillSchema).safeParse(billsPage);
             if (!parsedBills.success) {
                 throw new Error(`Failed to parse bills: ${parsedBills.error.message}`);
@@ -171,8 +160,8 @@ const sync = createSync({
                 await nango.batchSave(bills, 'Bill');
             }
 
-            if (nextPage !== undefined) {
-                await nango.saveCheckpoint({ page: nextPage });
+            if (!done) {
+                await nango.saveCheckpoint({ organization_id: organizationId, last_modified_time: next.cursor ?? '', page: next.page });
             }
         }
 
