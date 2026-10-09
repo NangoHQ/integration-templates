@@ -1,0 +1,924 @@
+{
+  "input": {},
+  "output": {
+    "modules": [
+      {
+        "id": "7618134000000002179",
+        "api_name": "Contacts",
+        "module_name": "Contacts",
+        "singular_label": "Contact",
+        "plural_label": "Contacts",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002177",
+        "api_name": "Accounts",
+        "module_name": "Accounts",
+        "singular_label": "Company",
+        "plural_label": "Companies",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002181",
+        "api_name": "Pipelines",
+        "module_name": "Pipelines",
+        "singular_label": "Pipeline",
+        "plural_label": "Pipelines",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002193",
+        "api_name": "Tasks",
+        "module_name": "Tasks",
+        "singular_label": "Task",
+        "plural_label": "Tasks",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002195",
+        "api_name": "Events",
+        "module_name": "Events",
+        "singular_label": "Event",
+        "plural_label": "Events",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000033015",
+        "api_name": "Calls",
+        "module_name": "Calls",
+        "singular_label": "Call",
+        "plural_label": "Calls",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002213",
+        "api_name": "Products",
+        "module_name": "Products",
+        "singular_label": "Product",
+        "plural_label": "Products",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000065001",
+        "api_name": "Social",
+        "module_name": "Social",
+        "singular_label": "Social",
+        "plural_label": "Social",
+        "api_supported": false,
+        "visible": true,
+        "viewable": true,
+        "creatable": false,
+        "editable": false,
+        "deletable": false,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000628012",
+        "api_name": "Associated_Products",
+        "module_name": "LinkingModule1",
+        "singular_label": "Associated Products",
+        "plural_label": "Associated Products",
+        "api_supported": true,
+        "visible": true,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002197",
+        "api_name": "Notes",
+        "module_name": "Notes",
+        "singular_label": "Note",
+        "plural_label": "Notes",
+        "api_supported": true,
+        "visible": false,
+        "viewable": true,
+        "creatable": true,
+        "editable": true,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      },
+      {
+        "id": "7618134000000002227",
+        "api_name": "Attachments",
+        "module_name": "Attachments",
+        "singular_label": "Attachment",
+        "plural_label": "Attachments",
+        "api_supported": true,
+        "visible": false,
+        "viewable": true,
+        "creatable": true,
+        "editable": false,
+        "deletable": true,
+        "profiles": [
+          {
+            "id": "7618134000000026011",
+            "name": "Administrator"
+          },
+          {
+            "id": "7618134000000026014",
+            "name": "Standard"
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/settings/modules": {
+        "response": {
+          "modules": [
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": true,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:33+03:00",
+              "plural_label": "Contacts",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Contacts",
+              "triggers_supported": true,
+              "id": "7618134000000002179",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Contact",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 3,
+              "singular_label": "Contact",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Contacts",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": true,
+              "webform_supported": true,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Contacts",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": true,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Companies",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Companies",
+              "triggers_supported": true,
+              "id": "7618134000000002177",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Company",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 4,
+              "singular_label": "Company",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Accounts",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": true,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Accounts",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:33+03:00",
+              "plural_label": "Pipelines",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Pipelines",
+              "triggers_supported": true,
+              "id": "7618134000000002181",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Pipeline",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 5,
+              "singular_label": "Pipeline",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Pipelines",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": true,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Pipelines",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Tasks",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Tasks",
+              "triggers_supported": true,
+              "id": "7618134000000002193",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Task",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 6,
+              "singular_label": "Task",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Tasks",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Tasks",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-09T15:05:50+03:00",
+              "plural_label": "Events",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Events",
+              "triggers_supported": true,
+              "id": "7618134000000002195",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Event",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 6,
+              "singular_label": "Event",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Events",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Events",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Calls",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Calls",
+              "triggers_supported": true,
+              "id": "7618134000000033015",
+              "isBlueprintSupported": false,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Call",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 6,
+              "singular_label": "Call",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Calls",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Calls",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Products",
+              "presence_sub_menu": true,
+              "actual_plural_label": "Products",
+              "triggers_supported": true,
+              "id": "7618134000000002213",
+              "isBlueprintSupported": true,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Product",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": true,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 9,
+              "singular_label": "Product",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Products",
+              "quick_create": true,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": true,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Products",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": false,
+              "deletable": false,
+              "description": null,
+              "creatable": false,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": null,
+              "plural_label": "Social",
+              "presence_sub_menu": false,
+              "actual_plural_label": "Social",
+              "triggers_supported": false,
+              "id": "7618134000000065001",
+              "isBlueprintSupported": false,
+              "visible": true,
+              "visibility": 1,
+              "convertable": false,
+              "editable": false,
+              "emailTemplate_support": false,
+              "actual_singular_label": "Social",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                }
+              ],
+              "filter_supported": false,
+              "show_as_tab": true,
+              "web_link": null,
+              "sequence_number": 24,
+              "singular_label": "Social",
+              "viewable": true,
+              "api_supported": false,
+              "api_name": "Social",
+              "quick_create": false,
+              "modified_by": null,
+              "generated_type": "default",
+              "feeds_required": false,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Social",
+              "profile_count": 1,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Associated Products",
+              "presence_sub_menu": false,
+              "actual_plural_label": "Associated Products",
+              "triggers_supported": false,
+              "id": "7618134000000628012",
+              "isBlueprintSupported": false,
+              "visible": true,
+              "visibility": 2,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": true,
+              "actual_singular_label": "Associated Products",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": false,
+              "show_as_tab": false,
+              "web_link": null,
+              "sequence_number": 25,
+              "singular_label": "Associated Products",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Associated_Products",
+              "quick_create": false,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "subform",
+              "feeds_required": false,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "LinkingModule1",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {
+                "api_name": "Pipelines",
+                "id": "7618134000000002181"
+              }
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": true,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Notes",
+              "presence_sub_menu": false,
+              "actual_plural_label": "Notes",
+              "triggers_supported": false,
+              "id": "7618134000000002197",
+              "isBlueprintSupported": false,
+              "visible": false,
+              "visibility": 1,
+              "convertable": false,
+              "editable": true,
+              "emailTemplate_support": false,
+              "actual_singular_label": "Note",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": false,
+              "show_as_tab": false,
+              "web_link": null,
+              "sequence_number": 29,
+              "singular_label": "Note",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Notes",
+              "quick_create": false,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": false,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Notes",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            },
+            {
+              "has_more_profiles": false,
+              "access_type": "org_based",
+              "private_profile": null,
+              "global_search_supported": false,
+              "deletable": true,
+              "description": null,
+              "creatable": true,
+              "email_parser_supported": false,
+              "inventory_template_supported": false,
+              "modified_time": "2026-10-07T03:22:32+03:00",
+              "plural_label": "Attachments",
+              "presence_sub_menu": false,
+              "actual_plural_label": "Attachments",
+              "triggers_supported": false,
+              "id": "7618134000000002227",
+              "isBlueprintSupported": false,
+              "visible": false,
+              "visibility": 1,
+              "convertable": false,
+              "editable": false,
+              "emailTemplate_support": false,
+              "actual_singular_label": "Attachment",
+              "profiles": [
+                {
+                  "name": "Administrator",
+                  "id": "7618134000000026011"
+                },
+                {
+                  "name": "Standard",
+                  "id": "7618134000000026014"
+                }
+              ],
+              "filter_supported": false,
+              "show_as_tab": false,
+              "web_link": null,
+              "sequence_number": 33,
+              "singular_label": "Attachment",
+              "viewable": true,
+              "api_supported": true,
+              "api_name": "Attachments",
+              "quick_create": false,
+              "modified_by": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001"
+              },
+              "generated_type": "default",
+              "feeds_required": false,
+              "scoring_supported": false,
+              "webform_supported": false,
+              "public_fields_configured": false,
+              "arguments": [],
+              "module_name": "Attachments",
+              "profile_count": 2,
+              "business_card_field_limit": 5,
+              "parent_module": {}
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:11:46 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1859",
+          "x-ratelimit-reset": "1791573115",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "sec-fetch-dest,sec-fetch-mode,sec-fetch-site,sec-fetch-user,accept-encoding",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=16, totalTime;desc=\"Total Execution Time\";dur=23,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "da6704bdf4caabb99fbfcd59fe5c5cc53d9b120f",
+        "request": {}
+      }
+    }
+  }
+}
