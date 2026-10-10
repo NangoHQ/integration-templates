@@ -1,0 +1,361 @@
+{
+  "input": {
+    "contact_id": "7618134000000632028"
+  },
+  "output": {
+    "found": true,
+    "contact": {
+      "id": "7618134000000632028",
+      "First_Name": "Ted",
+      "Last_Name": "Watson",
+      "Full_Name": "Ted Watson",
+      "Email": "support@bigin.com",
+      "Title": null,
+      "Phone": null,
+      "Home_Phone": null,
+      "Mobile": "609-884-0686",
+      "Account_Name": {
+        "id": "7618134000000632027",
+        "name": "Zylker Corp"
+      },
+      "Mailing_Street": "8 W Cerritos Ave #54",
+      "Mailing_City": "Bridgeport",
+      "Mailing_State": "New Jersey",
+      "Mailing_Zip": null,
+      "Mailing_Country": null,
+      "Description": "This is a sample Contact.\n ✷ Quickly get started by creating a note ✍️or an activity ⏰ for this Contact.\n ✷ For any help write to us at support@bigin.com",
+      "Email_Opt_Out": false,
+      "Owner": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Created_By": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Modified_By": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Created_Time": "2026-10-07T03:21:34+03:00",
+      "Modified_Time": "2026-10-07T03:21:34+03:00",
+      "Last_Activity_Time": "2026-10-09T22:13:04+03:00"
+    },
+    "account": {
+      "id": "7618134000000632027",
+      "Account_Name": "Zylker Corp",
+      "Phone": "609-281-3662",
+      "Website": "https://help.zoho.com/portal/community/bigin",
+      "Billing_Street": "8 W Cerritos Ave #54",
+      "Billing_City": "Bridgeport",
+      "Billing_State": "New Jersey",
+      "Billing_Code": null,
+      "Billing_Country": null,
+      "Description": null,
+      "Owner": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Created_By": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Modified_By": {
+        "id": "7618134000000627001",
+        "name": "Nango Developer",
+        "email": "api@nango.dev"
+      },
+      "Created_Time": "2026-10-07T03:21:34+03:00",
+      "Modified_Time": "2026-10-09T22:11:19+03:00",
+      "Last_Activity_Time": "2026-10-09T22:13:04+03:00"
+    },
+    "products": [
+      {
+        "id": "7618134000000647026",
+        "Product_Name": "Nango Unlink Test Product",
+        "Product_Code": null,
+        "Product_Active": true,
+        "Product_Category": null,
+        "Unit_Price": null,
+        "Description": null,
+        "Owner": {
+          "id": "7618134000000627001",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "Created_Time": "2026-10-09T22:07:55+03:00",
+        "Modified_Time": "2026-10-09T22:07:55+03:00"
+      },
+      {
+        "id": "7618134000000647020",
+        "Product_Name": "Nango Test Product",
+        "Product_Code": "NTP-001",
+        "Product_Active": true,
+        "Product_Category": null,
+        "Unit_Price": 42.5,
+        "Description": "Temporary product for get-contact-360 testing",
+        "Owner": {
+          "id": "7618134000000627001",
+          "name": "Nango Developer",
+          "email": "api@nango.dev"
+        },
+        "Created_Time": "2026-10-09T22:07:44+03:00",
+        "Modified_Time": "2026-10-09T22:09:24+03:00"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/bigin/v2/Contacts/7618134000000632028": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-07T03:21:34+03:00",
+              "Email": "support@bigin.com",
+              "Description": "This is a sample Contact.\n ✷ Quickly get started by creating a note ✍️or an activity ⏰ for this Contact.\n ✷ For any help write to us at support@bigin.com",
+              "Mailing_City": "Bridgeport",
+              "Mailing_Zip": null,
+              "Created_Time": "2026-10-07T03:21:34+03:00",
+              "Mailing_State": "New Jersey",
+              "Title": null,
+              "Mailing_Street": "8 W Cerritos Ave #54",
+              "Mobile": "609-884-0686",
+              "Last_Activity_Time": "2026-10-09T22:13:04+03:00",
+              "First_Name": "Ted",
+              "Home_Phone": null,
+              "Full_Name": "Ted Watson",
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Last_Name": "Watson",
+              "Phone": null,
+              "Mailing_Country": null,
+              "Account_Name": {
+                "name": "Zylker Corp",
+                "id": "7618134000000632027"
+              },
+              "id": "7618134000000632028",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Email_Opt_Out": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:13:20 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1963",
+          "x-ratelimit-reset": "1791573238",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=2f172f3e3c92d6f5eda9924b42663d6f; Path=/; Secure; HttpOnly, crmcsr=4e1c89cf-64c5-404b-a567-d654e8db08ae;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =fd19fe9e14d367168c98ecd29c728e55eb7a2c9c197366ea15f2fed95a7a546249aa92c32010914ce7e9cf18afb7c2d9;Path=/; Expires=Sat Oct 10 12:13:19 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:13:19 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=29, totalTime;desc=\"Total Execution Time\";dur=38,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "634fd9ee205f7d58a45821d7f16b87fd6dd101aa",
+        "request": {
+          "params": {
+            "fields": "Owner,First_Name,Last_Name,Full_Name,Email,Title,Phone,Home_Phone,Mobile,Account_Name,Mailing_Street,Mailing_City,Mailing_State,Mailing_Zip,Mailing_Country,Description,Email_Opt_Out,Created_By,Modified_By,Created_Time,Modified_Time,Last_Activity_Time"
+          }
+        }
+      },
+      "/bigin/v2/Accounts/7618134000000632027": {
+        "response": {
+          "data": [
+            {
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:11:19+03:00",
+              "Description": null,
+              "Billing_Street": "8 W Cerritos Ave #54",
+              "Created_Time": "2026-10-07T03:21:34+03:00",
+              "Website": "https://help.zoho.com/portal/community/bigin",
+              "Billing_Code": null,
+              "Last_Activity_Time": "2026-10-09T22:13:04+03:00",
+              "Modified_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Billing_City": "Bridgeport",
+              "Phone": "609-281-3662",
+              "Billing_Country": null,
+              "Billing_State": "New Jersey",
+              "Account_Name": "Zylker Corp",
+              "id": "7618134000000632027",
+              "Created_By": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:13:20 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "712",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1962",
+          "x-ratelimit-reset": "1791573238",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=893e041e3e8f85d530c4aee0de46289d; Path=/; Secure; HttpOnly, crmcsr=8f313262-733e-485a-b0e7-add5edf79243;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =1be4ed0ea4d8331a6bc55186951ae80845b1d1cdd16d1f361d4e4d1f1f0dba3c40a112c03599ef0354198cd4ab895394;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=25, totalTime;desc=\"Total Execution Time\";dur=32,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "22c4ca8764be6dda1995467c9cd2cb6bb4eaf533",
+        "request": {
+          "params": {
+            "fields": "Owner,Account_Name,Phone,Website,Billing_Street,Billing_City,Billing_State,Billing_Code,Billing_Country,Description,Created_By,Modified_By,Created_Time,Modified_Time,Last_Activity_Time"
+          }
+        }
+      },
+      "/bigin/v2/Contacts/7618134000000632028/Products": {
+        "response": {
+          "data": [
+            {
+              "Product_Category": null,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:07:55+03:00",
+              "Product_Code": null,
+              "Description": null,
+              "Created_Time": "2026-10-09T22:07:55+03:00",
+              "Product_Name": "Nango Unlink Test Product",
+              "id": "7618134000000647026",
+              "Product_Active": true,
+              "Unit_Price": null
+            },
+            {
+              "Product_Category": null,
+              "Owner": {
+                "name": "Nango Developer",
+                "id": "7618134000000627001",
+                "email": "api@nango.dev"
+              },
+              "Modified_Time": "2026-10-09T22:09:24+03:00",
+              "Product_Code": "NTP-001",
+              "Description": "Temporary product for get-contact-360 testing",
+              "Created_Time": "2026-10-09T22:07:44+03:00",
+              "Product_Name": "Nango Test Product",
+              "id": "7618134000000647020",
+              "Product_Active": true,
+              "Unit_Price": 42.5
+            }
+          ],
+          "info": {
+            "per_page": 200,
+            "next_page_token": null,
+            "count": 2,
+            "page": 1,
+            "previous_page_token": null,
+            "page_token_expiry": null,
+            "more_records": false
+          }
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 19:13:20 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "content-length": "886",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1960",
+          "x-ratelimit-reset": "1791573238",
+          "server": "ZGS",
+          "set-cookie": "zalb_3d223cf300=2f172f3e3c92d6f5eda9924b42663d6f; Path=/; Secure; HttpOnly, crmcsr=75363428-5492-408a-94b6-201b9e2280f4;path=/;SameSite=None;Secure;priority=high, BIGINCROSSCDNID =150cdb4cdb6cb01e52ab8b4711a95c6d99d7e556fe8b178ff5769217147c77e571909fc3e0be1b3f51fcee8dd0c214b3;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026, BIGINCROSSCDNCOUNTRY =US;Path=/; Expires=Sat Oct 10 12:13:20 PDT 2026",
+          "cache-control": "no-store, no-cache, must-revalidate, private",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-accesstoken-reset": "2026-10-09T22:33:35+03:00",
+          "clientversion": "14729686",
+          "clientsubversion": "1d7b626d4325dc2fb9fba2b9d0e404b4",
+          "vary": "Sec-Fetch-Dest,Sec-Fetch-Mode,Sec-Fetch-Site,Sec-Fetch-User",
+          "content-disposition": "attachment; filename=response.json",
+          "server-timing": "cpuTime;desc=\"CPU Time\";dur=31, totalTime;desc=\"Total Execution Time\";dur=61,murphySpanId;desc=\"\";dur=0",
+          "content-language": "en-US"
+        },
+        "hash": "56a8a16037152372ed0694345ad5de27c25302f5",
+        "request": {
+          "params": {
+            "fields": "Owner,Product_Name,Product_Code,Product_Active,Product_Category,Unit_Price,Description,Created_Time,Modified_Time",
+            "per_page": "200"
+          }
+        }
+      }
+    }
+  }
+}

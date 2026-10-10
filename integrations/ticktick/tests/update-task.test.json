@@ -1,0 +1,139 @@
+{
+  "input": {
+    "id": "6ac94f5b8f0879728388da44",
+    "projectId": "6ac94f5b8f089f376a258563",
+    "title": "Nango UpdateTask Dryrun",
+    "content": "updated via action",
+    "priority": 5,
+    "tags": [
+      "nango",
+      "dryrun"
+    ],
+    "dueDate": "2026-10-20T09:00:00+0000",
+    "timeZone": "Africa/Nairobi"
+  },
+  "output": {
+    "id": "6ac94f5b8f0879728388da44",
+    "projectId": "6ac94f5b8f089f376a258563",
+    "title": "Nango UpdateTask Dryrun",
+    "content": "updated via action",
+    "desc": "final desc",
+    "isAllDay": false,
+    "startDate": "2026-10-20T09:00:00.000+0000",
+    "dueDate": "2026-10-20T09:00:00.000+0000",
+    "timeZone": "Africa/Nairobi",
+    "reminders": [
+      "TRIGGER:PT0S"
+    ],
+    "tags": [
+      "dryrun",
+      "nango"
+    ],
+    "repeatFlag": "",
+    "priority": 5,
+    "status": 0,
+    "sortOrder": -1099511627776,
+    "items": [
+      {
+        "id": "6ac94fe58f089f376a259242",
+        "title": "Subtask A",
+        "status": 0,
+        "isAllDay": false,
+        "sortOrder": 0,
+        "timeZone": "Africa/Nairobi"
+      }
+    ],
+    "kind": "CHECKLIST",
+    "etag": "ncw40e5m",
+    "etimestamp": 1791578152381,
+    "createdTime": "2026-10-09T20:32:27.356+0000",
+    "modifiedTime": "2026-10-09T20:32:27.356+0000",
+    "isFloating": false
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/task/6ac94f5b8f0879728388da44": {
+        "response": {
+          "id": "6ac94f5b8f0879728388da44",
+          "projectId": "6ac94f5b8f089f376a258563",
+          "sortOrder": -1099511627776,
+          "title": "Nango UpdateTask Dryrun",
+          "content": "updated via action",
+          "desc": "final desc",
+          "startDate": "2026-10-20T09:00:00.000+0000",
+          "dueDate": "2026-10-20T09:00:00.000+0000",
+          "timeZone": "Africa/Nairobi",
+          "isAllDay": false,
+          "priority": 5,
+          "isFloating": false,
+          "reminders": [
+            "TRIGGER:PT0S"
+          ],
+          "repeatFlag": "",
+          "status": 0,
+          "items": [
+            {
+              "id": "6ac94fe58f089f376a259242",
+              "status": 0,
+              "title": "Subtask A",
+              "sortOrder": 0,
+              "isAllDay": false,
+              "timeZone": "Africa/Nairobi"
+            }
+          ],
+          "tags": [
+            "dryrun",
+            "nango"
+          ],
+          "etag": "ncw40e5m",
+          "etimestamp": 1791578152381,
+          "kind": "CHECKLIST",
+          "modifiedTime": "2026-10-09T20:32:27.356+0000",
+          "createdTime": "2026-10-09T20:32:27.356+0000"
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:36:01 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1936",
+          "x-ratelimit-reset": "1791578174",
+          "set-cookie": "<redacted>",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "faf3e5c566d4c01dde72641e8b22a020cfa0393f",
+        "request": {
+          "data": {
+            "id": "6ac94f5b8f0879728388da44",
+            "projectId": "6ac94f5b8f089f376a258563",
+            "title": "Nango UpdateTask Dryrun",
+            "content": "updated via action",
+            "dueDate": "2026-10-20T09:00:00+0000",
+            "timeZone": "Africa/Nairobi",
+            "tags": [
+              "nango",
+              "dryrun"
+            ],
+            "priority": 5
+          }
+        }
+      }
+    }
+  }
+}

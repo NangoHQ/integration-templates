@@ -1,0 +1,70 @@
+{
+  "input": {
+    "fromProjectId": "6ac94f5f8f089f376a2585c2",
+    "toProjectId": "6ac94f5f8f084dbfaa69ead8",
+    "taskIds": [
+      "6ac94f658f0879728388db64"
+    ]
+  },
+  "output": {
+    "movedTasks": [
+      {
+        "id": "6ac94f658f0879728388db64",
+        "etag": "d2lw314p",
+        "modifiedTime": "2026-10-09T20:37:24.587+0000"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/task/move": {
+        "response": [
+          {
+            "id": "6ac94f658f0879728388db64",
+            "isAllDay": false,
+            "isFloating": false,
+            "etag": "d2lw314p",
+            "etimestamp": 1791578244587,
+            "modifiedTime": "2026-10-09T20:37:24.587+0000"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:37:24 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1791578295",
+          "set-cookie": "AWSALB=zrqgjXg4u6PtAE5P0AO9/b7ifzTYtFkCjwW+sp6ZouGnZOElWzOpuzfcSIclA7Q1T/poXkXPIzG4l/jLlruprtAE2eVfoATIWXSo+xlSy+A8UqW2496MvvUQpSws; Expires=Fri, 16 Oct 2026 20:37:24 GMT; Path=/, AWSALBCORS=zrqgjXg4u6PtAE5P0AO9/b7ifzTYtFkCjwW+sp6ZouGnZOElWzOpuzfcSIclA7Q1T/poXkXPIzG4l/jLlruprtAE2eVfoATIWXSo+xlSy+A8UqW2496MvvUQpSws; Expires=Fri, 16 Oct 2026 20:37:24 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "f2eb70a192b198fce74256989a6bf9a083e233db",
+        "request": {
+          "data": [
+            {
+              "fromProjectId": "6ac94f5f8f089f376a2585c2",
+              "toProjectId": "6ac94f5f8f084dbfaa69ead8",
+              "taskId": "6ac94f658f0879728388db64"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

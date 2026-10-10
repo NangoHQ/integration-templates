@@ -1,0 +1,61 @@
+{
+  "input": {
+    "creditnote_id": "260815000000162122",
+    "organization_id": "927270289"
+  },
+  "output": {
+    "success": true,
+    "message": "The credit note has been deleted."
+  },
+  "nango": {},
+  "api": {
+    "delete": {
+      "/inventory/v1/creditnotes/260815000000162122": {
+        "response": {
+          "code": 0,
+          "message": "The credit note has been deleted."
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:25:08 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1940",
+          "x-ratelimit-reset": "1791570347",
+          "server": "ZGS",
+          "set-cookie": "<redacted>",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "7500",
+          "x-rate-limit-reset": "34491",
+          "x-rate-limit-remaining": "7080",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, DELETE",
+          "build_version": "Oct_09_2026_27467",
+          "client_build_version": "Oct_09_2026_27467",
+          "server_build_version": "Oct_09_2026_14741/",
+          "vary": "accept-encoding"
+        },
+        "hash": "49c7aca1cd25f916b8845342947027a8a47a5967",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
+      }
+    }
+  }
+}
