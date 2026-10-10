@@ -52,7 +52,8 @@ const CustomFieldSchema = z.object({
         .string()
         .optional()
         .describe('Space this field is scoped to; omitted for account-wide fields. A space-scoped field can only be set on tasks/folders inside that space.'),
-    sharedIds: z.array(z.string()).optional().describe('User IDs the field is shared with (obsolete; prefer the provider sharing settings).'),
+    sharedIds: z.array(z.string()).optional().describe('User IDs the field is shared with (obsolete; prefer sharing).'),
+    sharing: z.record(z.string(), z.unknown()).optional().describe('Access settings controlling who can read or write the field.'),
     description: z.string().optional().describe('Field description; may be an empty string.'),
     archived: z.boolean().optional().describe('Whether the field is archived.'),
     archivedOn: z.string().optional().describe('ISO timestamp when the field was archived.'),
@@ -97,6 +98,7 @@ const ProviderCustomFieldSchema = z.object({
     type: z.string(),
     spaceId: z.string().nullish(),
     sharedIds: z.array(z.string()).nullish(),
+    sharing: z.record(z.string(), z.unknown()).nullish(),
     description: z.string().nullish(),
     archived: z.boolean().nullish(),
     archivedOn: z.string().nullish(),
@@ -167,6 +169,7 @@ const action = createAction({
                 type: field.type,
                 ...(field.spaceId != null && { spaceId: field.spaceId }),
                 ...(field.sharedIds != null && { sharedIds: field.sharedIds }),
+                ...(field.sharing != null && { sharing: field.sharing }),
                 ...(field.description != null && { description: field.description }),
                 ...(field.archived != null && { archived: field.archived }),
                 ...(field.archivedOn != null && { archivedOn: field.archivedOn }),

@@ -46,6 +46,10 @@ const FoldersResponseSchema = z.object({
     data: z.array(ProviderFolderSchema)
 });
 
+const DeletedFolderSchema = z.object({
+    id: z.string()
+});
+
 const CheckpointSchema = z.object({
     updated_after: z.string().describe('Start of the next incremental updatedDate window; EPOCH on the initial full scan.'),
     window_started_at: z.string().describe('Timestamp when the current scan window began; becomes the next updated_after once the scan completes.'),
@@ -53,7 +57,7 @@ const CheckpointSchema = z.object({
 });
 
 const sync = createSync({
-    description: 'Sync every active folder and project (a Project is a Folder with a project sub-object) in the Wrike account.',
+    description: 'Sync every active folder and project (a Project is a Folder with a project sub-object) in the Wrike account, and remove folders moved to the Recycle Bin.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -106,9 +110,12 @@ const sync = createSync({
                 isProject: folder.project != null
             }));
 
-            if (folders.length > 0) {
-                await nango.batchSave(folders, 'Folder');
+            if (folders.length === 0) {
+                // Wrike returns a nextPageToken with an empty page (e.g. no changes since the last run) and rejects it if sent back.
+                break;
             }
+
+            await nango.batchSave(folders, 'Folder');
 
             const token = parsed.data.nextPageToken;
             if (token === undefined || token === '') {
@@ -122,6 +129,34 @@ const sync = createSync({
                 window_started_at: windowStartedAt,
                 next_page_token: token
             });
+        }
+
+        // Trashing a folder (directly or by cascade) bumps its updatedDate and moves it out of the
+        // deleted=false listing, so remove folders that entered the Recycle Bin during this window.
+        // The initial scan has nothing saved yet to remove.
+        if (filterStart !== EPOCH) {
+            // https://developers.wrike.com/reference/getfoldersempty
+            for await (const page of nango.paginate<unknown>({
+                endpoint: '/folders',
+                params: {
+                    deleted: 'true',
+                    updatedDate: JSON.stringify({ start: filterStart })
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'nextPageToken',
+                    cursor_path_in_response: 'nextPageToken',
+                    response_path: 'data',
+                    limit_name_in_request: 'pageSize',
+                    limit: PAGE_SIZE
+                },
+                retries: 3
+            })) {
+                const deleted = page.map((record) => ({ id: DeletedFolderSchema.parse(record).id }));
+                if (deleted.length > 0) {
+                    await nango.batchDelete(deleted, 'Folder');
+                }
+            }
         }
 
         // The scan finished: advance the incremental filter to this run's window start and

@@ -13,7 +13,7 @@ const ProjectInputSchema = z.object({
     endDate: z.string().optional().describe('Project end date, format yyyy-MM-dd.'),
     status: ProjectStatusEnum.optional().describe('Project status.'),
     customStatusId: z.string().optional().describe('Project custom status ID, used when status is "Custom".'),
-    budget: z.number().optional().describe('Project budget.'),
+    budget: z.number().int().optional().describe('Project budget as a whole number. Decimal values are rejected by the API.'),
     contractType: BillingTypeEnum.optional().describe('Project contract type.')
 });
 
@@ -33,12 +33,12 @@ const TaskCustomFieldInputSchema = z.object({
 const InputSchema = z
     .object({
         parentFolderId: z.string().describe('ID of the parent folder or space to search for the folder/project and create it in.'),
-        folderName: z.string().describe('Exact, case-sensitive title of the folder/project to reuse or create.'),
+        folderName: z.string().min(1).describe('Exact, case-sensitive title of the folder/project to reuse or create.'),
         folderDescription: z.string().optional().describe('Description to set on the folder/project when it is newly created.'),
         project: ProjectInputSchema.optional().describe(
             'When provided, a newly created folder becomes a Project with these settings. Ignored when an existing folder is reused.'
         ),
-        taskTitle: z.string().describe('Title of the task to create.'),
+        taskTitle: z.string().min(1).describe('Title of the task to create.'),
         taskDescription: z.string().optional().describe('Description of the task.'),
         taskStatus: TaskStatusEnum.optional().describe('Status of the task.'),
         taskImportance: TaskImportanceEnum.optional().describe('Importance of the task.'),

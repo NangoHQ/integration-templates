@@ -19,7 +19,8 @@ const CustomFieldSettingsSchema = z.object({
     currency: z.string().optional().describe('Currency code such as "USD" or "EUR"; only present for Currency fields'),
     aggregation: z.string().optional().describe('How values roll up: "Average", "Sum", or "None"'),
     allowTime: z.boolean().optional().describe('Whether users may enter a time component; only present for Date fields'),
-    timezone: z.string().optional().describe('Timezone id such as "America/New_York"; only present for Date fields')
+    timezone: z.string().optional().describe('Timezone id such as "America/New_York"; only present for Date fields'),
+    contacts: z.array(z.string()).optional().describe('Allowed user or invitation IDs; only present for Contacts fields')
 });
 
 const CustomFieldSchema = z.object({

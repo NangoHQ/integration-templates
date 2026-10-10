@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         taskId: z.string().describe('ID of the task to comment on. Example: "MAAAAAEQ_HoO".'),
-        text: z.string().describe('Comment text; must not be empty. Example: "Looks good, shipping this.".')
+        text: z.string().min(1).describe('Comment text; must not be empty. Example: "Looks good, shipping this.".')
     })
     .describe('Input for posting a new comment on a Wrike task.');
 

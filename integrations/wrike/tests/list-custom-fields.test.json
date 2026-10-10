@@ -9,6 +9,7 @@
         "type": "DropDown",
         "spaceId": "MQAAAAEQ_HoD",
         "sharedIds": [],
+        "sharing": {},
         "description": "",
         "archived": false,
         "settings": {
@@ -47,6 +48,7 @@
         "type": "Currency",
         "spaceId": "MQAAAAEQ_HoD",
         "sharedIds": [],
+        "sharing": {},
         "description": "",
         "archived": false,
         "settings": {
@@ -67,6 +69,7 @@
         "title": "Booked effort",
         "type": "Numeric",
         "sharedIds": [],
+        "sharing": {},
         "description": "",
         "archived": false,
         "settings": {
@@ -174,7 +177,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:29:53 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:21 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -189,16 +192,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1899",
-          "x-ratelimit-reset": "1791588615",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1864f080665",
+          "wrike-response-id": "625c41caebd9d8e",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac978f1000000003b64685d88633cac",
+          "traceid": "6ac98e2500000000690767fa4725b124",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a4812b872f314afe-PDX"
+          "cf-ray": "a481b00a8a1ff896-PDX"
         },
         "hash": "5615cca481bb842dae6e965353b1fdc3422bfdfd",
         "request": {}

@@ -106,6 +106,13 @@ const FolderSchema = z
     })
     .describe('The parent folder or project record returned by the Wrike API.');
 
+const ExternalRequesterSchema = z.object({
+    id: z.string().describe('Wrike ID of the external requester.'),
+    email: z.string().describe('Email address of the external requester.'),
+    firstName: z.string().describe('First name of the external requester.'),
+    lastName: z.string().optional().describe('Last name of the external requester, when provided.')
+});
+
 const CommentSchema = z
     .object({
         id: z.string().describe('Unique comment ID.'),
@@ -117,7 +124,9 @@ const CommentSchema = z
         folderId: z.string().optional().describe('ID of the related folder, when the comment is on a folder.'),
         type: z.string().optional().describe('Comment type, either "Regular" or "Email".'),
         emailSubject: z.string().optional().describe('Subject line for email comments.'),
-        direction: z.string().optional().describe('Direction ("Outgoing" or "Incoming") for email comments.')
+        direction: z.string().optional().describe('Direction ("Outgoing" or "Incoming") for email comments.'),
+        attachmentIds: z.array(z.string()).optional().describe('IDs of files attached to the comment.'),
+        externalRequester: ExternalRequesterSchema.optional().describe('Details of the commenter outside the account; present only for email comments from external requesters.')
     })
     .describe('A comment posted on the task.');
 
@@ -208,6 +217,8 @@ const action = createAction({
         // https://developers.wrike.com/api/v4/comments/ (Get Task Comments)
         const commentsResponse = await nango.get({
             endpoint: `/tasks/${taskId}/comments`,
+            // Wrike omits the comment type unless it is requested through fields.
+            params: { fields: JSON.stringify(['type']) },
             retries: 3
         });
         const comments = CommentEnvelopeSchema.parse(commentsResponse.data).data;
@@ -215,6 +226,8 @@ const action = createAction({
         // https://developers.wrike.com/api/v4/timelogs/ (Get Task Timelogs)
         const timelogsResponse = await nango.get({
             endpoint: `/tasks/${taskId}/timelogs`,
+            // Wrike omits these status fields unless they are requested through fields.
+            params: { fields: JSON.stringify(['billingType', 'approvalStatus', 'lockStatus', 'exportStatus']) },
             retries: 3
         });
         const timelogs = TimelogEnvelopeSchema.parse(timelogsResponse.data).data;

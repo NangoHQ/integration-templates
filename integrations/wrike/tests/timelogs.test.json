@@ -1,26 +1,49 @@
 {
+  "input": {},
   "nango": {
     "batchSave": {
       "Timelog": [
         {
-          "id": "IEAG5DAKJQAC56AS",
+          "id": "IEAG5DAKJQAC56AU",
           "taskId": "MAAAAAEQ_HoO",
           "userId": "KUAZR5CO",
           "hours": 1.5,
-          "createdDate": "2026-10-09T23:31:34Z",
-          "updatedDate": "2026-10-09T23:31:34Z",
-          "trackedDate": "2026-10-07",
-          "comment": "sync seed one"
+          "createdDate": "2026-10-09T23:32:28Z",
+          "updatedDate": "2026-10-09T23:32:28Z",
+          "trackedDate": "2026-10-08",
+          "comment": "list-timelogs mock seed",
+          "approvalStatus": "NotSubmitted",
+          "lockStatus": "Unlocked",
+          "exportStatus": "NotExported",
+          "billingType": "NonBillable"
         },
         {
-          "id": "IEAG5DAKJQAC56AT",
+          "id": "IEAG5DAKJQAC56AV",
+          "taskId": "MAAAAAEQ_HoO",
+          "userId": "KUAZR5CO",
+          "hours": 1,
+          "createdDate": "2026-10-09T23:32:33Z",
+          "updatedDate": "2026-10-09T23:32:33Z",
+          "trackedDate": "2026-10-01",
+          "comment": "list-timelogs mock seed 1",
+          "approvalStatus": "NotSubmitted",
+          "lockStatus": "Unlocked",
+          "exportStatus": "NotExported",
+          "billingType": "NonBillable"
+        },
+        {
+          "id": "IEAG5DAKJQAC56AW",
           "taskId": "MAAAAAEQ_HoO",
           "userId": "KUAZR5CO",
           "hours": 2,
-          "createdDate": "2026-10-09T23:31:34Z",
-          "updatedDate": "2026-10-09T23:31:34Z",
-          "trackedDate": "2026-10-08",
-          "comment": "sync seed two"
+          "createdDate": "2026-10-09T23:32:33Z",
+          "updatedDate": "2026-10-09T23:32:33Z",
+          "trackedDate": "2026-10-02",
+          "comment": "list-timelogs mock seed 2",
+          "approvalStatus": "NotSubmitted",
+          "lockStatus": "Unlocked",
+          "exportStatus": "NotExported",
+          "billingType": "NonBillable"
         }
       ]
     },
@@ -35,30 +58,52 @@
           "kind": "timelogs",
           "data": [
             {
-              "id": "IEAG5DAKJQAC56AS",
+              "id": "IEAG5DAKJQAC56AU",
               "taskId": "MAAAAAEQ_HoO",
               "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
               "hours": 1.5,
-              "createdDate": "2026-10-09T23:31:34Z",
-              "updatedDate": "2026-10-09T23:31:34Z",
-              "trackedDate": "2026-10-07",
-              "comment": "sync seed one"
+              "createdDate": "2026-10-09T23:32:28Z",
+              "updatedDate": "2026-10-09T23:32:28Z",
+              "trackedDate": "2026-10-08",
+              "comment": "list-timelogs mock seed"
             },
             {
-              "id": "IEAG5DAKJQAC56AT",
+              "id": "IEAG5DAKJQAC56AV",
               "taskId": "MAAAAAEQ_HoO",
               "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
+              "hours": 1,
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-01",
+              "comment": "list-timelogs mock seed 1"
+            },
+            {
+              "id": "IEAG5DAKJQAC56AW",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
               "hours": 2,
-              "createdDate": "2026-10-09T23:31:34Z",
-              "updatedDate": "2026-10-09T23:31:34Z",
-              "trackedDate": "2026-10-08",
-              "comment": "sync seed two"
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-02",
+              "comment": "list-timelogs mock seed 2"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:31:40 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:47 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -73,20 +118,21 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1983",
-          "x-ratelimit-reset": "1791588737",
+          "x-ratelimit-remaining": "1976",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1932f14164e",
+          "wrike-response-id": "625c41ff425346a",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac9795c0000000075d767a057022560",
+          "traceid": "6ac98e3e0000000040d1732c242a9b59",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a4812e219dc61687-PDX"
+          "cf-ray": "a481b0a9ce54ad76-PDX"
         },
-        "hash": "309aeb802b7ab2a8b4853c870449af8e63373b71",
+        "hash": "b1fe21c4d0a48b4e807a522a72a6f34a9e38bced",
         "request": {
           "params": {
+            "fields": "[\"approvalStatus\",\"lockStatus\",\"exportStatus\",\"billingType\"]",
             "pageSize": "1000"
           }
         }

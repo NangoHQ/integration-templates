@@ -13,7 +13,7 @@ const TimelogSchema = z.object({
     categoryId: z.string().optional().describe('ID of the timelog category, when one is assigned.'),
     billingType: z.enum(['Billable', 'NonBillable']).optional().describe('Billing type. Only present when requested via fields.'),
     approvalStatus: z
-        .enum(['NotSubmitted', 'Approved', 'Rejected', 'Pending'])
+        .enum(['Draft', 'NotSubmitted', 'Approved', 'Rejected', 'Cancelled', 'Pending'])
         .optional()
         .describe('Timesheet approval status. Only present when requested via fields.'),
     exportStatus: z.enum(['NotExported', 'Exported', 'ReadyForExport']).optional().describe('Export status. Only present when requested via fields.'),
@@ -85,7 +85,8 @@ const action = createAction({
 
         return {
             timelogs: parsed.data,
-            ...(parsed.nextPageToken != null && { nextCursor: parsed.nextPageToken })
+            // Wrike returns a nextPageToken with an empty page that it then rejects, so only expose it alongside results.
+            ...(parsed.data.length > 0 && parsed.nextPageToken != null && parsed.nextPageToken !== '' && { nextCursor: parsed.nextPageToken })
         };
     }
 });

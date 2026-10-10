@@ -6,26 +6,72 @@
   "output": {
     "tasks": [
       {
-        "id": "MAAAAAEQ_HoO",
+        "id": "MAAAAAEQ_HoM",
         "accountId": "IEAG5DAK",
-        "title": "1",
+        "title": "2",
+        "briefDescription": "",
+        "parentIds": [
+          "MQAAAAEQ_HoI"
+        ],
+        "superParentIds": [],
+        "sharedIds": [
+          "KX7WCEJZ",
+          "KUAZR5CO"
+        ],
+        "responsibleIds": [
+          "KUAZR5CO"
+        ],
+        "responsiblePlaceholderIds": [],
+        "authorIds": [
+          "KUAZR5CO"
+        ],
+        "followerIds": [
+          "KUAZR5CO"
+        ],
+        "followedByMe": true,
         "status": "Active",
         "importance": "Normal",
         "createdDate": "2026-10-07T01:48:56Z",
         "updatedDate": "2026-10-09T23:33:28Z",
         "dates": {
           "type": "Planned",
-          "duration": 2400,
-          "start": "2026-09-25T09:00:00",
-          "due": "2026-10-01T17:00:00"
+          "duration": 1440,
+          "start": "2026-10-02T09:00:00",
+          "due": "2026-10-06T17:00:00"
         },
         "scope": "WsTask",
-        "customStatusId": "IEAG5DAKJMHVMQW2",
-        "permalink": "https://www.wrike.com/open.htm?id=4579949070",
-        "priority": "01b89400800000000000b800"
+        "customStatusId": "IEAG5DAKJMHVMQV4",
+        "hasAttachments": false,
+        "attachmentCount": 0,
+        "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+        "priority": "01b89400800000000000c000",
+        "superTaskIds": [],
+        "subTaskIds": [],
+        "dependencyIds": [
+          "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+          "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+        ],
+        "billingType": "NonBillable",
+        "metadata": [],
+        "customFields": [
+          {
+            "id": "IEAG5DAKJUANPFGZ",
+            "value": "Medium"
+          },
+          {
+            "id": "IEAG5DAKJUANPFG2",
+            "value": "1000"
+          }
+        ],
+        "effortAllocation": {
+          "mode": "None"
+        },
+        "finance": {
+          "currency": "US Dollar"
+        }
       }
     ],
-    "nextPageToken": "AGMPITQAAAAAUAAAAAAQAAAAAMAAAAABEMCHDOBXC63MQ"
+    "nextPageToken": "AGMPITQAAAAAUAAAAAAQAAAAAMAAAAABENJVXGJ7GGC52"
   },
   "nango": {},
   "api": {
@@ -33,33 +79,80 @@
       "/folders/MQAAAAEQ_HoI/tasks": {
         "response": {
           "kind": "tasks",
-          "nextPageToken": "AGMPITQAAAAAUAAAAAAQAAAAAMAAAAABEMCHDOBXC63MQ",
+          "nextPageToken": "AGMPITQAAAAAUAAAAAAQAAAAAMAAAAABENJVXGJ7GGC52",
           "responseSize": 3,
           "data": [
             {
-              "id": "MAAAAAEQ_HoO",
+              "id": "MAAAAAEQ_HoM",
               "accountId": "IEAG5DAK",
-              "title": "1",
+              "title": "2",
+              "briefDescription": "",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "responsiblePlaceholderIds": [],
               "status": "Active",
               "importance": "Normal",
               "createdDate": "2026-10-07T01:48:56Z",
               "updatedDate": "2026-10-09T23:33:28Z",
               "dates": {
                 "type": "Planned",
-                "duration": 2400,
-                "start": "2026-09-25T09:00:00",
-                "due": "2026-10-01T17:00:00"
+                "duration": 1440,
+                "start": "2026-10-02T09:00:00",
+                "due": "2026-10-06T17:00:00"
               },
               "scope": "WsTask",
-              "customStatusId": "IEAG5DAKJMHVMQW2",
-              "permalink": "https://www.wrike.com/open.htm?id=4579949070",
-              "priority": "01b89400800000000000b800"
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+              "priority": "01b89400800000000000c000",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+              ],
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Medium"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "1000"
+                }
+              ],
+              "billingType": "NonBillable",
+              "effortAllocation": {
+                "responsibleAllocation": [],
+                "mode": "None"
+              },
+              "finance": {
+                "currency": "US Dollar"
+              }
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:34:16 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:28 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -74,20 +167,21 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1907",
-          "x-ratelimit-reset": "1791588864",
+          "x-ratelimit-remaining": "1985",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1a61ea8a6c7",
+          "wrike-response-id": "625c41d19d4ac1f",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac979f80000000016143aee13234705",
+          "traceid": "6ac98e2b000000006956debce95b1830",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a48131ef5caebd22-PDX"
+          "cf-ray": "a481b0326b5aad76-PDX"
         },
-        "hash": "4edb400f5c6b065a690616ab69d717e7d8aa9da4",
+        "hash": "7d48143e03f54c6f217f914e0958723fa84f0cae",
         "request": {
           "params": {
+            "fields": "[\"parentIds\",\"superParentIds\",\"sharedIds\",\"responsibleIds\",\"responsiblePlaceholderIds\",\"authorIds\",\"followerIds\",\"briefDescription\",\"hasAttachments\",\"attachmentCount\",\"superTaskIds\",\"subTaskIds\",\"dependencyIds\",\"billingType\",\"recurrent\",\"customItemTypeId\",\"workScheduleId\",\"metadata\",\"customFields\",\"effortAllocation\",\"finance\"]",
             "pageSize": "1"
           }
         }

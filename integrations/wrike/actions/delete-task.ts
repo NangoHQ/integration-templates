@@ -46,7 +46,9 @@ const action = createAction({
         const response = await nango.delete({
             // https://developers.wrike.com/api/v4/tasks/#delete-tasks
             endpoint: `/tasks/${encodeURIComponent(input.taskId)}`,
-            retries: 3 // Delete is effectively idempotent here: a retry targets the same already-trashed task and cannot delete anything else.
+            // Not replayable: a retry after a lost response gets a 400 for the already-trashed task, masking a successful delete.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

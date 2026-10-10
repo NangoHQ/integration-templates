@@ -29,8 +29,9 @@ const action = createAction({
         // https://developers.wrike.com/reference/deletecommentssingle
         await nango.delete({
             endpoint: `/comments/${encodeURIComponent(input.commentId)}`,
-            // DELETE is idempotent (a comment can only be removed once), so a bounded retry cannot duplicate the effect.
-            retries: 3
+            // Not replayable: a retry after a lost response gets a 404 for the already-removed comment, masking a successful delete.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

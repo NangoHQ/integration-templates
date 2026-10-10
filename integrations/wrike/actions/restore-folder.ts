@@ -71,10 +71,10 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Mutates provider state by moving a soft-deleted folder out of the Recycle Bin and back to its original location; it performs no separate provider read.
- * @pitfalls: Restoring a folder does not restore the sub-items (tasks/child folders) that were cascade-deleted with it, and task dependencies are not restored either. The call fails if the folder is not currently in the Recycle Bin, for example when it is already active.
+ * @pitfalls: Child folders and tasks that were cascade-deleted with the folder come back with it, but task dependencies removed by the delete are not restored. The call fails if the folder is not currently in the Recycle Bin, for example when it is already active.
  */
 const action = createAction({
-    description: 'Restore a previously soft-deleted folder (and implicitly whatever was cascade-deleted with it) back to its original location.',
+    description: 'Restore a previously soft-deleted folder, together with the child folders and tasks cascade-deleted with it, back to its original location.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
@@ -86,8 +86,9 @@ const action = createAction({
             params: {
                 restore: 'true'
             },
-            // Restore is an idempotent PUT: repeated calls converge on the same active-folder state, so retries are safe.
-            retries: 3
+            // Not replayable: a retry after a lost response gets a 400 for the already-active folder, masking a successful restore.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

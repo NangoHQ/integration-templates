@@ -111,7 +111,8 @@ const action = createAction({
                 ...(task.permalink != null && { permalink: task.permalink }),
                 ...(task.priority != null && { priority: task.priority })
             })),
-            ...(parsed.nextPageToken != null && { nextPageToken: parsed.nextPageToken })
+            // Wrike can return a nextPageToken with an empty page that it then rejects, so only expose it alongside results.
+            ...(parsed.data.length > 0 && parsed.nextPageToken != null && parsed.nextPageToken !== '' && { nextPageToken: parsed.nextPageToken })
         };
     }
 });

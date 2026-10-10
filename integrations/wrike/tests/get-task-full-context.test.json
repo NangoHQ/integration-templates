@@ -23,7 +23,7 @@
       "status": "Active",
       "importance": "Normal",
       "createdDate": "2026-10-07T01:48:56Z",
-      "updatedDate": "2026-10-09T23:35:01Z",
+      "updatedDate": "2026-10-09T23:38:31Z",
       "dates": {
         "type": "Planned",
         "duration": 2400,
@@ -68,7 +68,7 @@
       "accountId": "IEAG5DAK",
       "title": "First project 🚀",
       "createdDate": "2026-10-07T01:48:56Z",
-      "updatedDate": "2026-10-09T23:33:02Z",
+      "updatedDate": "2026-10-09T23:38:44Z",
       "description": "",
       "parentIds": [
         "MQAAAAEQ_HoD"
@@ -110,7 +110,8 @@
         "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
         "createdDate": "2026-10-07T07:05:25Z",
         "updatedDate": "2026-10-07T07:05:25Z",
-        "taskId": "MAAAAAEQ_HoO"
+        "taskId": "MAAAAAEQ_HoO",
+        "type": "Regular"
       },
       {
         "id": "IEAG5DAKIMCT7UZ3",
@@ -118,7 +119,8 @@
         "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
         "createdDate": "2026-10-07T01:49:19Z",
         "updatedDate": "2026-10-07T01:49:19Z",
-        "taskId": "MAAAAAEQ_HoO"
+        "taskId": "MAAAAAEQ_HoO",
+        "type": "Regular"
       }
     ],
     "timelogs": [
@@ -130,7 +132,11 @@
         "createdDate": "2026-10-09T23:32:28Z",
         "updatedDate": "2026-10-09T23:32:28Z",
         "trackedDate": "2026-10-08",
-        "comment": "list-timelogs mock seed"
+        "comment": "list-timelogs mock seed",
+        "billingType": "NonBillable",
+        "approvalStatus": "NotSubmitted",
+        "lockStatus": "Unlocked",
+        "exportStatus": "NotExported"
       },
       {
         "id": "IEAG5DAKJQAC56AV",
@@ -140,7 +146,11 @@
         "createdDate": "2026-10-09T23:32:33Z",
         "updatedDate": "2026-10-09T23:32:33Z",
         "trackedDate": "2026-10-01",
-        "comment": "list-timelogs mock seed 1"
+        "comment": "list-timelogs mock seed 1",
+        "billingType": "NonBillable",
+        "approvalStatus": "NotSubmitted",
+        "lockStatus": "Unlocked",
+        "exportStatus": "NotExported"
       },
       {
         "id": "IEAG5DAKJQAC56AW",
@@ -150,7 +160,11 @@
         "createdDate": "2026-10-09T23:32:33Z",
         "updatedDate": "2026-10-09T23:32:33Z",
         "trackedDate": "2026-10-02",
-        "comment": "list-timelogs mock seed 2"
+        "comment": "list-timelogs mock seed 2",
+        "billingType": "NonBillable",
+        "approvalStatus": "NotSubmitted",
+        "lockStatus": "Unlocked",
+        "exportStatus": "NotExported"
       }
     ]
   },
@@ -181,7 +195,7 @@
               "status": "Active",
               "importance": "Normal",
               "createdDate": "2026-10-07T01:48:56Z",
-              "updatedDate": "2026-10-09T23:35:01Z",
+              "updatedDate": "2026-10-09T23:38:31Z",
               "dates": {
                 "type": "Planned",
                 "duration": 2400,
@@ -225,127 +239,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
-          "content-type": "application/json;charset=UTF-8",
-          "transfer-encoding": "chunked",
-          "connection": "keep-alive",
-          "x-xss-protection": "1; mode=block",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
-          "x-dns-prefetch-control": "off",
-          "referrer-policy": "strict-origin",
-          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-          "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
-          "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1996",
-          "x-ratelimit-reset": "1791589080",
-          "server": "cloudflare",
-          "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1ba57c60831",
-          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac97a9e00000000086974ea8c0ff6e9",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a48135ffef384afe-PDX"
-        },
-        "hash": "32a176b11adf739234bcf9f70101876130e65adf",
-        "request": {}
-      },
-      "/tasks/MAAAAAEQ_HoO/comments": {
-        "response": {
-          "kind": "comments",
-          "data": [
-            {
-              "id": "IEAG5DAKIMCT73WX",
-              "authorId": "KUAZR5N3",
-              "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
-              "updatedDate": "2026-10-07T07:05:25Z",
-              "createdDate": "2026-10-07T07:05:25Z",
-              "taskId": "MAAAAAEQ_HoO"
-            },
-            {
-              "id": "IEAG5DAKIMCT7UZ3",
-              "authorId": "KUAZR5CR",
-              "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
-              "updatedDate": "2026-10-07T01:49:19Z",
-              "createdDate": "2026-10-07T01:49:19Z",
-              "taskId": "MAAAAAEQ_HoO"
-            }
-          ]
-        },
-        "status": 200,
-        "headers": {
-          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
-          "content-type": "application/json;charset=UTF-8",
-          "transfer-encoding": "chunked",
-          "connection": "keep-alive",
-          "x-xss-protection": "1; mode=block",
-          "x-content-type-options": "nosniff",
-          "x-download-options": "noopen",
-          "x-frame-options": "SAMEORIGIN",
-          "x-dns-prefetch-control": "off",
-          "referrer-policy": "strict-origin",
-          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
-          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
-          "access-control-allow-origin": "*",
-          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
-          "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1995",
-          "x-ratelimit-reset": "1791589080",
-          "server": "cloudflare",
-          "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1ba83e2c75a",
-          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
-          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac97a9e0000000012c70e5a11a06d56",
-          "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a48136009ab5bd22-PDX"
-        },
-        "hash": "35251faf4fa9ac092e29d38b0cdfbff62a49788d",
-        "request": {}
-      },
-      "/tasks/MAAAAAEQ_HoO/timelogs": {
-        "response": {
-          "kind": "timelogs",
-          "data": [
-            {
-              "id": "IEAG5DAKJQAC56AU",
-              "taskId": "MAAAAAEQ_HoO",
-              "userId": "KUAZR5CO",
-              "hours": 1.5,
-              "createdDate": "2026-10-09T23:32:28Z",
-              "updatedDate": "2026-10-09T23:32:28Z",
-              "trackedDate": "2026-10-08",
-              "comment": "list-timelogs mock seed"
-            },
-            {
-              "id": "IEAG5DAKJQAC56AV",
-              "taskId": "MAAAAAEQ_HoO",
-              "userId": "KUAZR5CO",
-              "hours": 1,
-              "createdDate": "2026-10-09T23:32:33Z",
-              "updatedDate": "2026-10-09T23:32:33Z",
-              "trackedDate": "2026-10-01",
-              "comment": "list-timelogs mock seed 1"
-            },
-            {
-              "id": "IEAG5DAKJQAC56AW",
-              "taskId": "MAAAAAEQ_HoO",
-              "userId": "KUAZR5CO",
-              "hours": 2,
-              "createdDate": "2026-10-09T23:32:33Z",
-              "updatedDate": "2026-10-09T23:32:33Z",
-              "trackedDate": "2026-10-02",
-              "comment": "list-timelogs mock seed 2"
-            }
-          ]
-        },
-        "status": 200,
-        "headers": {
-          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:11 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -361,18 +255,160 @@
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
           "x-ratelimit-remaining": "1994",
-          "x-ratelimit-reset": "1791589080",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1badfa44e44",
+          "wrike-response-id": "625c41b7fc7e723",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac97a9e000000002b603b650710bb2b",
+          "traceid": "6ac98e1b00000000647050c77ed035f0",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a48136014c371687-PDX"
+          "cf-ray": "a481afcc9891f896-PDX"
         },
-        "hash": "9d0b1f146c04b5d27eb836e1e5f762676c2346a2",
+        "hash": "32a176b11adf739234bcf9f70101876130e65adf",
         "request": {}
+      },
+      "/tasks/MAAAAAEQ_HoO/comments": {
+        "response": {
+          "kind": "comments",
+          "data": [
+            {
+              "id": "IEAG5DAKIMCT73WX",
+              "authorId": "KUAZR5N3",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
+              "updatedDate": "2026-10-07T07:05:25Z",
+              "createdDate": "2026-10-07T07:05:25Z",
+              "taskId": "MAAAAAEQ_HoO",
+              "type": "Regular"
+            },
+            {
+              "id": "IEAG5DAKIMCT7UZ3",
+              "authorId": "KUAZR5CR",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
+              "updatedDate": "2026-10-07T01:49:19Z",
+              "createdDate": "2026-10-07T01:49:19Z",
+              "taskId": "MAAAAAEQ_HoO",
+              "type": "Regular"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sat, 10 Oct 2026 01:00:12 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1791594062",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c41b9073a239",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac98e1c000000006b531ee5ea571908",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a481afd09bceb298-PDX"
+        },
+        "hash": "61f1904989b09c93885a71dc1f950c5f1daecd97",
+        "request": {
+          "params": {
+            "fields": "[\"type\"]"
+          }
+        }
+      },
+      "/tasks/MAAAAAEQ_HoO/timelogs": {
+        "response": {
+          "kind": "timelogs",
+          "data": [
+            {
+              "id": "IEAG5DAKJQAC56AU",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
+              "hours": 1.5,
+              "createdDate": "2026-10-09T23:32:28Z",
+              "updatedDate": "2026-10-09T23:32:28Z",
+              "trackedDate": "2026-10-08",
+              "comment": "list-timelogs mock seed"
+            },
+            {
+              "id": "IEAG5DAKJQAC56AV",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
+              "hours": 1,
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-01",
+              "comment": "list-timelogs mock seed 1"
+            },
+            {
+              "id": "IEAG5DAKJQAC56AW",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "exportStatus": "NotExported",
+              "approvalStatus": "NotSubmitted",
+              "billingType": "NonBillable",
+              "lockStatus": "Unlocked",
+              "hours": 2,
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-02",
+              "comment": "list-timelogs mock seed 2"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sat, 10 Oct 2026 01:00:14 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1992",
+          "x-ratelimit-reset": "1791594062",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c41b8391ca10",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac98e1d000000003c52042cc5c2ccb4",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a481afdbe8b7f896-PDX"
+        },
+        "hash": "619ef0746a5391a513388c3b0f5678815cc728e1",
+        "request": {
+          "params": {
+            "fields": "[\"billingType\",\"approvalStatus\",\"lockStatus\",\"exportStatus\"]"
+          }
+        }
       },
       "/folders/MQAAAAEQ_HoI": {
         "response": {
@@ -383,7 +419,7 @@
               "accountId": "IEAG5DAK",
               "title": "First project 🚀",
               "createdDate": "2026-10-07T01:48:56Z",
-              "updatedDate": "2026-10-09T23:33:02Z",
+              "updatedDate": "2026-10-09T23:38:44Z",
               "description": "",
               "sharedIds": [
                 "KX7WCEJZ",
@@ -422,7 +458,7 @@
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:37:03 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:15 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -437,16 +473,16 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1993",
-          "x-ratelimit-reset": "1791589080",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1baaaf70cec",
+          "wrike-response-id": "625c41b9bc77ae6",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac97a9f000000004c74dd78646a4c0a",
+          "traceid": "6ac98e1e000000003354726611482904",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a4813601ed512f25-PDX"
+          "cf-ray": "a481afe1dcecb298-PDX"
         },
         "hash": "2128a3e561e01e61fc13dd3e1a5d6d844bf3e447",
         "request": {}

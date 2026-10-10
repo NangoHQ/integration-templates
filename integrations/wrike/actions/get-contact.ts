@@ -27,6 +27,7 @@ const ProviderContactSchema = z.object({
     companyName: z.string().nullish(),
     phone: z.string().nullish(),
     primaryEmail: z.string().nullish(),
+    location: z.string().nullish(),
     memberIds: z.array(z.string()).nullish()
 });
 
@@ -67,6 +68,7 @@ const OutputSchema = z
         companyName: z.string().optional().describe('Contact company name.'),
         phone: z.string().optional().describe('Contact phone number.'),
         primaryEmail: z.string().optional().describe('Contact primary email address.'),
+        location: z.string().optional().describe('Contact location.'),
         memberIds: z.array(z.string()).optional().describe('Contact IDs of the group members; present only for group contacts.')
     })
     .describe('A single Wrike contact (user, group, bot, or asset) with its profile details.');
@@ -126,6 +128,7 @@ const action = createAction({
             ...(contact.companyName != null && { companyName: contact.companyName }),
             ...(contact.phone != null && { phone: contact.phone }),
             ...(contact.primaryEmail != null && { primaryEmail: contact.primaryEmail }),
+            ...(contact.location != null && { location: contact.location }),
             ...(contact.memberIds != null && { memberIds: contact.memberIds })
         };
     }

@@ -1,6 +1,13 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const ExternalRequesterSchema = z.object({
+    id: z.string().describe('Wrike ID of the external requester.'),
+    email: z.string().describe('Email address of the external requester.'),
+    firstName: z.string().describe('First name of the external requester.'),
+    lastName: z.string().optional().describe('Last name of the external requester, when provided.')
+});
+
 const CommentSchema = z.object({
     id: z.string().describe('Unique comment identifier. Example: "IEAG5DAKIMCT73WX"'),
     authorId: z.string().describe('ID of the user who authored the comment. Example: "KUAZR5CO"'),
@@ -10,9 +17,10 @@ const CommentSchema = z.object({
     taskId: z.string().optional().describe('ID of the task the comment belongs to. Example: "MAAAAAEQ_HoO"'),
     folderId: z.string().optional().describe('ID of the folder the comment belongs to, when the comment is on a folder rather than a task.'),
     attachmentIds: z.array(z.string()).optional().describe('IDs of files attached to the comment.'),
-    type: z.string().optional().describe('Comment type. Example: "Regular"'),
+    type: z.string().optional().describe('Comment type: "Regular" or "Email".'),
     emailSubject: z.string().optional().describe('Subject line, present for email-originated comments.'),
-    direction: z.string().optional().describe('Email direction, present for email-originated comments. Example: "Incoming"')
+    direction: z.string().optional().describe('Email direction, present for email-originated comments. Example: "Incoming"'),
+    externalRequester: ExternalRequesterSchema.optional().describe('Details of the commenter outside the account; present only for email comments from external requesters.')
 });
 
 const InputSchema = z
@@ -49,6 +57,8 @@ const action = createAction({
             // https://developers.wrike.com/reference/gettaskssinglecomments
             endpoint: `/tasks/${encodeURIComponent(input.taskId)}/comments`,
             params: {
+                // Wrike omits the comment type unless it is requested through fields.
+                fields: JSON.stringify(['type']),
                 ...(input.plainText !== undefined && { plainText: input.plainText ? 'true' : 'false' })
             },
             retries: 3
@@ -68,7 +78,8 @@ const action = createAction({
                 ...(comment.attachmentIds != null && { attachmentIds: comment.attachmentIds }),
                 ...(comment.type != null && { type: comment.type }),
                 ...(comment.emailSubject != null && { emailSubject: comment.emailSubject }),
-                ...(comment.direction != null && { direction: comment.direction })
+                ...(comment.direction != null && { direction: comment.direction }),
+                ...(comment.externalRequester != null && { externalRequester: comment.externalRequester })
             }))
         };
     }

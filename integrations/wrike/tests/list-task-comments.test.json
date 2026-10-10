@@ -5,20 +5,13 @@
   "output": {
     "comments": [
       {
-        "id": "IEAG5DAKIMCU44X7",
-        "authorId": "KUAZR5CO",
-        "text": "via-json-body",
-        "createdDate": "2026-10-09T23:27:35Z",
-        "updatedDate": "2026-10-09T23:27:35Z",
-        "taskId": "MAAAAAEQ_HoO"
-      },
-      {
         "id": "IEAG5DAKIMCT73WX",
         "authorId": "KUAZR5N3",
         "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
         "createdDate": "2026-10-07T07:05:25Z",
         "updatedDate": "2026-10-07T07:05:25Z",
-        "taskId": "MAAAAAEQ_HoO"
+        "taskId": "MAAAAAEQ_HoO",
+        "type": "Regular"
       },
       {
         "id": "IEAG5DAKIMCT7UZ3",
@@ -26,7 +19,8 @@
         "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
         "createdDate": "2026-10-07T01:49:19Z",
         "updatedDate": "2026-10-07T01:49:19Z",
-        "taskId": "MAAAAAEQ_HoO"
+        "taskId": "MAAAAAEQ_HoO",
+        "type": "Regular"
       }
     ]
   },
@@ -38,20 +32,13 @@
           "kind": "comments",
           "data": [
             {
-              "id": "IEAG5DAKIMCU44X7",
-              "authorId": "KUAZR5CO",
-              "text": "via-json-body",
-              "updatedDate": "2026-10-09T23:27:35Z",
-              "createdDate": "2026-10-09T23:27:35Z",
-              "taskId": "MAAAAAEQ_HoO"
-            },
-            {
               "id": "IEAG5DAKIMCT73WX",
               "authorId": "KUAZR5N3",
               "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
               "updatedDate": "2026-10-07T07:05:25Z",
               "createdDate": "2026-10-07T07:05:25Z",
-              "taskId": "MAAAAAEQ_HoO"
+              "taskId": "MAAAAAEQ_HoO",
+              "type": "Regular"
             },
             {
               "id": "IEAG5DAKIMCT7UZ3",
@@ -59,13 +46,14 @@
               "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
               "updatedDate": "2026-10-07T01:49:19Z",
               "createdDate": "2026-10-07T01:49:19Z",
-              "taskId": "MAAAAAEQ_HoO"
+              "taskId": "MAAAAAEQ_HoO",
+              "type": "Regular"
             }
           ]
         },
         "status": 200,
         "headers": {
-          "date": "Fri, 09 Oct 2026 23:33:50 GMT",
+          "date": "Sat, 10 Oct 2026 01:00:34 GMT",
           "content-type": "application/json;charset=UTF-8",
           "transfer-encoding": "chunked",
           "connection": "keep-alive",
@@ -80,19 +68,23 @@
           "access-control-allow-origin": "*",
           "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
           "x-ratelimit-limit": "2000",
-          "x-ratelimit-remaining": "1936",
-          "x-ratelimit-reset": "1791588864",
+          "x-ratelimit-remaining": "1982",
+          "x-ratelimit-reset": "1791594062",
           "server": "cloudflare",
           "vary": "Accept-Encoding",
-          "wrike-response-id": "625c1a32aa04377",
+          "wrike-response-id": "625c41e29ce4739",
           "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
           "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
-          "traceid": "6ac979de000000007fdf9a569673a792",
+          "traceid": "6ac98e310000000011a96950241c30f6",
           "cf-cache-status": "DYNAMIC",
-          "cf-ray": "a48131512d84debd-PDX"
+          "cf-ray": "a481b05a1b8058c2-PDX"
         },
-        "hash": "35251faf4fa9ac092e29d38b0cdfbff62a49788d",
-        "request": {}
+        "hash": "61f1904989b09c93885a71dc1f950c5f1daecd97",
+        "request": {
+          "params": {
+            "fields": "[\"type\"]"
+          }
+        }
       }
     }
   }

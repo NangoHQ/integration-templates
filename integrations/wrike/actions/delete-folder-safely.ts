@@ -8,7 +8,7 @@ const InputSchema = z
             .boolean()
             .optional()
             .describe(
-                'Set to true to delete the folder even when it still contains tasks (those tasks are cascaded to the Recycle Bin). Defaults to false when omitted.'
+                'Set to true to delete the folder even when it or any of its child folders still contain tasks (those tasks are cascaded to the Recycle Bin). Defaults to false when omitted.'
             )
     })
     .describe('Input for safely deleting a Wrike folder or project, optionally confirming the cascade of its tasks.');
@@ -32,9 +32,9 @@ const OutputSchema = z
         blockedBy: z
             .enum(['has_tasks'])
             .optional()
-            .describe('Reason deletion was blocked. Present with value "has_tasks" when the folder still contains tasks and confirm was not true.'),
-        taskCount: z.number().optional().describe('Number of tasks found inside the folder before deletion was attempted.'),
-        taskIds: z.array(z.string()).optional().describe('IDs of the tasks found inside the folder when deletion was blocked.'),
+            .describe('Reason deletion was blocked. Present with value "has_tasks" when the folder or any of its child folders still contains tasks and confirm was not true.'),
+        taskCount: z.number().optional().describe('Number of tasks found inside the folder and its child folders before deletion was attempted.'),
+        taskIds: z.array(z.string()).optional().describe('IDs of the tasks found inside the folder and its child folders when deletion was blocked.'),
         cascadeDeletedTaskCount: z
             .number()
             .optional()
@@ -45,7 +45,7 @@ const OutputSchema = z
 /**
  * @tags: [read, write, destructive]
  * @tagReason: Reads the folder's tasks and re-reads the folder to verify deletion, then deletes the folder (a provider mutation that cascades tasks to the Recycle Bin).
- * @pitfalls: Folder deletion is a soft delete that moves the folder and every task inside it to the Recycle Bin (still readable by ID, with no permanent-purge option in this API), and with the default confirm=false a folder containing tasks is not deleted and returns blockedBy="has_tasks".
+ * @pitfalls: Folder deletion is a soft delete that moves the folder, its child folders, and every task inside them to the Recycle Bin (still readable by ID, with no permanent-purge option in this API), and with the default confirm=false a folder whose subtree contains any task is not deleted and returns blockedBy="has_tasks".
  */
 const action = createAction({
     description: 'Safely delete a folder, blocking the cascading delete of its tasks unless explicitly confirmed.',
@@ -60,6 +60,10 @@ const action = createAction({
         for await (const page of nango.paginate<unknown>({
             // https://developers.wrike.com/reference/getfolderssingletasks
             endpoint: `/folders/${encodeURIComponent(folderId)}/tasks`,
+            // Without descendants Wrike returns only tasks placed directly in this folder, but the delete cascades to tasks in every child folder too.
+            params: {
+                descendants: 'true'
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'nextPageToken',

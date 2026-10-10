@@ -4,7 +4,7 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         commentId: z.string().describe('ID of the comment to update. Example: "ABCDEF0123456789"'),
-        text: z.string().describe('New text for the comment. Cannot be empty; Wrike special HTML syntax is supported.')
+        text: z.string().min(1).describe('New text for the comment. Cannot be empty; Wrike special HTML syntax is supported.')
     })
     .describe('Identifies the comment to update and the replacement text.');
 

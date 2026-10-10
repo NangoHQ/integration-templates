@@ -46,6 +46,10 @@ const sync = createSync({
         const proxyConfig: ProxyConfiguration = {
             // https://developers.wrike.com/reference/gettimelogsempty
             endpoint: '/timelogs',
+            // Wrike omits these status fields unless they are requested through fields.
+            params: {
+                fields: JSON.stringify(['approvalStatus', 'lockStatus', 'exportStatus', 'billingType'])
+            },
             paginate: {
                 type: 'cursor',
                 cursor_name_in_request: 'nextPageToken',

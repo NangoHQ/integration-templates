@@ -26,6 +26,7 @@ const OutputSchema = z
         companyName: z.string().optional().describe('Company name of the user.'),
         phone: z.string().optional().describe('Phone number of the user.'),
         primaryEmail: z.string().optional().describe('Primary email address of the user.'),
+        location: z.string().optional().describe('Location of the user.'),
         avatarUrl: z.string().optional().describe('URL of the user avatar image.'),
         profiles: z
             .array(ProfileSchema)
@@ -57,6 +58,7 @@ const ProviderContactSchema = z.object({
     companyName: z.string().nullish(),
     phone: z.string().nullish(),
     primaryEmail: z.string().nullish(),
+    location: z.string().nullish(),
     avatarUrl: z.string().nullish(),
     profiles: z.array(ProviderProfileSchema).nullish()
 });
@@ -108,6 +110,7 @@ const action = createAction({
             ...(contact.companyName != null && { companyName: contact.companyName }),
             ...(contact.phone != null && { phone: contact.phone }),
             ...(contact.primaryEmail != null && { primaryEmail: contact.primaryEmail }),
+            ...(contact.location != null && { location: contact.location }),
             ...(contact.avatarUrl != null && { avatarUrl: contact.avatarUrl }),
             profiles: (contact.profiles ?? []).map((profile) => ({
                 accountId: profile.accountId,

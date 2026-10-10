@@ -47,7 +47,7 @@ const ProviderTaskSchema = z.object({
 
 const ProviderResponseSchema = z.object({
     kind: z.string().optional(),
-    data: z.array(ProviderTaskSchema).min(1)
+    data: z.array(ProviderTaskSchema)
 });
 
 const OutputSchema = z

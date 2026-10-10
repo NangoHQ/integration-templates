@@ -31,7 +31,7 @@ const CommentSchema = z
                 'Opaque Wrike ID of the folder or project this comment belongs to. Present only for folder/project comments (mutually exclusive with taskId).'
             ),
         attachmentIds: z.array(z.string()).optional().describe('Opaque Wrike IDs of attachments included in the comment, when any are present.'),
-        type: z.string().optional().describe('Comment type (for example Regular or Email). Only returned when requested via the fields parameter.'),
+        type: z.string().optional().describe('Comment type: Regular or Email.'),
         emailSubject: z.string().optional().describe('Subject line of the source email. Present only for Email comments.'),
         direction: z.string().optional().describe('Direction of the source email (Outgoing or Incoming). Present only for Email comments.'),
         externalRequester: ExternalRequesterSchema.optional().describe(
@@ -65,7 +65,9 @@ const sync = createSync({
         const response = await nango.get({
             endpoint: '/comments',
             params: {
-                limit: 100000
+                limit: 100000,
+                // Wrike omits the comment type unless it is requested through fields.
+                fields: JSON.stringify(['type'])
             },
             retries: 3
         });

@@ -131,7 +131,8 @@ const action = createAction({
         return {
             kind: parsed.kind,
             folders: parsed.data,
-            ...(parsed.nextPageToken != null && { nextCursor: parsed.nextPageToken })
+            // Wrike returns a nextPageToken with an empty filtered page that it then rejects, so only expose it alongside results.
+            ...(parsed.data.length > 0 && parsed.nextPageToken != null && parsed.nextPageToken !== '' && { nextCursor: parsed.nextPageToken })
         };
     }
 });

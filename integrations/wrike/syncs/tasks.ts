@@ -51,6 +51,14 @@ const TasksResponseSchema = z.object({
     data: z.array(TaskSchema)
 });
 
+const AccountResponseSchema = z.object({
+    data: z.array(z.object({ recycleBinId: z.string() }))
+});
+
+const DeletedTaskSchema = z.object({
+    id: z.string()
+});
+
 const CheckpointSchema = z.object({
     updated_after: z.string().describe('Start of the next incremental updatedDate window; EPOCH on the initial full scan.'),
     window_started_at: z.string().describe('Timestamp when the current scan window began; becomes the next updated_after once the scan completes.'),
@@ -58,7 +66,7 @@ const CheckpointSchema = z.object({
 });
 
 const sync = createSync({
-    description: 'Sync every active (non-trashed) task in the account, including subtask/supertask/dependency relationships and custom field values.',
+    description: 'Sync every active (non-trashed) task in the account, including subtask/supertask/dependency relationships and custom field values, and remove tasks moved to the Recycle Bin.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
@@ -106,9 +114,12 @@ const sync = createSync({
 
             const tasks = parsed.data.data;
 
-            if (tasks.length > 0) {
-                await nango.batchSave(tasks, 'Task');
+            if (tasks.length === 0) {
+                // Never follow a nextPageToken returned with an empty page; Wrike rejects such tokens.
+                break;
             }
+
+            await nango.batchSave(tasks, 'Task');
 
             const token = parsed.data.nextPageToken;
             if (token === undefined || token === '') {
@@ -122,6 +133,44 @@ const sync = createSync({
                 window_started_at: windowStartedAt,
                 next_page_token: token
             });
+        }
+
+        // Trashing a task (directly or by a folder cascade) bumps its updatedDate and moves it into the
+        // Recycle Bin, which /tasks never returns, so remove tasks trashed during this window.
+        // The initial scan has nothing saved yet to remove.
+        if (filterStart !== EPOCH) {
+            // https://developers.wrike.com/reference/getaccount
+            const accountResponse = await nango.get<unknown>({
+                endpoint: '/account',
+                retries: 3
+            });
+            const recycleBinId = AccountResponseSchema.parse(accountResponse.data).data[0]?.recycleBinId;
+            if (!recycleBinId) {
+                throw new Error('Wrike did not return the account Recycle Bin folder ID.');
+            }
+
+            // https://developers.wrike.com/reference/getfolderssingletasks
+            for await (const page of nango.paginate<unknown>({
+                endpoint: `/folders/${encodeURIComponent(recycleBinId)}/tasks`,
+                params: {
+                    descendants: 'true',
+                    updatedDate: JSON.stringify({ start: filterStart })
+                },
+                paginate: {
+                    type: 'cursor',
+                    cursor_name_in_request: 'nextPageToken',
+                    cursor_path_in_response: 'nextPageToken',
+                    response_path: 'data',
+                    limit_name_in_request: 'pageSize',
+                    limit: PAGE_SIZE
+                },
+                retries: 3
+            })) {
+                const deleted = page.map((record) => ({ id: DeletedTaskSchema.parse(record).id }));
+                if (deleted.length > 0) {
+                    await nango.batchDelete(deleted, 'Task');
+                }
+            }
         }
 
         // The scan finished: advance the incremental filter to this run's window start and

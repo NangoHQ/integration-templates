@@ -38,7 +38,9 @@ const action = createAction({
         const response = await nango.delete({
             // https://developers.wrike.com/reference/deletedependenciessingle
             endpoint: `/dependencies/${encodeURIComponent(input.dependencyId)}`,
-            retries: 3
+            // Not replayable: a retry after a lost response gets a 404 for the already-removed link, masking a successful delete.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         const parsed = ProviderResponseSchema.parse(response.data);

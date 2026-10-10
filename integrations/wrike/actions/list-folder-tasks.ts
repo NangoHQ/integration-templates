@@ -1,6 +1,32 @@
 import { z } from 'zod';
 import { createAction, type ProxyConfiguration } from 'nango';
 
+// Wrike's task listings return only a minimal field set unless the extra fields are requested.
+// The full HTML description is left out to keep large pages under the action output limit; briefDescription is included.
+const TASK_FIELDS = [
+    'parentIds',
+    'superParentIds',
+    'sharedIds',
+    'responsibleIds',
+    'responsiblePlaceholderIds',
+    'authorIds',
+    'followerIds',
+    'briefDescription',
+    'hasAttachments',
+    'attachmentCount',
+    'superTaskIds',
+    'subTaskIds',
+    'dependencyIds',
+    'billingType',
+    'recurrent',
+    'customItemTypeId',
+    'workScheduleId',
+    'metadata',
+    'customFields',
+    'effortAllocation',
+    'finance'
+];
+
 const TaskDatesSchema = z.object({
     type: z.string().optional().describe('Task date type: "Milestone", "Backlog", or "Planned".'),
     duration: z.number().optional().describe('Task duration in minutes (one day equals 480 minutes).'),
@@ -46,7 +72,7 @@ const TaskSchema = z
         id: z.string().describe('Unique task ID. Example: "MAAAAAEQ_HoO".'),
         accountId: z.string().optional().describe('ID of the Wrike account that owns the task.'),
         title: z.string().optional().describe('Task title.'),
-        description: z.string().optional().describe('Task description, which may contain HTML.'),
+        description: z.string().optional().describe('Task description, which may contain HTML. Not requested by this action; use get-task for the full description.'),
         briefDescription: z.string().optional().describe('Short plain-text summary of the task description.'),
         parentIds: z.array(z.string()).optional().describe('IDs of the folder(s) that directly contain the task.'),
         superParentIds: z.array(z.string()).optional().describe('Folder IDs inherited from the parent task.'),
@@ -122,7 +148,9 @@ const action = createAction({
     output: OutputSchema,
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
-        const params: Record<string, string | number> = {};
+        const params: Record<string, string | number> = {
+            fields: JSON.stringify(TASK_FIELDS)
+        };
 
         if (input.cursor !== undefined) {
             params['nextPageToken'] = input.cursor;
@@ -154,9 +182,12 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
+        const tasks = parsed.data ?? [];
+
         return {
-            tasks: parsed.data ?? [],
-            ...(parsed.nextPageToken != null && { nextPageToken: parsed.nextPageToken })
+            tasks,
+            // Wrike can return a nextPageToken with an empty page that it then rejects, so only expose it alongside results.
+            ...(tasks.length > 0 && parsed.nextPageToken != null && parsed.nextPageToken !== '' && { nextPageToken: parsed.nextPageToken })
         };
     }
 });

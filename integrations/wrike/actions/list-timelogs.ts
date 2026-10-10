@@ -49,7 +49,7 @@ const TimelogSchema = z.object({
     comment: z.string().optional().describe('Free-text comment attached to the timelog.'),
     billingType: z.enum(['Billable', 'NonBillable']).optional().describe('Billing type; only present when requested via the "fields" input.'),
     approvalStatus: z
-        .enum(['NotSubmitted', 'Approved', 'Rejected', 'Pending'])
+        .enum(['Draft', 'NotSubmitted', 'Approved', 'Rejected', 'Cancelled', 'Pending'])
         .optional()
         .describe('Timesheet approval status; only present when requested via the "fields" input.'),
     lockStatus: z.enum(['Locked', 'Unlocked']).optional().describe('Lock status; only present when requested via the "fields" input.'),

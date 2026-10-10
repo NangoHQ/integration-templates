@@ -8,7 +8,7 @@ const ProjectInputSchema = z.object({
     endDate: z.string().optional().describe('Project end date in yyyy-MM-dd format. Example: "2026-12-31".'),
     customStatusId: z.string().optional().describe('Custom workflow status ID to assign to the project. Example: "IEAG5DAKJMAAAAAA".'),
     contractType: z.enum(['Billable', 'NonBillable']).optional().describe('Contract type of the project.'),
-    budget: z.number().optional().describe('Project budget as a whole number. Decimal values are rejected by the API.')
+    budget: z.number().int().optional().describe('Project budget as a whole number. Decimal values are rejected by the API.')
 });
 
 const InputSchema = z
@@ -18,7 +18,7 @@ const InputSchema = z
             .describe(
                 'ID of the parent folder or space to create the folder inside. Example: "MQAAAAEQ_HoD". Use the account root folder ID to create at the top level.'
             ),
-        title: z.string().describe('Title of the folder or project. Required and cannot be empty.'),
+        title: z.string().min(1).describe('Title of the folder or project. Required and cannot be empty.'),
         description: z.string().optional().describe('Folder description. Left blank when omitted.'),
         project: ProjectInputSchema.optional().describe(
             'Provide this object to create a Project instead of a plain folder. Project is the same resource as a folder with extra metadata. Omit it to create a plain folder.'
