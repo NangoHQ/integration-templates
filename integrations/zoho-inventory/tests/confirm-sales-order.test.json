@@ -1,0 +1,220 @@
+{
+  "input": {
+    "salesorder_id": "260815000000159468"
+  },
+  "output": {
+    "code": 0,
+    "message": "Sales order status has been changed to Confirmed."
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/inventory/v1/organizations": {
+        "response": {
+          "code": 0,
+          "message": "success",
+          "organizations": [
+            {
+              "isOrgNotSupported": false,
+              "organization_id": "927270289",
+              "name": "Nango Dev",
+              "org_alias_name": "Nango Dev",
+              "contact_name": "Nango Developer",
+              "email": "api@nango.dev",
+              "source": 2,
+              "country": "U.S.A",
+              "country_code": "US",
+              "org_settings": true,
+              "is_ziedition": false,
+              "custom_field_type": 2,
+              "custom_fields": [
+                {
+                  "index": 1,
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "index": 2,
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "index": 3,
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "index": 4,
+                  "label": "",
+                  "value": ""
+                },
+                {
+                  "index": 5,
+                  "label": "",
+                  "value": ""
+                }
+              ],
+              "is_sku_enabled": true,
+              "phone": "",
+              "org_type": "live",
+              "state_code": "DE",
+              "state": "Delaware",
+              "zoho_one_org": "",
+              "zi_zb_edition": 1,
+              "org_created_app_source": 1,
+              "zi_zb_client": 1,
+              "is_solo_org": false,
+              "partners_domain": "",
+              "version": "us",
+              "version_formatted": "United States",
+              "is_search360_enabled": "true",
+              "is_sales_inclusive_tax_enabled": false,
+              "sales_tax_type": "exclusive",
+              "tax_group_enabled": true,
+              "language_code": "en",
+              "fiscal_year_start_month": 0,
+              "time_zone": "America/New_York",
+              "field_separator": "",
+              "time_zone_formatted": "(GMT -5:00) Eastern Daylight Time (America/New_York)",
+              "can_change_timezone": true,
+              "digital_signature_mode": "dsign_zohosign",
+              "is_dsign_required": false,
+              "can_sign_invoice": false,
+              "is_user_dsign_mandatory": true,
+              "currency_id": "260815000000000097",
+              "currency_code": "USD",
+              "currency_symbol": "$",
+              "currency_format": "###,##0.00",
+              "price_precision": 2,
+              "org_joined_app_list": [
+                "books",
+                "inventory"
+              ],
+              "is_designated_zone": false,
+              "is_free_zone": false,
+              "is_registered_for_tax": false,
+              "is_tax_registered": false,
+              "is_international_trade_enabled": false,
+              "is_gst_india_version": false,
+              "is_registered_for_gst": false,
+              "is_multientity_org": false,
+              "is_multientity_enabled": false,
+              "isOrgActive": true,
+              "plan_type": 4042,
+              "plan_name": "PREMIUM TRIAL",
+              "plan_period": "",
+              "account_created_date": "2026-10-09",
+              "account_created_date_formatted": "09 Oct 2026",
+              "is_org_active": true,
+              "is_quick_setup_completed": true,
+              "is_trial_period_extended": false,
+              "is_invoice_pmt_tds_allowed": false,
+              "is_hsn_or_sac_enabled": false,
+              "mode": "live",
+              "other_active_services": [
+                {
+                  "name_formatted": "Zoho Books",
+                  "name": "books"
+                }
+              ],
+              "is_last_active_service": false,
+              "support_email": "presales.usa@zohoinventory.com",
+              "is_user_last_admin": true,
+              "is_user_super_admin": false,
+              "user_status": 1,
+              "user_status_formatted": "Active",
+              "org_action": "goto",
+              "AppList": [
+                "books",
+                "inventory"
+              ],
+              "is_zpayroll_grid": false,
+              "is_default_org": false,
+              "is_subscription_paused": false
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:31:46 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1803",
+          "x-ratelimit-reset": "1791570708",
+          "server": "ZGS",
+          "set-cookie": "zalb_f73898f234=5a419c9ed30867d7b36a07c3110fd083; Path=/; Secure; HttpOnly, zomcscook=cccffd4e-66c0-47eb-84e8-0a3e6790c6cf;path=/;SameSite=None;Secure;priority=high",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, POST, GET",
+          "server_build_version": "Oct_09_2026_14741/",
+          "vary": "accept-encoding"
+        },
+        "hash": "ce2bcfba6c1b73127ff9fb54862e5d149a1af650",
+        "request": {}
+      }
+    },
+    "post": {
+      "/inventory/v1/salesorders/260815000000159468/status/confirmed": {
+        "response": {
+          "code": 0,
+          "message": "Sales order status has been changed to Confirmed.",
+          "data": {}
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:31:46 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1802",
+          "x-ratelimit-reset": "1791570708",
+          "server": "ZGS",
+          "set-cookie": "zalb_f73898f234=fe3acaa0561c4115e2728637676af2b9; Path=/; Secure; HttpOnly, zomcscook=1feba373-01d9-4330-b447-9c36bcebdc29;path=/;SameSite=None;Secure;priority=high, JSESSIONID=DECEEAB3522BFBE12AECE7E7844F9DDF; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 18:36:46 GMT; Secure; HttpOnly",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "7500",
+          "x-rate-limit-reset": "34093",
+          "x-rate-limit-remaining": "6431",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, POST",
+          "build_version": "Oct_09_2026_27467",
+          "client_build_version": "Oct_09_2026_27467",
+          "server_build_version": "Oct_09_2026_14741/",
+          "vary": "accept-encoding"
+        },
+        "hash": "dca34a037177031af49accb85f80987dbdc18bcb",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          }
+        }
+      }
+    }
+  }
+}

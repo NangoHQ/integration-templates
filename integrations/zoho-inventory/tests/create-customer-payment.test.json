@@ -1,0 +1,222 @@
+{
+  "input": {
+    "customer_id": "260815000000161104",
+    "amount": 10,
+    "payment_mode": "cash",
+    "invoices": [
+      {
+        "invoice_id": "260815000000160134",
+        "amount_applied": 10
+      }
+    ],
+    "date": "2026-10-09",
+    "reference_number": "INV-000042",
+    "description": "Nango create-customer-payment test",
+    "organization_id": "927270289"
+  },
+  "output": {
+    "payment_id": "260815000000163174",
+    "payment_number": "32",
+    "payment_mode": "cash",
+    "amount": 10,
+    "bank_charges": 0,
+    "date": "2026-10-09",
+    "payment_status": "paid",
+    "reference_number": "INV-000042",
+    "description": "Nango create-customer-payment test",
+    "customer_id": "260815000000161104",
+    "customer_name": "Nango CCP Test Customer",
+    "unused_amount": 0,
+    "exchange_rate": 1,
+    "currency_code": "USD",
+    "currency_symbol": "$",
+    "account_id": "260815000000000358",
+    "account_name": "Undeposited Funds",
+    "tax_amount_withheld": 0,
+    "invoices": [
+      {
+        "invoice_id": "260815000000160134",
+        "invoice_number": "INV-000042",
+        "amount_applied": 10,
+        "tax_amount_withheld": 0,
+        "invoice_amount": 60,
+        "balance_amount": 40,
+        "date": "2026-10-09",
+        "due_date": "2026-10-09"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/inventory/v1/customerpayments": {
+        "response": {
+          "code": 0,
+          "message": "The payment from the customer has been recorded",
+          "payment": {
+            "payment_id": "260815000000163174",
+            "payment_number": "32",
+            "sales_channel": "",
+            "account_identifier": "",
+            "payment_link_id": "",
+            "created_by": "Nango Developer",
+            "created_time": "2026-10-09T14:26:45-0400",
+            "updated_time": "2026-10-09T14:26:45-0400",
+            "lock_details": {
+              "can_lock": false
+            },
+            "locked_actions": [],
+            "payment_number_prefix": "",
+            "payment_number_suffix": "32",
+            "documents": [],
+            "beat_id": "",
+            "beat_number": "",
+            "journey_plan_id": "",
+            "sales_person_id": "",
+            "sales_person_name": "",
+            "customer_id": "260815000000161104",
+            "customer_name": "Nango CCP Test Customer",
+            "payment_mode": "cash",
+            "card_type": "",
+            "date": "2026-10-09",
+            "offline_created_date_with_time": "",
+            "account_id": "260815000000000358",
+            "account_name": "Undeposited Funds",
+            "account_type": "cash",
+            "customer_advance_account_id": "260815000000000364",
+            "customer_advance_account_name": "Accounts Receivable",
+            "currency_id": "260815000000000097",
+            "currency_symbol": "$",
+            "currency_code": "USD",
+            "exchange_rate": 1,
+            "amount": 10,
+            "bcy_amount": 10,
+            "unused_amount": 0,
+            "bank_charges": 0,
+            "bank_charges_account_id": "",
+            "bank_charges_account_name": "",
+            "tax_account_id": "",
+            "is_client_review_settings_enabled": false,
+            "tax_account_name": "",
+            "tax_amount_withheld": 0,
+            "discount_amount": 0,
+            "is_early_payment_discount_applicable": false,
+            "description": "Nango create-customer-payment test",
+            "reference_number": "INV-000042",
+            "online_transaction_id": "",
+            "payment_gateway": "",
+            "settlement_status": "",
+            "is_ondc_channel": false,
+            "invoices": [
+              {
+                "invoice_number": "INV-000042",
+                "invoice_payment_id": "260815000000163178",
+                "invoice_id": "260815000000160134",
+                "invoice_customer_id": "",
+                "invoice_customer_name": "",
+                "amount_applied": 10,
+                "tax_amount_withheld": 0,
+                "discount_amount": 0,
+                "total": 60,
+                "balance": 40,
+                "date": "2026-10-09",
+                "due_date": "2026-10-09",
+                "unprocessed_payment_amount": 0,
+                "price_precision": 2,
+                "apply_date": "2026-10-09",
+                "allow_partial_payments": "",
+                "is_early_payment_discount_applicable": false,
+                "invoice_installments": [],
+                "installments": []
+              }
+            ],
+            "check_details": {
+              "check_id": "",
+              "check_number": "",
+              "memo": "",
+              "check_status": "",
+              "expiry_date": "",
+              "clearance_account_id": ""
+            },
+            "payment_status": "paid",
+            "tender_id": "",
+            "payment_refunds": [],
+            "deposit_details": [],
+            "last_four_digits": "",
+            "template_id": "260815000000039005",
+            "template_name": "Elite Template",
+            "page_width": "8.27in",
+            "page_height": "11.69in",
+            "orientation": "portrait",
+            "template_type": "elite",
+            "attachment_name": "",
+            "can_send_in_mail": true,
+            "can_send_payment_sms": true,
+            "is_payment_details_required": true,
+            "custom_fields": [],
+            "custom_field_hash": {},
+            "imported_transactions": [],
+            "price_precision": 2,
+            "rounding_mode": "round_half_up",
+            "tags": []
+          }
+        },
+        "status": 201,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 18:26:45 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=64072000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1748",
+          "x-ratelimit-reset": "1791570407",
+          "server": "ZGS",
+          "set-cookie": "zalb_f73898f234=5a419c9ed30867d7b36a07c3110fd083; Path=/; Secure; HttpOnly, zomcscook=e576f186-e4e7-4fcc-a765-e6376fb0a40f;path=/;SameSite=None;Secure;priority=high, JSESSIONID=1A7AC7C5888BFF3278D483F6972D9AF0; Path=/; Secure; HttpOnly, BuildCookie_927270289=1; Max-Age=300; Expires=Fri, 09 Oct 2026 18:31:45 GMT; Secure; HttpOnly",
+          "cache-control": "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0",
+          "pragma": "no-cache",
+          "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+          "x-rate-limit-limit": "7500",
+          "x-rate-limit-reset": "34395",
+          "x-rate-limit-remaining": "6881",
+          "content-disposition": "attachment;",
+          "allow": "OPTIONS, DELETE, POST, GET, PUT",
+          "build_version": "Oct_09_2026_27467",
+          "client_build_version": "Oct_09_2026_27467",
+          "server_build_version": "Oct_09_2026_14741/",
+          "location": "/api/v1/customerpayments/260815000000163174",
+          "vary": "accept-encoding"
+        },
+        "hash": "d28b488190a59b1c72d62d22f2f693cb4edf1949",
+        "request": {
+          "params": {
+            "organization_id": "927270289"
+          },
+          "data": {
+            "customer_id": "260815000000161104",
+            "amount": 10,
+            "payment_mode": "cash",
+            "invoices": [
+              {
+                "invoice_id": "260815000000160134",
+                "amount_applied": 10
+              }
+            ],
+            "date": "2026-10-09",
+            "reference_number": "INV-000042",
+            "description": "Nango create-customer-payment test"
+          }
+        }
+      }
+    }
+  }
+}
