@@ -1,0 +1,59 @@
+{
+  "input": {
+    "projectId": "6ac94f5b8f084dbfaa69e967",
+    "taskId": "6ac94f5f8f0879728388dad4",
+    "title": "Nango dryrun comment"
+  },
+  "output": {
+    "id": "6ac94faf8f0879728388e238",
+    "title": "Nango dryrun comment",
+    "userId": 133827401,
+    "createdTime": 1791578031230,
+    "modifiedTime": 1791578031230
+  },
+  "nango": {},
+  "api": {
+    "post": {
+      "/open/v1/project/6ac94f5b8f084dbfaa69e967/task/6ac94f5f8f0879728388dad4/comment": {
+        "response": {
+          "id": "6ac94faf8f0879728388e238",
+          "userId": 133827401,
+          "title": "Nango dryrun comment",
+          "modifiedTime": 1791578031230,
+          "createdTime": 1791578031230
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 20:33:51 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "DENY",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000 ; includeSubDomains",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1938",
+          "x-ratelimit-reset": "1791578054",
+          "set-cookie": "AWSALB=Lu7Wd+uZ/dao+PXUTqZzLCY4P5kwVnXSHQIeTjy2cP/kKJF+aJdgt7aFOW+b6ycd1r+bH0XU1wRz2KGafSJvntbP9yC6swaqcd1aw7qHGdTSeyO1lP498udyvUp4; Expires=Fri, 16 Oct 2026 20:33:51 GMT; Path=/, AWSALBCORS=Lu7Wd+uZ/dao+PXUTqZzLCY4P5kwVnXSHQIeTjy2cP/kKJF+aJdgt7aFOW+b6ycd1r+bH0XU1wRz2KGafSJvntbP9yC6swaqcd1aw7qHGdTSeyO1lP498udyvUp4; Expires=Fri, 16 Oct 2026 20:33:51 GMT; Path=/; SameSite=None; Secure",
+          "vary": "origin,access-control-request-method,access-control-request-headers,accept-encoding",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "pragma": "no-cache",
+          "expires": "0"
+        },
+        "hash": "b4f313851c2a8ec7cd8b3c714bfe3977c93174de",
+        "request": {
+          "data": {
+            "title": "Nango dryrun comment"
+          }
+        }
+      }
+    }
+  }
+}

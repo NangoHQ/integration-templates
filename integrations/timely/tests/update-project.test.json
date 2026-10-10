@@ -1,0 +1,305 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "project_id": 5698337,
+    "name": "Nango Update Test Project",
+    "description": "Updated via update-project action",
+    "rate_type": "non-billable",
+    "enable_labels": "all"
+  },
+  "output": {
+    "id": 5698337,
+    "account_id": 1145787,
+    "name": "Nango Update Test Project",
+    "description": "Updated via update-project action",
+    "color": null,
+    "rate_type": "non-billable",
+    "billable": false,
+    "enable_labels": "all",
+    "active": false,
+    "hour_rate": 0,
+    "budget": 1000,
+    "external_id": "ext-123",
+    "required_notes": true,
+    "client": {
+      "id": 2193170,
+      "name": "Nango Developer"
+    },
+    "created_at": 1791582710,
+    "updated_at": 1791582905
+  },
+  "nango": {},
+  "api": {
+    "put": {
+      "/1.1/1145787/projects/5698337": {
+        "response": {
+          "id": 5698337,
+          "active": false,
+          "account_id": 1145787,
+          "name": "Nango Update Test Project",
+          "description": "Updated via update-project action",
+          "color": null,
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791582710,
+          "updated_at": 1791582905,
+          "external_id": "ext-123",
+          "budget_scope": "project",
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": true,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "all",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 1000,
+          "budget_type": "",
+          "budget_calculation": "pending",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:51:50+03:00",
+              "created_at": "2026-10-10T00:51:50+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [
+            {
+              "project_id": 5698337,
+              "label_id": 4687689,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687690,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687691,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687692,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687693,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687694,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687695,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687696,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687697,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687698,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            },
+            {
+              "project_id": 5698337,
+              "label_id": 4687699,
+              "budget": 0,
+              "required": false,
+              "default": false,
+              "updated_at": "2026-10-09T21:55:05+00:00"
+            }
+          ],
+          "label_ids": [
+            4687689,
+            4687690,
+            4687691,
+            4687692,
+            4687693,
+            4687694,
+            4687695,
+            4687696,
+            4687697,
+            4687698,
+            4687699
+          ],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "first_logged_on": null,
+          "last_logged_on": null,
+          "created_from": "Nango",
+          "allow_only_one_tag": true
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:55:05 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3594",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1961",
+          "x-ratelimit-reset": "1791582949",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"347d77a79c9bd6c716eeb0cef0f0ec32\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "4cdb961d-dcf6-4e24-93a3-f46df68cd2df",
+          "x-runtime": "0.192531",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=a3sPKjPG9hJ8Pz%2Fi1hPQlkcG5u%2Bc4%2BpHWC9uTOqvuJbqhKOEWxY5ijA2fP2%2BWsGfqNyj2jXqdP8gP8aXxM4wDgk0lzGOn3Vt5%2Fqg3qXRgXXF4U55MEAlpROYEggqdKp0MPtL4Q%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a0a65ec8fef3-PDX"
+        },
+        "hash": "18cceac7806138921335c3b25d958f5c1c66bc07",
+        "request": {
+          "data": {
+            "project": {
+              "name": "Nango Update Test Project",
+              "description": "Updated via update-project action",
+              "rate_type": "non-billable",
+              "enable_labels": "all"
+            }
+          }
+        }
+      }
+    }
+  }
+}
