@@ -1,0 +1,597 @@
+{
+  "input": {
+    "folderId": "MQAAAAEQ_HoI",
+    "pageSize": 10
+  },
+  "output": {
+    "tasks": [
+      {
+        "id": "MAAAAAEQ_HoM",
+        "accountId": "IEAG5DAK",
+        "title": "2",
+        "briefDescription": "",
+        "parentIds": [
+          "MQAAAAEQ_HoI"
+        ],
+        "superParentIds": [],
+        "sharedIds": [
+          "KX7WCEJZ",
+          "KUAZR5CO"
+        ],
+        "responsibleIds": [
+          "KUAZR5CO"
+        ],
+        "responsiblePlaceholderIds": [],
+        "authorIds": [
+          "KUAZR5CO"
+        ],
+        "followerIds": [
+          "KUAZR5CO"
+        ],
+        "followedByMe": true,
+        "status": "Active",
+        "importance": "Normal",
+        "createdDate": "2026-10-07T01:48:56Z",
+        "updatedDate": "2026-10-09T23:33:28Z",
+        "dates": {
+          "type": "Planned",
+          "duration": 1440,
+          "start": "2026-10-02T09:00:00",
+          "due": "2026-10-06T17:00:00"
+        },
+        "scope": "WsTask",
+        "customStatusId": "IEAG5DAKJMHVMQV4",
+        "hasAttachments": false,
+        "attachmentCount": 0,
+        "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+        "priority": "01b89400800000000000c000",
+        "superTaskIds": [],
+        "subTaskIds": [],
+        "dependencyIds": [
+          "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+          "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+        ],
+        "billingType": "NonBillable",
+        "metadata": [],
+        "customFields": [
+          {
+            "id": "IEAG5DAKJUANPFGZ",
+            "value": "Medium"
+          },
+          {
+            "id": "IEAG5DAKJUANPFG2",
+            "value": "1000"
+          }
+        ],
+        "effortAllocation": {
+          "mode": "None",
+          "responsibleAllocation": []
+        },
+        "finance": {
+          "currency": "US Dollar"
+        }
+      },
+      {
+        "id": "MAAAAAEQ_HoK",
+        "accountId": "IEAG5DAK",
+        "title": "3",
+        "briefDescription": "",
+        "parentIds": [
+          "MQAAAAEQ_HoI"
+        ],
+        "superParentIds": [],
+        "sharedIds": [
+          "KX7WCEJZ",
+          "KUAZR5CO"
+        ],
+        "responsibleIds": [
+          "KUAZR5CO"
+        ],
+        "responsiblePlaceholderIds": [],
+        "authorIds": [
+          "KUAZR5CO"
+        ],
+        "followerIds": [
+          "KUAZR5CO"
+        ],
+        "followedByMe": true,
+        "status": "Active",
+        "importance": "Normal",
+        "createdDate": "2026-10-07T01:48:56Z",
+        "updatedDate": "2026-10-09T23:33:28Z",
+        "dates": {
+          "type": "Planned",
+          "duration": 1440,
+          "start": "2026-10-07T09:00:00",
+          "due": "2026-10-09T17:00:00"
+        },
+        "scope": "WsTask",
+        "customStatusId": "IEAG5DAKJMHVMQV4",
+        "hasAttachments": false,
+        "attachmentCount": 0,
+        "permalink": "https://www.wrike.com/open.htm?id=4579949066",
+        "priority": "01b89400800000000000bc00",
+        "superTaskIds": [],
+        "subTaskIds": [],
+        "dependencyIds": [
+          "MgAAAAEQ_HoMMwAAAAEQ_HoK"
+        ],
+        "billingType": "NonBillable",
+        "metadata": [],
+        "customFields": [
+          {
+            "id": "IEAG5DAKJUANPFGZ",
+            "value": "High"
+          },
+          {
+            "id": "IEAG5DAKJUANPFG2",
+            "value": "2000"
+          }
+        ],
+        "effortAllocation": {
+          "mode": "None",
+          "responsibleAllocation": []
+        },
+        "finance": {
+          "currency": "US Dollar"
+        }
+      },
+      {
+        "id": "MAAAAAEQ_HoO",
+        "accountId": "IEAG5DAK",
+        "title": "1",
+        "briefDescription": "Add a description for the task here You can: • Use formatting tools like text colors and highlights• Attach files using drag...",
+        "parentIds": [
+          "MQAAAAEQ_HoI"
+        ],
+        "superParentIds": [],
+        "sharedIds": [
+          "KX7WCEJZ",
+          "KUAZR5CO"
+        ],
+        "responsibleIds": [
+          "KUAZR5CO"
+        ],
+        "responsiblePlaceholderIds": [],
+        "authorIds": [
+          "KUAZR5CO"
+        ],
+        "followerIds": [
+          "KUAZR5CO"
+        ],
+        "followedByMe": true,
+        "status": "Active",
+        "importance": "Normal",
+        "createdDate": "2026-10-07T01:48:56Z",
+        "updatedDate": "2026-10-09T23:38:31Z",
+        "dates": {
+          "type": "Planned",
+          "duration": 2400,
+          "start": "2026-09-25T09:00:00",
+          "due": "2026-10-01T17:00:00"
+        },
+        "scope": "WsTask",
+        "customStatusId": "IEAG5DAKJMHVMQW2",
+        "hasAttachments": true,
+        "attachmentCount": 1,
+        "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+        "priority": "01b89400800000000000b800",
+        "superTaskIds": [],
+        "subTaskIds": [
+          "MAAAAAEQ_HoP",
+          "MAAAAAEQ_HoR"
+        ],
+        "dependencyIds": [
+          "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+          "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+        ],
+        "billingType": "NonBillable",
+        "metadata": [],
+        "customFields": [
+          {
+            "id": "IEAG5DAKJUANPFGZ",
+            "value": "Low"
+          },
+          {
+            "id": "IEAG5DAKJUANPFG2",
+            "value": "5000"
+          }
+        ],
+        "effortAllocation": {
+          "mode": "None",
+          "responsibleAllocation": []
+        },
+        "finance": {
+          "currency": "US Dollar"
+        }
+      },
+      {
+        "id": "MAAAAAERHGkh",
+        "accountId": "IEAG5DAK",
+        "title": "cubic effort probe",
+        "briefDescription": "",
+        "parentIds": [
+          "MQAAAAEQ_HoI"
+        ],
+        "superParentIds": [],
+        "sharedIds": [
+          "KX7WCEJZ",
+          "KUAZR5CO"
+        ],
+        "responsibleIds": [
+          "KUAZR5CO"
+        ],
+        "responsiblePlaceholderIds": [],
+        "authorIds": [
+          "KUAZR5CO"
+        ],
+        "followerIds": [
+          "KUAZR5CO"
+        ],
+        "followedByMe": true,
+        "status": "Active",
+        "importance": "Normal",
+        "createdDate": "2026-10-10T01:42:53Z",
+        "updatedDate": "2026-10-10T01:43:08Z",
+        "dates": {
+          "type": "Planned",
+          "duration": 1440,
+          "start": "2026-10-12T09:00:00",
+          "due": "2026-10-14T17:00:00"
+        },
+        "scope": "WsTask",
+        "customStatusId": "IEAG5DAKJMHVMQV4",
+        "hasAttachments": false,
+        "attachmentCount": 0,
+        "permalink": "https://www.wrike.com/open.htm?id=4582041889",
+        "priority": "01ca08008000000000008400",
+        "superTaskIds": [],
+        "subTaskIds": [],
+        "dependencyIds": [],
+        "billingType": "NonBillable",
+        "metadata": [],
+        "customFields": [],
+        "effortAllocation": {
+          "mode": "Flexible",
+          "allocatedEffort": 180,
+          "totalEffort": 600,
+          "responsibleAllocation": [
+            {
+              "userId": "KUAZR5CO",
+              "dailyAllocation": [
+                {
+                  "date": "2026-10-12",
+                  "effortMinutes": 120
+                },
+                {
+                  "date": "2026-10-13",
+                  "effortMinutes": 60
+                }
+              ]
+            }
+          ]
+        },
+        "finance": {
+          "currency": "US Dollar"
+        }
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/folders/MQAAAAEQ_HoI/tasks": {
+        "response": {
+          "kind": "tasks",
+          "data": [
+            {
+              "id": "MAAAAAEQ_HoM",
+              "accountId": "IEAG5DAK",
+              "title": "2",
+              "briefDescription": "",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "responsiblePlaceholderIds": [],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:33:28Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 1440,
+                "start": "2026-10-02T09:00:00",
+                "due": "2026-10-06T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+              "priority": "01b89400800000000000c000",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+              ],
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Medium"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "1000"
+                }
+              ],
+              "billingType": "NonBillable",
+              "effortAllocation": {
+                "responsibleAllocation": [],
+                "mode": "None"
+              },
+              "finance": {
+                "currency": "US Dollar"
+              }
+            },
+            {
+              "id": "MAAAAAEQ_HoK",
+              "accountId": "IEAG5DAK",
+              "title": "3",
+              "briefDescription": "",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "responsiblePlaceholderIds": [],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:33:28Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 1440,
+                "start": "2026-10-07T09:00:00",
+                "due": "2026-10-09T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949066",
+              "priority": "01b89400800000000000bc00",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoMMwAAAAEQ_HoK"
+              ],
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "High"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "2000"
+                }
+              ],
+              "billingType": "NonBillable",
+              "effortAllocation": {
+                "responsibleAllocation": [],
+                "mode": "None"
+              },
+              "finance": {
+                "currency": "US Dollar"
+              }
+            },
+            {
+              "id": "MAAAAAEQ_HoO",
+              "accountId": "IEAG5DAK",
+              "title": "1",
+              "briefDescription": "Add a description for the task here You can: • Use formatting tools like text colors and highlights• Attach files using drag...",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "responsiblePlaceholderIds": [],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:38:31Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 2400,
+                "start": "2026-09-25T09:00:00",
+                "due": "2026-10-01T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQW2",
+              "hasAttachments": true,
+              "attachmentCount": 1,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+              "priority": "01b89400800000000000b800",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [
+                "MAAAAAEQ_HoP",
+                "MAAAAAEQ_HoR"
+              ],
+              "dependencyIds": [
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+                "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+              ],
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Low"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "5000"
+                }
+              ],
+              "billingType": "NonBillable",
+              "effortAllocation": {
+                "responsibleAllocation": [],
+                "mode": "None"
+              },
+              "finance": {
+                "currency": "US Dollar"
+              }
+            },
+            {
+              "id": "MAAAAAERHGkh",
+              "accountId": "IEAG5DAK",
+              "title": "cubic effort probe",
+              "briefDescription": "",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "responsiblePlaceholderIds": [],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-10T01:42:53Z",
+              "updatedDate": "2026-10-10T01:43:08Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 1440,
+                "start": "2026-10-12T09:00:00",
+                "due": "2026-10-14T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "hasAttachments": false,
+              "attachmentCount": 0,
+              "permalink": "https://www.wrike.com/open.htm?id=4582041889",
+              "priority": "01ca08008000000000008400",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [],
+              "metadata": [],
+              "customFields": [],
+              "billingType": "NonBillable",
+              "effortAllocation": {
+                "allocatedEffort": 180,
+                "responsibleAllocation": [
+                  {
+                    "userId": "KUAZR5CO",
+                    "dailyAllocation": [
+                      {
+                        "date": "2026-10-12",
+                        "effortMinutes": 120
+                      },
+                      {
+                        "date": "2026-10-13",
+                        "effortMinutes": 60
+                      }
+                    ]
+                  }
+                ],
+                "mode": "Flexible",
+                "totalEffort": 600
+              },
+              "finance": {
+                "currency": "US Dollar"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Sat, 10 Oct 2026 01:44:13 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1991",
+          "x-ratelimit-reset": "1791596684",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c55e3d766825",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac9986d0000000040769e27ae086d74",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a481f04cc9c0e22a-PDX"
+        },
+        "hash": "e6f527092f9a42699057a42e2cfba6942e06ed2a",
+        "request": {
+          "params": {
+            "fields": "[\"parentIds\",\"superParentIds\",\"sharedIds\",\"responsibleIds\",\"responsiblePlaceholderIds\",\"authorIds\",\"followerIds\",\"briefDescription\",\"hasAttachments\",\"attachmentCount\",\"superTaskIds\",\"subTaskIds\",\"dependencyIds\",\"billingType\",\"recurrent\",\"customItemTypeId\",\"workScheduleId\",\"metadata\",\"customFields\",\"effortAllocation\",\"finance\"]",
+            "pageSize": "10"
+          }
+        }
+      }
+    }
+  }
+}
