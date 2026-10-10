@@ -100,35 +100,61 @@ const GoalsResponseSchema = z.object({
     total_pages: z.number().optional()
 });
 
+// WakaTime sends null for unset fields (e.g. custom_title, owner.username), while the Goal model
+// represents them as omitted, so drop null-valued keys at every level before validating.
+function stripNulls(value: unknown): unknown {
+    if (Array.isArray(value)) {
+        return value.map(stripNulls);
+    }
+    if (typeof value === 'object' && value !== null) {
+        return Object.fromEntries(
+            Object.entries(value)
+                .filter(([, entry]) => entry !== null)
+                .map(([key, entry]) => [key, stripNulls(entry)])
+        );
+    }
+    return value;
+}
+
 const sync = createSync({
     description: "Sync the user's configured coding goals.",
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
+    scopes: ['read_goals'],
     models: {
         Goal: GoalSchema
     },
 
     exec: async (nango) => {
-        // Full refresh: GET /users/current/goals returns the complete goal list in a single
-        // response and exposes no changed-since filter, cursor, or pagination parameter, so
-        // there is no resumable state to checkpoint. trackDeletesStart/trackDeletesEnd remove
-        // goals that were deleted through the WakaTime dashboard between runs. Goal writes are
-        // blocked for OAuth connections, so this sync only ever reflects dashboard changes.
+        // Full refresh: GET /users/current/goals exposes no changed-since filter or cursor, so there is
+        // no resumable state to checkpoint. trackDeletesStart/trackDeletesEnd remove goals that were
+        // deleted through the WakaTime dashboard between runs. Goal writes are blocked for OAuth
+        // connections, so this sync only ever reflects dashboard changes.
         await nango.trackDeletesStart('Goal');
 
-        const proxyConfig: ProxyConfiguration = {
-            // https://wakatime.com/developers#goals
-            endpoint: '/api/v1/users/current/goals',
-            retries: 3
-        };
+        // The response reports total_pages, so every page is fetched before delete tracking ends;
+        // otherwise goals on later pages would be marked as deleted.
+        let page = 1;
+        let totalPages = 1;
+        do {
+            const proxyConfig: ProxyConfiguration = {
+                // https://wakatime.com/developers#goals
+                endpoint: '/api/v1/users/current/goals',
+                ...(page > 1 && { params: { page } }),
+                retries: 3
+            };
 
-        const response = await nango.get<unknown>(proxyConfig);
-        const parsed = GoalsResponseSchema.parse(response.data);
+            const response = await nango.get<unknown>(proxyConfig);
+            const parsed = GoalsResponseSchema.parse(stripNulls(response.data));
 
-        if (parsed.data.length > 0) {
-            await nango.batchSave(parsed.data, 'Goal');
-        }
+            if (parsed.data.length > 0) {
+                await nango.batchSave(parsed.data, 'Goal');
+            }
+
+            totalPages = parsed.total_pages ?? 1;
+            page += 1;
+        } while (page <= totalPages);
 
         await nango.trackDeletesEnd('Goal');
     }

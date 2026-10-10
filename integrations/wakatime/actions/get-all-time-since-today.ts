@@ -12,14 +12,14 @@ const RangeSchema = z.object({
 });
 
 const AllTimeStatsSchema = z.object({
-    total_seconds: z.number().describe('Total number of seconds logged since the account was created. Example: 0'),
-    text: z.string().describe('Total time logged since the account was created, in human-readable form. Example: "0 secs"'),
-    decimal: z.string().describe('Total coding activity in decimal hours, as a string. Example: "0.00"'),
-    digital: z.string().describe('Total coding activity in digital clock format. Example: "0:00"'),
-    daily_average: z.number().describe('Average coding activity per day in seconds across the range. Example: 0'),
+    total_seconds: z.number().optional().describe('Total number of seconds logged since the account was created; omitted while still calculating. Example: 0'),
+    text: z.string().optional().describe('Total time logged since the account was created, in human-readable form. Example: "0 secs"'),
+    decimal: z.string().optional().describe('Total coding activity in decimal hours, as a string. Example: "0.00"'),
+    digital: z.string().optional().describe('Total coding activity in digital clock format. Example: "0:00"'),
+    daily_average: z.number().optional().describe('Average coding activity per day in seconds across the range; omitted while still calculating. Example: 0'),
     is_up_to_date: z.boolean().describe('Whether the totals are fully calculated; false means they are still being refreshed and may be incomplete'),
-    percent_calculated: z.number().describe("How complete the calculation is, from 0 to 100, where 100 includes today's activity"),
-    range: RangeSchema.describe('The date range the totals cover, from account creation through today'),
+    percent_calculated: z.number().optional().describe("How complete the calculation is, from 0 to 100, where 100 includes today's activity"),
+    range: RangeSchema.optional().describe('The date range the totals cover, from account creation through today'),
     timeout: z.number().optional().describe('Keystroke timeout setting in minutes used to join heartbeats into durations')
 });
 
@@ -27,9 +27,23 @@ const OutputSchema = AllTimeStatsSchema.extend({
     message: z.string().optional().describe('Explanatory message from WakaTime, present when the stats are still being calculated')
 }).describe("The user's total coding time since the account was created, plus calculation status.");
 
+const ProviderStatsSchema = z.object({
+    total_seconds: z.number().nullish(),
+    text: z.string().nullish(),
+    decimal: z.string().nullish(),
+    digital: z.string().nullish(),
+    daily_average: z.number().nullish(),
+    is_up_to_date: z.boolean(),
+    percent_calculated: z.number().nullish(),
+    range: RangeSchema.nullish(),
+    timeout: z.number().nullish(),
+    message: z.string().nullish()
+});
+
+// The calculating message is not in the documented example, so accept it both inside data and on the envelope.
 const ProviderResponseSchema = z.object({
-    data: AllTimeStatsSchema,
-    message: z.string().nullable().optional()
+    data: ProviderStatsSchema,
+    message: z.string().nullish()
 });
 
 /**
@@ -53,9 +67,20 @@ const action = createAction({
 
         const parsed = ProviderResponseSchema.parse(response.data);
 
+        const stats = parsed.data;
+        const message = stats.message ?? parsed.message;
+
         return {
-            ...parsed.data,
-            ...(parsed.message != null && { message: parsed.message })
+            is_up_to_date: stats.is_up_to_date,
+            ...(stats.total_seconds != null && { total_seconds: stats.total_seconds }),
+            ...(stats.text != null && { text: stats.text }),
+            ...(stats.decimal != null && { decimal: stats.decimal }),
+            ...(stats.digital != null && { digital: stats.digital }),
+            ...(stats.daily_average != null && { daily_average: stats.daily_average }),
+            ...(stats.percent_calculated != null && { percent_calculated: stats.percent_calculated }),
+            ...(stats.range != null && { range: stats.range }),
+            ...(stats.timeout != null && { timeout: stats.timeout }),
+            ...(message != null && { message })
         };
     }
 });

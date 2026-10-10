@@ -5,7 +5,7 @@ const InputSchema = z
     .object({
         range: z
             .string()
-            .regex(/^(last_7_days|last_30_days|last_6_months|last_year|all_time|\d{4}(-\d{2})?)$/)
+            .regex(/^(last_7_days|last_30_days|last_6_months|last_year|all_time|\d{4}(-(0[1-9]|1[0-2]))?)$/)
             .optional()
             .describe(
                 "Stats range to summarize. One of 'last_7_days', 'last_30_days', 'last_6_months', 'last_year', 'all_time', a year like '2026', or a month like '2026-10'. Defaults to 'last_7_days'."
@@ -328,8 +328,10 @@ const action = createAction({
             endpoint: '/api/v1/users/current/all_time_since_today',
             retries: 3
         });
-        const allTimeEnvelope = z.object({ data: ProviderAllTimeSchema }).parse(allTimeResponse.data);
+        // The calculating message is not in the documented example, so accept it both inside data and on the envelope.
+        const allTimeEnvelope = z.object({ data: ProviderAllTimeSchema, message: z.string().nullable().optional() }).parse(allTimeResponse.data);
         const allTime = allTimeEnvelope.data;
+        const allTimeMessage = allTime.message ?? allTimeEnvelope.message;
 
         const profile: z.infer<typeof ProfileOutputSchema> = {
             id: user.id,
@@ -401,7 +403,7 @@ const action = createAction({
             : {
                   status: 'calculating',
                   percent_calculated: allTimePercent,
-                  ...(allTime.message != null && { message: allTime.message })
+                  ...(allTimeMessage != null && { message: allTimeMessage })
               };
 
         const todaysHeartbeats: z.infer<typeof HeartbeatOutputSchema>[] = heartbeats.map((heartbeat) => ({

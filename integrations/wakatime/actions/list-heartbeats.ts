@@ -11,7 +11,7 @@ const InputSchema = z
     .describe('Input for listing all heartbeats recorded on a single given day.');
 
 const HeartbeatSchema = z.object({
-    id: z.string().nullable().optional().describe('Unique identifier of the heartbeat.'),
+    id: z.string().describe('Unique identifier of the heartbeat.'),
     entity: z.string().nullable().optional().describe('The file path, domain, URL, or app the activity was logged against.'),
     type: z.string().nullable().optional().describe('Type of the entity, such as file, app, url, or domain.'),
     category: z.string().nullable().optional().describe('Category of the activity, such as coding, debugging, or writing tests.'),
@@ -39,8 +39,16 @@ const HeartbeatSchema = z.object({
     ai_subscription_plan: z.string().nullable().optional().describe('Subscription plan of the GenAI tool used for this heartbeat.')
 });
 
+// WakaTime documents dependencies as a comma-separated string but returns an array live, so accept both and normalize.
+const ProviderHeartbeatSchema = HeartbeatSchema.extend({
+    dependencies: z
+        .union([z.array(z.string()), z.string()])
+        .nullable()
+        .optional()
+});
+
 const ProviderResponseSchema = z.object({
-    data: z.array(HeartbeatSchema),
+    data: z.array(ProviderHeartbeatSchema),
     start: z.string().optional(),
     end: z.string().optional(),
     timezone: z.string().optional()
@@ -80,7 +88,16 @@ const action = createAction({
         const parsed = ProviderResponseSchema.parse(response.data);
 
         return {
-            heartbeats: parsed.data,
+            heartbeats: parsed.data.map((heartbeat) => ({
+                ...heartbeat,
+                dependencies:
+                    typeof heartbeat.dependencies === 'string'
+                        ? heartbeat.dependencies
+                              .split(',')
+                              .map((dependency) => dependency.trim())
+                              .filter((dependency) => dependency.length > 0)
+                        : heartbeat.dependencies
+            })),
             ...(parsed.start !== undefined && { start: parsed.start }),
             ...(parsed.end !== undefined && { end: parsed.end }),
             ...(parsed.timezone !== undefined && { timezone: parsed.timezone })

@@ -7,7 +7,7 @@ const ProjectSchema = z.object({
     color: z.string().nullable().describe('Custom project color as a hex string, or null when the default color is used.'),
     repository: z.string().nullable().describe('Associated repository name when one is connected, otherwise null.'),
     badge: z.string().nullable().describe('Associated project badge when one is enabled, otherwise null.'),
-    clients: z.array(z.unknown()).describe('Clients (editors/plugins) that have recorded activity for this project.'),
+    clients: z.array(z.string()).describe('Clients (editors/plugins) that have recorded activity for this project.'),
     has_public_url: z.boolean().describe('Whether this project has a shareable public url defined.'),
     url: z.string().describe('Path of this project relative to wakatime.com. Example: "/projects/nango-integrations"'),
     urlencoded_name: z.string().describe('URL-encoded project name. Example: "nango-integrations"'),
@@ -16,13 +16,21 @@ const ProjectSchema = z.object({
         .nullable()
         .optional()
         .describe('Time the project first received code stats in ISO 8601 format; only set for accounts created after 2024-02-05T00:00:00Z UTC.'),
-    last_heartbeat_at: z.string().describe('Time the project last received code stats in ISO 8601 format. Example: "2026-10-10T00:24:55Z"'),
+    last_heartbeat_at: z
+        .string()
+        .nullable()
+        .optional()
+        .describe('Time the project last received code stats in ISO 8601 format; null when the project has no heartbeats. Example: "2026-10-10T00:24:55Z"'),
     human_readable_first_heartbeat_at: z
         .string()
         .nullable()
         .optional()
         .describe('Human-readable time the project first received code stats; only set for accounts created after 2024-02-05T00:00:00Z UTC.'),
-    human_readable_last_heartbeat_at: z.string().describe('Human-readable time the project last received code stats. Example: "Oct 10, 2026, 3:24 AM EAT"'),
+    human_readable_last_heartbeat_at: z
+        .string()
+        .nullable()
+        .optional()
+        .describe('Human-readable time the project last received code stats; null when the project has no heartbeats. Example: "Oct 10, 2026, 3:24 AM EAT"'),
     created_at: z.string().describe('Time the project was created in ISO 8601 format. Example: "2026-10-10T00:25:54Z"')
 });
 
@@ -53,6 +61,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_stats.projects'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.get({

@@ -221,6 +221,7 @@ const action = createAction({
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_summaries'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         if (input.range && (input.start || input.end)) {

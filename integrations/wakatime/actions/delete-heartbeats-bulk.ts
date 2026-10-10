@@ -14,10 +14,15 @@ const InputSchema = z
 const OutputSchema = z
     .object({
         date: z.string().describe('The day the deletion was scoped to, in YYYY-MM-DD format.'),
-        deleted_ids: z.array(z.string()).describe('Heartbeat IDs that are no longer present for the given day after the deletion.'),
+        deleted_ids: z.array(z.string()).describe('Requested heartbeat IDs that were present for the given day before the deletion and are gone after it.'),
+        not_found_ids: z
+            .array(z.string())
+            .describe(
+                'Requested heartbeat IDs that were not present for the given day before the deletion, usually because the ID or date is wrong; a heartbeat created moments ago may also land here before it becomes visible.'
+            ),
         remaining_ids: z
             .array(z.string())
-            .describe('Requested heartbeat IDs still present for the given day after the deletion; empty when every requested heartbeat was removed.')
+            .describe('Requested heartbeat IDs still present for the given day after the deletion; empty when every found heartbeat was removed.')
     })
     .describe('Result of the bulk heartbeat deletion, including which requested IDs were removed.');
 
@@ -35,8 +40,8 @@ const DeleteHeartbeatsResponseSchema = z.object({
 
 /**
  * @tags: [read, write, destructive]
- * @tagReason: Permanently deletes the given heartbeats (a destructive write) and then re-reads the day to confirm they are gone.
- * @pitfalls: Heartbeats are only deleted for the given date in the user's timezone, so an ID paired with the wrong day is not removed; the response never echoes the deleted IDs, so rely on the returned deleted_ids/remaining_ids; deleting a heartbeat does not remove the project record it created.
+ * @tagReason: Reads the day to find the given heartbeats, permanently deletes them (a destructive write), and re-reads the day to confirm they are gone.
+ * @pitfalls: Heartbeats are only deleted for the given date in the user's timezone, so an ID paired with the wrong day is not removed and is reported in not_found_ids; the response never echoes the deleted IDs, so rely on the returned deleted_ids/not_found_ids/remaining_ids; deleting a heartbeat does not remove the project record it created.
  */
 const action = createAction({
     description: 'Permanently delete one or more heartbeats on a given day by their IDs.',
@@ -46,6 +51,28 @@ const action = createAction({
     scopes: ['write_heartbeats', 'read_heartbeats'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        // The delete response is an empty object and the endpoint silently ignores IDs that are not on the given
+        // day, so read the day before and after deleting to tell real deletions apart from IDs that were never there.
+        // A unique param keeps the two identical reads distinct so recorded mocks replay deterministically; WakaTime ignores it.
+        const listHeartbeatIds = async (snapshot: 'before' | 'after'): Promise<Set<string>> => {
+            const listConfig: ProxyConfiguration = {
+                // https://wakatime.com/developers#heartbeats
+                endpoint: '/api/v1/users/current/heartbeats',
+                params: {
+                    date: input.date,
+                    _nango_snapshot: snapshot
+                },
+                retries: 3
+            };
+            const listResponse = await nango.get(listConfig);
+            return new Set(HeartbeatListResponseSchema.parse(listResponse.data).data.map((heartbeat) => heartbeat.id));
+        };
+
+        const presentBefore = await listHeartbeatIds('before');
+        const foundIds = input.ids.filter((id) => presentBefore.has(id));
+        const notFoundIds = input.ids.filter((id) => !presentBefore.has(id));
+
+        // Every requested ID is still sent, so a heartbeat that was not yet visible in the first read is deleted too.
         const deleteConfig: ProxyConfiguration = {
             // https://wakatime.com/developers#heartbeats
             endpoint: '/api/v1/users/current/heartbeats.bulk',
@@ -59,22 +86,13 @@ const action = createAction({
         const deleteResponse = await nango.delete(deleteConfig);
         DeleteHeartbeatsResponseSchema.parse(deleteResponse.data);
 
-        // The delete response is an empty object, so re-read the day to confirm the IDs are actually gone.
-        const listConfig: ProxyConfiguration = {
-            // https://wakatime.com/developers#heartbeats
-            endpoint: '/api/v1/users/current/heartbeats',
-            params: {
-                date: input.date
-            },
-            retries: 3
-        };
-        const listResponse = await nango.get(listConfig);
-        const presentIds = new Set(HeartbeatListResponseSchema.parse(listResponse.data).data.map((heartbeat) => heartbeat.id));
+        const presentAfter = await listHeartbeatIds('after');
 
         return {
             date: input.date,
-            deleted_ids: input.ids.filter((id) => !presentIds.has(id)),
-            remaining_ids: input.ids.filter((id) => presentIds.has(id))
+            deleted_ids: foundIds.filter((id) => !presentAfter.has(id)),
+            not_found_ids: notFoundIds,
+            remaining_ids: foundIds.filter((id) => presentAfter.has(id))
         };
     }
 });

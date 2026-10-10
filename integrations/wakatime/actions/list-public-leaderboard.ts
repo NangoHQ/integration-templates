@@ -87,7 +87,7 @@ const ProviderResponseSchema = z.object({
     is_hireable: z.boolean(),
     board_type: z.string(),
     modified_at: z.string(),
-    current_user: ProviderCurrentUserSchema.optional()
+    current_user: ProviderCurrentUserSchema.nullable().optional()
 });
 
 const LeaderCitySchema = z.object({

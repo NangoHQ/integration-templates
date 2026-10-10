@@ -85,11 +85,27 @@ const ProviderGoalsResponseSchema = z.object({
     total_pages: z.number().optional()
 });
 
+// WakaTime sends null for unset fields (e.g. owner.username for users without a public username),
+// so drop null-valued keys at every level and let the optional schema fields represent them as omitted.
+function stripNulls(value: unknown): unknown {
+    if (Array.isArray(value)) {
+        return value.map(stripNulls);
+    }
+    if (typeof value === 'object' && value !== null) {
+        return Object.fromEntries(
+            Object.entries(value)
+                .filter(([, entry]) => entry !== null)
+                .map(([key, entry]) => [key, stripNulls(entry)])
+        );
+    }
+    return value;
+}
+
 const InputSchema = z.object({}).describe('No input parameters; the current authenticated user is always used.');
 
 const OutputSchema = z
     .object({
-        goals: z.array(GoalSchema).describe('The coding goals configured for the current user.'),
+        goals: z.array(GoalSchema).describe('All coding goals configured for the current user, across every result page.'),
         total: z.number().optional().describe('Total number of goals.'),
         total_pages: z.number().optional().describe('Total number of result pages.')
     })
@@ -108,18 +124,29 @@ const action = createAction({
     scopes: ['read_goals'],
 
     exec: async (nango): Promise<z.infer<typeof OutputSchema>> => {
-        const response = await nango.get({
-            // https://wakatime.com/developers#goals
-            endpoint: '/api/v1/users/current/goals',
-            retries: 3
-        });
+        const goals: z.infer<typeof GoalSchema>[] = [];
+        let total: number | undefined;
+        let page = 1;
+        let totalPages = 1;
+        do {
+            const response = await nango.get({
+                // https://wakatime.com/developers#goals
+                endpoint: '/api/v1/users/current/goals',
+                ...(page > 1 && { params: { page } }),
+                retries: 3
+            });
 
-        const parsed = ProviderGoalsResponseSchema.parse(response.data);
+            const parsed = ProviderGoalsResponseSchema.parse(stripNulls(response.data));
+            goals.push(...parsed.data);
+            total = parsed.total ?? total;
+            totalPages = parsed.total_pages ?? 1;
+            page += 1;
+        } while (page <= totalPages);
 
         return {
-            goals: parsed.data,
-            ...(parsed.total !== undefined && { total: parsed.total }),
-            ...(parsed.total_pages !== undefined && { total_pages: parsed.total_pages })
+            goals,
+            ...(total !== undefined && { total }),
+            total_pages: totalPages
         };
     }
 });

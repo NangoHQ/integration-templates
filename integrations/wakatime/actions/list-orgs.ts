@@ -75,7 +75,7 @@ function isNotFoundError(error: unknown): boolean {
 /**
  * @tags: [read]
  * @tagReason: Lists organizations with a read-only provider GET and does not modify any provider state.
- * @pitfalls: WakaTime returns HTTP 404 for the entire organizations collection when the user belongs to no organizations, so this action returns an empty list instead of an error.
+ * @pitfalls: WakaTime returns HTTP 404 for the entire organizations collection when the user belongs to no organizations, so this action returns an empty list instead of an error; every page is fetched by following next_page.
  */
 const action = createAction({
     description: 'List the WakaTime for Teams organizations this user belongs to.',
@@ -85,40 +85,50 @@ const action = createAction({
     scopes: ['read_orgs'],
 
     exec: async (nango, _input): Promise<z.infer<typeof OutputSchema>> => {
-        let response;
-        // @allowTryCatch WakaTime returns 404 (rather than an empty array) when the user belongs to no organizations.
-        try {
-            // https://wakatime.com/developers#orgs
-            response = await nango.get<unknown>({
-                endpoint: '/api/v1/users/current/orgs',
-                retries: 3
-            });
-        } catch (error) {
-            if (isNotFoundError(error)) {
-                return {
-                    organizations: []
-                };
+        const organizations: z.infer<typeof OrganizationSchema>[] = [];
+        let total: number | undefined;
+        let page: number | undefined;
+
+        do {
+            let response;
+            // @allowTryCatch WakaTime returns 404 (rather than an empty array) when the user belongs to no organizations.
+            try {
+                // https://wakatime.com/developers#orgs
+                response = await nango.get<unknown>({
+                    endpoint: '/api/v1/users/current/orgs',
+                    ...(page !== undefined && { params: { page } }),
+                    retries: 3
+                });
+            } catch (error) {
+                if (isNotFoundError(error)) {
+                    break;
+                }
+                throw error;
             }
-            throw error;
-        }
 
-        if (response.status === 404) {
-            return {
-                organizations: []
-            };
-        }
+            if (response.status === 404) {
+                break;
+            }
 
-        const parsed = ProviderOrgsResponseSchema.safeParse(response.data);
-        if (!parsed.success) {
-            throw new nango.ActionError({
-                type: 'invalid_response',
-                message: 'Unexpected response shape from the WakaTime organizations endpoint.'
-            });
-        }
+            const parsed = ProviderOrgsResponseSchema.safeParse(response.data);
+            if (!parsed.success) {
+                throw new nango.ActionError({
+                    type: 'invalid_response',
+                    message: 'Unexpected response shape from the WakaTime organizations endpoint.'
+                });
+            }
+
+            organizations.push(...parsed.data.data);
+            total = parsed.data.total ?? total;
+
+            const nextPage = parsed.data.next_page;
+            // Guard against a provider that echoes the same page back, which would loop forever.
+            page = nextPage != null && nextPage > (page ?? 1) ? nextPage : undefined;
+        } while (page !== undefined);
 
         return {
-            organizations: parsed.data.data,
-            ...(parsed.data.total !== undefined && { total: parsed.data.total })
+            organizations,
+            ...(total !== undefined && { total })
         };
     }
 });

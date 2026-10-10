@@ -46,6 +46,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_stats.projects'],
     models: {
         Project: ProjectSchema
     },

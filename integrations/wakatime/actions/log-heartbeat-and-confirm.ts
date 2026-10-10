@@ -45,7 +45,7 @@ const InputSchema = z
             .string()
             .optional()
             .describe(
-                'Project name used on the heartbeats; when set with cleanup, a project newly created with this name is also deleted. Defaults to the project of the first heartbeat.'
+                "Project name applied to every heartbeat, overriding each heartbeat's own project. With cleanup, any project newly created by the heartbeats is deleted, whichever name it has."
             ),
         pollIntervalSeconds: z.number().optional().describe('Seconds to wait between confirmation polls. Defaults to 3.'),
         maxPollAttempts: z.number().optional().describe('Maximum confirmation poll attempts before giving up. Defaults to 10.')
@@ -53,27 +53,41 @@ const InputSchema = z
     .describe('Heartbeats to log, plus optional polling and cleanup controls.');
 
 const HeartbeatResultSchema = z.object({
-    id: z.string().describe('Provider id of the created heartbeat.'),
+    id: z.string().optional().describe('Provider id of the created heartbeat; absent when the provider did not create it.'),
     entity: z.string().describe('Entity the heartbeat logged time against.'),
     time: z.number().describe('UNIX epoch timestamp of the heartbeat.'),
     date: z.string().describe('Local date (YYYY-MM-DD) the heartbeat was polled under.'),
-    confirmed: z.boolean().describe('Whether the heartbeat became visible in the heartbeats list before the poll window elapsed.'),
+    status_code: z.number().describe('Per-heartbeat HTTP status code from the bulk create response. Example: 201 when created.'),
+    created: z.boolean().describe('Whether the provider created this heartbeat.'),
+    skip: z.string().optional().describe('Reason the provider skipped this heartbeat, if any. Example: a duplicate heartbeat.'),
+    error: z.string().optional().describe('Provider error explaining why this heartbeat was not created, if any.'),
+    confirmed: z
+        .boolean()
+        .describe('Whether the heartbeat became visible in the heartbeats list before the poll window elapsed; always false when not created.'),
     attempts_taken: z.number().describe('Poll attempt at which the heartbeat was confirmed, or the total attempts made when it was never confirmed.')
+});
+
+const ProjectCleanupSchema = z.object({
+    name: z.string().describe('Project name that did not exist before the heartbeats were created.'),
+    project_id: z.string().optional().describe('Id of the newly created project, when it was found.'),
+    deleted: z.boolean().describe('Whether the newly created project was found and deleted.'),
+    removal_confirmed: z
+        .boolean()
+        .describe('Whether the deleted project was confirmed absent afterwards; false when it was not found, since it may still appear later.')
 });
 
 const CleanupResultSchema = z.object({
     heartbeats_deleted: z.array(z.string()).describe('Ids of the heartbeats that were deleted.'),
     heartbeats_removal_confirmed: z.boolean().describe('Whether the deleted heartbeats were confirmed absent on a follow-up poll.'),
-    project_name: z.string().optional().describe('Project name that was checked for side-effect creation.'),
-    project_deleted: z.boolean().describe('Whether a newly created project record was found and deleted.'),
-    project_id: z.string().optional().describe('Id of the project that was deleted.'),
-    project_removal_confirmed: z.boolean().describe('Whether the deleted project was confirmed absent afterwards, or true when there was nothing to delete.')
+    projects: z
+        .array(ProjectCleanupSchema)
+        .describe('One entry per project name used by the created heartbeats that did not exist beforehand; empty when every project already existed.')
 });
 
 const OutputSchema = z
     .object({
-        results: z.array(HeartbeatResultSchema).describe('Per-heartbeat confirmation results.'),
-        all_confirmed: z.boolean().describe('Whether every created heartbeat was confirmed visible.'),
+        results: z.array(HeartbeatResultSchema).describe('Per-heartbeat creation and confirmation results, in input order.'),
+        all_confirmed: z.boolean().describe('Whether every submitted heartbeat was created and confirmed visible.'),
         attempts_taken: z.number().describe('Total number of confirmation poll attempts performed.'),
         cleanup: CleanupResultSchema.optional().describe('Cleanup outcome; present only when cleanup was requested.')
     })
@@ -84,10 +98,12 @@ const BulkCreateEntrySchema = z.object({
         .object({
             id: z.string()
         })
+        .nullable()
         .optional(),
-    id: z.string().optional(),
-    skip: z.string().optional(),
-    error: z.string().optional()
+    skip: z.string().nullable().optional(),
+    error: z.string().nullable().optional(),
+    // Rejected heartbeats report per-field validation errors, e.g. {"type": ["Not a valid choice."]}.
+    errors: z.record(z.string(), z.array(z.string())).nullable().optional()
 });
 
 const BulkCreateResponseSchema = z.object({
@@ -111,7 +127,8 @@ const ProjectSchema = z.object({
 });
 
 const ProjectsResponseSchema = z.object({
-    data: z.array(ProjectSchema)
+    data: z.array(ProjectSchema),
+    next_page: z.number().nullable().optional()
 });
 
 const CurrentUserSchema = z.object({
@@ -123,7 +140,7 @@ const CurrentUserSchema = z.object({
 /**
  * @tags: [read, write, destructive]
  * @tagReason: Reads the current user, heartbeats, and projects; creates heartbeats; and with cleanup permanently deletes the created heartbeats and any project they created.
- * @pitfalls: Newly created heartbeats may take many seconds to become visible, so confirmation can time out; reposting the same entity and time within about a minute is rejected by the provider as a duplicate and fails the call; cleanup permanently deletes the heartbeats, and a project they created can outlive them and is only removed when its name is known.
+ * @pitfalls: Newly created heartbeats may take many seconds to become visible, so confirmation can time out; a heartbeat the provider skips or rejects (e.g. a time outside the accepted range, or a duplicate) is reported per item with created=false rather than failing the call; cleanup permanently deletes the created heartbeats, and WakaTime creates a project record asynchronously (observed ~1 minute later), so a project not found within the poll window is reported with deleted=false and may need removing later with delete-project.
  */
 const action = createAction({
     description:
@@ -173,71 +190,80 @@ const action = createAction({
             return HeartbeatsResponseSchema.parse(response.data).data;
         };
 
-        const listProjects = async (): Promise<z.infer<typeof ProjectSchema>[]> => {
-            // https://wakatime.com/developers#projects
-            const response = await nango.get({
-                endpoint: '/api/v1/users/current/projects',
-                params: { ...pollParam() },
-                retries: 3
-            });
-            return ProjectsResponseSchema.parse(response.data).data;
+        // Looks up projects by exact name. Each name is searched with `q` and every page is followed, so an existing
+        // project on a later page is never mistaken for one the heartbeats created (which cleanup would delete).
+        const listProjectsNamed = async (names: string[]): Promise<z.infer<typeof ProjectSchema>[]> => {
+            const matches: z.infer<typeof ProjectSchema>[] = [];
+            for (const name of names) {
+                let page: number | undefined;
+                do {
+                    // https://wakatime.com/developers#projects
+                    const response = await nango.get({
+                        endpoint: '/api/v1/users/current/projects',
+                        params: { q: name, ...(page !== undefined && { page }), ...pollParam() },
+                        retries: 3
+                    });
+                    const parsed = ProjectsResponseSchema.parse(response.data);
+                    matches.push(...parsed.data.filter((project) => project.name === name));
+                    page = parsed.next_page != null && parsed.next_page > (page ?? 1) ? parsed.next_page : undefined;
+                } while (page !== undefined);
+            }
+            return matches;
         };
 
-        let projectNameToCheck: string | undefined;
-        if (input.cleanup === true) {
-            if (input.projectName !== undefined) {
-                projectNameToCheck = input.projectName;
-            } else {
-                projectNameToCheck = input.heartbeats.find((heartbeat) => heartbeat.project !== undefined)?.project;
-            }
-        }
+        const heartbeatsToSend = input.heartbeats.map((heartbeat) =>
+            input.projectName !== undefined ? { ...heartbeat, project: input.projectName } : heartbeat
+        );
 
-        let existingProjectIds = new Set<string>();
-        if (projectNameToCheck !== undefined) {
-            const beforeProjects = await listProjects();
-            existingProjectIds = new Set(beforeProjects.filter((project) => project.name === projectNameToCheck).map((project) => project.id));
+        // Snapshot every project name in the batch so cleanup can tell newly created projects apart from existing ones.
+        const projectNames = Array.from(new Set(heartbeatsToSend.flatMap((heartbeat) => (heartbeat.project !== undefined ? [heartbeat.project] : []))));
+        let existingProjectNames = new Set<string>();
+        if (input.cleanup === true && projectNames.length > 0) {
+            const beforeProjects = await listProjectsNamed(projectNames);
+            existingProjectNames = new Set(beforeProjects.map((project) => project.name));
         }
 
         // Step 1: create the heartbeats.
         // https://wakatime.com/developers#heartbeats
         const createResponse = await nango.post({
             endpoint: '/api/v1/users/current/heartbeats.bulk',
-            data: input.heartbeats,
+            data: heartbeatsToSend,
             // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
             retries: 0 // Non-idempotent create: a retry after a lost response would duplicate heartbeats.
         });
         const bulkCreate = BulkCreateResponseSchema.parse(createResponse.data);
 
-        if (bulkCreate.responses.length !== input.heartbeats.length) {
+        if (bulkCreate.responses.length !== heartbeatsToSend.length) {
             throw new nango.ActionError({
                 type: 'unexpected_response',
-                message: `Expected ${input.heartbeats.length} heartbeat responses but received ${bulkCreate.responses.length}.`
+                message: `Expected ${heartbeatsToSend.length} heartbeat responses but received ${bulkCreate.responses.length}.`
             });
         }
 
-        const created = input.heartbeats.map((heartbeat, index) => {
-            const entry = bulkCreate.responses[index];
-            const body = entry?.[0];
-            const status = entry?.[1];
-            if (body?.skip !== undefined) {
-                throw new nango.ActionError({
-                    type: 'heartbeat_skipped',
-                    message: `Heartbeat at index ${index} was skipped by the provider: ${body.skip}.`
-                });
-            }
-            if (status !== 201 || body?.data?.id === undefined) {
-                throw new nango.ActionError({
-                    type: 'heartbeat_create_failed',
-                    message: `Heartbeat at index ${index} was not created (status ${status ?? 'unknown'}): ${body?.error ?? 'no id returned'}.`
-                });
-            }
+        // A per-item failure must not abort the action: other heartbeats in the batch may already exist,
+        // and they still need to be reported, polled, and cleaned up.
+        const submitted = heartbeatsToSend.map((heartbeat, index) => {
+            const [body, status] = bulkCreate.responses[index] ?? [{}, 0];
+            const id = status === 201 && body.data?.id != null ? body.data.id : undefined;
+            const fieldErrors =
+                body.errors != null
+                    ? Object.entries(body.errors)
+                          .map(([field, messages]) => `${field}: ${messages.join(' ')}`)
+                          .join('; ')
+                    : undefined;
+            const error = body.error ?? fieldErrors;
             return {
-                id: body.data.id,
+                ...(id !== undefined && { id }),
                 entity: heartbeat.entity,
                 time: heartbeat.time,
-                date: localDate(heartbeat.time)
+                project: heartbeat.project,
+                date: localDate(heartbeat.time),
+                status_code: status,
+                ...(body.skip != null && { skip: body.skip }),
+                ...(id === undefined && body.skip == null && { error: error ?? 'No heartbeat id returned.' })
             };
         });
+        const created = submitted.flatMap((item) => (item.id !== undefined ? [{ ...item, id: item.id }] : []));
 
         // Step 2: poll until every created heartbeat is visible.
         const pending = new Map<string, string>();
@@ -263,15 +289,19 @@ const action = createAction({
             }
         }
 
-        const results = created.map((item) => {
-            const confirmed = confirmedAt.has(item.id);
+        const results = submitted.map((item) => {
+            const confirmed = item.id !== undefined && confirmedAt.has(item.id);
             return {
-                id: item.id,
+                ...(item.id !== undefined && { id: item.id }),
                 entity: item.entity,
                 time: item.time,
                 date: item.date,
+                status_code: item.status_code,
+                created: item.id !== undefined,
+                ...(item.skip !== undefined && { skip: item.skip }),
+                ...(item.error !== undefined && { error: item.error }),
                 confirmed,
-                attempts_taken: confirmed ? (confirmedAt.get(item.id) ?? attempts) : attempts
+                attempts_taken: confirmed && item.id !== undefined ? (confirmedAt.get(item.id) ?? attempts) : attempts
             };
         });
 
@@ -281,7 +311,7 @@ const action = createAction({
             attempts_taken: attempts
         };
 
-        // Step 3: optional cleanup of the heartbeats and any project they created.
+        // Step 3: optional cleanup of the created heartbeats and any project they created.
         if (input.cleanup === true) {
             const idsByDate = new Map<string, string[]>();
             for (const item of created) {
@@ -302,9 +332,9 @@ const action = createAction({
                 deletedIds.push(...ids);
             }
 
-            let removalConfirmed = false;
             const removalMaxAttempts = Math.min(maxPollAttempts, 3);
-            for (let removalAttempt = 1; removalAttempt <= removalMaxAttempts; removalAttempt += 1) {
+            let removalConfirmed = idsByDate.size === 0;
+            for (let removalAttempt = 1; !removalConfirmed && removalAttempt <= removalMaxAttempts; removalAttempt += 1) {
                 if (removalAttempt > 1 && pollIntervalMs > 0) {
                     await sleep(pollIntervalMs);
                 }
@@ -315,43 +345,48 @@ const action = createAction({
                         stillPresent = true;
                     }
                 }
-                if (!stillPresent) {
-                    removalConfirmed = true;
-                    break;
+                removalConfirmed = !stillPresent;
+            }
+
+            // Only heartbeats that were actually created can have created a project.
+            const newProjectNames = Array.from(
+                new Set(created.flatMap((item) => (item.project !== undefined && !existingProjectNames.has(item.project) ? [item.project] : [])))
+            );
+
+            // WakaTime materializes projects asynchronously, so retry discovery before concluding none was created.
+            const foundProjects = new Map<string, z.infer<typeof ProjectSchema>>();
+            for (let discoveryAttempt = 1; foundProjects.size < newProjectNames.length && discoveryAttempt <= removalMaxAttempts; discoveryAttempt += 1) {
+                if (discoveryAttempt > 1 && pollIntervalMs > 0) {
+                    await sleep(pollIntervalMs);
+                }
+                const projects = await listProjectsNamed(newProjectNames.filter((name) => !foundProjects.has(name)));
+                for (const project of projects) {
+                    foundProjects.set(project.name, project);
                 }
             }
 
-            let projectName: string | undefined;
-            let projectId: string | undefined;
-            let projectDeleted = false;
-            let projectRemovalConfirmed = true;
-
-            if (projectNameToCheck !== undefined) {
-                const afterProjects = await listProjects();
-                const newProject = afterProjects.find((project) => project.name === projectNameToCheck && !existingProjectIds.has(project.id));
-                if (newProject !== undefined) {
-                    projectName = newProject.name;
-                    projectId = newProject.id;
-                    // Undocumented endpoint; verified live: deleting a project removes the materialized record.
-                    // https://wakatime.com/developers#projects
-                    await nango.delete({
-                        endpoint: `/api/v1/users/current/projects/${encodeURIComponent(newProject.id)}`,
-                        // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
-                        retries: 0 // Destructive delete; do not risk a repeated mutation.
-                    });
-                    projectDeleted = true;
-                    const finalProjects = await listProjects();
-                    projectRemovalConfirmed = !finalProjects.some((project) => project.id === newProject.id);
-                }
+            for (const project of foundProjects.values()) {
+                // Undocumented endpoint; verified live: deleting a project removes the materialized record.
+                // https://wakatime.com/developers#projects
+                await nango.delete({
+                    endpoint: `/api/v1/users/current/projects/${encodeURIComponent(project.id)}`,
+                    // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+                    retries: 0 // Destructive delete; do not risk a repeated mutation.
+                });
             }
+
+            const remainingProjectIds =
+                foundProjects.size > 0 ? new Set((await listProjectsNamed(Array.from(foundProjects.keys()))).map((project) => project.id)) : new Set<string>();
 
             output.cleanup = {
                 heartbeats_deleted: deletedIds,
                 heartbeats_removal_confirmed: removalConfirmed,
-                project_deleted: projectDeleted,
-                project_removal_confirmed: projectRemovalConfirmed,
-                ...(projectName !== undefined ? { project_name: projectName } : {}),
-                ...(projectId !== undefined ? { project_id: projectId } : {})
+                projects: newProjectNames.map((name) => {
+                    const project = foundProjects.get(name);
+                    return project !== undefined
+                        ? { name, project_id: project.id, deleted: true, removal_confirmed: !remainingProjectIds.has(project.id) }
+                        : { name, deleted: false, removal_confirmed: false };
+                })
             };
         }
 

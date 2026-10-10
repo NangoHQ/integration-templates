@@ -11,7 +11,13 @@ const InputSchema = z
             .describe(
                 'Optional ranking type: "time" (hours coded), "manual" (hours excluding AI), "ai" (AI lines), or "spend" (AI spend). Defaults to "time".'
             ),
-        page: z.number().int().positive().optional().describe('Optional 1-based page number of the leaderboard to fetch.')
+        page: z.number().int().positive().optional().describe('Optional 1-based page number of the leaderboard to fetch.'),
+        leaderboard_id: z
+            .string()
+            .optional()
+            .describe(
+                'Optional private leaderboard ID to rank against, from the list-private-leaderboards action. Defaults to the first private leaderboard the user belongs to.'
+            )
     })
     .describe('Optional filters for the leaderboard lookup, applied to whichever leaderboard is returned.');
 
@@ -59,6 +65,10 @@ const OutputSchema = z
             .enum(['private', 'public'])
             .describe('Which leaderboard was used: "private" when the account belongs to a private/team leaderboard, otherwise "public".'),
         leaderboard: LeaderboardSchema.optional().describe('Metadata for the private leaderboard; only present when source is "private".'),
+        other_leaderboards: z
+            .array(z.object({ id: z.string(), name: z.string() }))
+            .optional()
+            .describe('Other private leaderboards the user belongs to; pass one of their IDs as leaderboard_id to rank against it instead.'),
         leaders: z.array(LeaderEntrySchema).describe('Ranked leaderboard entries, highest coding activity first.'),
         self_found: z.boolean().optional().describe('For public leaderboards: whether the authenticated user appears on the returned page.'),
         self_rank: z.number().int().nullable().optional().describe("For public leaderboards: the authenticated user's rank, or null if they are not ranked."),
@@ -117,10 +127,11 @@ const CurrentUserResponseSchema = z.object({
  */
 const action = createAction({
     description:
-        'COMPOSITE: find out where this user ranks - checks their private (team) leaderboard first, and falls back to the public global leaderboard if they are not part of one.',
+        'COMPOSITE: find out where this user ranks - checks their private (team) leaderboard first (the first one, or the one given by leaderboard_id), and falls back to the public global leaderboard if they are not part of one.',
     version: '1.0.0',
     input: InputSchema,
     output: OutputSchema,
+    scopes: ['read_private_leaderboards'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params = {
@@ -130,19 +141,35 @@ const action = createAction({
             ...(input.page !== undefined && { page: input.page })
         };
 
-        // https://wakatime.com/developers#private_leaderboards
-        const boardsResponse = await nango.get({
-            endpoint: '/api/v1/users/current/leaderboards',
-            retries: 3
-        });
+        const boards: z.infer<typeof LeaderboardSchema>[] = [];
+        let boardsPage = 1;
+        let boardsTotalPages = 1;
+        do {
+            // https://wakatime.com/developers#private_leaderboards
+            const boardsResponse = await nango.get({
+                endpoint: '/api/v1/users/current/leaderboards',
+                ...(boardsPage > 1 && { params: { page: boardsPage } }),
+                retries: 3
+            });
+            const parsedBoards = PrivateBoardsResponseSchema.parse(boardsResponse.data);
+            boards.push(...parsedBoards.data);
+            boardsTotalPages = parsedBoards.total_pages ?? 1;
+            boardsPage += 1;
+        } while (boardsPage <= boardsTotalPages);
 
-        const boards = PrivateBoardsResponseSchema.parse(boardsResponse.data);
-        const [firstBoard] = boards.data;
+        const selectedBoard = input.leaderboard_id !== undefined ? boards.find((board) => board.id === input.leaderboard_id) : boards[0];
 
-        if (firstBoard) {
+        if (input.leaderboard_id !== undefined && selectedBoard === undefined) {
+            throw new nango.ActionError({
+                type: 'not_found',
+                message: `The user does not belong to a private leaderboard with id ${input.leaderboard_id}.`
+            });
+        }
+
+        if (selectedBoard) {
             // https://wakatime.com/developers#private_leaderboards_leaders
             const boardLeadersResponse = await nango.get({
-                endpoint: `/api/v1/users/current/leaderboards/${encodeURIComponent(firstBoard.id)}`,
+                endpoint: `/api/v1/users/current/leaderboards/${encodeURIComponent(selectedBoard.id)}`,
                 params,
                 retries: 3
             });
@@ -151,7 +178,8 @@ const action = createAction({
 
             return {
                 source: 'private',
-                leaderboard: firstBoard,
+                leaderboard: selectedBoard,
+                other_leaderboards: boards.filter((board) => board.id !== selectedBoard.id).map((board) => ({ id: board.id, name: board.name })),
                 leaders: boardLeaders.data,
                 ...(boardLeaders.page !== undefined && { page: boardLeaders.page }),
                 ...(boardLeaders.total_pages !== undefined && { total_pages: boardLeaders.total_pages }),

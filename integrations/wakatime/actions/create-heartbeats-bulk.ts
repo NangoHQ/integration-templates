@@ -47,7 +47,9 @@ const BulkHeartbeatItemSchema = z.tuple([
             })
             .nullable()
             .optional(),
-        skip: z.string().nullable().optional()
+        skip: z.string().nullable().optional(),
+        error: z.string().nullable().optional(),
+        errors: z.record(z.string(), z.array(z.string())).nullable().optional()
     }),
     z.number().int()
 ]);
@@ -65,7 +67,12 @@ const HeartbeatResultSchema = z.object({
         .number()
         .int()
         .describe('Per-heartbeat HTTP status code WakaTime returned inside the bulk response. Example: 201 for an accepted heartbeat.'),
-    skip: z.string().optional().describe('Reason WakaTime skipped creating this heartbeat, if any. Example: "Too many duplicate heartbeats."')
+    skip: z.string().optional().describe('Reason WakaTime skipped creating this heartbeat, if any. Example: "Too many duplicate heartbeats."'),
+    error: z.string().optional().describe('Provider error message when this heartbeat was rejected, if any.'),
+    errors: z
+        .record(z.string(), z.array(z.string()))
+        .optional()
+        .describe('Per-field validation errors when this heartbeat was rejected, keyed by field name. Example: {"type": ["Not a valid choice."]}')
 });
 
 const OutputSchema = z
@@ -77,7 +84,7 @@ const OutputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Creates new coding-activity heartbeats in WakaTime through the bulk heartbeats endpoint.
- * @pitfalls: Individual heartbeat failures do not fail the call, so inspect each per-item status code and skip reason; a resent identical heartbeat is skipped rather than duplicated; newly created heartbeats may not appear in reads immediately due to asynchronous processing; a project name that does not already exist is created automatically and can outlive the heartbeat if it is later deleted.
+ * @pitfalls: Individual heartbeat failures do not fail the call, so inspect each per-item status code, skip reason, and errors; a resent identical heartbeat is skipped rather than duplicated; newly created heartbeats may not appear in reads immediately due to asynchronous processing; a project name that does not already exist is created automatically and can outlive the heartbeat if it is later deleted.
  */
 const action = createAction({
     description: "Send one or more coding-activity heartbeats in a single call (up to 25 per request, per WakaTime's documented limit).",
@@ -103,7 +110,9 @@ const action = createAction({
             return {
                 status_code,
                 ...(id != null && { id }),
-                ...(skip != null && { skip })
+                ...(skip != null && { skip }),
+                ...(body.error != null && { error: body.error }),
+                ...(body.errors != null && { errors: body.errors })
             };
         });
 

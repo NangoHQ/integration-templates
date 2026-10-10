@@ -77,6 +77,7 @@ const sync = createSync({
     frequency: 'every hour',
     autoStart: true,
     checkpoint: CheckpointSchema,
+    scopes: ['read_summaries'],
     models: {
         DailySummary: DailySummarySchema
     },
@@ -84,7 +85,11 @@ const sync = createSync({
     exec: async (nango) => {
         const checkpoint = await nango.getCheckpoint();
 
-        const endDate = formatDate(new Date());
+        const now = new Date();
+        const today = formatDate(now);
+        // Summary days are bounded in the account's timezone, so accounts ahead of UTC are already on the
+        // next day. Request through tomorrow (UTC) and drop any day that has not started yet locally.
+        const endDate = shiftDate(today, 1);
         const lastSynced = checkpoint?.last_synced_date;
 
         // Re-fetch a lookback buffer of recent days on every run because today is
@@ -92,7 +97,7 @@ const sync = createSync({
         const startDate =
             lastSynced && DATE_PATTERN.test(lastSynced) && lastSynced <= endDate
                 ? shiftDate(lastSynced, -LOOKBACK_DAYS)
-                : shiftDate(endDate, -INITIAL_WINDOW_DAYS);
+                : shiftDate(today, -INITIAL_WINDOW_DAYS);
 
         const proxyConfig: ProxyConfiguration = {
             // https://wakatime.com/developers#summaries
@@ -107,7 +112,11 @@ const sync = createSync({
         const response = await nango.get<unknown>(proxyConfig);
         const parsed = ProviderSummariesSchema.parse(response.data);
 
-        const records = parsed.data.map((day) => ({
+        const startedDays = parsed.data.filter((day) =>
+            day.range.start != null ? new Date(day.range.start).getTime() <= now.getTime() : day.range.date <= today
+        );
+
+        const records = startedDays.map((day) => ({
             id: day.range.date,
             date: day.range.date,
             ...(day.range.start != null && { start: day.range.start }),
@@ -124,7 +133,8 @@ const sync = createSync({
             await nango.batchSave(records, 'DailySummary');
         }
 
-        await nango.saveCheckpoint({ last_synced_date: endDate });
+        const lastStartedDate = startedDays.reduce((latest, day) => (day.range.date > latest ? day.range.date : latest), today);
+        await nango.saveCheckpoint({ last_synced_date: lastStartedDate });
     }
 });
 
