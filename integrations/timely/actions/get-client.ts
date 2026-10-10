@@ -21,7 +21,11 @@ const OutputSchema = z
     .object({
         id: z.number().describe('Unique client ID. Example: 2193170'),
         name: z.string().describe('Client name. Example: "Nango Developer"'),
-        color: z.string().nullable().optional().describe('Hex color assigned to the client in Timely, without the leading "#", or null when unset. Example: "1976d2"'),
+        color: z
+            .string()
+            .nullable()
+            .optional()
+            .describe('Hex color assigned to the client in Timely, without the leading "#", or null when unset. Example: "1976d2"'),
         active: z.boolean().describe('Whether the client is active; deactivated clients are hidden from list-clients but still retrievable here.'),
         external_id: z.string().nullable().optional().describe('External identifier for the client, or null when none has been set.'),
         updated_at: z.string().nullable().optional().describe('ISO 8601 timestamp of the last client update. Example: "2026-10-07T05:54:36+03:00"')
