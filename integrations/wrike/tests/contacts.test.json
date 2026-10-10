@@ -1,0 +1,332 @@
+{
+  "nango": {
+    "batchSave": {
+      "Contact": [
+        {
+          "id": "KUAZR5N3",
+          "type": "Robot",
+          "firstName": "Automation",
+          "lastName": "Bot",
+          "locale": "en",
+          "timezone": "US/Pacific",
+          "primaryEmail": "robot7244810automationextended@wrike-robot.com",
+          "avatarUrl": "https://www.wrike.com/avatars/automationextendedbot.png",
+          "deleted": false,
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "email": "robot7244810automationextended@wrike-robot.com",
+              "role": "Collaborator",
+              "external": true,
+              "admin": false,
+              "owner": false,
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": "KX7WCEJZ",
+          "type": "Group",
+          "firstName": "My Team",
+          "lastName": "",
+          "locale": "en",
+          "timezone": "Z",
+          "avatarUrl": "https://www.wrike.com/avatars/default/internal_users_group.png",
+          "deleted": false,
+          "myTeam": true,
+          "memberIds": [
+            "KUAZR5CO"
+          ],
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "role": "User",
+              "external": false,
+              "admin": false,
+              "owner": false,
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": "KUAZR5CO",
+          "type": "Person",
+          "firstName": "Nango",
+          "lastName": "Developer",
+          "title": "Developer",
+          "companyName": "Nango",
+          "phone": "+1 30221960",
+          "locale": "en",
+          "timezone": "US/Pacific",
+          "primaryEmail": "api@nango.dev",
+          "avatarUrl": "https://www.wrike.com/avatars//F3/FB/Box_fff06292_78-68_v1.png",
+          "deleted": false,
+          "me": true,
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "email": "api@nango.dev",
+              "role": "User",
+              "external": false,
+              "admin": false,
+              "owner": true,
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": "KUAZR5CP",
+          "type": "Robot",
+          "firstName": "Wrike",
+          "lastName": "Bot",
+          "locale": "en",
+          "timezone": "US/Pacific",
+          "primaryEmail": "robot7244810rollup@wrike-robot.com",
+          "avatarUrl": "https://www.wrike.com/avatars//A8/E8/Box_ffba68c8_87-66_v1.png",
+          "deleted": false,
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "email": "robot7244810rollup@wrike-robot.com",
+              "role": "Collaborator",
+              "external": true,
+              "admin": false,
+              "owner": false,
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": "KUAZR5CQ",
+          "type": "Robot",
+          "firstName": "Wrike",
+          "lastName": "Bot",
+          "locale": "en",
+          "timezone": "US/Pacific",
+          "primaryEmail": "robot7244810automation@wrike-robot.com",
+          "avatarUrl": "https://www.wrike.com/avatars/automationbot.png",
+          "deleted": false,
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "email": "robot7244810automation@wrike-robot.com",
+              "role": "Collaborator",
+              "external": true,
+              "admin": false,
+              "owner": false,
+              "active": true
+            }
+          ]
+        },
+        {
+          "id": "KUAZR5CR",
+          "type": "Robot",
+          "firstName": "Wrike",
+          "lastName": "Bot",
+          "locale": "en",
+          "timezone": "US/Pacific",
+          "primaryEmail": "robot7244810welcome@wrike-robot.com",
+          "avatarUrl": "https://www.wrike.com/avatars/welcomebot.png",
+          "deleted": false,
+          "profiles": [
+            {
+              "accountId": "IEAG5DAK",
+              "email": "robot7244810welcome@wrike-robot.com",
+              "role": "Collaborator",
+              "external": true,
+              "admin": false,
+              "owner": false,
+              "active": true
+            }
+          ]
+        }
+      ]
+    },
+    "batchDelete": {
+      "Contact": []
+    }
+  },
+  "api": {
+    "get": {
+      "/contacts": {
+        "response": {
+          "kind": "contacts",
+          "data": [
+            {
+              "id": "KUAZR5N3",
+              "firstName": "Automation",
+              "lastName": "Bot",
+              "type": "Robot",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "robot7244810automationextended@wrike-robot.com",
+                  "role": "Collaborator",
+                  "external": true,
+                  "admin": false,
+                  "owner": false,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars/automationextendedbot.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "primaryEmail": "robot7244810automationextended@wrike-robot.com"
+            },
+            {
+              "id": "KX7WCEJZ",
+              "firstName": "My Team",
+              "lastName": "",
+              "type": "Group",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "role": "User",
+                  "external": false,
+                  "admin": false,
+                  "owner": false,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars/default/internal_users_group.png",
+              "timezone": "Z",
+              "locale": "en",
+              "deleted": false,
+              "memberIds": [
+                "KUAZR5CO"
+              ],
+              "myTeam": true
+            },
+            {
+              "id": "KUAZR5CO",
+              "firstName": "Nango",
+              "lastName": "Developer",
+              "type": "Person",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "api@nango.dev",
+                  "role": "User",
+                  "external": false,
+                  "admin": false,
+                  "owner": true,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars//F3/FB/Box_fff06292_78-68_v1.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "me": true,
+              "title": "Developer",
+              "companyName": "Nango",
+              "phone": "+1 30221960",
+              "primaryEmail": "api@nango.dev"
+            },
+            {
+              "id": "KUAZR5CP",
+              "firstName": "Wrike",
+              "lastName": "Bot",
+              "type": "Robot",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "robot7244810rollup@wrike-robot.com",
+                  "role": "Collaborator",
+                  "external": true,
+                  "admin": false,
+                  "owner": false,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars//A8/E8/Box_ffba68c8_87-66_v1.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "primaryEmail": "robot7244810rollup@wrike-robot.com"
+            },
+            {
+              "id": "KUAZR5CQ",
+              "firstName": "Wrike",
+              "lastName": "Bot",
+              "type": "Robot",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "robot7244810automation@wrike-robot.com",
+                  "role": "Collaborator",
+                  "external": true,
+                  "admin": false,
+                  "owner": false,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars/automationbot.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "primaryEmail": "robot7244810automation@wrike-robot.com"
+            },
+            {
+              "id": "KUAZR5CR",
+              "firstName": "Wrike",
+              "lastName": "Bot",
+              "type": "Robot",
+              "profiles": [
+                {
+                  "accountId": "IEAG5DAK",
+                  "email": "robot7244810welcome@wrike-robot.com",
+                  "role": "Collaborator",
+                  "external": true,
+                  "admin": false,
+                  "owner": false,
+                  "active": true
+                }
+              ],
+              "avatarUrl": "https://www.wrike.com/avatars/welcomebot.png",
+              "timezone": "US/Pacific",
+              "locale": "en",
+              "deleted": false,
+              "primaryEmail": "robot7244810welcome@wrike-robot.com"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:30:14 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1833",
+          "x-ratelimit-reset": "1791588615",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c188c827031f",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac979060000000012d12c02d3edd2a4",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4812c069ff2ef10-PDX"
+        },
+        "hash": "1c5b7ec846766b84f514cfff9d2808beeca77c05",
+        "request": {
+          "params": {
+            "deleted": "false"
+          }
+        }
+      }
+    }
+  }
+}

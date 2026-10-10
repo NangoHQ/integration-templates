@@ -1,0 +1,456 @@
+{
+  "input": {
+    "taskId": "MAAAAAEQ_HoO"
+  },
+  "output": {
+    "task": {
+      "id": "MAAAAAEQ_HoO",
+      "accountId": "IEAG5DAK",
+      "title": "1",
+      "description": "<h3>Add a description for the task here</h3><br />You can:  <br /><ul><li>Use <b>formatting tools</b> like <span style=\"color: #8e24aa;\"><b>text colors</b></span> and <span style=\"background-color: #c8e6c9;\">highlights</span></li><li>Attach <b>files</b> using drag and drop</li></ul><br />Click the image below to check out our proofing and approval tools! <br /><img src=\"https://storage-gcp.www.wrike.com/filemeta/oriented/F803192739.A7244810\" /><br />",
+      "briefDescription": "Add a description for the task here You can: • Use formatting tools like text colors and highlights• Attach files using drag...",
+      "parentIds": [
+        "MQAAAAEQ_HoI"
+      ],
+      "superParentIds": [],
+      "sharedIds": [
+        "KX7WCEJZ",
+        "KUAZR5CO"
+      ],
+      "responsibleIds": [
+        "KUAZR5CO"
+      ],
+      "status": "Active",
+      "importance": "Normal",
+      "createdDate": "2026-10-07T01:48:56Z",
+      "updatedDate": "2026-10-09T23:35:01Z",
+      "dates": {
+        "type": "Planned",
+        "duration": 2400,
+        "start": "2026-09-25T09:00:00",
+        "due": "2026-10-01T17:00:00"
+      },
+      "scope": "WsTask",
+      "authorIds": [
+        "KUAZR5CO"
+      ],
+      "customStatusId": "IEAG5DAKJMHVMQW2",
+      "hasAttachments": true,
+      "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+      "priority": "01b89400800000000000b800",
+      "followedByMe": true,
+      "followerIds": [
+        "KUAZR5CO"
+      ],
+      "superTaskIds": [],
+      "subTaskIds": [
+        "MAAAAAEQ_HoP",
+        "MAAAAAEQ_HoR"
+      ],
+      "dependencyIds": [
+        "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+        "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+      ],
+      "customFields": [
+        {
+          "id": "IEAG5DAKJUANPFGZ",
+          "value": "Low"
+        },
+        {
+          "id": "IEAG5DAKJUANPFG2",
+          "value": "5000"
+        }
+      ],
+      "metadata": []
+    },
+    "parentFolder": {
+      "id": "MQAAAAEQ_HoI",
+      "accountId": "IEAG5DAK",
+      "title": "First project 🚀",
+      "createdDate": "2026-10-07T01:48:56Z",
+      "updatedDate": "2026-10-09T23:33:02Z",
+      "description": "",
+      "parentIds": [
+        "MQAAAAEQ_HoD"
+      ],
+      "childIds": [],
+      "superParentIds": [],
+      "sharedIds": [
+        "KX7WCEJZ",
+        "KUAZR5CO"
+      ],
+      "scope": "WsFolder",
+      "hasAttachments": false,
+      "permalink": "https://www.wrike.com/open.htm?id=4579949064",
+      "workflowId": "IEAG5DAKK4HVMQV4",
+      "project": {
+        "authorId": "KUAZR5CO",
+        "ownerIds": [
+          "KUAZR5CO"
+        ],
+        "customStatusId": "IEAG5DAKJMHVMQVI",
+        "createdDate": "2026-10-07T01:48:56Z"
+      },
+      "customFields": [
+        {
+          "id": "IEAG5DAKJUANPFG2",
+          "value": "8000"
+        },
+        {
+          "id": "IEAG5DAKJUANPFG3",
+          "value": "0"
+        }
+      ],
+      "metadata": []
+    },
+    "comments": [
+      {
+        "id": "IEAG5DAKIMCT73WX",
+        "authorId": "KUAZR5N3",
+        "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
+        "createdDate": "2026-10-07T07:05:25Z",
+        "updatedDate": "2026-10-07T07:05:25Z",
+        "taskId": "MAAAAAEQ_HoO"
+      },
+      {
+        "id": "IEAG5DAKIMCT7UZ3",
+        "authorId": "KUAZR5CR",
+        "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
+        "createdDate": "2026-10-07T01:49:19Z",
+        "updatedDate": "2026-10-07T01:49:19Z",
+        "taskId": "MAAAAAEQ_HoO"
+      }
+    ],
+    "timelogs": [
+      {
+        "id": "IEAG5DAKJQAC56AU",
+        "taskId": "MAAAAAEQ_HoO",
+        "userId": "KUAZR5CO",
+        "hours": 1.5,
+        "createdDate": "2026-10-09T23:32:28Z",
+        "updatedDate": "2026-10-09T23:32:28Z",
+        "trackedDate": "2026-10-08",
+        "comment": "list-timelogs mock seed"
+      },
+      {
+        "id": "IEAG5DAKJQAC56AV",
+        "taskId": "MAAAAAEQ_HoO",
+        "userId": "KUAZR5CO",
+        "hours": 1,
+        "createdDate": "2026-10-09T23:32:33Z",
+        "updatedDate": "2026-10-09T23:32:33Z",
+        "trackedDate": "2026-10-01",
+        "comment": "list-timelogs mock seed 1"
+      },
+      {
+        "id": "IEAG5DAKJQAC56AW",
+        "taskId": "MAAAAAEQ_HoO",
+        "userId": "KUAZR5CO",
+        "hours": 2,
+        "createdDate": "2026-10-09T23:32:33Z",
+        "updatedDate": "2026-10-09T23:32:33Z",
+        "trackedDate": "2026-10-02",
+        "comment": "list-timelogs mock seed 2"
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/tasks/MAAAAAEQ_HoO": {
+        "response": {
+          "kind": "tasks",
+          "data": [
+            {
+              "id": "MAAAAAEQ_HoO",
+              "accountId": "IEAG5DAK",
+              "title": "1",
+              "description": "<h3>Add a description for the task here</h3><br />You can:  <br /><ul><li>Use <b>formatting tools</b> like <span style=\"color: #8e24aa;\"><b>text colors</b></span> and <span style=\"background-color: #c8e6c9;\">highlights</span></li><li>Attach <b>files</b> using drag and drop</li></ul><br />Click the image below to check out our proofing and approval tools! <br /><img src=\"https://storage-gcp.www.wrike.com/filemeta/oriented/F803192739.A7244810\" /><br />",
+              "briefDescription": "Add a description for the task here You can: • Use formatting tools like text colors and highlights• Attach files using drag...",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "superParentIds": [],
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:35:01Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 2400,
+                "start": "2026-09-25T09:00:00",
+                "due": "2026-10-01T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQW2",
+              "hasAttachments": true,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+              "priority": "01b89400800000000000b800",
+              "followedByMe": true,
+              "followerIds": [
+                "KUAZR5CO"
+              ],
+              "superTaskIds": [],
+              "subTaskIds": [
+                "MAAAAAEQ_HoP",
+                "MAAAAAEQ_HoR"
+              ],
+              "dependencyIds": [
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+                "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+              ],
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Low"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "5000"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1791589080",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1ba57c60831",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97a9e00000000086974ea8c0ff6e9",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a48135ffef384afe-PDX"
+        },
+        "hash": "32a176b11adf739234bcf9f70101876130e65adf",
+        "request": {}
+      },
+      "/tasks/MAAAAAEQ_HoO/comments": {
+        "response": {
+          "kind": "comments",
+          "data": [
+            {
+              "id": "IEAG5DAKIMCT73WX",
+              "authorId": "KUAZR5N3",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
+              "updatedDate": "2026-10-07T07:05:25Z",
+              "createdDate": "2026-10-07T07:05:25Z",
+              "taskId": "MAAAAAEQ_HoO"
+            },
+            {
+              "id": "IEAG5DAKIMCT7UZ3",
+              "authorId": "KUAZR5CR",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
+              "updatedDate": "2026-10-07T01:49:19Z",
+              "createdDate": "2026-10-07T01:49:19Z",
+              "taskId": "MAAAAAEQ_HoO"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1995",
+          "x-ratelimit-reset": "1791589080",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1ba83e2c75a",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97a9e0000000012c70e5a11a06d56",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a48136009ab5bd22-PDX"
+        },
+        "hash": "35251faf4fa9ac092e29d38b0cdfbff62a49788d",
+        "request": {}
+      },
+      "/tasks/MAAAAAEQ_HoO/timelogs": {
+        "response": {
+          "kind": "timelogs",
+          "data": [
+            {
+              "id": "IEAG5DAKJQAC56AU",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "hours": 1.5,
+              "createdDate": "2026-10-09T23:32:28Z",
+              "updatedDate": "2026-10-09T23:32:28Z",
+              "trackedDate": "2026-10-08",
+              "comment": "list-timelogs mock seed"
+            },
+            {
+              "id": "IEAG5DAKJQAC56AV",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "hours": 1,
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-01",
+              "comment": "list-timelogs mock seed 1"
+            },
+            {
+              "id": "IEAG5DAKJQAC56AW",
+              "taskId": "MAAAAAEQ_HoO",
+              "userId": "KUAZR5CO",
+              "hours": 2,
+              "createdDate": "2026-10-09T23:32:33Z",
+              "updatedDate": "2026-10-09T23:32:33Z",
+              "trackedDate": "2026-10-02",
+              "comment": "list-timelogs mock seed 2"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:37:02 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1791589080",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1badfa44e44",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97a9e000000002b603b650710bb2b",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a48136014c371687-PDX"
+        },
+        "hash": "9d0b1f146c04b5d27eb836e1e5f762676c2346a2",
+        "request": {}
+      },
+      "/folders/MQAAAAEQ_HoI": {
+        "response": {
+          "kind": "folders",
+          "data": [
+            {
+              "id": "MQAAAAEQ_HoI",
+              "accountId": "IEAG5DAK",
+              "title": "First project 🚀",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:33:02Z",
+              "description": "",
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "parentIds": [
+                "MQAAAAEQ_HoD"
+              ],
+              "childIds": [],
+              "superParentIds": [],
+              "scope": "WsFolder",
+              "hasAttachments": false,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949064",
+              "workflowId": "IEAG5DAKK4HVMQV4",
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "8000"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG3",
+                  "value": "0"
+                }
+              ],
+              "project": {
+                "authorId": "KUAZR5CO",
+                "ownerIds": [
+                  "KUAZR5CO"
+                ],
+                "customStatusId": "IEAG5DAKJMHVMQVI",
+                "createdDate": "2026-10-07T01:48:56Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:37:03 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1993",
+          "x-ratelimit-reset": "1791589080",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1baaaf70cec",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97a9f000000004c74dd78646a4c0a",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4813601ed512f25-PDX"
+        },
+        "hash": "2128a3e561e01e61fc13dd3e1a5d6d844bf3e447",
+        "request": {}
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "nango": {
+    "batchSave": {
+      "Comment": [
+        {
+          "id": "IEAG5DAKIMCU44X7",
+          "authorId": "KUAZR5CO",
+          "text": "via-json-body",
+          "createdDate": "2026-10-09T23:27:35Z",
+          "updatedDate": "2026-10-09T23:27:35Z",
+          "taskId": "MAAAAAEQ_HoO"
+        },
+        {
+          "id": "IEAG5DAKIMCT73WX",
+          "authorId": "KUAZR5N3",
+          "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
+          "createdDate": "2026-10-07T07:05:25Z",
+          "updatedDate": "2026-10-07T07:05:25Z",
+          "taskId": "MAAAAAEQ_HoO"
+        },
+        {
+          "id": "IEAG5DAKIMCT7UZ3",
+          "authorId": "KUAZR5CR",
+          "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
+          "createdDate": "2026-10-07T01:49:19Z",
+          "updatedDate": "2026-10-07T01:49:19Z",
+          "taskId": "MAAAAAEQ_HoO"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Comment": []
+    }
+  },
+  "api": {
+    "get": {
+      "/comments": {
+        "response": {
+          "kind": "comments",
+          "data": [
+            {
+              "id": "IEAG5DAKIMCU44X7",
+              "authorId": "KUAZR5CO",
+              "text": "via-json-body",
+              "updatedDate": "2026-10-09T23:27:35Z",
+              "createdDate": "2026-10-09T23:27:35Z",
+              "taskId": "MAAAAAEQ_HoO"
+            },
+            {
+              "id": "IEAG5DAKIMCT73WX",
+              "authorId": "KUAZR5N3",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"&#64;assignees\">&#64;assignees</a> <a class=\"stream-user-id avatar\" rel=\"&#64;followers\">&#64;followers</a> Due date is approaching. Please give an update or change the dates.<br /><br />️&#x1f449;&#x1f3fb; This is an example of an Automation rule doing the busywork for you. Easily customize this rule or explore what else can be automated in Space settings &gt; Automation.",
+              "updatedDate": "2026-10-07T07:05:25Z",
+              "createdDate": "2026-10-07T07:05:25Z",
+              "taskId": "MAAAAAEQ_HoO"
+            },
+            {
+              "id": "IEAG5DAKIMCT7UZ3",
+              "authorId": "KUAZR5CR",
+              "text": "<a class=\"stream-user-id avatar\" rel=\"KUAZR5CO\">&#64;Nango Developer</a> Hello and welcome! Here&#39;s an example task you might find helpful",
+              "updatedDate": "2026-10-07T01:49:19Z",
+              "createdDate": "2026-10-07T01:49:19Z",
+              "taskId": "MAAAAAEQ_HoO"
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:33:45 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1947",
+          "x-ratelimit-reset": "1791588864",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1a2527b86b6",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac979d90000000043cc09f66c9127f7",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a481312d0f502f25-PDX"
+        },
+        "hash": "72bd2fb672704ac7e280616c102b957e7c15db0f",
+        "request": {
+          "params": {
+            "limit": "100000"
+          }
+        }
+      }
+    }
+  }
+}

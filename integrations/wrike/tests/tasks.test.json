@@ -1,0 +1,478 @@
+{
+  "nango": {
+    "batchSave": {
+      "Task": [
+        {
+          "id": "MAAAAAEQ_HoP",
+          "accountId": "IEAG5DAK",
+          "title": "Subitem",
+          "status": "Completed",
+          "importance": "Normal",
+          "createdDate": "2026-10-07T01:48:56Z",
+          "updatedDate": "2026-10-07T01:48:56Z",
+          "completedDate": "2026-10-07T01:48:56Z",
+          "scope": "WsTask",
+          "customStatusId": "IEAG5DAKJMHVMQV5",
+          "permalink": "https://www.wrike.com/open.htm?id=4579949071",
+          "priority": "01b89400800000000000b400",
+          "parentIds": [
+            "IEAG5DAKI7777777"
+          ],
+          "superTaskIds": [
+            "MAAAAAEQ_HoO"
+          ],
+          "subTaskIds": [],
+          "dependencyIds": [
+            "MgAAAAEQ_HoPMwAAAAEQ_HoR",
+            "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+          ],
+          "responsibleIds": [
+            "KUAZR5CO"
+          ],
+          "authorIds": [
+            "KUAZR5CO"
+          ],
+          "customFields": [],
+          "dates": {
+            "type": "Planned",
+            "duration": 480,
+            "start": "2026-10-02T09:00:00",
+            "due": "2026-10-02T17:00:00"
+          }
+        },
+        {
+          "id": "MAAAAAEQ_HoR",
+          "accountId": "IEAG5DAK",
+          "title": "Another subitem",
+          "status": "Completed",
+          "importance": "Normal",
+          "createdDate": "2026-10-07T01:48:56Z",
+          "updatedDate": "2026-10-07T01:48:56Z",
+          "completedDate": "2026-10-07T01:48:56Z",
+          "scope": "WsTask",
+          "customStatusId": "IEAG5DAKJMHVMQV5",
+          "permalink": "https://www.wrike.com/open.htm?id=4579949073",
+          "priority": "01b89400800000000000b000",
+          "parentIds": [
+            "IEAG5DAKI7777777"
+          ],
+          "superTaskIds": [
+            "MAAAAAEQ_HoO"
+          ],
+          "subTaskIds": [],
+          "dependencyIds": [
+            "MgAAAAEQ_HoPMwAAAAEQ_HoR"
+          ],
+          "responsibleIds": [
+            "KUAZR5CO"
+          ],
+          "authorIds": [
+            "KUAZR5CO"
+          ],
+          "customFields": [],
+          "dates": {
+            "type": "Planned",
+            "duration": 480,
+            "start": "2026-10-05T09:00:00",
+            "due": "2026-10-05T17:00:00"
+          }
+        },
+        {
+          "id": "MAAAAAEQ_HoM",
+          "accountId": "IEAG5DAK",
+          "title": "2",
+          "status": "Active",
+          "importance": "Normal",
+          "createdDate": "2026-10-07T01:48:56Z",
+          "updatedDate": "2026-10-09T23:33:28Z",
+          "scope": "WsTask",
+          "customStatusId": "IEAG5DAKJMHVMQV4",
+          "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+          "priority": "01b89400800000000000c000",
+          "parentIds": [
+            "MQAAAAEQ_HoI"
+          ],
+          "superTaskIds": [],
+          "subTaskIds": [],
+          "dependencyIds": [
+            "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+            "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+          ],
+          "responsibleIds": [
+            "KUAZR5CO"
+          ],
+          "authorIds": [
+            "KUAZR5CO"
+          ],
+          "customFields": [
+            {
+              "id": "IEAG5DAKJUANPFGZ",
+              "value": "Medium"
+            },
+            {
+              "id": "IEAG5DAKJUANPFG2",
+              "value": "1000"
+            }
+          ],
+          "dates": {
+            "type": "Planned",
+            "duration": 1440,
+            "start": "2026-10-02T09:00:00",
+            "due": "2026-10-06T17:00:00"
+          }
+        },
+        {
+          "id": "MAAAAAEQ_HoK",
+          "accountId": "IEAG5DAK",
+          "title": "3",
+          "status": "Active",
+          "importance": "Normal",
+          "createdDate": "2026-10-07T01:48:56Z",
+          "updatedDate": "2026-10-09T23:33:28Z",
+          "scope": "WsTask",
+          "customStatusId": "IEAG5DAKJMHVMQV4",
+          "permalink": "https://www.wrike.com/open.htm?id=4579949066",
+          "priority": "01b89400800000000000bc00",
+          "parentIds": [
+            "MQAAAAEQ_HoI"
+          ],
+          "superTaskIds": [],
+          "subTaskIds": [],
+          "dependencyIds": [
+            "MgAAAAEQ_HoMMwAAAAEQ_HoK"
+          ],
+          "responsibleIds": [
+            "KUAZR5CO"
+          ],
+          "authorIds": [
+            "KUAZR5CO"
+          ],
+          "customFields": [
+            {
+              "id": "IEAG5DAKJUANPFGZ",
+              "value": "High"
+            },
+            {
+              "id": "IEAG5DAKJUANPFG2",
+              "value": "2000"
+            }
+          ],
+          "dates": {
+            "type": "Planned",
+            "duration": 1440,
+            "start": "2026-10-07T09:00:00",
+            "due": "2026-10-09T17:00:00"
+          }
+        },
+        {
+          "id": "MAAAAAEQ_HoO",
+          "accountId": "IEAG5DAK",
+          "title": "1",
+          "status": "Active",
+          "importance": "Normal",
+          "createdDate": "2026-10-07T01:48:56Z",
+          "updatedDate": "2026-10-09T23:38:31Z",
+          "scope": "WsTask",
+          "customStatusId": "IEAG5DAKJMHVMQW2",
+          "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+          "priority": "01b89400800000000000b800",
+          "parentIds": [
+            "MQAAAAEQ_HoI"
+          ],
+          "superTaskIds": [],
+          "subTaskIds": [
+            "MAAAAAEQ_HoP",
+            "MAAAAAEQ_HoR"
+          ],
+          "dependencyIds": [
+            "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+            "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+          ],
+          "responsibleIds": [
+            "KUAZR5CO"
+          ],
+          "authorIds": [
+            "KUAZR5CO"
+          ],
+          "customFields": [
+            {
+              "id": "IEAG5DAKJUANPFGZ",
+              "value": "Low"
+            },
+            {
+              "id": "IEAG5DAKJUANPFG2",
+              "value": "5000"
+            }
+          ],
+          "dates": {
+            "type": "Planned",
+            "duration": 2400,
+            "start": "2026-09-25T09:00:00",
+            "due": "2026-10-01T17:00:00"
+          }
+        }
+      ]
+    },
+    "batchDelete": {
+      "Task": []
+    }
+  },
+  "api": {
+    "get": {
+      "/tasks": {
+        "response": {
+          "kind": "tasks",
+          "data": [
+            {
+              "id": "MAAAAAEQ_HoP",
+              "accountId": "IEAG5DAK",
+              "title": "Subitem",
+              "parentIds": [
+                "IEAG5DAKI7777777"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Completed",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-07T01:48:56Z",
+              "completedDate": "2026-10-07T01:48:56Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 480,
+                "start": "2026-10-02T09:00:00",
+                "due": "2026-10-02T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV5",
+              "permalink": "https://www.wrike.com/open.htm?id=4579949071",
+              "priority": "01b89400800000000000b400",
+              "superTaskIds": [
+                "MAAAAAEQ_HoO"
+              ],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoPMwAAAAEQ_HoR",
+                "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+              ],
+              "customFields": []
+            },
+            {
+              "id": "MAAAAAEQ_HoR",
+              "accountId": "IEAG5DAK",
+              "title": "Another subitem",
+              "parentIds": [
+                "IEAG5DAKI7777777"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Completed",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-07T01:48:56Z",
+              "completedDate": "2026-10-07T01:48:56Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 480,
+                "start": "2026-10-05T09:00:00",
+                "due": "2026-10-05T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV5",
+              "permalink": "https://www.wrike.com/open.htm?id=4579949073",
+              "priority": "01b89400800000000000b000",
+              "superTaskIds": [
+                "MAAAAAEQ_HoO"
+              ],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoPMwAAAAEQ_HoR"
+              ],
+              "customFields": []
+            },
+            {
+              "id": "MAAAAAEQ_HoM",
+              "accountId": "IEAG5DAK",
+              "title": "2",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:33:28Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 1440,
+                "start": "2026-10-02T09:00:00",
+                "due": "2026-10-06T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "permalink": "https://www.wrike.com/open.htm?id=4579949068",
+              "priority": "01b89400800000000000c000",
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoMMwAAAAEQ_HoK",
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM"
+              ],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Medium"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "1000"
+                }
+              ]
+            },
+            {
+              "id": "MAAAAAEQ_HoK",
+              "accountId": "IEAG5DAK",
+              "title": "3",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:33:28Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 1440,
+                "start": "2026-10-07T09:00:00",
+                "due": "2026-10-09T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQV4",
+              "permalink": "https://www.wrike.com/open.htm?id=4579949066",
+              "priority": "01b89400800000000000bc00",
+              "superTaskIds": [],
+              "subTaskIds": [],
+              "dependencyIds": [
+                "MgAAAAEQ_HoMMwAAAAEQ_HoK"
+              ],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "High"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "2000"
+                }
+              ]
+            },
+            {
+              "id": "MAAAAAEQ_HoO",
+              "accountId": "IEAG5DAK",
+              "title": "1",
+              "parentIds": [
+                "MQAAAAEQ_HoI"
+              ],
+              "responsibleIds": [
+                "KUAZR5CO"
+              ],
+              "status": "Active",
+              "importance": "Normal",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:38:31Z",
+              "dates": {
+                "type": "Planned",
+                "duration": 2400,
+                "start": "2026-09-25T09:00:00",
+                "due": "2026-10-01T17:00:00"
+              },
+              "scope": "WsTask",
+              "authorIds": [
+                "KUAZR5CO"
+              ],
+              "customStatusId": "IEAG5DAKJMHVMQW2",
+              "permalink": "https://www.wrike.com/open.htm?id=4579949070",
+              "priority": "01b89400800000000000b800",
+              "superTaskIds": [],
+              "subTaskIds": [
+                "MAAAAAEQ_HoP",
+                "MAAAAAEQ_HoR"
+              ],
+              "dependencyIds": [
+                "MgAAAAEQ_HoOMwAAAAEQ_HoM",
+                "MgAAAAEQ_HoPMwAAAAEQ_HoO"
+              ],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFGZ",
+                  "value": "Low"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "5000"
+                }
+              ]
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:51:16 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1989",
+          "x-ratelimit-reset": "1791589925",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c222f117bd54",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97df40000000056cec80f2da83109",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4814adaadee8e12-PDX"
+        },
+        "hash": "3d69954c53cca5600d6495a2d2b5ea6edda02de7",
+        "request": {
+          "params": {
+            "fields": "[\"subTaskIds\",\"superTaskIds\",\"dependencyIds\",\"customFields\",\"parentIds\",\"responsibleIds\",\"authorIds\"]",
+            "pageSize": "100",
+            "sortField": "UpdatedDate",
+            "sortOrder": "Asc",
+            "updatedDate": "{\"start\":\"1970-01-01T00:00:00Z\"}"
+          }
+        }
+      }
+    }
+  }
+}
