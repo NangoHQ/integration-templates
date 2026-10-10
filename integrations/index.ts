@@ -7785,6 +7785,47 @@ import './zendesk/actions/update-organization.js';
 import './zendesk/actions/update-ticket.js';
 import './zendesk/actions/update-user.js';
 
+// -- Integration: zoho-bigin
+import './zoho-bigin/syncs/accounts.js';
+import './zoho-bigin/syncs/contacts.js';
+import './zoho-bigin/syncs/products.js';
+import './zoho-bigin/actions/create-account.js';
+import './zoho-bigin/actions/create-contact.js';
+import './zoho-bigin/actions/create-product.js';
+import './zoho-bigin/actions/delete-account-safe.js';
+import './zoho-bigin/actions/delete-account.js';
+import './zoho-bigin/actions/delete-contact.js';
+import './zoho-bigin/actions/delete-product.js';
+import './zoho-bigin/actions/get-account.js';
+import './zoho-bigin/actions/get-contact-360.js';
+import './zoho-bigin/actions/get-contact.js';
+import './zoho-bigin/actions/get-module-fields.js';
+import './zoho-bigin/actions/get-org.js';
+import './zoho-bigin/actions/get-product.js';
+import './zoho-bigin/actions/get-user.js';
+import './zoho-bigin/actions/link-product-to-contact.js';
+import './zoho-bigin/actions/list-account-contacts.js';
+import './zoho-bigin/actions/list-accounts.js';
+import './zoho-bigin/actions/list-contact-products.js';
+import './zoho-bigin/actions/list-contacts.js';
+import './zoho-bigin/actions/list-modules.js';
+import './zoho-bigin/actions/list-products.js';
+import './zoho-bigin/actions/list-users.js';
+import './zoho-bigin/actions/list-watches.js';
+import './zoho-bigin/actions/search-accounts.js';
+import './zoho-bigin/actions/search-contacts.js';
+import './zoho-bigin/actions/search-products.js';
+import './zoho-bigin/actions/subscribe-watch.js';
+import './zoho-bigin/actions/unlink-product-from-contact.js';
+import './zoho-bigin/actions/unsubscribe-watch.js';
+import './zoho-bigin/actions/update-account.js';
+import './zoho-bigin/actions/update-contact.js';
+import './zoho-bigin/actions/update-product.js';
+import './zoho-bigin/actions/upsert-account.js';
+import './zoho-bigin/actions/upsert-contact-with-relations.js';
+import './zoho-bigin/actions/upsert-contact.js';
+import './zoho-bigin/actions/upsert-product.js';
+
 // -- Integration: zoho-books
 import './zoho-books/syncs/bank-accounts.js';
 import './zoho-books/syncs/bills.js';
