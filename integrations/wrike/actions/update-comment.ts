@@ -32,7 +32,8 @@ const OutputSchema = z
         createdDate: z.string().optional().describe('Timestamp when the comment was created; unchanged by the update.'),
         updatedDate: z.string().optional().describe('Timestamp of the most recent comment modification.'),
         taskId: z.string().optional().describe('ID of the related task, when the comment belongs to a task.'),
-        folderId: z.string().optional().describe('ID of the related folder, when the comment belongs to a folder.')
+        folderId: z.string().optional().describe('ID of the related folder, when the comment belongs to a folder.'),
+        attachmentIds: z.array(z.string()).optional().describe('IDs of files attached to the comment.')
     })
     .describe('The comment as it appears after the update.');
 
@@ -76,7 +77,8 @@ const action = createAction({
             ...(comment.createdDate != null && { createdDate: comment.createdDate }),
             ...(comment.updatedDate != null && { updatedDate: comment.updatedDate }),
             ...(comment.taskId != null && { taskId: comment.taskId }),
-            ...(comment.folderId != null && { folderId: comment.folderId })
+            ...(comment.folderId != null && { folderId: comment.folderId }),
+            ...(comment.attachmentIds != null && { attachmentIds: comment.attachmentIds })
         };
     }
 });

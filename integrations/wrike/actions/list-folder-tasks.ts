@@ -45,11 +45,25 @@ const TaskCustomFieldSchema = z.object({
     value: z.string().describe('Value stored in the custom field for this task.')
 });
 
+const DailyAllocationSchema = z.object({
+    date: z.string().describe('Day of the allocation in yyyy-MM-dd format.'),
+    effortMinutes: z.number().describe('Effort allocated to the assignee on that day, in minutes.')
+});
+
+const ResponsibleAllocationSchema = z.object({
+    userId: z.string().describe('ID of the assignee the effort is allocated to.'),
+    dailyAllocation: z.array(DailyAllocationSchema).optional().describe('Per-day effort allocated to this assignee.')
+});
+
 const TaskEffortSchema = z.object({
     mode: z.string().optional().describe('Effort mode: "Basic", "Flexible", "FullTime", or "None".'),
     dailyAllocationPercentage: z.number().optional().describe('Daily allocation in percent, for effort daily mode.'),
     allocatedEffort: z.number().optional().describe('Allocated effort in minutes.'),
-    totalEffort: z.number().optional().describe('Total effort in minutes.')
+    totalEffort: z.number().optional().describe('Total effort in minutes.'),
+    responsibleAllocation: z
+        .array(ResponsibleAllocationSchema)
+        .optional()
+        .describe('Per-assignee daily effort allocation; empty unless effort has been allocated to individual assignees.')
 });
 
 const TaskFinanceSchema = z.object({
