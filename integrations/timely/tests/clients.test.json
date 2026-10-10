@@ -1,0 +1,338 @@
+{
+  "nango": {
+    "batchSave": {
+      "Client": [
+        {
+          "id": "1145787-2193170",
+          "client_id": "2193170",
+          "account_id": "1145787",
+          "name": "Nango Developer",
+          "active": true,
+          "color": "1976d2",
+          "updated_at": "2026-10-07T05:54:36+03:00"
+        }
+      ]
+    },
+    "batchDelete": {
+      "Client": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.1/accounts": {
+        "response": [
+          {
+            "id": 1145787,
+            "name": "Nango Developer",
+            "color": "313d4b",
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "logo": {
+              "large_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_large_retina-8bc212c450af14b3a0ea49098cdddbe4f90d5eb5fc57adfeade6ac1ad8fb1d4a.png",
+              "medium_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_medium_retina-10dfbcc6733ccba1d485971f63c5eb7f9b7ed1a942a0ebd140e292bcb1e4dbea.png",
+              "small_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_small_retina-ea5df153b4cd96fc801e2361afc7d1b06d7b95ce5c358250b81149e1a20689df.png",
+              "brand_logo": false
+            },
+            "from": "Web",
+            "max_users": 0,
+            "seats": 1,
+            "max_projects": 0,
+            "plan_id": 227,
+            "plan_name": "Unlimited",
+            "next_charge": "2026-10-20",
+            "start_of_week": 0,
+            "created_at": 1791341625,
+            "payment_mode": "web",
+            "paid": false,
+            "company_size": "1",
+            "plan_code": "timely_unlimited_aug_23_yearly",
+            "plan_custom": false,
+            "appstore_transaction_id": null,
+            "owner_id": 2418691,
+            "weekly_user_capacity": 40,
+            "default_work_days": "MON,TUE,WED,THU,FRI",
+            "default_hour_rate": 0,
+            "support_email": "support@timelyapp.com",
+            "estimated_company_size": null,
+            "industry": null,
+            "memory_retention_days": 0,
+            "tic_force_enable": false,
+            "num_users": 1,
+            "num_projects": 6,
+            "active_projects_count": 6,
+            "total_projects_count": 7,
+            "capacity": {
+              "hours": 40,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "40:00",
+              "total_hours": 40,
+              "total_seconds": 144000,
+              "total_minutes": 2400
+            },
+            "can_purchase_extra_seats": false,
+            "status": "trial",
+            "beta": false,
+            "azure_ad_enabled": false,
+            "expired": false,
+            "trial": true,
+            "days_to_end_trial": 11,
+            "features": [
+              {
+                "name": "in_app_support",
+                "days": -1
+              },
+              {
+                "name": "project_required_fields",
+                "days": -1
+              },
+              {
+                "name": "notifications_project_budget",
+                "days": -1
+              },
+              {
+                "name": "weekly_user_capacity",
+                "days": -1
+              },
+              {
+                "name": "project_budget",
+                "days": -1
+              },
+              {
+                "name": "budgets_hourly_rates",
+                "days": -1
+              },
+              {
+                "name": "account_branding",
+                "days": -1
+              },
+              {
+                "name": "ai_timesheet_creation",
+                "days": -1
+              },
+              {
+                "name": "teams",
+                "days": -1
+              },
+              {
+                "name": "company_view",
+                "days": -1
+              },
+              {
+                "name": "anomalies",
+                "days": -1
+              },
+              {
+                "name": "log_hours_for_others",
+                "days": -1
+              },
+              {
+                "name": "recurring_budget",
+                "days": -1
+              },
+              {
+                "name": "billing",
+                "days": -1
+              },
+              {
+                "name": "team_lead",
+                "days": -1
+              },
+              {
+                "name": "control",
+                "days": -1
+              },
+              {
+                "name": "memories",
+                "days": -1
+              },
+              {
+                "name": "people_dashboard",
+                "days": -1
+              },
+              {
+                "name": "people_notify",
+                "days": -1
+              },
+              {
+                "name": "project_dashboard",
+                "days": -1
+              },
+              {
+                "name": "premium_integrations",
+                "days": -1
+              },
+              {
+                "name": "individual_capacity",
+                "days": -1
+              },
+              {
+                "name": "audits",
+                "days": -1
+              },
+              {
+                "name": "report_dashboard",
+                "days": -1
+              },
+              {
+                "name": "live_reports",
+                "days": -1
+              },
+              {
+                "name": "high_level_reports",
+                "days": -1
+              },
+              {
+                "name": "invoices",
+                "days": -1
+              },
+              {
+                "name": "planned_entries",
+                "days": -1
+              },
+              {
+                "name": "internal_costs",
+                "days": -1
+              },
+              {
+                "name": "api_access",
+                "days": -1
+              },
+              {
+                "name": "capacity_reports",
+                "days": -1
+              },
+              {
+                "name": "hour_states",
+                "days": -1
+              },
+              {
+                "name": "day_locking",
+                "days": -1
+              },
+              {
+                "name": "user_custom_properties",
+                "days": -1
+              },
+              {
+                "name": "import_manager",
+                "days": -1
+              },
+              {
+                "name": "report_tag_headers",
+                "days": -1
+              },
+              {
+                "name": "timesheet_assistant_v2",
+                "days": -1
+              },
+              {
+                "name": "tic_integrations",
+                "days": -1
+              },
+              {
+                "name": "allow_one_tag",
+                "days": -1
+              },
+              {
+                "name": "compliance_dashboard",
+                "days": -1
+              },
+              {
+                "name": "tic_support",
+                "days": -1
+              },
+              {
+                "name": "tasks",
+                "days": -1
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:58:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3158",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1973",
+          "x-ratelimit-reset": "1791583135",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"bec0a870c04164b05a73e33d3220f605\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "a1a6459d-777e-4a7f-b548-47d13bbb5bf3",
+          "x-runtime": "0.018540",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=cWqst37gKkW4GAlyQGLIB%2Bx9GFQOzVetBSSE6zDkcW0%2FepwBG%2B1Du4t%2BM%2BJY7IdWOEfUHnIIULsbmHz44KKt3CHNlS%2BYZyT1sgSCiZs%2Fqm9995UuyCnwGjI1KGwtbPMNPd1C9w%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a5a54f33e5c0-PDX"
+        },
+        "hash": "26429d40e9e68ad4762f225411f268fe0b5eb9c7",
+        "request": {}
+      },
+      "/1.1/1145787/clients": {
+        "response": [
+          {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:58:30 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "132",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1972",
+          "x-ratelimit-reset": "1791583135",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"8aec16e98333f419a309b54db0589684\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "b224a502-64f0-4281-ae68-2a8c790c398f",
+          "x-runtime": "0.019557",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=QoDu3r8dHZfvvFNXdUR0p%2FPdHQnGAUAYMPnjvrdJAK4DZzhgeCmZmd7DZn5Wt5OhL180wPf1H5cfXtegf0OAma%2Fj6RlPhP8J7ix7KhQrA4KbQxTkoK9zyXKwOgDwd0BvY1ivaw%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a5a70cf9e6e0-PDX"
+        },
+        "hash": "d830cd8d950c5a67420f099bac7fa8ef16e3187e",
+        "request": {}
+      }
+    }
+  }
+}

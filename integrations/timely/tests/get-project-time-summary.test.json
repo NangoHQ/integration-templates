@@ -1,0 +1,563 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "project_id": 5698336,
+    "since": "2026-10-09",
+    "upto": "2026-10-09"
+  },
+  "output": {
+    "project": {
+      "id": 5698336,
+      "name": "Nango Composite Summary Test",
+      "client": {
+        "id": 2193170,
+        "name": "Nango Developer"
+      },
+      "duration": {
+        "total_hours": 3.75,
+        "total_minutes": 225,
+        "total_seconds": 13500,
+        "formatted": "03:45"
+      },
+      "cost": {
+        "amount": 0,
+        "formatted": "KSh0.00",
+        "currency_code": "kes"
+      },
+      "first_logged_on": "2026-10-08",
+      "last_logged_on": "2026-10-09"
+    },
+    "range": {
+      "since": "2026-10-09",
+      "upto": "2026-10-09",
+      "total_hours": 1.75,
+      "entry_count": 2,
+      "entries": [
+        {
+          "id": 297121954,
+          "day": "2026-10-09",
+          "note": "summary test day2 a",
+          "total_hours": 1.25,
+          "user_id": 2418691,
+          "user_name": "Nango Developer",
+          "label_ids": []
+        },
+        {
+          "id": 297121955,
+          "day": "2026-10-09",
+          "note": "summary test day2 b",
+          "total_hours": 0.5,
+          "user_id": 2418691,
+          "user_name": "Nango Developer",
+          "label_ids": []
+        }
+      ]
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/projects/5698336": {
+        "response": {
+          "id": 5698336,
+          "active": true,
+          "account_id": 1145787,
+          "name": "Nango Composite Summary Test",
+          "description": null,
+          "color": null,
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791582710,
+          "updated_at": 1791582714,
+          "external_id": null,
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:51:54+03:00",
+              "created_at": "2026-10-10T00:51:50+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 3,
+            "minutes": 45,
+            "seconds": 0,
+            "formatted": "03:45",
+            "total_hours": 3.75,
+            "total_seconds": 13500,
+            "total_minutes": 225
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 3,
+            "minutes": 45,
+            "seconds": 0,
+            "formatted": "03:45",
+            "total_hours": 3.75,
+            "total_seconds": 13500,
+            "total_minutes": 225
+          },
+          "first_logged_on": "2026-10-08",
+          "last_logged_on": "2026-10-09",
+          "locked_hours": false,
+          "created_from": "Nango",
+          "allow_only_one_tag": false
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "2127",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1937",
+          "x-ratelimit-reset": "1791582824",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"475fc9b101acb75b7b50b656cad70f7f\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "a6ab4106-5283-40b6-a543-1c2f83297095",
+          "x-runtime": "0.029028",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ix1oUefft9qH1G3kUJfjVVEMX068EkT%2BucHjNCVsCglP3ug9eTLi9xFcJ05JZFMob8mYO6zmdl%2Bs6bemkwGxpazoYIgzOj8FSoopH%2BN1UTIaga0YlxG5mtRWAhDcTj8Hwouq9Q%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809e00bf135ec1-PDX"
+        },
+        "hash": "dbc82b7bb4fc0d33658db4dde29daef6e938bb8e",
+        "request": {}
+      },
+      "/1.1/1145787/events": {
+        "response": [
+          {
+            "id": 297121954,
+            "uid": "6e18f8fd611d9e7a311c5866ea22bb97",
+            "user": {
+              "id": 2418691,
+              "email": "api@nango.dev",
+              "name": "Nango Developer",
+              "avatar": {
+                "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+                "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=",
+                "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+                "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=",
+                "timeline": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_timeline-e61ac46443487bd24fbaecab08cfacf5d0835b371cbe97a33b9e738744ef8334.jpg&s="
+              },
+              "updated_at": "2026-10-07T05:54:38+03:00"
+            },
+            "project": {
+              "id": 5698336,
+              "active": true,
+              "account_id": 1145787,
+              "name": "Nango Composite Summary Test",
+              "description": null,
+              "color": null,
+              "rate_type": "non-billable",
+              "billable": false,
+              "created_at": 1791582710,
+              "updated_at": 1791582714,
+              "external_id": null,
+              "budget_scope": null,
+              "client": {
+                "id": 2193170,
+                "name": "Nango Developer",
+                "color": "1976d2",
+                "active": true,
+                "external_id": null,
+                "updated_at": "2026-10-07T05:54:36+03:00"
+              },
+              "required_notes": false,
+              "required_labels": false,
+              "budget_expired_on": null,
+              "has_recurrence": false,
+              "enable_labels": "none",
+              "default_labels": false,
+              "currency": {
+                "id": "kes",
+                "name": "Kenyan Shilling",
+                "iso_code": "KES",
+                "symbol": "KSh",
+                "symbol_first": true
+              },
+              "team_ids": [],
+              "budget": 0,
+              "budget_type": "",
+              "budget_calculation": "completed",
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "budget_progress": 0,
+              "budget_percent": 0,
+              "invoice_by_budget": false,
+              "labels": [],
+              "label_ids": [],
+              "required_label_ids": [],
+              "default_label_ids": [],
+              "created_from": "Nango",
+              "allow_only_one_tag": false
+            },
+            "duration": {
+              "hours": 1,
+              "minutes": 15,
+              "seconds": 0,
+              "formatted": "01:15",
+              "total_hours": 1.25,
+              "total_seconds": 4500,
+              "total_minutes": 75
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "day": "2026-10-09",
+            "note": "summary test day2 a",
+            "sequence": 2,
+            "estimated": false,
+            "timer_state": "default",
+            "timer_started_on": 0,
+            "timer_stopped_on": 0,
+            "label_ids": [],
+            "user_ids": [],
+            "updated_at": 1791582714,
+            "created_at": 1791582714,
+            "created_from": "Nango",
+            "updated_from": "Nango",
+            "billed": false,
+            "billable": false,
+            "to": null,
+            "from": null,
+            "deleted": false,
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "creator_id": 2418691,
+            "updater_id": 2418691,
+            "external_id": null,
+            "entry_ids": [],
+            "suggestion_id": null,
+            "autosheet_proposal_id": null,
+            "draft": false,
+            "manage": true,
+            "forecast_id": null,
+            "billed_at": null,
+            "external_link_ids": [],
+            "internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "internal_cost_rate": 0,
+            "profit": 0,
+            "profitability": 0,
+            "locked_reason": null,
+            "locked": false,
+            "invoice_id": null,
+            "timestamps": [],
+            "state": null,
+            "external_links": []
+          },
+          {
+            "id": 297121955,
+            "uid": "9859e5a360a52c5dc3a4edad83ab36db",
+            "user": {
+              "id": 2418691,
+              "email": "api@nango.dev",
+              "name": "Nango Developer",
+              "avatar": {
+                "large_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large_retina-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=200",
+                "large": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_large-c403e04ad44c7d8b8c7904dc7e7c1893101f3672565370034edbe3dee9985509.jpg&s=",
+                "medium_retina": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium_retina-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=50",
+                "medium": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_medium-459a8b7582a7417f4b47a0064f692ffcd161fb11eda9dcc359f1b5e63fe51235.jpg&s=",
+                "timeline": "https://www.gravatar.com/avatar/0f8c53293177b8e9f1658ae7951a468e?d=https%3A%2F%2Fd1vbcromo72rmd.cloudfront.net%2Fassets%2Fthumbs%2Fuser_timeline-e61ac46443487bd24fbaecab08cfacf5d0835b371cbe97a33b9e738744ef8334.jpg&s="
+              },
+              "updated_at": "2026-10-07T05:54:38+03:00"
+            },
+            "project": {
+              "id": 5698336,
+              "active": true,
+              "account_id": 1145787,
+              "name": "Nango Composite Summary Test",
+              "description": null,
+              "color": null,
+              "rate_type": "non-billable",
+              "billable": false,
+              "created_at": 1791582710,
+              "updated_at": 1791582714,
+              "external_id": null,
+              "budget_scope": null,
+              "client": {
+                "id": 2193170,
+                "name": "Nango Developer",
+                "color": "1976d2",
+                "active": true,
+                "external_id": null,
+                "updated_at": "2026-10-07T05:54:36+03:00"
+              },
+              "required_notes": false,
+              "required_labels": false,
+              "budget_expired_on": null,
+              "has_recurrence": false,
+              "enable_labels": "none",
+              "default_labels": false,
+              "currency": {
+                "id": "kes",
+                "name": "Kenyan Shilling",
+                "iso_code": "KES",
+                "symbol": "KSh",
+                "symbol_first": true
+              },
+              "team_ids": [],
+              "budget": 0,
+              "budget_type": "",
+              "budget_calculation": "completed",
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "budget_progress": 0,
+              "budget_percent": 0,
+              "invoice_by_budget": false,
+              "labels": [],
+              "label_ids": [],
+              "required_label_ids": [],
+              "default_label_ids": [],
+              "created_from": "Nango",
+              "allow_only_one_tag": false
+            },
+            "duration": {
+              "hours": 0,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "00:30",
+              "total_hours": 0.5,
+              "total_seconds": 1800,
+              "total_minutes": 30
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "day": "2026-10-09",
+            "note": "summary test day2 b",
+            "sequence": 3,
+            "estimated": false,
+            "timer_state": "default",
+            "timer_started_on": 0,
+            "timer_stopped_on": 0,
+            "label_ids": [],
+            "user_ids": [],
+            "updated_at": 1791582714,
+            "created_at": 1791582714,
+            "created_from": "Nango",
+            "updated_from": "Nango",
+            "billed": false,
+            "billable": false,
+            "to": null,
+            "from": null,
+            "deleted": false,
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "creator_id": 2418691,
+            "updater_id": 2418691,
+            "external_id": null,
+            "entry_ids": [],
+            "suggestion_id": null,
+            "autosheet_proposal_id": null,
+            "draft": false,
+            "manage": true,
+            "forecast_id": null,
+            "billed_at": null,
+            "external_link_ids": [],
+            "internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "internal_cost_rate": 0,
+            "profit": 0,
+            "profitability": 0,
+            "locked_reason": null,
+            "locked": false,
+            "invoice_id": null,
+            "timestamps": [],
+            "state": null,
+            "external_links": []
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:53:17 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "7326",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1936",
+          "x-ratelimit-reset": "1791582824",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"0b8e9f93e3b96268301627c11d3b0b68\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "35e6134b-1e91-4abe-8b26-6c298f9f4a69",
+          "x-runtime": "0.047725",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=zPgP6gUILI9ONyzowtlN3K%2BGlQaour7VVpUOYGlXfpdOwnz263hBHQYvTk7hlczBObHPFUsYBnAIl3iYLBNYoZ8nTxpDtceHh6Kt4R9rxBrLq4OO9Hi%2Bc%2ByZqR2nZBZQQfBQ2A%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a4809e0278ddd74d-PDX"
+        },
+        "hash": "c833dcfad57deab702e59fc6bc18bc0c581f451d",
+        "request": {
+          "params": {
+            "project_id": "5698336",
+            "since": "2026-10-09",
+            "upto": "2026-10-09"
+          }
+        }
+      }
+    }
+  }
+}
