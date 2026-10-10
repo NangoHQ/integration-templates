@@ -36,10 +36,12 @@ const action = createAction({
         const projectId = encodeURIComponent(String(input.project_id));
 
         // Docs: https://docs.nango.dev/integrations/all/timely (Timely API: DELETE /1.1/{account_id}/projects/{project_id})
-        // HTTP DELETE is idempotent, so a retry can only re-confirm the same deleted state.
         await nango.delete({
             endpoint: `/1.1/${accountId}/projects/${projectId}`,
-            retries: 3
+            // Not retry-safe: if Timely deletes the project but the response is lost, a retry gets a 404
+            // and the action would report failure for a deletion that actually succeeded.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         });
 
         return {

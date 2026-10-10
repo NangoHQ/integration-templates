@@ -28,12 +28,7 @@ const OutputSchema = z
         blockedBy: z.string().optional().describe('Reason the deletion was blocked. Present only when deleted is false. Example: "has_logged_time".'),
         eventCount: z.number().int().describe('Number of time entries (events) logged against the project inside the checked window.'),
         since: z.string().describe('Start date (YYYY-MM-DD) of the window checked for logged time.'),
-        upto: z.string().describe('End date (YYYY-MM-DD) of the window checked for logged time.'),
-        cascadeDeletedEventCount: z
-            .number()
-            .int()
-            .optional()
-            .describe('Number of time entries cascade-deleted along with the project. Present only when deleted is true.')
+        upto: z.string().describe('End date (YYYY-MM-DD) of the window checked for logged time.')
     })
     .describe('Result of the safe project deletion, including whether it was blocked and how many time entries were affected.');
 
@@ -49,7 +44,7 @@ const DEFAULT_UPTO = '2100-01-01';
 /**
  * @tags: [read, write, destructive]
  * @tagReason: Reads the project's logged time (events) before deleting the project, which is a destructive mutation that cascade-deletes its events.
- * @pitfalls: Deleting a project permanently destroys every time entry logged against it; the since/upto window only controls which entries are counted, so entries outside it are not detected but are still deleted, and calling the action on an already-deleted project fails rather than reporting deleted:false.
+ * @pitfalls: Deleting a project permanently destroys every time entry logged against it; the since/upto window only controls which entries are counted, so entries outside it are not detected or counted in eventCount but are still deleted, and calling the action on an already-deleted project fails rather than reporting deleted:false.
  */
 const action = createAction({
     description: 'Delete a project after checking for logged time, blocking by default unless confirm is true.',
@@ -90,7 +85,10 @@ const action = createAction({
         const deleteConfig: ProxyConfiguration = {
             // https://developer.timely.com/
             endpoint: `/1.1/${encodeURIComponent(String(accountId))}/projects/${encodeURIComponent(String(projectId))}`,
-            retries: 3
+            // Not retry-safe: if Timely deletes the project but the response is lost, a retry gets a 404
+            // and the action would fail for a deletion that actually succeeded.
+            // eslint-disable-next-line @nangohq/custom-integrations-linting/proxy-call-retries
+            retries: 0
         };
         await nango.delete(deleteConfig);
 
@@ -121,8 +119,7 @@ const action = createAction({
             deleted: true,
             eventCount,
             since,
-            upto,
-            cascadeDeletedEventCount: eventCount
+            upto
         };
     }
 });

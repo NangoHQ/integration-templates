@@ -1,11 +1,11 @@
 {
   "input": {
-    "account_id": "1145787",
-    "event_id": "297122637"
+    "account_id": 1145787,
+    "event_id": 297122637
   },
   "output": {
     "deleted": true,
-    "event_id": "297122637"
+    "event_id": 297122637
   },
   "nango": {},
   "api": {
