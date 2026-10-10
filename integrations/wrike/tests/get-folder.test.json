@@ -1,0 +1,127 @@
+{
+  "input": {
+    "folderId": "MQAAAAEQ_HoI"
+  },
+  "output": {
+    "id": "MQAAAAEQ_HoI",
+    "accountId": "IEAG5DAK",
+    "title": "First project 🚀",
+    "description": "",
+    "createdDate": "2026-10-07T01:48:56Z",
+    "updatedDate": "2026-10-09T23:38:44Z",
+    "sharedIds": [
+      "KX7WCEJZ",
+      "KUAZR5CO"
+    ],
+    "parentIds": [
+      "MQAAAAEQ_HoD"
+    ],
+    "childIds": [],
+    "superParentIds": [],
+    "scope": "WsFolder",
+    "hasAttachments": false,
+    "workflowId": "IEAG5DAKK4HVMQV4",
+    "metadata": [],
+    "customFields": [
+      {
+        "id": "IEAG5DAKJUANPFG2",
+        "value": "8000"
+      },
+      {
+        "id": "IEAG5DAKJUANPFG3",
+        "value": "0"
+      }
+    ],
+    "permalink": "https://www.wrike.com/open.htm?id=4579949064",
+    "project": {
+      "authorId": "KUAZR5CO",
+      "ownerIds": [
+        "KUAZR5CO"
+      ],
+      "customStatusId": "IEAG5DAKJMHVMQVI",
+      "createdDate": "2026-10-07T01:48:56Z"
+    }
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/folders/MQAAAAEQ_HoI": {
+        "response": {
+          "kind": "folders",
+          "data": [
+            {
+              "id": "MQAAAAEQ_HoI",
+              "accountId": "IEAG5DAK",
+              "title": "First project 🚀",
+              "createdDate": "2026-10-07T01:48:56Z",
+              "updatedDate": "2026-10-09T23:38:44Z",
+              "description": "",
+              "sharedIds": [
+                "KX7WCEJZ",
+                "KUAZR5CO"
+              ],
+              "parentIds": [
+                "MQAAAAEQ_HoD"
+              ],
+              "childIds": [],
+              "superParentIds": [],
+              "scope": "WsFolder",
+              "hasAttachments": false,
+              "permalink": "https://www.wrike.com/open.htm?id=4579949064",
+              "workflowId": "IEAG5DAKK4HVMQV4",
+              "metadata": [],
+              "customFields": [
+                {
+                  "id": "IEAG5DAKJUANPFG2",
+                  "value": "8000"
+                },
+                {
+                  "id": "IEAG5DAKJUANPFG3",
+                  "value": "0"
+                }
+              ],
+              "project": {
+                "authorId": "KUAZR5CO",
+                "ownerIds": [
+                  "KUAZR5CO"
+                ],
+                "customStatusId": "IEAG5DAKJMHVMQVI",
+                "createdDate": "2026-10-07T01:48:56Z"
+              }
+            }
+          ]
+        },
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 23:40:39 GMT",
+          "content-type": "application/json;charset=UTF-8",
+          "transfer-encoding": "chunked",
+          "connection": "keep-alive",
+          "x-xss-protection": "1; mode=block",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1975",
+          "x-ratelimit-reset": "1791589267",
+          "server": "cloudflare",
+          "vary": "Accept-Encoding",
+          "wrike-response-id": "625c1d4c836a37d",
+          "cache-control": "no-cache, no-store, max-age=0, must-revalidate",
+          "accept-ch": "Sec-CH-UA,Sec-CH-UA-Mobile,Sec-CH-UA-Full-Version,Sec-CH-UA-Platform,Sec-CH-UA-Platform-Version,Sec-CH-UA-Arch,Sec-CH-UA-Bitness,Sec-CH-UA-Model",
+          "traceid": "6ac97b77000000005ffe79a6c9af3a60",
+          "cf-cache-status": "DYNAMIC",
+          "cf-ray": "a4813b4aec558e12-PDX"
+        },
+        "hash": "2128a3e561e01e61fc13dd3e1a5d6d844bf3e447",
+        "request": {}
+      }
+    }
+  }
+}
