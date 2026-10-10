@@ -7079,6 +7079,38 @@ import './tiktok-personal/actions/init-video-upload.js';
 import './tiktok-personal/actions/list-videos.js';
 import './tiktok-personal/actions/query-videos.js';
 
+// -- Integration: timely
+import './timely/syncs/clients.js';
+import './timely/syncs/events.js';
+import './timely/syncs/projects.js';
+import './timely/syncs/users.js';
+import './timely/actions/create-client.js';
+import './timely/actions/create-event.js';
+import './timely/actions/create-label.js';
+import './timely/actions/create-project.js';
+import './timely/actions/delete-event.js';
+import './timely/actions/delete-label.js';
+import './timely/actions/delete-project-safely.js';
+import './timely/actions/delete-project.js';
+import './timely/actions/get-client.js';
+import './timely/actions/get-event.js';
+import './timely/actions/get-label.js';
+import './timely/actions/get-project-time-summary.js';
+import './timely/actions/get-project.js';
+import './timely/actions/get-time-report.js';
+import './timely/actions/get-user.js';
+import './timely/actions/list-accounts.js';
+import './timely/actions/list-clients.js';
+import './timely/actions/list-events.js';
+import './timely/actions/list-labels.js';
+import './timely/actions/list-projects.js';
+import './timely/actions/list-users.js';
+import './timely/actions/log-time-to-named-project.js';
+import './timely/actions/update-client.js';
+import './timely/actions/update-event.js';
+import './timely/actions/update-label.js';
+import './timely/actions/update-project.js';
+
 // -- Integration: timetastic
 import './timetastic/syncs/departments.js';
 import './timetastic/syncs/holidays.js';

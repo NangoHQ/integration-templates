@@ -1,0 +1,489 @@
+{
+  "input": {
+    "account_id": 1145787,
+    "since": "2026-10-09",
+    "upto": "2026-10-09"
+  },
+  "output": {
+    "since": "2026-10-09",
+    "upto": "2026-10-09",
+    "clients": [
+      {
+        "client_id": 2193170,
+        "client_name": "Nango Developer",
+        "duration": {
+          "hours": 1,
+          "minutes": 30,
+          "seconds": 0,
+          "formatted": "01:30",
+          "total_hours": 1.5,
+          "total_seconds": 5400,
+          "total_minutes": 90
+        },
+        "estimated_duration": {
+          "hours": 0,
+          "minutes": 0,
+          "seconds": 0,
+          "formatted": "00:00",
+          "total_hours": 0,
+          "total_seconds": 0,
+          "total_minutes": 0
+        },
+        "billed_duration": {
+          "hours": 0,
+          "minutes": 0,
+          "seconds": 0,
+          "formatted": "00:00",
+          "total_hours": 0,
+          "total_seconds": 0,
+          "total_minutes": 0
+        },
+        "unbilled_duration": {
+          "hours": 1,
+          "minutes": 30,
+          "seconds": 0,
+          "formatted": "01:30",
+          "total_hours": 1.5,
+          "total_seconds": 5400,
+          "total_minutes": 90
+        },
+        "billable_duration": {
+          "hours": 0,
+          "minutes": 0,
+          "seconds": 0,
+          "formatted": "00:00",
+          "total_hours": 0,
+          "total_seconds": 0,
+          "total_minutes": 0
+        },
+        "non_billable_duration": {
+          "hours": 1,
+          "minutes": 30,
+          "seconds": 0,
+          "formatted": "01:30",
+          "total_hours": 1.5,
+          "total_seconds": 5400,
+          "total_minutes": 90
+        },
+        "cost": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "estimated_cost": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "billed_cost": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "unbilled_cost": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "internal_cost": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "profit": {
+          "fractional": 0,
+          "formatted": "KSh0.00",
+          "amount": 0,
+          "currency_code": "kes"
+        },
+        "profitability": 0,
+        "projects": [
+          {
+            "project_id": 5691493,
+            "project_name": "Code Review & Testing",
+            "active": true,
+            "rate_type": "non-billable",
+            "billable": false,
+            "duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "billable_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "non_billable_duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "profit": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "profitability": 0
+          }
+        ]
+      }
+    ]
+  },
+  "nango": {},
+  "api": {
+    "get": {
+      "/1.1/1145787/reports": {
+        "response": [
+          {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "projects": [
+              {
+                "id": 5691493,
+                "active": true,
+                "account_id": 1145787,
+                "name": "Code Review & Testing",
+                "description": "Reviewing PRs, writing and running tests, QA. Tools e.g. GitHub, CI tools (GitHub Actions). Sites e.g. github.com, circleci.com. Keywords e.g. review, CI, test, merge, approval, coverage.",
+                "color": "00796b",
+                "rate_type": "non-billable",
+                "billable": false,
+                "created_at": 1791341677,
+                "updated_at": 1791584145,
+                "external_id": "",
+                "budget_scope": null,
+                "client": {
+                  "id": 2193170,
+                  "name": "Nango Developer",
+                  "color": "1976d2",
+                  "active": true,
+                  "external_id": null,
+                  "updated_at": "2026-10-07T05:54:36+03:00"
+                },
+                "required_notes": false,
+                "required_labels": false,
+                "budget_expired_on": null,
+                "has_recurrence": false,
+                "enable_labels": "none",
+                "default_labels": false,
+                "currency": {
+                  "id": "kes",
+                  "name": "Kenyan Shilling",
+                  "iso_code": "KES",
+                  "symbol": "KSh",
+                  "symbol_first": true
+                },
+                "team_ids": [],
+                "budget": 0,
+                "budget_type": "",
+                "budget_calculation": "completed",
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "budget_progress": 0,
+                "budget_percent": 0,
+                "invoice_by_budget": false,
+                "duration": {
+                  "hours": 1,
+                  "minutes": 30,
+                  "seconds": 0,
+                  "formatted": "01:30",
+                  "total_hours": 1.5,
+                  "total_seconds": 5400,
+                  "total_minutes": 90
+                },
+                "estimated_duration": {
+                  "hours": 0,
+                  "minutes": 0,
+                  "seconds": 0,
+                  "formatted": "00:00",
+                  "total_hours": 0,
+                  "total_seconds": 0,
+                  "total_minutes": 0
+                },
+                "billed_duration": {
+                  "hours": 0,
+                  "minutes": 0,
+                  "seconds": 0,
+                  "formatted": "00:00",
+                  "total_hours": 0,
+                  "total_seconds": 0,
+                  "total_minutes": 0
+                },
+                "unbilled_duration": {
+                  "hours": 1,
+                  "minutes": 30,
+                  "seconds": 0,
+                  "formatted": "01:30",
+                  "total_hours": 1.5,
+                  "total_seconds": 5400,
+                  "total_minutes": 90
+                },
+                "billable_duration": {
+                  "hours": 0,
+                  "minutes": 0,
+                  "seconds": 0,
+                  "formatted": "00:00",
+                  "total_hours": 0,
+                  "total_seconds": 0,
+                  "total_minutes": 0
+                },
+                "non_billable_duration": {
+                  "hours": 1,
+                  "minutes": 30,
+                  "seconds": 0,
+                  "formatted": "01:30",
+                  "total_hours": 1.5,
+                  "total_seconds": 5400,
+                  "total_minutes": 90
+                },
+                "cost": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "estimated_cost": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "billed_cost": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "unbilled_cost": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "internal_cost": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "profit": {
+                  "fractional": 0,
+                  "formatted": "KSh0.00",
+                  "amount": 0,
+                  "currency_code": "kes"
+                },
+                "profitability": 0,
+                "created_from": "Web",
+                "allow_only_one_tag": false
+              }
+            ],
+            "duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "billable_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "non_billable_duration": {
+              "hours": 1,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "01:30",
+              "total_hours": 1.5,
+              "total_seconds": 5400,
+              "total_minutes": 90
+            },
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "internal_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "profit": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "profitability": 0
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 22:16:45 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3760",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1988",
+          "x-ratelimit-reset": "1791584250",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"8275ff72d7820765c26ff2eabe9a4174\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "54377941-fd3a-4832-9056-3dc516067656",
+          "x-runtime": "0.042227",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=oG056fLSGmAZI12vyY95aKEN4IO2ZALLYGtfOZDiutiBagjQA29gZrFF8cZO2egoj%2F0CyJSc7bUDEFSqDJWZ46uR3%2B1RwHjjYXQ0fwD9elEvyK2X2Bnk34F5qysvS1WFVCJAWw%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480c05e3b019314-PDX"
+        },
+        "hash": "6f03f2e170d4959f6d0ba44dc2eec2cf614266f6",
+        "request": {
+          "params": {
+            "since": "2026-10-09",
+            "upto": "2026-10-09"
+          }
+        }
+      }
+    }
+  }
+}

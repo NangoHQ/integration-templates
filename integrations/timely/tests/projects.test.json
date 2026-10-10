@@ -1,0 +1,1541 @@
+{
+  "nango": {
+    "batchSave": {
+      "Project": [
+        {
+          "id": "5691496",
+          "active": true,
+          "account_id": 1145787,
+          "name": "Meetings & Collaboration",
+          "description": "Syncs, planning, retros, pair programming, team chats. Tools e.g. Zoom, Slack, Notion. Sites e.g. zoom.us, notion.so, slack.com. Meetings e.g. standup, sprint retro, pair session. Keywords e.g. agenda, minutes, sync, review.",
+          "color": "ffeb3b",
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791341677,
+          "updated_at": 1791582933,
+          "external_id": "",
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:55:33+03:00",
+              "created_at": "2026-10-07T05:54:37+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 2,
+            "minutes": 30,
+            "seconds": 0,
+            "formatted": "02:30",
+            "total_hours": 2.5,
+            "total_seconds": 9000,
+            "total_minutes": 150
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 2,
+            "minutes": 30,
+            "seconds": 0,
+            "formatted": "02:30",
+            "total_hours": 2.5,
+            "total_seconds": 9000,
+            "total_minutes": 150
+          },
+          "created_from": "Web",
+          "allow_only_one_tag": false
+        },
+        {
+          "id": "5691492",
+          "active": true,
+          "account_id": 1145787,
+          "name": "Feature Development",
+          "description": "Coding new features, bug fixes, sprint tasks. Tools e.g. IDEs (VS Code), terminals. Sites e.g. github.com, nango.dev. Meetings e.g. standups, sprint planning. Keywords e.g. commit, PR, deploy, ticket, backlog.",
+          "color": "1976d2",
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791341676,
+          "updated_at": 1791582933,
+          "external_id": "",
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:55:33+03:00",
+              "created_at": "2026-10-07T05:54:36+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 3,
+            "minutes": 15,
+            "seconds": 0,
+            "formatted": "03:15",
+            "total_hours": 3.25,
+            "total_seconds": 11700,
+            "total_minutes": 195
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 3,
+            "minutes": 15,
+            "seconds": 0,
+            "formatted": "03:15",
+            "total_hours": 3.25,
+            "total_seconds": 11700,
+            "total_minutes": 195
+          },
+          "created_from": "Web",
+          "allow_only_one_tag": false
+        },
+        {
+          "id": "5691495",
+          "active": true,
+          "account_id": 1145787,
+          "name": "Internal Tools & Automation",
+          "description": "Building or maintaining scripts, integrations, productivity tools. Tools e.g. CLI, automation (Zapier). Sites e.g. zapier.com, script editors. Keywords e.g. script, automation, build, CLI, workflow.",
+          "color": "d4e157",
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791341677,
+          "updated_at": 1791582798,
+          "external_id": "",
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-10T00:52:58+03:00",
+              "created_at": "2026-10-07T05:54:37+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "created_from": "Web",
+          "allow_only_one_tag": false
+        },
+        {
+          "id": "5691494",
+          "active": true,
+          "account_id": 1145787,
+          "name": "DevOps & Infrastructure",
+          "description": "Deployment, infra updates, monitoring, incident response. Tools e.g. cloud dashboards (AWS), monitoring (Datadog). Sites e.g. console.aws.amazon.com, datadoghq.com. Keywords e.g. deploy, infra, pipeline, incident, alert.",
+          "color": "2e7d32",
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791341677,
+          "updated_at": 1791341677,
+          "external_id": "",
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-07T05:54:37+03:00",
+              "created_at": "2026-10-07T05:54:37+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "created_from": "Web",
+          "allow_only_one_tag": false
+        },
+        {
+          "id": "5691493",
+          "active": true,
+          "account_id": 1145787,
+          "name": "Code Review & Testing",
+          "description": "Reviewing PRs, writing and running tests, QA. Tools e.g. GitHub, CI tools (GitHub Actions). Sites e.g. github.com, circleci.com. Keywords e.g. review, CI, test, merge, approval, coverage.",
+          "color": "00796b",
+          "rate_type": "non-billable",
+          "billable": false,
+          "created_at": 1791341677,
+          "updated_at": 1791341677,
+          "external_id": "",
+          "budget_scope": null,
+          "client": {
+            "id": 2193170,
+            "name": "Nango Developer",
+            "color": "1976d2",
+            "active": true,
+            "external_id": null,
+            "updated_at": "2026-10-07T05:54:36+03:00"
+          },
+          "required_notes": false,
+          "required_labels": false,
+          "budget_expired_on": null,
+          "has_recurrence": false,
+          "enable_labels": "none",
+          "default_labels": false,
+          "currency": {
+            "id": "kes",
+            "name": "Kenyan Shilling",
+            "iso_code": "KES",
+            "symbol": "KSh",
+            "symbol_first": true
+          },
+          "team_ids": [],
+          "budget": 0,
+          "budget_type": "",
+          "budget_calculation": "completed",
+          "hour_rate": 0,
+          "hour_rate_in_cents": 0,
+          "budget_progress": 0,
+          "budget_percent": 0,
+          "invoice_by_budget": false,
+          "users": [
+            {
+              "user_id": 2418691,
+              "hour_rate": 0,
+              "hour_rate_in_cents": 0,
+              "updated_at": "2026-10-07T05:54:37+03:00",
+              "created_at": "2026-10-07T05:54:37+03:00",
+              "deleted": false,
+              "internal_hour_rate": 0,
+              "internal_hour_rate_in_cents": 0
+            }
+          ],
+          "labels": [],
+          "label_ids": [],
+          "required_label_ids": [],
+          "default_label_ids": [],
+          "cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "estimated_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "estimated_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "billed_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "billed_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "unbilled_cost": {
+            "fractional": 0,
+            "formatted": "KSh0.00",
+            "amount": 0,
+            "currency_code": "kes"
+          },
+          "unbilled_duration": {
+            "hours": 0,
+            "minutes": 0,
+            "seconds": 0,
+            "formatted": "00:00",
+            "total_hours": 0,
+            "total_seconds": 0,
+            "total_minutes": 0
+          },
+          "created_from": "Web",
+          "allow_only_one_tag": false
+        }
+      ]
+    },
+    "batchDelete": {
+      "Project": []
+    }
+  },
+  "api": {
+    "get": {
+      "/1.1/accounts": {
+        "response": [
+          {
+            "id": 1145787,
+            "name": "Nango Developer",
+            "color": "313d4b",
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "logo": {
+              "large_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_large_retina-8bc212c450af14b3a0ea49098cdddbe4f90d5eb5fc57adfeade6ac1ad8fb1d4a.png",
+              "medium_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_medium_retina-10dfbcc6733ccba1d485971f63c5eb7f9b7ed1a942a0ebd140e292bcb1e4dbea.png",
+              "small_retina": "https://d1vbcromo72rmd.cloudfront.net/assets/account_thumbs/account_small_retina-ea5df153b4cd96fc801e2361afc7d1b06d7b95ce5c358250b81149e1a20689df.png",
+              "brand_logo": false
+            },
+            "from": "Web",
+            "max_users": 0,
+            "seats": 1,
+            "max_projects": 0,
+            "plan_id": 227,
+            "plan_name": "Unlimited",
+            "next_charge": "2026-10-20",
+            "start_of_week": 0,
+            "created_at": 1791341625,
+            "payment_mode": "web",
+            "paid": false,
+            "company_size": "1",
+            "plan_code": "timely_unlimited_aug_23_yearly",
+            "plan_custom": false,
+            "appstore_transaction_id": null,
+            "owner_id": 2418691,
+            "weekly_user_capacity": 40,
+            "default_work_days": "MON,TUE,WED,THU,FRI",
+            "default_hour_rate": 0,
+            "support_email": "support@timelyapp.com",
+            "estimated_company_size": null,
+            "industry": null,
+            "memory_retention_days": 0,
+            "tic_force_enable": false,
+            "num_users": 1,
+            "num_projects": 5,
+            "active_projects_count": 5,
+            "total_projects_count": 6,
+            "capacity": {
+              "hours": 40,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "40:00",
+              "total_hours": 40,
+              "total_seconds": 144000,
+              "total_minutes": 2400
+            },
+            "can_purchase_extra_seats": false,
+            "status": "trial",
+            "beta": false,
+            "azure_ad_enabled": false,
+            "expired": false,
+            "trial": true,
+            "days_to_end_trial": 11,
+            "features": [
+              {
+                "name": "in_app_support",
+                "days": -1
+              },
+              {
+                "name": "project_required_fields",
+                "days": -1
+              },
+              {
+                "name": "notifications_project_budget",
+                "days": -1
+              },
+              {
+                "name": "weekly_user_capacity",
+                "days": -1
+              },
+              {
+                "name": "project_budget",
+                "days": -1
+              },
+              {
+                "name": "budgets_hourly_rates",
+                "days": -1
+              },
+              {
+                "name": "account_branding",
+                "days": -1
+              },
+              {
+                "name": "ai_timesheet_creation",
+                "days": -1
+              },
+              {
+                "name": "teams",
+                "days": -1
+              },
+              {
+                "name": "company_view",
+                "days": -1
+              },
+              {
+                "name": "anomalies",
+                "days": -1
+              },
+              {
+                "name": "log_hours_for_others",
+                "days": -1
+              },
+              {
+                "name": "recurring_budget",
+                "days": -1
+              },
+              {
+                "name": "billing",
+                "days": -1
+              },
+              {
+                "name": "team_lead",
+                "days": -1
+              },
+              {
+                "name": "control",
+                "days": -1
+              },
+              {
+                "name": "memories",
+                "days": -1
+              },
+              {
+                "name": "people_dashboard",
+                "days": -1
+              },
+              {
+                "name": "people_notify",
+                "days": -1
+              },
+              {
+                "name": "project_dashboard",
+                "days": -1
+              },
+              {
+                "name": "premium_integrations",
+                "days": -1
+              },
+              {
+                "name": "individual_capacity",
+                "days": -1
+              },
+              {
+                "name": "audits",
+                "days": -1
+              },
+              {
+                "name": "report_dashboard",
+                "days": -1
+              },
+              {
+                "name": "live_reports",
+                "days": -1
+              },
+              {
+                "name": "high_level_reports",
+                "days": -1
+              },
+              {
+                "name": "invoices",
+                "days": -1
+              },
+              {
+                "name": "planned_entries",
+                "days": -1
+              },
+              {
+                "name": "internal_costs",
+                "days": -1
+              },
+              {
+                "name": "api_access",
+                "days": -1
+              },
+              {
+                "name": "capacity_reports",
+                "days": -1
+              },
+              {
+                "name": "hour_states",
+                "days": -1
+              },
+              {
+                "name": "day_locking",
+                "days": -1
+              },
+              {
+                "name": "user_custom_properties",
+                "days": -1
+              },
+              {
+                "name": "import_manager",
+                "days": -1
+              },
+              {
+                "name": "report_tag_headers",
+                "days": -1
+              },
+              {
+                "name": "timesheet_assistant_v2",
+                "days": -1
+              },
+              {
+                "name": "tic_integrations",
+                "days": -1
+              },
+              {
+                "name": "allow_one_tag",
+                "days": -1
+              },
+              {
+                "name": "compliance_dashboard",
+                "days": -1
+              },
+              {
+                "name": "tic_support",
+                "days": -1
+              },
+              {
+                "name": "tasks",
+                "days": -1
+              }
+            ]
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:55:53 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "3158",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1996",
+          "x-ratelimit-reset": "1791583010",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"a8ea23399fd006664d11fb9e8b5ee9cd\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "2add50fd-21d6-45c9-9b51-8f734e21e47b",
+          "x-runtime": "0.018985",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=SW4Je%2FVWShupFswmh04m5sY4pFbCq4s9L7qiSJEIkr97gpt1p3kd7mx%2FaoedCAEk1DfZqQaOVTgn2IZn8Qz1xkIvtLK0bShxdoqStvOT4q8W3HwJrZUYOpm9Rcc7A2aoA7rxzw%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a1d3ab9be8e9-PDX"
+        },
+        "hash": "26429d40e9e68ad4762f225411f268fe0b5eb9c7",
+        "request": {}
+      },
+      "/1.1/1145787/projects": {
+        "response": [
+          {
+            "id": 5691496,
+            "active": true,
+            "account_id": 1145787,
+            "name": "Meetings & Collaboration",
+            "description": "Syncs, planning, retros, pair programming, team chats. Tools e.g. Zoom, Slack, Notion. Sites e.g. zoom.us, notion.so, slack.com. Meetings e.g. standup, sprint retro, pair session. Keywords e.g. agenda, minutes, sync, review.",
+            "color": "ffeb3b",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341677,
+            "updated_at": 1791582933,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "users": [
+              {
+                "user_id": 2418691,
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "updated_at": "2026-10-10T00:55:33+03:00",
+                "created_at": "2026-10-07T05:54:37+03:00",
+                "deleted": false,
+                "internal_hour_rate": 0,
+                "internal_hour_rate_in_cents": 0
+              }
+            ],
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "duration": {
+              "hours": 2,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "02:30",
+              "total_hours": 2.5,
+              "total_seconds": 9000,
+              "total_minutes": 150
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_duration": {
+              "hours": 2,
+              "minutes": 30,
+              "seconds": 0,
+              "formatted": "02:30",
+              "total_hours": 2.5,
+              "total_seconds": 9000,
+              "total_minutes": 150
+            },
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          },
+          {
+            "id": 5691492,
+            "active": true,
+            "account_id": 1145787,
+            "name": "Feature Development",
+            "description": "Coding new features, bug fixes, sprint tasks. Tools e.g. IDEs (VS Code), terminals. Sites e.g. github.com, nango.dev. Meetings e.g. standups, sprint planning. Keywords e.g. commit, PR, deploy, ticket, backlog.",
+            "color": "1976d2",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341676,
+            "updated_at": 1791582933,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "users": [
+              {
+                "user_id": 2418691,
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "updated_at": "2026-10-10T00:55:33+03:00",
+                "created_at": "2026-10-07T05:54:36+03:00",
+                "deleted": false,
+                "internal_hour_rate": 0,
+                "internal_hour_rate_in_cents": 0
+              }
+            ],
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "duration": {
+              "hours": 3,
+              "minutes": 15,
+              "seconds": 0,
+              "formatted": "03:15",
+              "total_hours": 3.25,
+              "total_seconds": 11700,
+              "total_minutes": 195
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_duration": {
+              "hours": 3,
+              "minutes": 15,
+              "seconds": 0,
+              "formatted": "03:15",
+              "total_hours": 3.25,
+              "total_seconds": 11700,
+              "total_minutes": 195
+            },
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          },
+          {
+            "id": 5691495,
+            "active": true,
+            "account_id": 1145787,
+            "name": "Internal Tools & Automation",
+            "description": "Building or maintaining scripts, integrations, productivity tools. Tools e.g. CLI, automation (Zapier). Sites e.g. zapier.com, script editors. Keywords e.g. script, automation, build, CLI, workflow.",
+            "color": "d4e157",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341677,
+            "updated_at": 1791582798,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "users": [
+              {
+                "user_id": 2418691,
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "updated_at": "2026-10-10T00:52:58+03:00",
+                "created_at": "2026-10-07T05:54:37+03:00",
+                "deleted": false,
+                "internal_hour_rate": 0,
+                "internal_hour_rate_in_cents": 0
+              }
+            ],
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          },
+          {
+            "id": 5691494,
+            "active": true,
+            "account_id": 1145787,
+            "name": "DevOps & Infrastructure",
+            "description": "Deployment, infra updates, monitoring, incident response. Tools e.g. cloud dashboards (AWS), monitoring (Datadog). Sites e.g. console.aws.amazon.com, datadoghq.com. Keywords e.g. deploy, infra, pipeline, incident, alert.",
+            "color": "2e7d32",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341677,
+            "updated_at": 1791341677,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "users": [
+              {
+                "user_id": 2418691,
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "updated_at": "2026-10-07T05:54:37+03:00",
+                "created_at": "2026-10-07T05:54:37+03:00",
+                "deleted": false,
+                "internal_hour_rate": 0,
+                "internal_hour_rate_in_cents": 0
+              }
+            ],
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          },
+          {
+            "id": 5691493,
+            "active": true,
+            "account_id": 1145787,
+            "name": "Code Review & Testing",
+            "description": "Reviewing PRs, writing and running tests, QA. Tools e.g. GitHub, CI tools (GitHub Actions). Sites e.g. github.com, circleci.com. Keywords e.g. review, CI, test, merge, approval, coverage.",
+            "color": "00796b",
+            "rate_type": "non-billable",
+            "billable": false,
+            "created_at": 1791341677,
+            "updated_at": 1791341677,
+            "external_id": "",
+            "budget_scope": null,
+            "client": {
+              "id": 2193170,
+              "name": "Nango Developer",
+              "color": "1976d2",
+              "active": true,
+              "external_id": null,
+              "updated_at": "2026-10-07T05:54:36+03:00"
+            },
+            "required_notes": false,
+            "required_labels": false,
+            "budget_expired_on": null,
+            "has_recurrence": false,
+            "enable_labels": "none",
+            "default_labels": false,
+            "currency": {
+              "id": "kes",
+              "name": "Kenyan Shilling",
+              "iso_code": "KES",
+              "symbol": "KSh",
+              "symbol_first": true
+            },
+            "team_ids": [],
+            "budget": 0,
+            "budget_type": "",
+            "budget_calculation": "completed",
+            "hour_rate": 0,
+            "hour_rate_in_cents": 0,
+            "budget_progress": 0,
+            "budget_percent": 0,
+            "invoice_by_budget": false,
+            "users": [
+              {
+                "user_id": 2418691,
+                "hour_rate": 0,
+                "hour_rate_in_cents": 0,
+                "updated_at": "2026-10-07T05:54:37+03:00",
+                "created_at": "2026-10-07T05:54:37+03:00",
+                "deleted": false,
+                "internal_hour_rate": 0,
+                "internal_hour_rate_in_cents": 0
+              }
+            ],
+            "labels": [],
+            "label_ids": [],
+            "required_label_ids": [],
+            "default_label_ids": [],
+            "cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "estimated_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "estimated_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "billed_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "billed_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "unbilled_cost": {
+              "fractional": 0,
+              "formatted": "KSh0.00",
+              "amount": 0,
+              "currency_code": "kes"
+            },
+            "unbilled_duration": {
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0,
+              "formatted": "00:00",
+              "total_hours": 0,
+              "total_seconds": 0,
+              "total_minutes": 0
+            },
+            "created_from": "Web",
+            "allow_only_one_tag": false
+          }
+        ],
+        "status": 200,
+        "headers": {
+          "date": "Fri, 09 Oct 2026 21:55:54 GMT",
+          "content-type": "application/json; charset=utf-8",
+          "content-length": "11181",
+          "connection": "keep-alive",
+          "x-xss-protection": "0",
+          "x-content-type-options": "nosniff",
+          "x-download-options": "noopen",
+          "x-frame-options": "SAMEORIGIN",
+          "x-dns-prefetch-control": "off",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy-report-only": "default-src 'self' https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/;child-src 'self';connect-src 'self' https://*.google-analytics.com https://*.sentry.io https://app.nango.dev https://api.nango.dev wss://api.nango.dev/ https://connect.nango.dev https://connect.nango.dev/ https://api.nango.dev https://*.posthog.com https://*.stripe.com https://*.plain.com wss://*.plain.com https://raw.githubusercontent.com;font-src 'self' data: https://*.googleapis.com https://*.gstatic.com https://*.cdn-plain.com;form-action 'self' https://api.nango.dev;frame-src 'self' https://accounts.google.com https://app.nango.dev https://api.nango.dev https://connect.nango.dev https://connect.nango.dev/ https://www.youtube.com https://*.stripe.com;img-src 'self' data: blob: https://app.nango.dev https://api.nango.dev https://*.google-analytics.com https://*.googleapis.com https://*.posthog.com https://img.logo.dev https://*.ytimg.com https://*.plain.com;manifest-src 'self';media-src 'self';object-src 'self';script-src 'self' 'unsafe-eval' 'unsafe-inline' https://app.nango.dev https://api.nango.dev https://*.stripe.com https://*.google-analytics.com https://*.googleapis.com https://apis.google.com https://*.posthog.com https://www.youtube.com https://*.cdn-plain.com;style-src blob: 'self' 'unsafe-inline' https://*.googleapis.com https://app.nango.dev https://api.nango.dev;worker-src blob: 'self' https://app.nango.dev https://api.nango.dev https://*.googleapis.com https://*.posthog.com;base-uri 'self';frame-ancestors 'self';script-src-attr 'none';upgrade-insecure-requests",
+          "access-control-allow-origin": "*",
+          "access-control-expose-headers": "Authorization, Etag, Content-Type, Content-Length, X-Nango-Signature, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset, X-Nango-Invocation-Id",
+          "x-ratelimit-limit": "2000",
+          "x-ratelimit-remaining": "1994",
+          "x-ratelimit-reset": "1791583010",
+          "x-permitted-cross-domain-policies": "none",
+          "vary": "Accept-Encoding, Origin",
+          "etag": "W/\"25e670bf2ced31d51f2cd3ba3278caf0\"",
+          "cache-control": "max-age=0, private, must-revalidate",
+          "x-request-id": "ed8a7368-7402-4aa2-bfda-029a5d9cef78",
+          "x-runtime": "0.085408",
+          "cf-cache-status": "DYNAMIC",
+          "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=WPMCyKgQ3liu9JAa2CbWIg8v9IO29sl4zQYscFRtAiY%2B1VG3Ny%2BtZUOJa1OgPlT9WGm%2BEWP%2BpAlXTdN0NqjKxfTIYGHcclgx0tb58MNc9v%2BNhzndonZAl3Y4t4gN8ny5Dhy63g%3D%3D\"}]}",
+          "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+          "server": "cloudflare",
+          "cf-ray": "a480a1d58a1dfef3-PDX"
+        },
+        "hash": "6b476067eb9d92acbbc0ee6b9f66b3a8afdf1ea0",
+        "request": {}
+      }
+    }
+  }
+}
