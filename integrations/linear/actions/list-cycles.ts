@@ -30,13 +30,25 @@ const PageInfoSchema = z.object({
     endCursor: z.string().nullable().optional()
 });
 
+const GraphQLErrorSchema = z.object({
+    message: z.string(),
+    extensions: z.record(z.string(), z.unknown()).optional()
+});
+
 const ProviderCyclesResponseSchema = z.object({
-    data: z.object({
-        cycles: z.object({
-            nodes: z.array(z.unknown()),
-            pageInfo: PageInfoSchema
+    data: z
+        .object({
+            cycles: z
+                .object({
+                    nodes: z.array(z.unknown()),
+                    pageInfo: PageInfoSchema
+                })
+                .nullable()
+                .optional()
         })
-    })
+        .nullable()
+        .optional(),
+    errors: z.array(GraphQLErrorSchema).optional()
 });
 
 const OutputCycleSchema = z.object({
@@ -58,7 +70,7 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List Linear cycles with filtering and pagination.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
     scopes: ['read'],
@@ -122,7 +134,22 @@ const action = createAction({
             });
         }
 
-        const cyclesData = parsed.data.data.cycles;
+        const firstError = parsed.data.errors?.[0];
+        if (firstError) {
+            throw new nango.ActionError({
+                type: 'graphql_error',
+                message: firstError.message,
+                errors: parsed.data.errors
+            });
+        }
+
+        const cyclesData = parsed.data.data?.cycles;
+        if (!cyclesData) {
+            throw new nango.ActionError({
+                type: 'invalid_response',
+                message: 'Linear API returned no cycles data.'
+            });
+        }
         const nodes = cyclesData.nodes;
         const pageInfo = cyclesData.pageInfo;
 
