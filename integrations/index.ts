@@ -7448,6 +7448,31 @@ import './unanet/actions/get-schema.js';
 import './unanet/actions/list-stages.js';
 import './unanet/actions/update-lead.js';
 
+// -- Integration: wakatime
+import './wakatime/syncs/daily-summaries.js';
+import './wakatime/syncs/goals.js';
+import './wakatime/syncs/heartbeats.js';
+import './wakatime/syncs/projects.js';
+import './wakatime/actions/create-heartbeats-bulk.js';
+import './wakatime/actions/delete-heartbeats-bulk.js';
+import './wakatime/actions/delete-project.js';
+import './wakatime/actions/get-all-time-since-today.js';
+import './wakatime/actions/get-coding-activity-digest.js';
+import './wakatime/actions/get-current-user.js';
+import './wakatime/actions/get-leaderboard-standing.js';
+import './wakatime/actions/get-meta.js';
+import './wakatime/actions/get-stats.js';
+import './wakatime/actions/get-summaries.js';
+import './wakatime/actions/list-durations.js';
+import './wakatime/actions/list-external-durations.js';
+import './wakatime/actions/list-goals.js';
+import './wakatime/actions/list-heartbeats.js';
+import './wakatime/actions/list-orgs.js';
+import './wakatime/actions/list-private-leaderboards.js';
+import './wakatime/actions/list-projects.js';
+import './wakatime/actions/list-public-leaderboard.js';
+import './wakatime/actions/log-heartbeat-and-confirm.js';
+
 // -- Integration: wildix-pbx
 import './wildix-pbx/syncs/colleagues.js';
 
