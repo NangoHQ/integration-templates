@@ -32,7 +32,9 @@ const OutputSchema = z
         blockedBy: z
             .enum(['has_tasks'])
             .optional()
-            .describe('Reason deletion was blocked. Present with value "has_tasks" when the folder or any of its child folders still contains tasks and confirm was not true.'),
+            .describe(
+                'Reason deletion was blocked. Present with value "has_tasks" when the folder or any of its child folders still contains tasks and confirm was not true.'
+            ),
         taskCount: z.number().optional().describe('Number of tasks found inside the folder and its child folders before deletion was attempted.'),
         taskIds: z.array(z.string()).optional().describe('IDs of the tasks found inside the folder and its child folders when deletion was blocked.'),
         cascadeDeletedTaskCount: z

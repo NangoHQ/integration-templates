@@ -72,7 +72,10 @@ const TaskSchema = z
         id: z.string().describe('Unique task ID. Example: "MAAAAAEQ_HoO".'),
         accountId: z.string().optional().describe('ID of the Wrike account that owns the task.'),
         title: z.string().optional().describe('Task title.'),
-        description: z.string().optional().describe('Task description, which may contain HTML. Not requested by this action; use get-task for the full description.'),
+        description: z
+            .string()
+            .optional()
+            .describe('Task description, which may contain HTML. Not requested by this action; use get-task for the full description.'),
         briefDescription: z.string().optional().describe('Short plain-text summary of the task description.'),
         parentIds: z.array(z.string()).optional().describe('IDs of the folder(s) that directly contain the task.'),
         superParentIds: z.array(z.string()).optional().describe('Folder IDs inherited from the parent task.'),

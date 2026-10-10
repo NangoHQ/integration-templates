@@ -66,7 +66,8 @@ const CheckpointSchema = z.object({
 });
 
 const sync = createSync({
-    description: 'Sync every active (non-trashed) task in the account, including subtask/supertask/dependency relationships and custom field values, and remove tasks moved to the Recycle Bin.',
+    description:
+        'Sync every active (non-trashed) task in the account, including subtask/supertask/dependency relationships and custom field values, and remove tasks moved to the Recycle Bin.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,

@@ -20,7 +20,9 @@ const CommentSchema = z.object({
     type: z.string().optional().describe('Comment type: "Regular" or "Email".'),
     emailSubject: z.string().optional().describe('Subject line, present for email-originated comments.'),
     direction: z.string().optional().describe('Email direction, present for email-originated comments. Example: "Incoming"'),
-    externalRequester: ExternalRequesterSchema.optional().describe('Details of the commenter outside the account; present only for email comments from external requesters.')
+    externalRequester: ExternalRequesterSchema.optional().describe(
+        'Details of the commenter outside the account; present only for email comments from external requesters.'
+    )
 });
 
 const InputSchema = z

@@ -126,7 +126,9 @@ const CommentSchema = z
         emailSubject: z.string().optional().describe('Subject line for email comments.'),
         direction: z.string().optional().describe('Direction ("Outgoing" or "Incoming") for email comments.'),
         attachmentIds: z.array(z.string()).optional().describe('IDs of files attached to the comment.'),
-        externalRequester: ExternalRequesterSchema.optional().describe('Details of the commenter outside the account; present only for email comments from external requesters.')
+        externalRequester: ExternalRequesterSchema.optional().describe(
+            'Details of the commenter outside the account; present only for email comments from external requesters.'
+        )
     })
     .describe('A comment posted on the task.');
 

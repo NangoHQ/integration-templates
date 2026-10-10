@@ -57,7 +57,8 @@ const CheckpointSchema = z.object({
 });
 
 const sync = createSync({
-    description: 'Sync every active folder and project (a Project is a Folder with a project sub-object) in the Wrike account, and remove folders moved to the Recycle Bin.',
+    description:
+        'Sync every active folder and project (a Project is a Folder with a project sub-object) in the Wrike account, and remove folders moved to the Recycle Bin.',
     version: '1.0.0',
     frequency: 'every hour',
     autoStart: true,
