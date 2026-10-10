@@ -5,7 +5,11 @@ const InputSchema = z
     .object({
         account_id: z.number().describe('Timely account ID that owns the project. Discover it with the list-accounts action. Example: 1145787.'),
         project_id: z.number().describe('ID of the project to update. Example: 5691492.'),
-        name: z.string().min(1).optional().describe('New project name. Must not be empty.'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .optional()
+            .describe('New project name. Must not be blank.'),
         description: z.string().optional().describe('New project description. Pass an empty string to clear it.'),
         color: z.string().nullable().optional().describe('New hex color without the leading "#", e.g. "ff0000". Pass null to clear the color.'),
         rate_type: z
@@ -92,47 +96,56 @@ const action = createAction({
     scopes: ['manage'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
+        const project = {
+            ...(input.name !== undefined && { name: input.name }),
+            ...(input.description !== undefined && { description: input.description }),
+            ...(input.color !== undefined && { color: input.color }),
+            ...(input.rate_type !== undefined && { rate_type: input.rate_type }),
+            ...(input.enable_labels !== undefined && { enable_labels: input.enable_labels }),
+            ...(input.active !== undefined && { active: input.active }),
+            ...(input.billable !== undefined && { billable: input.billable }),
+            ...(input.hour_rate !== undefined && { hour_rate: input.hour_rate }),
+            ...(input.budget !== undefined && { budget: input.budget }),
+            ...(input.company_id !== undefined && { company_id: input.company_id }),
+            ...(input.external_id !== undefined && { external_id: input.external_id }),
+            ...(input.required_notes !== undefined && { required_notes: input.required_notes })
+        };
+
+        if (Object.keys(project).length === 0) {
+            throw new nango.ActionError({
+                type: 'no_fields',
+                message: 'Provide at least one project field to update.'
+            });
+        }
+
         const response = await nango.put({
             // https://developer.timely.com/
             endpoint: `/1.1/${encodeURIComponent(String(input.account_id))}/projects/${encodeURIComponent(String(input.project_id))}`,
             data: {
-                project: {
-                    ...(input.name !== undefined && { name: input.name }),
-                    ...(input.description !== undefined && { description: input.description }),
-                    ...(input.color !== undefined && { color: input.color }),
-                    ...(input.rate_type !== undefined && { rate_type: input.rate_type }),
-                    ...(input.enable_labels !== undefined && { enable_labels: input.enable_labels }),
-                    ...(input.active !== undefined && { active: input.active }),
-                    ...(input.billable !== undefined && { billable: input.billable }),
-                    ...(input.hour_rate !== undefined && { hour_rate: input.hour_rate }),
-                    ...(input.budget !== undefined && { budget: input.budget }),
-                    ...(input.company_id !== undefined && { company_id: input.company_id }),
-                    ...(input.external_id !== undefined && { external_id: input.external_id }),
-                    ...(input.required_notes !== undefined && { required_notes: input.required_notes })
-                }
+                project
             },
             retries: 3
         });
 
-        const project = ProviderProjectSchema.parse(response.data);
+        const updatedProject = ProviderProjectSchema.parse(response.data);
 
         return {
-            id: project.id,
-            account_id: project.account_id,
-            name: project.name,
-            description: project.description,
-            color: project.color,
-            rate_type: project.rate_type,
-            billable: project.billable,
-            enable_labels: project.enable_labels,
-            active: project.active,
-            hour_rate: project.hour_rate,
-            budget: project.budget,
-            external_id: project.external_id,
-            required_notes: project.required_notes,
-            client: project.client,
-            created_at: project.created_at,
-            updated_at: project.updated_at
+            id: updatedProject.id,
+            account_id: updatedProject.account_id,
+            name: updatedProject.name,
+            description: updatedProject.description,
+            color: updatedProject.color,
+            rate_type: updatedProject.rate_type,
+            billable: updatedProject.billable,
+            enable_labels: updatedProject.enable_labels,
+            active: updatedProject.active,
+            hour_rate: updatedProject.hour_rate,
+            budget: updatedProject.budget,
+            external_id: updatedProject.external_id,
+            required_notes: updatedProject.required_notes,
+            client: updatedProject.client,
+            created_at: updatedProject.created_at,
+            updated_at: updatedProject.updated_at
         };
     }
 });

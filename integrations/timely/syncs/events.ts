@@ -9,8 +9,8 @@ const AccountsResponseSchema = z.array(AccountSchema);
 
 const ProviderUserSchema = z.object({
     id: z.number(),
-    email: z.string(),
-    name: z.string()
+    email: z.string().nullable().optional(),
+    name: z.string().nullable().optional()
 });
 
 const ProviderClientSchema = z.object({
@@ -20,7 +20,7 @@ const ProviderClientSchema = z.object({
 
 const ProviderProjectSchema = z.object({
     id: z.number(),
-    name: z.string(),
+    name: z.string().nullable().optional(),
     client: ProviderClientSchema.nullable().optional()
 });
 
@@ -70,11 +70,12 @@ const EventSchema = z
     .object({
         id: z.string().describe('Unique Timely event (time entry) identifier, rendered as a string.'),
         uid: z.string().describe('Timely-generated opaque unique identifier (hex string) for the event.'),
+        account_id: z.number().describe('ID of the Timely account the event belongs to.'),
         user_id: z.number().describe('ID of the Timely user who logged the time entry.'),
-        user_email: z.string().describe('Email address of the user who logged the time entry.'),
-        user_name: z.string().describe('Display name of the user who logged the time entry.'),
+        user_email: z.string().nullable().describe('Email address of the user who logged the time entry, or null when Timely omits it.'),
+        user_name: z.string().nullable().describe('Display name of the user who logged the time entry, or null when Timely omits it.'),
         project_id: z.number().describe('ID of the project the time was logged against.'),
-        project_name: z.string().describe('Name of the project the time was logged against.'),
+        project_name: z.string().nullable().describe('Name of the project the time was logged against, or null when Timely omits it.'),
         client_id: z.number().nullable().describe('ID of the client that owns the project, or null when the project has no client.'),
         client_name: z.string().nullable().describe('Name of the client that owns the project, or null when the project has no client.'),
         day: z.string().describe('Calendar day the time entry belongs to, formatted as YYYY-MM-DD.'),
@@ -186,8 +187,8 @@ const sync = createSync({
 
         const chunkUpto = earlierDay(addDays(chunkSince, WINDOW_CHUNK_DAYS - 1), windowUpto);
 
-        // Every Timely resource except the account listing is scoped to an account id, so it
-        // must be resolved before any delete tracking starts.
+        // Every Timely resource except the account listing is scoped to an account id, so the
+        // accounts must be resolved before any delete tracking starts.
         const accountsConfig: ProxyConfiguration = {
             // https://developer.timely.com/
             endpoint: '/1.1/accounts',
@@ -195,11 +196,9 @@ const sync = createSync({
         };
         const accountsResponse = await nango.get<unknown>(accountsConfig);
         const accounts = AccountsResponseSchema.parse(accountsResponse.data);
-        const account = accounts[0];
-        if (!account) {
+        if (accounts.length === 0) {
             throw new Error('No accessible Timely account was returned by GET /1.1/accounts for this connection.');
         }
-        const accountId = encodeURIComponent(String(account.id));
 
         // Safe to call once the account id prerequisite above has resolved. Because the window
         // is a full refresh, events deleted at the provider disappear from the fetch and are
@@ -209,57 +208,62 @@ const sync = createSync({
         // once the next full-window sweep for those bounds completes.
         await nango.trackDeletesStart('Event');
 
-        const eventsConfig: ProxyConfiguration = {
-            // https://developer.timely.com/
-            endpoint: `/1.1/${accountId}/events`,
-            params: {
-                since: chunkSince,
-                upto: chunkUpto
-            },
-            retries: 3
-        };
-        const eventsResponse = await nango.get<unknown>(eventsConfig);
-        const providerEvents = ProviderEventsResponseSchema.parse(eventsResponse.data);
+        // Every accessible account is fetched for each day slice, otherwise events of the skipped
+        // accounts would be marked deleted when the window closes.
+        for (const account of accounts) {
+            const eventsConfig: ProxyConfiguration = {
+                // https://developer.timely.com/
+                endpoint: `/1.1/${encodeURIComponent(String(account.id))}/events`,
+                params: {
+                    since: chunkSince,
+                    upto: chunkUpto
+                },
+                retries: 3
+            };
+            const eventsResponse = await nango.get<unknown>(eventsConfig);
+            const providerEvents = ProviderEventsResponseSchema.parse(eventsResponse.data);
 
-        const events = providerEvents.map((event) => ({
-            id: String(event.id),
-            uid: event.uid,
-            user_id: event.user.id,
-            user_email: event.user.email,
-            user_name: event.user.name,
-            project_id: event.project.id,
-            project_name: event.project.name,
-            client_id: event.project.client?.id ?? null,
-            client_name: event.project.client?.name ?? null,
-            day: event.day,
-            note: event.note ?? null,
-            duration_hours: event.duration.hours,
-            duration_minutes: event.duration.minutes,
-            duration_seconds: event.duration.seconds,
-            duration_total_hours: event.duration.total_hours,
-            duration_formatted: event.duration.formatted,
-            estimated_duration_total_hours: event.estimated_duration.total_hours,
-            billable: event.billable,
-            billed: event.billed,
-            billed_at: event.billed_at ?? null,
-            cost_amount: event.cost.amount,
-            cost_currency_code: event.cost.currency_code,
-            hour_rate: event.hour_rate,
-            external_id: event.external_id ?? null,
-            label_ids: event.label_ids,
-            locked: event.locked,
-            locked_reason: event.locked_reason ?? null,
-            created_at: event.created_at,
-            updated_at: event.updated_at,
-            created_from: event.created_from ?? null,
-            updated_from: event.updated_from ?? null,
-            creator_id: event.creator_id,
-            updater_id: event.updater_id,
-            deleted: event.deleted
-        }));
+            const events = providerEvents.map((event) => ({
+                id: String(event.id),
+                uid: event.uid,
+                account_id: account.id,
+                user_id: event.user.id,
+                user_email: event.user.email ?? null,
+                user_name: event.user.name ?? null,
+                project_id: event.project.id,
+                project_name: event.project.name ?? null,
+                client_id: event.project.client?.id ?? null,
+                client_name: event.project.client?.name ?? null,
+                day: event.day,
+                note: event.note ?? null,
+                duration_hours: event.duration.hours,
+                duration_minutes: event.duration.minutes,
+                duration_seconds: event.duration.seconds,
+                duration_total_hours: event.duration.total_hours,
+                duration_formatted: event.duration.formatted,
+                estimated_duration_total_hours: event.estimated_duration.total_hours,
+                billable: event.billable,
+                billed: event.billed,
+                billed_at: event.billed_at ?? null,
+                cost_amount: event.cost.amount,
+                cost_currency_code: event.cost.currency_code,
+                hour_rate: event.hour_rate,
+                external_id: event.external_id ?? null,
+                label_ids: event.label_ids,
+                locked: event.locked,
+                locked_reason: event.locked_reason ?? null,
+                created_at: event.created_at,
+                updated_at: event.updated_at,
+                created_from: event.created_from ?? null,
+                updated_from: event.updated_from ?? null,
+                creator_id: event.creator_id,
+                updater_id: event.updater_id,
+                deleted: event.deleted
+            }));
 
-        if (events.length > 0) {
-            await nango.batchSave(events, 'Event');
+            if (events.length > 0) {
+                await nango.batchSave(events, 'Event');
+            }
         }
 
         if (isAfterDay(windowUpto, chunkUpto)) {

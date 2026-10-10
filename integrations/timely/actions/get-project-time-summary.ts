@@ -33,7 +33,7 @@ const ProviderEventSchema = z.object({
     day: z.string(),
     note: z.string().nullable().optional(),
     duration: ProviderDurationSchema,
-    user: z.object({ id: z.number(), name: z.string() }).nullable().optional(),
+    user: z.object({ id: z.number(), name: z.string().nullable().optional() }).nullable().optional(),
     label_ids: z.array(z.number()).optional()
 });
 
@@ -41,8 +41,14 @@ const InputSchema = z
     .object({
         account_id: z.number().int().describe('Timely account ID. Discover it with the list-accounts action. Example: 1145787'),
         project_id: z.number().int().describe('ID of the project to summarize. Example: 5698287'),
-        since: z.string().describe('Start of the range, inclusive, in YYYY-MM-DD format. Example: "2026-10-01"'),
-        upto: z.string().describe('End of the range, inclusive, in YYYY-MM-DD format. Example: "2026-10-31"')
+        since: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/)
+            .describe('Start of the range, inclusive, in YYYY-MM-DD format. Example: "2026-10-01"'),
+        upto: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/)
+            .describe('End of the range, inclusive, in YYYY-MM-DD format. Example: "2026-10-31"')
     })
     .describe('Project ID plus the inclusive day range used to scope the time-entry breakdown.');
 
@@ -171,7 +177,8 @@ const action = createAction({
                     day: event.day,
                     ...(event.note != null && { note: event.note }),
                     total_hours: event.duration.total_hours,
-                    ...(event.user != null && { user_id: event.user.id, user_name: event.user.name }),
+                    ...(event.user != null && { user_id: event.user.id }),
+                    ...(event.user?.name != null && { user_name: event.user.name }),
                     label_ids: event.label_ids ?? []
                 }))
             }

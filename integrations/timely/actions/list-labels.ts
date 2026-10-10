@@ -8,7 +8,7 @@ interface Label {
     parent_id: number | null;
     emoji: string | null;
     active: boolean;
-    external_id: string | number | null;
+    external_id: string | null;
     created_at: string;
     updated_at: string;
     children: Label[];
@@ -22,7 +22,7 @@ const LabelSchema: z.ZodType<Label> = z.lazy(() =>
         parent_id: z.number().nullable().describe('ID of the parent label, or null for a top-level label.'),
         emoji: z.string().nullable().describe('URL of the label emoji, or null if the label has none.'),
         active: z.boolean().describe('Whether the label is active.'),
-        external_id: z.union([z.string(), z.number()]).nullable().describe('External identifier for the label, or null if none was set.'),
+        external_id: z.string().nullable().describe('External identifier for the label, or null if none was set.'),
         created_at: z.string().describe('ISO 8601 timestamp when the label was created.'),
         updated_at: z.string().describe('ISO 8601 timestamp when the label was last updated.'),
         children: z.array(LabelSchema).describe('Nested child labels. Empty array for a label with no children.')

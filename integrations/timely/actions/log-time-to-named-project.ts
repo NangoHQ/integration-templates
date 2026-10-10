@@ -3,8 +3,14 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        project_name: z.string().describe('Exact, case-sensitive name of the project to log time against. A project with this name is created if none exists.'),
-        day: z.string().describe('Day the time entry applies to, in YYYY-MM-DD format. Example: "2026-10-09".'),
+        project_name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'project_name must not be blank.' })
+            .describe('Exact, case-sensitive name of the project to log time against. A project with this name is created if none exists.'),
+        day: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/)
+            .describe('Day the time entry applies to, in YYYY-MM-DD format. Example: "2026-10-09".'),
         hours: z.number().int().min(0).optional().describe('Whole hours to log. Defaults to 0 when omitted.'),
         minutes: z.number().int().min(0).max(59).optional().describe('Additional minutes to log. Defaults to 0 when omitted.'),
         note: z.string().optional().describe('Optional note attached to the time entry.'),
@@ -18,7 +24,12 @@ const InputSchema = z
             .optional()
             .describe('Exact client name resolved to a company id when creating a new project. Used only when company_id is omitted.'),
         rate_type: z.string().optional().describe('Rate type for a newly-created project. Defaults to "non-billable".'),
-        account_id: z.number().int().optional().describe('Timely account id. Defaults to the first account visible to the connection.')
+        account_id: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe('Timely account id. May be omitted only when the connection has access to exactly one account.')
     })
     .describe('Input for logging time against a named project, creating the project if it does not already exist.');
 
@@ -67,7 +78,10 @@ const OutputSchema = z
     .object({
         account_id: z.number().describe('Timely account id the time was logged in.'),
         project_id: z.number().describe('Id of the project the time was logged against.'),
-        project_name: z.string().describe('Name of the project the time was logged against.'),
+        project_name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'project_name must not be blank.' })
+            .describe('Name of the project the time was logged against.'),
         created_project: z.boolean().describe('True when a new project was created, false when an existing project with the same name was reused.'),
         event: EventOutputSchema.describe('The time entry that was created.')
     })
@@ -76,7 +90,7 @@ const OutputSchema = z
 /**
  * @tags: [read, write]
  * @tagReason: Reads accounts, projects and clients to resolve the target project and client, then creates a project if missing and logs a new time entry.
- * @pitfalls: Project names are matched case-sensitively, so a differently-cased existing name creates a duplicate project instead of reusing it; when account_id is omitted the first account visible to the connection is used, and when neither company_id nor client_name is given the account's first client is used as the default, either of which may target the wrong account or client on multi-account or multi-client connections; omitting both hours and minutes logs a zero-duration entry.
+ * @pitfalls: Project names are matched case-sensitively, so a differently-cased existing name creates a duplicate project instead of reusing it; account_id may be omitted only when the connection has access to exactly one account; when neither company_id nor client_name is given the account's first client is used as the default, which may target the wrong client on multi-client accounts; omitting both hours and minutes logs a zero-duration entry.
  */
 const action = createAction({
     description:
@@ -99,6 +113,13 @@ const action = createAction({
                 throw new nango.ActionError({
                     type: 'no_account',
                     message: 'No account is visible to this connection; pass account_id explicitly.'
+                });
+            }
+            if (accounts.length > 1) {
+                throw new nango.ActionError({
+                    type: 'account_id_required',
+                    message: 'This connection has access to multiple Timely accounts; pass account_id to choose one.',
+                    account_ids: accounts.map((account) => account.id)
                 });
             }
             accountId = firstAccount.id;

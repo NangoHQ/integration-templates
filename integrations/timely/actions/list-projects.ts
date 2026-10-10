@@ -29,7 +29,7 @@ const CostSchema = z.object({
 const ClientSchema = z.object({
     id: z.number().describe('Client ID. Example: 2193170'),
     name: z.string().describe('Client name. Example: "Nango Developer"'),
-    color: z.string().describe('Client color as a hex code without the leading "#". Example: "1976d2"'),
+    color: z.string().nullable().optional().describe('Client color as a hex code without the leading "#", or null when unset. Example: "1976d2"'),
     active: z.boolean().describe('Whether the client is active.'),
     external_id: z.string().nullable().optional().describe('External ID assigned by an integrating system, if any.'),
     updated_at: z.string().nullable().optional().describe('ISO 8601 timestamp of the last client update.')

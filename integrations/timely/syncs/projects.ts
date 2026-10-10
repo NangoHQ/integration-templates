@@ -12,10 +12,10 @@ const CurrencySchema = z.object({
 const ClientSchema = z.object({
     id: z.number().describe('Numeric id of the client (company).'),
     name: z.string().describe('Client display name.'),
-    color: z.string().describe('Client color as a hex string without a leading #.'),
+    color: z.string().nullable().optional().describe('Client color as a hex string without a leading #, or null when unset.'),
     active: z.boolean().describe('Whether the client is active.'),
-    external_id: z.string().nullable().describe('Caller-supplied external identifier, or null when unset.'),
-    updated_at: z.string().describe('ISO 8601 timestamp of when the client was last updated.')
+    external_id: z.string().nullable().optional().describe('Caller-supplied external identifier, or null when unset.'),
+    updated_at: z.string().nullable().optional().describe('ISO 8601 timestamp of when the client was last updated.')
 });
 
 const ProjectUserSchema = z.object({
@@ -69,7 +69,7 @@ const ProjectSchema = z
         updated_at: z.number().describe('Unix timestamp in seconds when the project was last updated.'),
         external_id: z.string().nullable().describe('Caller-supplied external identifier, or null when unset.'),
         budget_scope: z.string().nullable().describe('Budget scope of the project, or null when no budget is scoped.'),
-        client: ClientSchema.describe('Client (company) the project belongs to.'),
+        client: ClientSchema.nullable().optional().describe('Client (company) the project belongs to, when one is set.'),
         required_notes: z.boolean().describe('Whether notes are required on events logged against the project.'),
         required_labels: z.boolean().describe('Whether labels are required on events logged against the project.'),
         budget_expired_on: z.string().nullable().describe('Date the project budget expires, or null when it does not expire.'),
@@ -137,30 +137,33 @@ const sync = createSync({
         };
         const accountsResponse = await nango.get(accountsConfig);
         const accounts = AccountListSchema.parse(accountsResponse.data);
-        const account = accounts[0];
 
-        if (!account) {
+        if (accounts.length === 0) {
             throw new Error('No Timely account is accessible for this connection.');
         }
 
         // Start delete tracking only after the prerequisite account lookup (which can throw) succeeds.
+        // Every accessible account must be fetched before trackDeletesEnd, otherwise projects in the
+        // accounts that were skipped would be marked deleted.
         await nango.trackDeletesStart('Project');
 
-        const projectsConfig: ProxyConfiguration = {
-            // Timely API docs: https://developer.timely.com/
-            endpoint: `/1.1/${encodeURIComponent(String(account.id))}/projects`,
-            retries: 3
-        };
-        const projectsResponse = await nango.get(projectsConfig);
-        const projects = ProviderProjectListSchema.parse(projectsResponse.data);
+        for (const account of accounts) {
+            const projectsConfig: ProxyConfiguration = {
+                // Timely API docs: https://developer.timely.com/
+                endpoint: `/1.1/${encodeURIComponent(String(account.id))}/projects`,
+                retries: 3
+            };
+            const projectsResponse = await nango.get(projectsConfig);
+            const projects = ProviderProjectListSchema.parse(projectsResponse.data);
 
-        const records = projects.map((project) => ({
-            ...project,
-            id: String(project.id)
-        }));
+            const records = projects.map((project) => ({
+                ...project,
+                id: String(project.id)
+            }));
 
-        if (records.length > 0) {
-            await nango.batchSave(records, 'Project');
+            if (records.length > 0) {
+                await nango.batchSave(records, 'Project');
+            }
         }
 
         await nango.trackDeletesEnd('Project');

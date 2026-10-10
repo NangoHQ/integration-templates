@@ -46,7 +46,7 @@ const EventSchema = z
         id: z.number().describe('Unique ID of the time entry.'),
         uid: z.string().describe('Stable unique identifier of the time entry.'),
         day: z.string().describe('Calendar day the time is logged against, formatted YYYY-MM-DD.'),
-        note: z.string().nullable().describe('Free-text note attached to the time entry.'),
+        note: z.string().nullable().optional().describe('Free-text note attached to the time entry.'),
         user: EventUserSchema.describe('User the time entry is attributed to.'),
         project: EventProjectSchema.describe('Project the time entry is logged against.'),
         duration: DurationSchema.describe('Duration actually logged.'),
@@ -58,18 +58,18 @@ const EventSchema = z
         estimated: z.boolean().describe('Whether the entry is an estimate rather than actual time.'),
         draft: z.boolean().describe('Whether the entry is still a draft.'),
         locked: z.boolean().describe('Whether the entry is locked from editing.'),
-        locked_reason: z.string().nullable().describe('Reason the entry is locked, when locked.'),
+        locked_reason: z.string().nullable().optional().describe('Reason the entry is locked, when locked.'),
         label_ids: z.array(z.number()).describe('IDs of labels attached to the entry.'),
         user_ids: z.array(z.number()).describe('IDs of additional users associated with the entry.'),
         from: z.string().nullable().describe('Start time of the entry, when it represents a time block.'),
         to: z.string().nullable().describe('End time of the entry, when it represents a time block.'),
         created_at: z.number().describe('Unix timestamp (seconds) when the entry was created.'),
         updated_at: z.number().describe('Unix timestamp (seconds) when the entry was last updated.'),
-        created_from: z.string().describe('Source the entry was created from, e.g. "Web" or "Nango".'),
-        updated_from: z.string().describe('Source the entry was last updated from.'),
+        created_from: z.string().nullable().optional().describe('Source the entry was created from, e.g. "Web" or "Nango", when known.'),
+        updated_from: z.string().nullable().optional().describe('Source the entry was last updated from, when known.'),
         deleted: z.boolean().describe('Whether the entry has been deleted.'),
         hour_rate: z.number().describe('Hourly rate applied to the entry.'),
-        external_id: z.string().nullable().describe('External identifier attached to the entry, when present.'),
+        external_id: z.string().nullable().optional().describe('External identifier attached to the entry, when present.'),
         sequence: z.number().describe('Ordering sequence of the entry within its day.'),
         timer_state: z.string().describe('State of the entry timer, e.g. "default".')
     })
@@ -77,7 +77,12 @@ const EventSchema = z
 
 const InputSchema = z
     .object({
-        account_id: z.number().int().positive().optional().describe('Timely account ID. Omit to use the single account available to this connection.'),
+        account_id: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe('Timely account ID. May be omitted only when the connection has access to exactly one account.'),
         since: z
             .string()
             .regex(/^\d{4}-\d{2}-\d{2}$/)
@@ -96,6 +101,10 @@ const InputSchema = z
             .describe('Filter to entries logged against a single project ID (singular field; plural forms are ignored by Timely).'),
         user_id: z.number().int().positive().optional().describe('Filter to entries attributed to a single user ID.')
     })
+    .refine((input) => (input.since === undefined) === (input.upto === undefined), {
+        message: 'Provide both since and upto, or neither: Timely ignores a lone since or upto and returns its default window.',
+        path: ['upto']
+    })
     .describe('Filters for listing Timely time entries (events). All filters are optional.');
 
 const OutputSchema = z
@@ -107,7 +116,7 @@ const OutputSchema = z
 /**
  * @tags: [read]
  * @tagReason: Only reads time entries from the provider; it never creates, updates, or deletes anything.
- * @pitfalls: Passing the plural `project_ids` or `updated_since` is silently ignored rather than rejected, so use singular `project_id` and do not expect incremental filtering. The day-range filter only applies when both `since` and `upto` are supplied; omitting them returns a limited default window rather than all history.
+ * @pitfalls: Passing the plural `project_ids` or `updated_since` is silently ignored rather than rejected, so use singular `project_id` and do not expect incremental filtering. The day-range filter only applies when both `since` and `upto` are supplied, so supplying just one is rejected; omitting both returns a limited default window rather than all history. `account_id` is required when the connection has access to more than one account.
  */
 const action = createAction({
     description: 'List logged time entries (Timely events), optionally filtered by day range and/or project.',
@@ -133,6 +142,14 @@ const action = createAction({
                 throw new nango.ActionError({
                     type: 'no_account',
                     message: 'No Timely account is available for this connection.'
+                });
+            }
+
+            if (accounts.length > 1) {
+                throw new nango.ActionError({
+                    type: 'account_id_required',
+                    message: 'This connection has access to multiple Timely accounts; pass account_id to choose one.',
+                    account_ids: accounts.map((candidate) => candidate.id)
                 });
             }
 

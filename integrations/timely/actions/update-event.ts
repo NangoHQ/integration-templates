@@ -10,7 +10,11 @@ const InputSchema = z
             .describe('Timely account ID that owns the time entry. Discover it with the list-accounts action. Example: 1145787'),
         event_id: z.number().int().positive().describe('ID of the time entry (Timely calls these "events") to update. Example: 297121910'),
         note: z.string().optional().describe('New note for the time entry. Send an empty string to clear it.'),
-        day: z.string().optional().describe('Day the time is logged for, in YYYY-MM-DD format. Example: "2026-10-09"'),
+        day: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/)
+            .optional()
+            .describe('Day the time is logged for, in YYYY-MM-DD format. Example: "2026-10-09"'),
         hours: z.number().int().min(0).optional().describe('Whole hours component of the duration; merges with the existing minutes. Example: 2'),
         minutes: z.number().int().min(0).max(59).optional().describe('Minutes component of the duration (0-59); merges with the existing hours. Example: 30'),
         project_id: z.number().int().positive().optional().describe('Move the time entry to this project ID. Example: 5691496'),

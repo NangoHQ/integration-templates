@@ -5,7 +5,10 @@ import type { ProxyConfiguration } from 'nango';
 const InputSchema = z
     .object({
         account_id: z.number().int().positive().describe('Timely account ID. Discover it by calling the list-accounts action first. Example: 1145787'),
-        name: z.string().min(1).describe('Name for the new label. Must be unique among labels that share the same parent. Example: "Design"'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .describe('Name for the new label. Must not be blank. Must be unique among labels that share the same parent. Example: "Design"'),
         parent_id: z
             .number()
             .int()

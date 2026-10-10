@@ -3,7 +3,9 @@
     "batchSave": {
       "User": [
         {
-          "id": "2418691",
+          "id": "1145787-2418691",
+          "user_id": "2418691",
+          "account_id": "1145787",
           "email": "api@nango.dev",
           "name": "Nango Developer",
           "active": true,

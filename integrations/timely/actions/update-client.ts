@@ -9,7 +9,11 @@ const InputSchema = z
             .positive()
             .describe('Timely account ID that owns the client. Example: 1145787. Discover it with the list-accounts action.'),
         client_id: z.number().int().positive().describe('ID of the client to update. Example: 2193170.'),
-        name: z.string().min(1).optional().describe('New client name. Timely rejects an empty or blank name.'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .optional()
+            .describe('New client name. Timely rejects an empty or blank name.'),
         color: z.string().max(6).optional().describe('New client color as a hex string of up to 6 characters with no leading "#". Example: "1976d2".'),
         external_id: z.string().optional().describe('New external identifier. Pass an empty string to clear the current value; Timely ignores a null value.'),
         active: z.boolean().optional().describe('Set to false to deactivate the client so it no longer appears in list-clients; true reactivates it.')

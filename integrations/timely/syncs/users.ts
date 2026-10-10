@@ -27,28 +27,28 @@ const ProviderUserSchema = z.object({
     email: z.string(),
     name: z.string(),
     active: z.boolean(),
-    day_view_onboarded: z.boolean().optional(),
-    memory_onboarded: z.boolean().optional(),
-    created_at: z.number().optional(),
-    updated_at: z.number().optional(),
+    day_view_onboarded: z.boolean().nullable().optional(),
+    memory_onboarded: z.boolean().nullable().optional(),
+    created_at: z.number().nullable().optional(),
+    updated_at: z.number().nullable().optional(),
     last_received_memories_date: z.string().nullable().optional(),
-    sign_in_count: z.number().optional(),
+    sign_in_count: z.number().nullable().optional(),
     external_id: z.string().nullable().optional(),
-    time_zone: z.string().optional(),
+    time_zone: z.string().nullable().optional(),
     memory_retention_days: z.number().nullable().optional(),
     avatar: ProviderAvatarSchema.nullable().optional(),
-    type: z.string().optional(),
-    work_days: z.string().optional(),
-    weekdays: z.string().optional(),
-    weekly_capacity: z.number().optional(),
-    user_level: z.string().optional(),
-    admin: z.boolean().optional(),
-    hide_hourly_rate: z.boolean().optional(),
-    hide_internal_hourly_rate: z.boolean().optional(),
-    deleted: z.boolean().optional(),
-    default_hour_rate: z.number().optional(),
-    internal_hour_rate: z.number().optional(),
-    role_id: z.number().optional(),
+    type: z.string().nullable().optional(),
+    work_days: z.string().nullable().optional(),
+    weekdays: z.string().nullable().optional(),
+    weekly_capacity: z.number().nullable().optional(),
+    user_level: z.string().nullable().optional(),
+    admin: z.boolean().nullable().optional(),
+    hide_hourly_rate: z.boolean().nullable().optional(),
+    hide_internal_hourly_rate: z.boolean().nullable().optional(),
+    deleted: z.boolean().nullable().optional(),
+    default_hour_rate: z.number().nullable().optional(),
+    internal_hour_rate: z.number().nullable().optional(),
+    role_id: z.number().nullable().optional(),
     role: ProviderRoleSchema.nullable().optional()
 });
 
@@ -77,7 +77,9 @@ const RoleSchema = z.object({
 
 const UserSchema = z
     .object({
-        id: z.string().describe('Unique Timely user (team member) ID.'),
+        id: z.string().describe('Stable unique record identifier for the user, scoped to its Timely account as "<account_id>-<user_id>".'),
+        user_id: z.string().describe("Timely's numeric user ID, represented as a string."),
+        account_id: z.string().describe('Timely account ID this user record belongs to.'),
         email: z.string().describe('Email address the user signs in to Timely with.'),
         name: z.string().describe('Full display name of the user.'),
         active: z.boolean().describe('Whether the user account is currently active.'),
@@ -125,8 +127,7 @@ const sync = createSync({
         const accountsResponse = await nango.get(accountsConfig);
         const accounts = ProviderAccountsSchema.parse(accountsResponse.data);
 
-        const account = accounts[0];
-        if (!account) {
+        if (accounts.length === 0) {
             throw new Error('No Timely account is accessible for this connection');
         }
 
@@ -134,47 +135,54 @@ const sync = createSync({
         // the delete-tracking window without overwriting an already-open one.
         await nango.trackDeletesStart('User');
 
-        const accountId = encodeURIComponent(String(account.id));
-        const usersConfig: ProxyConfiguration = {
-            // https://developer.timely.com/
-            endpoint: `/1.1/${accountId}/users`,
-            retries: 3
-        };
-        const usersResponse = await nango.get(usersConfig);
-        const users = ProviderUsersSchema.parse(usersResponse.data);
+        // Every accessible account must be fetched before trackDeletesEnd, otherwise users of the
+        // skipped accounts would be marked deleted. A user can belong to several accounts with a
+        // different role and rates in each, so records are keyed per account.
+        for (const account of accounts) {
+            const accountId = String(account.id);
+            const usersConfig: ProxyConfiguration = {
+                // https://developer.timely.com/
+                endpoint: `/1.1/${encodeURIComponent(accountId)}/users`,
+                retries: 3
+            };
+            const usersResponse = await nango.get(usersConfig);
+            const users = ProviderUsersSchema.parse(usersResponse.data);
 
-        const mappedUsers = users.map((user) => ({
-            id: String(user.id),
-            email: user.email,
-            name: user.name,
-            active: user.active,
-            ...(user.admin !== undefined && { admin: user.admin }),
-            ...(user.user_level !== undefined && { user_level: user.user_level }),
-            ...(user.type !== undefined && { type: user.type }),
-            ...(user.created_at !== undefined && { created_at: user.created_at }),
-            ...(user.updated_at !== undefined && { updated_at: user.updated_at }),
-            ...(user.sign_in_count !== undefined && { sign_in_count: user.sign_in_count }),
-            ...(user.time_zone !== undefined && { time_zone: user.time_zone }),
-            ...(user.work_days !== undefined && { work_days: user.work_days }),
-            ...(user.weekdays !== undefined && { weekdays: user.weekdays }),
-            ...(user.weekly_capacity !== undefined && { weekly_capacity: user.weekly_capacity }),
-            ...(user.default_hour_rate !== undefined && { default_hour_rate: user.default_hour_rate }),
-            ...(user.internal_hour_rate !== undefined && { internal_hour_rate: user.internal_hour_rate }),
-            ...(user.hide_hourly_rate !== undefined && { hide_hourly_rate: user.hide_hourly_rate }),
-            ...(user.hide_internal_hourly_rate !== undefined && { hide_internal_hourly_rate: user.hide_internal_hourly_rate }),
-            ...(user.role_id !== undefined && { role_id: user.role_id }),
-            ...(user.role != null && { role: user.role }),
-            ...(user.avatar != null && { avatar: user.avatar }),
-            ...(user.day_view_onboarded !== undefined && { day_view_onboarded: user.day_view_onboarded }),
-            ...(user.memory_onboarded !== undefined && { memory_onboarded: user.memory_onboarded }),
-            ...(user.external_id != null && { external_id: user.external_id }),
-            ...(user.last_received_memories_date != null && { last_received_memories_date: user.last_received_memories_date }),
-            ...(user.memory_retention_days != null && { memory_retention_days: user.memory_retention_days }),
-            ...(user.deleted !== undefined && { deleted: user.deleted })
-        }));
+            const mappedUsers = users.map((user) => ({
+                id: `${accountId}-${user.id}`,
+                user_id: String(user.id),
+                account_id: accountId,
+                email: user.email,
+                name: user.name,
+                active: user.active,
+                ...(user.admin != null && { admin: user.admin }),
+                ...(user.user_level != null && { user_level: user.user_level }),
+                ...(user.type != null && { type: user.type }),
+                ...(user.created_at != null && { created_at: user.created_at }),
+                ...(user.updated_at != null && { updated_at: user.updated_at }),
+                ...(user.sign_in_count != null && { sign_in_count: user.sign_in_count }),
+                ...(user.time_zone != null && { time_zone: user.time_zone }),
+                ...(user.work_days != null && { work_days: user.work_days }),
+                ...(user.weekdays != null && { weekdays: user.weekdays }),
+                ...(user.weekly_capacity != null && { weekly_capacity: user.weekly_capacity }),
+                ...(user.default_hour_rate != null && { default_hour_rate: user.default_hour_rate }),
+                ...(user.internal_hour_rate != null && { internal_hour_rate: user.internal_hour_rate }),
+                ...(user.hide_hourly_rate != null && { hide_hourly_rate: user.hide_hourly_rate }),
+                ...(user.hide_internal_hourly_rate != null && { hide_internal_hourly_rate: user.hide_internal_hourly_rate }),
+                ...(user.role_id != null && { role_id: user.role_id }),
+                ...(user.role != null && { role: user.role }),
+                ...(user.avatar != null && { avatar: user.avatar }),
+                ...(user.day_view_onboarded != null && { day_view_onboarded: user.day_view_onboarded }),
+                ...(user.memory_onboarded != null && { memory_onboarded: user.memory_onboarded }),
+                ...(user.external_id != null && { external_id: user.external_id }),
+                ...(user.last_received_memories_date != null && { last_received_memories_date: user.last_received_memories_date }),
+                ...(user.memory_retention_days != null && { memory_retention_days: user.memory_retention_days }),
+                ...(user.deleted != null && { deleted: user.deleted })
+            }));
 
-        if (mappedUsers.length > 0) {
-            await nango.batchSave(mappedUsers, 'User');
+            if (mappedUsers.length > 0) {
+                await nango.batchSave(mappedUsers, 'User');
+            }
         }
 
         // Close the delete-tracking window only on the success path so that anything

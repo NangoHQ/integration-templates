@@ -20,18 +20,18 @@ const CostSchema = z.object({
 
 const EventUserSchema = z.object({
     id: z.number().describe('ID of the user the time entry belongs to.'),
-    email: z.string().describe('Email address of the user.'),
-    name: z.string().describe('Display name of the user.'),
+    email: z.string().nullable().optional().describe('Email address of the user, when Timely includes it.'),
+    name: z.string().nullable().optional().describe('Display name of the user, when Timely includes it.'),
     updated_at: z.string().describe('Timestamp when the user record was last updated.')
 });
 
 const EventClientSchema = z.object({
     id: z.number().describe('Client ID.'),
     name: z.string().describe('Client name.'),
-    color: z.string().describe('Hex color code assigned to the client.'),
+    color: z.string().nullable().optional().describe('Hex color code assigned to the client, or null when unset.'),
     active: z.boolean().describe('Whether the client is active.'),
-    external_id: z.string().nullable().describe('External identifier of the client, if set.'),
-    updated_at: z.string().describe('Timestamp when the client was last updated.')
+    external_id: z.string().nullable().optional().describe('External identifier of the client, if set.'),
+    updated_at: z.string().nullable().optional().describe('Timestamp when the client was last updated.')
 });
 
 const EventProjectSchema = z.object({
@@ -50,7 +50,7 @@ const EventProjectSchema = z.object({
     label_ids: z.array(z.number()).describe('IDs of labels enabled for the project.'),
     created_at: z.number().describe('Unix timestamp when the project was created.'),
     updated_at: z.number().describe('Unix timestamp when the project was last updated.'),
-    client: EventClientSchema.nullable().describe('Client the project belongs to, or null when the project has no client.')
+    client: EventClientSchema.nullable().optional().describe('Client the project belongs to, or null when the project has no client.')
 });
 
 const InputSchema = z
@@ -65,7 +65,7 @@ const OutputSchema = z
         id: z.number().describe('Unique ID of the time entry.'),
         uid: z.string().describe('Stable unique identifier of the time entry.'),
         day: z.string().describe('Day the time was logged for, in YYYY-MM-DD format.'),
-        note: z.string().nullable().describe('Free-text note attached to the entry, if any.'),
+        note: z.string().nullable().optional().describe('Free-text note attached to the entry, if any.'),
         duration: DurationSchema.describe('Duration actually logged for the entry.'),
         estimated_duration: DurationSchema.describe('Estimated duration for the entry.'),
         cost: CostSchema.describe('Cost of the logged time.'),
@@ -86,8 +86,8 @@ const OutputSchema = z
         timer_stopped_on: z.number().describe('Unix timestamp when the timer was stopped, or 0 when not stopped.'),
         created_at: z.number().describe('Unix timestamp when the entry was created.'),
         updated_at: z.number().describe('Unix timestamp when the entry was last updated.'),
-        created_from: z.string().describe('Source the entry was created from, e.g. "Web" or "Nango".'),
-        updated_from: z.string().describe('Source the entry was last updated from.'),
+        created_from: z.string().nullable().optional().describe('Source the entry was created from, e.g. "Web" or "Nango", when known.'),
+        updated_from: z.string().nullable().optional().describe('Source the entry was last updated from, when known.'),
         creator_id: z.number().describe('ID of the user who created the entry.'),
         updater_id: z.number().describe('ID of the user who last updated the entry.'),
         external_id: z.string().nullable().describe('External identifier of the entry, if set.'),
@@ -107,8 +107,8 @@ const OutputSchema = z
         invoice_id: z.number().nullable().describe('ID of the invoice the entry was billed on, if any.'),
         sequence: z.number().describe('Ordering sequence of the entry within its day.'),
         deleted: z.boolean().describe('Whether the entry has been deleted.'),
-        to: z.unknown().describe('End timestamp of the entry when it represents a timer range; otherwise null.'),
-        from: z.unknown().describe('Start timestamp of the entry when it represents a timer range; otherwise null.')
+        to: z.string().nullable().describe('End timestamp of the entry when it represents a timer range; otherwise null.'),
+        from: z.string().nullable().describe('Start timestamp of the entry when it represents a timer range; otherwise null.')
     })
     .describe('A single Timely logged time entry (event), including its duration, project, and user.');
 

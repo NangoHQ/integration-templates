@@ -1,6 +1,9 @@
 {
   "nango": {
-    "getMetadata": {},
+    "getMetadata": {
+      "since": "2026-07-11",
+      "upto": "2026-10-09"
+    },
     "batchSave": {
       "Event": []
     },

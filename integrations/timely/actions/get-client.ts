@@ -4,10 +4,10 @@ import { createAction } from 'nango';
 const ProviderClientSchema = z.object({
     id: z.number(),
     name: z.string(),
-    color: z.string(),
+    color: z.string().nullable().optional(),
     active: z.boolean(),
     external_id: z.string().nullable().optional(),
-    updated_at: z.string()
+    updated_at: z.string().nullable().optional()
 });
 
 const InputSchema = z
@@ -21,10 +21,10 @@ const OutputSchema = z
     .object({
         id: z.number().describe('Unique client ID. Example: 2193170'),
         name: z.string().describe('Client name. Example: "Nango Developer"'),
-        color: z.string().describe('Hex color assigned to the client in Timely, without the leading "#". Example: "1976d2"'),
+        color: z.string().nullable().optional().describe('Hex color assigned to the client in Timely, without the leading "#", or null when unset. Example: "1976d2"'),
         active: z.boolean().describe('Whether the client is active; deactivated clients are hidden from list-clients but still retrievable here.'),
         external_id: z.string().nullable().optional().describe('External identifier for the client, or null when none has been set.'),
-        updated_at: z.string().describe('ISO 8601 timestamp of the last client update. Example: "2026-10-07T05:54:36+03:00"')
+        updated_at: z.string().nullable().optional().describe('ISO 8601 timestamp of the last client update. Example: "2026-10-07T05:54:36+03:00"')
     })
     .describe('A single Timely client, including inactive ones.');
 
@@ -51,10 +51,10 @@ const action = createAction({
         return {
             id: client.id,
             name: client.name,
-            color: client.color,
             active: client.active,
+            ...(client.color !== undefined && { color: client.color }),
             ...(client.external_id !== undefined && { external_id: client.external_id }),
-            updated_at: client.updated_at
+            ...(client.updated_at !== undefined && { updated_at: client.updated_at })
         };
     }
 });

@@ -4,7 +4,10 @@ import { createAction } from 'nango';
 const InputSchema = z
     .object({
         account_id: z.number().int().positive().describe('Timely account ID. Discover it with the list-accounts action. Example: 1145787'),
-        name: z.string().min(1).describe('Name of the project to create. Example: "Website Redesign"'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .describe('Name of the project to create. Must not be blank. Example: "Website Redesign"'),
         company_id: z.number().int().positive().describe('ID of the client (company) the project belongs to, from list-clients. Example: 2193170'),
         rate_type: z
             .string()

@@ -33,8 +33,17 @@ const InputSchema = z
     .object({
         account_id: z.number().int().describe('Timely account ID, discovered via list-accounts. Example: 1145787.'),
         label_id: z.number().int().describe('ID of the label to update. Example: 4687689.'),
-        name: z.string().optional().describe('New label name. Must not be empty.'),
-        parent_id: z.number().int().optional().describe('ID of the parent label to nest this label under.'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .optional()
+            .describe('New label name. Must not be blank.'),
+        parent_id: z
+            .number()
+            .int()
+            .positive()
+            .optional()
+            .describe('ID of the parent label to nest this label under. A nested label cannot be moved back to the top level through the API.'),
         emoji: z.string().optional().describe('URL of the emoji/icon to assign to the label.'),
         active: z.boolean().optional().describe('Whether the label is active.'),
         sequence: z.number().int().optional().describe('Sort order of the label among its siblings.'),
@@ -45,7 +54,7 @@ const InputSchema = z
 /**
  * @tags: [write]
  * @tagReason: Updates an existing label through the Timely API, mutating provider state.
- * @pitfalls: Reparenting a label by passing parent_id can renumber the sequence values of its existing sibling labels, and the returned object reflects only the updated label, not those sibling changes.
+ * @pitfalls: Reparenting a label by passing parent_id can renumber the sequence values of its existing sibling labels, and the returned object reflects only the updated label, not those sibling changes. Timely silently ignores parent_id:null and rejects 0 or an empty string, so a nested label cannot be moved back to the top level through the API.
  */
 const action = createAction({
     description: "Update a label's fields (partial merge) - e.g. rename it.",
@@ -62,6 +71,13 @@ const action = createAction({
             ...(input.sequence !== undefined && { sequence: input.sequence }),
             ...(input.external_id !== undefined && { external_id: input.external_id })
         };
+
+        if (Object.keys(label).length === 0) {
+            throw new nango.ActionError({
+                type: 'no_fields',
+                message: 'Provide at least one label field to update.'
+            });
+        }
 
         const response = await nango.put({
             // Timely API docs: https://developer.timely.com/

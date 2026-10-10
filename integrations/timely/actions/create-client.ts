@@ -3,8 +3,11 @@ import { createAction } from 'nango';
 
 const InputSchema = z
     .object({
-        account_id: z.string().describe('Timely account ID. Retrieve it from the list-accounts action. Example: "1145787".'),
-        name: z.string().describe('Name of the client (company) to create. Example: "Acme Corp".')
+        account_id: z.number().int().positive().describe('Timely account ID. Retrieve it from the list-accounts action. Example: 1145787'),
+        name: z
+            .string()
+            .refine((value) => value.trim().length > 0, { message: 'name must not be blank.' })
+            .describe('Name of the client (company) to create. Must not be blank. Example: "Acme Corp".')
     })
     .describe('Input for creating a new Timely client (company).');
 
@@ -34,7 +37,7 @@ const action = createAction({
     exec: async (nango, input): Promise<z.infer<typeof ClientSchema>> => {
         const response = await nango.post({
             // https://developer.timely.com/
-            endpoint: `/1.1/${encodeURIComponent(input.account_id)}/clients`,
+            endpoint: `/1.1/${encodeURIComponent(String(input.account_id))}/clients`,
             data: {
                 client: {
                     name: input.name

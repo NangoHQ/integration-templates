@@ -11,7 +11,7 @@ const ProviderClientSchema = z.object({
     color: z.string().nullable().optional(),
     active: z.boolean(),
     external_id: z.string().nullable().optional(),
-    updated_at: z.string().optional()
+    updated_at: z.string().nullable().optional()
 });
 
 const ClientSchema = z
