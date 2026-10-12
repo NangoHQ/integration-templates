@@ -1,7 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const NO_WRITE_RETRIES = 0;
+
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
     messageId: z.string().describe('The ID of the draft message to attach the file to. Example: "AQMkAGFk..."'),
     fileName: z.string().describe('The name of the file to attach. Example: "document.pdf"'),
     contentType: z.string().describe('The MIME type of the file. Example: "application/pdf"'),
@@ -28,22 +35,22 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Attach a file to a draft message. Note: 3 MB simple upload limit applies.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.ReadWrite'],
+    scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const response = await nango.post({
             // https://learn.microsoft.com/graph/api/message-post-attachments
-            endpoint: `/v1.0/me/messages/${encodeURIComponent(input.messageId)}/attachments`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodeURIComponent(input.messageId)}/attachments`,
             data: {
                 '@odata.type': '#microsoft.graph.fileAttachment',
                 name: input.fileName,
                 contentType: input.contentType,
                 contentBytes: input.contentBytes
             },
-            retries: 3
+            retries: NO_WRITE_RETRIES
         });
 
         const providerAttachment = ProviderAttachmentSchema.parse(response.data);

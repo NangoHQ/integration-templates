@@ -2,6 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
     messageId: z.string().describe('The unique identifier of the message to update. Example: "AAMkAGVmMDEz"'),
     subject: z.string().optional().describe('The subject of the message.'),
     body: z
@@ -59,10 +64,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Update a draft or mutable message fields.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.ReadWrite'],
+    scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const updateData: Record<string, unknown> = {};
@@ -85,8 +90,9 @@ const action = createAction({
 
         // https://learn.microsoft.com/graph/api/message-update
         const response = await nango.patch({
-            endpoint: `/v1.0/me/messages/${encodeURIComponent(input.messageId)}`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodeURIComponent(input.messageId)}`,
             data: updateData,
+            // Updating the same message fields is idempotent; retain retries for transient failures.
             retries: 3
         });
 

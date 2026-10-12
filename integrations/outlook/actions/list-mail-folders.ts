@@ -17,6 +17,13 @@ const ProviderResponseSchema = z.object({
 });
 
 const ListMailFoldersInputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe(
+            'Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.'
+        ),
     limit: z.number().min(1).max(50).optional().describe('Number of folders to return per page. Max 50.'),
     nextLink: z.string().optional().describe('OData nextLink for pagination from previous response')
 });
@@ -38,15 +45,15 @@ const ListMailFoldersOutputSchema = z.object({
 
 const action = createAction({
     description: 'List top-level mail folders from the mailbox',
-    version: '1.0.2',
+    version: '1.0.3',
     input: ListMailFoldersInputSchema,
     output: ListMailFoldersOutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListMailFoldersOutputSchema>> => {
         // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages
         // https://learn.microsoft.com/graph/api/user-list-mailfolders
-        const endpoint = input.nextLink ?? '/v1.0/me/mailFolders';
+        const endpoint = input.nextLink ?? `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/mailFolders`;
         const params: Record<string, string | number> = {};
         if (!input.nextLink && input.limit) {
             params['$top'] = input.limit;

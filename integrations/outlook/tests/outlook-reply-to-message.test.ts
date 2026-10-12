@@ -16,4 +16,16 @@ describe('outlook reply-to-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('routes replies through the selected shared mailbox', async () => {
+        const postMock = vi.fn().mockResolvedValue({ status: 202, data: undefined });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { sharedMailbox: 'office@example.com', messageId: 'message-1', comment: 'Thanks' });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({
+            endpoint: '/v1.0/users/office%40example.com/messages/message-1/reply',
+            retries: 0
+        }));
+    });
 });

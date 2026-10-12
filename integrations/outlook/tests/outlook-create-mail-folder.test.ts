@@ -16,4 +16,20 @@ describe('outlook create-mail-folder tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('routes shared-mailbox folder creation without retries', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: { id: 'folder-1', displayName: 'Work' } });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, {
+            sharedMailbox: 'office@example.com',
+            parentFolderId: 'inbox',
+            displayName: 'Work'
+        });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({
+            endpoint: '/v1.0/users/office%40example.com/mailFolders/inbox/childFolders',
+            retries: 0
+        }));
+    });
 });

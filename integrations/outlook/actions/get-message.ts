@@ -2,6 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.'),
     messageId: z.string().describe('The unique identifier of the message. Example: "AAMkAGVmMD..."'),
     expandAttachments: z.boolean().optional().describe('If true, expands the attachments relationship in the response.')
 });
@@ -67,10 +72,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Retrieve a message by ID.',
-    version: '1.1.0',
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const params: Record<string, string> = {};
@@ -81,7 +86,7 @@ const action = createAction({
 
         // https://learn.microsoft.com/graph/api/message-get
         const response = await nango.get({
-            endpoint: `/v1.0/me/messages/${encodeURIComponent(input.messageId)}`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodeURIComponent(input.messageId)}`,
             params,
             retries: 3
         });

@@ -2,6 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.'),
     messageId: z.string().describe('The ID of the message containing the attachment. Example: "AAMkAGVmMD..."'),
     attachmentId: z.string().describe('The ID of the attachment to download. Example: "AAMkAGVmMD..."')
 });
@@ -26,10 +31,10 @@ const ProviderAttachmentSchema = z.object({
 
 const action = createAction({
     description: 'Download the content of a file attachment on a message.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const encodedMessageId = encodeURIComponent(input.messageId);
@@ -40,7 +45,7 @@ const action = createAction({
         let directResponse: Awaited<ReturnType<typeof nango.get>> | null = null;
         try {
             directResponse = await nango.get({
-                endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}/$value`,
+                endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodedMessageId}/attachments/${encodedAttachmentId}/$value`,
                 retries: 3
             });
         } catch (_err) {
@@ -51,7 +56,7 @@ const action = createAction({
         if (directResponse?.data && typeof directResponse.data === 'string') {
             // https://learn.microsoft.com/graph/api/attachment-get
             const metadataResponse = await nango.get({
-                endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}`,
+                endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodedMessageId}/attachments/${encodedAttachmentId}`,
                 retries: 3
             });
 
@@ -71,7 +76,7 @@ const action = createAction({
         // fall back to the attachment resource
         // https://learn.microsoft.com/graph/api/attachment-get
         const fallbackResponse = await nango.get({
-            endpoint: `/v1.0/me/messages/${encodedMessageId}/attachments/${encodedAttachmentId}`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodedMessageId}/attachments/${encodedAttachmentId}`,
             retries: 3
         });
 

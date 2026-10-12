@@ -16,4 +16,16 @@ describe('outlook update-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('routes shared-mailbox updates to the selected mailbox', async () => {
+        const patchMock = vi.fn().mockResolvedValue({ data: { id: 'message-1' } });
+        const fakeNango = { patch: patchMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { sharedMailbox: 'office@example.com', messageId: 'message-1', isRead: true });
+
+        expect(patchMock).toHaveBeenCalledWith(expect.objectContaining({
+            endpoint: '/v1.0/users/office%40example.com/messages/message-1',
+            retries: 3
+        }));
+    });
 });

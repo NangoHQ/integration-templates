@@ -16,4 +16,16 @@ describe('outlook send-draft-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('sends a shared-mailbox draft without retrying the non-idempotent send', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: undefined });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { sharedMailbox: 'office@example.com', message_id: 'draft-1' });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({
+            endpoint: '/v1.0/users/office%40example.com/messages/draft-1/send',
+            retries: 0
+        }));
+    });
 });

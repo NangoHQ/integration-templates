@@ -2,6 +2,11 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.'),
     messageId: z.string().describe('The unique identifier of the message to list attachments for. Example: "AAMkAGVmMD..."')
 });
 
@@ -33,15 +38,15 @@ const ListOutputSchema = z.object({
 
 const action = createAction({
     description: 'List attachments on a message.',
-    version: '1.0.1',
+    version: '1.0.2',
     input: InputSchema,
     output: ListOutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof ListOutputSchema>> => {
         // https://learn.microsoft.com/graph/api/message-list-attachments
         const response = await nango.get({
-            endpoint: `/v1.0/me/messages/${encodeURIComponent(input.messageId)}/attachments`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodeURIComponent(input.messageId)}/attachments`,
             params: {
                 $select: 'id,lastModifiedDateTime,name,contentType,size,isInline'
             },

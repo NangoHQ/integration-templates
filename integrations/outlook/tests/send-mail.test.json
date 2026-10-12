@@ -13,7 +13,12 @@
             "name": "Test User"
           }
         }
-      ]
+      ],
+      "from": {
+        "emailAddress": {
+          "address": "shared-mailbox@example.com"
+        }
+      }
     },
     "saveToSentItems": true
   },
@@ -26,7 +31,7 @@
     "post": {
       "/v1.0/me/sendMail": {
         "response": "",
-        "status": 200,
+        "status": 202,
         "headers": {
           "date": "Mon, 04 May 2026 09:46:18 GMT",
           "content-type": "application/octet-stream",
@@ -62,7 +67,12 @@
                     "name": "Test User"
                   }
                 }
-              ]
+              ],
+              "from": {
+                "emailAddress": {
+                  "address": "shared-mailbox@example.com"
+                }
+              }
             },
             "saveToSentItems": true
           }

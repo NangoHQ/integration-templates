@@ -16,4 +16,13 @@ describe('outlook create-draft-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('does not retry draft creation', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: { id: 'draft-1' } });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { subject: 'Test', body: { contentType: 'text', content: 'Hello' } });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({ retries: 0 }));
+    });
 });

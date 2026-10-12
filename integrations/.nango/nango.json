@@ -625976,18 +625976,24 @@
           "ActionOutput_outlook_addmessageattachment"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_addmessageattachment",
           "ActionOutput_outlook_addmessageattachment"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_addmessageattachment": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The ID of the draft message to attach the file to. Example: \"AQMkAGFk...\""
@@ -626101,18 +626107,24 @@
           "ActionOutput_outlook_copymessage"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_copymessage",
           "ActionOutput_outlook_copymessage"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_copymessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The ID of the message to copy. Example: \"AQMkADAwATM0MDAAMS1iN...\""
@@ -626278,18 +626290,24 @@
           "ActionOutput_outlook_createdraftmessage"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_createdraftmessage",
           "ActionOutput_outlook_createdraftmessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_createdraftmessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "subject": {
                   "type": "string",
                   "description": "Subject of the message. Example: \"Meeting notes\""
@@ -626898,18 +626916,24 @@
           "ActionOutput_outlook_createmailfolder"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_createmailfolder",
           "ActionOutput_outlook_createmailfolder"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_createmailfolder": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "parentFolderId": {
                   "type": "string",
                   "description": "The unique identifier of the parent mail folder. Example: \"AQMkAGI2...\""
@@ -627082,18 +627106,24 @@
           "ActionOutput_outlook_deletemessage"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_deletemessage",
           "ActionOutput_outlook_deletemessage"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_deletemessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The unique identifier of the message to delete. Example: \"AAMkAGVmMDEzM...\""
@@ -627131,18 +627161,24 @@
           "ActionOutput_outlook_downloadmessageattachment"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_downloadmessageattachment",
           "ActionOutput_outlook_downloadmessageattachment"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_downloadmessageattachment": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The ID of the message containing the attachment. Example: \"AAMkAGVmMD...\""
@@ -627881,18 +627917,24 @@
           "ActionOutput_outlook_getmessage"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_getmessage",
           "ActionOutput_outlook_getmessage"
         ],
-        "version": "1.1.0",
+        "version": "1.1.1",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_getmessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The unique identifier of the message. Example: \"AAMkAGVmMD...\""
@@ -628378,18 +628420,24 @@
           "ActionOutput_outlook_listmailfolderchildren"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_listmailfolderchildren",
           "ActionOutput_outlook_listmailfolderchildren"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmailfolderchildren": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "folderId": {
                   "type": "string",
                   "description": "The ID of the mail folder to list children for. Example: \"AAMkAGVmODUyMzE1LTM0MDctNDNlMS05YjQ1LTI4MjE5MjJmYzY1ZgAuAAAAAADY3h3zQIGrQ6Pm8GPMwoNdAQCr0pwLSY4vT6AX1L4UHn_uAAAAAAEJAAA=\""
@@ -628471,18 +628519,24 @@
           "ActionOutput_outlook_listmailfolders"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_listmailfolders",
           "ActionOutput_outlook_listmailfolders"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmailfolders": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "limit": {
                   "description": "Number of folders to return per page. Max 50.",
                   "type": "number",
@@ -628556,18 +628610,24 @@
           "ActionOutput_outlook_listmessageattachments"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_listmessageattachments",
           "ActionOutput_outlook_listmessageattachments"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmessageattachments": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The unique identifier of the message to list attachments for. Example: \"AAMkAGVmMD...\""
@@ -628637,18 +628697,24 @@
           "ActionOutput_outlook_listmessages"
         ],
         "scopes": [
-          "Mail.Read"
+          "Mail.Read",
+          "Mail.Read.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_listmessages",
           "ActionOutput_outlook_listmessages"
         ],
-        "version": "1.1.0",
+        "version": "1.1.1",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_listmessages": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "folderId": {
                   "description": "Mail folder ID. Use \"inbox\" for the inbox folder. Example: \"inbox\"",
                   "type": "string"
@@ -628823,18 +628889,24 @@
           "ActionOutput_outlook_movemessage"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_movemessage",
           "ActionOutput_outlook_movemessage"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_movemessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The unique identifier of the message to move. Example: \"AAMkAGVmMDEz...\""
@@ -628890,18 +628962,25 @@
         ],
         "scopes": [
           "Mail.ReadWrite",
-          "Mail.Send"
+          "Mail.Send",
+          "Mail.ReadWrite.Shared",
+          "Mail.Send.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_replyalltomessage",
           "ActionOutput_outlook_replyalltomessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_replyalltomessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated shared mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The ID of the message to reply to"
@@ -628971,18 +629050,24 @@
           "ActionOutput_outlook_replytomessage"
         ],
         "scopes": [
-          "Mail.Send"
+          "Mail.Send",
+          "Mail.Send.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_replytomessage",
           "ActionOutput_outlook_replytomessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_replytomessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Send.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The ID of the message to reply to. Example: \"AAMkAGVmMDEZ...\""
@@ -629091,18 +629176,24 @@
           "ActionOutput_outlook_senddraftmessage"
         ],
         "scopes": [
-          "Mail.Send"
+          "Mail.Send",
+          "Mail.Send.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_senddraftmessage",
           "ActionOutput_outlook_senddraftmessage"
         ],
-        "version": "1.0.2",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_senddraftmessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Send.Shared and mailbox access for the connected user.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "message_id": {
                   "type": "string",
                   "description": "The unique identifier of the draft message to send. Example: \"AAMkAGVmMDEz...\""
@@ -629137,7 +629228,7 @@
       },
       {
         "type": "action",
-        "description": "Send a new email message immediately",
+        "description": "Send a new email immediately, optionally from a mailbox for which the connected user has Send As or Send on Behalf permission.",
         "endpoint": null,
         "input": "ActionInput_outlook_sendmail",
         "name": "send-mail",
@@ -629145,18 +629236,24 @@
           "ActionOutput_outlook_sendmail"
         ],
         "scopes": [
-          "Mail.Send"
+          "Mail.Send",
+          "Mail.Send.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_sendmail",
           "ActionOutput_outlook_sendmail"
         ],
-        "version": "1.0.1",
+        "version": "1.0.3",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_sendmail": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Send.Shared and Exchange Send As/Send on Behalf permission.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "message": {
                   "type": "object",
                   "properties": {
@@ -629305,6 +629402,33 @@
                         ],
                         "additionalProperties": false
                       }
+                    },
+                    "from": {
+                      "description": "Optional mailbox to send as. Requires the delegated Mail.Send.Shared Graph permission and Send As or Send on Behalf mailbox permission.",
+                      "type": "object",
+                      "properties": {
+                        "emailAddress": {
+                          "type": "object",
+                          "properties": {
+                            "address": {
+                              "type": "string",
+                              "description": "The email address. Example: \"user@example.com\""
+                            },
+                            "name": {
+                              "description": "The display name of the recipient. Example: \"John Doe\"",
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "address"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "required": [
+                        "emailAddress"
+                      ],
+                      "additionalProperties": false
                     },
                     "importance": {
                       "description": "The importance of the message. Example: \"normal\"",
@@ -629702,18 +629826,24 @@
           "ActionOutput_outlook_updatemessage"
         ],
         "scopes": [
-          "Mail.ReadWrite"
+          "Mail.ReadWrite",
+          "Mail.ReadWrite.Shared"
         ],
         "usedModels": [
           "ActionInput_outlook_updatemessage",
           "ActionOutput_outlook_updatemessage"
         ],
-        "version": "1.0.1",
+        "version": "1.0.2",
         "json_schema": {
           "definitions": {
             "ActionInput_outlook_updatemessage": {
               "type": "object",
               "properties": {
+                "sharedMailbox": {
+                  "description": "Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.",
+                  "type": "string",
+                  "minLength": 1
+                },
                 "messageId": {
                   "type": "string",
                   "description": "The unique identifier of the message to update. Example: \"AAMkAGVmMDEz\""

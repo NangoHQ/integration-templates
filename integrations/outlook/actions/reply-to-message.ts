@@ -1,7 +1,16 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const NO_WRITE_RETRIES = 0;
+
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe(
+            'Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Send.Shared and mailbox access for the connected user.'
+        ),
     messageId: z.string().describe('The ID of the message to reply to. Example: "AAMkAGVmMDEZ..."'),
     comment: z.string().describe('The plain text body of the reply message. Example: "Thank you for your email. I will get back to you soon."')
 });
@@ -88,19 +97,19 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Reply to a message sender.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Send'],
+    scopes: ['Mail.Send', 'Mail.Send.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // https://learn.microsoft.com/graph/api/message-reply
         const response = await nango.post({
-            endpoint: `/v1.0/me/messages/${encodeURIComponent(input.messageId)}/reply`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages/${encodeURIComponent(input.messageId)}/reply`,
             data: {
                 comment: input.comment
             },
-            retries: 3
+            retries: NO_WRITE_RETRIES
         });
 
         // The reply endpoint returns 202 Accepted with no body on success

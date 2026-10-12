@@ -2,6 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe(
+            'Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.'
+        ),
     folderId: z.string().optional().describe('Mail folder ID. Use "inbox" for the inbox folder. Example: "inbox"'),
     filter: z.string().optional().describe('OData filter expression for receivedDateTime. Example: "receivedDateTime ge 2024-01-01T00:00:00Z"'),
     select: z.string().optional().describe('Comma-separated list of properties to include. Example: "id,subject,receivedDateTime,from"'),
@@ -73,10 +80,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List messages from a mail folder.',
-    version: '1.1.0',
+    version: '1.1.1',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const folderId = input.folderId ?? 'inbox';
@@ -105,7 +112,7 @@ const action = createAction({
         } else {
             // https://learn.microsoft.com/graph/api/user-list-messages
             response = await nango.get({
-                endpoint: `/v1.0/me/mailFolders/${encodeURIComponent(folderId)}/messages`,
+                endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/mailFolders/${encodeURIComponent(folderId)}/messages`,
                 params,
                 retries: 3
             });

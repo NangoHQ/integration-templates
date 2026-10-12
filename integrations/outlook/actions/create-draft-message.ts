@@ -1,6 +1,8 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const NO_WRITE_RETRIES = 0;
+
 const EmailAddressSchema = z.object({
     address: z.string().describe('Email address. Example: "recipient@example.com"'),
     name: z.string().optional().describe('Display name. Example: "John Doe"')
@@ -16,6 +18,13 @@ const BodySchema = z.object({
 });
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe(
+            'Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access for the connected user.'
+        ),
     subject: z.string().describe('Subject of the message. Example: "Meeting notes"'),
     body: BodySchema.describe('Body of the message'),
     toRecipients: z.array(RecipientSchema).optional().describe('List of recipients to send the message to'),
@@ -58,10 +67,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a draft email message',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.ReadWrite'],
+    scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         const requestBody: Record<string, unknown> = {
@@ -77,9 +86,9 @@ const action = createAction({
 
         // https://learn.microsoft.com/graph/api/user-post-messages
         const response = await nango.post({
-            endpoint: '/v1.0/me/messages',
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/messages`,
             data: requestBody,
-            retries: 3
+            retries: NO_WRITE_RETRIES
         });
 
         if (!response.data) {

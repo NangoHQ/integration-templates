@@ -1,7 +1,14 @@
 import { z } from 'zod';
 import { createAction } from 'nango';
 
+const NO_WRITE_RETRIES = 0;
+
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.ReadWrite.Shared and mailbox access.'),
     parentFolderId: z.string().describe('The unique identifier of the parent mail folder. Example: "AQMkAGI2..."'),
     displayName: z.string().describe('The display name of the new mail folder. Example: "Work"'),
     hidden: z.boolean().optional().describe('Whether the folder should be hidden from standard folder lists.')
@@ -29,10 +36,10 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'Create a child mail folder in Outlook.',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.ReadWrite'],
+    scopes: ['Mail.ReadWrite', 'Mail.ReadWrite.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         type RequestBody = {
@@ -50,9 +57,9 @@ const action = createAction({
 
         // https://learn.microsoft.com/graph/api/mailfolder-post-childfolders
         const response = await nango.post({
-            endpoint: `/v1.0/me/mailFolders/${encodeURIComponent(input.parentFolderId)}/childFolders`,
+            endpoint: `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/mailFolders/${encodeURIComponent(input.parentFolderId)}/childFolders`,
             data: requestBody,
-            retries: 3
+            retries: NO_WRITE_RETRIES
         });
 
         const providerFolder = ProviderMailFolderSchema.parse(response.data);

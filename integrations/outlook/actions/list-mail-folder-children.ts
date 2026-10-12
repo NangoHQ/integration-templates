@@ -2,6 +2,13 @@ import { z } from 'zod';
 import { createAction } from 'nango';
 
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe(
+            'Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated Mail.Read.Shared and mailbox access for the connected user.'
+        ),
     folderId: z
         .string()
         .describe(
@@ -45,15 +52,17 @@ const OutputSchema = z.object({
 
 const action = createAction({
     description: 'List child folders under a mail folder',
-    version: '1.0.2',
+    version: '1.0.3',
     input: InputSchema,
     output: OutputSchema,
-    scopes: ['Mail.Read'],
+    scopes: ['Mail.Read', 'Mail.Read.Shared'],
 
     exec: async (nango, input): Promise<z.infer<typeof OutputSchema>> => {
         // Microsoft Graph: use the full @odata.nextLink URL for subsequent pages
         // https://learn.microsoft.com/graph/api/mailfolder-list-childfolders
-        const endpoint = input.cursor ?? `/v1.0/me/mailFolders/${encodeURIComponent(input.folderId)}/childFolders`;
+        const endpoint =
+            input.cursor ??
+            `/v1.0/${input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me'}/mailFolders/${encodeURIComponent(input.folderId)}/childFolders`;
         const params = input.cursor ? {} : { $top: String(input.limit ?? 10) };
         const response = await nango.get({ endpoint, params, retries: 3 });
 

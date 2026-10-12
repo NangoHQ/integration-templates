@@ -1,7 +1,14 @@
 import { createAction } from 'nango';
 import * as z from 'zod';
 
+const NO_WRITE_RETRIES = 0;
+
 const InputSchema = z.object({
+    sharedMailbox: z
+        .string()
+        .min(1)
+        .optional()
+        .describe('Shared mailbox UPN or Microsoft Graph user ID, not an SMTP alias. Requires delegated shared mailbox access.'),
     messageId: z.string().describe('The ID of the message to reply to'),
     comment: z.string().optional().describe('A comment to include in the reply. Required when not creating a draft.'),
     createDraft: z.boolean().optional().describe('If true, creates a draft reply instead of sending immediately'),
@@ -30,8 +37,8 @@ const DraftMessageResponseSchema = z.object({
 
 export default createAction({
     description: 'Reply to all recipients on a message',
-    version: '1.0.2',
-    scopes: ['Mail.ReadWrite', 'Mail.Send'],
+    version: '1.0.3',
+    scopes: ['Mail.ReadWrite', 'Mail.Send', 'Mail.ReadWrite.Shared', 'Mail.Send.Shared'],
     input: InputSchema,
     output: OutputSchema,
 
@@ -45,12 +52,13 @@ export default createAction({
         }
 
         const encodedMessageId = encodeURIComponent(messageId);
+        const mailboxPath = input.sharedMailbox ? `users/${encodeURIComponent(input.sharedMailbox)}` : 'me';
 
         if (createDraft) {
             // https://learn.microsoft.com/graph/api/message-createreplyall
             const createResponse = await nango.post({
-                endpoint: `/v1.0/me/messages/${encodedMessageId}/createReplyAll`,
-                retries: 3
+                endpoint: `/v1.0/${mailboxPath}/messages/${encodedMessageId}/createReplyAll`,
+                retries: NO_WRITE_RETRIES
             });
 
             const parsedDraft = DraftMessageResponseSchema.safeParse(createResponse.data);
@@ -77,9 +85,9 @@ export default createAction({
 
                 // https://learn.microsoft.com/graph/api/message-update
                 await nango.patch({
-                    endpoint: `/v1.0/me/messages/${encodeURIComponent(draftId)}`,
+                    endpoint: `/v1.0/${mailboxPath}/messages/${encodeURIComponent(draftId)}`,
                     data: updatePayload,
-                    retries: 3
+                    retries: NO_WRITE_RETRIES
                 });
             }
 
@@ -102,9 +110,9 @@ export default createAction({
         }
 
         await nango.post({
-            endpoint: `/v1.0/me/messages/${encodedMessageId}/replyAll`,
+            endpoint: `/v1.0/${mailboxPath}/messages/${encodedMessageId}/replyAll`,
             data: payload,
-            retries: 3
+            retries: NO_WRITE_RETRIES
         });
 
         return {

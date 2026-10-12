@@ -16,4 +16,18 @@ describe('outlook add-message-attachment tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('does not retry attachment creation', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: { id: 'attachment-1', name: 'file.txt' } });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, {
+            messageId: 'draft-1',
+            fileName: 'file.txt',
+            contentType: 'text/plain',
+            contentBytes: 'YQ=='
+        });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({ retries: 0 }));
+    });
 });

@@ -16,4 +16,13 @@ describe('outlook move-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('does not retry moving a message', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: { id: 'message-1', parentFolderId: 'folder-1' } });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { messageId: 'message-1', destinationId: 'folder-1' });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({ retries: 0 }));
+    });
 });

@@ -16,4 +16,13 @@ describe('outlook copy-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('does not retry message copy creation', async () => {
+        const postMock = vi.fn().mockResolvedValue({ data: { id: 'copy-1' } });
+        const fakeNango = { post: postMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { messageId: 'message-1', destinationId: 'folder-1' });
+
+        expect(postMock).toHaveBeenCalledWith(expect.objectContaining({ retries: 0 }));
+    });
 });

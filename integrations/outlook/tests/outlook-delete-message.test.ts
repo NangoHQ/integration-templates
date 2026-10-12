@@ -16,4 +16,16 @@ describe('outlook delete-message tests', () => {
 
         expect(response).toEqual(output);
     });
+
+    it('routes a shared-mailbox delete to the selected mailbox', async () => {
+        const deleteMock = vi.fn().mockResolvedValue({ data: undefined });
+        const fakeNango = { delete: deleteMock } as unknown as Parameters<(typeof createAction)['exec']>[0];
+
+        await createAction.exec(fakeNango, { sharedMailbox: 'office@example.com', messageId: 'message/id' });
+
+        expect(deleteMock).toHaveBeenCalledWith(expect.objectContaining({
+            endpoint: '/v1.0/users/office%40example.com/messages/message%2Fid',
+            retries: 0
+        }));
+    });
 });
